@@ -1,4 +1,7 @@
-.headwrapper{
-  height: 50px;
-  background-color: lightgray;
+.nav-style{
+  background-color: gray;
+}
+
+a{
+  color:powderblue;
 }
