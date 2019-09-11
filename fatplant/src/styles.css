@@ -13,6 +13,6 @@
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
 	justify-content: space-between;
-	background: href="../src/assets/header.jpg" center center no-repeat;
+	background: url(/fatplant/src/app/assets/header.jpg) center center no-repeat;
     background-size: cover;
 }
