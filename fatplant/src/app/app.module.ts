@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TableComponent } from './table/table.component';
 import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     FooterComponent,
     TableComponent,
     LmpdArapidopsisComponent,
-    HomepageComponent
+    HomepageComponent,
+    DataAnalysisComponent
   ],
   imports: [
     BrowserModule,
