@@ -9,6 +9,7 @@ import { TableComponent } from './table/table.component';
 import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
+import { DatatableComponent } from './datatable/datatable.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
     TableComponent,
     LmpdArapidopsisComponent,
     HomepageComponent,
-    DataAnalysisComponent
+    DataAnalysisComponent,
+    DatatableComponent
   ],
   imports: [
     BrowserModule,
