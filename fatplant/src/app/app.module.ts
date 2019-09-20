@@ -16,6 +16,7 @@ import {MatInputModule} from '@angular/material';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { GoNetworkComponent } from './go-network/go-network.component';
 //Firestore modules
 import { environment } from '../environments/environment';
 import  { AngularFireModule } from 'angularfire2';
@@ -30,7 +31,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     LmpdArapidopsisComponent,
     HomepageComponent,
     DataAnalysisComponent,
-    DatatableComponent
+    DatatableComponent,
+    GoNetworkComponent
   ],
   imports: [
     BrowserModule,
