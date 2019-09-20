@@ -31,12 +31,10 @@ with open(csvFile) as csv_file:
 		else:
 			jsonobj={}
 			for index, item in enumerate(row):
-				jsonobj[fields[index]]=item
+				jsonobj[fields[index]]=item.strip().decode()
 			data.append(jsonobj)
 
 for document in data:
 	# print document
-	#for item in document:
-	client.collection(collectionName).document().set(document)
-	print "doc set"
-	#	batch.set(document_ref,item)
+	doc_ref=client.collection('Lmpd_Arapidopsis').add(document)
+	print "doc added"

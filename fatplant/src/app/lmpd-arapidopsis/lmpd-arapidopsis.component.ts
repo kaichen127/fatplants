@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument
+} from 'angularfire2/firestore';
+
 
 @Component({
   selector: 'app-lmpd-arapidopsis',
@@ -7,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LmpdArapidopsisComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

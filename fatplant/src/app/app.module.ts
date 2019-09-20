@@ -10,6 +10,16 @@ import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.co
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { DatatableComponent } from './datatable/datatable.component';
+import { MatTableModule } from '@angular/material'
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//Firestore modules
+import { environment } from '../environments/environment';
+import  { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -24,7 +34,14 @@ import { DatatableComponent } from './datatable/datatable.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase, 'fatplant'),
+    AngularFirestoreModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
