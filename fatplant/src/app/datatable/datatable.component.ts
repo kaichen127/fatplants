@@ -15,7 +15,6 @@ import {DataSource} from '@angular/cdk/collections'
 export class DatatableComponent implements OnInit {
   displayedColumns = ['species','uniprot_id','refseq_id','gene_name','gene_symbol','protein_entry','protein_name'];
   dataSource: MatTableDataSource<any>;
-  elems:Observable<elem>;
   // // exdata=[{lmp_id:"LMP010543",entrez_gene_id:"814646",gene_name:"lipid phosphate phosphatase 1",gene_symbol:"PAP1",refseq_id:"NP_565255",mrna_id:"NM_126179",protein_gi:"18379166",sequence:"",seqlength:"327",uniprot_id:"Q9ZU49",protein_entry:"LPP1_ARATH",protein_name:"lipid phosphate phosphatase 1",taxid:"3702",species:"Arabidopsis",species_long:"Arabidopsis thaliana"},
   //            {lmp_id:"LMP010543",entrez_gene_id:"814646",gene_name:"lipid phosphate phosphatase 1",gene_symbol:"PAP1",refseq_id:"NP_973389",mrna_id:"NM_201660",protein_gi:"42570631",sequence:"",seqlength:"302",uniprot_id:"Q9ZU49",protein_entry:"LPP1_ARATH",protein_name:"lipid phosphate phosphatase 1",taxid:"3702",species:"Arabidopsis",species_long:"Arabidopsis thaliana"},
   //            {lmp_id:"LMP010910",entrez_gene_id:"814677",gene_name:"phytanoyl-CoA 2-hydroxylase",gene_symbol:"AT2G01490",refseq_id:"NP_565262",mrna_id:"NM_126210",protein_gi:"18379234",sequence:"",seqlength:"283",uniprot_id:"Q9ZVF6",protein_entry:"PAHX_ARATH",protein_name:"phytanoyl-CoA 2-hydroxylase",taxid:"3702",species:"Arabidopsis",species_long:"Arabidopsis thaliana"},
@@ -28,7 +27,7 @@ export class DatatableComponent implements OnInit {
   ngOnInit() {
     let docs=this.afs.collection('Lmpd_Arapidopsis',ref=>ref.limit(100)).valueChanges().subscribe(data =>{
         this.dataSource=new MatTableDataSource(data)
-        this.dataSource.paginator = this.paginator;
+        this.dataSource.paginator = this.paginator; 
     })
   }
 
