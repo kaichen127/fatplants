@@ -10,6 +10,7 @@ import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.co
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { DatatableComponent } from './datatable/datatable.component';
+import { GoNetworkComponent } from './go-network/go-network.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DatatableComponent } from './datatable/datatable.component';
     LmpdArapidopsisComponent,
     HomepageComponent,
     DataAnalysisComponent,
-    DatatableComponent
+    DatatableComponent,
+    GoNetworkComponent
   ],
   imports: [
     BrowserModule,

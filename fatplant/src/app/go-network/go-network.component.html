@@ -1,0 +1,50 @@
+<script src="go-network.js">
+</script>
+
+<div class="row columns">
+    <div class="columns small-10 small-centered textrow ">
+
+        <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam
+            eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.
+        </p>
+
+    </div>
+</div>
+
+<div class="row columns">
+    <div class="columns small-10 small-centered">
+        <div class="btn-group">
+            <button id="layout1" title="Dynamic Node Cluster" class="button button1">CoSE</button>
+            <button id="layout2" title="D3 Force Graph" class="button button2">Cola</button>
+            <button id="layout3" title="Circluar Pattern" class="button button3">Circle</button>
+            <button id="layout4" title="Symetric" class="button button4">Concentric</button>
+            <button id="layout5" title="Balanced Circular Pattern" class="button button5">Avsdf</button>
+        </div>
+        <br>
+        <div id="filter-box">
+            Entity Identifier:<br>
+            <input id="entity-identifier-textbox" type="text" name="entity-name" placeholder="Gene/RefSeq_id/mRna_id">
+            <button id="entity-identifier-submit" class="button">Filter</button>
+        </div>
+    </div>
+</div>
+
+<div class="row columns">
+
+    <div class=" text-center" id="loading" style="margin-top: 35px">
+        <h5><i class="fas fa-spinner fa-spin fa-1.5x"></i>&nbsp;Loading to the page .... </h5>
+    </div>
+
+</div>
+
+<div class="row columns">
+
+    <div class="columns small-10 small-centered" id="cy">
+
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript" src="./go-network/go-network.js"></script>
