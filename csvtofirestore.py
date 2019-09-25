@@ -4,14 +4,14 @@ import google.cloud
 #you will need to run pip install firebase-admin google-cloud-firestore
 from firebase_admin import credentials, firestore
 
-credentialsFile="C:\\Users\\Jonah\\Downloads\\fatplant-76987-firebase-adminsdk-u9bby-92e91a6996.json"
+credentialsFile=""
 cred=credentials.Certificate(credentialsFile)
 app=firebase_admin.initialize_app(cred)
 
 client=firestore.client()
 
-csvFile="LMPD_Arabidopsis Only.csv"
-collectionName="Lmpd_Arapidopsis"
+csvFile=" "
+collectionName=" "
 
 
 data=[]
@@ -36,5 +36,5 @@ with open(csvFile) as csv_file:
 
 for document in data:
 	# print document
-	doc_ref=client.collection('Lmpd_Arapidopsis').add(document)
+	doc_ref=client.collection(collectionName).add(document)
 	print "doc added"
