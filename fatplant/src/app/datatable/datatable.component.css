@@ -1,7 +1,8 @@
-table{
-  width:100%;
+mat-table{
+  color: black;
+  background-color: 
 }
 
 input{
-  background-color: yellow;
+  background-color: #FCFF7B;
 }
