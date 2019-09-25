@@ -12,5 +12,5 @@ export abstract class AbstractConnectionService {
     this.collectionRef=afs.collection(collectionName)
   }
 
-  abstract connect(protected collectionName:string):void
+  abstract connect(): void
 }
