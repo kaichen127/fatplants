@@ -42,8 +42,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
