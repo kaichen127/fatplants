@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
 
 
 @Injectable({
@@ -8,9 +9,9 @@ import { AngularFirestore } from 'angularfire2/firestore';
 export abstract class AbstractConnectionService {
 
   private collectionRef:AngularFirestoreCollection;
-  constructor(private afs:AngularFirestore,private collectionName:string) {
-    this.collectionRef=afs.collection(collectionName)
+  constructor(protected afs:AngularFirestore,private collectionName:string) {
+    this.collectionRef=this.afs.collection(collectionName)
   }
 
-  abstract connect(): void
+  abstract connect()
 }
