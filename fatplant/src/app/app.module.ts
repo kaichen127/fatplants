@@ -25,6 +25,8 @@ import { GoNetworkComponent } from './go-network/go-network.component';
 import { environment } from '../environments/environment';
 import  { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { IntroductionComponent } from './introduction/introduction.component';
+import { InvestigatorComponent } from './investigator/investigator.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     HomepageComponent,
     DataAnalysisComponent,
     DatatableComponent,
-    GoNetworkComponent
+    GoNetworkComponent,
+    IntroductionComponent,
+    InvestigatorComponent
   ],
   imports: [
     BrowserModule,
