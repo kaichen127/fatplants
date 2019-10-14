@@ -1,35 +1,44 @@
-<div class="container">
-  <button (click)="debug()">aa</button>
+<div class="row columns" style="width: 1000px">
+  <div class="columns small-10 small-centered textrow ">
+
+    <p>Blast Tools</p>
+    <p>BLAST finds regions of similarity between biological sequences. The program</p>
+    <p>compares nucleotide or protein sequences to sequence databases and calculates</p>
+    <p>the statistical significance.</p>
+  </div>
 </div>
-<div class="container">
-  <form action="#" class="col s12">
+<!--<div class="container" style="width: 500px">-->
+  <form action="#" class="col s12" [formGroup]="blastForm" (ngSubmit)="onSubmit(blastForm.value)">
     <div class="row">
-      <div class="input-field col s12">
-        <textarea id="fasta" class="materialize-textarea"></textarea>
-        <label for="fasta">Sequence</label>
+      <div class="input-field col s6">
+        <textarea style="height: 100px" name="fasta" class="browser-default" placeholder="Sequence" formControlName="fasta"></textarea>
+<!--        <label for="fasta">Sequence</label>-->
       </div>
 
     </div>
     <div class="row">
-      <p>
-        <input class="with-gap" name="group1" type="radio" id="BlastP" />
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="BlastP" formControlName="method" value="blastp" (change)="SelectBlastP()"/>
         <label for="BlastP">BlastP</label>
-      </p>
-      <p>
-        <input class="with-gap" name="group1" type="radio" id="BlastX" />
+      </div>
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="BlastX" formControlName="method" value="blastx" (change)="SelectBlastP()"/>
         <label for="BlastX">BlastX</label>
-      </p>
-
-      <div>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="isBlastP" class="col s6">
         <label>Protein Database</label>
-        <select class="browser-default">
+        <select name="ProteinDatabase" class="browser-default" formControlName="ProteinDatabase">
           <option value="Glyma1.pep.fa.gz">Glyma1.pep.fa.gz</option>
           <option value="Gmax_189_protein.fa">Gmax_189_protein.fa</option>
         </select>
       </div>
-      <div>
+    </div>
+    <div class="row">
+      <div *ngIf="isBlastP" class="col s6">
         <label>E-value threshold</label>
-        <select class="browser-default">
+        <select class="browser-default" formControlName="Ethreshold">
           <option value="0.0001">0.0001</option>
           <option value="0.001" selected>0.001</option>
           <option value="0.01">0.01</option>
@@ -39,9 +48,11 @@
           <option value="1000">1000</option>
         </select>
       </div>
-      <div>
+    </div>
+    <div class="row">
+      <div *ngIf="isBlastP" class="col s6">
         <label>Show max hits</label>
-        <select class="browser-default">
+        <select class="browser-default" formControlName="maxhit">
           <option value="1">1</option>
           <option value="5">5</option>
           <option value="10" selected>10</option>
@@ -53,21 +64,23 @@
       </div>
     </div>
     <div class="row">
-      <p>
-        <input class="with-gap" name="group1" type="radio" id="BlastN"/>
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="BlastN" formControlName="method" value="blastn" (change)="SelectBlastN()"/>
         <label for="BlastN">BlastN</label>
-      </p>
-      <p>
-        <input class="with-gap" name="group1" type="radio" id="TBlastX"/>
+      </div>
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="TBlastX" formControlName="method" value="tblastx" (change)="SelectBlastN()"/>
         <label for="TBlastX">TBlastX</label>
-      </p>
-      <p>
-        <input class="with-gap" name="group1" type="radio" id="TBlastN"/>
+      </div>
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="TBlastN" formControlName="method" value="tblastn" (change)="SelectBlastN()"/>
         <label for="TBlastN">TBlastN</label>
-      </p>
-      <div>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="isBlastN" class="col s6">
         <label>Nucleotide Database</label>
-        <select class="browser-default">
+        <select class="browser-default" formControlName="NucleotideDatabase">
           <option value="Glyma1.cDNA.fa" selected>Glyma1.cDNA.fa</option>
           <option value="Glyma1.cds.fa">Glyma1.cds.fa</option>
           <option value="Genome Version 1.0">Genome Version 1.0</option>
@@ -79,29 +92,54 @@
       </div>
     </div>
     <div class="row">
-      <div class="col s4 pull-s2">
+      <div class="col s3">
         <button class="btn waves-effect waves-light" type="submit" name="action" >submit
         </button>
       </div>
-      <div class="col s4 push-s2">
+      <div class="col s3">
         <button class="btn waves-effect waves-light" type="reset" name="action">clear
         </button>
       </div>
 
     </div>
 
-  </form>
+<!--  </form>-->
+<!--</div>-->
+<!--<form action="#">-->
+<!--  <div class="file-field input-field">-->
+<!--    <div class="btn">-->
+<!--      <span>File Upload</span>-->
+<!--      <input type="file">-->
+<!--    </div>-->
+<!--    <div class="file-path-wrapper">-->
+<!--      <input class="file-path validate" type="text">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</form>-->
+    <hr size=3 >
+<div class="row columns" style="width: 1000px">
+  <div class="columns small-10 small-centered textrow ">
+
+    <p>Glmol Tools</p>
+    <p>GLmol is a 3D molecular viewer based on WebGL and Javascript.</p>
+  </div>
 </div>
-<form action="#">
-  <div class="file-field input-field">
-    <div class="btn">
-      <span>File Upload</span>
-      <input type="file">
-    </div>
-    <div class="file-path-wrapper">
-      <input class="file-path validate" type="text">
-    </div>
+
+<form action="#"  class="col s12">
+  <div class="row">
+    <input type="textarea" class="browser-default" placeholder="GeneID">
+    <p>eg. Glyma14g08610.1 Glyma16g01990.1 Glyma15g07360.1</p>
+  </div>
+  <div class="row">
+    <button class="btn waves-effect waves-light" (click)="showGlmol()">SUBMIT</button>
   </div>
 </form>
+
+<div *ngIf="isGlmol">
+<!--  <a href={{glmolUrl}}>3D Protein Structure Search</a>-->
+  <iframe src={{glmolUrl}} style="width: 100%" height="768"></iframe>
+</div>
+
+
 
 

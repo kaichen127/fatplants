@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -9,23 +12,70 @@ import { Component, OnInit } from '@angular/core';
 export class DataAnalysisComponent implements OnInit {
   private blast: string;
   private isVisibale: boolean;
-  constructor() {
-    // let childprocess=require('child_process');
-    // let options:string[]=[];
-    // cp.exec('python',function (err,stdout) {console.log(stdout);});
+  private result: string;
+  private isBlastP: boolean;
+  private isBlastN: boolean;
+  private isGlmol: boolean;
+  private glmolUrl: string;
+  blastForm: FormGroup;
+  constructor(private http: HttpClient, private router: Router) {
+    // this.blastForm = fb.group({method: ['', Validators.required]});
+    this.blastForm = new FormGroup({
+      fasta : new FormControl(),
+      method : new FormControl(),
+      ProteinDatabase : new FormControl(),
+      Ethreshold : new FormControl(),
+      maxhit : new FormControl(),
+      NucleotideDatabase : new FormControl()
+    });
+    this.isVisibale = true;
+    this.isBlastP = false;
+    this.isBlastN = false;
+    this.isGlmol = false;
   }
-
+  onSubmit(blastData) {
+    console.log(blastData);
+    // console.log(this.http.get('linux-shell-test.appspot.com'));
+    // this.router.navigateByUrl('/app-data-analysis');
+    // this.http.get('/test?q=Glyma14g08610.1').subscribe((res: Response) => {console.log(res); });
+    // this.http.get('/ng/index').subscribe((res: Response) => {console.log(res); });
+    // this.http.post('/blastp', blastData).subscribe((res: Response) => {console.log(res); });
+    this.http.post('/test', blastData).subscribe((res: Response) => {
+      this.result = res.result;
+      console.log(res.result);
+      this.ShowResult(res.result);
+      // this.router.navigateByUrl('/result');
+    });
+  }
   ngOnInit() {
-    this.blast = "input blast here";
-    this.isVisibale = false;
-  }
-  debug(){
-    // console.log(msg);
-    let options:string[]=[];
-    //this.childProcessService.childProcess.exec("python",options,(data) => {console.log(data);});
+    // this.blastForm = new FormGroup({});
+    this.blast = 'input blast here';
 
   }
-  SetVisiable(){
-    this.isVisibale=!this.isVisibale;
+  debug() {
+    // console.log(msg);
+    const options: string [] = [];
+    // this.childProcessService.childProcess.exec("python",options,(data) => {console.log(data);});
+
+  }
+  SelectBlastP() {
+    this.isBlastP = true;
+    this.isBlastN = false;
+    // console.log("select p");
+  }
+  SelectBlastN() {
+    this.isBlastN = true;
+    this.isBlastP = false;
+    // console.log("select n");
+  }
+  ShowResult(result: string) {
+    const newWindow = window.open('Result', '_blank');
+    newWindow.document.write('<p style="white-space: pre-line">' + result + '</p>');
+  }
+  showGlmol() {
+    const newWindow = window.open('Result', '_blank');
+    this.glmolUrl = '"http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb"';
+    newWindow.document.write('<iframe src=' + this.glmolUrl + 'style="width: 100%" height="768"></iframe>');
+    this.isGlmol = true;
   }
 }

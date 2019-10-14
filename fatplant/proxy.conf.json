@@ -1,0 +1,11 @@
+{
+  "/blastp": {
+    "target": "http://linux-shell-test.appspot.com",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/test": {
+    "target": "http://localhost:4201",
+    "secure": false
+  }
+}
