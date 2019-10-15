@@ -15,10 +15,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatMenuModule} from '@angular/material/menu';
-import {CdkTableModule} from '@angular/cdk/table';
-
-
 
 import { GoNetworkComponent } from './go-network/go-network.component';
 //Firestore modules
@@ -49,9 +45,7 @@ import { CameliaComponent } from './camelia/camelia.component';
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatPaginatorModule,
-    MatMenuModule,
-    CdkTableModule
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
