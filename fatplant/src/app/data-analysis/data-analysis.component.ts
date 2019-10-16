@@ -40,7 +40,7 @@ export class DataAnalysisComponent implements OnInit {
     // this.http.get('/test?q=Glyma14g08610.1').subscribe((res: Response) => {console.log(res); });
     // this.http.get('/ng/index').subscribe((res: Response) => {console.log(res); });
     // this.http.post('/blastp', blastData).subscribe((res: Response) => {console.log(res); });
-    this.http.post('/test', blastData).subscribe((res: Response) => {
+    this.http.post('/test', blastData).subscribe((res: any) => {
       this.result = res.result;
       console.log(res.result);
       this.ShowResult(res.result);
@@ -74,8 +74,13 @@ export class DataAnalysisComponent implements OnInit {
   }
   showGlmol() {
     const newWindow = window.open('Result', '_blank');
-    this.glmolUrl = '"http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb"';
-    newWindow.document.write('<iframe src=' + this.glmolUrl + 'style="width: 100%" height="768"></iframe>');
-    this.isGlmol = true;
+    // console.log(this.glmolUrl);
+    let tmp: string;
+    tmp = this.glmolUrl;
+    tmp = tmp.replace('.', '_');
+    let url = 'http://soykb.org/search/glmol/viewer.html?' + tmp + '.pdb'
+    // this.glmolUrl = '"http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb"';
+    newWindow.document.write('<iframe src="' + url + '" style="width: 100%" height="768"></iframe>');
+    // this.isGlmol = true;
   }
 }

@@ -127,7 +127,7 @@
 
 <form action="#"  class="col s12">
   <div class="row">
-    <input type="textarea" class="browser-default" placeholder="GeneID">
+    <input type="textarea" class="browser-default" placeholder="GeneID" [(ngModel)]="glmolUrl" [ngModelOptions]="{standalone: true}">
     <p>eg. Glyma14g08610.1 Glyma16g01990.1 Glyma15g07360.1</p>
   </div>
   <div class="row">
