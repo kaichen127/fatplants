@@ -1,5 +1,5 @@
-<p>Working</p>
-<!-- <div class="mat-elevation-z8">
+
+<div class="mat-elevation-z8">
   <div>
     <mat-form-field>
       <label>Filter</label>
@@ -7,7 +7,13 @@
     </mat-form-field>
   </div>
 
-
+<table mat-table [dataSource]="dataSource"]>
+  <ng-container matColumnDef="column" *ngFor="let column of columns">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>{{column.header}}</mat-header-cell>
+    <mat-cell *matCellDef="let elem">{{elem.cellDef}}</mat-cell>
+  </ng-container>
+</table>
+<!--
 <table mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="species">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Species </mat-header-cell>
@@ -45,5 +51,5 @@
                   </ng-container>
 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</table>
- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+</table> -->
+ <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

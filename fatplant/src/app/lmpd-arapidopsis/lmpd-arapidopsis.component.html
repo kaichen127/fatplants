@@ -2,6 +2,14 @@
   <h1>Lmpd_Arapidopsis</h1>
 </div>
 
+<div class="mat-elevation-z8">
+      <div>
+        <mat-form-field>
+          <label>Filter</label>
+          <input matInput (keyup)="applyFilter($event.target.value)">
+        </mat-form-field>
+      </div>
+
 <table mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="species">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Species </mat-header-cell>

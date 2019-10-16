@@ -17,12 +17,10 @@ export class CameliaComponent implements OnInit {
         {columnDef: 'ath_description',header:'Ath Description',cell:(element:any)=>element.Ath_description},
         {columnDef: 'camelina',header:'Camelina',cell:(element:any)=>element.Camelina},
         {columnDef: 'no',header:'No',cell:(element:any)=>element.No},
-       {columnDef: 'homeologs',header:'Homeologs',cell:(element:any)=>element.Homeologs},]
+       {columnDef: 'homeologs',header:'Homeologs',cell:(element:any)=>element.Homeologs}]
   docs;
   constructor(private afs:AngularFirestore) {
     this.docs=this.afs.collection('Camelina',ref=>ref.limit(100)).valueChanges()
-    console.log(this.docs)
-
   }
 
   ngOnInit() {
