@@ -22,6 +22,7 @@ import { environment } from '../environments/environment';
 import  { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { CameliaComponent } from './camelia/camelia.component';
+import { FattyacidComponent } from './fattyacid/fattyacid.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CameliaComponent } from './camelia/camelia.component';
     DataAnalysisComponent,
     DatatableComponent,
     GoNetworkComponent,
-    CameliaComponent
+    CameliaComponent,
+    FattyacidComponent
   ],
   imports: [
     BrowserModule,
