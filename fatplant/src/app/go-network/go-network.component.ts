@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import * as cytoscape from 'cytoscape';
-
+import { CytoscapeComponent } from "ngx-cytoscape";
+// import { SampleModule }  from 'ngx-cytoscape';
 
 @Component({
-  selector: 'app-go-network',
+  selector: 'go-network',
   templateUrl: './go-network.component.html',
   // selector: 'graph',
-  // template: '<ngx-cytoscape [elements]="graphData"></ngx-cytoscape>',
+  // template: '<ngx-cytoscape [attr.elements]="graphData"></ngx-cytoscape>',
+  // template: `<sample-component></sample-component>`,
   styleUrls: ['./go-network.component.css']
 })
-export class GoNetworkComponent implements OnChanges  {
+export class GoNetworkComponent implements OnInit   {
   private _graphData: any = {
       nodes: [
         {data: {id: 'j', name: 'Jerry', faveColor: '#6FB1FC', faveShape: 'triangle'}},

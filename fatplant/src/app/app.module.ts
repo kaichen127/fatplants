@@ -19,14 +19,19 @@ import { MatMenuModule} from '@angular/material/menu';
 import {CdkTableModule} from '@angular/cdk/table';
 
 
-
+// import { CytodemoComponent } from './cytodemo/cytodemo.component';
+import { CytoscapeModule } from 'ngx-cytoscape';
 import { GoNetworkComponent } from './go-network/go-network.component';
+// import { GraphComponent } from './go-network/graph/graph.component';
+// import {NgCytoComponent} from './go-network/ng-cyto/ng-cyto.component';
 //Firestore modules
 import { environment } from '../environments/environment';
 import  { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
+
+
 
 @NgModule({
   declarations: [
@@ -39,8 +44,11 @@ import { InvestigatorComponent } from './investigator/investigator.component';
     DataAnalysisComponent,
     DatatableComponent,
     GoNetworkComponent,
+    // GraphComponent,
+    // NgCytoComponent,
     IntroductionComponent,
     InvestigatorComponent
+    // CytodemoComponent
   ],
   imports: [
     BrowserModule,

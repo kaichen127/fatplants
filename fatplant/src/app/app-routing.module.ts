@@ -6,6 +6,7 @@ import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { GoNetworkComponent } from './go-network/go-network.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
+// import { CytodemoComponent } from './cytodemo/cytodemo.component';
 
 
 const routes: Routes = [{path:'',redirectTo:'/homepage',pathMatch:'full'},
