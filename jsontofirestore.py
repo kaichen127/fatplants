@@ -16,12 +16,10 @@ client=firestore.client()
 
 with open('fattyacid.json') as file:
     listofobj=json.load(file)
+    ctr=0
     for obj in listofobj:
         del obj["_id"]
         if obj['Name']:
-            obj['link']=urllib.quote('https://opsin.ch.cam.ac.uk/opsin/'+obj['Name'].encode('utf-8')+'.png')
-            print obj['link']
-        else:
-            obj['link']=None
-        doc_ref=client.collection('Fatty Acid').add(obj)
+            obj['link']='https://opsin.ch.cam.ac.uk/opsin/'+obj['Name'].replace(u'\200b','').replace('$',',')+'.png'
+            doc_ref=client.collection('Fatty Acid').add(obj)
         # print "doc added"
