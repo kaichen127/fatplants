@@ -19,7 +19,7 @@ with open('fattyacid.json') as file:
     for obj in listofobj:
         del obj["_id"]
         if obj['Name']:
-            obj['link']=urllib.quote(obj['Name'].encode('utf-8')+'.png')
+            obj['link']=urllib.quote('https://opsin.ch.cam.ac.uk/opsin/'+obj['Name'].encode('utf-8')+'.png')
             print obj['link']
         else:
             obj['link']=None
