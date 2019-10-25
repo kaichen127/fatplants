@@ -1,4 +1,10 @@
-<p>Color Pathway is an extension of the Search&Color Pathway tool</p>
+<div class="row columns" style="width: 1000px">
+  <div class="columns small-10 small-centered textrow ">
+
+    <p>Color Pathway is an extension of the Search&Color Pathway tool</p>
+  </div>
+</div>
+
 <form action="#"  class="col s12">
   <div class="row">
     <input type="textarea" class="browser-default" placeholder="KEGG pathway map" [(ngModel)]="imgID" [ngModelOptions]="{standalone: true}">
@@ -10,27 +16,7 @@
 </form>
 
 <div>
-  <img [src]="imgUrl" *ngIf="showImg">
+  <img [src]="imgUrl" *ngIf="showImg" style="max-width: 1000px">
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script type="text/javascript">
-    console.log("sss");
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.dropdown-trigger');
-        var instances = M.Dropdown.init(elems, options);
-    });
-</script>
-<!-- Dropdown Trigger -->
-<a class='dropdown-trigger btn' data-target='dropdown1' id="dropdown-trigger">Drop Me!</a>
-
-<!-- Dropdown Structure -->
-<ul id='dropdown1' class='dropdown-content'>
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider" tabindex="-1"></li>
-  <li><a href="#!">three</a></li>
-  <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-  <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-</ul>
 

@@ -13,10 +13,12 @@ import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.co
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { DatatableComponent } from './datatable/datatable.component';
-import { MatTableModule } from '@angular/material'
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material';
+import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { GoNetworkComponent } from './go-network/go-network.component';
@@ -41,7 +43,7 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
     DatatableComponent,
     GoNetworkComponent,
     GlmolComponent,
-    ColorPathwayComponent
+    ColorPathwayComponent,
     CameliaComponent,
     FattyacidComponent
   ],
@@ -59,7 +61,7 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
     CdkTableModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     MatPaginatorModule
   ],
   providers: [],
