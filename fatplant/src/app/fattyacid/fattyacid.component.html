@@ -1,1 +1,54 @@
-<p>fattyacid works!</p>
+<div>
+    <h1>Fatty Acid</h1>
+  </div>
+  
+  <div class="mat-elevation-z8">
+        <div>
+          <mat-form-field>
+            <label>Filter</label>
+            <input matInput (keyup)="applyFilter($event.target.value)">
+          </mat-form-field>
+        </div>
+  
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="picture">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Picture</mat-header-cell>
+        <mat-cell *matCellDef="let elem"><a href={{elem.link}} target="_blank"><img src={{elem.link}} height="40" width="100" alt="Fatty Acid Picture"></a></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Systematic Name </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{ elem.Name }} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="mass">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Mass </mat-header-cell>
+              <mat-cell *matCellDef="let elem"> {{elem.mass}}</mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="sofa_id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> SOFA ID</mat-header-cell>
+          <mat-cell *matCellDef="let elem">{{elem.Sofa_mol_ID}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="formula">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Formula</mat-header-cell>
+          <mat-cell *matCellDef="let elem">{{elem.Formula}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="other_names">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Other Names</mat-header-cell>
+          <mat-cell *matCellDef="let elem">{{elem.Other_Names}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="delta_notation">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Delta Notation</mat-header-cell>
+          <mat-cell *matCellDef="let elem">{{elem.Delta_notation}}</mat-cell>
+        </ng-container>
+
+  
+           
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table>
+   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
