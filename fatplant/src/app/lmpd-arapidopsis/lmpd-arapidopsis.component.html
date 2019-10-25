@@ -1,4 +1,51 @@
-<div class="container">
-  <h1 class="flow-text">LMPD_Arabidopsis</h1>
+<div>
+  <h1>Lmpd_Arapidopsis</h1>
 </div>
-<app-datatable [tabledata]="docs" [displayedColumns]="displayedColumns" [columns]="columns"></app-datatable>
+
+<div class="mat-elevation-z8">
+      <div>
+        <mat-form-field>
+          <label>Filter</label>
+          <input matInput (keyup)="applyFilter($event.target.value)">
+        </mat-form-field>
+      </div>
+
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="species">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Species </mat-header-cell>
+        <mat-cell *matCellDef="let elem"> {{ elem.species }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="uniprot_id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Uniprot Page </mat-header-cell>
+            <mat-cell *matCellDef="let elem"> <a href="http://uniprot.org/uniprot/{{elem.uniprot_id}}" target="_blank">{{elem.uniprot_id}}</a></mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="refseq_id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Page </mat-header-cell>
+                <mat-cell *matCellDef="let elem"><a href="https://www.ncbi.nlm.nih.gov/protein/{{elem.refseq_id}}" target="_blank">{{ elem.refseq_id }}</a></mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="gene_name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Gene Name </mat-header-cell>
+                    <mat-cell *matCellDef="let elem"> {{ elem.gene_name }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="gene_symbol">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Gene Symbol </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.gene_symbol }} </mat-cell>
+                      </ng-container>
+
+                  <ng-container matColumnDef="protein_name">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Protein Name </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.protein_name }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="protein_entry">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.protein_entry }} </mat-cell>
+                  </ng-container>
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>
+ <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
