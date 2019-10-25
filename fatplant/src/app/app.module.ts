@@ -20,8 +20,15 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule} from '@angular/material/menu';
+import {CdkTableModule} from '@angular/cdk/table';
 
+
+// import { CytodemoComponent } from './cytodemo/cytodemo.component';
+import { CytoscapeModule } from 'ngx-cytoscape';
 import { GoNetworkComponent } from './go-network/go-network.component';
+// import { GraphComponent } from './go-network/graph/graph.component';
+// import {NgCytoComponent} from './go-network/ng-cyto/ng-cyto.component';
 //Firestore modules
 import { environment } from '../environments/environment';
 import  { AngularFireModule } from 'angularfire2';
@@ -30,6 +37,10 @@ import { GlmolComponent } from './glmol/glmol.component';
 import { ColorPathwayComponent } from './color-pathway/color-pathway.component';
 import { CameliaComponent } from './camelia/camelia.component';
 import { FattyacidComponent } from './fattyacid/fattyacid.component';
+import { IntroductionComponent } from './introduction/introduction.component';
+import { InvestigatorComponent } from './investigator/investigator.component';
+
+
 
 @NgModule({
   declarations: [
@@ -45,7 +56,12 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
     GlmolComponent,
     ColorPathwayComponent,
     CameliaComponent,
-    FattyacidComponent
+    FattyacidComponent,
+    // GraphComponent,
+    // NgCytoComponent,
+    IntroductionComponent,
+    InvestigatorComponent
+    // CytodemoComponent
   ],
   imports: [
     BrowserModule,
