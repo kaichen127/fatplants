@@ -28,6 +28,8 @@ import { GoNetworkComponent } from './go-network/go-network.component';
 import { environment } from '../environments/environment';
 import  { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { GlmolComponent } from './glmol/glmol.component';
+import { ColorPathwayComponent } from './color-pathway/color-pathway.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     HomepageComponent,
     DataAnalysisComponent,
     DatatableComponent,
-    GoNetworkComponent
+    GoNetworkComponent,
+    GlmolComponent,
+    ColorPathwayComponent
   ],
   imports: [
     BrowserModule,
