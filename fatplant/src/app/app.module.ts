@@ -29,6 +29,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
 import { CameliaComponent } from './camelia/camelia.component';
+import { FattyacidComponent } from './fattyacid/fattyacid.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CameliaComponent } from './camelia/camelia.component';
     GoNetworkComponent,
     IntroductionComponent,
     InvestigatorComponent,
-    CameliaComponent
+    CameliaComponent,
+    FattyacidComponent
   ],
   imports: [
     BrowserModule,
