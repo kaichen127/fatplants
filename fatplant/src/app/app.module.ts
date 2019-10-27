@@ -30,8 +30,11 @@ import  { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
+import { DetailviewComponent } from './detailview/detailview.component';
 
-
+// const appRoutes: Routes = [
+//   { path: "/tabledetail", component: DetailviewComponent }
+// ];
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import { InvestigatorComponent } from './investigator/investigator.component';
     // GraphComponent,
     // NgCytoComponent,
     IntroductionComponent,
-    InvestigatorComponent
+    InvestigatorComponent,
+    DetailviewComponent
     // CytodemoComponent
   ],
   imports: [
@@ -61,6 +65,7 @@ import { InvestigatorComponent } from './investigator/investigator.component';
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatMenuModule,
+    CytoscapeModule,
     CdkTableModule
   ],
   providers: [],
