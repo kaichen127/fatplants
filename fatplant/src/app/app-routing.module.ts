@@ -15,9 +15,9 @@ import { InvestigatorComponent } from './investigator/investigator.component';
 
 
 const routes: Routes = [{path:'',redirectTo:'/homepage',pathMatch:'full'},
-{path:'homepage',component:HomepageComponent},
-{path:'introduction',component:IntroductionComponent},
-{path:'investigator',component:InvestigatorComponent},
+{path: 'homepage', component: HomepageComponent},
+{path: 'introduction', component: IntroductionComponent},
+{path: 'investigator', component: InvestigatorComponent},
 {path:'lmpd_arapidopsis',component:LmpdArapidopsisComponent},
 {path:'data_analysis',component:DataAnalysisComponent},
 {path:'go-network',component:GoNetworkComponent},

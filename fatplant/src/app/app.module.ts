@@ -20,8 +20,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatMenuModule} from '@angular/material/menu';
-import {CdkTableModule} from '@angular/cdk/table';
+
 
 
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
@@ -31,7 +30,7 @@ import { GoNetworkComponent } from './go-network/go-network.component';
 // import {NgCytoComponent} from './go-network/ng-cyto/ng-cyto.component';
 //Firestore modules
 import { environment } from '../environments/environment';
-import  { AngularFireModule } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { GlmolComponent } from './glmol/glmol.component';
 import { ColorPathwayComponent } from './color-pathway/color-pathway.component';

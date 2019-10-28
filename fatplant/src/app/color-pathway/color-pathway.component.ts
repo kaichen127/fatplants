@@ -22,7 +22,7 @@ export class ColorPathwayComponent implements OnInit {
     this.showImg = false; // hide iframe
     let tmp: string;
     tmp = this.imgID;
-    this.imgUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://rest.kegg.jp/get/hsa05200/image');
+    this.imgUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://rest.kegg.jp/get/' + tmp + '/image');
     this.showImg = true; // show iframe
   }
 }
