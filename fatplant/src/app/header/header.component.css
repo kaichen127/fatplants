@@ -5,3 +5,19 @@
 a{
   color:powderblue;
 }
+
+li, button{
+  height: 64px;
+}
+
+button{
+  border: none;
+  background-color: gray;
+  color: powderblue;
+  width: 80px;
+}
+
+.menu-item{
+  background-color:gray;
+  color: powderblue;
+}

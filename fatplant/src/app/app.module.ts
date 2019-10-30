@@ -15,6 +15,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { GoNetworkComponent } from './go-network/go-network.component';
 //Firestore modules
@@ -47,7 +48,8 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
