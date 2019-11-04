@@ -24,7 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 import { CytoscapeModule } from 'ngx-cytoscape';
-import { GoNetworkComponent } from './go-network/go-network.component';
 // import { GraphComponent } from './go-network/graph/graph.component';
 // import {NgCytoComponent} from './go-network/ng-cyto/ng-cyto.component';
 //Firestore modules
@@ -50,7 +49,6 @@ import { DetailviewComponent } from './detailview/detailview.component';
     HomepageComponent,
     DataAnalysisComponent,
     DatatableComponent,
-    GoNetworkComponent,
     GlmolComponent,
     ColorPathwayComponent,
     CameliaComponent,
@@ -59,7 +57,8 @@ import { DetailviewComponent } from './detailview/detailview.component';
     // NgCytoComponent,
     IntroductionComponent,
     InvestigatorComponent,
-    DetailviewComponent
+    DetailviewComponent,
+    // CytoscapeComponent
     // CytodemoComponent
   ],
   imports: [

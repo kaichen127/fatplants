@@ -11,16 +11,16 @@ import {AngularFirestore} from 'angularfire2/firestore';
 export class DataAnalysisComponent implements OnInit {
   public items: any;
 
-  private blast: string;
-  private isVisibale: boolean;
-  private result: string;
-  private isBlastP: boolean;
-  private isBlastN: boolean;
-  private isGlmol: boolean;
-  private glmolUrl: string;
-  private blastRes = [];
+   blast: string;
+   isVisibale: boolean;
+   result: string;
+  isBlastP: boolean;
+  isBlastN: boolean;
+  isGlmol: boolean;
+  glmolUrl: string;
+  blastRes = [];
   blastForm: FormGroup;
-  constructor(private http: HttpClient, private router: Router, db: AngularFirestore) {
+  constructor( private http: HttpClient, private router: Router, db: AngularFirestore) {
     // this.blastForm = fb.group({method: ['', Validators.required]});
     this.blastForm = new FormGroup({
       fasta : new FormControl(),
