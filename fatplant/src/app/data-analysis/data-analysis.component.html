@@ -1,7 +1,7 @@
 <div class="row columns" style="width: 1000px">
   <div class="columns small-10 small-centered textrow ">
 
-    <p>Blast Tools</p>
+    <h1>Blast Tools</h1>
     <p>BLAST finds regions of similarity between biological sequences. The program</p>
     <p>compares nucleotide or protein sequences to sequence databases and calculates</p>
     <p>the statistical significance.</p>
@@ -102,8 +102,7 @@
       </div>
 
     </div>
-
-<!--  </form>-->
+  </form>
 <!--</div>-->
 <!--<form action="#">-->
 <!--  <div class="file-field input-field">-->
@@ -116,29 +115,55 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--</form>-->
-    <hr size=3 >
-<div class="row columns" style="width: 1000px">
-  <div class="columns small-10 small-centered textrow ">
 
-    <p>Glmol Tools</p>
-    <p>GLmol is a 3D molecular viewer based on WebGL and Javascript.</p>
+
+<!--    <hr size=3 >-->
+<!--<div class="row columns" style="width: 1000px">-->
+<!--  <div class="columns small-10 small-centered textrow ">-->
+
+<!--    <p>Glmol Tools</p>-->
+<!--    <p>GLmol is a 3D molecular viewer based on WebGL and Javascript.</p>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<form action="#"  class="col s12">-->
+<!--  <div class="row">-->
+<!--    <input type="textarea" class="browser-default" placeholder="GeneID" [(ngModel)]="glmolUrl" [ngModelOptions]="{standalone: true}">-->
+<!--    <p>eg. Glyma14g08610.1 Glyma16g01990.1 Glyma15g07360.1</p>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <button class="btn waves-effect waves-light" (click)="showGlmol()">SUBMIT</button>-->
+<!--  </div>-->
+<!--</form>-->
+
+<!--<div *ngIf="isGlmol">-->
+<!--&lt;!&ndash;  <a href={{glmolUrl}}>3D Protein Structure Search</a>&ndash;&gt;-->
+<!--  <iframe src={{glmolUrl}} style="width: 100%" height="768"></iframe>-->
+<!--</div>-->
+<div class="row" *ngFor="let res of blastRes">
+  <div style="max-width: 800px">
+    <div class="card">
+      <div class="card-content">
+<!--        <span class="card-title">{{res.title}}</span>-->
+        <pre>{{res}}</pre>
+      </div>
+<!--      <div class="card-action">-->
+<!--        <a href="#">This is a link</a>-->
+<!--        <a href="#">This is a link</a>-->
+<!--      </div>-->
+    </div>
   </div>
 </div>
 
-<form action="#"  class="col s12">
-  <div class="row">
-    <input type="textarea" class="browser-default" placeholder="GeneID">
-    <p>eg. Glyma14g08610.1 Glyma16g01990.1 Glyma15g07360.1</p>
-  </div>
-  <div class="row">
-    <button class="btn waves-effect waves-light" (click)="showGlmol()">SUBMIT</button>
-  </div>
-</form>
-
-<div *ngIf="isGlmol">
-<!--  <a href={{glmolUrl}}>3D Protein Structure Search</a>-->
-  <iframe src={{glmolUrl}} style="width: 100%" height="768"></iframe>
-</div>
+<!--<div>-->
+<!--  <p>search in database</p>-->
+<!--  <p>Lmpd_Arapidopsis</p>-->
+<!--  <ul>-->
+<!--    <li *ngFor="let item of items | async">-->
+<!--      <pre>{{ item.uniprot_id}}</pre>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->
 
 
 

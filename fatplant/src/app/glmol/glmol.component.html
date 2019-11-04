@@ -1,0 +1,34 @@
+<div class="row columns " style="width: 1000px">
+  <div class="columns small-10 small-centered textrow ">
+    <h1>GLmol Tools</h1>
+    <p>GLmol is a 3D molecular viewer based on WebGL and Javascript.</p>
+  </div>
+</div>
+
+<form action="#"  class="col s12">
+  <div class="row">
+    <input type="textarea" class="browser-default" placeholder="GeneID" [(ngModel)]="glmolID" [ngModelOptions]="{standalone: true}">
+    <p>eg. Glyma14g08610.1 Glyma16g01990.1 Glyma15g07360.1</p>
+  </div>
+  <div class="row">
+    <button class="btn waves-effect waves-light" (click)="Glmol()">SUBMIT</button>
+  </div>
+</form>
+<!--<div >-->
+<!--  <iframe src="http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb" style="width: 100%" height="768"></iframe>-->
+<!--</div>-->
+<div>
+  <iframe [src]="glmolUrl" *ngIf="isGlmol" style="width: 100%" height="768"></iframe>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

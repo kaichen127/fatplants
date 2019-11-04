@@ -1,44 +1,20 @@
+<mat-menu #dataMenu>
+  <a mat-menu-item routerLink="/lmpd_arapidopsis" class="menu-item">Lmpd_Arabidopsis</a>
+  <a mat-menu-item routerLink="/camelina" class="menu-item">Camelina</a>
+  <a mat-menu-item routerLink="/fatty_acid" class="menu-item">Fatty Acid</a>
+</mat-menu>
+
 <nav class="nav-class">
   <div class="nav-wrapper nav-style">
   <ul id = "nav-mobile" class = "left">
-      <li><a href="#">Project</a></li>
-      <!-- <li><a href="#">About</a></li> -->
+      <li><a href="/">Project</a></li>
+    <li><a href="/">About</a></li>
+    <li><button mat-button [matMenuTriggerFor]="dataMenu">Data</button></li>
       <li><a href="/introduction">Introduction</a></li>
       <li><a href="/investigator">Investigator</a></li>
-      <li><a routerLink="/lmpd_arapidopsis">Data</a></li>
-      <li><a href="/go-network">GO Network</a></li>
-    <li><a href="#">About</a></li>
-      <li><a routerLink="/lmpd_arapidopsis">Lmpd_Arabidopsis</a></li>
+      <!-- <li><a href="/go-network">GO Network</a></li> -->
       <li><a href="#">Pathway</a></li>
       <li><a routerLink="/data_analysis">Data_Analysis</a></li>
-      <li><a routerLink="/camelina">Camelina</a></li>
-      <li><a routerLink="/fatty_acid">Fatty Acid</a></li>
     </ul>
     </div>
 </nav>
-
-<!-- <ul id="tables" class="dropdown-content">
-  <li><a href="lmpd_arapidopsis">Lmpd_Arapidopsis</a></li>
-</ul>
-
- <script src="/static/js/vendor/jquery.js"></script>
-<script type="text/javascript">
-   $document.ready(function(){
-     console.log("route");
-     $(".dropdown-trigger").dropdown();
-     console.log("route")
-   })
-</script> -->
-<!-- <div class="nav-wrapper">
-<a routerLink="">Project</a>
-<a href="#">About</a>
-<button mat-button [matMenuTriggerFor]="data">Data</button>
-<a href="#">Pathway</a>
-<a routerLink="/data_analysis">Data_Analysis</a>
-<mat-menu #data="matMenu">
-  <button  mat-button [matMenuTriggerFor]="protein">Protein</button>
-    <mat-menu #protein>
-      <a href="/lmpd_arapidopsis">LMPD_Arabidopsis</a>
-    </mat-menu>
-</mat-menu>
-<div> --> 
