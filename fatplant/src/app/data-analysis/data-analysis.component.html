@@ -1,1 +1,170 @@
-<p>data-analysis works!</p>
+<div class="row columns" style="width: 1000px">
+  <div class="columns small-10 small-centered textrow ">
+
+    <h1>Blast Tools</h1>
+    <p>BLAST finds regions of similarity between biological sequences. The program</p>
+    <p>compares nucleotide or protein sequences to sequence databases and calculates</p>
+    <p>the statistical significance.</p>
+  </div>
+</div>
+<!--<div class="container" style="width: 500px">-->
+  <form action="#" class="col s12" [formGroup]="blastForm" (ngSubmit)="onSubmit(blastForm.value)">
+    <div class="row">
+      <div class="input-field col s6">
+        <textarea style="height: 100px" name="fasta" class="browser-default" placeholder="Sequence" formControlName="fasta"></textarea>
+<!--        <label for="fasta">Sequence</label>-->
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="BlastP" formControlName="method" value="blastp" (change)="SelectBlastP()"/>
+        <label for="BlastP">BlastP</label>
+      </div>
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="BlastX" formControlName="method" value="blastx" (change)="SelectBlastP()"/>
+        <label for="BlastX">BlastX</label>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="isBlastP" class="col s6">
+        <label>Protein Database</label>
+        <select name="ProteinDatabase" class="browser-default" formControlName="ProteinDatabase">
+          <option value="Glyma1.pep.fa.gz">Glyma1.pep.fa.gz</option>
+          <option value="Gmax_189_protein.fa">Gmax_189_protein.fa</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="isBlastP" class="col s6">
+        <label>E-value threshold</label>
+        <select class="browser-default" formControlName="Ethreshold">
+          <option value="0.0001">0.0001</option>
+          <option value="0.001" selected>0.001</option>
+          <option value="0.01">0.01</option>
+          <option value="1">1</option>
+          <option value="10">10</option>
+          <option value="100">100</option>
+          <option value="1000">1000</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="isBlastP" class="col s6">
+        <label>Show max hits</label>
+        <select class="browser-default" formControlName="maxhit">
+          <option value="1">1</option>
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="ALL">ALL</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="BlastN" formControlName="method" value="blastn" (change)="SelectBlastN()"/>
+        <label for="BlastN">BlastN</label>
+      </div>
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="TBlastX" formControlName="method" value="tblastx" (change)="SelectBlastN()"/>
+        <label for="TBlastX">TBlastX</label>
+      </div>
+      <div class="col s2">
+        <input class="with-gap" name="method" type="radio" id="TBlastN" formControlName="method" value="tblastn" (change)="SelectBlastN()"/>
+        <label for="TBlastN">TBlastN</label>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="isBlastN" class="col s6">
+        <label>Nucleotide Database</label>
+        <select class="browser-default" formControlName="NucleotideDatabase">
+          <option value="Glyma1.cDNA.fa" selected>Glyma1.cDNA.fa</option>
+          <option value="Glyma1.cds.fa">Glyma1.cds.fa</option>
+          <option value="Genome Version 1.0">Genome Version 1.0</option>
+          <option value="Genome Version 9.0">Genome Version 9.0</option>
+          <option value="Full Length CDNA">Full Length CDNA</option>
+          <option value="Gmax_189_cds.fa">Gmax_189_cds.fa</option>
+          <option value="Gmax_189_transcript.fa">Gmax_189_transcript.fa</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s3">
+        <button class="btn waves-effect waves-light" type="submit" name="action" >submit
+        </button>
+      </div>
+      <div class="col s3">
+        <button class="btn waves-effect waves-light" type="reset" name="action">clear
+        </button>
+      </div>
+
+    </div>
+  </form>
+<!--</div>-->
+<!--<form action="#">-->
+<!--  <div class="file-field input-field">-->
+<!--    <div class="btn">-->
+<!--      <span>File Upload</span>-->
+<!--      <input type="file">-->
+<!--    </div>-->
+<!--    <div class="file-path-wrapper">-->
+<!--      <input class="file-path validate" type="text">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</form>-->
+
+
+<!--    <hr size=3 >-->
+<!--<div class="row columns" style="width: 1000px">-->
+<!--  <div class="columns small-10 small-centered textrow ">-->
+
+<!--    <p>Glmol Tools</p>-->
+<!--    <p>GLmol is a 3D molecular viewer based on WebGL and Javascript.</p>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<form action="#"  class="col s12">-->
+<!--  <div class="row">-->
+<!--    <input type="textarea" class="browser-default" placeholder="GeneID" [(ngModel)]="glmolUrl" [ngModelOptions]="{standalone: true}">-->
+<!--    <p>eg. Glyma14g08610.1 Glyma16g01990.1 Glyma15g07360.1</p>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <button class="btn waves-effect waves-light" (click)="showGlmol()">SUBMIT</button>-->
+<!--  </div>-->
+<!--</form>-->
+
+<!--<div *ngIf="isGlmol">-->
+<!--&lt;!&ndash;  <a href={{glmolUrl}}>3D Protein Structure Search</a>&ndash;&gt;-->
+<!--  <iframe src={{glmolUrl}} style="width: 100%" height="768"></iframe>-->
+<!--</div>-->
+<div class="row" *ngFor="let res of blastRes">
+  <div style="max-width: 800px">
+    <div class="card">
+      <div class="card-content">
+<!--        <span class="card-title">{{res.title}}</span>-->
+        <pre>{{res}}</pre>
+      </div>
+<!--      <div class="card-action">-->
+<!--        <a href="#">This is a link</a>-->
+<!--        <a href="#">This is a link</a>-->
+<!--      </div>-->
+    </div>
+  </div>
+</div>
+
+<!--<div>-->
+<!--  <p>search in database</p>-->
+<!--  <p>Lmpd_Arapidopsis</p>-->
+<!--  <ul>-->
+<!--    <li *ngFor="let item of items | async">-->
+<!--      <pre>{{ item.uniprot_id}}</pre>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+
+
+

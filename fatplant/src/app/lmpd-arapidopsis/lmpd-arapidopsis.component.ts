@@ -3,7 +3,7 @@ import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 
 // import { AngularFirestore } from 'angularfire2/firestore';
 import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestore'
-import { ViewChild } from '@angular/core'; 
+import { ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {Observable} from 'rxjs';
 import {DataSource} from '@angular/cdk/collections'

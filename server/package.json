@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "github:types/express",
+    "@types/node": "^12.11.7",
+    "body-parser": "~1.13.3",
+    "concurrently": "^4.1.2",
+    "express": "^4.17.1",
+    "ts-node": "^8.4.1",
+    "ts-node-dev": "^1.0.0-pre.43",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  }
+}
