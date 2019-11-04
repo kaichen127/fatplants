@@ -1,5 +1,3 @@
-<script src="go-network.js">
-</script>
 
 <div class="row columns">
     <div class="columns small-10 small-centered textrow ">
@@ -37,14 +35,6 @@
 
 </div>
 
-<div class="row columns">
-
-    <div class="columns small-10 small-centered" id="cy">
-
-
-    </div>
-
+<div class="cytograph">
+  <ngx-cytoscape [attr.elements]="graphData"></ngx-cytoscape>
 </div>
-
-
-<script type="text/javascript" src="./go-network/go-network.js"></script>

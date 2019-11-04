@@ -15,15 +15,28 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule} from '@angular/material/menu';
 
+
+// import { CytodemoComponent } from './cytodemo/cytodemo.component';
+import { CytoscapeModule } from 'ngx-cytoscape';
 import { GoNetworkComponent } from './go-network/go-network.component';
+// import { GraphComponent } from './go-network/graph/graph.component';
+// import {NgCytoComponent} from './go-network/ng-cyto/ng-cyto.component';
 //Firestore modules
 import { environment } from '../environments/environment';
 import  { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { CameliaComponent } from './camelia/camelia.component';
 import { FattyacidComponent } from './fattyacid/fattyacid.component';
+import { IntroductionComponent } from './introduction/introduction.component';
+import { InvestigatorComponent } from './investigator/investigator.component';
+import { DetailviewComponent } from './detailview/detailview.component';
+import { CdkTableModule } from '@angular/cdk/table';
+
+// const appRoutes: Routes = [
+//   { path: "/tabledetail", component: DetailviewComponent }
+// ];
 
 @NgModule({
   declarations: [
@@ -37,7 +50,13 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
     DatatableComponent,
     GoNetworkComponent,
     CameliaComponent,
-    FattyacidComponent
+    FattyacidComponent,
+    // GraphComponent,
+    // NgCytoComponent,
+    IntroductionComponent,
+    InvestigatorComponent,
+    DetailviewComponent
+    // CytodemoComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +68,9 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
     MatInputModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,
+    CytoscapeModule,
+    CdkTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
