@@ -4,9 +4,20 @@
 
 a{
   color:powderblue;
-  /* padding-left: 50px; */
+}
+
+li, button{
+  height: 64px;
 }
 
 button{
-  padding-right: 50px;
+  border: none;
+  background-color: gray;
+  color: powderblue;
+  width: 80px;
+}
+
+.menu-item{
+  background-color:gray;
+  color: powderblue;
 }

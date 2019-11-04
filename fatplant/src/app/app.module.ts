@@ -15,16 +15,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatMenuModule} from '@angular/material/menu';
-import {CdkTableModule} from '@angular/cdk/table';
-
-
+import {MatMenuModule} from '@angular/material/menu';
 
 import { GoNetworkComponent } from './go-network/go-network.component';
 //Firestore modules
 import { environment } from '../environments/environment';
 import  { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { CameliaComponent } from './camelia/camelia.component';
+import { FattyacidComponent } from './fattyacid/fattyacid.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     HomepageComponent,
     DataAnalysisComponent,
     DatatableComponent,
-    GoNetworkComponent
+    GoNetworkComponent,
+    CameliaComponent,
+    FattyacidComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +49,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     MatInputModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    MatMenuModule,
-    CdkTableModule
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
