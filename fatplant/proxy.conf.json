@@ -7,5 +7,9 @@
   "/test": {
     "target": "http://localhost:4201",
     "secure": false
+  },
+  "/link": {
+    "target": "http://rest.kegg.jp",
+    "secure": false
   }
 }

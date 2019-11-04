@@ -5,19 +5,42 @@
   </div>
 </div>
 
-<form action="#"  class="col s12">
-  <div class="row">
-    <input type="textarea" class="browser-default" placeholder="KEGG pathway map" [(ngModel)]="imgID" [ngModelOptions]="{standalone: true}">
-    <p>eg. hsa05200</p>
-  </div>
-  <div class="row">
-    <button class="btn waves-effect waves-light" (click)="showPathway()">SUBMIT</button>
-  </div>
-</form>
+<!--<form action="#"  class="col s12">-->
+<!--  <div class="row">-->
+<!--    <input type="textarea" class="browser-default" placeholder="KEGG pathway map" [(ngModel)]="imgID" [ngModelOptions]="{standalone: true}">-->
+<!--    <p>eg. hsa05200</p>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <button class="btn waves-effect waves-light" (click)="showPathway()">SUBMIT</button>-->
+<!--  </div>-->
+<!--</form>-->
 
 <div>
-  <img [src]="imgUrl" *ngIf="showImg" style="max-width: 1000px">
+<!--  <img [src]="imgUrl" *ngIf="showImg" style="max-width: 1000px">-->
 </div>
+
+<div>
+
+<!--  这里先预设几个基因-->
+    <label>Gene</label>
+    <select class="browser-default" (change)="GeneListChange($event.target.value)" [(ngModel)]="defaultValue1">
+    <option *ngFor="let gene of geneList" value="{{gene.key}}">{{gene.value}}</option>
+    </select>
+  <div *ngIf="showLinkList">
+    <!--  下面这个是动态list-->
+    <label>Link pathway</label>
+    <select class="browser-default" (change)="LinkListChange($event.target.value)" [(ngModel)]="defaultValue2">
+      <option *ngFor="let path of linkList" value="{{path.key}}">{{path.value}}</option>
+    </select>
+  </div>
+  <div *ngIf="showImg">
+    <label>Pathway image</label>
+  </div>
+  <div *ngIf="showImg">
+    <img name="showpathway" [src]="imgUrl" style="max-width: 1000px">
+  </div>
+</div>
+
 <br>
 <br>
 <br>

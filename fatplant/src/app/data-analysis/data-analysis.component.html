@@ -102,8 +102,7 @@
       </div>
 
     </div>
-
-<!--  </form>-->
+  </form>
 <!--</div>-->
 <!--<form action="#">-->
 <!--  <div class="file-field input-field">-->
@@ -140,6 +139,30 @@
 <!--<div *ngIf="isGlmol">-->
 <!--&lt;!&ndash;  <a href={{glmolUrl}}>3D Protein Structure Search</a>&ndash;&gt;-->
 <!--  <iframe src={{glmolUrl}} style="width: 100%" height="768"></iframe>-->
+<!--</div>-->
+<div class="row" *ngFor="let res of blastRes">
+  <div style="max-width: 800px">
+    <div class="card">
+      <div class="card-content">
+<!--        <span class="card-title">{{res.title}}</span>-->
+        <pre>{{res}}</pre>
+      </div>
+<!--      <div class="card-action">-->
+<!--        <a href="#">This is a link</a>-->
+<!--        <a href="#">This is a link</a>-->
+<!--      </div>-->
+    </div>
+  </div>
+</div>
+
+<!--<div>-->
+<!--  <p>search in database</p>-->
+<!--  <p>Lmpd_Arapidopsis</p>-->
+<!--  <ul>-->
+<!--    <li *ngFor="let item of items | async">-->
+<!--      <pre>{{ item.uniprot_id}}</pre>-->
+<!--    </li>-->
+<!--  </ul>-->
 <!--</div>-->
 
 

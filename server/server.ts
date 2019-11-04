@@ -42,11 +42,12 @@ app.post('/test',(req,res)=>{
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + typeof stderr);
     let txt = fs.readFileSync('results.txt','utf8');
-    var file={"result":txt.toString()}
-    res.send(JSON.stringify(file))
+    // var file={"result":txt.toString()}
+    // res.send(JSON.stringify(file))
+    res.send(txt)
   });
  });
- app.get('/test',function (req,res) {
+ app.get('/viewer',function (req,res) {
   console.log(req.query.q);
   res.sendFile(__dirname+"/viewer.html");
   //res.sendFile(__dirname+"/viewer.html?"+req.query.q+".pdb");
