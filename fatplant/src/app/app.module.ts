@@ -38,6 +38,9 @@ import { CameliaComponent } from './camelia/camelia.component';
 import { FattyacidComponent } from './fattyacid/fattyacid.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatDividerModule} from "@angular/material/divider";
 
 
 
@@ -77,7 +80,10 @@ import { InvestigatorComponent } from './investigator/investigator.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule,
+    MatRadioModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
