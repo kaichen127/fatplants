@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { GoNetworkComponent } from './go-network/go-network.component';
 //Firestore modules
@@ -51,7 +52,8 @@ import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.compone
     MatInputModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

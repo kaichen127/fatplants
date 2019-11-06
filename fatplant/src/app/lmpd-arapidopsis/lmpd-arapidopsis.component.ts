@@ -7,6 +7,7 @@ import { ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {Observable} from 'rxjs';
 import {DataSource} from '@angular/cdk/collections'
+import { FirestoreConnectionService } from '../services/firestore-connection.service';
 
 @Component({
   selector: 'app-lmpd-arapidopsis',
@@ -21,10 +22,10 @@ export class LmpdArapidopsisComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   dataSource:MatTableDataSource<any>;
-  constructor(private afs:AngularFirestore) { }
+  constructor(private db:FirestoreConnectionService) { }
 
   ngOnInit() {
-    let docs=this.afs.collection('Lmpd_Arapidopsis',ref=>ref.limit(100)).valueChanges().subscribe(data =>{
+    let docs=this.db.connect('Lmpd_Arapidopsis').subscribe(data =>{
         this.dataSource=new MatTableDataSource(data)
         this.dataSource.paginator = this.paginator;
     })
