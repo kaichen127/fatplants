@@ -42,7 +42,8 @@
 
                   <ng-container matColumnDef="protein_entry">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
-                        <mat-cell *matCellDef="let elem"> {{ elem.protein_entry }} </mat-cell>
+                        <!-- ,elem.lmp_id,elem.mrna_id,elem.protein_gi,elem.seqlength,elem.sequence,elem.species_long,elem.taxid -->
+                        <mat-cell *matCellDef="let elem"><a [routerLink]="['/lmpddetailview', elem.uniprot_id]"> {{ elem.protein_entry }} </a></mat-cell>
                   </ng-container>
 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

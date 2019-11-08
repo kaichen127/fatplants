@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import  { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { CameliaComponent } from './camelia/camelia.component';
 import { FattyacidComponent } from './fattyacid/fattyacid.component';
+import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
     GoNetworkComponent,
     CameliaComponent,
     FattyacidComponent,
+    LmpddetailviewComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
     MatInputModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
+    HttpClientModule,
     MatMenuModule
   ],
   providers: [],
