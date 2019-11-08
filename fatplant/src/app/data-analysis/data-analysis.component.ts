@@ -125,13 +125,10 @@ export class DataAnalysisComponent implements OnInit {
     switch (this.tabIndex) {
       case 0:
         // 根据name拿
-        this.blast = '>NP_001193503.1 E3 ubiquitin-protein ligase TRIM56 [Bos taurus]\n' +
-          'MVSQGSSPSLLEALSSDFLACKICLEQLRVPKTLPCLHTYCQDCLAQLAEGSRLRCPECRESVPVPPAGVAAFKTNFFVN';
+        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {this.blast = res[0].sequence; });
         break;
       case 1:
-        // 根据uniprot_id拿
-        this.blast = '>NP_001193503.1 E3 ubiquitin-protein ligase TRIM56 [Bos taurus]\n' +
-          'MVSQGSSPSLLEALSSDFLACKICLEQLRVPKTLPCLHTYCQDCLAQLAEGSRLRCPECRESVPVPPAGVAAFKTNFFVN';
+        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {this.blast = res[0].sequence; });
         break;
       case 2:
         this.blast = this.query;
@@ -140,7 +137,9 @@ export class DataAnalysisComponent implements OnInit {
         console.log("No");
         break;
     }
-      this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
+
+    // 这里的异步的 需要处理
+    this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
       this.result = res;
       // this.ShowResult(res);
       this.SplitRes(res);
@@ -149,7 +148,7 @@ export class DataAnalysisComponent implements OnInit {
   }
   Search(query: string) {
     this.items = new Observable<any>();
-
+    if (query == '') { return; }
     switch (this.tabIndex) {
       case 0:
         this.items = this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(10).where('gene_name','>=', query).where('gene_name','<=', query + '\uf8ff') ).valueChanges();
@@ -167,6 +166,7 @@ export class DataAnalysisComponent implements OnInit {
   ListClick(query: any) {
     // console.log(query);
     this.query = query;
+
     this.items = new Observable<any>();
   }
 }
