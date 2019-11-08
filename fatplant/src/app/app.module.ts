@@ -37,7 +37,7 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
     DatatableComponent,
     GoNetworkComponent,
     CameliaComponent,
-    FattyacidComponent
+    FattyacidComponent,
   ],
   imports: [
     BrowserModule,

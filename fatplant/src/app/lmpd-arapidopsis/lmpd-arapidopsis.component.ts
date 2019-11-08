@@ -36,4 +36,5 @@ export class LmpdArapidopsisComponent implements OnInit {
       this.dataSource.filter = filterValue;
     }
 
+    //BUILD CARD TO POP UP ON CLICK FOR SPECIES 
 }
