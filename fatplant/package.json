@@ -24,6 +24,7 @@
     "angularfire2": "^5.2.1",
     "firebase": "^6.6.1",
     "rxjs": "~6.4.0",
+    "sequence-viewer": "^0.2.18",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

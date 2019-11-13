@@ -17,9 +17,10 @@ import {DataSource} from '@angular/cdk/collections'
 
 export class LmpddetailviewComponent implements OnInit {
   private uniprot_id: any;
-  private result: any;
   private items: any;
+  private result: any;
   private sub: any;
+  private resultsequence: any;
   dataSource:MatTableDataSource<any>;
   constructor(private afs:AngularFirestore, private route: ActivatedRoute) { }
 
@@ -27,12 +28,37 @@ export class LmpddetailviewComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
        this.uniprot_id = params['uniprot_id'];
     })
-    let result = this.afs.collectionGroup('Lmpd_Arapidopsis', ref => ref.where('uniprot_id', '==', this.uniprot_id))
-                      .valueChanges().subscribe(res => {
-                        this.result = res as string [];
-                        this.items = this.result[0];
-                        console.log(this.result[0]);
-                      })
+    this.afs.collectionGroup('Lmpd_Arapidopsis', ref => ref.where('uniprot_id', '==', this.uniprot_id))
+       .valueChanges().subscribe(res => {
+       this.result = res as string [];
+       this.items = this.result[0];
+       console.log(this.result[0]);
+
+       let count: number = 1;
+       let i: number = 0;
+       let j: number = 9;
+       let l: number = this.items.seqlength;
+       let sequenceorigin: string = this.items.sequence;
+       console.log(this.items.sequence);
+       let sequencegroup: string = '';
+
+       do {
+
+         sequencegroup = sequencegroup + sequenceorigin.substring(i,j);
+         if (count % 5 == 0){
+           sequencegroup = sequencegroup + '\n';
+         }else{
+           sequencegroup = sequencegroup + ' ';
+         }
+         count++;
+         console.log(sequencegroup);
+         i=i+10;
+         j=j+10;
+       } while (i < l)
+       this.resultsequence=sequencegroup;
+
+    })
+
     }
 
 }

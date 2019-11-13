@@ -1,28 +1,107 @@
 
-<div class='row'>
-	<div class='col-md-6'>
-		<p><strong>Gene Name: </strong>{{items.gene_name}}</p>
-		<p><strong>Gene Symbol: </strong>{{items.gene_symbol}}</p>
-		<p><strong>Protein lmp id: </strong>{{items.lmp_id}}</p>
-		<p><strong>Protein mrna id: </strong>{{items.mrna_id}}</p>
-		<p><strong>Protein Entry: </strong>{{items.protein_entry}}</p>
-		<p><strong>Protein gi: </strong>{{items.protein_gi}}</p>
-		<p><strong>Protein Name: </strong>{{items.protein_name}}</p>
-		<p><strong>Protein refseq id: </strong>{{items.refseq_id}}</p>
-		<p><strong>Protein Sequence Length: </strong>{{items.seqlength}}</p>
+<br>
+<h2>Names & Taxonomy</h2>
+<strong>Protein General: </strong>
+<table class="blueTable">
+<tr>
+<th><strong>Gene Name: </strong></th>
+<td>{{items.gene_name}}</td>
+</tr>
+<tr>
+<th><strong>Protein Name: </strong></th>
+<td>{{items.protein_name}}</td>
+</tr>
+<tr>
+<th><strong>Species: </strong></th>
+<td>{{items.species}}</td>
+</tr>
+<tr>
+<th><strong>Species Long: </strong></th>
+<td>{{items.species_long}}</td>
+</tr>
+</table>
+<br>
+<strong>Protein Detail: </strong>
+<table class="blueTable">
+<tr>
+<th><strong>Gene Symbol: </strong></th>
+<td>{{items.gene_symbol}}</td>
+</tr>
+<tr>
+<th><strong>Protein Lmp ID: </strong></th>
+<td>{{items.lmp_id}}</td>
+</tr>
+<tr>
+<th><strong>Protein mrna id:: </strong></th>
+<td>{{items.mrna_id}}</td>
+</tr>
+<tr>
+<th><strong>Protein Entry: </strong></th>
+<td>{{items.protein_entry}}</td>
+</tr>
+<tr>
+<th><strong>Protein GI: </strong></th>
+<td>{{items.protein_gi}}</td>
+</tr>
+<tr>
+<th><strong>Protein Refseq ID: </strong></th>
+<td>{{items.refseq_id}}</td>
+</tr>
+<tr>
+<th><strong>Protein Sequence Length: </strong></th>
+<td>{{items.seqlength}}</td>
+</tr>
+<tr>
+<th><strong>Protein Tax ID: </strong></th>
+<td>{{items.taxid}}</td>
+</tr>
+<tr>
+<th><strong>Protein Uniprot ID: </strong></th>
+<td>{{items.uniprot_id}}</td>
+</tr>
+</table>
+<br>
+<h2>Sequence</h2>
+<strong>Protein Sequence: </strong>
+<p class="gfg">
+<textarea>{{resultsequence}}</textarea>
+</p>
+<button class="small red button">Blast!</button>
+<br><br>
+<h2>PTM / Processing</h2>
+<strong>Molecule processing: </strong>
+<table class="blueTable">
+<tr>
+<th><strong>Feature key</strong></th>
+<th><strong>Position(s)</strong></th>
+<th><strong>Description</strong></th>
+<!-- <th><strong>Actions</strong></th> -->
+<!-- <th><strong>Graphical view</strong></th> -->
+<th><strong>Length</strong></th>
+</tr>
+<tr>
+<td>Transit peptidei</td>
+<td>1 – 47</td>
+<td>Chloroplast</td>
+<td>47</td>
+</tr>
+<tr>
+<td>Chain PRO_0000435264</td>
+<td>48 – 188</td>
+<td>Acyl-acyl carrier protein thioesterase ATL4, chloroplastic</td>
+<td>141</td>
+</tr>
+</table>
+<br>
+<strong>Proteomic databases: </strong>
+<table class="blueTable">
+<tr>
+<td>PaxDb</td>
+<td>F4HX80</td>
+</tr>
+</table>
 
-		<p class="gfg"><strong>Protein Sequence: </strong>{{items.sequence}}</p>
-
-		<p><strong>Species: </strong>{{items.species}}</p>
-		<p><strong>Species Long: </strong>{{items.species_long}}</p>
-		<p><strong>Protein tax id: </strong>{{items.taxid}}</p>
-	  <p><strong>Protein uniprot id: </strong>{{items.uniprot_id}}</p>
-  </div>
-</div>
-
-
-
-
+<br><br><br><br>
 
 
 
