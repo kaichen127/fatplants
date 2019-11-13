@@ -7,7 +7,6 @@ from firebase_admin import credentials, firestore
 import re
 import urllib
 
-regex=r'\W+ acid'
 credentialsFile="fatplant-76987-firebase-adminsdk-u9bby-92e91a6996.json"
 cred=credentials.Certificate(credentialsFile)
 app=firebase_admin.initialize_app(cred)
@@ -19,7 +18,9 @@ with open('fattyacid.json') as file:
     ctr=0
     for obj in listofobj:
         del obj["_id"]
-        if obj['Name']:
-            obj['link']='https://opsin.ch.cam.ac.uk/opsin/'+obj['Name'].replace(u'\200b','').replace('$',',')+'.png'
-            doc_ref=client.collection('Fatty Acid').add(obj)
+        try:
+            obj['Delta_Notation']=obj.pop(u'\u2206 Notation')
+        except KeyError:
+            print "ERROR"
+        doc_ref=client.collection('Fatty Acid').add(obj)
         # print "doc added"
