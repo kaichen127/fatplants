@@ -13,7 +13,7 @@ import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.co
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { DatatableComponent } from './datatable/datatable.component';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatSelectModule } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material';
 import { MatPaginatorModule} from '@angular/material/paginator';
@@ -38,6 +38,11 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
 import { DetailviewComponent } from './detailview/detailview.component';
+import { UploadFilesComponent } from './upload-files/upload-files.component';
+import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { DropzoneDirective } from './directives/dropzone.directive';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { FileviewComponent } from './fileview/fileview.component';
 
 
 @NgModule({
@@ -59,14 +64,19 @@ import { DetailviewComponent } from './detailview/detailview.component';
     // NgCytoComponent,
     IntroductionComponent,
     InvestigatorComponent,
-    DetailviewComponent
-    // CytodemoComponent
+    DetailviewComponent,
+    // CytodemoComponent,
+    UploadFilesComponent,
+    UploadTaskComponent,
+    DropzoneDirective,
+    FileviewComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'fatplant'),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
@@ -78,7 +88,9 @@ import { DetailviewComponent } from './detailview/detailview.component';
     FormsModule,
     CytoscapeModule,
     ReactiveFormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

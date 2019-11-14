@@ -4,6 +4,11 @@
   <a mat-menu-item routerLink="/fatty_acid" class="menu-item">Fatty Acid</a>
 </mat-menu>
 
+<mat-menu #fileMenu>
+  <a mat-menu-item routerLink="/upload" class="menu-item">Upload</a>
+  <a mat-menu-item routerLink="/viewfiles" class="menu-item">View</a>
+</mat-menu>
+
 <nav class="nav-class">
   <div class="nav-wrapper nav-style">
   <ul id = "nav-mobile" class = "left">
@@ -13,6 +18,7 @@
       <li><a href="/introduction">Introduction</a></li>
       <li><a href="/investigator">Investigator</a></li>
       <!-- <li><a href="/go-network">GO Network</a></li> -->
+      <li><button mat-button [matMenuTriggerFor]="fileMenu">File</button></li>
       <li><a href="#">Pathway</a></li>
       <li><a routerLink="/data_analysis">Data_Analysis</a></li>
     </ul>
