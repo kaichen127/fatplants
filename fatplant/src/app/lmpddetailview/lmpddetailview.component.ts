@@ -4,11 +4,13 @@ import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 // import { UniprotService } from './../uniprot.service';
 
 // import { AngularFirestore } from 'angularfire2/firestore';
+// import * as TabTest from '../assets/TabTest.tab';
 import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestore'
 import { ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {Observable} from 'rxjs';
 import {DataSource} from '@angular/cdk/collections'
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-lmpddetailview',
   templateUrl: './lmpddetailview.component.html',
@@ -22,12 +24,18 @@ export class LmpddetailviewComponent implements OnInit {
   private sub: any;
   private resultsequence: any;
   dataSource:MatTableDataSource<any>;
-  constructor(private afs:AngularFirestore, private route: ActivatedRoute) { }
+  constructor(private afs:AngularFirestore, private route: ActivatedRoute, private http: HttpClient) {
+        // public getTranslation(): Observable<any> {
+        //     return this.http.get("./csv/test.tab")
+        // }
+   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-       this.uniprot_id = params['uniprot_id'];
-    })
+    // this.sub = this.route.params.subscribe(params => {
+    //    this.uniprot_id = params['uniprot_id'];
+    // })
+    // console.log('Reading local json files');
+    // console.log(TabTest);
     this.afs.collectionGroup('Lmpd_Arapidopsis', ref => ref.where('uniprot_id', '==', this.uniprot_id))
        .valueChanges().subscribe(res => {
        this.result = res as string [];
@@ -58,7 +66,9 @@ export class LmpddetailviewComponent implements OnInit {
        this.resultsequence=sequencegroup;
 
     })
-
+      this.http.get('../csv/test.tab').subscribe(data => {
+        console.log('data', data.toString());
+      })
     }
 
 }
