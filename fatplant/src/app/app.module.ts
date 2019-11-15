@@ -13,7 +13,7 @@ import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.co
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { DatatableComponent } from './datatable/datatable.component';
-import { MatTableModule, MatSelectModule } from '@angular/material';
+import { MatTableModule, MatSelectModule, MatListModule, MatIconModule } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material';
 import { MatPaginatorModule} from '@angular/material/paginator';
@@ -81,6 +81,8 @@ import { FileviewComponent } from './fileview/fileview.component';
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    MatListModule,
+    MatIconModule,
     MatPaginatorModule,
     MatMenuModule,
     CdkTableModule,

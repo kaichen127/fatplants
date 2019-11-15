@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
 export class UploadFilesComponent{
 
   constructor(private route:ActivatedRoute,private router:Router,private afs:AngularFirestore){}
-  lab=new FormControl('')
+  lab="General"
   ngOnInit(){
   }
 

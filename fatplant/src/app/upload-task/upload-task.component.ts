@@ -13,6 +13,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 export class UploadTaskComponent implements OnInit {
 
   @Input() file:File;
+  @Input() lab:string;
   
   task: AngularFireUploadTask;
 
@@ -29,7 +30,7 @@ export class UploadTaskComponent implements OnInit {
 
   startUpload(){
     const id=this.afs.createId();
-    const path='files/'+id+"_"+this.file.name;
+    const path='files/'+this.lab+"/"+id+"_"+this.file.name;
 
     const ref=this.storage.ref(path)
 
@@ -43,7 +44,7 @@ export class UploadTaskComponent implements OnInit {
       finalize(async()=>{
         this.downloadURL=await ref.getDownloadURL().toPromise();
  
-        this.afs.collection('Files').doc(id).set({url:this.downloadURL,fileName:this.file.name});
+        this.afs.collection('Files').doc(id).set({url:this.downloadURL,fileName:this.file.name,lab:this.lab});
       }),
     );
   }
