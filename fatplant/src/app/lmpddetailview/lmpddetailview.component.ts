@@ -11,6 +11,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {Observable} from 'rxjs';
 import {DataSource} from '@angular/cdk/collections'
 import { HttpClient } from '@angular/common/http';
+declare var require: any;
+
 @Component({
   selector: 'app-lmpddetailview',
   templateUrl: './lmpddetailview.component.html',
@@ -18,22 +20,25 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class LmpddetailviewComponent implements OnInit {
+  // private TabTest = require("../assets/TabTest.tab");
+  // private header = require("../assets/header.jpg");
   private uniprot_id: any;
   private items: any;
   private result: any;
   private sub: any;
   private resultsequence: any;
   dataSource:MatTableDataSource<any>;
-  constructor(private afs:AngularFirestore, private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private afs:AngularFirestore, private route: ActivatedRoute) {
+    // , private http: HttpClient) {
         // public getTranslation(): Observable<any> {
         //     return this.http.get("./csv/test.tab")
         // }
    }
 
   ngOnInit() {
-    // this.sub = this.route.params.subscribe(params => {
-    //    this.uniprot_id = params['uniprot_id'];
-    // })
+    this.sub = this.route.params.subscribe(params => {
+       this.uniprot_id = params['uniprot_id'];
+    })
     // console.log('Reading local json files');
     // console.log(TabTest);
     this.afs.collectionGroup('Lmpd_Arapidopsis', ref => ref.where('uniprot_id', '==', this.uniprot_id))
@@ -66,9 +71,13 @@ export class LmpddetailviewComponent implements OnInit {
        this.resultsequence=sequencegroup;
 
     })
-      this.http.get('../csv/test.tab').subscribe(data => {
-        console.log('data', data.toString());
-      })
-    }
+
+
+      // this.http.get('../assets/TabTest.tab', { responseType: 'json' })
+      // .subscribe(data => {
+      //   console.log(data);
+      // });
+
+  }
 
 }
