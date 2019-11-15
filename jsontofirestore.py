@@ -13,14 +13,11 @@ app=firebase_admin.initialize_app(cred)
 
 client=firestore.client()
 
-with open('fattyacid.json') as file:
+with open('Jason_fatty_acid.json') as file:
     listofobj=json.load(file)
     ctr=0
     for obj in listofobj:
-        del obj["_id"]
-        try:
-            obj['Delta_Notation']=obj.pop(u'\u2206 Notation')
-        except KeyError:
-            print "ERROR"
+        for key in obj.keys():
+            obj[key.replace(' ','')]=obj.pop(key)
         doc_ref=client.collection('Fatty Acid').add(obj)
         # print "doc added"

@@ -1,0 +1,4952 @@
+[
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Formic acid",
+   "Delta - Notation": "1:00",
+   "Other Names": "",
+   "Formula": "C H2 O2",
+   "Mass": 46.03,
+   "Data  Points": 1,
+   "SOFA  ID": "M_001"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Acetic acid",
+   "Delta - Notation": "2:00",
+   "Other Names": "",
+   "Formula": "C2 H4 O2",
+   "Mass": 60.05,
+   "Data  Points": 15,
+   "SOFA  ID": "M_002"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Propanoic acid",
+   "Delta - Notation": "3:00",
+   "Other Names": "Propionic acid acid",
+   "Formula": "C3 H6 O2",
+   "Mass": 74.08,
+   "Data  Points": 2,
+   "SOFA  ID": "M_003"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Butanoic acid",
+   "Delta - Notation": "4:00",
+   "Other Names": "Butyric acid; Butyric acid; 1-Propanecarboxylic acid; Ethylacetic acid; n-Butanoic acid; n-Butyric acid",
+   "Formula": "C4 H8 O2",
+   "Mass": 88.11,
+   "Data  Points": 14,
+   "SOFA  ID": "M_005"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Pentanoic acid",
+   "Delta - Notation": "5:00",
+   "Other Names": "Valeric acid; Valeric acid, 1-Butanecarboxylic acid, n-Pentanoic acid",
+   "Formula": "C5 H10 O2",
+   "Mass": 102.13,
+   "Data  Points": 2,
+   "SOFA  ID": "M_006"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Pentanoic acid, 4-oxo-",
+   "Delta - Notation": "4-O=5:0",
+   "Other Names": "",
+   "Formula": "C5H8O3",
+   "Mass": 116.12,
+   "Data  Points": 4,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexanoic acid",
+   "Delta - Notation": "6:00",
+   "Other Names": "Caproic acid; 1-Hexanoic acid; 1-Pentanecarboxylic acid; Butylacetic acid; Caproic acid; Capronic acid; Pentylformic acid; n-Caproic acid; n-Hexano...",
+   "Formula": "C6 H12 O2",
+   "Mass": 116.16,
+   "Data  Points": 67,
+   "SOFA  ID": "M_007"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Benzoic acid",
+   "Delta - Notation": "1-Ph-1:0",
+   "Other Names": "Benzenecarboxylic acid; Benzeneformic acid; Benzenemethanoic acid; Carboxybenzene",
+   "Formula": "C7 H6 O2",
+   "Mass": 122.12,
+   "Data  Points": 4,
+   "SOFA  ID": "M_529"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3-Heptenoic acid",
+   "Delta - Notation": "7:1-delta-3",
+   "Other Names": "�_-heptenoic acid",
+   "Formula": "C7H12O2",
+   "Mass": 128.08,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heptanoic acid",
+   "Delta - Notation": "7:00",
+   "Other Names": "1-Hexanecarboxylic acid;",
+   "Formula": "C7 H14 O2",
+   "Mass": 130.18,
+   "Data  Points": 9,
+   "SOFA  ID": "M_008"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octenoic acid",
+   "Delta - Notation": "8:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C8H14O2",
+   "Mass": 142.1,
+   "Data  Points": 1,
+   "SOFA  ID": "M_310"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octanoic acid",
+   "Delta - Notation": "8:00",
+   "Other Names": "Caprylic acid; 1-Heptanecarboxylic acid; Caprylic acid;`",
+   "Formula": "C8 H16 O2",
+   "Mass": 144.21,
+   "Data  Points": 647,
+   "SOFA  ID": "M_009"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexanedioic acid",
+   "Delta - Notation": "5-COOH-5:0",
+   "Other Names": "Adipic acid; 1,4-Butanedicarboxylic acid; 1,6-Hexanedioic acid; Acifloctin; Acinetten; Adilactetten; Adipinic acid; Asapic; E 355; Inipol DS; NSC ...",
+   "Formula": "C6 H10 O4",
+   "Mass": 146.14,
+   "Data  Points": 2,
+   "SOFA  ID": "M_231"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonenoic acid",
+   "Delta - Notation": "9:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C9H16O2",
+   "Mass": 156.12,
+   "Data  Points": 1,
+   "SOFA  ID": "M_340"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8-Hydroxy-5,6-octadienoic acid",
+   "Delta - Notation": "8-OH-8:2-delta-5,6allene",
+   "Other Names": "; 5,6-Octadienoic acid, 8-hydroxy-",
+   "Formula": "C8 H12 O3",
+   "Mass": 156.18,
+   "Data  Points": 1,
+   "SOFA  ID": "M_443"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octanoic acid, 8-oxo-",
+   "Delta - Notation": "8-O=8:0",
+   "Other Names": "",
+   "Formula": "C8H14O3",
+   "Mass": 158.09,
+   "Data  Points": 4,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octanoic acid, 6-oxo-",
+   "Delta - Notation": "6-O=8:0",
+   "Other Names": "",
+   "Formula": "C8H14O3",
+   "Mass": 158.09,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonanoic acid",
+   "Delta - Notation": "9:00",
+   "Other Names": "Pelargonic acid; Pelargonic acid;1-Octanecarboxylic acid; Nonoic acid; Nonylic acid; n-Nonanoic acid; n-Nonoic acid; n-Nonylic acid; n-Pelargonic ...",
+   "Formula": "C9 H18 O2",
+   "Mass": 158.24,
+   "Data  Points": 23,
+   "SOFA  ID": "M_010"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heptanedioic acid",
+   "Delta - Notation": "6-COOH-6:0",
+   "Other Names": "Pimelic acid; Pimelic acid ;Pileric acid; 1,5-Pentanedicarboxylic acid",
+   "Formula": "C7H12O4",
+   "Mass": 160.19,
+   "Data  Points": 2,
+   "SOFA  ID": "M_232"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2,4-Decadienoic acid, (2E,4Z)-",
+   "Delta - Notation": "10:2-delta-2t,4c",
+   "Other Names": "2,4-Decadienoic acid, (E,Z)-; Stillingic acid; trans-2-cis-4-Decadienoic acid",
+   "Formula": "C10 H16 O2",
+   "Mass": 168.23,
+   "Data  Points": 5,
+   "SOFA  ID": "M_014"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Cyclopentene-1-pentanoic acid",
+   "Delta - Notation": "10:1cy",
+   "Other Names": "2-Cyclopentene-1-valeric acid; Aleprestic acid",
+   "Formula": "C10 H16 O2",
+   "Mass": 168.23,
+   "Data  Points": 1,
+   "SOFA  ID": "M_209"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2,4-Decadienoic acid, (E,E)-",
+   "Delta - Notation": "10:2-delta-2t,4t",
+   "Other Names": "",
+   "Formula": "C10 H16 O2",
+   "Mass": 168.23,
+   "Data  Points": 2,
+   "SOFA  ID": "M_435"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2,4-Decadienoic acid",
+   "Delta - Notation": "10:2-delta-2,4",
+   "Other Names": "Structure ambiguous",
+   "Formula": "C10 H16 O2",
+   "Mass": 168.23,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Decadienoic acid",
+   "Delta - Notation": "10:02",
+   "Other Names": "structure ambiguous: double bond positions and configuration not specified",
+   "Formula": "C10H16O2",
+   "Mass": 168.24,
+   "Data  Points": 7,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Decenoic acid",
+   "Delta - Notation": "10:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C10H18O2",
+   "Mass": 170.13,
+   "Data  Points": 84,
+   "SOFA  ID": "M_342"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "4-Decenoic acid, (4Z)-",
+   "Delta - Notation": "10:1-delta-4c",
+   "Other Names": "Obtusilic acid; 4-Decenoic acid, (Z)-; (Z)-4-Decenoic acid; 4-cis-Decenoic acid; Obtusilic acid; cis-4-Decenoic acid",
+   "Formula": "C10 H18 O2",
+   "Mass": 170.25,
+   "Data  Points": 19,
+   "SOFA  ID": "M_012"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonanoic acid, 9-oxo-",
+   "Delta - Notation": "9-O=9:0",
+   "Other Names": "",
+   "Formula": "C9H16O3",
+   "Mass": 172.11,
+   "Data  Points": 17,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonanoic acid, 7-methyl-",
+   "Delta - Notation": "7-Me-9:0",
+   "Other Names": "",
+   "Formula": "C10H20O2",
+   "Mass": 172.15,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Decanoic acid",
+   "Delta - Notation": "10:00",
+   "Other Names": "Capric acid; 1-Decanoic acid; Capric acid; Caprinic acid; Caprynic acid; Decoic acid; Decylic acid; n-Capric acid; n-Decanoic acid; n-Decoic acid; ...",
+   "Formula": "C10 H20 O2",
+   "Mass": 172.26,
+   "Data  Points": 1320,
+   "SOFA  ID": "M_011"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octanedioic acid",
+   "Delta - Notation": "7-COOH-7:0",
+   "Other Names": "Suberic acid; 1,6-Dicarboxyhexane; 1,6-Hexanedicarboxylic acid; 1,8-Octanedioic acid; Cork acid; Hexamethylenedicarboxylic acid; NSC 25952; NSC 53777",
+   "Formula": "C8 H14 O4",
+   "Mass": 174.19,
+   "Data  Points": 9,
+   "SOFA  ID": "M_233"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Undecenoic acid",
+   "Delta - Notation": "11:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C11H20O2",
+   "Mass": 184.15,
+   "Data  Points": 2,
+   "SOFA  ID": "M_390"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Decanoic acid, 9-oxo-",
+   "Delta - Notation": "9-O=10:0",
+   "Other Names": "",
+   "Formula": "C10H18O3",
+   "Mass": 186.13,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Decanoic acid, 10-oxo-",
+   "Delta - Notation": "10-O=10:0",
+   "Other Names": "",
+   "Formula": "C10H18O3",
+   "Mass": 186.13,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Undecanoic acid",
+   "Delta - Notation": "11:00",
+   "Other Names": "1-Decanecarboxylic acid; Hendecanoic acid; NSC 7885; Undecylic acid; n-Undecanoic acid; n-Undecoic acid; n-Undecylic acid",
+   "Formula": "C11 H22 O2",
+   "Mass": 186.29,
+   "Data  Points": 42,
+   "SOFA  ID": "M_017"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Decanoic acid, 8-methyl-",
+   "Delta - Notation": "ai-11:0",
+   "Other Names": "Capric acid, ��-methyl-; (�)-8-Methyldecanoic acid; 8-Methyldecanoic acid; Anteisoundecanoic acid; ai-Undecanoic acid",
+   "Formula": "C11 H22 O2",
+   "Mass": 186.29,
+   "Data  Points": 3,
+   "SOFA  ID": "M_202"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonanedioic acid",
+   "Delta - Notation": "8-COOH-8:0",
+   "Other Names": "Azelaic acid",
+   "Formula": "C9H16O4",
+   "Mass": 188.22,
+   "Data  Points": 23,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Cyclopentene-1-heptanoic acid",
+   "Delta - Notation": "12:1cy",
+   "Other Names": "Aleprylic acid; (?)-2-Cyclopentene-1-heptanoic acid; Aleprylic acid; dl-Aleprylic acid",
+   "Formula": "C12 H20 O2",
+   "Mass": 196.29,
+   "Data  Points": 15,
+   "SOFA  ID": "M_306"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Dodecenoic acid",
+   "Delta - Notation": "12:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C12H22O2",
+   "Mass": 198.16,
+   "Data  Points": 165,
+   "SOFA  ID": "M_312"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "4-Dodecenoic acid, (4Z)-",
+   "Delta - Notation": "12:1-delta-4c",
+   "Other Names": "Linderic acid; 4-Dodecenoic acid, (Z)-; (Z)-4-Dodecenoic acid; Linderic acid; cis-4-Dodecenoic acid",
+   "Formula": "C12 H22 O2",
+   "Mass": 198.3,
+   "Data  Points": 18,
+   "SOFA  ID": "M_020"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5-Dodecenoic acid, (5Z)-",
+   "Delta - Notation": "12:1-delta-5c",
+   "Other Names": "5-Dodecenoic acid, (Z)-; cis-5-Dodecenoic acid",
+   "Formula": "C12 H22 O2",
+   "Mass": 198.3,
+   "Data  Points": 3,
+   "SOFA  ID": "M_021"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7-Dodecenoic acid, (7Z)-",
+   "Delta - Notation": "12:1-delta-7c",
+   "Other Names": "7-Dodecenoic acid, (Z)-; (Z)-7-Dodecenoic acid; cis-7-Dodecenoic acid",
+   "Formula": "C12 H22 O2",
+   "Mass": 198.3,
+   "Data  Points": 3,
+   "SOFA  ID": "M_022"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Dodecenoic acid",
+   "Delta - Notation": "12:1-delta-11c",
+   "Other Names": "",
+   "Formula": "C12 H22 O2",
+   "Mass": 198.3,
+   "Data  Points": 17,
+   "SOFA  ID": "M_024"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Cyclopropanenonanoic acid",
+   "Delta - Notation": "10,11-cpa-11:0",
+   "Other Names": "9-cyclopropylnonanoic acid; 5617-97-0; Cyclopropanenonanoic acid;",
+   "Formula": "C12H22O2",
+   "Mass": 198.31,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Dodecanoic acid",
+   "Delta - Notation": "12:00",
+   "Other Names": "Lauric acid; Lauric acid; 1-Dodecanoic acid; 1-Undecanecarboxylic acid; Dodecylic acid; n-Dodecanoic acid",
+   "Formula": "C12 H24 O2",
+   "Mass": 200.32,
+   "Data  Points": 2968,
+   "SOFA  ID": "M_019"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Undecanoic acid, 10-methyl-",
+   "Delta - Notation": "i-12:0",
+   "Other Names": "10-Methylundecanoic acid; Isododecanoic acid; Isolauric acid",
+   "Formula": "C12 H24 O2",
+   "Mass": 200.32,
+   "Data  Points": 3,
+   "SOFA  ID": "M_194"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Decanedioic acid",
+   "Delta - Notation": "9-COOH-9:0",
+   "Other Names": "Sebacic acid; 1,10-Decanedioic acid; 1,8-Octanedicarboxylic acid; NSC 19492; NSC 97405; n-Decanedioic acid",
+   "Formula": "C10 H18 O4",
+   "Mass": 202.25,
+   "Data  Points": 5,
+   "SOFA  ID": "M_234"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octanedioic acid, 2-hydroxy-, 7-methyl-",
+   "Delta - Notation": "2-OH-7-Me-8-COOH-8:0",
+   "Other Names": "",
+   "Formula": "C9H16O5",
+   "Mass": 204.1,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octanoic acid, 6,6-dimethoxy-",
+   "Delta - Notation": "",
+   "Other Names": "",
+   "Formula": "C10H20O4",
+   "Mass": 204.14,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,4-methylenedodecanoic acid",
+   "Delta - Notation": "3,4-cpa-13:0",
+   "Other Names": "Cyclopropaneacetic acid, 2-���octyl-���",
+   "Formula": "C13 H24 O2",
+   "Mass": 212.18,
+   "Data  Points": 1,
+   "SOFA  ID": "M_336"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tridecenoic acid",
+   "Delta - Notation": "13:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C13H24O2",
+   "Mass": 212.18,
+   "Data  Points": 3,
+   "SOFA  ID": "M_341"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tridecanoic acid",
+   "Delta - Notation": "13:00",
+   "Other Names": "Tridecylic acid, n-Tridecanoic acid, n-Tridecoic acid",
+   "Formula": "C13 H26 O2",
+   "Mass": 214.34,
+   "Data  Points": 125,
+   "SOFA  ID": "M_025"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Undecanedioic acid",
+   "Delta - Notation": "10-COOH-10:0",
+   "Other Names": "Undecandioic acid;1,11-Undecanedioic acid",
+   "Formula": "C11H20O4",
+   "Mass": 216.28,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonanoic acid, 9,9-dimethoxy-",
+   "Delta - Notation": "",
+   "Other Names": "",
+   "Formula": "C11H22O4",
+   "Mass": 218.15,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetradecatrienoic acid",
+   "Delta - Notation": "14:03",
+   "Other Names": "structure ambiguous",
+   "Formula": "C14H22O2",
+   "Mass": 222.16,
+   "Data  Points": 1,
+   "SOFA  ID": "M_399"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetradectrienoic acid",
+   "Delta - Notation": "14:03",
+   "Other Names": "structure ambiguous: double bond positions and configuration not specified",
+   "Formula": "C14H22O2",
+   "Mass": 222.16,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetradecadienoic acid",
+   "Delta - Notation": "14:02",
+   "Other Names": "structure ambiguous",
+   "Formula": "C14H24O2",
+   "Mass": 224.18,
+   "Data  Points": 7,
+   "SOFA  ID": "M_400"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Cyclopentene-1-nonanoic acid",
+   "Delta - Notation": "14:1cy",
+   "Other Names": "Alepric acid; Alepric acid",
+   "Formula": "C14 H24 O2",
+   "Mass": 224.34,
+   "Data  Points": 15,
+   "SOFA  ID": "M_210"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,8-Tetradecadienoic acid, (5Z,8Z)-",
+   "Delta - Notation": "14:2-delta-5c,8c",
+   "Other Names": "5,8-Tetradecadienoic acid, (Z,Z)-; (Z,Z)-5,8-Tetradecadienoic acid; C14:2n-6; Goshuyic acid",
+   "Formula": "C14 H24 O2",
+   "Mass": 224.34,
+   "Data  Points": 2,
+   "SOFA  ID": "M_378"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetradecenoic acid",
+   "Delta - Notation": "14:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C14H26O2",
+   "Mass": 226.19,
+   "Data  Points": 345,
+   "SOFA  ID": "M_028"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8-Tetradecenic acid",
+   "Delta - Notation": "14:1-delta-8",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C14H26O2",
+   "Mass": 226.19,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "4-Tetradecenoic acid, (4Z)-",
+   "Delta - Notation": "14:1-delta-4c",
+   "Other Names": "4-Tetradecenoic acid, (Z)-; (Z)-4-Tetradecenoic acid; cis-4-Tetradecenoic acid",
+   "Formula": "C14 H26 O2",
+   "Mass": 226.35,
+   "Data  Points": 19,
+   "SOFA  ID": "M_029"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5-Tetradecenoic acid, (5Z)-",
+   "Delta - Notation": "14:1-delta-5c",
+   "Other Names": "5-Tetradecenoic acid, (Z)-; (Z)-5-Tetradecenoic acid; C14:1w9; cis-5-Tetradecenoic acid; cis--delta-5-Tetradecenoic acid",
+   "Formula": "C14 H26 O2",
+   "Mass": 226.35,
+   "Data  Points": 2,
+   "SOFA  ID": "M_030"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Tetradecenoic acid, (9Z)-",
+   "Delta - Notation": "14:1-delta-9c",
+   "Other Names": "Myristoleic acid; 9-Tetradecenoic acid, (Z)-; (Z)-9-Tetradecenoic acid; 9(Z)-Tetradecenoic acid; 9(Z)-Tetradecenoic acid; 9-cis-Tetradecenoic acid;...",
+   "Formula": "C14 H26 O2",
+   "Mass": 226.35,
+   "Data  Points": 115,
+   "SOFA  ID": "M_031"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7-Tetradecenoic acid, (7Z)-",
+   "Delta - Notation": "14:1-delta-7c",
+   "Other Names": "7-Tetradecenoic acid, (Z)-; (Z)-7-Tetradecenoic acid; cis-7-Tetradecenoic acid",
+   "Formula": "C14 H26 O2",
+   "Mass": 226.35,
+   "Data  Points": 7,
+   "SOFA  ID": "M_379"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Heptylcyclopropanebutanoic acid",
+   "Delta - Notation": "5,6-cpa-13:0",
+   "Other Names": "",
+   "Formula": "C14H26O2",
+   "Mass": 226.4,
+   "Data  Points": 1,
+   "SOFA  ID": "M_309"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetradecanoic acid",
+   "Delta - Notation": "14:00",
+   "Other Names": "Myristic acid; Myristic acid; 1-Tetradecanoic acid; 1-Tridecanecarboxylic acid; ; n-Tetradecanoic acid; n-Tetradecoic acid",
+   "Formula": "C14 H28 O2",
+   "Mass": 228.37,
+   "Data  Points": 5238,
+   "SOFA  ID": "M_027"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tridecanoic acid, 12-methyl-",
+   "Delta - Notation": "i-14:0",
+   "Other Names": "12-Methyltridecanoic acid; Aseanostatin P 1; Iso-C14:0; Isomyristic acid; Isotetradecanoic acid",
+   "Formula": "C14 H28 O2",
+   "Mass": 228.37,
+   "Data  Points": 571,
+   "SOFA  ID": "M_195"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tridecanoic acid, 11-methyl-",
+   "Delta - Notation": "ai-14:0",
+   "Other Names": "(?)-11-Methyltridecanoic acid; 11-Methyltridecanoic acid; Anteisomyristic acid; Anteisotetradecanoic acid",
+   "Formula": "C14 H28 O2",
+   "Mass": 228.37,
+   "Data  Points": 1,
+   "SOFA  ID": "M_360"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Pentadecatrienoic acid",
+   "Delta - Notation": "15:03",
+   "Other Names": "structure ambiguous",
+   "Formula": "C15H24O2",
+   "Mass": 236.18,
+   "Data  Points": 1,
+   "SOFA  ID": "M_328"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Pentadecenoic acid",
+   "Delta - Notation": "15:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C15H28O2",
+   "Mass": 240.21,
+   "Data  Points": 99,
+   "SOFA  ID": "M_036"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,6-methylenetetradecanoic acid",
+   "Delta - Notation": "5,6-cpa-15:0",
+   "Other Names": "Cyclopropanebutanoic acid, 2-���octyl-���",
+   "Formula": "C15 H28 O2",
+   "Mass": 240.21,
+   "Data  Points": 3,
+   "SOFA  ID": "M_334"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Pentadecenoic acid",
+   "Delta - Notation": "15:1-delta-9",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C15H28O2",
+   "Mass": 240.21,
+   "Data  Points": 6,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Pentadecenoic acid, (10Z)-",
+   "Delta - Notation": "15:1-delta-10c",
+   "Other Names": "10-Pentadecenoic acid, (Z)-; (Z)-10-Pentadecenoic acid; cis-10-Pentadecenoic acid",
+   "Formula": "C15 H28 O2",
+   "Mass": 240.38,
+   "Data  Points": 19,
+   "SOFA  ID": "M_037"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Pentadecanoic acid",
+   "Delta - Notation": "15:00",
+   "Other Names": "Pentadecylic acid; n-Pentadecanoic acid",
+   "Formula": "C15 H30 O2",
+   "Mass": 242.4,
+   "Data  Points": 1334,
+   "SOFA  ID": "M_035"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetradecanoic acid, 12-methyl-",
+   "Delta - Notation": "ai-15:0",
+   "Other Names": "(?)-12-Methyltetradecanoic acid; 12-Methylmyristic acid; 12-Methyltetradecanoic acid; Anteiso-C15:0; Anteisopentadecanoic acid; C15-Anteiso acid; S...",
+   "Formula": "C15 H30 O2",
+   "Mass": 242.4,
+   "Data  Points": 9,
+   "SOFA  ID": "M_204"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetradecanoic acid, 13-methyl-",
+   "Delta - Notation": "i-15:0",
+   "Other Names": "13-Methylmyristic acid; 13-Methyltetradecanoic acid; Isopentadecanoic acid; Subtilopentadecanoic acid",
+   "Formula": "C15 H30 O2",
+   "Mass": 242.4,
+   "Data  Points": 6,
+   "SOFA  ID": "M_361"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tridecanedioic acid",
+   "Delta - Notation": "12-COOH-12:0",
+   "Other Names": "duplicate: delete this version TRIDECANEDIOIC ACID;Brassylic acid;1,11-Undecanedicarboxylic acid;Brassilic acid;",
+   "Formula": "C13H24O4",
+   "Mass": 244.17,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecatrienoic acid",
+   "Delta - Notation": "16:03",
+   "Other Names": "structure ambiguous",
+   "Formula": "C16H26O2",
+   "Mass": 250.19,
+   "Data  Points": 66,
+   "SOFA  ID": "M_319"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6-Undecenoic acid, 11-(2-cyclopenten-1-yl)-, (6Z)-",
+   "Delta - Notation": "16:2cy-delta-6c",
+   "Other Names": "Manoaic acid",
+   "Formula": "C16 H26 O2",
+   "Mass": 250.38,
+   "Data  Points": 1,
+   "SOFA  ID": "M_222"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,9,12-Hexadecatrienoic acid",
+   "Delta - Notation": "16:3-delta-6c,9c,12c",
+   "Other Names": "",
+   "Formula": "C16 H26 O2",
+   "Mass": 250.38,
+   "Data  Points": 1,
+   "SOFA  ID": "M_396"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,10,13-Hexadecatrienoic acid, (7Z,10Z,13Z)-",
+   "Delta - Notation": "16:3-delta-7c,10c,13c",
+   "Other Names": "Roughanic acid; 7,10,13-Hexadecatrienoic acid, (Z,Z,Z)-; (Z,Z,Z)-7,10,13-Hexadecatrienoic acid; Roughanic acid; all-cis-7,10,13-Hexadecatrienoic acid",
+   "Formula": "C16 H26 O2",
+   "Mass": 250.38,
+   "Data  Points": 178,
+   "SOFA  ID": "M_406"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "4-Undecenoic acid, 11-(2-cyclopenten-1-yl)-, (Z)-",
+   "Delta - Notation": "16:2cy-delta-4c",
+   "Other Names": "",
+   "Formula": "C16 H26 O2",
+   "Mass": 250.38,
+   "Data  Points": 1,
+   "SOFA  ID": "M_575"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Undecenoic acid, 11-(2-cyclopenten-1-yl)-, (Z)-",
+   "Delta - Notation": "16:2cy-delta-9c",
+   "Other Names": "",
+   "Formula": "C16 H26 O2",
+   "Mass": 250.38,
+   "Data  Points": 1,
+   "SOFA  ID": "M_576"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecadienoic acid",
+   "Delta - Notation": "16:02",
+   "Other Names": "structure ambiguous",
+   "Formula": "C16H28O2",
+   "Mass": 252.21,
+   "Data  Points": 110,
+   "SOFA  ID": "M_047"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "16:0cy",
+   "Delta - Notation": "16:0cy",
+   "Other Names": "cyclopentenyl",
+   "Formula": "C16H28O2",
+   "Mass": 252.21,
+   "Data  Points": 1,
+   "SOFA  ID": "M_364"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,10-Hexadecadienoic acid, (7Z,10Z)-",
+   "Delta - Notation": "16:2-delta-7c,10c",
+   "Other Names": "7,10-Hexadecadienoic acid, (Z,Z)-; (7Z,10Z)-Hexadecadienoic acid; (Z,Z)-7,10-Hexadecadienoic acid; 7Z,10Z-Hexadecadienoic acid",
+   "Formula": "C16 H28 O2",
+   "Mass": 252.39,
+   "Data  Points": 199,
+   "SOFA  ID": "M_049"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Hexadecadienoic acid, (9Z,12Z)-",
+   "Delta - Notation": "16:2-delta-9c,12c",
+   "Other Names": "9,12-Hexadecadienoic acid, (Z,Z)-; Palmitolinoleic acid; (Z,Z)-9,12-Hexadecadienoic acid",
+   "Formula": "C16 H28 O2",
+   "Mass": 252.39,
+   "Data  Points": 58,
+   "SOFA  ID": "M_050"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Cyclopentene-1-undecanoic acid, (1R)-",
+   "Delta - Notation": "16:1cy",
+   "Other Names": "Hydnocarpic acid; 2-Cyclopentene-1-undecanoic acid, (R)-; Hydnocarpic acid",
+   "Formula": "C16 H28 O2",
+   "Mass": 252.39,
+   "Data  Points": 51,
+   "SOFA  ID": "M_211"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,9-Hexadecadienoic acid, (6Z,9Z)-",
+   "Delta - Notation": "16:2-delta-6c,9c",
+   "Other Names": "6,9-Hexadecadienoic acid, (Z,Z)-",
+   "Formula": "C16 H28 O2",
+   "Mass": 252.39,
+   "Data  Points": 6,
+   "SOFA  ID": "M_393"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "4,7-Hexadecadienoic acid, (Z,Z)-",
+   "Delta - Notation": "16:2-delta-4c,7c",
+   "Other Names": "",
+   "Formula": "C16 H28 O2",
+   "Mass": 252.39,
+   "Data  Points": 3,
+   "SOFA  ID": "M_519"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecenoic acid",
+   "Delta - Notation": "16:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C16H30O2",
+   "Mass": 254.22,
+   "Data  Points": 3294,
+   "SOFA  ID": "M_039"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Octylcyclopropanepentanoic acid",
+   "Delta - Notation": "6,7-cpa-15:0",
+   "Other Names": "Cyclopropanepentanoi���c acid, 2-���octyl-���; 6,7-Methylenetetradecanoic acid; 2-Octylcyclopropanepentanoic acid",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.22,
+   "Data  Points": 1,
+   "SOFA  ID": "M_308"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Hexadecenoic acid, (2Z)-",
+   "Delta - Notation": "16:1-delta-2c",
+   "Other Names": "2-Hexadecenoic acid, (Z)-",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 1,
+   "SOFA  ID": "M_040"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5-Hexadecenoic acid, (5Z)-",
+   "Delta - Notation": "16:1-delta-5t",
+   "Other Names": "5-Hexadecenoic acid, (Z)-, (5Z)-5-Hexadecenoic acid, (Z)-5-Hexadecenoic acid, cis-5-Hexadecenoic acid",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 22,
+   "SOFA  ID": "M_041"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7-Hexadecenoic acid, (7Z)-",
+   "Delta - Notation": "16:1-delta-7c",
+   "Other Names": "7-Hexadecenoic acid, (Z)-; (Z)-7-Hexadecenoic acid; 7Z-Hexadecenoic acid; Hypogeic acid; cis-7-Hexadecenoic acid",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 560,
+   "SOFA  ID": "M_042"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Hexadecenoic acid, (9Z)-",
+   "Delta - Notation": "16:1-delta-9c",
+   "Other Names": "Palmitoleic acid; 9-Hexadecenoic acid, (Z)-; Palmitoleic acid; (Z)-9-Hexadecenoic acid; (Z)-Hexadec-9-enoic acid; 9-Hexadecenoic acid; 9-cis-Hexade...",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 2514,
+   "SOFA  ID": "M_043"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Hexadecenoic acid, (11Z)-",
+   "Delta - Notation": "16:1-delta-11c",
+   "Other Names": "11-Hexadecenoic acid, (Z)-; (11Z)-11-Hexadecenoic acid; (Z)-11-Hexadecenoic acid; Hexadec-11(Z)-enoic acid; cis-11-Hexadecenoic acid; -delta-11-Hex...",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 88,
+   "SOFA  ID": "M_045"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3-Hexadecenoic acid, (3E)-",
+   "Delta - Notation": "16:1-delta-3t",
+   "Other Names": "3-Hexadecenoic acid, (E)-; (E)-3-Hexadecenoic acid; 3-E-Hexadecenoic acid; trans-3-Hexadecenoic acid; -delta-3-trans-Hexadecenoic acid",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 73,
+   "SOFA  ID": "M_304"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "4-Hexadecenoic acid, (4Z)-",
+   "Delta - Notation": "16:1-delta-4c",
+   "Other Names": "4-Hexadecenoic acid, (Z)-; C16:1w12; cis-4-Hexadecenoic acid",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 1,
+   "SOFA  ID": "M_363"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5-Hexadecenoic acid, (5Z)-",
+   "Delta - Notation": "16:1-delta-5c",
+   "Other Names": "5-Hexadecenoic acid, (Z)-; (Z)-5-Hexadecenoic acid; cis-5-Hexadecenoic acid",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 61,
+   "SOFA  ID": "M_373"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6-Hexadecenoic acid, (6Z)-",
+   "Delta - Notation": "16:1-delta-6c",
+   "Other Names": "Sapienic acid; 6-Hexadecenoic acid, (Z)-; (Z)-6-Hexadecenoic acid; 16:1-omega-10; C16:1-omega-10c; Sapienic acid; cis-6-Hexadecenoic acid",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 6,
+   "SOFA  ID": "M_381"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Hexadecenoic acid, (10Z)-",
+   "Delta - Notation": "16:1-delta-10c",
+   "Other Names": "10-Hexadecenoic acid, (Z)-; cis-10-Hexadecenoic acid; -delta-10-Hexadecenoic acid",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 3,
+   "SOFA  ID": "M_394"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8-Hexadecenoic acid, (Z)-",
+   "Delta - Notation": "16:1-delta-8c",
+   "Other Names": "",
+   "Formula": "C16 H30 O2",
+   "Mass": 254.41,
+   "Data  Points": 2,
+   "SOFA  ID": "M_533"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecanoic acid",
+   "Delta - Notation": "16:00",
+   "Other Names": "Palmitic acid; Palmitic acid; Cetylic acid; n-Hexadecanoic acid; n-Hexadecoic acid",
+   "Formula": "C16 H32 O2",
+   "Mass": 256.42,
+   "Data  Points": 12796,
+   "SOFA  ID": "M_038"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Pentadecanoic acid, 14-methyl-",
+   "Delta - Notation": "i-16:0",
+   "Other Names": "14-Methylpentadecanoic acid; Iso-C16:0; Isohexadecanoic acid; Isopalmitic acid",
+   "Formula": "C16 H32 O2",
+   "Mass": 256.42,
+   "Data  Points": 14,
+   "SOFA  ID": "M_196"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Pentadecanoic acid, 13-methyl-",
+   "Delta - Notation": "ai-16:0",
+   "Other Names": "13-DL-Methyl pentadecanoic acid; 13-Methylpentadecanoic acid; Anteiso-C16:0; Anteisohexadecanoic acid; Anteisopalmitic acid",
+   "Formula": "C16 H32 O2",
+   "Mass": 256.42,
+   "Data  Points": 2,
+   "SOFA  ID": "M_362"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Pentadecanoic acid, 9-hydroxy-",
+   "Delta - Notation": "9-OH-15:0",
+   "Other Names": "",
+   "Formula": "C15H30O3",
+   "Mass": 258.4,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,16-Heptadecadien-8-ynoic acid, (E)-",
+   "Delta - Notation": "17:3-delta-8a,10t,16",
+   "Other Names": "",
+   "Formula": "C17 H26 O2",
+   "Mass": 262.39,
+   "Data  Points": 1,
+   "SOFA  ID": "M_450"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Phenylundecanoic acid",
+   "Delta - Notation": "11-Ph-11:0",
+   "Other Names": "",
+   "Formula": "C17H26O2",
+   "Mass": 262.43,
+   "Data  Points": 2,
+   "SOFA  ID": "M_531"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Heptadecen-8-ynoic acid, (10E)-",
+   "Delta - Notation": "17:2-delta-8a,10t",
+   "Other Names": "Pyrulic acid; 10-Heptadecen-8-ynoic acid, (E)-; Pyrulic acid",
+   "Formula": "C17 H28 O2",
+   "Mass": 264.4,
+   "Data  Points": 21,
+   "SOFA  ID": "M_056"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,11,14-Heptadecatrienoic acid, (8Z,11Z,14Z)-",
+   "Delta - Notation": "17:3-delta-8c,11c,14c",
+   "Other Names": "8,11,14-Heptadecatrienoic acid, (Z,Z,Z)-; 8(Z),11(Z),14(Z)-Heptadecatrienoic acid; Norlinolenic acid",
+   "Formula": "C17 H28 O2",
+   "Mass": 264.4,
+   "Data  Points": 3,
+   "SOFA  ID": "M_057"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heptadecadienoic acid",
+   "Delta - Notation": "17:02",
+   "Other Names": "structure ambiguous",
+   "Formula": "C17H30O2",
+   "Mass": 266.22,
+   "Data  Points": 85,
+   "SOFA  ID": "M_055"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Heptadecadienoic acid",
+   "Delta - Notation": "17:2-delta-9,12",
+   "Other Names": "9,12-Heptadecadienoic acid;cis-9,cis-12-heptadecadienoic acid;",
+   "Formula": "C17H30O2",
+   "Mass": 266.42,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heptadecenoic acid",
+   "Delta - Notation": "17:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C17H32O2",
+   "Mass": 268.24,
+   "Data  Points": 496,
+   "SOFA  ID": "M_053"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Heptadecenoic acid, (10Z)-",
+   "Delta - Notation": "17:1-delta-10c",
+   "Other Names": "10-Heptadecenoic acid, (Z)-; 10-cis-Heptadecenoic acid; Z 10-Heptadecenoic acid; cis-10-Heptadecenoic acid",
+   "Formula": "C17 H32 O2",
+   "Mass": 268.43,
+   "Data  Points": 241,
+   "SOFA  ID": "M_054"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Cyclopropanehexanoic acid, 2-octyl-, (1R,2S)-rel-",
+   "Delta - Notation": "7,8-cpa-17:0",
+   "Other Names": "Cyclopropanehexanoic acid, 2-octyl-, cis-",
+   "Formula": "C17 H32 O2",
+   "Mass": 268.43,
+   "Data  Points": 6,
+   "SOFA  ID": "M_307"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Heptadecenoic acid, (9Z)-",
+   "Delta - Notation": "17:1-delta-9c",
+   "Other Names": "9-Heptadecenoic acid, (Z)-; (9Z)-9-Heptadecenoic acid; (Z)-9-Heptadecenoic acid; (Z)-Heptadec-9-enoic acid; Margaroleic acid; cis-9-Heptadecenoic ...",
+   "Formula": "C17 H32 O2",
+   "Mass": 268.43,
+   "Data  Points": 98,
+   "SOFA  ID": "M_355"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8-Heptadecenoic acid, (8Z)-",
+   "Delta - Notation": "17:1-delta-8c",
+   "Other Names": "8-Heptadecenoic acid, (Z)-; (Z)-Heptadec-8-enoic acid; 8-Heptadecenoic acid, cis-",
+   "Formula": "C17 H32 O2",
+   "Mass": 268.43,
+   "Data  Points": 13,
+   "SOFA  ID": "M_412"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Cyclopropaneoctanoic acid, 2-hexyl-",
+   "Delta - Notation": "9,10-cpa-17:0",
+   "Other Names": "2-Hexylcyclopropaneoctanoic acid; 9,10-Methylenehexadecanoic acid; Hexadecanoic acid, 9,10-methylene-",
+   "Formula": "C17 H32 O2",
+   "Mass": 268.43,
+   "Data  Points": 17,
+   "SOFA  ID": "M_497"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Heptadecenoic acid",
+   "Delta - Notation": "17:1-delta-11",
+   "Other Names": "heptadec-11-enoic acid",
+   "Formula": "C17H32O2",
+   "Mass": 268.44,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Hexadecenoic acid, 15-methyl-",
+   "Delta - Notation": "15-Me-16:1-delta-11",
+   "Other Names": "",
+   "Formula": "C17H32O2",
+   "Mass": 268.44,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecanoic acid, 9,10-methylene-",
+   "Delta - Notation": "9,10-cpa-16:0",
+   "Other Names": "",
+   "Formula": "C17H32O2",
+   "Mass": 268.44,
+   "Data  Points": 4,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecanoic acid, 7,8-methylene-",
+   "Delta - Notation": "7,8-cpa-16:0",
+   "Other Names": "",
+   "Formula": "C17H32O2",
+   "Mass": 268.44,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxyhexadecenoic acid",
+   "Delta - Notation": "OH-16:1",
+   "Other Names": "structure ambiguous",
+   "Formula": "C16H30O3",
+   "Mass": 270.22,
+   "Data  Points": 26,
+   "SOFA  ID": "M_387"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heptadecanoic acid",
+   "Delta - Notation": "17:00",
+   "Other Names": "Margaric acid; Margaric acid; Margarinic acid; NSC 3743; n-Heptadecanoic acid; n-Heptadecoic acid; n-Heptadecylic acid",
+   "Formula": "C17 H34 O2",
+   "Mass": 270.45,
+   "Data  Points": 2106,
+   "SOFA  ID": "M_052"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecanoic acid, 15-methyl-",
+   "Delta - Notation": "i-17:0",
+   "Other Names": "15-Methylhexadecanoic acid; 15-Methylpalmitic acid; Isoheptadecanoic acid; Subtiloheptadecanoic acid",
+   "Formula": "C17 H34 O2",
+   "Mass": 270.45,
+   "Data  Points": 15,
+   "SOFA  ID": "M_197"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecanoic acid, 14-methyl-",
+   "Delta - Notation": "ai-17:0",
+   "Other Names": "Methylpalmitic acid; Palmitic acid, -nu--methyl-; 14-Methylhexadecanoic acid; 14-Methylpalmitic acid; Ai17:0; Anteisoheptadecanoic acid; Anteisomar...",
+   "Formula": "C17 H34 O2",
+   "Mass": 270.45,
+   "Data  Points": 158,
+   "SOFA  ID": "M_205"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13,17-Octadecadiene-9,11-diynoic acid",
+   "Delta - Notation": "18:4-delta-9a,11a,13t,17",
+   "Other Names": "",
+   "Formula": "C18 H24 O2",
+   "Mass": 272.38,
+   "Data  Points": 4,
+   "SOFA  ID": "M_432"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecanoic acid, 2-hydroxy-",
+   "Delta - Notation": "2-OH-16:0",
+   "Other Names": "(�)-2-Hydroxyhexadecanoic acid; (�)-�-Hydroxypalmitic acid; 2-Hydroxyhexadecanoic acid; 2-Hydroxypalmitic acid; DL-2-Hydroxyhexadecanoic acid; DL-...",
+   "Formula": "C16 H32 O3",
+   "Mass": 272.42,
+   "Data  Points": 3,
+   "SOFA  ID": "M_249"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13-Octadecene-9,11-diynoic acid, (13E)-",
+   "Delta - Notation": "18:3-delta-9a,11a,13t",
+   "Other Names": "Exocarpic acid; 13-Octadecene-9,11-diynoic acid, (E)-; Exocarpic acid; Octadeca-trans-13-ene-9,11-diynoic acid",
+   "Formula": "C18 H26 O2",
+   "Mass": 274.4,
+   "Data  Points": 7,
+   "SOFA  ID": "M_099"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "17-Octadecene-9,11-diynoic acid",
+   "Delta - Notation": "18:3-delta-9a,11a,17",
+   "Other Names": "Erythrogenic acid; Isanic acid",
+   "Formula": "C18 H26 O2",
+   "Mass": 274.4,
+   "Data  Points": 7,
+   "SOFA  ID": "M_100"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "(9Z,12Z,15Z)-octadeca-9,12,15-trien-6-ynoic acid",
+   "Delta - Notation": "18:4-6a,9c,12c,15c",
+   "Other Names": "Dicranin ; (9Z,12Z,15Z)-octadeca-9,12,15-trien-6-ynoic acid; Octadeca-6-yn-9,12,15(all Z)-trienoic acid (18:4a); Dicranin",
+   "Formula": "C18 H26 O2",
+   "Mass": 274.4,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecanoic acid, 16-fluoro-",
+   "Delta - Notation": "16-F-16:0",
+   "Other Names": "; 16-Fluoropalmitic acid",
+   "Formula": "C16 H31 F O2",
+   "Mass": 274.41,
+   "Data  Points": 2,
+   "SOFA  ID": "M_175"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "(9Z,12Z)-octadeca-9,12-dien-6-ynoic acid",
+   "Delta - Notation": "18:3-delta-6a,9c,12c",
+   "Other Names": "Octadeca-6-yn-9,12(all Z)-dienoic acid (18:3a)",
+   "Formula": "C18 H28 O2",
+   "Mass": 276,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecatetraenoic acid",
+   "Delta - Notation": "18:04",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H28O2",
+   "Mass": 276.21,
+   "Data  Points": 129,
+   "SOFA  ID": "M_111"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "conjugated octadecatetraenoic acids",
+   "Delta - Notation": "18:4 conjugated",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H28O2",
+   "Mass": 276.21,
+   "Data  Points": 1,
+   "SOFA  ID": "M_420"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,14-Octadecadien-12-ynoic acid, (9Z,14Z)-",
+   "Delta - Notation": "18:3-delta-9c,12c,14a",
+   "Other Names": "Dehydrocrepenynic acid; 9,14-Octadecadien-12-ynoic acid, (Z,Z)-; 14,15-Dehydrocrepenynic acid; Crepenynic acid, 14,15-dehydro-; Dehydrocrepenynic acid",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 11,
+   "SOFA  ID": "M_105"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,6,9,12-Octadecatetraenoic acid, (3Z,6Z,9Z,12Z)-",
+   "Delta - Notation": "18:4-delta-3c,6c,9c,12c",
+   "Other Names": "3,6,9,12-Octadecatetraenoic acid, (all-Z)-; Dihomo--gamma--linoleinic acid",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 4,
+   "SOFA  ID": "M_112"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,9,12,15-Octadecatetraenoic acid, (5Z,9Z,12Z,15Z)-",
+   "Delta - Notation": "18:4-delta-5c,9c,12c,15c",
+   "Other Names": "Coniferonic acid; 5,9,12,15-Octadecatetraenoic acid, (all-Z)-; Coniferonic acid",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 387,
+   "SOFA  ID": "M_113"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,9,12,15-Octadecatetraenoic acid, (5E,9Z,12Z,15Z)-",
+   "Delta - Notation": "18:4-delta-5t,9c,12c,15c",
+   "Other Names": "5,9,12,15-Octadecatetraenoic acid, (Z,Z,Z,E)-",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 12,
+   "SOFA  ID": "M_114"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,���9,���12,���15-���Octadecatetraenoic acid, (6Z,���9Z,���12Z,���15Z)���-",
+   "Delta - Notation": "18:4-delta-6c,9c,12c,15c",
+   "Other Names": "Stearidonic acid; 6,9,12,15-Octadecatetraenoic acid, (all-Z)-;(6Z,9Z,12Z,15Z)-6,9,12,15-Octadecatetraenoic acid; (6Z,9Z,12Z,15Z)-Octadecatetraenoic...",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 313,
+   "SOFA  ID": "M_115"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,10,12,14-Octadecatetraenoic acid, (8Z,10Z,12Z,14E)-",
+   "Delta - Notation": "18:4-delta-8c,10c,12c,14t",
+   "Other Names": "Ixoric acid; 8,10,12,14-Octadecatetraenoic acid, (E,Z,Z,Z)-; Ixoric acid",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 1,
+   "SOFA  ID": "M_116"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11,13,15-Octadecatetraenoic acid",
+   "Delta - Notation": "18:4-delta-9,11,13,15",
+   "Other Names": "Parinaric acid; Parinaric acid",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 8,
+   "SOFA  ID": "M_117"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,10-Octadecadien-12-ynoic acid, (8E,10E)-",
+   "Delta - Notation": "18:3-delta-8t,10t,12a",
+   "Other Names": "",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 1,
+   "SOFA  ID": "M_333"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11,13,15-Octadecatetraenoic acid, (9Z,11E,13E,15Z)-",
+   "Delta - Notation": "18:4-delta-9c,11t,13t,15c",
+   "Other Names": "9,11,13,15-Octadecatetraenoic acid, (Z,Z,E,E)-; 9-cis,11-trans,13-trans,15-cis-Octadecatetraenoic acid; cis-Parinaric acid; -alpha--PAC; -alpha--Pa...",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 20,
+   "SOFA  ID": "M_365"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,9,12,15-Octadecatetraenoic acid, (E,Z,Z,Z)-",
+   "Delta - Notation": "i-18:3*?18:4",
+   "Other Names": "",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 7,
+   "SOFA  ID": "M_370"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11-Octadecadiynoic acid",
+   "Delta - Notation": "18:2-delta-9a,11a",
+   "Other Names": "",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 6,
+   "SOFA  ID": "M_371"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11,17-Octadecadien-9-ynoic acid, (E)-",
+   "Delta - Notation": "18:3-delta-9a,11t,17",
+   "Other Names": "trans-11,17-Octadecadien-9-ynoic acid",
+   "Formula": "C18 H28 O2",
+   "Mass": 276.41,
+   "Data  Points": 1,
+   "SOFA  ID": "M_451"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "E,Z,Z,Z-3,9,12,15-Octadecatetraenoic acid",
+   "Delta - Notation": "18:4-delta-3t,9c,12c,15c",
+   "Other Names": "",
+   "Formula": "C18H28O2",
+   "Mass": 276.46,
+   "Data  Points": 1,
+   "SOFA  ID": "M_369"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecatrienoic acid",
+   "Delta - Notation": "18:03",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H30O2",
+   "Mass": 278.22,
+   "Data  Points": 3000,
+   "SOFA  ID": "M_089"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "conjugated octadecatrienes",
+   "Delta - Notation": "18:3conj.",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H30O2",
+   "Mass": 278.22,
+   "Data  Points": 23,
+   "SOFA  ID": "M_325"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,16-Heptadecadien-8-ynoic acid, 7-hydroxy-, (E)-",
+   "Delta - Notation": "7-OH-17:3-delta-8a,10t,16",
+   "Other Names": "",
+   "Formula": "C17 H26 O3",
+   "Mass": 278.39,
+   "Data  Points": 1,
+   "SOFA  ID": "M_454"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "17-Octadecen-6-ynoic acid",
+   "Delta - Notation": "18:2-delta-6a,17",
+   "Other Names": "Alvaradoic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 2,
+   "SOFA  ID": "M_077"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Octadecen-9-ynoic acid, (11E)-",
+   "Delta - Notation": "18:2-delta-9a,11t",
+   "Other Names": "Santalbic acid; 11-Octadecen-9-ynoic acid, (E)-; 11-Octadecen-9-ynoic acid, trans-; Ximenynic acid; Santalbic acid; Ximeninic acid; trans-11-Octade...",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 45,
+   "SOFA  ID": "M_079"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecen-12-ynoic acid, (9Z)-",
+   "Delta - Notation": "18:2-delta-9c,12a",
+   "Other Names": "Crepenynic acid; 9-Octadecen-12-ynoic acid, (Z)-; (Z)-9-Octadecen-12-ynoic acid; 9(Z)-Octadec-9-en-12-ynoic acid; Crepenynic acid; cis-9-Octadecen-...",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 49,
+   "SOFA  ID": "M_081"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,9,12-Octadecatrienoic acid, (3E,9Z,12Z)-",
+   "Delta - Notation": "18:3-delta-3t,9c,12c",
+   "Other Names": "3,9,12-Octadecatrienoic acid, (E,Z,Z)-; trans-3,cis-9,cis-12-Octadecatrienoic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 42,
+   "SOFA  ID": "M_090"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,6,16-Octadecatrienoic acid",
+   "Delta - Notation": "18:3-delta-5,6allene,16t",
+   "Other Names": "Lamenallenic acid; 5,6,16-Octadecatrienoic acid, (E)-(-)-; 5,6,16-Octadecatrienoic acid, [R-(E)]-; (-)-Octadeca-5,6-trans-16-trienoic acid; Lamenal...",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 12,
+   "SOFA  ID": "M_091"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,9,12-Octadecatrienoic acid, (5Z,9Z,12Z)-",
+   "Delta - Notation": "18:3-delta-5c,9c,12c",
+   "Other Names": "Pinolenic acid; 5,9,12-Octadecatrienoic acid, (Z,Z,Z)-; (Z,Z,Z)-5,9,12-Octadecatrienoic acid; 5,9,12-cis-Octadecatrienoic acid; Pinolenic acid; cis...",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 606,
+   "SOFA  ID": "M_092"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,9,12-Octadecatrienoic acid, (E,Z,Z)-",
+   "Delta - Notation": "18:3-delta-5t,9c,12c",
+   "Other Names": "Columbinic acid; Aquilegic acid; Ranunculeic acid; Columbinic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 30,
+   "SOFA  ID": "M_093"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,9,12-Octadecatrienoic acid, (6Z,9Z,12Z)-",
+   "Delta - Notation": "18:3-delta-6c,9c,12c",
+   "Other Names": "gamma--Linolenic acid; 6,9,12-Octadecatrienoic acid, (Z,Z,Z)-; -gamma--Linolenic acid; (Z,Z,Z)-6,9,12-Octatrienoic acid; 6(Z),9(Z),12(Z)-Octadecatr...",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 932,
+   "SOFA  ID": "M_094"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,10,12-Octadecatrienoic acid, (Z,E,Z)- (8CI)",
+   "Delta - Notation": "18:3-delta-8c,10t,12c",
+   "Other Names": "Jacaric acid; Jacaranda acid; Jacaric acid; Jacaranda acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 4,
+   "SOFA  ID": "M_095"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,10,12-Octadecatrienoic acid, (8E,10E,12Z)-",
+   "Delta - Notation": "18:3-delta-8t,10t,12c",
+   "Other Names": "Calendic acid; 8,10,12-Octadecatrienoic acid, (E,E,Z)-; Calendic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 17,
+   "SOFA  ID": "M_096"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,10,12-Octadecatrienoic acid, (8E,10E,12E)-",
+   "Delta - Notation": "18:3-delta-8t,10t,12t",
+   "Other Names": "Beta-Calendic acid; 8,10,12-Octadecatrienoic acid, (E,E,E)-; trans,trans,trans-8,10,12-Octadecatrienoic acid; -beta--Calendic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 14,
+   "SOFA  ID": "M_097"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11,13-Octadecatrienoic acid, (9Z,11E,13E)-",
+   "Delta - Notation": "18:3-delta-9c,11t,13t",
+   "Other Names": "alpha-eleostearic acid; 9,11,13-Octadecatrienoic acid, (E,Z,E)-; cis,trans,trans-9,11,13-Octadecatrienoic acid; cis-Eleostearic acid; -alpha--Eleos...",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 120,
+   "SOFA  ID": "M_101"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11,13-Octadecatrienoic acid, (9Z,11Z,13E)-",
+   "Delta - Notation": "18:3-delta-9c,11t,13c",
+   "Other Names": "Punicinic acid; 9,11,13-Octadecatrienoic acid, (E,Z,Z)-; Punicic acid; Trichosanoic acid; Punicinic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 62,
+   "SOFA  ID": "M_102"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12,15-Octadecatrienoic acid, (9Z,12Z,15Z)-",
+   "Delta - Notation": "18:3-delta-9c,12c,15c",
+   "Other Names": "alpha-linolenic acid; 9,12,15-Octadecatrienoic acid, (Z,Z,Z)-; Linolenic acid; (9Z,12Z,15Z)-9,12,15-Octadecatrienoic acid; (Z,Z,Z)-Octadeca-9,12,15...",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 6262,
+   "SOFA  ID": "M_106"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11,13-Octadecatrienoic acid, (9E,11E,13Z)-",
+   "Delta - Notation": "18:3-delta-9t,11t,13c",
+   "Other Names": "Catalpic acid; 9,11,13-Octadecatrienoic acid, (Z,E,E)-; Catalpic acid; trans,trans,cis-9,11,13-Octadecatrienoic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 30,
+   "SOFA  ID": "M_107"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11,13-Octadecatrienoic acid",
+   "Delta - Notation": "18:3-delta-9t,11t,13t",
+   "Other Names": "beta-Eleostearic acid; all trans-Eleostearic acid; Elaeostearic acid; NSC 407903; beta--Eleostearic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 21,
+   "SOFA  ID": "M_108"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12,15-Octadecatrienoic acid, (9E,12E,15E)-",
+   "Delta - Notation": "18:3-delta-9t,12t,15t",
+   "Other Names": "9,12,15-Octadecatrienoic acid, (E,E,E)-; Elaidolinolenic acid; (All trans)-9,12,15-Octadecatrienoic acid; Linolenelaidic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 5,
+   "SOFA  ID": "M_109"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6-Tridecenoic acid, 13-(2-cyclopenten-1-yl)-, (6Z)-",
+   "Delta - Notation": "18:2cy-delta-6c",
+   "Other Names": "Gorlic acid; Gorlic acid; 13R-(2-cyclopenten-1-yl)-6Z-tridecenoic acid; (6Z)-13-[(1R)-cyclopent-2-en-1-yl]tridec-6-enoic acid; NSC 313951",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 20,
+   "SOFA  ID": "M_219"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "4-Tridecenoic acid, 13-(2-cyclopenten-1-yl)-, (4Z)-",
+   "Delta - Notation": "18:2cy-delta-4c",
+   "Other Names": "Isogorlic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 5,
+   "SOFA  ID": "M_220"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tridecenoic acid, 13-(2-cyclopenten-1-yl)-",
+   "Delta - Notation": "18:2cy",
+   "Other Names": "Gorlic acid; structure ambiguous, unspecified double bond position and configuration; Gorlic acid",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 41,
+   "SOFA  ID": "M_313"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Z,Z,Z-8,11,14-Octadecatrienoic acid",
+   "Delta - Notation": "18:3-delta-8c,11c,14c",
+   "Other Names": "Z,Z,Z-8,11,14-Octadecatrienoic acid; 8c,11c,14c-Octadecatrienoic acid",
+   "Formula": "C18H30O2",
+   "Mass": 278.43,
+   "Data  Points": 40,
+   "SOFA  ID": "M_356"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Tridecenoic acid, 13-(2-cyclopenten-1-yl)-, (Z)-",
+   "Delta - Notation": "18:2cy-delta-9c",
+   "Other Names": "",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 1,
+   "SOFA  ID": "M_459"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,6,9-Octadecatrienoic acid, (3Z,6Z,9Z)-",
+   "Delta - Notation": "18:3-delta-3c,6c,9c",
+   "Other Names": "3,6,9-Octadecatrienoic acid, (Z,Z,Z)-",
+   "Formula": "C18 H30 O2",
+   "Mass": 278.43,
+   "Data  Points": 4,
+   "SOFA  ID": "M_525"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12,15-Octadecatrienoic acid, (Z,Z,E)-",
+   "Delta - Notation": "18:3-Delta-9c,12c,15t",
+   "Other Names": "(9Z,12Z,15E)-9,12,15-Octadecatriens�_ure, (9Z,12Z,15E)-9,12,15-Octadecatrienoic acid, 9Z,12Z,15E-octadecatrienoic acid, cis,cis,cis-9,12,15-octadeca...",
+   "Formula": "C18H30O2",
+   "Mass": 278.43,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,12,15-Octadecatrienoic acid",
+   "Delta - Notation": "18:3-delta-6,12,15",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H30O2",
+   "Mass": 278.43,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12,16-Octadecatrienoic acid",
+   "Delta - Notation": "18:3-delta-9,12,16",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H30O2",
+   "Mass": 278.43,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,13,16-Octadecatrienoic acid",
+   "Delta - Notation": "18:3-delta-9,13,16",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H30O2",
+   "Mass": 278.43,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,9,11-Octadecatrienoic acid",
+   "Delta - Notation": "18:3-delta-6,9,11",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H30O2",
+   "Mass": 278.43,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,9,12-Octadecatrienoic acid, (Z,Z,Z)-",
+   "Delta - Notation": "18:3-delta-3c,9c,12c",
+   "Other Names": "Z,Z,Z-octadeca-3,9,12-trienoic",
+   "Formula": "C18H30O2",
+   "Mass": 278.48,
+   "Data  Points": 1,
+   "SOFA  ID": "M_582"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecadienoic acid",
+   "Delta - Notation": "18:02",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H32O2",
+   "Mass": 280.24,
+   "Data  Points": 4320,
+   "SOFA  ID": "M_072"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "conjugated octadecadienoic acid",
+   "Delta - Notation": "18:2 conj.",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H32O2",
+   "Mass": 280.24,
+   "Data  Points": 21,
+   "SOFA  ID": "M_324"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8-Octadecynoic acid",
+   "Delta - Notation": "18:1-delta-8a",
+   "Other Names": "octadec-8-ynoic acid",
+   "Formula": "C18H32O2",
+   "Mass": 280.24,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Octadecynoic acid",
+   "Delta - Notation": "18:1-delta-11a",
+   "Other Names": "11-Octadecynoic acid;Octadec-11-ynoic acid;11-Octadecinsaeure;11-Octadecynsaeure;Octadec-11-insaeure",
+   "Formula": "C18H32O2",
+   "Mass": 280.24,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Heptadecen-8-ynoic acid, 7-hydroxy-, (E)-",
+   "Delta - Notation": "7-OH-17:2-delta-8a,10t",
+   "Other Names": "",
+   "Formula": "C17 H28 O3",
+   "Mass": 280.4,
+   "Data  Points": 1,
+   "SOFA  ID": "M_453"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6-Octadecynoic acid",
+   "Delta - Notation": "18:1-delta-6a",
+   "Other Names": "Tariric acid; Tariric acid; 6,7-Stearolic acid; 6-Stearolic acid; NSC 37392",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 8,
+   "SOFA  ID": "M_062"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecynoic acid",
+   "Delta - Notation": "18:1-delta-9a",
+   "Other Names": "Stearolic acid; Stearolic acid; 9-Stearolic acid; Octadecanoic acid-9-yne",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 30,
+   "SOFA  ID": "M_065"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,6-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-5,6allene",
+   "Other Names": "Laballenic acid; 5,6-Octadecadienoic acid, (R)-; 5,6-Octadecadienoic acid, (R)-(-)-; Laballenic acid; (-)-5,6-Octadecadienoic acid",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 76,
+   "SOFA  ID": "M_073"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,9-Octadecadienoic acid, (5Z,9Z)-",
+   "Delta - Notation": "18:2-delta-5c,9c",
+   "Other Names": "Taxoleic acid; 5,9-Octadecadienoic acid, (Z,Z)-; (Z,Z)-5,9-Octadecadienoic acid; 5Z,9Z-Octadecadienoic acid; Taxoleic acid; cis,cis-5,9-Octadecadie...",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 596,
+   "SOFA  ID": "M_074"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,9-Octadecadienoic acid, (Z,E)-",
+   "Delta - Notation": "18:2-delta-5t,9c",
+   "Other Names": "5,���9-���Octadecadienoic acid, (5E,���9Z)���-; 5-trans-9-cis-Octadecadienoic acid",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 28,
+   "SOFA  ID": "M_076"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11-Octadecadienoic acid, (9Z,11Z)-",
+   "Delta - Notation": "18:2-delta-9c,11c",
+   "Other Names": "9,11-Octadecadienoic acid, (Z,Z)-; (9Z,11Z)-9,11-Octadecadienoic acid; 9-cis,11-cis-Linoleic acid; 9-cis-11-cis-Octadecadienoic acid; cis-9,cis-11-...",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 1,
+   "SOFA  ID": "M_080"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Octadecadienoic acid, (9Z,12Z)-",
+   "Delta - Notation": "18:2-delta-9c,12c",
+   "Other Names": "Linoleic acid; 9,12-Octadecadienoic acid (Z,Z)-; Linoleic acid; (9Z,12Z)-9,12-Octadecadienoic acid; (Z,Z)-9,12-Octadecadienoic acid; 9,12-Octadecad...",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 8576,
+   "SOFA  ID": "M_082"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Octadecadienoic acid, (9E,12Z)-",
+   "Delta - Notation": "18:2-delta-9c,12t",
+   "Other Names": "9,12-Octadecadienoic acid, (Z,E)-; (9E,12Z)-9,12-Octadecadienoic acid; 9-trans,12-cis-Octadecadienoic acid; 9-trans-12-cis-Linoleic acid; trans-9-c...",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 7,
+   "SOFA  ID": "M_083"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11-Octadecadienoic acid, (9E,11E)-",
+   "Delta - Notation": "18:2-delta-9t,11t",
+   "Other Names": "9,11-Octadecadienoic acid, (E,E)-; Isolinoleic acid; (9E,11E)-9,11-Octadecadienoic acid; 9,11-Isolinoleic acid; 9-trans,11-trans-Linoleic acid; 9-...",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 8,
+   "SOFA  ID": "M_084"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Octadecadienoic acid, (9E,12E)-",
+   "Delta - Notation": "18:2-delta-9t,12t",
+   "Other Names": "9,12-Octadecadienoic acid, (E,E)-; Linolelaidic acid; 9-trans-12-trans-Linoleic acid; 9-trans-12-trans-Octadecadienoic acid; Linelaidic acid; Linoe...",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 37,
+   "SOFA  ID": "M_085"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,12-Octadecadienoic acid, (10E,12E)-",
+   "Delta - Notation": "18:2-delta-10t,12t",
+   "Other Names": "10,12-Octadecadienoic acid, (E,E)-; (10E,12E)-10,12-Octadecadienoic acid; 10-trans,12-trans-Linoleic acid; 10-trans-12-trans-Octadecadienoic acid; ...",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 5,
+   "SOFA  ID": "M_086"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11,14-Octadecadienoic acid, (11Z,14Z)-",
+   "Delta - Notation": "18:2-delta-11c,14c",
+   "Other Names": "11,14-Octadecadienoic acid, (Z,Z)-; cis,cis-11,14-Octadecadienoic acid; cis-11,cis-14-Octadecadienoic acid",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 8,
+   "SOFA  ID": "M_087"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Cyclopentene-1-tridecanoic acid, (1S)-",
+   "Delta - Notation": "18:1cy",
+   "Other Names": "Chaulmoogric acid; 2-Cyclopentene-1-tridecanoic acid, (S)-; Chaulmoogric acid;",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 56,
+   "SOFA  ID": "M_212"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "1-Cyclopropene-1-heptanoic acid, 2-octyl-",
+   "Delta - Notation": "8,9-cpe-18:1",
+   "Other Names": "Malvalic acid; Halphen acid; Malvalic acid; Malvic acid",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 369,
+   "SOFA  ID": "M_221"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,11-Octadecadienoic acid, (5Z,11Z)-",
+   "Delta - Notation": "18:2-delta-5c,11c",
+   "Other Names": "5,11-Octadecadienoic acid, (Z,Z)-; Ephedrenic acid; cis-5,cis-11-Octadecadienoic acid",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 31,
+   "SOFA  ID": "M_338"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,9-Octadecadienoic acid, (E,Z)-",
+   "Delta - Notation": "18:2-delta-3t,9c",
+   "Other Names": "trans-3,cis-9-Octadecadienoic acid",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 1,
+   "SOFA  ID": "M_380"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11-Octadecadienoic acid, (9E,11Z)-",
+   "Delta - Notation": "18:2-delta-9c,11t",
+   "Other Names": "9,11-Octadecadienoic acid, (Z,E)-; (9E,11Z)-9,11-Octadecadienoic acid; 9-trans,11-cis-Linoleic acid; 9-trans,11-cis-Octadecadienoic acid; 9E,11Z-Oc...",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 4,
+   "SOFA  ID": "M_415"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,9-Octadecadienoic acid, (6Z,9Z)-",
+   "Delta - Notation": "18:2-delta-6c,9c",
+   "Other Names": "6,9-Octadecadienoic acid, (Z,Z)-; (Z,Z)-6,9-Octadecadienoic acid; C18:2w9; cis,cis-6,9-Octadecadienoic acid; cis-6,cis-9-Octadecadienoic acid",
+   "Formula": "C18 H32 O2",
+   "Mass": 280.45,
+   "Data  Points": 8,
+   "SOFA  ID": "M_421"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,10-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-7,10",
+   "Other Names": "structure ambiguous: octadeca-7,10-dienoic acid",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 6,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "12,15-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-12,15",
+   "Other Names": "structure ambiguous; octadeca-12,15-dienoic acid",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 7,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "14,17-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-14,17",
+   "Other Names": "structure ambiguous; octadeca-14,17-dienoic acid",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 4,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,11-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-8,11",
+   "Other Names": "structure ambiguous; C18:2n-7,10; 8,11-OCTADECADIENOIC ACID;(8E,11E)-; octadeca-8,11-dienoic acid",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 22,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,13-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-10,13",
+   "Other Names": "structure ambiguous; 10,13-Octadecadienoic acid; CTK0E4891; CTK1E5879; OCTADECA-10,13-DIENOIC ACID",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 16,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,12-Octadecadienoic acid, (10E,12Z)-",
+   "Delta - Notation": "18:2-delta-10t,12c",
+   "Other Names": "",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 4,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13,16-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-13,16",
+   "Other Names": "",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 4,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,11-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-6,11",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,12-Octadecadienoic acid, (10Z,12E)-",
+   "Delta - Notation": "18:2-delta-10c,12t",
+   "Other Names": "",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,15-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-10,15",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,13-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-9,13",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11,13-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-11,13",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,15-Octadecadienoic acid",
+   "Delta - Notation": "18:2-delta-9,15",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H32O2",
+   "Mass": 280.45,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecenoic acid",
+   "Delta - Notation": "18:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H34O2",
+   "Mass": 282.26,
+   "Data  Points": 4134,
+   "SOFA  ID": "M_059"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "16-Octadecenoic acid",
+   "Delta - Notation": "18:1-delta-16",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H34O2",
+   "Mass": 282.26,
+   "Data  Points": 5,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "4-Octadecenoic acid",
+   "Delta - Notation": "18:1-delta-4",
+   "Other Names": "structure ambiguous: double bond configuration not specified; 4-octadecenoic acid;4-octadecylenic acid;C18:1n-14;21735-78-4;4-Octadecenoicacid;(E)-...",
+   "Formula": "C18H34O2",
+   "Mass": 282.26,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "15-Octadecenoic acid",
+   "Delta - Notation": "18:1-delta-11",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H34O2",
+   "Mass": 282.26,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Octadecenoic acid",
+   "Delta - Notation": "18:1-delta-15",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H34O2",
+   "Mass": 282.26,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Cyclopentanetridecanoic acid",
+   "Delta - Notation": "",
+   "Other Names": "dihydrochaulmoograte",
+   "Formula": "C18H34O2",
+   "Mass": 282.26,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5-Octadecenoic acid, (5Z)-",
+   "Delta - Notation": "18:1-delta-5c",
+   "Other Names": "5-Octadecenoic acid, (Z)-; (Z)-5-Octadecenoic acid; cis-5-Octadecenoic acid; -delta-5,6-Octadecenoic acid; -delta-5-cis-Octadecenoic acid",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 63,
+   "SOFA  ID": "M_060"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5-Octadecenoic acid, (5E)-",
+   "Delta - Notation": "18:1-delta-5t",
+   "Other Names": "Thalictric acid; 5-Octadecenoic acid, (E)-; (E)-5-Octadecenoic acid; Thalictric acid; trans-5-Octadecenoic acid; trans--delta-5-Octadecenoic acid; ...",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 20,
+   "SOFA  ID": "M_061"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6-Octadecenoic acid, (6E)-",
+   "Delta - Notation": "18:1-delta-6t",
+   "Other Names": "Petroselaidic acid; 6-Octadecenoic acid, (E)-; Petroselaidic acid; (E)-6-Octadecenoic acid; 6-trans-Octadecenoic acid; trans-6-Octadecenoic acid; t...",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 1,
+   "SOFA  ID": "M_064"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecenoic acid, (9Z)-",
+   "Delta - Notation": "18:1-delta-9c",
+   "Other Names": "Oleic acid; Oleic acid; 9-Octadecenoic acid (Z)-; 9-Octadecenoic acid, (Z)-; 9-cis-Octadecenoic acid; 9Z-Octadecenoic acid; B 115; C18:1; ; Z-9-Oct...",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 8813,
+   "SOFA  ID": "M_066"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecenoic acid, (9E)-",
+   "Delta - Notation": "18:1-delta-9t",
+   "Other Names": "Elaidic acid; 9-Octadecenoic acid, (E)-; Elaidic acid; (9E)-Octadecenoic acid; (E)-9-Octadecenoic acid; (E)-Oleic acid; 9-trans-Octadecenoic acid; ...",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 67,
+   "SOFA  ID": "M_067"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Octadecenoic acid, (11Z)-",
+   "Delta - Notation": "18:1-delta-11c",
+   "Other Names": "Asclepic acid; cis-Vaccenic acid; 11-Octadecenoic acid, (Z)-; 11-Octadecenoic acid, cis-; (Z)-11-Octadecenoic acid; (Z)-Octadec-11-enoic acid; 11-c...",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 1804,
+   "SOFA  ID": "M_069"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Octadecenoic acid, (11E)-",
+   "Delta - Notation": "18:1-delta-11t",
+   "Other Names": "Vaccenic acid; 11-Octadecenoic acid, (E)-, Vaccenic acid, (11E)-11-Octadecenoic acid, (E)-11-Octadecenoic acid, (E)-Octadec-11-enoic acid, 11(E)-O...",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 12,
+   "SOFA  ID": "M_070"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13-Octadecenoic acid, (13Z)-",
+   "Delta - Notation": "18:1-delta-13c",
+   "Other Names": "13-Octadecenoic acid, (Z)-; (Z)-13-Octadecenoic acid; 13(Z)-Octadecenoic acid; cis-13-Octadecenoic acid; -delta-13-cis-Octadecenoic acid",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 42,
+   "SOFA  ID": "M_071"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Cyclopropaneheptanoic acid, 2-octyl-",
+   "Delta - Notation": "8,9-cpa-18:0",
+   "Other Names": "Dihydromalvalic acid; Dihydromalvalic acid",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 41,
+   "SOFA  ID": "M_218"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3-Octadecenoic acid, (3E)-",
+   "Delta - Notation": "18:1-delta-3t",
+   "Other Names": "3-Octadecenoic acid, (E)-; (E)-3-Octadecenoic acid; trans-3-Octadecenoic acid",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 21,
+   "SOFA  ID": "M_305"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7-Octadecenoic acid, (7Z)-",
+   "Delta - Notation": "18:1-delta-7c",
+   "Other Names": "7-Octadecenoic acid, (Z)-; 7-Octadecenoic acid, cis-; (7Z)-7-Octadecenoic acid; (Z)-7-Octadecenoic acid; cis-7-Octadecenoic acid; ��7-cis-Octadecen...",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 59,
+   "SOFA  ID": "M_331"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8-Octadecenoic acid, (8Z)-",
+   "Delta - Notation": "18:1-delta-8c",
+   "Other Names": "8-Octadecenoic acid, (Z)-; C18:1-omega-10c; cis-8-Octadecenoic acid; -delta-8-cis-Octadecenoic acid",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 33,
+   "SOFA  ID": "M_332"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "12-Octadecenoic acid, (12Z)-",
+   "Delta - Notation": "18:1-delta-12c",
+   "Other Names": "12-Octadecenoic acid, (Z)-; 12-Octadecenoic acid, cis-; (Z)-12-Octadecenoic acid; 12Z-Octadecenoic acid; cis-12-Octadecenoic acid; -delta-12-cis-Oc...",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 10,
+   "SOFA  ID": "M_441"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6-Octadecenoic acid, (6Z)-",
+   "Delta - Notation": "18:1-delta-6c",
+   "Other Names": "Petroselinic acid; Petroselinic acid, 6-Octadecenoic acid, (Z)-, (6Z)-6-Octadecenoic acid, (6Z)-Octadecenoic acid, (Z)-6-Octadecenoic acid, 6(Z)-O...",
+   "Formula": "C18 H34 O2",
+   "Mass": 282.46,
+   "Data  Points": 364,
+   "SOFA  ID": "M_063"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Octadecenoic acid",
+   "Delta - Notation": "18:1-delta-10",
+   "Other Names": "structure ambiguous; octadec-10-enoic acid",
+   "Formula": "C18H34O2",
+   "Mass": 282.47,
+   "Data  Points": 19,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid",
+   "Delta - Notation": " 18:0",
+   "Other Names": "Stearic acid; Stearic acid; n-Octadecanoic acid",
+   "Formula": "C18 H36 O2",
+   "Mass": 284.48,
+   "Data  Points": 12227,
+   "SOFA  ID": "M_058"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heptadecanoic acid, 16-methyl-",
+   "Delta - Notation": "i-18:0",
+   "Other Names": "16-Methylheptadecanoic acid; Emersol 873; Isooctadecanoic acid; Isostearic acid; Prisorine 3509; i18:0",
+   "Formula": "C18 H36 O2",
+   "Mass": 284.48,
+   "Data  Points": 13,
+   "SOFA  ID": "M_198"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heptadecanoic acid, 10-methyl-",
+   "Delta - Notation": "10-Me-17:0",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C18H36O2",
+   "Mass": 284.48,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "17-Octadecene-9,11-diynoic acid, 8-oxo-",
+   "Delta - Notation": "8-O=18:3-delta-9a,11a,17",
+   "Other Names": "Ketoisanic acid",
+   "Formula": "C18 H24 O3",
+   "Mass": 288.38,
+   "Data  Points": 3,
+   "SOFA  ID": "M_376"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13,17-Octadecadiene-9,11-diynoic acid, 8-hydroxy-, (E)-",
+   "Delta - Notation": "8-OH-18:4-delta-9a,11a,13t,17",
+   "Other Names": "",
+   "Formula": "C18 H24 O3",
+   "Mass": 288.38,
+   "Data  Points": 3,
+   "SOFA  ID": "M_463"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-���Tridecenoic acid, 13-���phenyl-���, (9Z)���-",
+   "Delta - Notation": "13-Ph-13:1-cis9",
+   "Other Names": "13-Phenyltridec-9-enoic",
+   "Formula": "C19H28O2",
+   "Mass": 288.42,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11,13,15-Octadecatetraenoic acid, 4-oxo-, (Z,E,E,Z)- (8CI)",
+   "Delta - Notation": "4-O=18:4-delta-9c,11t,13t,15c",
+   "Other Names": "4-Oxooctadeca-cis-9,trans-11,trans-13,cis-15-tetraenoic acid",
+   "Formula": "C18 H26 O3",
+   "Mass": 290.4,
+   "Data  Points": 2,
+   "SOFA  ID": "M_188"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "17-Octadecene-9,11-diynoic acid, 8-hydroxy-",
+   "Delta - Notation": "8-OH-18:3-delta-9a,11a,17",
+   "Other Names": "Isanolic acid; Isanolic acid",
+   "Formula": "C18 H26 O3",
+   "Mass": 290.4,
+   "Data  Points": 7,
+   "SOFA  ID": "M_278"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11-Octadecadiynoic acid, 8-oxo-",
+   "Delta - Notation": "8-O=18:2-delta-9a,11a",
+   "Other Names": "",
+   "Formula": "C18 H26 O3",
+   "Mass": 290.4,
+   "Data  Points": 3,
+   "SOFA  ID": "M_374"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13-Octadecene-9,11-diynoic acid, 8-hydroxy-, (E)-",
+   "Delta - Notation": "8-OH-18:3-delta-9a,11a,13t",
+   "Other Names": "",
+   "Formula": "C18 H26 O3",
+   "Mass": 290.4,
+   "Data  Points": 4,
+   "SOFA  ID": "M_434"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "1-Cyclopropene-1-heptanoic acid, 2-(8-nonyn-1-yl)-",
+   "Delta - Notation": "8,9-cpe-19:2-delta-17a",
+   "Other Names": "Sterculynic acid; 1-Cyclopropene-1-heptanoic acid, 2-(8-nonynyl)-; Sterculynic acid",
+   "Formula": "C19 H30 O2",
+   "Mass": 290.44,
+   "Data  Points": 1,
+   "SOFA  ID": "M_227"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13-Phenyltridecanoic acid",
+   "Delta - Notation": "13-Ph-13:0",
+   "Other Names": "",
+   "Formula": "C19H30O2",
+   "Mass": 290.49,
+   "Data  Points": 4,
+   "SOFA  ID": "M_509"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11,13-Octadecatrienoic acid, 4-oxo-, (9Z,11E,13E)-",
+   "Delta - Notation": "4-O=18:3-delta-9c,11t,13t",
+   "Other Names": "Licanic acid; Licanic acid; 4-Oxo-9,11,13-octadecatrienoic acid; Couepic acid",
+   "Formula": "C18 H28 O3",
+   "Mass": 292.41,
+   "Data  Points": 15,
+   "SOFA  ID": "M_187"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,12-Octadecadiynoic acid, 8-hydroxy-",
+   "Delta - Notation": "8-OH-18:2-delta-10a,12a",
+   "Other Names": "",
+   "Formula": "C18 H28 O3",
+   "Mass": 292.41,
+   "Data  Points": 3,
+   "SOFA  ID": "M_375"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,12-Octadecadiynoic acid, 8-hydroxy-",
+   "Delta - Notation": "8-OH-18:2-delta-9a,11a",
+   "Other Names": "",
+   "Formula": "C18 H28 O3",
+   "Mass": 292.41,
+   "Data  Points": 5,
+   "SOFA  ID": "M_433"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Tetradecadienoic acid, 14-(3-ethyl-2-oxiranyl)-, (9Z,12Z)-",
+   "Delta - Notation": "15,16-O-18:2-delta-9c,12c",
+   "Other Names": "9,12-Octadecadienoic acid, 15,16-epoxy-; 9,12-Octadecadienoic acid, 15,16-epoxy-, (Z,Z)-; 9,12-Tetradecadienoic acid, 14-(3-ethyloxiranyl)-",
+   "Formula": "C18 H30 O3",
+   "Mass": 294.43,
+   "Data  Points": 26,
+   "SOFA  ID": "M_183"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Octadecen-9-ynoic acid, 8-hydroxy-, (11E)-",
+   "Delta - Notation": "8-OH-18:2-delta-9a,11t",
+   "Other Names": "Agonandric acid; 11-Octadecen-9-ynoic acid, 8-hydroxy-, (E)-; Agonandric acid",
+   "Formula": "C18 H30 O3",
+   "Mass": 294.43,
+   "Data  Points": 4,
+   "SOFA  ID": "M_269"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Octadecen-12-ynoic acid, 9-hydroxy-, (9S,10E)-",
+   "Delta - Notation": "S-9-OH-18:2-delta-10t,12a",
+   "Other Names": "10-Octadecen-12-ynoic acid, 9-hydroxy-, (E)-(R)-; 10-Octadecen-12-ynoic acid, 9-hydroxy-, [S-(E)]-; Helenynolic acid",
+   "Formula": "C18 H30 O3",
+   "Mass": 294.43,
+   "Data  Points": 2,
+   "SOFA  ID": "M_273"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11,13-Octadecatrienoic acid, 18-hydroxy-, (9Z,11E,13E)-",
+   "Delta - Notation": "18-OH-18:3-delta-9c,11t,13t",
+   "Other Names": "Kamlolenic acid; Kamlolenic acid; Camlolenic acid",
+   "Formula": "C18 H30 O3",
+   "Mass": 294.43,
+   "Data  Points": 10,
+   "SOFA  ID": "M_276"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12,15-Octadecatrienoic acid, 2-hydroxy-, (9Z,12Z,15Z)-",
+   "Delta - Notation": "2-OH-18:3-delta-9c,12c,15c",
+   "Other Names": "9,12,15-Octadecatrienoic acid, 2-hydroxy-, (Z,Z,Z)-; Linolenic acid, 2-hydroxy-; 2-Hydroxylinolenic acid; -alpha--Hydroxy -alpha--linolenic acid; -...",
+   "Formula": "C18 H30 O3",
+   "Mass": 294.43,
+   "Data  Points": 1,
+   "SOFA  ID": "M_401"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,12-Octadecadienoic acid, 9,10-epoxy-, (3E,12Z)-",
+   "Delta - Notation": "9,10-O-18:2-delta-3t,12c",
+   "Other Names": "cis-9,10-Epoxy-trans-3,cis-12-octadecadienoic acid",
+   "Formula": "C18 H30 O3",
+   "Mass": 294.43,
+   "Data  Points": 2,
+   "SOFA  ID": "M_437"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,9-Undecadienoic acid, 11-[(2R,3S)-3-pentyl-2-oxiranyl]-, (6Z,9Z)-rel-",
+   "Delta - Notation": "12,13-O-18:2-delta-6c,9c",
+   "Other Names": "6,9-Undecadienoic acid, 11-(3-pentyloxiranyl)-, [2-alpha-(6Z,9Z),3-alpha-]-; 6,9-Undecadienoic acid, 11-[(2R,3S)-3-pentyloxiranyl]-, (6Z,9Z)-rel-",
+   "Formula": "C18 H30 O3",
+   "Mass": 294.43,
+   "Data  Points": 2,
+   "SOFA  ID": "M_439"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,9-Undecadienoic acid, 11-[(2R,3S)-3-pentyl-2-oxiranyl]-, (6E,9Z)-rel-",
+   "Delta - Notation": "12,13-O-18:2-delta-6t,9c",
+   "Other Names": "6,9-Undecadienoic acid, 11-(3-pentyloxiranyl)-, [2-alpha-(6E,9Z),3-alpha-]-; 6,9-Undecadienoic acid, 11-(3-pentyloxiranyl)-, [2-alpha-(6E,9Z),3-alp...",
+   "Formula": "C18 H30 O3",
+   "Mass": 294.43,
+   "Data  Points": 2,
+   "SOFA  ID": "M_440"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "1-Cyclopropene-1-octanoic acid, 2-octyl-",
+   "Delta - Notation": "9,10-cpe-19:1",
+   "Other Names": "Sterculic acid; Sterculic acid; Sterculinic acid",
+   "Formula": "C19 H34 O2",
+   "Mass": 294.47,
+   "Data  Points": 359,
+   "SOFA  ID": "M_225"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonadecadienoic acid",
+   "Delta - Notation": "19:02",
+   "Other Names": "structure ambiguous: double bond position and configuration not specified",
+   "Formula": "C19H34O2",
+   "Mass": 294.47,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,15-Octadecadienoic acid, 12-hydroxy-, (Z,Z)-",
+   "Delta - Notation": "12-OH-18:2-delta-9c,15c",
+   "Other Names": "Densipolic acid; Densipolic acid, 12-hydroxy-cis-9,cis-15-octadecadienoic acid",
+   "Formula": "C18H32O3",
+   "Mass": 296.23,
+   "Data  Points": 77,
+   "SOFA  ID": "M_382"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Epoxyoctadecenoic acid",
+   "Delta - Notation": "Epoxy-18:1",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H32O3",
+   "Mass": 296.24,
+   "Data  Points": 105,
+   "SOFA  ID": "M_330"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxyoctadecadienoic acid",
+   "Delta - Notation": "OH-18:2",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H32O3",
+   "Mass": 296.24,
+   "Data  Points": 32,
+   "SOFA  ID": "M_386"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonadecenoic acid",
+   "Delta - Notation": "19:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C19H36O2",
+   "Mass": 296.27,
+   "Data  Points": 12,
+   "SOFA  ID": "M_353"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Oxiraneoctanoic acid, 3-(2Z)-2-octen-1-yl-, (2R,3S)-",
+   "Delta - Notation": "9,10-O-18:1-delta-12c",
+   "Other Names": "Coronaric acid; Coronaric acid; Oxiraneoctanoic acid, 3-(2-octenyl)-, [2R-[2-alpha-,3-alpha-(Z)]]-; Oxiraneoctanoic acid, 3-(2Z)-2-octenyl-, (2R,3S...",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 30,
+   "SOFA  ID": "M_181"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecynoic acid, 12-hydroxy-",
+   "Delta - Notation": "12-OH-18:1-delta-9a",
+   "Other Names": "Stearolic acid, 12-hydroxy-; 12-Hydroxy-9-octadecynoic acid; Ricinstearolic acid",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 1,
+   "SOFA  ID": "M_265"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,11-Octadecadienoic acid, 13-hydroxy-, (9Z,11E,13S)-",
+   "Delta - Notation": "S-13-OH-18:2-delta-9c,11t",
+   "Other Names": "9,11-Octadecadienoic acid, 13-hydroxy-, (E,Z)-(S)-; 9,11-Octadecadienoic acid, 13-hydroxy-, [S-(E,Z)]-; (+)-Coriolic acid; (13S,9Z,11E)-13-Hydroxy-...",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 7,
+   "SOFA  ID": "M_270"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,12-Octadecadienoic acid, 9-hydroxy-, (9R,10E,12Z)-",
+   "Delta - Notation": "S-9-OH-18:2-delta-10t,12c",
+   "Other Names": "10,12-Octadecadienoic acid, 9-hydroxy-, (E,Z)-(+)-; 10,12-Octadecadienoic acid, 9-hydroxy-, [R-(E,Z)]-; 9R-HODE",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 13,
+   "SOFA  ID": "M_274"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Octadecenoic acid, 7-oxo-, (Z)-",
+   "Delta - Notation": "7-O=18:1-delta-11c",
+   "Other Names": "",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 3,
+   "SOFA  ID": "M_315"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Undecenoic acid, 11-[(2S,3R)-3-pentyl-2-oxiranyl]-, (9Z)-",
+   "Delta - Notation": "12,13-O-18:1-delta-9c",
+   "Other Names": "Vernolic acid; 9-Undecenoic acid, 11-(3-pentyloxiranyl)-, [2S-[2�(Z),3�]]-; 9-Undecenoic acid, 11-[(2S,3R)-3-pentyloxiranyl]-, (9Z)-; Oleic acid, 1...",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 98,
+   "SOFA  ID": "M_329"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Undecenoic acid, 11-[(2R,3S)-3-pentyloxiranyl]-, (9E)-rel-",
+   "Delta - Notation": "12,13-O-18:1-delta-9t",
+   "Other Names": "9-Undecenoic acid, 11-(3-pentyloxiranyl)-, [2-alpha-(E),3-alpha-]-; (?)-cis-12,13-Epoxy-9(E)-octadecenoic acid; trans-Vernolic acid",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 2,
+   "SOFA  ID": "M_337"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,12-Octadecadienoic acid, 9-hydroxy-",
+   "Delta - Notation": "9-OH-18:2-delta-10t,12t",
+   "Other Names": "9-Hydroxy-10,12-octadecadienoic acid; Dimorphecolic acid",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 4,
+   "SOFA  ID": "M_417"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecenoic acid, 13-oxo-, (E)- (8CI)",
+   "Delta - Notation": "13-O=18:1-delta-9t",
+   "Other Names": "13-Oxo-trans-9-octadecenoic acid",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 1,
+   "SOFA  ID": "M_428"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "12-Octadecenoic acid, 9-oxo-, (12Z)-",
+   "Delta - Notation": "9-O=18:1-delta-12c",
+   "Other Names": "12-Octadecenoic acid, 9-oxo-, (Z)-",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 26,
+   "SOFA  ID": "M_444"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Octadecadienoic acid, 2-hydroxy-, (9Z,12Z)-",
+   "Delta - Notation": "2-OH-18:2-delta-9c,12c",
+   "Other Names": "9,12-Octadecadienoic acid, 2-hydroxy-, (Z,Z)-; -alpha--Hydroxylinoleic acid",
+   "Formula": "C18 H32 O3",
+   "Mass": 296.44,
+   "Data  Points": 1,
+   "SOFA  ID": "M_577"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Cyclopropaneoctanoic acid, 2-octyl-, (1R,2S)-rel-",
+   "Delta - Notation": "9,10-cpa-19:0",
+   "Other Names": "Dihydrosterculic acid; Cyclopropaneoctanoic acid, 2-octyl-, cis-; Dihydrosterculic acid; cis-9,10-Methylenooctadecanoic acid",
+   "Formula": "C19 H36 O2",
+   "Mass": 296.49,
+   "Data  Points": 248,
+   "SOFA  ID": "M_217"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5-Nonadecenoic acid, (5Z)-",
+   "Delta - Notation": "19:1-delta-5c",
+   "Other Names": "",
+   "Formula": "C19 H36 O2",
+   "Mass": 296.49,
+   "Data  Points": 1,
+   "SOFA  ID": "M_405"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Nonadecenoic acid",
+   "Delta - Notation": "19:1-delta-10",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C19H36O2",
+   "Mass": 296.49,
+   "Data  Points": 20,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Nonadecenoic acid",
+   "Delta - Notation": "19:1-delta-9",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C19H36O2",
+   "Mass": 296.49,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Nonadecenoic acid",
+   "Delta - Notation": "19:1-delta-11",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C19H36O2",
+   "Mass": 296.49,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxyoctadecenoic acid",
+   "Delta - Notation": "OH-18:1",
+   "Other Names": "structure ambiguous",
+   "Formula": "C18H34O3",
+   "Mass": 298.25,
+   "Data  Points": 47,
+   "SOFA  ID": "M_257"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Octadecadienoic acid, 18-fluoro-, (9Z,12Z)-",
+   "Delta - Notation": "18-F-18:2-delta-9c,12c",
+   "Other Names": "9,12-Octadecadienoic acid, 18-fluoro-, (Z,Z)-",
+   "Formula": "C18 H31 F O2",
+   "Mass": 298.44,
+   "Data  Points": 1,
+   "SOFA  ID": "M_537"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Oxiraneoctanoic acid, 3-octyl-, (2R,3S)-",
+   "Delta - Notation": "9,10-O-18:0",
+   "Other Names": "Octadecanoic acid, 9,10-epoxy-, L-cis-; Oxiraneoctanoic acid, 3-octyl-, (2R-cis)-; cis-9-L,10-Epoxyoctadecanoic acid",
+   "Formula": "C18 H34 O3",
+   "Mass": 298.46,
+   "Data  Points": 13,
+   "SOFA  ID": "M_177"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecenoic acid, 12-hydroxy-, (9Z,12R)-",
+   "Delta - Notation": "12-OH-18:1-delta-9c",
+   "Other Names": "Ricinoleic acid; 9-Octadecenoic acid, 12-hydroxy-, [R-(Z)]-; Ricinoleic acid; (9Z,12R)-12-Hydroxyoctadec-9-enoic acid; (R)-12-Hydroxyoleic acid; 12...",
+   "Formula": "C18 H34 O3",
+   "Mass": 298.46,
+   "Data  Points": 150,
+   "SOFA  ID": "M_266"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "12-Octadecenoic acid, 9-hydroxy-, (9S,12Z)-",
+   "Delta - Notation": "9-OH-18:1-delta-12c",
+   "Other Names": "Isoricinoleic acid, Strophanthus acid; 12-Octadecenoic acid, 9-hydroxy-, (Z)-D-; Isoricinoleic acid; Strophanthus acid",
+   "Formula": "C18 H34 O3",
+   "Mass": 298.46,
+   "Data  Points": 52,
+   "SOFA  ID": "M_268"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecenoic acid, 2-hydroxy-, (9Z)-",
+   "Delta - Notation": "2-OH-18:1-delta-9c",
+   "Other Names": "9-Octadecenoic acid, 2-hydroxy-, (Z)-; (Z)-2-Hydroxyoctadec-9-enoic acid; 2-Hydroxyoleic acid; Minerval; cis-2-Hydroxy-9-octadecenoic acid; -alpha-...",
+   "Formula": "C18 H34 O3",
+   "Mass": 298.46,
+   "Data  Points": 1,
+   "SOFA  ID": "M_578"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 17-methyl-",
+   "Delta - Notation": "i-19:0",
+   "Other Names": "17-Methyloctadecanoic acid; 17-Methylstearic acid; i19:0",
+   "Formula": "C19 H38 O2",
+   "Mass": 298.5,
+   "Data  Points": 6,
+   "SOFA  ID": "M_199"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonadecanoic acid",
+   "Delta - Notation": "19:00",
+   "Other Names": "NSC 11914; n-Nonadecanoic acid; n-Nonadecylic acid",
+   "Formula": "C19 H38 O2",
+   "Mass": 298.5,
+   "Data  Points": 144,
+   "SOFA  ID": "M_301"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 11-methyl-",
+   "Delta - Notation": "11-Me-18:0",
+   "Other Names": "11-methyloctadecanoic acid;11-methyl-octadecanoic acid;79605-28-0;AC1NSMFY;Octadecanoic acid, 11-methyl-",
+   "Formula": "C19H38O2",
+   "Mass": 298.5,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 16-methyl-",
+   "Delta - Notation": "16-Me-18:0",
+   "Other Names": "16-methyloctadecanoic acid;Anteisononadecanoic acid;16-methyl-octadecanoic acid;(+)-16-methyl stearic acid;",
+   "Formula": "C19H38O2",
+   "Mass": 298.5,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecenoic acid, 18-fluoro-, (Z)-",
+   "Delta - Notation": "18-F-18:1-delta-9c",
+   "Other Names": "Oleic acid, 18-fluoro-",
+   "Formula": "C18 H33 F O2",
+   "Mass": 300.45,
+   "Data  Points": 3,
+   "SOFA  ID": "M_176"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 9-hydroxy-",
+   "Delta - Notation": "9-OH-18:0",
+   "Other Names": "9-Hydroxyoctadecanoic acid; 9-Hydroxystearic acid",
+   "Formula": "C18 H36 O3",
+   "Mass": 300.48,
+   "Data  Points": 2,
+   "SOFA  ID": "M_255"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 4-hydroxy-",
+   "Delta - Notation": "4-OH-18:0",
+   "Other Names": "",
+   "Formula": "C18H36O3",
+   "Mass": 300.48,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 6-hydroxy-",
+   "Delta - Notation": "6-OH-18:0",
+   "Other Names": "",
+   "Formula": "C18H36O3",
+   "Mass": 300.48,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicosapentaenoic acid",
+   "Delta - Notation": "20:05",
+   "Other Names": "structure ambiguous",
+   "Formula": "C20H30O2",
+   "Mass": 302.22,
+   "Data  Points": 9,
+   "SOFA  ID": "M_392"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,11,14-Eicosatrienoic Acid, (Z,Z,Z)-",
+   "Delta - Notation": "20:3-delta-5c,11c,14c",
+   "Other Names": "Podocarpic acid; Podocarpic acid; Sciadonic acid; Calthic acid; (5Z,11Z,�_14Z)���icosa-5,11,14���tri�_enoic acid",
+   "Formula": "C20 H30 O2",
+   "Mass": 302.45,
+   "Data  Points": 802,
+   "SOFA  ID": "M_132"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,8,11,14,17-Eicosapentaenoic acid, (5Z,8Z,11Z,14Z,17Z)-",
+   "Delta - Notation": "20:5-delta-5c,8c,11c,14c,17c",
+   "Other Names": "5,8,11,14,17-Eicosapentaenoic acid; 5,8,11,14,17-Eicosapentaenoic acid, (all-Z)-; (5Z,8Z,11Z,14Z,17Z)-Eicosa-5,8,11,14,17-pentaenoic acid; (5Z,8Z,1...",
+   "Formula": "C20 H30 O2",
+   "Mass": 302.45,
+   "Data  Points": 35,
+   "SOFA  ID": "M_404"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 18-fluoro-",
+   "Delta - Notation": "18-F-18:0",
+   "Other Names": "",
+   "Formula": "C18 H35 F O2",
+   "Mass": 302.47,
+   "Data  Points": 1,
+   "SOFA  ID": "M_536"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicosatetraenoic acid",
+   "Delta - Notation": "20:04",
+   "Other Names": "structure ambiguous",
+   "Formula": "C20H32O2",
+   "Mass": 304.24,
+   "Data  Points": 27,
+   "SOFA  ID": "M_302"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,8,11,14-Eicosatetraenoic acid, (5Z,8Z,11Z,14Z)-",
+   "Delta - Notation": "20:4-delta-5c,8c,11c,14c",
+   "Other Names": "Arachidonic acid; 5,8,11,14-Eicosatetraenoic acid, (all-Z)-; Arachidonic acid",
+   "Formula": "C20 H32 O2",
+   "Mass": 304.47,
+   "Data  Points": 56,
+   "SOFA  ID": "M_136"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,11,14,17-Eicosatetraenoic acid, (5Z,11Z,14Z,17Z)-",
+   "Delta - Notation": "20:4-delta-5c,11c,14c,17c",
+   "Other Names": "Juniperonic acid; 5,11,14,17-Eicosatetraenoic acid, (all-Z)-; (all-Z)-5,11,14,17-Eicosatetraenoic acid; 5Z,11Z,14Z,17Z-Eicosatetraenoic acid; Junip...",
+   "Formula": "C20 H32 O2",
+   "Mass": 304.47,
+   "Data  Points": 334,
+   "SOFA  ID": "M_137"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,11,14,17-Eicosatetraenoic acid, (8Z,11Z,14Z,17Z)-",
+   "Delta - Notation": "20:4-delta-8c,11c,14c,17c",
+   "Other Names": "8,11,14,17-Eicosatetraenoic acid, (all-Z)-; (all-Z)-8,11,14,17-Eicosatetraenoic acid; Bishomostearidonic acid; -delta-8,11,14,17-Eicosatetraenoic acid",
+   "Formula": "C20 H32 O2",
+   "Mass": 304.47,
+   "Data  Points": 1,
+   "SOFA  ID": "M_496"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Icosatrienoic acid",
+   "Delta - Notation": "20:03",
+   "Other Names": "structure ambiguous",
+   "Formula": "C20H34O2",
+   "Mass": 306.26,
+   "Data  Points": 129,
+   "SOFA  ID": "M_303"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11,17-Octadecadien-9-ynoic acid, 8-hydroxy-, methyl ester, (E)- (8CI)",
+   "Delta - Notation": "8-OH-18:3-delta-9a,11t,17",
+   "Other Names": "",
+   "Formula": "C19 H30 O3",
+   "Mass": 306.44,
+   "Data  Points": 1,
+   "SOFA  ID": "M_452"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,11,14-Eicosatrienoic acid, (8Z,11Z,14Z)-",
+   "Delta - Notation": "20:3-delta-8c,11c,14c",
+   "Other Names": "8,11,14-Eicosatrienoic acid, (Z,Z,Z)-; (Z,Z,Z)-8,11,14-Eicosatrienoic acid; 8,11,14-Eicosatrienoic acid; 8,11,14-all-cis-Eicosatrienoic acid; 8Z,11...",
+   "Formula": "C20 H34 O2",
+   "Mass": 306.48,
+   "Data  Points": 81,
+   "SOFA  ID": "M_134"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11,14,17-Eicosatrienoic acid, (11Z,14Z,17Z)-",
+   "Delta - Notation": "20:3-delta-11c,14c,17c",
+   "Other Names": "11,14,17-Eicosatrienoic acid, (Z,Z,Z)-; (Z,Z,Z)-11,14,17-Eicosatrienoic acid; (all-cis)-11,14,17-Eicosatrienoic acid; (all-cis)--delta-11,14,17-Eic...",
+   "Formula": "C20 H34 O2",
+   "Mass": 306.48,
+   "Data  Points": 144,
+   "SOFA  ID": "M_135"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8-Pentadecenoic acid, 15-(2-cyclopenten-1-yl)-, (8Z)-",
+   "Delta - Notation": "20:2cy-delta-8c",
+   "Other Names": "Oncobic acid",
+   "Formula": "C20 H34 O2",
+   "Mass": 306.48,
+   "Data  Points": 1,
+   "SOFA  ID": "M_223"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Pentadecenoic acid, 15-(2-cyclopenten-1-yl)-",
+   "Delta - Notation": "20:2cy",
+   "Other Names": "15-cyclopent-2-en-1-ylpentadec-9-enoic acid",
+   "Formula": "C20 H34 O2",
+   "Mass": 306.48,
+   "Data  Points": 16,
+   "SOFA  ID": "M_314"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,11,14-Eicosatrienoic acid, (7Z,11Z,14Z)-",
+   "Delta - Notation": "20:3-delta-7c,11c,14c",
+   "Other Names": "Dihomopinolenic acid; 7,11,14-Eicosatrienoic acid, (Z,Z,Z)-; Dihomopinolenic acid",
+   "Formula": "C20 H34 O2",
+   "Mass": 306.48,
+   "Data  Points": 169,
+   "SOFA  ID": "M_339"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,9,12-Eicosatrienoic acid, (5Z,9Z,12Z)-",
+   "Delta - Notation": "20:3-delta-5c,9c,12c",
+   "Other Names": "5,9,12-Eicosatrienoic acid, (Z,Z,Z)-",
+   "Formula": "C20 H34 O2",
+   "Mass": 306.48,
+   "Data  Points": 3,
+   "SOFA  ID": "M_343"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,6,9-Eicosatrienoic acid, (3Z,6Z,9Z)-",
+   "Delta - Notation": "20:3-delta-3c,6c,9c",
+   "Other Names": "",
+   "Formula": "C20 H34 O2",
+   "Mass": 306.48,
+   "Data  Points": 3,
+   "SOFA  ID": "M_551"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Pentadecenoic acid, 15-(2-cyclopenten-1-yl)-, (Z)-",
+   "Delta - Notation": "20:2cy-delta-9c",
+   "Other Names": "",
+   "Formula": "C20 H34 O2",
+   "Mass": 306.48,
+   "Data  Points": 1,
+   "SOFA  ID": "M_574"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,10,13-Eicosatrienoic acid",
+   "Delta - Notation": "20:3-delta-7,10,13",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C20H34O2",
+   "Mass": 306.49,
+   "Data  Points": 4,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11,14,17-Eicosatrienoic acid",
+   "Delta - Notation": "20:3-delta-11,14,17",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C20H34O2",
+   "Mass": 306.49,
+   "Data  Points": 16,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Icosadienoic acid",
+   "Delta - Notation": "20:02",
+   "Other Names": "structure ambiguous",
+   "Formula": "C20H36O2",
+   "Mass": 308.27,
+   "Data  Points": 343,
+   "SOFA  ID": "M_126"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11,14-Eicosadienoic acid, (11Z,14Z)-",
+   "Delta - Notation": "20:2-delta-11c,14c",
+   "Other Names": "",
+   "Formula": "C20H36O2",
+   "Mass": 308.27,
+   "Data  Points": 1347,
+   "SOFA  ID": "M_130"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,11-Eicosadienoic acid",
+   "Delta - Notation": "20:2-delta-6,11",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C20H36O2",
+   "Mass": 308.27,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,13-Eicosadienoic acid",
+   "Delta - Notation": "20:2-delta-10,13",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C20H36O2",
+   "Mass": 308.27,
+   "Data  Points": 12,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13,16-Eicosadienoic acid",
+   "Delta - Notation": "20:2-delta-13,16",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C20H36O2",
+   "Mass": 308.27,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Eicosadienoic acid",
+   "Delta - Notation": "20:2-delta-9,12",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C20H36O2",
+   "Mass": 308.27,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8,11-Eicosadienoic acid",
+   "Delta - Notation": "20:2-delta-8,11",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C20H36O2",
+   "Mass": 308.27,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,13-Eicosadienoic acid",
+   "Delta - Notation": "20:2-delta-7,13",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C20H36O2",
+   "Mass": 308.27,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicosadienoic acid",
+   "Delta - Notation": " 20:2",
+   "Other Names": "Structure ambiguous",
+   "Formula": "C20H36O2",
+   "Mass": 308.27,
+   "Data  Points": 75,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Furanoctanoic acid, 5-hexyl-, methyl ester",
+   "Delta - Notation": "9,12-O-18:2-delta-9,11",
+   "Other Names": "Methyl 5-hexylfuran-2-octanoate; Methyl 8-(5-hexylfuran-2-yl)octanoate; Furocarpic acid",
+   "Formula": "C19 H32 O3",
+   "Mass": 308.46,
+   "Data  Points": 2,
+   "SOFA  ID": "M_182"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,11-Eicosadienoic acid, (5Z,11Z)-",
+   "Delta - Notation": "20:2-delta-5c,11c",
+   "Other Names": "5,11-Eicosadienoic acid, (Z,Z)-; (5Z,11Z)-5,11-Eicosadienoic acid; (5Z,11Z)-Eicosadienoic acid; (Z,Z)-5,11-Eicosadienoic acid; Keteleeronic acid; a...",
+   "Formula": "C20 H36 O2",
+   "Mass": 308.5,
+   "Data  Points": 579,
+   "SOFA  ID": "M_127"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,8-Eicosadienoic acid",
+   "Delta - Notation": "20:2-delta-7,8allene",
+   "Other Names": "Phlomic acid; Phlomic acid",
+   "Formula": "C20 H36 O2",
+   "Mass": 308.5,
+   "Data  Points": 33,
+   "SOFA  ID": "M_129"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-Cyclopentene-1-pentadecanoic acid, (+)-",
+   "Delta - Notation": "20:1cy",
+   "Other Names": "Hormelic acid; Hormelic acid; NSC 313952",
+   "Formula": "C20 H36 O2",
+   "Mass": 308.5,
+   "Data  Points": 17,
+   "SOFA  ID": "M_213"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6-Eicosynoic acid",
+   "Delta - Notation": "20:1-delta-6a",
+   "Other Names": "",
+   "Formula": "C20 H36 O2",
+   "Mass": 308.5,
+   "Data  Points": 2,
+   "SOFA  ID": "M_423"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,11-Eicosadienoic acid, (7Z,11Z)-",
+   "Delta - Notation": "20:2-delta-7c,11c",
+   "Other Names": "7,11-Eicosadienoic acid, (Z,Z)-; Dihomotaxoleic acid",
+   "Formula": "C20 H36 O2",
+   "Mass": 308.5,
+   "Data  Points": 3,
+   "SOFA  ID": "M_520"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6,9-Eicosadienoic acid, (6Z,9Z)-",
+   "Delta - Notation": "20:2-delta-6c,9c",
+   "Other Names": "6,9-Eicosadienoic acid, (Z,Z)-",
+   "Formula": "C20 H36 O2",
+   "Mass": 308.5,
+   "Data  Points": 3,
+   "SOFA  ID": "M_550"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11,13-Eicosadienoic acid",
+   "Delta - Notation": "20:2-delta-11,13",
+   "Other Names": "structure ambiguous; icosa-11,13-dienoic acid",
+   "Formula": "C20H36O2",
+   "Mass": 308.51,
+   "Data  Points": 22,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Icosenoic acid",
+   "Delta - Notation": "20:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C20H38O2",
+   "Mass": 310.29,
+   "Data  Points": 1665,
+   "SOFA  ID": "M_120"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Undecenoic acid, 11-[(2R,3R)-3-pentyl-2-oxiranyl]-, (9Z)-rel-",
+   "Delta - Notation": "12RS,13SR-O-18:1-delta-9",
+   "Other Names": "cis-12,13-Epoxyoleic acid; (+/-)-Vernolic acid",
+   "Formula": "C18 H32 O3",
+   "Mass": 310.47,
+   "Data  Points": 2,
+   "SOFA  ID": "M_178"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-hydroxy-8-(2-octylcycloprop-1-en-1-yl)octanoic acid",
+   "Delta - Notation": "2-OH-9,10-cpe-19:1",
+   "Other Names": "",
+   "Formula": "C19 H34 O3",
+   "Mass": 310.47,
+   "Data  Points": 15,
+   "SOFA  ID": "M_226"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Nonadecenoic acid, 14-keto-",
+   "Delta - Notation": "14-O=19:1-delta-10",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C19H34O3",
+   "Mass": 310.47,
+   "Data  Points": 4,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Eicosenoic acid, (9Z)-",
+   "Delta - Notation": "20:1-delta-9c",
+   "Other Names": "Gadoleic acid; 9-Eicosenoic acid, (Z)-; Gadoleic acid; (Z)-9-Eicosenoic acid; Gondoleic acid; cis-9-Eicosenoic acid",
+   "Formula": "C20 H38 O2",
+   "Mass": 310.51,
+   "Data  Points": 201,
+   "SOFA  ID": "M_121"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Eicosenoic acid, (11Z)-",
+   "Delta - Notation": "20:1-delta-11c",
+   "Other Names": "11-Eicosenoic acid, (Z)-; (Z)-11-Eicosenoic acid; 11-cis-Eicosenoic acid; 11Z-Eicosenoic acid; Gondoic acid; cis-11-Eicosenoic acid; cis--delta-11-...",
+   "Formula": "C20 H38 O2",
+   "Mass": 310.51,
+   "Data  Points": 3061,
+   "SOFA  ID": "M_123"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13-Eicosenoic acid, (13Z)-",
+   "Delta - Notation": "20:1-delta-13c",
+   "Other Names": "Paullinic acid; 13-Eicosenoic acid, (Z)-; (Z)-13-Eicosaenoic acid; (Z)-13-Eicosenoic acid; Paullinic acid; cis-13-Eicosenoic acid",
+   "Formula": "C20 H38 O2",
+   "Mass": 310.51,
+   "Data  Points": 124,
+   "SOFA  ID": "M_124"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "15-Eicosenoic acid, (15Z)-",
+   "Delta - Notation": "20:1-delta-15c",
+   "Other Names": "15-Eicosenoic acid, (Z)-; (Z)-15-Eicosenoic acid",
+   "Formula": "C20 H38 O2",
+   "Mass": 310.51,
+   "Data  Points": 11,
+   "SOFA  ID": "M_125"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5-���Eicosenoic acid, (5Z)-",
+   "Delta - Notation": "20:1-delta-5c",
+   "Other Names": "",
+   "Formula": "C20 H38 O2",
+   "Mass": 310.51,
+   "Data  Points": 62,
+   "SOFA  ID": "M_388"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "6-Eicosenoic acid, (6Z)-",
+   "Delta - Notation": "20:1-delta-6c",
+   "Other Names": "6-Eicosenoic acid, (Z)-",
+   "Formula": "C20 H38 O2",
+   "Mass": 310.51,
+   "Data  Points": 2,
+   "SOFA  ID": "M_422"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "14-Eicosenoic acid, (14Z)-",
+   "Delta - Notation": "20:1-delta-14c",
+   "Other Names": "14-Eicosenoic acid, (Z)-",
+   "Formula": "C20 H38 O2",
+   "Mass": 310.51,
+   "Data  Points": 4,
+   "SOFA  ID": "M_462"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "8-Eicosenoic acid, (8Z)-",
+   "Delta - Notation": "20:1-delta-8c",
+   "Other Names": "8-Eicosenoic acid, (Z)-; 8-cis-Eicosenoic acid",
+   "Formula": "C20 H38 O2",
+   "Mass": 310.51,
+   "Data  Points": 7,
+   "SOFA  ID": "M_572"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10-Eicosenoic acid, (10Z)-",
+   "Delta - Notation": "20:1-delta-10c",
+   "Other Names": "",
+   "Formula": "C20 H38 O2",
+   "Mass": 310.51,
+   "Data  Points": 4,
+   "SOFA  ID": "M_573"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7-Eicosenoic acid",
+   "Delta - Notation": "20:1-delta-7",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C20H38O2",
+   "Mass": 310.52,
+   "Data  Points": 5,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "3,7,11,15-tetramethylhexadec-2-enoic acid",
+   "Delta - Notation": "",
+   "Other Names": "Phytenic acid; Phytenic acid; Phytenoic Acid; 2E-Phytenoic acid; Delta2-Phytenic acid; 3,7R,11R,15-tetramethyl-2E-hexadecenoic acid; 3,7,11,15-tetr...",
+   "Formula": "C20H38O2",
+   "Mass": 310.52,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonadecanoic acid, 18-methyl-",
+   "Delta - Notation": "18-Me-19:0",
+   "Other Names": "Isoarachidic acid; 18-METHYLNONADECANOIC ACID;",
+   "Formula": "C20H40O2",
+   "Mass": 312.3,
+   "Data  Points": 8,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicosanoic acid",
+   "Delta - Notation": "20:00",
+   "Other Names": "Arachidic acid; Arachic acid; Arachidic acid; Icosanoic acid; NSC 93983; n-Eicosanic acid; n-Eicosanoic acid",
+   "Formula": "C20 H40 O2",
+   "Mass": 312.53,
+   "Data  Points": 5823,
+   "SOFA  ID": "M_119"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonadecanoic acid, 11-methyl-",
+   "Delta - Notation": "11-Me-19:0",
+   "Other Names": "",
+   "Formula": "C20H40O2",
+   "Mass": 312.53,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Octadecenoic acid, 12,13-dihydroxy-, (9Z,12S,13S)-",
+   "Delta - Notation": "12,13-di-OH-18:1-delta-9c",
+   "Other Names": "9-Octadecenoic acid, 12,13-dihydroxy-, [S-[R*,R*-(Z)]]-; Oleic acid, 12,13-dihydroxy-, (12S,13S)-(-)-; (-)-threo-12,13-Dihydroxyoleic acid",
+   "Formula": "C18 H34 O4",
+   "Mass": 314.46,
+   "Data  Points": 1,
+   "SOFA  ID": "M_512"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "18-Fluoro-9,10-Epoxyoctadecanoic acid",
+   "Delta - Notation": "18-F-9,10-O-18:0",
+   "Other Names": "",
+   "Formula": "C18H33FO3",
+   "Mass": 316.45,
+   "Data  Points": 1,
+   "SOFA  ID": "M_539"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 9,10-dihydroxy-, (9R,10R)-",
+   "Delta - Notation": "R9,R10-di-OH-18:0",
+   "Other Names": "Octadecanoic acid, 9,10-dihydroxy-, [R-(R*,R*)]-; Octadecanoic acid, 9,10-dihydroxy-, threo-(+)-; (+)-Threo-9,10-Dihydroxystearic acid",
+   "Formula": "C18 H36 O4",
+   "Mass": 316.48,
+   "Data  Points": 2,
+   "SOFA  ID": "M_287"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 9,10-dihydroxy-",
+   "Delta - Notation": "9,10-di-OH-18:0",
+   "Other Names": "",
+   "Formula": "C18 H36 O4",
+   "Mass": 316.48,
+   "Data  Points": 5,
+   "SOFA  ID": "M_288"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-���Pentadecenoic acid, 15-���phenyl-���, (9Z)���-",
+   "Delta - Notation": "15-Ph-15:1-cis9",
+   "Other Names": "15-phenylpentadec-9-enoic acid",
+   "Formula": "C21H32O2",
+   "Mass": 316.48,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 13,14-dihydroxy-",
+   "Delta - Notation": "13,14-di-OH-18:0",
+   "Other Names": "",
+   "Formula": "C18 H36 O4",
+   "Mass": 316.48,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heneicosatetraenoic acid",
+   "Delta - Notation": "21:04",
+   "Other Names": "structure ambiguous: double bond configuration and position not specified",
+   "Formula": "C21H34O2",
+   "Mass": 318.5,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "15-Phenylpentadecanoic acid",
+   "Delta - Notation": "15-Ph-15:0",
+   "Other Names": "",
+   "Formula": "C21H34O2",
+   "Mass": 318.55,
+   "Data  Points": 2,
+   "SOFA  ID": "M_530"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxyeicosadienoic acid",
+   "Delta - Notation": "OH-20:2",
+   "Other Names": "structure ambiguous",
+   "Formula": "C20H36O3",
+   "Mass": 324.27,
+   "Data  Points": 49,
+   "SOFA  ID": "M_318"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heneicosenoic acid",
+   "Delta - Notation": "21:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C21H40O2",
+   "Mass": 324.3,
+   "Data  Points": 23,
+   "SOFA  ID": "M_398"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Tridecenoic acid, 13-[(2S,3R)-3-pentyloxiranyl]-, (11Z)-",
+   "Delta - Notation": "14,15-O-20:1-delta-11c",
+   "Other Names": "11-Tridecenoic acid, 13-(3-pentyloxiranyl)-, [2S-[2-alpha-(Z),3-alpha-]]-; Alchornoic acid",
+   "Formula": "C20 H36 O3",
+   "Mass": 324.5,
+   "Data  Points": 2,
+   "SOFA  ID": "M_184"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11,17-Eicosadienoic acid, 14-hydroxy-, (11Z,14R,17Z)-",
+   "Delta - Notation": "14-OH-20:2-delta-11c,17c",
+   "Other Names": "Auricolic acid; 11,17-Eicosadienoic acid, 14-hydroxy-, [R-(Z,Z)]-; Auricolic acid",
+   "Formula": "C20 H36 O3",
+   "Mass": 324.5,
+   "Data  Points": 85,
+   "SOFA  ID": "M_281"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxyeicosenoic acid",
+   "Delta - Notation": "OH-20:1",
+   "Other Names": "structure ambiguous",
+   "Formula": "C20H38O3",
+   "Mass": 326.28,
+   "Data  Points": 62,
+   "SOFA  ID": "M_317"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Eicosenoic acid, 14-hydroxy-, (11Z,14R)-",
+   "Delta - Notation": "R-14-OH-20:1-delta-11c",
+   "Other Names": "Lesquerolic acid; 11-Eicosenoic acid, 14-hydroxy-, (Z)-D-(+)-; 11-Eicosenoic acid, 14-hydroxy-, [R-(Z)]-; Lesquerolic acid",
+   "Formula": "C20 H38 O3",
+   "Mass": 326.51,
+   "Data  Points": 84,
+   "SOFA  ID": "M_280"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heneicosanoic acid",
+   "Delta - Notation": "21:00",
+   "Other Names": "Heneicosylic acid; n-Heneicosanoic acid",
+   "Formula": "C21 H42 O2",
+   "Mass": 326.56,
+   "Data  Points": 292,
+   "SOFA  ID": "M_138"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicosanoic acid, 18-methyl-",
+   "Delta - Notation": "18-Me-20:0",
+   "Other Names": "18-methylicosanoic acid;Anteisoheneicosanoic acid;18-Methyleicosanoic acid;(+)-18-methyl-icosanoic acid;(+)-18-methyl-eicosanoic acid; Methylarachi...",
+   "Formula": "C21H42O2",
+   "Mass": 326.57,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "4,7,10,13,16,19-Docosahexaenoic acid, (4Z,7Z,10Z,13Z,16Z,19Z)-",
+   "Delta - Notation": "22:6-delta-4c,7c,10c,13c,16c,19c",
+   "Other Names": "4,7,10,13,16,19-Docosahexaenoic acid, (all-Z)-; Docosahexaenoic acid; (4Z,7Z,10Z,13Z,16Z,19Z)-4,7,10,13,16,19-Docosahexaenoic acid; (4Z,7Z,10Z,13Z,...",
+   "Formula": "C22 H32 O2",
+   "Mass": 328.49,
+   "Data  Points": 7,
+   "SOFA  ID": "M_408"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonadecandioic acid",
+   "Delta - Notation": "18-COOH-18:0",
+   "Other Names": "Nonadecanedioic acid;6250-70-0;1,19-Nonadecanedioic acid;NONADECANEDIOICACID;",
+   "Formula": "C19H36O4",
+   "Mass": 328.49,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "12-Octadecenoic acid, 9,10,18-trihydroxy-, (12Z)-",
+   "Delta - Notation": "9,10,18-tri-OH-18:1-delta-12c",
+   "Other Names": "9,10,18-Trihydroxyoctadec-12-enoic acid",
+   "Formula": "C18 H34 O5",
+   "Mass": 330.46,
+   "Data  Points": 2,
+   "SOFA  ID": "M_403"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "7,10,13,16,19-Docosapentaenoic acid, (Z,Z,Z,Z,Z)-",
+   "Delta - Notation": "22:5-delta-7c,10c,13c,16c,19c",
+   "Other Names": "",
+   "Formula": "C22 H34 O2",
+   "Mass": 330.5,
+   "Data  Points": 5,
+   "SOFA  ID": "M_407"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicosanoic acid, 20-fluoro-",
+   "Delta - Notation": "20-F-20:0",
+   "Other Names": "",
+   "Formula": "C20 H39 F O2",
+   "Mass": 330.52,
+   "Data  Points": 1,
+   "SOFA  ID": "M_526"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 9,10,18-trihydroxy-",
+   "Delta - Notation": "9,10,18-tri-OH-18:0",
+   "Other Names": "Octadecanoic acid, 9,10,18-trihydroxy-, threo-(+)-; (+)-threo-9,10,18-Trihydroxyoctadecanoic acid; Aleutiric acid; Floionolic acid; Phloionolic acid",
+   "Formula": "C18 H36 O5",
+   "Mass": 332.48,
+   "Data  Points": 2,
+   "SOFA  ID": "M_294"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Z,Z,Z,Z-7,10,13,16-Docosatetraenoic acid",
+   "Delta - Notation": "22:4-delta-7c,10c,13c,16c",
+   "Other Names": "Adrenic acid",
+   "Formula": "C22 H36 O2",
+   "Mass": 332.52,
+   "Data  Points": 10,
+   "SOFA  ID": "M_155"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Docosatrienoic acid",
+   "Delta - Notation": "22:03",
+   "Other Names": "structure ambiguous",
+   "Formula": "C22H38O2",
+   "Mass": 334.29,
+   "Data  Points": 35,
+   "SOFA  ID": "M_149"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,13,16-Docosatrienoic acid, (5Z,13Z,16Z)-",
+   "Delta - Notation": "22:3-delta-5c,13c,16c",
+   "Other Names": "Eranthic acid; Eranthic acid",
+   "Formula": "C22 H38 O2",
+   "Mass": 334.54,
+   "Data  Points": 6,
+   "SOFA  ID": "M_150"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "10,13,16-Docosatrienoic acid",
+   "Delta - Notation": "22:3-delta-10c,13c,16c",
+   "Other Names": "",
+   "Formula": "C22 H38 O2",
+   "Mass": 334.54,
+   "Data  Points": 6,
+   "SOFA  ID": "M_152"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13,16,19-Docosatrienoic acid, (13Z,16Z,19Z)-",
+   "Delta - Notation": "22:3-delta-13c,16c,19c",
+   "Other Names": "13,16,19-Docosatrienoic acid, (Z,Z,Z)-; cis-13,cis-16,cis-19-Docosatrienoic acid",
+   "Formula": "C22 H38 O2",
+   "Mass": 334.54,
+   "Data  Points": 20,
+   "SOFA  ID": "M_153"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "E,Z,Z-3,13,16-Docosatrienoic acid",
+   "Delta - Notation": "22:3-delta-3t,13c,16c",
+   "Other Names": "",
+   "Formula": "C22 H38 O2",
+   "Mass": 334.54,
+   "Data  Points": 2,
+   "SOFA  ID": "M_410"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecanoic acid, 3-cyano-2-methyl-2-propen-1-yl ester",
+   "Delta - Notation": "CN-III-16:0",
+   "Other Names": "Type III cyanolipid 16:0 ester",
+   "Formula": "C21H37NO2",
+   "Mass": 335.52,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Docosadienoic acid",
+   "Delta - Notation": "22:02",
+   "Other Names": "structure ambiguous",
+   "Formula": "C22H40O2",
+   "Mass": 336.3,
+   "Data  Points": 159,
+   "SOFA  ID": "M_146"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5,13-Docosadienoic acid, (5Z,13Z)-",
+   "Delta - Notation": "22:2-delta-5c,13c",
+   "Other Names": "5,13-Docosadienoic acid, (Z,Z)-; cis-5-cis-13-Docosadienoic acid",
+   "Formula": "C22 H40 O2",
+   "Mass": 336.55,
+   "Data  Points": 34,
+   "SOFA  ID": "M_147"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13,16-Docosadienoic acid, (13Z,16Z)-",
+   "Delta - Notation": "22:2-delta-13c,16c",
+   "Other Names": "13,16-Docosadienoic acid, (Z,Z)-; cis-13,cis-16-Docosadienoic acid",
+   "Formula": "C22 H40 O2",
+   "Mass": 336.55,
+   "Data  Points": 113,
+   "SOFA  ID": "M_148"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9,12-Docosadienoic acid",
+   "Delta - Notation": "22:2-delta-9,12",
+   "Other Names": "structure ambiguous: double bond configuration not specified",
+   "Formula": "C22H40O2",
+   "Mass": 336.55,
+   "Data  Points": 11,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Docosenoic acid",
+   "Delta - Notation": "22:01",
+   "Other Names": "structure ambiguous",
+   "Formula": "C22H42O2",
+   "Mass": 338.32,
+   "Data  Points": 705,
+   "SOFA  ID": "M_140"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "11-Docosenoic acid, (11Z)-",
+   "Delta - Notation": "22:1-delta-11c",
+   "Other Names": "Cetoleic acid; 11-Docosenoic acid, (Z)-; 11-Docosenoic acid, cis-; Cetoleic acid; (11Z)-11-Docosenoic acid; (Z)-11-Docosenoic acid; cis-Docos-11-en...",
+   "Formula": "C22 H42 O2",
+   "Mass": 338.57,
+   "Data  Points": 33,
+   "SOFA  ID": "M_141"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13-Docosenoic acid, (13Z)-",
+   "Delta - Notation": "22:1-delta-13c",
+   "Other Names": "Erucic acid; 13-Docosenoic acid, (Z)-; (13Z)-Docosenoic acid; (Z)-13-Docosenoic acid; (Z)-Erucic acid; 13(Z)-Docosenoic acid; 13-cis-Docosenoic aci...",
+   "Formula": "C22 H42 O2",
+   "Mass": 338.57,
+   "Data  Points": 1222,
+   "SOFA  ID": "M_144"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13-Docosenoic acid, (13E)-",
+   "Delta - Notation": "22:1-delta-13t",
+   "Other Names": "5,8,11,14-all-cis-Eicosatetraenoic acid",
+   "Formula": "C22 H42 O2",
+   "Mass": 338.57,
+   "Data  Points": 3,
+   "SOFA  ID": "M_145"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "17-Docosenoic acid, (17Z)-",
+   "Delta - Notation": "22:1-delta-17c",
+   "Other Names": "",
+   "Formula": "C22 H42 O2",
+   "Mass": 338.57,
+   "Data  Points": 4,
+   "SOFA  ID": "M_359"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "15-Docosenoic acid, (15Z)-",
+   "Delta - Notation": "22:1-delta-15c",
+   "Other Names": "15-Docosenoic acid, (Z)-; (Z)-15-Docosenoic acid; 15Z-Docosenoic acid; C22:1-omega-7; cis-15-Docosenoic acid",
+   "Formula": "C22 H42 O2",
+   "Mass": 338.57,
+   "Data  Points": 70,
+   "SOFA  ID": "M_377"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "5-Docosenoic acid, (5Z)-",
+   "Delta - Notation": "22:1-delta-5c",
+   "Other Names": "5-Docosenoic acid, (Z)-; cis-5-Docosenoic acid",
+   "Formula": "C22 H42 O2",
+   "Mass": 338.57,
+   "Data  Points": 2,
+   "SOFA  ID": "M_448"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Docosanoic acid",
+   "Delta - Notation": "22:00",
+   "Other Names": "Behenic acid; 1-Docosanoic acid; B 95; B 95 (acid); Behenic acid; EXL 5; n-Docosanoic acid",
+   "Formula": "C22 H44 O2",
+   "Mass": 340.58,
+   "Data  Points": 3527,
+   "SOFA  ID": "M_139"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heneicosanoic acid, 20-methyl-",
+   "Delta - Notation": "20-Me-21:0",
+   "Other Names": "structure ambiguous: double bond configuration and position not specified",
+   "Formula": "C22H44O2",
+   "Mass": 340.59,
+   "Data  Points": 4,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 8,10-dimethoxy-",
+   "Delta - Notation": "",
+   "Other Names": "",
+   "Formula": "C20H40O4",
+   "Mass": 344.53,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "9-Tricosenoic acid, (9Z)-",
+   "Delta - Notation": "23:1-delta-9c",
+   "Other Names": "",
+   "Formula": "C23H44O2",
+   "Mass": 352.59,
+   "Data  Points": 7,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Cyclopropanedodecanoic acid, 2-octyl-",
+   "Delta - Notation": "13,14-cpa-23:0",
+   "Other Names": "",
+   "Formula": "C23H44O2",
+   "Mass": 352.59,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxydocosenoic acid",
+   "Delta - Notation": "OH-22:1",
+   "Other Names": "structure ambiguous",
+   "Formula": "C22H42O3",
+   "Mass": 354.31,
+   "Data  Points": 2,
+   "SOFA  ID": "M_335"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxydocos-17c-enoic acid",
+   "Delta - Notation": "OH-22:1-delta-17c",
+   "Other Names": "structure ambiguous",
+   "Formula": "C22H42O3",
+   "Mass": 354.31,
+   "Data  Points": 1,
+   "SOFA  ID": "M_347"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tricosanoic acid",
+   "Delta - Notation": " 23:0",
+   "Other Names": "22FA; Tricosylic acid; n-Tricosanoic acid",
+   "Formula": "C23 H46 O2",
+   "Mass": 354.61,
+   "Data  Points": 307,
+   "SOFA  ID": "M_156"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxydocosanoic acid",
+   "Delta - Notation": "OH-22:0",
+   "Other Names": "structure ambiguous",
+   "Formula": "C22H44O3",
+   "Mass": 356.33,
+   "Data  Points": 1,
+   "SOFA  ID": "M_346"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadec-9Z,12Z-dienoic acid, 3-cyano-2-methyl-2-propen-1-yl ester",
+   "Delta - Notation": "CN-III-18:3-9c,12c,15c",
+   "Other Names": "Type III cyanolipid 18:3 ester",
+   "Formula": "C23H35NO2",
+   "Mass": 357.53,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadec-9Z-enoic acid, 3-cyano-2-methyl-2-propen-1-yl ester",
+   "Delta - Notation": "CN-III-18:2-delta-9c,12c",
+   "Other Names": "Type III cyanolipid 18:2 ester",
+   "Formula": "C23H37NO2",
+   "Mass": 359.54,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadec-9Z-enoic acid, 3-cyano-2-methyl-2-propen-1-yl ester",
+   "Delta - Notation": "CN-III-18:1-delta-9c",
+   "Other Names": "Type III cyanolipid 18:1 ester",
+   "Formula": "C23H39NO2",
+   "Mass": 361.56,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadec-11Z-enoic acid, 3-cyano-2-methyl-2-propen-1-yl ester",
+   "Delta - Notation": "CN-III-18:1-delta-11c",
+   "Other Names": "Type III cyanolipid 18:1 ester",
+   "Formula": "C23H39NO2",
+   "Mass": 361.56,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "12,15,18-Tetracosatrienoic acid, (12Z,15Z,18Z)-",
+   "Delta - Notation": "24:3-delta-12c,15c,18c",
+   "Other Names": "12,15,18-Tetracosatrienoic acid, (Z,Z,Z)-",
+   "Formula": "C24 H42 O2",
+   "Mass": 362.59,
+   "Data  Points": 1,
+   "SOFA  ID": "M_411"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "15,18,21-Tetracosatrienoic acid, (15Z,18Z,21Z)-",
+   "Delta - Notation": "24:3-delta-15c,18c,21c",
+   "Other Names": "15,18,21-Tetracosatrienoic acid, (Z,Z,Z)-",
+   "Formula": "C24 H42 O2",
+   "Mass": 362.59,
+   "Data  Points": 1,
+   "SOFA  ID": "M_447"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 3-cyano-2-methyl-2-propen-1-yl ester",
+   "Delta - Notation": "CN-III-18:0",
+   "Other Names": "Type III cyanolipid 18:0 ester",
+   "Formula": "C23H41NO2",
+   "Mass": 363.58,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetracosadienoic acid",
+   "Delta - Notation": "24:02:00",
+   "Other Names": "structure ambiguous",
+   "Formula": "C24H44O2",
+   "Mass": 364.33,
+   "Data  Points": 5,
+   "SOFA  ID": "M_316"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "15,18-Tetracosadienoic acid, (Z,Z)-",
+   "Delta - Notation": "24:2-delta-15c,18c",
+   "Other Names": "-delta-15,18-Tetracosadienoic acid",
+   "Formula": "C24 H44 O2",
+   "Mass": 364.61,
+   "Data  Points": 2,
+   "SOFA  ID": "M_409"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetracosenoic acid",
+   "Delta - Notation": "24:01:00",
+   "Other Names": "ambiguous structure",
+   "Formula": "C24H46O2",
+   "Mass": 366.35,
+   "Data  Points": 324,
+   "SOFA  ID": "M_158"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "15-Tetracosenoic acid, (15Z)-",
+   "Delta - Notation": "24:1-delta-15c",
+   "Other Names": "Nervonic acid; 15-Tetracosenoic acid, (Z)-; 15-Tetracosenoic acid, cis-; (15Z)-Tetracosenoic acid; (Z)-15-Tetracosenoic acid; Nervonic acid; Nevoni...",
+   "Formula": "C24 H46 O2",
+   "Mass": 366.62,
+   "Data  Points": 369,
+   "SOFA  ID": "M_159"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "19-Tetracosenoic acid, (19Z)-",
+   "Delta - Notation": "24:1-delta-19c",
+   "Other Names": "",
+   "Formula": "C24 H46 O2",
+   "Mass": 366.62,
+   "Data  Points": 4,
+   "SOFA  ID": "M_358"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "17-Tetracosenoic acid, (Z)-",
+   "Delta - Notation": "24:1-delta-17c",
+   "Other Names": "",
+   "Formula": "C24 H46 O2",
+   "Mass": 366.62,
+   "Data  Points": 3,
+   "SOFA  ID": "M_414"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "13-Tetracosenoic acid",
+   "Delta - Notation": "24:1-delta-13",
+   "Other Names": "",
+   "Formula": "C24H46O2",
+   "Mass": 366.62,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetracosanoic acid",
+   "Delta - Notation": "24:00:00",
+   "Other Names": "Lignoceric acid; n-Tetracosanoic acid",
+   "Formula": "C24 H48 O2",
+   "Mass": 368.64,
+   "Data  Points": 1655,
+   "SOFA  ID": "M_157"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Docosanedioic acid",
+   "Delta - Notation": "21-COOH-21:0",
+   "Other Names": "Phellogenic acid; 1,20-Eicosanedicarboxylic acid; 1,22-Docosanedioic acid; Docosan-1,22-dioic acid; Felogenic acid; NSC 56159; Phellogenic acid",
+   "Formula": "C22 H42 O4",
+   "Mass": 370.57,
+   "Data  Points": 50,
+   "SOFA  ID": "M_241"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Docosanoic acid, 13,14-dihydroxy-",
+   "Delta - Notation": "13,14-di-OH-22:0",
+   "Other Names": "13,14-Dihydroxybehenic acid",
+   "Formula": "C22 H44 O4",
+   "Mass": 372.58,
+   "Data  Points": 1,
+   "SOFA  ID": "M_473"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "18-Tetracosenoic acid, 15-oxo-, (Z)- (8CI)",
+   "Delta - Notation": "15-O=24:1-delta-18c",
+   "Other Names": "",
+   "Formula": "C24 H44 O3",
+   "Mass": 380.6,
+   "Data  Points": 2,
+   "SOFA  ID": "M_366"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "16-pentacosenoic acid, (16Z)-",
+   "Delta - Notation": "25:1-delta-16Z",
+   "Other Names": "16Z-pentacosenoic acid; C25:1n-9; (Z)-17-Pentacosenoic acid; (Z)-pentacos-16-enoic acid;",
+   "Formula": "C25H48O2",
+   "Mass": 380.66,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxytetracos-19c-enoic acid",
+   "Delta - Notation": "OH-24:1-delta-19c",
+   "Other Names": "structure ambiguous",
+   "Formula": "C24H46O3",
+   "Mass": 382.34,
+   "Data  Points": 1,
+   "SOFA  ID": "M_348"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Pentacosanoic acid",
+   "Delta - Notation": "25:00:00",
+   "Other Names": "Hyenic acid; n-Pentacosanoic acid",
+   "Formula": "C25 H50 O2",
+   "Mass": 382.66,
+   "Data  Points": 48,
+   "SOFA  ID": "M_395"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxytetracosanoic acid",
+   "Delta - Notation": "OH-24:0",
+   "Other Names": "structure ambiguous",
+   "Formula": "C24H48O3",
+   "Mass": 384.36,
+   "Data  Points": 1,
+   "SOFA  ID": "M_352"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "(1-cyano-2-methylprop-2-enyl) eicos-11Z,14Z-dienoate",
+   "Delta - Notation": "CN-IV-20:2-delta-11c,14c",
+   "Other Names": "Type IV cyanolipid 20:2 ester",
+   "Formula": "C25H41NO2",
+   "Mass": 387.6,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicos-11Z-enoic acid, 3-cyano-2-methyl-2-propenyl ester",
+   "Delta - Notation": "CN-III-20:1-delta-11c",
+   "Other Names": "Type III cyanolipid 20:1 ester",
+   "Formula": "C25H43NO2",
+   "Mass": 389.61,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicos-13Z-enoic acid, 3-cyano-2-methyl-2-propenyl ester",
+   "Delta - Notation": "CN-III-20:1-delta-13c",
+   "Other Names": "Type III cyanolipid 20:1 ester",
+   "Formula": "C25H43NO2",
+   "Mass": 389.61,
+   "Data  Points": 3,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "(1-cyano-2-methylprop-2-enyl) eicos-13Z-enoate",
+   "Delta - Notation": "CN-IV-20:1-delta-13c",
+   "Other Names": "Type IV cyanolipid 20:1 ester",
+   "Formula": "C25H43NO2",
+   "Mass": 389.61,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicosanoic acid, 3-cyano-2-methyl-2-propen-1-yl ester",
+   "Delta - Notation": "CN-III-20:0",
+   "Other Names": "Type III cyanolipid 20:0 ester",
+   "Formula": "C25H45NO2",
+   "Mass": 391.63,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexacosenoic acid",
+   "Delta - Notation": "26:01:00",
+   "Other Names": "structure ambiguous",
+   "Formula": "C26H50O2",
+   "Mass": 394.38,
+   "Data  Points": 8,
+   "SOFA  ID": "M_161"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "17-Hexacosenoic acid, (17Z)-",
+   "Delta - Notation": "26:1-delta-17c",
+   "Other Names": "Ximenic acid; 17-Hexacosenoic acid, (Z)-; (Z)-17-Hexacosenoic acid; cis-17-Hexacosenoic acid; Ximenic acid",
+   "Formula": "C26 H50 O2",
+   "Mass": 394.67,
+   "Data  Points": 8,
+   "SOFA  ID": "M_164"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "21-Hexacosenoic acid, (21Z)-",
+   "Delta - Notation": "26:1-delta-21c",
+   "Other Names": "21-Hexacosenoic acid, (Z)-",
+   "Formula": "C26 H50 O2",
+   "Mass": 394.67,
+   "Data  Points": 2,
+   "SOFA  ID": "M_344"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexacosanoic acid",
+   "Delta - Notation": "26:00:00",
+   "Other Names": "Cerotic acid; Cerotic acid; Ceratinic acid; Ceric acid; Cerinic acid; Cerylic acid; NSC 4205; n-Hexacosanoic acid",
+   "Formula": "C26 H52 O2",
+   "Mass": 396.69,
+   "Data  Points": 183,
+   "SOFA  ID": "M_160"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "(7R,15Z,18R,21Z)-7,18-dihydroxytetracosa-15,21-dienoic acid",
+   "Delta - Notation": "7,18-di-OH-24:2-delta-15c,21c",
+   "Other Names": "Wuhanic acid; 7,18-Dihydroxy-15,21-tetracosedienoic acid, (15Z,21Z)-",
+   "Formula": "C24H44O4",
+   "Mass": 396.7,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "(7R,18R)-7,18-dihydroxy-15-tetracosenoic acid, (15Z)-",
+   "Delta - Notation": "7,18-di-OH-24:1-delta-15c",
+   "Other Names": "Nebraskanic acid; 7,18-Dihydroxy-15-tetracosenoic acid, (15Z)-",
+   "Formula": "C24H46O4",
+   "Mass": 398.7,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "18-heptacosenoic acid, (18Z)-",
+   "Delta - Notation": "27:1-delta-18",
+   "Other Names": "",
+   "Formula": "C27H52O2",
+   "Mass": 408.71,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxyhexacos-21c-enoic acid",
+   "Delta - Notation": "OH-26:1-delta-21c",
+   "Other Names": "structure ambiguous",
+   "Formula": "C26H50O3",
+   "Mass": 410.38,
+   "Data  Points": 1,
+   "SOFA  ID": "M_349"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Heptacosanoic acid",
+   "Delta - Notation": "27:00:00",
+   "Other Names": "Carboceric acid",
+   "Formula": "C27 H54 O2",
+   "Mass": 410.72,
+   "Data  Points": 13,
+   "SOFA  ID": "M_165"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxyhexacosanoic acid",
+   "Delta - Notation": "OH-26:0",
+   "Other Names": "structure ambiguous",
+   "Formula": "C26H52O3",
+   "Mass": 412.39,
+   "Data  Points": 1,
+   "SOFA  ID": "M_311"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetracosanoic acid, 15,16-dihydroxy-, methyl ester",
+   "Delta - Notation": "15,16-di-OH-24:0",
+   "Other Names": "",
+   "Formula": "C25 H50 O4",
+   "Mass": 414.66,
+   "Data  Points": 1,
+   "SOFA  ID": "M_474"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Docos-13Z-enoic acid, 3-cyano-2-methyl-2-propenyl ester",
+   "Delta - Notation": "CN-III-22:1-delta-13c",
+   "Other Names": "Type III cyanolipid 22:1 ester",
+   "Formula": "C27H47NO2",
+   "Mass": 417.67,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Docosanoic acid, 3-cyano-2-methyl-2-propenyl ester",
+   "Delta - Notation": "CN-III-22:0",
+   "Other Names": "Type III cyanolipid 22:0 ester",
+   "Formula": "C27H49NO2",
+   "Mass": 419.68,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "20-Hexacosenoic acid, 17-oxo-, methyl ester, (Z)-",
+   "Delta - Notation": "17-O=26:1-delta-20c",
+   "Other Names": "",
+   "Formula": "C27 H50 O3",
+   "Mass": 422.68,
+   "Data  Points": 3,
+   "SOFA  ID": "M_367"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "23-Octacosenoic acid, (Z)-",
+   "Delta - Notation": "28:1-delta-23c",
+   "Other Names": "",
+   "Formula": "C28 H54 O2",
+   "Mass": 422.73,
+   "Data  Points": 1,
+   "SOFA  ID": "M_345"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octacosenoic acid",
+   "Delta - Notation": "28:01:00",
+   "Other Names": "ambiguous structure",
+   "Formula": "C28H54O2",
+   "Mass": 422.82,
+   "Data  Points": 1,
+   "SOFA  ID": "M_357"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octacosanoic acid",
+   "Delta - Notation": "28:00:00",
+   "Other Names": "Montanic acid; Montanic acid; n-Octacosanoic acid",
+   "Formula": "C28 H56 O2",
+   "Mass": 424.74,
+   "Data  Points": 44,
+   "SOFA  ID": "M_166"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "22-Octacosenoic acid, 19-oxo-, (Z)- (8CI)",
+   "Delta - Notation": "19-O=28:1-delta-22c",
+   "Other Names": "",
+   "Formula": "C28 H52 O3",
+   "Mass": 436.71,
+   "Data  Points": 2,
+   "SOFA  ID": "M_368"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "20-nonacosenoic acid, (20Z)-",
+   "Delta - Notation": "29:1-delta-20c",
+   "Other Names": "(Z)-20-Nonacosenoic acid; (20Z)-NONACOS-20-ENOIC ACID",
+   "Formula": "C29H56O2",
+   "Mass": 436.77,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxyoctacos-23c-enoic acid",
+   "Delta - Notation": "OH-28:1-delta-23c",
+   "Other Names": "structure ambiguous",
+   "Formula": "C28H54O3",
+   "Mass": 438.41,
+   "Data  Points": 1,
+   "SOFA  ID": "M_350"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octacosanoic acid, 9-oxo-",
+   "Delta - Notation": "9-O=28:0",
+   "Other Names": "",
+   "Formula": "C28 H54 O3",
+   "Mass": 438.73,
+   "Data  Points": 2,
+   "SOFA  ID": "M_383"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octacosanoic acid, 11-oxo-",
+   "Delta - Notation": "11-O=28:0",
+   "Other Names": "11-Oxo-Octacosanoic acid",
+   "Formula": "C28 H54 O3",
+   "Mass": 438.73,
+   "Data  Points": 2,
+   "SOFA  ID": "M_384"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Nonacosanoic acid",
+   "Delta - Notation": " 29:0",
+   "Other Names": "n-Nonacosanoic acid",
+   "Formula": "C29 H58 O2",
+   "Mass": 438.77,
+   "Data  Points": 1,
+   "SOFA  ID": "M_528"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "21-Triacontenoic acid, (21Z)-",
+   "Delta - Notation": "30:1-delta-21c",
+   "Other Names": "21-Triacontenoic acid, (Z)-; Lumequeic acid",
+   "Formula": "C30 H58 O2",
+   "Mass": 450.78,
+   "Data  Points": 1,
+   "SOFA  ID": "M_168"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Triacontenoic acid",
+   "Delta - Notation": " 30:1",
+   "Other Names": "Structure ambiguous (double bond position and configuration)",
+   "Formula": "C30H58O2",
+   "Mass": 450.88,
+   "Data  Points": 1,
+   "SOFA  ID": "M_397"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Triacontanoic acid",
+   "Delta - Notation": "30:00:00",
+   "Other Names": "Melissic acid; Melissic acid; Myricic acid; NSC 53832; n-Triacontanoic acid",
+   "Formula": "C30 H60 O2",
+   "Mass": 452.8,
+   "Data  Points": 10,
+   "SOFA  ID": "M_167"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "22-Hentriacontenoic acid, (22Z)-",
+   "Delta - Notation": "31:1-delta-22c",
+   "Other Names": "",
+   "Formula": "C31H60O2",
+   "Mass": 464.82,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hydroxytriacont-25c-enoic acid",
+   "Delta - Notation": "OH-30:1-delta-25c",
+   "Other Names": "structure ambiguous",
+   "Formula": "C30H58O3",
+   "Mass": 466.44,
+   "Data  Points": 1,
+   "SOFA  ID": "M_351"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hentriacontanoic acid",
+   "Delta - Notation": "31:00:00",
+   "Other Names": "",
+   "Formula": "C31H62O2",
+   "Mass": 466.48,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Triacontanoic acid, 11-oxo-",
+   "Delta - Notation": "11-O=30:0",
+   "Other Names": "11-Oxotriacontanoic acid",
+   "Formula": "C30 H58 O3",
+   "Mass": 466.78,
+   "Data  Points": 2,
+   "SOFA  ID": "M_385"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octacosanoic acid, 6-hydroxy-6-methyl-9-oxo-",
+   "Delta - Notation": "6-OH-6-Me-9=O-28:0",
+   "Other Names": "Argemonic acid; Argemonic acid",
+   "Formula": "C29 H56 O4",
+   "Mass": 468.75,
+   "Data  Points": 1,
+   "SOFA  ID": "M_300"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Dotriacontenoic acid",
+   "Delta - Notation": "32:01:00",
+   "Other Names": "Structure ambiguous (double bond position and configuration)",
+   "Formula": "C32H62O2",
+   "Mass": 478.48,
+   "Data  Points": 3,
+   "SOFA  ID": "M_424"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Dotriacontanoic acid",
+   "Delta - Notation": "32:00:00",
+   "Other Names": "Lacceric acid; Lacceroic acid; n-Dotriacontanoic acid",
+   "Formula": "C32 H64 O2",
+   "Mass": 480.85,
+   "Data  Points": 1,
+   "SOFA  ID": "M_169"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "25-Tetratriacontenoic acid, (25Z)-",
+   "Delta - Notation": "34:1-delta-25c",
+   "Other Names": "25-Tetratriacontenoic acid, (Z)-; Tetratriacont-25-enoic acid",
+   "Formula": "C34H66O2",
+   "Mass": 506.9,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tetratriacontanoic acid",
+   "Delta - Notation": "34:00:00",
+   "Other Names": "Geddic acid; Gheddic acid; Ghedoic acid",
+   "Formula": "C34H68O2",
+   "Mass": 508.52,
+   "Data  Points": 1,
+   "SOFA  ID": "M_171"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-hexadecanoate",
+   "Delta - Notation": "CN-I-16:0",
+   "Other Names": "Type I cyanolipid 16:0, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C37H67NO4",
+   "Mass": 589.93,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Hexadecanoic acid, 3-���cyano-���2-���[[(1-���oxo-���hexadecanyl)���oxy]���methyl]���-���2-���propenyl ester",
+   "Delta - Notation": "CN-II-16:0",
+   "Other Names": "Type II cyanolipid 16:0, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C37H67NO4",
+   "Mass": 589.93,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-octadec-9Z,12Z,15Z-trienoate",
+   "Delta - Notation": "CN-I-18:3-delta-9c,12c,15c",
+   "Other Names": "Type I cyanolipid 18:3, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C39H65NO4",
+   "Mass": 611.94,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadec-9Z,12Z,15Z-trienoic acid, 3-���cyano-���2-���[[(1-���oxo-���octadec-9Z,12Z,15Z-trienyl)���oxy]���methyl]���-���2-���propenyl ester",
+   "Delta - Notation": "CN-II-18:3-9c,12c,15c",
+   "Other Names": "Type II cyanolipid 18:3, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C41H63NO4",
+   "Mass": 611.94,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-octadec-9Z,12Z-dienoate",
+   "Delta - Notation": "CN-I-18:2-delta-9c,12c",
+   "Other Names": "Type I cyanolipid 18:2, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C39H67NO4",
+   "Mass": 613.95,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadec-9Z,12Z-dienoic acid, 3-���cyano-���2-���[[(1-���oxo-���octadec-9Z,12Z-dienyl)���oxy]���methyl]���-���2-���propenyl ester",
+   "Delta - Notation": "CN-II-18:2-delta-9c,12c",
+   "Other Names": "Type II cyanolipid 18:2, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C41H67NO4",
+   "Mass": 613.95,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-octadec-9Z-enoate",
+   "Delta - Notation": "CN-I-18:1-delta-9c",
+   "Other Names": "Type I cyanolipid 18:1, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C39H69NO4",
+   "Mass": 615.97,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-octadec-11Z-enoate",
+   "Delta - Notation": "CN-I-18:1-delta-11c",
+   "Other Names": "Type I cyanolipid 18:1, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C39H69NO4",
+   "Mass": 615.97,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadec-9Z-enoic acid, 3-���cyano-���2-���[[(1-���oxo-���octadec-9Z-enyl)���oxy]���methyl]���-���2-���propenyl ester",
+   "Delta - Notation": "CN-II-18:1-delta-9c",
+   "Other Names": "Type II cyanolipid 18:1, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C41H71NO4",
+   "Mass": 615.97,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-octadecanoate",
+   "Delta - Notation": "CN-I-18:0",
+   "Other Names": "Type I cyanolipid 18:0, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C39H71NO4",
+   "Mass": 617.98,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Octadecanoic acid, 3-���cyano-���2-���[[(1-���oxo-���octadecanyl)���oxy]���methyl]���-���2-���propenyl ester",
+   "Delta - Notation": "CN-II-18:0",
+   "Other Names": "Type II cyanolipid 18:0, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C41H75NO4",
+   "Mass": 617.98,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-eicos-11Z-enoate",
+   "Delta - Notation": "CN-I-20:1-delta-11c",
+   "Other Names": "Type I cyanolipid 20:1, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C41H73NO4",
+   "Mass": 644.02,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-eicos-13Z-enoate",
+   "Delta - Notation": "CN-I-20:1-delta-13c",
+   "Other Names": "Type I cyanolipid 20:1, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C41H73NO4",
+   "Mass": 644.02,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicos-11Z-enoic acid, 3-���cyano-���2-���[[(1-���oxo-���eicos-11Z-enyl)���oxy]���methyl]���-���2-���propenyl ester",
+   "Delta - Notation": "CN-II-20:1-delta-11c",
+   "Other Names": "Type II cyanolipid 20:1, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C45H79NO4",
+   "Mass": 644.02,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-eicosanoate",
+   "Delta - Notation": "CN-I-20:0",
+   "Other Names": "Type I cyanolipid 20:0, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C41H75NO4",
+   "Mass": 646.04,
+   "Data  Points": 2,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Eicosanoic acid, 3-���cyano-���2-���[[(1-���oxo-���eicosanyl)���oxy]���methyl]���-���2-���propenyl ester",
+   "Delta - Notation": "CN-II-20:0",
+   "Other Names": "Type II cyanolipid 20:0, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C45H83NO4",
+   "Mass": 646.04,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Tritriacontanoic acid, 11-hydroxy-, decyl ester",
+   "Delta - Notation": "11-OH-33:0",
+   "Other Names": "Decyl 11-hydroxytritriacontanoate",
+   "Formula": "C43 H86 O3",
+   "Mass": 651.14,
+   "Data  Points": 1,
+   "SOFA  ID": "M_480"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-docos-13Z-enoate",
+   "Delta - Notation": "CN-I-22:1-delta-13c",
+   "Other Names": "Type I cyanolipid 22:1, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C43H77NO4",
+   "Mass": 672.07,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "2-[cyano-[hexadecanoyl]oxymethyl]prop-2-enyl-docosanoate",
+   "Delta - Notation": "CN-I-22:0",
+   "Other Names": "Type I cyanolipid 22:0, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C43H79NO4",
+   "Mass": 674.09,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Docosanoic acid, 3-���cyano-���2-���[[(1-���oxo-���Docosanyl)���oxy]���methyl]���-���2-���propenyl ester",
+   "Delta - Notation": "CN-II-22:0",
+   "Other Names": "Type II cyanolipid 22:0, XX:X diester; Position of acyl chains not defined and structure ambiguous for 2nd acyl chain",
+   "Formula": "C49H91NO4",
+   "Mass": 674.09,
+   "Data  Points": 1,
+   "SOFA  ID": ""
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "allenic fatty acids",
+   "Delta - Notation": "Allene:undefined",
+   "Other Names": "; structure ambiguous",
+   "Formula": "-",
+   "Mass": 999,
+   "Data  Points": 52,
+   "SOFA  ID": "M_326"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "18:2n-4/19:0",
+   "Delta - Notation": "18:2n-4/19:0",
+   "Other Names": "Ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 22,
+   "SOFA  ID": "M_088"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "conjugated dienoic:undefined",
+   "Delta - Notation": "conjugated dienoic:undefined",
+   "Other Names": "structure ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 11,
+   "SOFA  ID": "M_320"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "conjugated trienoic:undefined",
+   "Delta - Notation": "conjugated trienoic:undefined",
+   "Other Names": "structure ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 10,
+   "SOFA  ID": "M_321"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "epoxy acids",
+   "Delta - Notation": "Epoxy:undefined",
+   "Other Names": "structure ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 90,
+   "SOFA  ID": "M_322"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "hydroxy acids",
+   "Delta - Notation": "Hydroxy",
+   "Other Names": "structure ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 21,
+   "SOFA  ID": "M_323"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "trans acids",
+   "Delta - Notation": "Trans:undefined",
+   "Other Names": "structure ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 2,
+   "SOFA  ID": "M_327"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "saturated acids",
+   "Delta - Notation": "saturated:undefined",
+   "Other Names": "structure ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 166,
+   "SOFA  ID": "M_354"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "unsaturated acids",
+   "Delta - Notation": "unsaturated:undefined",
+   "Other Names": "structure undefined",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 6,
+   "SOFA  ID": "M_389"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Dihydroxy acids",
+   "Delta - Notation": "Dihydroxy:undefined",
+   "Other Names": "structure ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 3,
+   "SOFA  ID": "M_418"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "Ketoacids",
+   "Delta - Notation": "Keto:undefined",
+   "Other Names": "structure ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 2,
+   "SOFA  ID": "M_419"
+ },
+ {
+   "Phylo Tree": "Tree",
+   "Systematic Name": "trienoic acids",
+   "Delta - Notation": "Trienoic:undefined",
+   "Other Names": "structure ambiguous",
+   "Formula": "",
+   "Mass": null,
+   "Data  Points": 1,
+   "SOFA  ID": "M_425"
+ }
+]
