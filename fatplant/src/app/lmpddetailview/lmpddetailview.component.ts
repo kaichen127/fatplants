@@ -5,6 +5,7 @@ import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 
 // import { AngularFirestore } from 'angularfire2/firestore';
 // import * as TabTest from '../assets/TabTest.tab';
+import { TabService } from './../tab.service';
 import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestore'
 import { ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
@@ -16,25 +17,29 @@ declare var require: any;
 @Component({
   selector: 'app-lmpddetailview',
   templateUrl: './lmpddetailview.component.html',
-  styleUrls: ['./lmpddetailview.component.css']
+  styleUrls: ['./lmpddetailview.component.css'],
+  providers: [TabService]
 })
 
 export class LmpddetailviewComponent implements OnInit {
   // private TabTest = require("../assets/TabTest.tab");
   // private header = require("../assets/header.jpg");
+  public tabs = [];
+  public errorMsg;
+
   private uniprot_id: any;
   private items: any;
   private result: any;
   private sub: any;
   private resultsequence: any;
   dataSource:MatTableDataSource<any>;
-  constructor(private afs:AngularFirestore, private route: ActivatedRoute) {
+  constructor(private afs:AngularFirestore, private route: ActivatedRoute, private _tabService: TabService) {
     // , private http: HttpClient) {
         // public getTranslation(): Observable<any> {
         //     return this.http.get("./csv/test.tab")
         // }
    }
-
+   // , private _tabService: TabService
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.uniprot_id = params['uniprot_id'];
@@ -73,10 +78,10 @@ export class LmpddetailviewComponent implements OnInit {
     })
 
 
-      // this.http.get('../assets/TabTest.tab', { responseType: 'json' })
-      // .subscribe(data => {
-      //   console.log(data);
-      // });
+      this._tabService.getTabs()
+      .subscribe(data => {
+        console.log(data);
+      });
 
   }
 
