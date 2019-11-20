@@ -7,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LmpdCardComponent implements OnInit {
 
-  @Input() elem;
-  
+  @Input() headers;
+  @Input() fields;
+
   constructor() { }
 
   ngOnInit() {
