@@ -16,10 +16,11 @@ import {DataSource} from '@angular/cdk/collections'
 // (element:any)=>'<a href=uniprot.org/unpriot'+element.uniprot_id+'>Uniprot Page</a>'}
 // 'https://www.uniprot.org/uniprot'+element.uniprot_id
 export class LmpdArapidopsisComponent implements OnInit {
-  displayedColumns = ['species','uniprot_id','refseq_id','gene_name','gene_symbol','protein_entry','protein_name'];
+  displayedColumns = ['species','uniprot_id','refseq_id','gene_name','gene_symbol','protein_entry','protein_name','moreInfo'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   dataSource:MatTableDataSource<any>;
+  chosenelem: any;
   constructor(private afs:AngularFirestore) { }
 
   ngOnInit() {
@@ -35,4 +36,9 @@ export class LmpdArapidopsisComponent implements OnInit {
       this.dataSource.filter = filterValue;
     }
 
+  changeElem(elem){
+    this.chosenelem=elem;
+    console.log("WORKING")
+    console.log(elem)
+  }
 }

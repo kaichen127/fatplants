@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>Lmpd Arapidopsis</mat-card-title>
+      <mat-card-subtitle>Species: {{elem.species}}</mat-card-subtitle>
+      <mat-card-subtitle>Name: {{elem.protein_name}}</mat-card-subtitle>
+    <mat-card-subtitle>Entry: {{elem.protein_entry}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+       <ul> 
+           <li>Entrez Gene Id: {{elem.entrez_gene_id}}</li>
+           <li>Gene Name: {{elem.gene_name}}</li>
+           <li>Gene Symbol: {{elem.gene_symbol}}</li>
+           <li>Lmp ID: {{elem.lmp_id}}</li>
+           <li>Mrna ID: {{elem.Mrna_id}}</li>
+           <li>Protein GI: {{elem.protein_gi}}</li>
+           <li>Sequence Length: {{elem.seqlength}}</li>
+           <li>Species Long: {{elem.species_long}}</li>
+           <li>Taxid: {{elem.taxid}}</li>
+        </ul>
+    </mat-card-content>
+  </mat-card>

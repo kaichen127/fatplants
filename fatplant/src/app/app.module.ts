@@ -13,7 +13,7 @@ import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.co
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { DatatableComponent } from './datatable/datatable.component';
-import { MatTableModule, MatSelectModule, MatListModule, MatIconModule } from '@angular/material';
+import { MatTableModule, MatSelectModule, MatListModule, MatIconModule, MatCardModule } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material';
 import { MatPaginatorModule} from '@angular/material/paginator';
@@ -43,6 +43,7 @@ import { UploadTaskComponent } from './upload-task/upload-task.component';
 import { DropzoneDirective } from './directives/dropzone.directive';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { FileviewComponent } from './fileview/fileview.component';
+import { LmpdCardComponent } from './lmpd-card/lmpd-card.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { FileviewComponent } from './fileview/fileview.component';
     UploadTaskComponent,
     DropzoneDirective,
     FileviewComponent,
+    LmpdCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +80,7 @@ import { FileviewComponent } from './fileview/fileview.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     MatTableModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
