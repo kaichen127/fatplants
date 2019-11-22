@@ -67,44 +67,71 @@
 <textarea>{{resultsequence}}</textarea>
 </p>
 <button class="small red button">Blast!</button>
-<br><br>
-<h2>PTM / Processing</h2>
-<strong>Molecule processing: </strong>
-<table class="blueTable">
-<tr>
-<th><strong>Feature key</strong></th>
-<th><strong>Position(s)</strong></th>
-<th><strong>Description</strong></th>
-<!-- <th><strong>Actions</strong></th> -->
-<!-- <th><strong>Graphical view</strong></th> -->
-<th><strong>Length</strong></th>
-</tr>
-<tr>
-<td>Transit peptidei</td>
-<td>1 – 47</td>
-<td>Chloroplast</td>
-<td>47</td>
-</tr>
-<tr>
-<td>Chain PRO_0000435264</td>
-<td>48 – 188</td>
-<td>Acyl-acyl carrier protein thioesterase ATL4, chloroplastic</td>
-<td>141</td>
-</tr>
-</table>
-<br>
-<strong>Proteomic databases: </strong>
-<table class="blueTable">
-<tr>
-<td>PaxDb</td>
-<td>F4HX80</td>
-</tr>
-</table>
 
 <br><br><br><br>
 
+<!-- <div class="mat-elevation-z8">
+      <div>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div> -->
+
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="Entry">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Entry </mat-header-cell>
+        <mat-cell *matCellDef="let elem"> {{ elem.Entry }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Entry_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Entry Name </mat-header-cell>
+            <mat-cell *matCellDef="let elem"> {{elem.Entry_name}} </mat-cell>
+          </ng-container> -->
+
+          <ng-container matColumnDef="Status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                <mat-cell *matCellDef="let elem">{{ elem.Status }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="Protein_names">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Names </mat-header-cell>
+                    <mat-cell *matCellDef="let elem"> {{ elem.Protein_names }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="Gene_names">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Gene Names </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.Gene_names }} </mat-cell>
+                      </ng-container>
+
+                  <ng-container matColumnDef="Organism">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Organism </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.Organism }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="Length">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Length </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.Length }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="Chain">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Chain </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.Chain }} </mat-cell>
+                  </ng-container>
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
 
 
+<!-- <div class="form-group">
+    <input type="file" (change)="onFileSelect($event.target)" name="myfile">
+</div>
+<br><br><br><br> -->
+<!-- <form novalidate #f="ngForm">
+      <textarea [(ngModel)]="tabresult"> {{ tabresult }}</textarea>
+   </form> -->
+<!-- <textarea > {{ tabresult }}</textarea> -->
 	<!-- <p class='col-md-6'>
 			<img style="margin-left:1em;max-height:150px" src="http://opsin.ch.cam.ac.uk/opsin/Formic acid.png" alt="Formic acid" />
 	</p> -->
+<!-- <textarea [(ngModel)]="csvContent"></textarea> -->

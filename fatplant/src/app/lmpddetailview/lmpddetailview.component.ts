@@ -5,8 +5,10 @@ import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 
 // import { AngularFirestore } from 'angularfire2/firestore';
 // import * as TabTest from '../assets/TabTest.tab';
+import { FormsModule } from '@angular/forms';
 import { TabService } from './../tab.service';
 import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestore'
+import { FirestoreConnectionService } from '../services/firestore-connection.service';
 import { ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {Observable} from 'rxjs';
@@ -25,13 +27,21 @@ export class LmpddetailviewComponent implements OnInit {
   // private TabTest = require("../assets/TabTest.tab");
   // private header = require("../assets/header.jpg");
   public tabs = [];
+  public tabtitles = [];
+  public arr2 = [];
   public errorMsg;
-
+  csvContent: string;
   private uniprot_id: any;
   private items: any;
   private result: any;
+  private tabresult: any;
   private sub: any;
   private resultsequence: any;
+
+  displayedColumns = ['Entry','Entry_name','Status','Protein_names','Gene_names','Organism','Length','Chain'];
+  // displayedColumns = ['Entry','Status','Organism','Length','Chain'];
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
   dataSource:MatTableDataSource<any>;
   constructor(private afs:AngularFirestore, private route: ActivatedRoute, private _tabService: TabService) {
     // , private http: HttpClient) {
@@ -43,6 +53,11 @@ export class LmpddetailviewComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.uniprot_id = params['uniprot_id'];
+    })
+
+    let docs=this.afs.collectionGroup('Lmpd_Arapidopsis_Tab', ref => ref.where('Uniprot_ID', '==', this.uniprot_id)).valueChanges().subscribe(data =>{
+        this.dataSource=new MatTableDataSource(data)
+        this.dataSource.paginator = this.paginator;
     })
     // console.log('Reading local json files');
     // console.log(TabTest);
@@ -78,11 +93,60 @@ export class LmpddetailviewComponent implements OnInit {
     })
 
 
-      this._tabService.getTabs()
-      .subscribe(data => {
-        console.log(data);
-      });
+      // this._tabService.getTabs()
+      // .subscribe(data => {
+      //   console.log(data);
+      // });
 
   }
+
+  applyFilter(filterValue: string) {
+      filterValue = filterValue.trim();
+      filterValue = filterValue.toLowerCase();
+      this.dataSource.filter = filterValue;
+    }
+
+  // onFileLoad(fileLoadedEvent) {
+  //     const textFromFileLoaded = fileLoadedEvent.target.result;
+  //     this.csvContent = textFromFileLoaded;
+  //     // alert(this.csvContent);
+  //     // this.onFileLoad.subscribe(data=>{
+  //     // this.tabresult=data;
+  //     // })
+  //     this.tabresult = this.csvContent;
+  //     this.csvContent = 'hello';
+  //     console.log(this.csvContent);
+  //     let ss: string = '';
+  //     let arr: string[];
+  //     let underarr: string[];
+  //     let i: number = 0;
+  //     let j: number = 0;
+  //     console.log(this.tabresult);
+  //     arr = this.tabresult.split("\n");
+  //     // arr = this.tabresult.split("\t");
+  //     for(i = 0; i < arr.length; i++){
+  //       console.log(arr[i]);
+  //       underarr = arr[i].split("\t");
+  //       for(j = 0; j < underarr.length; j++){
+  //         console.log(underarr[j]);
+  //       }
+  //     }
+  //   }
+  //
+  //   onFileSelect(input: HTMLInputElement) {
+  //
+  //     const files = input.files;
+  //     var content = this.csvContent;
+  //
+  //    if (files && files.length) {
+  //
+  //         const fileToRead = files[0];
+  //
+  //         const fileReader = new FileReader();
+  //         fileReader.onload = this.onFileLoad;
+  //
+  //         fileReader.readAsText(fileToRead, "UTF-8");
+  //    }
+  //  }
 
 }
