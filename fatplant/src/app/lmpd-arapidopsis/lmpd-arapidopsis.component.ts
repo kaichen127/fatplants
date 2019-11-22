@@ -21,7 +21,8 @@ export class LmpdArapidopsisComponent implements OnInit {
 
   dataSource:MatTableDataSource<any>;
   chosenelem: any;
-  headerfields=[{name:'Species',val:null},{name: 'Protein Name',val:null},{name:'Protein Entry',val:null}]
+  headerfields=[{name: 'Protein Name',val:null},{name:'Protein Entry',val:null}]
+  subheaders=[{name:'Species',val:null}]
   cardfields=[{name:'Entrez Gene Id',val:null},{name:'Gene Name',val:null},{name:'Gene Symbol',val:null},{name:'Lmp ID',val:null},
   {name:'Mrna ID',val:null},{name:'Protein GI',val:null},{name:'Sequence Length',val:null},{name:'Species Long',val:null},{name:'Taxid',val:null}];
   constructor(private afs:AngularFirestore) { }
@@ -41,6 +42,9 @@ export class LmpdArapidopsisComponent implements OnInit {
 
   changeElem(elem){
     for(let entry of this.headerfields){
+      entry.val=elem[entry.name.toLowerCase().replace(/ /g,"_")]
+    }
+    for(let entry of this.subheaders){
       entry.val=elem[entry.name.toLowerCase().replace(/ /g,"_")]
     }
     for (let entry of this.cardfields){

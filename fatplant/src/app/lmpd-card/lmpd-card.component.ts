@@ -9,6 +9,7 @@ export class LmpdCardComponent implements OnInit {
 
   @Input() headers;
   @Input() fields;
+  @Input() subheaders;
 
   constructor() { }
 
