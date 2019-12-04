@@ -44,6 +44,10 @@ import { DropzoneDirective } from './directives/dropzone.directive';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { FileviewComponent } from './fileview/fileview.component';
 import { LmpdCardComponent } from './lmpd-card/lmpd-card.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatDividerModule} from "@angular/material/divider";
+
 
 
 @NgModule({
@@ -94,8 +98,9 @@ import { LmpdCardComponent } from './lmpd-card/lmpd-card.component';
     CytoscapeModule,
     ReactiveFormsModule,
     MatPaginatorModule,
-    MatSelectModule,
-    
+    MatTabsModule,
+    MatRadioModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
