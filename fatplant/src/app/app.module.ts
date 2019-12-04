@@ -13,7 +13,7 @@ import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.co
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { DatatableComponent } from './datatable/datatable.component';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatSelectModule, MatListModule, MatIconModule, MatCardModule } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material';
 import { MatPaginatorModule} from '@angular/material/paginator';
@@ -37,6 +37,16 @@ import { FattyacidComponent } from './fattyacid/fattyacid.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
 import { DetailviewComponent } from './detailview/detailview.component';
+import { UploadFilesComponent } from './upload-files/upload-files.component';
+import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { DropzoneDirective } from './directives/dropzone.directive';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { FileviewComponent } from './fileview/fileview.component';
+import { LmpdCardComponent } from './lmpd-card/lmpd-card.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatDividerModule} from "@angular/material/divider";
+
 
 
 @NgModule({
@@ -58,26 +68,38 @@ import { DetailviewComponent } from './detailview/detailview.component';
     IntroductionComponent,
     InvestigatorComponent,
     DetailviewComponent,
-    // CytoscapeComponent
-    // CytodemoComponent
+    // CytodemoComponent,
+    UploadFilesComponent,
+    UploadTaskComponent,
+    DropzoneDirective,
+    FileviewComponent,
+    LmpdCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'fatplant'),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     MatTableModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    MatListModule,
+    MatIconModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatMenuModule,
     CdkTableModule,
     HttpClientModule,
     FormsModule,
     CytoscapeModule,
     ReactiveFormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule,
+    MatRadioModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

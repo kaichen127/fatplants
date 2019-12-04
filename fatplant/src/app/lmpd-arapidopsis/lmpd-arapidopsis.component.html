@@ -2,6 +2,10 @@
   <h1>Lmpd_Arapidopsis</h1>
 </div>
 
+<mat-menu #dropdownMenu>
+<app-lmpd-card [fields]="cardfields" [headers]="headerfields" [subheaders]="subheaders"></app-lmpd-card>
+</mat-menu>
+
 <div class="mat-elevation-z8">
       <div>
         <mat-form-field>
@@ -43,6 +47,11 @@
                   <ng-container matColumnDef="protein_entry">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
                         <mat-cell *matCellDef="let elem"> {{ elem.protein_entry }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="moreInfo">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>More</mat-header-cell>
+                      <mat-cell *matCellDef="let elem"><button mat-button [matMenuTriggerFor]="dropdownMenu" (click)="changeElem(elem)">More Info?</button></mat-cell>
                   </ng-container>
 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

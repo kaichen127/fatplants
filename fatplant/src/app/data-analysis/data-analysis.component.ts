@@ -2,14 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {AngularFirestore} from 'angularfire2/firestore';
+import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import {MatTabsModule} from '@angular/material/tabs';
+import {Observable} from 'rxjs';
+
 @Component({
   selector: 'app-data-analysis',
   templateUrl: './data-analysis.component.html',
   styleUrls: ['./data-analysis.component.css']
 })
 export class DataAnalysisComponent implements OnInit {
-  public items: any;
+  public items: Observable<any>;
+  private itemCollection: AngularFirestoreCollection<any>;
+  private query: string;
+  private debug: boolean;
+  private tabIndex: number;
 
    blast: string;
    isVisibale: boolean;
@@ -20,7 +27,7 @@ export class DataAnalysisComponent implements OnInit {
   glmolUrl: string;
   blastRes = [];
   blastForm: FormGroup;
-  constructor( private http: HttpClient, private router: Router, db: AngularFirestore) {
+  constructor(private http: HttpClient, private router: Router, private afs: AngularFirestore) {
     // this.blastForm = fb.group({method: ['', Validators.required]});
     this.blastForm = new FormGroup({
       fasta : new FormControl(),
@@ -34,7 +41,11 @@ export class DataAnalysisComponent implements OnInit {
     this.isBlastP = false;
     this.isBlastN = false;
     this.isGlmol = false;
-    this.items = db.collection('/Lmpd_Arapidopsis').valueChanges();
+
+    // this.itemCollection = afs.collection('/Lmpd_Arapidopsis');
+    // this.items = this.itemCollection.valueChanges();
+    // this.items = afs.collection('/Lmpd_Arapidopsis',ref =>ref.where('uniprot_id','>=','F4HQ').where('uniprot_id','<=', 'F4HQ' + '\uf8ff') ).valueChanges();
+    this.tabIndex = 0;
   }
   onSubmit(blastData) {
     console.log(blastData);
@@ -56,13 +67,7 @@ export class DataAnalysisComponent implements OnInit {
   }
   ngOnInit() {
     // this.blastForm = new FormGroup({});
-    this.blast = 'input blast here';
-
-  }
-  debug() {
-    // console.log(msg);
-    const options: string [] = [];
-    // this.childProcessService.childProcess.exec("python",options,(data) => {console.log(data);});
+    // this.blast = 'input blast here';
 
   }
   SelectBlastP() {
@@ -112,6 +117,56 @@ export class DataAnalysisComponent implements OnInit {
     //     content: t[1]
     //   });
     // }
+    tmp.length = 5 ;
     this.blastRes = tmp;
+  }
+
+  OneClick() {
+    switch (this.tabIndex) {
+      case 0:
+        // 根据name拿
+        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {this.blast = res[0].sequence; });
+        break;
+      case 1:
+        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {this.blast = res[0].sequence; });
+        break;
+      case 2:
+        this.blast = this.query;
+        break;
+      default:
+        console.log("No");
+        break;
+    }
+
+    // 这里的异步的 需要处理
+    this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
+      this.result = res;
+      // this.ShowResult(res);
+      this.SplitRes(res);
+      this.debug = true;
+    });
+  }
+  Search(query: string) {
+    this.items = new Observable<any>();
+    if (query == '') { return; }
+    switch (this.tabIndex) {
+      case 0:
+        this.items = this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(10).where('gene_name','>=', query).where('gene_name','<=', query + '\uf8ff') ).valueChanges();
+        break;
+      case 1:
+        this.items = this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(10).where('uniprot_id','>=', query).where('uniprot_id','<=', query + '\uf8ff') ).valueChanges();
+        break;
+      case 2:
+        break;
+      default:
+        console.log("No");
+        break;
+    }
+  }
+  ListClick(query: any) {
+    // console.log(query);
+    this.query = query;
+
+    this.items = new Observable<any>();
   }
 }

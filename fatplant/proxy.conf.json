@@ -11,5 +11,9 @@
   "/link": {
     "target": "http://rest.kegg.jp",
     "secure": false
+  },
+  "/oneclick": {
+    "target": "http://localhost:4201",
+    "secure": false
   }
 }

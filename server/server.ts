@@ -47,6 +47,29 @@ app.post('/test',(req,res)=>{
     res.send(txt)
   });
  });
+
+ app.post('/oneclick',(req,res)=>{
+  var fasta = req.body.fasta;
+  fs.writeFile('input.faa',fasta.toString(),{
+    encoding:'utf8',
+    mode:438,
+    flag:'w'
+},function(err){
+
+})
+  childp.exec('blastp -query ./input.faa -db ./human.1.protein.faa -out results.txt', function(error, stdout, stderr){
+    if(error) {
+      console.error('error: ' + error);
+	    res.status(200).send(error);
+      return;
+    }
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + typeof stderr);
+    let txt = fs.readFileSync('results.txt','utf8');
+    res.send(txt)
+  });
+ });
+
  app.get('/viewer',function (req,res) {
   console.log(req.query.q);
   res.sendFile(__dirname+"/viewer.html");

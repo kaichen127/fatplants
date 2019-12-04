@@ -39,6 +39,11 @@
   <div *ngIf="showImg">
     <img name="showpathway" [src]="imgUrl" style="max-width: 1000px">
   </div>
+  <div>
+    <mat-tab-group>
+      <mat-tab *ngFor="let path of linkList" label="{{path.value}}"><img name="showpathway" src="http://rest.kegg.jp/get/hsa04520/image"> </mat-tab>
+    </mat-tab-group>
+  </div>
 </div>
 
 <br>

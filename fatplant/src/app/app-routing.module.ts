@@ -10,6 +10,8 @@ import { CameliaComponent } from './camelia/camelia.component';
 import { FattyacidComponent } from './fattyacid/fattyacid.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
+import { UploadFilesComponent } from './upload-files/upload-files.component';
+import { FileviewComponent } from './fileview/fileview.component';
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 
 
@@ -22,7 +24,9 @@ const routes: Routes = [{path:'',redirectTo:'/homepage',pathMatch:'full'},
 {path: 'glmol', component: GlmolComponent},
 {path:'color-pathway',component:ColorPathwayComponent},
 {path:'camelina',component:CameliaComponent},
-{path:'fatty_acid',component:FattyacidComponent}];
+{path:'fatty_acid',component:FattyacidComponent},
+{path:'upload',component:UploadFilesComponent},
+{path:'viewfiles',component:FileviewComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

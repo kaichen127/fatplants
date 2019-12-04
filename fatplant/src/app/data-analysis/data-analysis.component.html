@@ -1,18 +1,70 @@
-<div class="row columns" style="width: 1000px">
-  <div class="columns small-10 small-centered textrow ">
+<!--</div>-->
+<!--<form action="#">-->
+<!--  <div class="file-field input-field">-->
+<!--    <div class="btn">-->
+<!--      <span>File Upload</span>-->
+<!--      <input type="file">-->
+<!--    </div>-->
+<!--    <div class="file-path-wrapper">-->
+<!--      <input class="file-path validate" type="text">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</form>-->
 
-    <h1>Blast Tools</h1>
-    <p>BLAST finds regions of similarity between biological sequences. The program</p>
-    <p>compares nucleotide or protein sequences to sequence databases and calculates</p>
-    <p>the statistical significance.</p>
+
+<!--    <hr size=3 >-->
+<!--<div class="row columns" style="width: 1000px">-->
+<!--  <div class="columns small-10 small-centered textrow ">-->
+
+<!--    <p>Glmol Tools</p>-->
+<!--    <p>GLmol is a 3D molecular viewer based on WebGL and Javascript.</p>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<form action="#"  class="col s12">-->
+<!--  <div class="row">-->
+<!--    <input type="textarea" class="browser-default" placeholder="GeneID" [(ngModel)]="glmolUrl" [ngModelOptions]="{standalone: true}">-->
+<!--    <p>eg. Glyma14g08610.1 Glyma16g01990.1 Glyma15g07360.1</p>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <button class="btn waves-effect waves-light" (click)="showGlmol()">SUBMIT</button>-->
+<!--  </div>-->
+<!--</form>-->
+
+<!--<div *ngIf="isGlmol">-->
+<!--&lt;!&ndash;  <a href={{glmolUrl}}>3D Protein Structure Search</a>&ndash;&gt;-->
+<!--  <iframe src={{glmolUrl}} style="width: 100%" height="768"></iframe>-->
+<!--</div>-->
+
+
+<div class="container" style="min-width: 1000px" *ngIf="false">
+  <div class="row">
+    <div class="input-field col s12">
+      <textarea name="input" [(ngModel)]="blast" class="browser-default" placeholder="Search" ></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s6">
+      <button class="btn waves-effect waves-light" (click)="OneClick()" >submit</button>
+    </div>
+    <div class="col s6">
+      <button class="btn waves-effect waves-light" type="reset" name="action">clear</button>
+    </div>
   </div>
 </div>
-<!--<div class="container" style="width: 500px">-->
+
+<div *ngIf="false">
+  <div class="row columns" style="width: 1000px">
+    <div class="columns small-10 small-centered textrow ">
+      <h1>Blast Tools</h1>
+    </div>
+  </div>
+  <!--<div class="container" style="width: 500px">-->
   <form action="#" class="col s12" [formGroup]="blastForm" (ngSubmit)="onSubmit(blastForm.value)">
     <div class="row">
       <div class="input-field col s6">
         <textarea style="height: 100px" name="fasta" class="browser-default" placeholder="Sequence" formControlName="fasta"></textarea>
-<!--        <label for="fasta">Sequence</label>-->
+        <!--        <label for="fasta">Sequence</label>-->
       </div>
 
     </div>
@@ -103,68 +155,81 @@
 
     </div>
   </form>
-<!--</div>-->
-<!--<form action="#">-->
-<!--  <div class="file-field input-field">-->
-<!--    <div class="btn">-->
-<!--      <span>File Upload</span>-->
-<!--      <input type="file">-->
-<!--    </div>-->
-<!--    <div class="file-path-wrapper">-->
-<!--      <input class="file-path validate" type="text">-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</form>-->
+</div>
 
 
-<!--    <hr size=3 >-->
-<!--<div class="row columns" style="width: 1000px">-->
-<!--  <div class="columns small-10 small-centered textrow ">-->
 
-<!--    <p>Glmol Tools</p>-->
-<!--    <p>GLmol is a 3D molecular viewer based on WebGL and Javascript.</p>-->
-<!--  </div>-->
-<!--</div>-->
+<h1>One Click Search</h1>
+<mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
+  <mat-tab label="Gene">
 
-<!--<form action="#"  class="col s12">-->
-<!--  <div class="row">-->
-<!--    <input type="textarea" class="browser-default" placeholder="GeneID" [(ngModel)]="glmolUrl" [ngModelOptions]="{standalone: true}">-->
-<!--    <p>eg. Glyma14g08610.1 Glyma16g01990.1 Glyma15g07360.1</p>-->
-<!--  </div>-->
-<!--  <div class="row">-->
-<!--    <button class="btn waves-effect waves-light" (click)="showGlmol()">SUBMIT</button>-->
-<!--  </div>-->
-<!--</form>-->
+  </mat-tab>
+  <mat-tab label="Uniprot ID">
+<!--    <input (keyup)="Search($event.target.value)">-->
+  </mat-tab>
+  <mat-tab label="Sequence">
+  </mat-tab>
+</mat-tab-group>
 
-<!--<div *ngIf="isGlmol">-->
-<!--&lt;!&ndash;  <a href={{glmolUrl}}>3D Protein Structure Search</a>&ndash;&gt;-->
-<!--  <iframe src={{glmolUrl}} style="width: 100%" height="768"></iframe>-->
-<!--</div>-->
-<div class="row" *ngFor="let res of blastRes">
-  <div style="max-width: 800px">
-    <div class="card">
-      <div class="card-content">
-<!--        <span class="card-title">{{res.title}}</span>-->
-        <pre>{{res}}</pre>
-      </div>
-<!--      <div class="card-action">-->
-<!--        <a href="#">This is a link</a>-->
-<!--        <a href="#">This is a link</a>-->
-<!--      </div>-->
+<div class="container" style="min-width: 1000px">
+  <div class="row">
+    <div class="input-field col s12">
+      <textarea style="min-height: 150px" name="Search" class="browser-default" placeholder="Search" (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s6">
+      <button class="btn waves-effect waves-light" (click)="OneClick()" >submit</button>
     </div>
   </div>
 </div>
 
-<!--<div>-->
-<!--  <p>search in database</p>-->
-<!--  <p>Lmpd_Arapidopsis</p>-->
-<!--  <ul>-->
-<!--    <li *ngFor="let item of items | async">-->
-<!--      <pre>{{ item.uniprot_id}}</pre>-->
-<!--    </li>-->
-<!--  </ul>-->
-<!--</div>-->
+<ul *ngIf="tabIndex==1">
+  <li *ngFor="let item of items | async" (click)="ListClick($event.target.innerText)">{{item.uniprot_id}}</li>
+  <!--  <li *ngFor="let item of items | async"><mat-radio-button class="example-radio-button">{{item.uniprot_id}}</mat-radio-button></li>-->
+</ul>
+
+<ul *ngIf="tabIndex==0">
+  <li *ngFor="let item of items | async"  (click)="ListClick($event.target.innerText)">{{item.gene_name}}</li>
+  <!--  <li *ngFor="let item of items | async"><mat-radio-button class="example-radio-button">{{item.uniprot_id}}</mat-radio-button></li>-->
+</ul>
+
+
+<div *ngIf="debug">
+  <mat-divider></mat-divider>
+  <br>
+  <label>GLmol</label>
+  <br>
+  <iframe src="http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb" style="width: 100%" height="768"></iframe>
+  <br>
+</div>
+
+
+<div *ngIf="debug">
+  <mat-divider></mat-divider>
+  <br>
+  <label>Blast Result</label>
+  <br>
+
+  <div class="row" *ngFor="let res of blastRes">
+    <div style="max-width: 800px">
+      <div class="card">
+        <div class="card-content">
+          <!--        <span class="card-title">{{res.title}}</span>-->
+          <pre>{{res}}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
 
 
 
-
+<div *ngIf="debug">
+  <mat-divider></mat-divider>
+  <br>
+  <label>Pathway Figure</label>
+  <br>
+  <img name="showpathway" src="http://rest.kegg.jp/get/hsa04520/image" style="max-width: 1000px">
+</div>
