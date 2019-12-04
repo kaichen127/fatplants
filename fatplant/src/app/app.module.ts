@@ -91,6 +91,7 @@ import {MatDividerModule} from "@angular/material/divider";
     MatListModule,
     MatIconModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatMenuModule,
     CdkTableModule,
     HttpClientModule,
