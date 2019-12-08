@@ -35,10 +35,11 @@ export class LmpddetailviewComponent implements OnInit {
   private items: any;
   private result: any;
   private tabresult: any;
+  private tabitem: any;
   private sub: any;
   private resultsequence: any;
 
-  displayedColumns = ['Entry','Entry_name','Status','Protein_names','Gene_names','Organism','Length','Chain'];
+  // displayedColumns = ['Entry','Entry_name','Status','Protein_names','Gene_names','Organism','Length','Chain'];
   // displayedColumns = ['Entry','Status','Organism','Length','Chain'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -53,14 +54,38 @@ export class LmpddetailviewComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.uniprot_id = params['uniprot_id'];
+       console.log(this.uniprot_id);
     })
 
-    let docs=this.afs.collectionGroup('Lmpd_Arapidopsis_Tab', ref => ref.where('Uniprot_ID', '==', this.uniprot_id)).valueChanges().subscribe(data =>{
-        this.dataSource=new MatTableDataSource(data)
-        this.dataSource.paginator = this.paginator;
+    // let docs=this.afs.collectionGroup('Lmpd_Arapidopsis_Tab', ref => ref.where('Uniprot_ID', '==', this.uniprot_id)).valueChanges().subscribe(data =>{
+    //     this.dataSource=new MatTableDataSource(data)
+    //     this.dataSource.paginator = this.paginator;
+    // })
+
+    this.afs.collectionGroup('Lmpd_Arapidopsis_Tab', ref => ref.where('Entry', '==', this.uniprot_id))
+       .valueChanges().subscribe(res => {
+       this.tabresult = res as string [];
+       this.tabitem = this.tabresult[0];
+       console.log(this.tabitem);
+
     })
-    // console.log('Reading local json files');
-    // console.log(TabTest);
+
+    // this.afs.collectionGroup('Lmpd_Arapidopsis_Tab', ref => ref)
+    //    .valueChanges().subscribe(res => {
+    //    this.tabresult = res as string [];
+    //    // this.tabitem = this.tabresult;
+    //    console.log(this.tabresult);
+    //
+    // })
+    //
+    // this.afs.collectionGroup('Lmpd_Arapidopsis', ref => ref)
+    //    .valueChanges().subscribe(res => {
+    //      this.result = res as string [];
+    //      console.log(this.result);
+    //
+    // })
+
+
     this.afs.collectionGroup('Lmpd_Arapidopsis', ref => ref.where('uniprot_id', '==', this.uniprot_id))
        .valueChanges().subscribe(res => {
        this.result = res as string [];
@@ -72,7 +97,6 @@ export class LmpddetailviewComponent implements OnInit {
        let j: number = 9;
        let l: number = this.items.seqlength;
        let sequenceorigin: string = this.items.sequence;
-       console.log(this.items.sequence);
        let sequencegroup: string = '';
 
        do {
@@ -84,7 +108,6 @@ export class LmpddetailviewComponent implements OnInit {
            sequencegroup = sequencegroup + ' ';
          }
          count++;
-         console.log(sequencegroup);
          i=i+10;
          j=j+10;
        } while (i < l)
