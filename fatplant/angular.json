@@ -21,12 +21,27 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/viewer.html",
+              "src/js/GLmol.js",
+              "src/js/jquery-1.7.min.js",
+              "src/js/Three49custom.js",
+              "src/js/cytoscape-cola.js",
+              "src/cola.min.js",
+              "src/demo.html",
+              "src/js"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/cytoscape/dist/cytoscape.min.js",
+              "node_modules/dagre/dist/dagre.min.js",
+              "node_modules/cytoscape-dagre/cytoscape-dagre.js",
+              "node_modules/cytoscape-cola/cytoscape-cola.js",
+              "node_modules/webcola/WebCola/cola.min.js",
+              "node_modules/webcola/WebCola/cola.js"
+            ]
           },
           "configurations": {
             "production": {

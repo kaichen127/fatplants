@@ -7,10 +7,12 @@ import { GoNetworkComponent } from './go-network/go-network.component';
 import { GlmolComponent } from './glmol/glmol.component';
 import { ColorPathwayComponent } from './color-pathway/color-pathway.component';
 
+
 import { CameliaComponent } from './camelia/camelia.component';
 import { FattyacidComponent } from './fattyacid/fattyacid.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
+import { GraphComponent } from './graph/graph.component';
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 
 
@@ -24,7 +26,9 @@ const routes: Routes = [{path:'',redirectTo:'/homepage',pathMatch:'full'},
 {path: 'glmol', component: GlmolComponent},
 {path:'color-pathway',component:ColorPathwayComponent},
 {path:'camelina',component:CameliaComponent},
-{path:'fatty_acid',component:FattyacidComponent}];
+{path:'fatty_acid',component:FattyacidComponent},
+  {path:'graph',component:GraphComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

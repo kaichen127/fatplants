@@ -21,7 +21,8 @@ import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import { GraphComponent } from './graph/graph.component';
+import {NgCytoComponent} from './ng-cyto/ng-cyto.component';
 
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 import { CytoscapeModule } from 'ngx-cytoscape';
@@ -44,6 +45,7 @@ import {MatDividerModule} from "@angular/material/divider";
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,10 +61,10 @@ import {MatDividerModule} from "@angular/material/divider";
     ColorPathwayComponent,
     CameliaComponent,
     FattyacidComponent,
-    // GraphComponent,
-    // NgCytoComponent,
+    GraphComponent,
+    NgCytoComponent,
     IntroductionComponent,
-    InvestigatorComponent
+    InvestigatorComponent,
     // CytodemoComponent
   ],
   imports: [

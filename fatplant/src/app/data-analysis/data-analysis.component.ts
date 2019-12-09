@@ -17,6 +17,8 @@ export class DataAnalysisComponent implements OnInit {
   private query: string;
   private debug: boolean;
   private tabIndex: number;
+  private proteinName: string;
+  private proteinSeq: string;
 
   private blast: string;
   private isVisibale: boolean;
@@ -26,6 +28,7 @@ export class DataAnalysisComponent implements OnInit {
   private isGlmol: boolean;
   private glmolUrl: string;
   private blastRes = [];
+  private showblastRes = [];
   blastForm: FormGroup;
   constructor(private http: HttpClient, private router: Router, private afs: AngularFirestore) {
     // this.blastForm = fb.group({method: ['', Validators.required]});
@@ -98,7 +101,8 @@ export class DataAnalysisComponent implements OnInit {
     // this.isGlmol = true;
   }
   SplitRes(result: string) {
-    this.blastRes = []
+    this.showblastRes = [];
+    this.blastRes = [];
     let tmp: any;
     // tmp = result.match(/>[\s\S]+Lambda/g)
     tmp = result.split('>');
@@ -117,21 +121,52 @@ export class DataAnalysisComponent implements OnInit {
     //     content: t[1]
     //   });
     // }
-    tmp.length = 5 ;
-    this.blastRes = tmp;
+    this.blastRes = tmp.slice(0);
+    console.log(this.blastRes);
+    // tmp.length = 5 ;
+    this.showblastRes = tmp.slice(0, 3);
+
+    console.log(this.showblastRes);
   }
 
   OneClick() {
     switch (this.tabIndex) {
       case 0:
         // 根据name拿
-        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {this.blast = res[0].sequence; });
+        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
+          this.blast = res[0].sequence;
+          this.proteinName = res[0].protein_name;
+          this.proteinSeq = res[0].sequence;
+          this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
+            this.result = res;
+            // this.ShowResult(res);
+            this.SplitRes(res);
+            this.glmolUrl = '/viewer.html?5jwy';
+            this.debug = true;
+          });
+        });
         break;
       case 1:
-        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {this.blast = res[0].sequence; });
+        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
+          this.blast = res[0].sequence;
+          this.proteinName = res[0].protein_name;
+          this.proteinSeq = res[0].sequence;
+          this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
+            this.result = res;
+            // this.ShowResult(res);
+            this.SplitRes(res);
+            this.debug = true;
+          });
+        });
         break;
       case 2:
         this.blast = this.query;
+        this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
+          this.result = res;
+          // this.ShowResult(res);
+          this.SplitRes(res);
+          this.debug = true;
+        });
         break;
       default:
         console.log("No");
@@ -139,18 +174,19 @@ export class DataAnalysisComponent implements OnInit {
     }
 
     // 这里的异步的 需要处理
-    this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
-      this.result = res;
-      // this.ShowResult(res);
-      this.SplitRes(res);
-      this.debug = true;
-    });
+    // this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
+    //   this.result = res;
+    //   // this.ShowResult(res);
+    //   this.SplitRes(res);
+    //   this.debug = true;
+    // });
   }
   Search(query: string) {
     this.items = new Observable<any>();
     if (query == '') { return; }
     switch (this.tabIndex) {
       case 0:
+
         this.items = this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(10).where('gene_name','>=', query).where('gene_name','<=', query + '\uf8ff') ).valueChanges();
         break;
       case 1:
@@ -168,5 +204,8 @@ export class DataAnalysisComponent implements OnInit {
     this.query = query;
 
     this.items = new Observable<any>();
+  }
+  ShowAllRes() {
+    this.showblastRes = this.blastRes.slice(0);
   }
 }

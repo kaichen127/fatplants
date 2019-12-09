@@ -194,14 +194,41 @@
   <!--  <li *ngFor="let item of items | async"><mat-radio-button class="example-radio-button">{{item.uniprot_id}}</mat-radio-button></li>-->
 </ul>
 
+<div *ngIf="debug">
+  <mat-divider></mat-divider>
+  <br>
+  <label>Details</label>
+  <br>
+    <div class="row">
+      <div class="column">Name</div>
+      <div class="column">{{proteinName}}</div>
+    </div>
+    <div class="row">
+      <div class="column">Seqence</div>
+      <div class="column"><textarea [(ngModel)]="proteinSeq" style="min-height: 100px"></textarea></div>
+    </div>
+  <br>
+</div>
 
 <div *ngIf="debug">
   <mat-divider></mat-divider>
   <br>
-  <label>GLmol</label>
+  <label >GLmol</label>
   <br>
-  <iframe src="http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb" style="width: 100%" height="768"></iframe>
+<!--  <iframe src="/viewer.html?6jwy" style="width: 100%" height="768"></iframe>-->
+<!--  <iframe [src]="glmolUrl" style="width: 100%" height="768"></iframe>-->
+
+  <!--  <iframe src="http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb" style="width: 100%" height="768"></iframe>-->
   <br>
+
+  <mat-tab-group style="color: #4CAF50">
+    <mat-tab label="Q9ZU49_5jwy.1.A_121_269_default">
+      <iframe src="/viewer.html?5jwy" style="width: 100%" height="768"></iframe>
+    </mat-tab>
+    <mat-tab label="Q9ZU49_5jwy.1.A_97_244">
+      <iframe src="/viewer.html?6jwy" style="width: 100%" height="768"></iframe>
+    </mat-tab>
+  </mat-tab-group>
 </div>
 
 
@@ -210,9 +237,11 @@
   <br>
   <label>Blast Result</label>
   <br>
-
-  <div class="row" *ngFor="let res of blastRes">
-    <div style="max-width: 800px">
+  <div class="row">
+    <button class="btn waves-effect waves-light" (click)="ShowAllRes()">Show All</button>
+  </div>
+  <div class="row" *ngFor="let res of showblastRes">
+    <div style="max-width: 1000px">
       <div class="card">
         <div class="card-content">
           <!--        <span class="card-title">{{res.title}}</span>-->

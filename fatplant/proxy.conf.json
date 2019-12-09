@@ -15,5 +15,13 @@
   "/oneclick": {
     "target": "http://localhost:4201",
     "secure": false
+  },
+  "/node-description": {
+    "target": "http://localhost:4201",
+    "secure": false
+  },
+  "/data": {
+    "target": "http://localhost:4201",
+    "secure": false
   }
 }
