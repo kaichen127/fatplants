@@ -27,7 +27,9 @@
     "firebase": "^6.6.1",
     "jquery": "^3.4.1",
     "ngx-cytoscape": "^0.5.24",
-    "rxjs": "^6.4.0",
+    "rxjs": "~6.4.0",
+    "rxjs-compat": "^6.5.3",
+    "sequence-viewer": "^0.2.18",
     "tslib": "^1.10.0",
     "zone.js": "^0.9.1"
   },

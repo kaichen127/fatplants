@@ -13,6 +13,7 @@ import { InvestigatorComponent } from './investigator/investigator.component';
 import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { FileviewComponent } from './fileview/fileview.component';
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
+import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
 
 
 const routes: Routes = [{path:'',redirectTo:'/homepage',pathMatch:'full'},
@@ -24,9 +25,10 @@ const routes: Routes = [{path:'',redirectTo:'/homepage',pathMatch:'full'},
 {path: 'glmol', component: GlmolComponent},
 {path:'color-pathway',component:ColorPathwayComponent},
 {path:'camelina',component:CameliaComponent},
-{path:'fatty_acid',component:FattyacidComponent},
 {path:'upload',component:UploadFilesComponent},
-{path:'viewfiles',component:FileviewComponent}];
+{path:'viewfiles',component:FileviewComponent},
+{path:'lmpddetailview/:uniprot_id',component:LmpddetailviewComponent},
+{path:'fatty_acid',component:FattyacidComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -20,6 +20,8 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from '@angular/material/menu';
+import { FormsModule } from '@angular/forms';
 
 
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
@@ -46,8 +48,7 @@ import { LmpdCardComponent } from './lmpd-card/lmpd-card.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
-
-
+import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import {MatDividerModule} from "@angular/material/divider";
     DropzoneDirective,
     FileviewComponent,
     LmpdCardComponent,
+    LmpddetailviewComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,10 @@ import {MatDividerModule} from "@angular/material/divider";
     MatPaginatorModule,
     MatTabsModule,
     MatRadioModule,
-    MatDividerModule
+    MatDividerModule,
+    HttpClientModule,
+    FormsModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

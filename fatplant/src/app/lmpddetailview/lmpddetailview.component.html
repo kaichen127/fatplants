@@ -1,0 +1,265 @@
+
+<br>
+<h2>Names & Taxonomy</h2>
+<strong>Protein General: </strong>
+<table class="blueTable">
+<tr>
+<th><strong>Gene Name: </strong></th>
+<td>{{items.gene_name}}</td>
+</tr>
+<tr>
+<th><strong>Protein Name: </strong></th>
+<td>{{items.protein_name}}</td>
+</tr>
+<tr>
+<th><strong>Species: </strong></th>
+<td>{{items.species}}</td>
+</tr>
+<tr>
+<th><strong>Species Long: </strong></th>
+<td>{{items.species_long}}</td>
+</tr>
+</table>
+<br>
+<strong>Protein Detail: </strong>
+<table class="blueTable">
+<tr>
+<th><strong>Gene Symbol: </strong></th>
+<td>{{items.gene_symbol}}</td>
+</tr>
+<tr>
+<th><strong>Protein Lmp ID: </strong></th>
+<td>{{items.lmp_id}}</td>
+</tr>
+<tr>
+<th><strong>Protein mrna id: </strong></th>
+<td>{{items.mrna_id}}</td>
+</tr>
+<tr>
+<th><strong>Protein Entry: </strong></th>
+<td>{{items.protein_entry}}</td>
+</tr>
+<tr>
+<th><strong>Protein GI: </strong></th>
+<td>{{items.protein_gi}}</td>
+</tr>
+<tr>
+<th><strong>Protein Refseq ID: </strong></th>
+<td>{{items.refseq_id}}</td>
+</tr>
+<tr>
+<th><strong>Protein Sequence Length: </strong></th>
+<td>{{items.seqlength}}</td>
+</tr>
+<tr>
+<th><strong>Protein Tax ID: </strong></th>
+<td>{{items.taxid}}</td>
+</tr>
+<tr>
+<th><strong>Protein Uniprot ID: </strong></th>
+<td>{{items.uniprot_id}}</td>
+</tr>
+</table>
+<br>
+<h2>Sequence</h2>
+<strong>Protein Sequence: </strong>
+<p class="gfg">
+<textarea>{{resultsequence}}</textarea>
+</p>
+<button class="small red button">Blast!</button>
+
+<br><br><br>
+
+<strong>PTM / Processing</strong>
+<table class="blueTable">
+<tr>
+<th><strong>Entry name: </strong></th>
+<td>{{tabitem.Entry_name}}</td>
+</tr>
+<tr>
+<th><strong>Status: </strong></th>
+<td>{{tabitem.Status}}</td>
+</tr>
+<tr>
+<th><strong>Protein names: </strong></th>
+<td>{{tabitem.Protein_names}}</td>
+</tr>
+<tr>
+<th><strong>Gene names: </strong></th>
+<td>{{tabitem.Gene_names}}</td>
+</tr>
+<tr>
+<th><strong>Organism: </strong></th>
+<td>{{tabitem.Organism}}</td>
+</tr>
+<tr>
+<th><strong>Length: </strong></th>
+<td>{{tabitem.Length}}</td>
+</tr>
+<tr>
+<th><strong>Chain: </strong></th>
+<td>{{tabitem.Chain}}</td>
+</tr>
+<tr>
+<th><strong>Cross-link: </strong></th>
+<td>{{tabitem.Cross-link}}</td>
+</tr>
+<tr>
+<th><strong>Disulfide bond: </strong></th>
+<td>{{tabitem.Disulfide_bond}}</td>
+</tr>
+<tr>
+<th><strong>Glycosylation: </strong></th>
+<td>{{tabitem.Glycosylation}}</td>
+</tr>
+<tr>
+<th><strong>Initiator methionine: </strong></th>
+<td>{{tabitem.Initiator_methionine}}</td>
+</tr>
+<tr>
+<th><strong>Lipidation: </strong></th>
+<td>{{tabitem.Lipidation}}</td>
+</tr>
+<tr>
+<th><strong>Modified residue: </strong></th>
+<td>{{tabitem.Modified_residue}}</td>
+</tr>
+<tr>
+<th><strong>Peptide: </strong></th>
+<td>{{tabitem.Peptide}}</td>
+</tr>
+<tr>
+<th><strong>Post-translational modification: </strong></th>
+<td>{{tabitem.Post-translational_modification}}</td>
+</tr>
+<tr>
+<th><strong>Propeptide: </strong></th>
+<td>{{tabitem.Propeptide}}</td>
+</tr>
+<tr>
+<th><strong>Signal peptide: </strong></th>
+<td>{{tabitem.Signal_peptide}}</td>
+</tr>
+<tr>
+<th><strong>Transit peptide: </strong></th>
+<td>{{tabitem.Transit_peptide}}</td>
+</tr>
+</table>
+
+<br><br><br>
+
+<strong>Family & Domains</strong>
+<br>
+<strong>Domains & Repeats</strong>
+<table class="blueTable">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Feature key">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Entry </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{ elem.Entry }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Position(s)">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Entry Name </mat-header-cell>
+              <mat-cell *matCellDef="let elem"> {{elem.Entry_name}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Description">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                  <mat-cell *matCellDef="let elem">{{ elem.Status }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="Graphic view">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Names </mat-header-cell>
+                      <mat-cell *matCellDef="let elem"> {{ elem.Protein_names }} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Length">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Gene Names </mat-header-cell>
+                          <mat-cell *matCellDef="let elem"> {{ elem.Gene_names }} </mat-cell>
+                        </ng-container>
+
+                    <!-- <ng-container matColumnDef="Organism">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header>Organism </mat-header-cell>
+                          <mat-cell *matCellDef="let elem"> {{ elem.Organism }} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Length">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header>Length </mat-header-cell>
+                          <mat-cell *matCellDef="let elem"> {{ elem.Length }} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Chain">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header>Chain </mat-header-cell>
+                          <mat-cell *matCellDef="let elem"> {{ elem.Chain }} </mat-cell>
+                    </ng-container> -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table>
+</table>
+
+<br><br><br>
+<!-- <div class="mat-elevation-z8">
+      <div>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div> -->
+
+<!-- <table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="Entry">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Entry </mat-header-cell>
+        <mat-cell *matCellDef="let elem"> {{ elem.Entry }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Entry_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Entry Name </mat-header-cell>
+            <mat-cell *matCellDef="let elem"> {{elem.Entry_name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                <mat-cell *matCellDef="let elem">{{ elem.Status }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="Protein_names">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Names </mat-header-cell>
+                    <mat-cell *matCellDef="let elem"> {{ elem.Protein_names }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="Gene_names">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Gene Names </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.Gene_names }} </mat-cell>
+                      </ng-container>
+
+                  <ng-container matColumnDef="Organism">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Organism </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.Organism }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="Length">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Length </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.Length }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="Chain">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Chain </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.Chain }} </mat-cell>
+                  </ng-container>
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table> -->
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+
+
+<!-- <div class="form-group">
+    <input type="file" (change)="onFileSelect($event.target)" name="myfile">
+</div>
+<br><br><br><br> -->
+<!-- <form novalidate #f="ngForm">
+      <textarea [(ngModel)]="tabresult"> {{ tabresult }}</textarea>
+   </form> -->
+<!-- <textarea > {{ tabresult }}</textarea> -->
+	<!-- <p class='col-md-6'>
+			<img style="margin-left:1em;max-height:150px" src="http://opsin.ch.cam.ac.uk/opsin/Formic acid.png" alt="Formic acid" />
+	</p> -->
+<!-- <textarea [(ngModel)]="csvContent"></textarea> -->
