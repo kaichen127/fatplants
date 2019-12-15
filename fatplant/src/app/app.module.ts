@@ -42,6 +42,7 @@ import { InvestigatorComponent } from './investigator/investigator.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 
@@ -85,7 +86,8 @@ import {MatDividerModule} from "@angular/material/divider";
     MatPaginatorModule,
     MatTabsModule,
     MatRadioModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

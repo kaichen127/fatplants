@@ -5,6 +5,9 @@ import {Router} from '@angular/router';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import {MatTabsModule} from '@angular/material/tabs';
 import {Observable} from 'rxjs';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+
+
 
 @Component({
   selector: 'app-data-analysis',
@@ -19,6 +22,9 @@ export class DataAnalysisComponent implements OnInit {
   private tabIndex: number;
   private proteinName: string;
   private proteinSeq: string;
+  private uniprot: string;
+  private pdbs = [];
+  private isLoading: boolean;
 
   private blast: string;
   private isVisibale: boolean;
@@ -30,7 +36,7 @@ export class DataAnalysisComponent implements OnInit {
   private blastRes = [];
   private showblastRes = [];
   blastForm: FormGroup;
-  constructor(private http: HttpClient, private router: Router, private afs: AngularFirestore) {
+  constructor(private http: HttpClient, private router: Router, private afs: AngularFirestore,private sanitizer: DomSanitizer) {
     // this.blastForm = fb.group({method: ['', Validators.required]});
     this.blastForm = new FormGroup({
       fasta : new FormControl(),
@@ -44,7 +50,7 @@ export class DataAnalysisComponent implements OnInit {
     this.isBlastP = false;
     this.isBlastN = false;
     this.isGlmol = false;
-
+    this.isLoading = false;
     // this.itemCollection = afs.collection('/Lmpd_Arapidopsis');
     // this.items = this.itemCollection.valueChanges();
     // this.items = afs.collection('/Lmpd_Arapidopsis',ref =>ref.where('uniprot_id','>=','F4HQ').where('uniprot_id','<=', 'F4HQ' + '\uf8ff') ).valueChanges();
@@ -100,6 +106,8 @@ export class DataAnalysisComponent implements OnInit {
     newWindow.document.write('<iframe src="' + url + '" style="width: 100%" height="768"></iframe>');
     // this.isGlmol = true;
   }
+
+
   SplitRes(result: string) {
     this.showblastRes = [];
     this.blastRes = [];
@@ -126,10 +134,11 @@ export class DataAnalysisComponent implements OnInit {
     // tmp.length = 5 ;
     this.showblastRes = tmp.slice(0, 3);
 
-    console.log(this.showblastRes);
+    // console.log(this.showblastRes);
   }
 
   OneClick() {
+
     switch (this.tabIndex) {
       case 0:
         // 根据name拿
@@ -137,12 +146,17 @@ export class DataAnalysisComponent implements OnInit {
           this.blast = res[0].sequence;
           this.proteinName = res[0].protein_name;
           this.proteinSeq = res[0].sequence;
+          this.uniprot = res[0].uniprot_id
           this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
             this.result = res;
             // this.ShowResult(res);
+            console.log(res);
             this.SplitRes(res);
-            this.glmolUrl = '/viewer.html?5jwy';
+            // this.glmolUrl = '/viewer.html?5jwy';
+            this.pdbs = [];
+            this.SearchPDB(this.uniprot);
             this.debug = true;
+            this.isLoading = false;
           });
         });
         break;
@@ -151,11 +165,15 @@ export class DataAnalysisComponent implements OnInit {
           this.blast = res[0].sequence;
           this.proteinName = res[0].protein_name;
           this.proteinSeq = res[0].sequence;
+          this.uniprot = res[0].uniprot_id
           this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
             this.result = res;
             // this.ShowResult(res);
             this.SplitRes(res);
+            this.pdbs = [];
+            this.SearchPDB(this.uniprot);
             this.debug = true;
+            this.isLoading = false;
           });
         });
         break;
@@ -165,7 +183,9 @@ export class DataAnalysisComponent implements OnInit {
           this.result = res;
           // this.ShowResult(res);
           this.SplitRes(res);
+          this.pdbs = [];
           this.debug = true;
+          this.isLoading = false;
         });
         break;
       default:
@@ -208,4 +228,29 @@ export class DataAnalysisComponent implements OnInit {
   ShowAllRes() {
     this.showblastRes = this.blastRes.slice(0);
   }
+  SafeUrl(input: string) {
+    const tmpurl = '/viewer.html?' + input;
+    console.log(tmpurl);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
+  }
+  SearchPDB(pdb: string) {
+    this.http.get('/js/uniprot_pdb_list.txt', {responseType: 'text'}).subscribe(data => {
+      for (const line of data.split(/[\r\n]+/)) {
+        if (line.slice(0, 6) === pdb) {
+          let tmp = line.slice(0, -4);
+          this.pdbs.push(tmp);
+          if (tmp.slice(-7, -1) === 'defaul') {
+            let swap = this.pdbs[0].toString();
+            this.pdbs[0] = tmp;
+            this.pdbs[this.pdbs.length - 1] = swap;
+          }
+        }
+
+      }
+  });
+  }
+  Loading() {
+    this.isLoading = true;
+  }
+
 }

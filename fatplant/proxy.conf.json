@@ -13,8 +13,9 @@
     "secure": false
   },
   "/oneclick": {
-    "target": "http://localhost:4201",
-    "secure": false
+    "target": "http://linux-shell-test.appspot.com",
+    "secure": false,
+    "changeOrigin": true
   },
   "/node-description": {
     "target": "http://localhost:4201",

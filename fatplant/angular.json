@@ -27,11 +27,11 @@
               "src/js/jquery-1.7.min.js",
               "src/js/Three49custom.js",
               "src/js/cytoscape-cola.js",
-              "src/cola.min.js",
               "src/demo.html",
               "src/js"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": [
@@ -135,6 +135,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "fatplant"
 }
