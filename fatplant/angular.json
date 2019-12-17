@@ -28,7 +28,8 @@
               "src/js/Three49custom.js",
               "src/js/cytoscape-cola.js",
               "src/demo.html",
-              "src/js"
+              "src/js",
+              "src/proteinNetView.html"
             ],
             "styles": [
               "src/custom-theme.scss",
@@ -40,7 +41,8 @@
               "node_modules/cytoscape-dagre/cytoscape-dagre.js",
               "node_modules/cytoscape-cola/cytoscape-cola.js",
               "node_modules/webcola/WebCola/cola.min.js",
-              "node_modules/webcola/WebCola/cola.js"
+              "node_modules/webcola/WebCola/cola.js",
+              "node_modules/jspdf/dist/jspdf.min.js"
             ]
           },
           "configurations": {

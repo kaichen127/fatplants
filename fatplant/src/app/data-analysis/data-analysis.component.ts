@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
@@ -6,7 +6,7 @@ import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firesto
 import {MatTabsModule} from '@angular/material/tabs';
 import {Observable} from 'rxjs';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
-
+import * as jsPDF from 'jspdf';
 
 
 @Component({
@@ -15,6 +15,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
   styleUrls: ['./data-analysis.component.css']
 })
 export class DataAnalysisComponent implements OnInit {
+  @ViewChild('pdf', {static: false}) pdf: ElementRef;
   public items: Observable<any>;
   private itemCollection: AngularFirestoreCollection<any>;
   private query: string;
@@ -251,6 +252,24 @@ export class DataAnalysisComponent implements OnInit {
   }
   Loading() {
     this.isLoading = true;
+  }
+  public downloadAsPDF() {
+    const doc = new jsPDF();
+
+    const specialElementHandlers = {
+      '#editor': function (element, renderer) {
+        return true;
+      }
+    };
+
+    const pdfTable = this.pdf.nativeElement;
+
+    doc.fromHTML(pdfTable.innerHTML, 15, 15, {
+      width: 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    doc.save('Data.pdf');
   }
 
 }
