@@ -1,9 +1,9 @@
 .nav-style{
-  background-color: gray;
+  background-color:  #4CAF50;
 }
 
 a{
-  color:powderblue;
+  color: white;
 }
 
 li, button{
@@ -12,12 +12,16 @@ li, button{
 
 button{
   border: none;
-  background-color: gray;
-  color: powderblue;
+  background-color:  #4CAF50;
+  color:  white;
   width: 80px;
 }
 
 .menu-item{
-  background-color:gray;
-  color: powderblue;
+  background-color: #4CAF50;
+  color:  white;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

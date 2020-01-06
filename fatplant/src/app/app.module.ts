@@ -47,8 +47,13 @@ import { LmpdCardComponent } from './lmpd-card/lmpd-card.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import * as firebase from 'firebase';
 
-
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -76,6 +81,8 @@ import {MatDividerModule} from "@angular/material/divider";
     DropzoneDirective,
     FileviewComponent,
     LmpdCardComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +94,8 @@ import {MatDividerModule} from "@angular/material/divider";
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    AngularFireAuthGuardModule,
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     MatListModule,
     MatIconModule,

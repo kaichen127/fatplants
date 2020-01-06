@@ -13,6 +13,9 @@ import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
 import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { FileviewComponent } from './fileview/fileview.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { RegisterPageComponent } from './register-page/register-page.component';
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 
 
@@ -27,8 +30,10 @@ const routes: Routes = [{path:'',redirectTo:'/homepage',pathMatch:'full'},
 {path:'color-pathway',component:ColorPathwayComponent},
 {path:'camelina',component:CameliaComponent},
 {path:'fatty_acid',component:FattyacidComponent},
-{path:'upload',component:UploadFilesComponent},
-{path:'viewfiles',component:FileviewComponent}];
+{path:'upload',component:UploadFilesComponent, canActivate: [AngularFireAuthGuard]},
+{path:'viewfiles',component:FileviewComponent,canActivate: [AngularFireAuthGuard] },
+{path:'login',component:LoginPageComponent},
+{path: 'register',component:RegisterPageComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

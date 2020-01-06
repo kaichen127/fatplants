@@ -14,9 +14,20 @@
       <li><a href="/introduction">Introduction</a></li>
       <li><a href="/investigator">Investigator</a></li>
       <!-- <li><a href="/go-network">GO Network</a></li> -->
-      <li><a routerLink="/upload">File</a></li>
+      <li *ngIf="authService.checkUser() | async;"><a routerLink="/upload">File</a></li>
       <li><a href="#">Pathway</a></li>
       <li><a routerLink="/data_analysis">Data_Analysis</a></li>
+    </ul>
+    <span class="spacer"></span>
+    <ul>
+      <li *ngIf="authService.checkUser() | async; else showLogin">
+        <button mat-button (click)="authService.logout()">Logout</button>
+      </li>
+      <ng-template #showLogin>
+        <li>
+          <a routerLink="/login">Login</a>
+        </li>
+      </ng-template>
     </ul>
     </div>
 </nav>
