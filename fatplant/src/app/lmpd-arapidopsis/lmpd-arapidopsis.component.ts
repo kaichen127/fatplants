@@ -18,6 +18,7 @@ import { FirestoreConnectionService } from '../services/firestore-connection.ser
 // 'https://www.uniprot.org/uniprot'+element.uniprot_id
 export class LmpdArapidopsisComponent implements OnInit {
   displayedColumns = ['species','uniprot_id','refseq_id','gene_name','gene_symbol','protein_entry','protein_name','moreInfo'];
+
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   dataSource:MatTableDataSource<any>;

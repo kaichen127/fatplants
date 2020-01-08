@@ -35,20 +35,19 @@ export class LmpddetailviewComponent implements OnInit {
   private items: any;
   private result: any;
   private tabresult: any;
+  private moreresult: any;
   private tabitem: any;
+  private moreitem: any;
   private sub: any;
   private resultsequence: any;
 
   // displayedColumns = ['Entry','Entry_name','Status','Protein_names','Gene_names','Organism','Length','Chain'];
   // displayedColumns = ['Entry','Status','Organism','Length','Chain'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
+  displayedColumns = ['type','start','end','detail'];
   dataSource:MatTableDataSource<any>;
-  constructor(private afs:AngularFirestore, private route: ActivatedRoute, private _tabService: TabService) {
-    // , private http: HttpClient) {
-        // public getTranslation(): Observable<any> {
-        //     return this.http.get("./csv/test.tab")
-        // }
+  constructor(private db:FirestoreConnectionService,private afs:AngularFirestore, private route: ActivatedRoute, private _tabService: TabService) {
+
    }
    // , private _tabService: TabService
   ngOnInit() {
@@ -57,10 +56,17 @@ export class LmpddetailviewComponent implements OnInit {
        console.log(this.uniprot_id);
     })
 
-    // let docs=this.afs.collectionGroup('Lmpd_Arapidopsis_Tab', ref => ref.where('Uniprot_ID', '==', this.uniprot_id)).valueChanges().subscribe(data =>{
-    //     this.dataSource=new MatTableDataSource(data)
-    //     this.dataSource.paginator = this.paginator;
-    // })
+
+
+    this.afs.collectionGroup('Lmpd_Arapidopsis', ref => ref)
+       .valueChanges().subscribe(res => {
+       this.tabresult = res as string [];
+       let i: number = 0;
+       this.tabitem = this.tabresult[0];
+       console.log(this.tabitem);
+
+    })
+
 
     this.afs.collectionGroup('Lmpd_Arapidopsis_Tab', ref => ref.where('Entry', '==', this.uniprot_id))
        .valueChanges().subscribe(res => {
@@ -68,6 +74,15 @@ export class LmpddetailviewComponent implements OnInit {
        this.tabitem = this.tabresult[0];
        console.log(this.tabitem);
 
+    })
+
+    this.afs.collectionGroup('Lmpd_Arapidopsis_More', ref => ref.where('uniprotID', '==', this.uniprot_id))
+       .valueChanges().subscribe(res => {
+       this.dataSource = new MatTableDataSource(res);
+       this.moreresult = res as string [];
+       this.moreitem = this.moreresult[0];
+       console.log(this.moreresult);
+       console.log(this.dataSource);
     })
 
     // this.afs.collectionGroup('Lmpd_Arapidopsis_Tab', ref => ref)
