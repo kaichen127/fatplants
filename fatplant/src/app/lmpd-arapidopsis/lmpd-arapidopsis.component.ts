@@ -19,6 +19,7 @@ import { FirestoreConnectionService } from '../services/firestore-connection.ser
 export class LmpdArapidopsisComponent implements OnInit {
   // ,'lmp_id','mrna_id','protein_gi','seqlength','sequence','species_long','taxid'
   displayedColumns = ['species','uniprot_id','refseq_id','gene_name','gene_symbol','protein_entry','protein_name'];
+
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   dataSource:MatTableDataSource<any>;
@@ -37,5 +38,5 @@ export class LmpdArapidopsisComponent implements OnInit {
       this.dataSource.filter = filterValue;
     }
 
-    //BUILD CARD TO POP UP ON CLICK FOR SPECIES 
+    //BUILD CARD TO POP UP ON CLICK FOR SPECIES
 }
