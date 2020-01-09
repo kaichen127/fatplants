@@ -24,5 +24,9 @@
   "/data": {
     "target": "http://localhost:4201",
     "secure": false
+  },
+  "/conv": {
+    "target": "http://rest.kegg.jp",
+    "secure": false
   }
 }

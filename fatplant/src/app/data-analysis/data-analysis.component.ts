@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import {MatTabsModule} from '@angular/material/tabs';
 import {Observable} from 'rxjs';
@@ -26,6 +25,9 @@ export class DataAnalysisComponent implements OnInit {
   private uniprot: string;
   private pdbs = [];
   private isLoading: boolean;
+  private imgUrl: SafeResourceUrl;
+  private imgs = [];
+  private noimg: boolean;
 
   private blast: string;
   private isVisibale: boolean;
@@ -37,7 +39,7 @@ export class DataAnalysisComponent implements OnInit {
   private blastRes = [];
   private showblastRes = [];
   blastForm: FormGroup;
-  constructor(private http: HttpClient, private router: Router, private afs: AngularFirestore,private sanitizer: DomSanitizer) {
+  constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer) {
     // this.blastForm = fb.group({method: ['', Validators.required]});
     this.blastForm = new FormGroup({
       fasta : new FormControl(),
@@ -51,7 +53,9 @@ export class DataAnalysisComponent implements OnInit {
     this.isBlastP = false;
     this.isBlastN = false;
     this.isGlmol = false;
+
     this.isLoading = false;
+    this.noimg = false;
     // this.itemCollection = afs.collection('/Lmpd_Arapidopsis');
     // this.items = this.itemCollection.valueChanges();
     // this.items = afs.collection('/Lmpd_Arapidopsis',ref =>ref.where('uniprot_id','>=','F4HQ').where('uniprot_id','<=', 'F4HQ' + '\uf8ff') ).valueChanges();
@@ -60,7 +64,6 @@ export class DataAnalysisComponent implements OnInit {
   onSubmit(blastData) {
     console.log(blastData);
     // console.log(this.http.get('linux-shell-test.appspot.com'));
-    // this.router.navigateByUrl('/app-data-analysis');
     // this.http.get('/test?q=Glyma14g08610.1').subscribe((res: Response) => {console.log(res); });
     // this.http.get('/ng/index').subscribe((res: Response) => {console.log(res); });
     // this.http.post('/blastp', blastData).subscribe((res: Response) => {console.log(res); });
@@ -72,7 +75,6 @@ export class DataAnalysisComponent implements OnInit {
       // console.log(res);
       this.ShowResult(res);
       this.SplitRes(res);
-      // this.router.navigateByUrl('/result');
     });
   }
   ngOnInit() {
@@ -139,11 +141,14 @@ export class DataAnalysisComponent implements OnInit {
   }
 
   OneClick() {
-
+    // 清空所有
+    this.items = new Observable<any>();
+    this.imgs = [];
+    this.pdbs = [];
     switch (this.tabIndex) {
       case 0:
         // 根据name拿
-        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
+        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
           this.blast = res[0].sequence;
           this.proteinName = res[0].protein_name;
           this.proteinSeq = res[0].sequence;
@@ -162,7 +167,7 @@ export class DataAnalysisComponent implements OnInit {
         });
         break;
       case 1:
-        this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
+        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
           this.blast = res[0].sequence;
           this.proteinName = res[0].protein_name;
           this.proteinSeq = res[0].sequence;
@@ -173,8 +178,8 @@ export class DataAnalysisComponent implements OnInit {
             this.SplitRes(res);
             this.pdbs = [];
             this.SearchPDB(this.uniprot);
-            this.debug = true;
-            this.isLoading = false;
+
+            this.convFromKegg();
           });
         });
         break;
@@ -190,7 +195,7 @@ export class DataAnalysisComponent implements OnInit {
         });
         break;
       default:
-        console.log("No");
+        console.log('No');
         break;
     }
 
@@ -234,6 +239,10 @@ export class DataAnalysisComponent implements OnInit {
     console.log(tmpurl);
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
+  SafeImg(input: string) {
+    const tmpurl = 'http://rest.kegg.jp/get/' + input + '/image';
+    return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
+  }
   SearchPDB(pdb: string) {
     this.http.get('/js/uniprot_pdb_list.txt', {responseType: 'text'}).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
@@ -270,6 +279,47 @@ export class DataAnalysisComponent implements OnInit {
     });
 
     doc.save('Data.pdf');
+  }
+  public convFromKegg() {
+    this.http.get('/conv/genes/uniprot:' + this.uniprot, {responseType: 'text'}).subscribe((conv: string) => {
+      // console.log(res);
+      // console.log(reg.exec(tmp));
+      let pathways: any;
+      // 位数！
+      pathways = conv.match(/ath:[a-zA-Z0-9]{9}/g);
+      console.log(pathways[0]);
+      let target: string;
+      target = pathways[0];
+      this.http.get('/link/pathway/' + target, {responseType: 'text'}).subscribe((res: string) => {
+        // console.log(res);
+        // console.log(reg.exec(tmp));
+        let tmp: any
+        tmp = res.match(/path:[a-zA-Z0-9]{8}/g);
+        console.log(tmp);
+        this.imgUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://rest.kegg.jp/get/' + tmp[0].slice(5) + '/image');
+        let x: any;
+        for (x in tmp) {
+          this.imgs.push(tmp[x].slice(5));
+        }
+        console.log(this.imgs);
+        this.debug = true;
+        this.isLoading = false;
+      });
+    });
+    setTimeout(() => {
+      console.log('timeout');
+      console.log(this.pdbs);
+      console.log(this.imgs);
+      if (this.pdbs.length === 0) {
+        console.log('No pdb');
+      }
+      if (this.imgs.length === 0) {
+        console.log('No image');
+        this.noimg = true;
+      }
+      this.debug = true;
+      this.isLoading = false;
+      }, 5000);
   }
 
 }

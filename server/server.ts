@@ -8,7 +8,10 @@ app.use(bodyParser.json());
 
 const csvNodeDescriptions = './fileCyt/string_protein_annotations.csv'
 
-const csvFilePath='./fileCyt/protein.csv';
+const csvProteinPathways = './fileCyt/Ara_fatty_acid_protein_pathway_DAVID_For_PPI.txt'
+
+const csvFilePath='./fileCyt/protein-interactions.csv';
+
 // const csvEntityTableFilePath = './fileCyt/GO_AllLists.csv'
 const csv=require('csvtojson');
 
@@ -93,10 +96,27 @@ app.post('/test',(req,res)=>{
 });
 
 app.get('/data',  function (req, res, next) {
+  let requestedPathway = req.query.pathway;
+  var pathwayArray;
+  console.log(requestedPathway)
 
-  console.log("hello");
+  var lineReader = require('readline').createInterface({
+      input: require('fs').createReadStream(csvProteinPathways)
+  });
+      
+  lineReader.on('line', function (line) {
+      // console.log('Line from file:', line);
+      if(line.includes(requestedPathway)){
+          // console.log(line)
+          pathwayArray = line.split(',')
+          pathwayArray = pathwayArray.filter(function (el) {
+              return el != '';
+          });
+      }
+  });
 
-  csv().fromFile(csvFilePath)
+
+      csv().fromFile(csvFilePath)
       .then((jsonObj)=>{
           var elements=[];
           var genes=[];
@@ -119,6 +139,13 @@ app.get('/data',  function (req, res, next) {
                   continue;
               }
               else if(!node2){
+                  continue;
+              }
+
+              if(!pathwayArray.includes(node1)){
+                  continue;
+              }
+              else if(!pathwayArray.includes(node2)){
                   continue;
               }
 
@@ -180,12 +207,10 @@ app.get('/data',  function (req, res, next) {
 
               groupNum++;
           }
-
-          console.log(genes.length)
-          console.log(nodeCount)
-          console.log(elements.length)
           
-          res.send(elements);
+          let repsonse = [elements, pathwayArray]
+          
+          res.send(repsonse);
 
       })
 });

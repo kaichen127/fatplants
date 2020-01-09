@@ -178,25 +178,46 @@
     </div>
   </div>
   <div class="row">
+    <div class="col s6">
+      <label>Protein Database</label>
+      <select name="ProteinDatabase" class="browser-default">
+        <option value="Glyma1.pep.fa.gz">Glyma1.pep.fa.gz</option>
+        <option value="Gmax_189_protein.fa">Gmax_189_protein.fa</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
     <div class="col s6" (click)="Loading()">
       <button class="btn waves-effect waves-light" (click)="OneClick()" >submit</button>
     </div>
   </div>
+
 </div>
+
+
 
 <div *ngIf="isLoading">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 
-<ul *ngIf="tabIndex==1">
-  <li *ngFor="let item of items | async" (click)="ListClick($event.target.innerText)">{{item.uniprot_id}}</li>
-  <!--  <li *ngFor="let item of items | async"><mat-radio-button class="example-radio-button">{{item.uniprot_id}}</mat-radio-button></li>-->
-</ul>
+<!--<ul *ngIf="tabIndex==1">-->
+<!--  <li *ngFor="let item of items | async" (click)="ListClick($event.target.innerText)">{{item.uniprot_id}}</li>-->
+<!--  &lt;!&ndash;  <li *ngFor="let item of items | async"><mat-radio-button class="example-radio-button">{{item.uniprot_id}}</mat-radio-button></li>&ndash;&gt;-->
+<!--</ul>-->
 
-<ul *ngIf="tabIndex==0">
-  <li *ngFor="let item of items | async" (click)="ListClick($event.target.innerText)">{{item.gene_name}}</li>
-  <!--  <li *ngFor="let item of items | async"><mat-radio-button class="example-radio-button">{{item.uniprot_id}}</mat-radio-button></li>-->
-</ul>
+<mat-action-list *ngIf="tabIndex==1">
+  <button mat-list-item *ngFor="let item of items | async" (click)="ListClick($event.target.innerText)">{{item.uniprot_id}}</button>
+</mat-action-list>
+
+<!--<ul *ngIf="tabIndex==0">-->
+<!--  <li *ngFor="let item of items | async" (click)="ListClick($event.target.innerText)">{{item.gene_name}}</li>-->
+<!--  &lt;!&ndash;  <li *ngFor="let item of items | async"><mat-radio-button class="example-radio-button">{{item.uniprot_id}}</mat-radio-button></li>&ndash;&gt;-->
+<!--</ul>-->
+
+<mat-action-list *ngIf="tabIndex==0">
+  <button mat-list-item *ngFor="let item of items | async" (click)="ListClick($event.target.innerText)">{{item.gene_name}}</button>
+</mat-action-list>
+
 <div id="pdf" #pdf>
 <div *ngIf="debug">
   <mat-divider></mat-divider>
@@ -269,7 +290,26 @@
   <br>
   <label>Pathway Figure</label>
   <br>
-  <img name="showpathway" src="http://rest.kegg.jp/get/hsa04520/image" style="max-width: 1000px">
+  <label *ngIf="noimg">No figure found in KEGG</label>
+<!--  <img name="showpathway" src="http://rest.kegg.jp/get/hsa04520/image" style="max-width: 1000px">-->
+<!--  <img name="showpathway" [src]="imgUrl" style="max-width: 1000px">-->
+  <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms">
+    <!--    <mat-tab label="Q9ZU49_5jwy.1.A_121_269_default">-->
+    <!--      <iframe src="/viewer.html?5jwy" style="width: 100%" height="768"></iframe>-->
+    <!--    </mat-tab>-->
+    <!--    <mat-tab label="Q9ZU49_5jwy.1.A_97_244">-->
+    <!--      <iframe src="/viewer.html?6jwy" style="width: 100%" height="768"></iframe>-->
+    <!--    </mat-tab>-->
+    <mat-tab *ngFor="let img of imgs" label="{{img}}">
+      <ng-template matTabContent>
+        <div class="click-zoom">
+          <label>
+            <input type="checkbox">
+            <img [src]="SafeImg(img)" style="max-width: 1000px">
+          </label>
+        </div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
 </div>
-
 <div *ngIf="debug"> <button class="btn waves-effect waves-light" (click)="downloadAsPDF()">Export To PDF</button></div>

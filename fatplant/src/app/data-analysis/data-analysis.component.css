@@ -2,3 +2,17 @@ div{
   width:100%;
   /* background-color: #FCFF7B; */
 }
+.click-zoom input[type=checkbox] {
+  display: none
+}
+
+.click-zoom img {
+  margin: 100px;
+  transition: transform 0.25s ease;
+  cursor: zoom-in
+}
+
+.click-zoom input[type=checkbox]:checked~img {
+  transform: scale(3);
+  cursor: zoom-out
+}

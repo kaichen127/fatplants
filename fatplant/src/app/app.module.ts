@@ -43,6 +43,8 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { BlastComponent } from './blast/blast.component';
+import {MatListModule} from "@angular/material/list";
 
 
 
@@ -66,6 +68,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     NgCytoComponent,
     IntroductionComponent,
     InvestigatorComponent,
+    BlastComponent,
     // CytodemoComponent
   ],
   imports: [
@@ -87,7 +90,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     MatTabsModule,
     MatRadioModule,
     MatDividerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
