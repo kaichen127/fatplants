@@ -51,7 +51,6 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { BlastComponent } from './blast/blast.component';
-import {MatListModule} from "@angular/material/list";
 import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
 
 @NgModule({
@@ -108,7 +107,7 @@ import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.compone
     MatRadioModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatListModule
+    MatListModule,
     HttpClientModule,
     FormsModule,
     MatMenuModule
