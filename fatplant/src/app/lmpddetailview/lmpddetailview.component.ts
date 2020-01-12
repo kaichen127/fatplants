@@ -35,8 +35,10 @@ export class LmpddetailviewComponent implements OnInit {
   private items: any;
   private result: any;
   private tabresult: any;
+  private detailresult: any;
   private moreresult: any;
   private tabitem: any;
+  private detailitem: any;
   private moreitem: any;
   private sub: any;
   private resultsequence: any;
@@ -68,11 +70,11 @@ export class LmpddetailviewComponent implements OnInit {
     })
 
 
-    this.afs.collectionGroup('Lmpd_Arapidopsis_Tab', ref => ref.where('Entry', '==', this.uniprot_id))
+    this.afs.collectionGroup('Lmpd_Arapidopsis_Detail1', ref => ref.where('entry', '==', this.uniprot_id))
        .valueChanges().subscribe(res => {
-       this.tabresult = res as string [];
-       this.tabitem = this.tabresult[0];
-       console.log(this.tabitem);
+       this.detailresult = res as string [];
+       this.detailitem = this.detailresult[0];
+       console.log(this.detailitem);
 
     })
 
