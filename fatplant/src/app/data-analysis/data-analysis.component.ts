@@ -28,6 +28,8 @@ export class DataAnalysisComponent implements OnInit {
   private imgUrl: SafeResourceUrl;
   private imgs = [];
   private noimg: boolean;
+  private nopdb: boolean;
+  private proteindatabase: string;
 
   private blast: string;
   private isVisibale: boolean;
@@ -56,6 +58,7 @@ export class DataAnalysisComponent implements OnInit {
 
     this.isLoading = false;
     this.noimg = false;
+    this.nopdb = false;
     // this.itemCollection = afs.collection('/Lmpd_Arapidopsis');
     // this.items = this.itemCollection.valueChanges();
     // this.items = afs.collection('/Lmpd_Arapidopsis',ref =>ref.where('uniprot_id','>=','F4HQ').where('uniprot_id','<=', 'F4HQ' + '\uf8ff') ).valueChanges();
@@ -78,39 +81,14 @@ export class DataAnalysisComponent implements OnInit {
     });
   }
   ngOnInit() {
-    // this.blastForm = new FormGroup({});
-    // this.blast = 'input blast here';
+  }
 
-  }
-  SelectBlastP() {
-    this.isBlastP = true;
-    this.isBlastN = false;
-    // console.log("select p");
-  }
-  SelectBlastN() {
-    this.isBlastN = true;
-    this.isBlastP = false;
-    // console.log("select n");
-  }
   ShowResult(result: string) {
     // const newWindow = window.open('Result', '_blank');
     // newWindow.document.write('<p style="white-space: pre-wrap">' + result + '</p>');
     const newWindow = window.open('Result', '_blank');
     newWindow.document.write('<pre>' + result + '</pre>');
   }
-  showGlmol() {
-    const newWindow = window.open('Result', '_blank');
-    // console.log(this.glmolUrl);
-    let tmp: string;
-    tmp = this.glmolUrl;
-    tmp = tmp.replace('.', '_');
-    let url = 'http://soykb.org/search/glmol/viewer.html?' + tmp + '.pdb'
-    // this.glmolUrl = '"http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb"';
-    newWindow.document.write('<iframe src="' + url + '" style="width: 100%" height="768"></iframe>');
-    // this.isGlmol = true;
-  }
-
-
   SplitRes(result: string) {
     this.showblastRes = [];
     this.blastRes = [];
@@ -141,10 +119,18 @@ export class DataAnalysisComponent implements OnInit {
   }
 
   OneClick() {
+    console.log(this.proteindatabase);
+    if (this.proteindatabase === undefined) {
+      this.proteindatabase = 'Arabidopsis';
+    }
     // 清空所有
+    this.debug = false;
     this.items = new Observable<any>();
     this.imgs = [];
     this.pdbs = [];
+    this.noimg = false;
+    this.nopdb = false;
+
     switch (this.tabIndex) {
       case 0:
         // 根据name拿
@@ -153,7 +139,7 @@ export class DataAnalysisComponent implements OnInit {
           this.proteinName = res[0].protein_name;
           this.proteinSeq = res[0].sequence;
           this.uniprot = res[0].uniprot_id
-          this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
+          this.http.post('/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
             this.result = res;
             // this.ShowResult(res);
             console.log(res);
@@ -161,10 +147,24 @@ export class DataAnalysisComponent implements OnInit {
             // this.glmolUrl = '/viewer.html?5jwy';
             this.pdbs = [];
             this.SearchPDB(this.uniprot);
-            this.debug = true;
-            this.isLoading = false;
+            this.convFromKegg();
           });
         });
+        setTimeout(() => {
+          console.log('timeout');
+          // console.log(this.pdbs);
+          // console.log(this.imgs);
+          if (this.pdbs.length === 0) {
+            console.log('No pdb');
+            this.nopdb = true;
+          }
+          if (this.imgs.length === 0) {
+            console.log('No image');
+            this.noimg = true;
+          }
+          this.debug = true;
+          this.isLoading = false;
+        }, 10000);
         break;
       case 1:
         this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
@@ -172,20 +172,34 @@ export class DataAnalysisComponent implements OnInit {
           this.proteinName = res[0].protein_name;
           this.proteinSeq = res[0].sequence;
           this.uniprot = res[0].uniprot_id
-          this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
+          this.http.post('/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
             this.result = res;
             // this.ShowResult(res);
             this.SplitRes(res);
             this.pdbs = [];
             this.SearchPDB(this.uniprot);
-
             this.convFromKegg();
           });
         });
+        setTimeout(() => {
+          console.log('timeout');
+          // console.log(this.pdbs);
+          // console.log(this.imgs);
+          if (this.pdbs.length === 0) {
+            console.log('No pdb');
+            this.nopdb = true;
+          }
+          if (this.imgs.length === 0) {
+            console.log('No image');
+            this.noimg = true;
+          }
+          this.debug = true;
+          this.isLoading = false;
+        }, 10000);
         break;
       case 2:
         this.blast = this.query;
-        this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
+        this.http.post('/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
           this.result = res;
           // this.ShowResult(res);
           this.SplitRes(res);
@@ -193,6 +207,7 @@ export class DataAnalysisComponent implements OnInit {
           this.debug = true;
           this.isLoading = false;
         });
+
         break;
       default:
         console.log('No');
@@ -209,7 +224,7 @@ export class DataAnalysisComponent implements OnInit {
   }
   Search(query: string) {
     this.items = new Observable<any>();
-    if (query == '') { return; }
+    if (query === '') { return; }
     switch (this.tabIndex) {
       case 0:
 
@@ -257,6 +272,9 @@ export class DataAnalysisComponent implements OnInit {
         }
 
       }
+      if (this.pdbs.length === 0){
+        this.nopdb = true;
+      }
   });
   }
   Loading() {
@@ -299,27 +317,49 @@ export class DataAnalysisComponent implements OnInit {
         this.imgUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://rest.kegg.jp/get/' + tmp[0].slice(5) + '/image');
         let x: any;
         for (x in tmp) {
-          this.imgs.push(tmp[x].slice(5));
+          let y=x
+          this.http.get('/get/' + tmp[x].slice(5), {responseType: 'text'}).subscribe((data: string) => {
+            // console.log(res);
+            let names = data.split('\n');
+            // console.log(tmp);
+            for (var name in names) {
+              console.log(names[name].slice(0, 11));
+              if (names[name].slice(0, 11) === 'PATHWAY_MAP') {
+                this.imgs.push([tmp[y].slice(5), names[name].slice(12)]);
+                break;
+              }
+            }
+          });
+          // let name = this.getNameFromKegg(tmp[x].slice(5));
+          // this.imgs.push([tmp[x].slice(5), name]);
         }
         console.log(this.imgs);
         this.debug = true;
         this.isLoading = false;
+        // this.getNameFromKegg('ath00196');
       });
     });
-    setTimeout(() => {
-      console.log('timeout');
-      console.log(this.pdbs);
-      console.log(this.imgs);
-      if (this.pdbs.length === 0) {
-        console.log('No pdb');
-      }
-      if (this.imgs.length === 0) {
-        console.log('No image');
-        this.noimg = true;
-      }
-      this.debug = true;
-      this.isLoading = false;
-      }, 5000);
   }
+  // selectOption(id: number) {
+  //   // getted from event
+  //   console.log(id);
+  //   // getted from binding
+  //   console.log(this.proteindatabase);
+  // }
+  // public getNameFromKegg(id: any) {
+  //   this.http.get('/get/' + id, {responseType: 'text'}).subscribe((res: string) => {
+  //     // console.log(res);
+  //     let tmp = res.split('\n');
+  //     // console.log(tmp);
+  //     for (var name in tmp) {
+  //       console.log(tmp[name].slice(0, 11));
+  //       if (tmp[name].slice(0, 11) === 'PATHWAY_MAP') {
+  //         return tmp[name].slice(12);
+  //         break;
+  //       }
+  //     }
+  //   });
+  //   // return id;
+  // }
 
 }

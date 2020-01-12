@@ -18,14 +18,20 @@
     "changeOrigin": true
   },
   "/node-description": {
-    "target": "http://localhost:4201",
-    "secure": false
+    "target": "http://linux-shell-test.appspot.com",
+    "secure": false,
+    "changeOrigin": true
   },
   "/data": {
-    "target": "http://localhost:4201",
-    "secure": false
+    "target": "http://linux-shell-test.appspot.com",
+    "secure": false,
+    "changeOrigin": true
   },
   "/conv": {
+    "target": "http://rest.kegg.jp",
+    "secure": false
+  },
+  "/get": {
     "target": "http://rest.kegg.jp",
     "secure": false
   }

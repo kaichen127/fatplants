@@ -6,20 +6,20 @@ $(document).foundation();
         $.get({
             // getting the data
             url: '/data',
+            data: {pathway: "Fatty acid metabolism"},
             success: function (data) {
                 $("#loading").hide();
                 $("#cy").show();
 
-                var elementsdata = data;
-                // console.log(elementsdata)
+                var elementsToShow = data[0];
+
                 var cy = window.cy = cytoscape({
 
-                    pixelRatio: 1,
                     hideEdgesOnViewport: true,
                     textureOnViewport: true,
                     container: document.getElementById('cy'),
-                    elements: elementsdata,
                     autounselectify: true,
+                    elements: elementsToShow,
                     boxSelectionEnabled: false,
 
                 });
@@ -252,36 +252,22 @@ $(document).foundation();
 
                 });
 
-                // document.getElementById('layout5').addEventListener('click', function(){
+                $('#target-pathway-dropdown .menu a').click(function(){
 
-                //     cy.stop()
-                //     cy.clearQueue()
+                    $.get({
+                        // getting the data
+                        url: '/data',
+                        data: {pathway: this.innerHTML},
+                        success: function (data) {
+                            console.log(data[0])
 
-                //     function changeLayout(callback) {
-                //         cy.startBatch();
+                            cy.elements().remove();
+                            cy.add(data[0])
 
-                //         var layout = cy.layout({
-                //             name: 'avsdf',
-                //             nodeSeparation: 120
-                //         });
-                //         layout.run();
-
-                //         callback();
-                //     }
-
-                //     changeLayout(function() {
-                //         cy.endBatch();
-                //         cy.stop()
-                //         cy.clearQueue()
-                //     });
-
-                //     $('.button').removeClass('disabled')
-                //     $(this).addClass('disabled')
-
-                //     cy.stop()
-                //     cy.clearQueue()
-
-                // });
+                            $('#layout1').trigger('click');
+                        }
+                    })
+                })
 
                 $('#layout1').trigger('click');
             }

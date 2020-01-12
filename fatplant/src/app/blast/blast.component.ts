@@ -10,6 +10,12 @@ import {AngularFirestore} from 'angularfire2/firestore';
   styleUrls: ['./blast.component.css']
 })
 export class BlastComponent implements OnInit {
+
+  public method: string;
+  public proteinSeq: string;
+  public database: string;
+  public matrix: string;
+  public evalue: string;
   public items: any;
 
   private blast: string;
@@ -23,56 +29,36 @@ export class BlastComponent implements OnInit {
   blastForm: FormGroup;
   constructor(private http: HttpClient, private router: Router, db: AngularFirestore) {
     // this.blastForm = fb.group({method: ['', Validators.required]});
-    this.blastForm = new FormGroup({
-      fasta : new FormControl(),
-      method : new FormControl(),
-      ProteinDatabase : new FormControl(),
-      Ethreshold : new FormControl(),
-      maxhit : new FormControl(),
-      NucleotideDatabase : new FormControl()
-    });
+    // this.blastForm = new FormGroup({
+    //   fasta : new FormControl(),
+    //   method : new FormControl(),
+    //   ProteinDatabase : new FormControl(),
+    //   Ethreshold : new FormControl(),
+    //   maxhit : new FormControl(),
+    //   NucleotideDatabase : new FormControl()
+    // });
     this.isVisibale = true;
     this.isBlastP = false;
     this.isBlastN = false;
     this.isGlmol = false;
     this.items = db.collection('/Lmpd_Arapidopsis').valueChanges();
   }
-  onSubmit(blastData) {
-    console.log(blastData);
-    this.http.post('/test', blastData, {responseType: 'text'}).subscribe((res: any) => {
+  onSubmit() {
+    this.http.post('/blastp', {fasta: this.proteinSeq, database: this.database, matrix: this.matrix, evalue: this.evalue}, {responseType: 'text'}).subscribe((res: any) => {
       this.result = res;
-      this.ShowResult(res);
       this.SplitRes(res);
     });
   }
   ngOnInit() {
     // this.blastForm = new FormGroup({});
     this.blast = 'input blast here';
-
   }
-  debug() {
-    // console.log(msg);
-    const options: string [] = [];
-    // this.childProcessService.childProcess.exec("python",options,(data) => {console.log(data);});
 
-  }
   SelectBlastP() {
     this.isBlastP = true;
     this.isBlastN = false;
     // console.log("select p");
   }
-  SelectBlastN() {
-    this.isBlastN = true;
-    this.isBlastP = false;
-    // console.log("select n");
-  }
-  ShowResult(result: string) {
-    // const newWindow = window.open('Result', '_blank');
-    // newWindow.document.write('<p style="white-space: pre-wrap">' + result + '</p>');
-    const newWindow = window.open('Result', '_blank');
-    newWindow.document.write('<pre>' + result + '</pre>');
-  }
-
   SplitRes(result: string) {
     this.blastRes = []
     let tmp: any;

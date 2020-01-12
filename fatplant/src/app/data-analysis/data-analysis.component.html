@@ -31,12 +31,6 @@
 <!--  </div>-->
 <!--</form>-->
 
-<!--<div *ngIf="isGlmol">-->
-<!--&lt;!&ndash;  <a href={{glmolUrl}}>3D Protein Structure Search</a>&ndash;&gt;-->
-<!--  <iframe src={{glmolUrl}} style="width: 100%" height="768"></iframe>-->
-<!--</div>-->
-
-
 <div class="container" style="min-width: 1000px" *ngIf="false">
   <div class="row">
     <div class="input-field col s12">
@@ -180,9 +174,9 @@
   <div class="row">
     <div class="col s6">
       <label>Protein Database</label>
-      <select name="ProteinDatabase" class="browser-default">
-        <option value="Glyma1.pep.fa.gz">Glyma1.pep.fa.gz</option>
-        <option value="Gmax_189_protein.fa">Gmax_189_protein.fa</option>
+      <select name="ProteinDatabase" class="browser-default" [(ngModel)]="proteindatabase">
+        <option value="Arabidopsis" selected>Arabidopsis</option>
+        <option value="Soybean">Soybean</option>
       </select>
     </div>
   </div>
@@ -240,12 +234,8 @@
   <br>
   <label >GLmol</label>
   <br>
-<!--  <iframe src="/viewer.html?6jwy" style="width: 100%" height="768"></iframe>-->
-<!--  <iframe [src]="glmolUrl" style="width: 100%" height="768"></iframe>-->
-
-  <!--  <iframe src="http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb" style="width: 100%" height="768"></iframe>-->
+  <label *ngIf="nopdb">No PDB file found in our database</label>
   <br>
-
   <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms">
 <!--    <mat-tab label="Q9ZU49_5jwy.1.A_121_269_default">-->
 <!--      <iframe src="/viewer.html?5jwy" style="width: 100%" height="768"></iframe>-->
@@ -300,12 +290,12 @@
     <!--    <mat-tab label="Q9ZU49_5jwy.1.A_97_244">-->
     <!--      <iframe src="/viewer.html?6jwy" style="width: 100%" height="768"></iframe>-->
     <!--    </mat-tab>-->
-    <mat-tab *ngFor="let img of imgs" label="{{img}}">
+    <mat-tab *ngFor="let img of imgs" label="{{img[1]}}">
       <ng-template matTabContent>
         <div class="click-zoom">
           <label>
             <input type="checkbox">
-            <img [src]="SafeImg(img)" style="max-width: 1000px">
+            <img [src]="SafeImg(img[0])" style="max-width: 1000px">
           </label>
         </div>
       </ng-template>

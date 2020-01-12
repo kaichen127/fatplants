@@ -97,7 +97,7 @@ app.post('/test',(req,res)=>{
 
 app.get('/data',  function (req, res, next) {
   let requestedPathway = req.query.pathway;
-  var pathwayArray;
+  let pathwayArray = [];
   console.log(requestedPathway)
 
   var lineReader = require('readline').createInterface({
@@ -114,8 +114,7 @@ app.get('/data',  function (req, res, next) {
           });
       }
   });
-
-
+      
       csv().fromFile(csvFilePath)
       .then((jsonObj)=>{
           var elements=[];
@@ -141,7 +140,6 @@ app.get('/data',  function (req, res, next) {
               else if(!node2){
                   continue;
               }
-
               if(!pathwayArray.includes(node1)){
                   continue;
               }

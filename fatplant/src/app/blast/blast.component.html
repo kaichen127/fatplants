@@ -8,62 +8,63 @@
   </div>
 </div>
 <!--<div class="container" style="width: 500px">-->
-<form action="#" class="col s12" [formGroup]="blastForm" (ngSubmit)="onSubmit(blastForm.value)">
+
   <div class="row">
     <div class="input-field col s6">
-      <textarea style="height: 100px" name="fasta" class="browser-default" placeholder="Sequence" formControlName="fasta"></textarea>
+      <textarea style="height: 100px" name="fasta" class="browser-default" placeholder="Sequence" [(ngModel)]="proteinSeq" ></textarea>
       <!--        <label for="fasta">Sequence</label>-->
     </div>
 
   </div>
   <div class="row">
     <div class="col s2">
-      <input class="with-gap" name="method" type="radio" id="BlastP" formControlName="method" value="blastp" (change)="SelectBlastP()"/>
+      <input class="with-gap" name="method" type="radio" id="BlastP" value="blastp" (change)="SelectBlastP()"/>
       <label for="BlastP">BlastP</label>
     </div>
     <div class="col s2">
-      <input class="with-gap" name="method" type="radio" id="BlastX" formControlName="method" value="blastx" (change)="SelectBlastP()"/>
+      <input class="with-gap" name="method" type="radio" id="BlastX" value="blastx" (change)="SelectBlastP()"/>
       <label for="BlastX">BlastX</label>
     </div>
   </div>
   <div class="row">
     <div class="col s6">
       <label>Protein Database</label>
-      <select name="ProteinDatabase" class="browser-default" formControlName="ProteinDatabase">
-        <option value="Glyma1.pep.fa.gz">Glyma1.pep.fa.gz</option>
-        <option value="Gmax_189_protein.fa">Gmax_189_protein.fa</option>
+      <select name="ProteinDatabase" class="browser-default" [(ngModel)]="database">
+        <option value="Arabidopsis" selected>Arabidopsis</option>
+        <option value="Soybean">Soybean</option>
       </select>
     </div>
   </div>
 
-<!--  <div class="row">-->
-<!--    <div *ngIf="isBlastP" class="col s6">-->
-<!--      <label>E-value threshold</label>-->
-<!--      <select class="browser-default" formControlName="Ethreshold">-->
-<!--        <option value="0.0001">0.0001</option>-->
-<!--        <option value="0.001" selected>0.001</option>-->
-<!--        <option value="0.01">0.01</option>-->
-<!--        <option value="1">1</option>-->
-<!--        <option value="10">10</option>-->
-<!--        <option value="100">100</option>-->
-<!--        <option value="1000">1000</option>-->
-<!--      </select>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="row">-->
-<!--    <div *ngIf="isBlastP" class="col s6">-->
-<!--      <label>Show max hits</label>-->
-<!--      <select class="browser-default" formControlName="maxhit">-->
-<!--        <option value="1">1</option>-->
-<!--        <option value="5">5</option>-->
-<!--        <option value="10" selected>10</option>-->
-<!--        <option value="25">25</option>-->
-<!--        <option value="50">50</option>-->
-<!--        <option value="100">100</option>-->
-<!--        <option value="ALL">ALL</option>-->
-<!--      </select>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col s6">
+      <label>E-value threshold</label>
+      <select class="browser-default" [(ngModel)]="evalue">
+        <option value="0.0001">0.0001</option>
+        <option value="0.001">0.001</option>
+        <option value="0.01">0.01</option>
+        <option value="1">1</option>
+        <option value="10" selected>10</option>
+        <option value="100">100</option>
+        <option value="1000">1000</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s6">
+      <label>Scoring matrix</label>
+      <select class="browser-default" [(ngModel)]="matrix">
+        <option value="PAM30">PAM30</option>
+        <option value="PAM70">PAM70</option>
+        <option value="PAM250">PAM250</option>
+        <option value="BLOSUM80">BLOSUM80</option>
+        <option value="BLOSUM62" selected>BLOSUM62</option>
+        <option value="BLOSUM45">BLOSUM45</option>
+        <option value="BLOSUM50">BLOSUM50</option>
+        <option value="BLOSUM90">BLOSUM90</option>
+      </select>
+    </div>
+  </div>
 
 <!--  <div class="row">-->
 <!--    <div class="col s2">-->
@@ -97,7 +98,7 @@
 
   <div class="row">
     <div class="col s3">
-      <button class="btn waves-effect waves-light" type="submit" name="action" >submit
+      <button class="btn waves-effect waves-light" type="submit" name="action" (click)="onSubmit()" >submit
       </button>
     </div>
     <div class="col s3">
@@ -106,7 +107,6 @@
     </div>
 
   </div>
-</form>
 
 <div class="row" *ngFor="let res of blastRes">
   <div style="max-width: 800px">
