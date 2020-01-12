@@ -1,3 +1,4 @@
-input{
-    background-color: yellow;
+.myCard{
+    margin: 0 auto;
+    display: inline-block;
 }

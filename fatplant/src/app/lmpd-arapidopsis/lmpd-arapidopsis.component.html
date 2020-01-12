@@ -2,11 +2,14 @@
   <h1>Lmpd_Arapidopsis</h1>
 </div>
 
+<mat-menu #dropdownMenu>
+<app-lmpd-card [fields]="cardfields" [headers]="headerfields" [subheaders]="subheaders"></app-lmpd-card>
+</mat-menu>
+
 <div class="mat-elevation-z8">
       <div>
         <mat-form-field>
-          <label>Filter</label>
-          <input matInput (keyup)="applyFilter($event.target.value)">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
       </div>
 
@@ -15,7 +18,6 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Species </mat-header-cell>
         <mat-cell *matCellDef="let elem"> {{ elem.species }} </mat-cell>
       </ng-container>
-
       <ng-container matColumnDef="uniprot_id">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Uniprot Page </mat-header-cell>
             <mat-cell *matCellDef="let elem"> <a href="http://uniprot.org/uniprot/{{elem.uniprot_id}}" target="_blank">{{elem.uniprot_id}}</a></mat-cell>
@@ -43,9 +45,14 @@
 
                   <ng-container matColumnDef="protein_entry">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
-                        <mat-cell *matCellDef="let elem"> {{ elem.protein_entry }} </mat-cell>
+                        <mat-cell *matCellDef="let elem"><a [routerLink]="['/lmpddetailview', elem.uniprot_id]"> {{ elem.protein_entry }} </a></mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="moreInfo">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>More</mat-header-cell>
+                      <mat-cell *matCellDef="let elem"><button mat-button [matMenuTriggerFor]="dropdownMenu" (click)="changeElem(elem)">More Info?</button></mat-cell>
                   </ng-container>
 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </table>
- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSizeOptions]="[5, 10, 20,2500]" showFirstLastButtons></mat-paginator>

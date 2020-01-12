@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { FirestoreConnectionService } from '../services/firestore-connection.service';
 
 @Component({
   selector: 'app-fattyacid',
@@ -13,10 +14,10 @@ export class FattyacidComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   dataSource:MatTableDataSource<any>;
-  constructor(private afs:AngularFirestore) { }
+  constructor(private db:FirestoreConnectionService) { }
 
   ngOnInit() {
-    let docs=this.afs.collection('Fatty Acid',ref=>ref.limit(100)).valueChanges().subscribe(data =>{
+    let docs=this.db.connect('Fatty Acid').subscribe(data =>{
         this.dataSource=new MatTableDataSource(data)
         this.dataSource.paginator = this.paginator;
     })

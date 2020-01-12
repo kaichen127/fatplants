@@ -6,6 +6,7 @@ import {MatPaginator} from '@angular/material/paginator';
 
 // import { AngularFirestore } from 'angularfire2/firestore';
 import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestore';
+import { FirestoreConnectionService } from '../services/firestore-connection.service';
 
 @Component({
   selector: 'app-camelia',
@@ -24,8 +25,8 @@ export class CameliaComponent implements OnInit {
   //       {columnDef: 'no',header:'No',cell:(element:any)=>element.No},
   //      {columnDef: 'homeologs',header:'Homeologs',cell:(element:any)=>element.Homeologs}]
   // docs;
-  constructor(private afs:AngularFirestore) {
-    let docs=this.afs.collection('Camelina',ref=>ref.limit(100)).valueChanges().subscribe(data =>{
+  constructor(private db:FirestoreConnectionService) {
+    let docs=this.db.connect('Camelina').subscribe(data =>{
       this.dataSource=new MatTableDataSource(data)
       this.dataSource.paginator = this.paginator;
   })  

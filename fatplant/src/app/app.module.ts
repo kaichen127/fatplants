@@ -13,7 +13,7 @@ import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.co
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { DatatableComponent } from './datatable/datatable.component';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatSelectModule, MatListModule, MatIconModule, MatCardModule } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material';
 import { MatPaginatorModule} from '@angular/material/paginator';
@@ -24,9 +24,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GraphComponent } from './graph/graph.component';
 import {NgCytoComponent} from './ng-cyto/ng-cyto.component';
 
+
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 import { CytoscapeModule } from 'ngx-cytoscape';
-import { GoNetworkComponent } from './go-network/go-network.component';
 // import { GraphComponent } from './go-network/graph/graph.component';
 // import {NgCytoComponent} from './go-network/ng-cyto/ng-cyto.component';
 //Firestore modules
@@ -39,15 +39,20 @@ import { CameliaComponent } from './camelia/camelia.component';
 import { FattyacidComponent } from './fattyacid/fattyacid.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
+import { DetailviewComponent } from './detailview/detailview.component';
+import { UploadFilesComponent } from './upload-files/upload-files.component';
+import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { DropzoneDirective } from './directives/dropzone.directive';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { FileviewComponent } from './fileview/fileview.component';
+import { LmpdCardComponent } from './lmpd-card/lmpd-card.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { BlastComponent } from './blast/blast.component';
 import {MatListModule} from "@angular/material/list";
-
-
-
+import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,6 @@ import {MatListModule} from "@angular/material/list";
     HomepageComponent,
     DataAnalysisComponent,
     DatatableComponent,
-    GoNetworkComponent,
     GlmolComponent,
     ColorPathwayComponent,
     CameliaComponent,
@@ -69,22 +73,35 @@ import {MatListModule} from "@angular/material/list";
     IntroductionComponent,
     InvestigatorComponent,
     BlastComponent,
-    // CytodemoComponent
+    DetailviewComponent,
+    // CytodemoComponent,
+    UploadFilesComponent,
+    UploadTaskComponent,
+    DropzoneDirective,
+    FileviewComponent,
+    LmpdCardComponent,
+    LmpddetailviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'fatplant'),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     MatTableModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    MatListModule,
+    MatIconModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatMenuModule,
     CdkTableModule,
     HttpClientModule,
     FormsModule,
+    CytoscapeModule,
     ReactiveFormsModule,
     MatPaginatorModule,
     MatTabsModule,
@@ -92,6 +109,9 @@ import {MatListModule} from "@angular/material/list";
     MatDividerModule,
     MatProgressBarModule,
     MatListModule
+    HttpClientModule,
+    FormsModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
