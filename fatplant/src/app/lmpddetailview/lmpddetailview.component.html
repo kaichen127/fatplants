@@ -66,7 +66,7 @@
 <p class="gfg">
 <textarea>{{resultsequence}}</textarea>
 </p>
-<button class="small red button">Blast!</button>
+<!-- <button class="small red button">Blast!</button> -->
 
 <br><br><br>
 
@@ -74,75 +74,39 @@
 <table class="blueTable">
 <tr>
 <th><strong>Entry name: </strong></th>
-<td>{{tabitem.Entry_name}}</td>
+<td>{{detailitem.entry_name}}</td>
 </tr>
 <tr>
 <th><strong>Status: </strong></th>
-<td>{{tabitem.Status}}</td>
+<td>{{detailitem.status}}</td>
 </tr>
 <tr>
 <th><strong>Protein names: </strong></th>
-<td>{{tabitem.Protein_names}}</td>
+<td>{{detailitem.protein_names}}</td>
 </tr>
 <tr>
 <th><strong>Gene names: </strong></th>
-<td>{{tabitem.Gene_names}}</td>
+<td>{{detailitem.gene_names}}</td>
 </tr>
 <tr>
 <th><strong>Organism: </strong></th>
-<td>{{tabitem.Organism}}</td>
+<td>{{detailitem.organism}}</td>
 </tr>
 <tr>
 <th><strong>Length: </strong></th>
-<td>{{tabitem.Length}}</td>
+<td>{{detailitem.length}}</td>
 </tr>
 <tr>
-<th><strong>Chain: </strong></th>
-<td>{{tabitem.Chain}}</td>
+<th><strong>Keywords: </strong></th>
+<td>{{detailitem.keywords}}</td>
 </tr>
 <tr>
-<th><strong>Cross-link: </strong></th>
-<td>{{tabitem.Cross-link}}</td>
+<th><strong>Annotation: </strong></th>
+<td>{{detailitem.annotation}}</td>
 </tr>
 <tr>
-<th><strong>Disulfide bond: </strong></th>
-<td>{{tabitem.Disulfide_bond}}</td>
-</tr>
-<tr>
-<th><strong>Glycosylation: </strong></th>
-<td>{{tabitem.Glycosylation}}</td>
-</tr>
-<tr>
-<th><strong>Initiator methionine: </strong></th>
-<td>{{tabitem.Initiator_methionine}}</td>
-</tr>
-<tr>
-<th><strong>Lipidation: </strong></th>
-<td>{{tabitem.Lipidation}}</td>
-</tr>
-<tr>
-<th><strong>Modified residue: </strong></th>
-<td>{{tabitem.Modified_residue}}</td>
-</tr>
-<tr>
-<th><strong>Peptide: </strong></th>
-<td>{{tabitem.Peptide}}</td>
-</tr>
-<tr>
-<th><strong>Post-translational modification: </strong></th>
-<td>{{tabitem.Post-translational_modification}}</td>
-</tr>
-<tr>
-<th><strong>Propeptide: </strong></th>
-<td>{{tabitem.Propeptide}}</td>
-</tr>
-<tr>
-<th><strong>Signal peptide: </strong></th>
-<td>{{tabitem.Signal_peptide}}</td>
-</tr>
-<tr>
-<th><strong>Transit peptide: </strong></th>
-<td>{{tabitem.Transit_peptide}}</td>
+<th><strong>Subcellular location: </strong></th>
+<td>{{detailitem.subcellular_location}}</td>
 </tr>
 </table>
 
@@ -153,14 +117,9 @@
 <strong>Domains & Repeats</strong>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef> type </th>
-    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="detail">
-    <th mat-header-cell *matHeaderCellDef> detail </th>
-    <td mat-cell *matCellDef="let element"> {{element.detail}} </td>
+  <ng-container matColumnDef="term">
+    <th mat-header-cell *matHeaderCellDef> term </th>
+    <td mat-cell *matCellDef="let element"> {{element.term}} </td>
   </ng-container>
 
   <ng-container matColumnDef="start">
@@ -171,6 +130,17 @@
   <ng-container matColumnDef="end">
     <th mat-header-cell *matHeaderCellDef> end </th>
     <td mat-cell *matCellDef="let element"> {{element.end}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="details">
+    <th mat-header-cell *matHeaderCellDef> details </th>
+    <td mat-cell *matCellDef="let element"> {{element.details}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="evidence">
+    <th mat-header-cell *matHeaderCellDef> evidence </th>
+    <td mat-cell *matCellDef="let element"> {{element.evidence}} </td>
   </ng-container>
 
 

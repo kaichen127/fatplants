@@ -1,0 +1,795 @@
+GO,Description
+GO:0006644,phospholipid metabolic process
+GO:0046486,glycerolipid metabolic process
+GO:0019637,organophosphate metabolic process
+GO:0008654,phospholipid biosynthetic process
+GO:0006650,glycerophospholipid metabolic process
+GO:0090407,organophosphate biosynthetic process
+GO:0045017,glycerolipid biosynthetic process
+GO:0046474,glycerophospholipid biosynthetic process
+GO:0046488,phosphatidylinositol metabolic process
+GO:0008299,isoprenoid biosynthetic process
+GO:0008610,lipid biosynthetic process
+GO:0044255,cellular lipid metabolic process
+GO:0006720,isoprenoid metabolic process
+GO:0006721,terpenoid metabolic process
+GO:0016114,terpenoid biosynthetic process
+GO:0016042,lipid catabolic process
+GO:0006633,fatty acid biosynthetic process
+GO:0006631,fatty acid metabolic process
+GO:0032787,monocarboxylic acid metabolic process
+GO:0044283,small molecule biosynthetic process
+GO:0072330,monocarboxylic acid biosynthetic process
+GO:0016053,organic acid biosynthetic process
+GO:0046394,carboxylic acid biosynthetic process
+GO:1901615,organic hydroxy compound metabolic process
+GO:1901617,organic hydroxy compound biosynthetic process
+GO:0008202,steroid metabolic process
+GO:0006694,steroid biosynthetic process
+GO:0016125,sterol metabolic process
+GO:0016126,sterol biosynthetic process
+ath00100,Steroid biosynthesis
+ath00564,Glycerophospholipid metabolism
+ath00565,Ether lipid metabolism
+GO:0009395,phospholipid catabolic process
+GO:0009739,response to gibberellin
+GO:0071370,cellular response to gibberellin stimulus
+GO:0010476,gibberellin mediated signaling pathway
+GO:0071396,cellular response to lipid
+GO:0009740,gibberellic acid mediated signaling pathway
+GO:1901701,cellular response to oxygen-containing compound
+GO:0071229,cellular response to acid chemical
+GO:0010876,lipid localization
+GO:0006869,lipid transport
+GO:0030258,lipid modification
+GO:0044242,cellular lipid catabolic process
+ath04146,Peroxisome
+GO:0034440,lipid oxidation
+GO:0044282,small molecule catabolic process
+ath00071,Fatty acid degradation
+GO:0016054,organic acid catabolic process
+GO:0046395,carboxylic acid catabolic process
+GO:0019395,fatty acid oxidation
+GO:0009062,fatty acid catabolic process
+GO:0006635,fatty acid beta-oxidation
+ath01040,Biosynthesis of unsaturated fatty acids
+GO:0072329,monocarboxylic acid catabolic process
+M00087,beta-Oxidation
+ath_M00087,beta-Oxidation
+GO:0033540,fatty acid beta-oxidation using acyl-CoA oxidase
+GO:0006066,alcohol metabolic process
+GO:0019751,polyol metabolic process
+GO:0046165,alcohol biosynthetic process
+GO:0043647,inositol phosphate metabolic process
+GO:0046173,polyol biosynthetic process
+GO:0032958,inositol phosphate biosynthetic process
+GO:0048017,inositol lipid-mediated signaling
+GO:0032957,inositol trisphosphate metabolic process
+GO:0048015,phosphatidylinositol-mediated signaling
+GO:0032959,inositol trisphosphate biosynthetic process
+GO:0051208,sequestering of calcium ion
+GO:0051209,release of sequestered calcium ion into cytosol
+GO:0051282,regulation of sequestering of calcium ion
+GO:0051283,negative regulation of sequestering of calcium ion
+GO:0060401,cytosolic calcium ion transport
+GO:0060402,calcium ion transport into cytosol
+GO:0097553,calcium ion transmembrane import into cytosol
+GO:0007204,positive regulation of cytosolic calcium ion concentration
+GO:0051480,regulation of cytosolic calcium ion concentration
+ath04933,AGE-RAGE signaling pathway in diabetic complications
+GO:0070588,calcium ion transmembrane transport
+ath00900,Terpenoid backbone biosynthesis
+GO:0016108,tetraterpenoid metabolic process
+GO:0016116,carotenoid metabolic process
+GO:0016109,tetraterpenoid biosynthetic process
+GO:0016117,carotenoid biosynthetic process
+GO:0045338,farnesyl diphosphate metabolic process
+GO:0045337,farnesyl diphosphate biosynthetic process
+GO:0033383,geranyl diphosphate metabolic process
+GO:0033384,geranyl diphosphate biosynthetic process
+GO:0033385,geranylgeranyl diphosphate metabolic process
+GO:0033386,geranylgeranyl diphosphate biosynthetic process
+GO:0046148,pigment biosynthetic process
+GO:0042440,pigment metabolic process
+ath00562,Inositol phosphate metabolism
+ath04070,Phosphatidylinositol signaling system
+GO:0046834,lipid phosphorylation
+GO:0046854,phosphatidylinositol phosphorylation
+ath01212,Fatty acid metabolism
+ath00061,Fatty acid biosynthesis
+M00086,"beta-Oxidation, acyl-CoA synthesis"
+ath_M00086,"beta-Oxidation, acyl-CoA synthesis"
+GO:0006643,membrane lipid metabolic process
+GO:0046467,membrane lipid biosynthetic process
+GO:1903509,liposaccharide metabolic process
+GO:0006664,glycolipid metabolic process
+GO:0009247,glycolipid biosynthetic process
+GO:0006661,phosphatidylinositol biosynthetic process
+ath00563,Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
+GO:0006505,GPI anchor metabolic process
+GO:0006506,GPI anchor biosynthetic process
+M00065,"GPI-anchor biosynthesis, core oligosaccharide"
+ath_M00065,"GPI-anchor biosynthesis, core oligosaccharide"
+ath00561,Glycerolipid metabolism
+GO:0016024,CDP-diacylglycerol biosynthetic process
+GO:0046341,CDP-diacylglycerol metabolic process
+GO:0010143,cutin biosynthetic process
+GO:0006220,pyrimidine nucleotide metabolic process
+GO:0006221,pyrimidine nucleotide biosynthetic process
+GO:0072528,pyrimidine-containing compound biosynthetic process
+GO:0072527,pyrimidine-containing compound metabolic process
+GO:0042214,terpene metabolic process
+GO:0046246,terpene biosynthetic process
+GO:0051761,sesquiterpene metabolic process
+GO:0051762,sesquiterpene biosynthetic process
+GO:0042446,hormone biosynthetic process
+GO:0042445,hormone metabolic process
+GO:0010817,regulation of hormone levels
+GO:0009685,gibberellin metabolic process
+GO:0009686,gibberellin biosynthetic process
+ath00904,Diterpenoid biosynthesis
+GO:0016102,diterpenoid biosynthetic process
+GO:0016101,diterpenoid metabolic process
+GO:0042157,lipoprotein metabolic process
+GO:0006497,protein lipidation
+GO:0042158,lipoprotein biosynthetic process
+GO:0018345,protein palmitoylation
+GO:0018230,peptidyl-L-cysteine S-palmitoylation
+GO:0018231,peptidyl-S-diacylglycerol-L-cysteine biosynthetic process from peptidyl-cysteine
+GO:0018198,peptidyl-cysteine modification
+GO:0043543,protein acylation
+GO:0006612,protein targeting to membrane
+GO:0072657,protein localization to membrane
+GO:0006605,protein targeting
+GO:0090150,establishment of protein localization to membrane
+GO:0045184,establishment of protein localization
+GO:0015031,protein transport
+GO:0018193,peptidyl-amino acid modification
+GO:0042886,amide transport
+GO:1901135,carbohydrate derivative metabolic process
+GO:1901137,carbohydrate derivative biosynthetic process
+GO:0070085,glycosylation
+ath00510,N-Glycan biosynthesis
+GO:0006486,protein glycosylation
+GO:0043413,macromolecule glycosylation
+GO:0009101,glycoprotein biosynthetic process
+GO:0009100,glycoprotein metabolic process
+GO:0006487,protein N-linked glycosylation
+M00055,N-glycan precursor biosynthesis
+ath_M00055,N-glycan precursor biosynthesis
+GO:0006490,oligosaccharide-lipid intermediate biosynthetic process
+GO:0006488,dolichol-linked oligosaccharide biosynthetic process
+GO:0006732,coenzyme metabolic process
+GO:0006637,acyl-CoA metabolic process
+GO:0035383,thioester metabolic process
+GO:0033865,nucleoside bisphosphate metabolic process
+GO:0033875,ribonucleoside bisphosphate metabolic process
+GO:0034032,purine nucleoside bisphosphate metabolic process
+GO:0051186,cofactor metabolic process
+GO:0009108,coenzyme biosynthetic process
+GO:0051188,cofactor biosynthetic process
+GO:0046434,organophosphate catabolic process
+GO:0006084,acetyl-CoA metabolic process
+ath01200,Carbon metabolism
+GO:0009117,nucleotide metabolic process
+GO:0006753,nucleoside phosphate metabolic process
+ath00620,Pyruvate metabolism
+GO:0055086,nucleobase-containing small molecule metabolic process
+GO:0035384,thioester biosynthetic process
+GO:0071616,acyl-CoA biosynthetic process
+M00307,"Pyruvate oxidation, pyruvate => acetyl-CoA"
+ath_M00307,"Pyruvate oxidation, pyruvate => acetyl-CoA"
+GO:0009150,purine ribonucleotide metabolic process
+GO:0019693,ribose phosphate metabolic process
+GO:0009259,ribonucleotide metabolic process
+GO:0006163,purine nucleotide metabolic process
+GO:0006733,oxidoreduction coenzyme metabolic process
+GO:0033866,nucleoside bisphosphate biosynthetic process
+GO:0034030,ribonucleoside bisphosphate biosynthetic process
+GO:0034033,purine nucleoside bisphosphate biosynthetic process
+GO:0006090,pyruvate metabolic process
+GO:0072521,purine-containing compound metabolic process
+GO:0006091,generation of precursor metabolites and energy
+GO:0006085,acetyl-CoA biosynthetic process
+GO:1901293,nucleoside phosphate biosynthetic process
+GO:0009165,nucleotide biosynthetic process
+GO:0006790,sulfur compound metabolic process
+GO:0072524,pyridine-containing compound metabolic process
+GO:0046496,nicotinamide nucleotide metabolic process
+ath00010,Glycolysis / Gluconeogenesis
+GO:0019362,pyridine nucleotide metabolic process
+GO:0044272,sulfur compound biosynthetic process
+GO:0009152,purine ribonucleotide biosynthetic process
+GO:0072525,pyridine-containing compound biosynthetic process
+GO:0006096,glycolytic process
+GO:0006757,ATP generation from ADP
+GO:0009135,purine nucleoside diphosphate metabolic process
+GO:0009179,purine ribonucleoside diphosphate metabolic process
+GO:0009185,ribonucleoside diphosphate metabolic process
+GO:0046031,ADP metabolic process
+GO:0006164,purine nucleotide biosynthetic process
+GO:0009260,ribonucleotide biosynthetic process
+GO:0006086,acetyl-CoA biosynthetic process from pyruvate
+GO:0042866,pyruvate biosynthetic process
+GO:0046390,ribose phosphate biosynthetic process
+GO:0006165,nucleoside diphosphate phosphorylation
+GO:0072522,purine-containing compound biosynthetic process
+GO:0009132,nucleoside diphosphate metabolic process
+GO:0019359,nicotinamide nucleotide biosynthetic process
+GO:0046939,nucleotide phosphorylation
+GO:0009166,nucleotide catabolic process
+GO:1901292,nucleoside phosphate catabolic process
+GO:0019363,pyridine nucleotide biosynthetic process
+GO:0009142,nucleoside triphosphate biosynthetic process
+GO:0006754,ATP biosynthetic process
+GO:0009201,ribonucleoside triphosphate biosynthetic process
+GO:0034404,nucleobase-containing small molecule biosynthetic process
+GO:0009145,purine nucleoside triphosphate biosynthetic process
+GO:0009206,purine ribonucleoside triphosphate biosynthetic process
+GO:0009741,response to brassinosteroid
+GO:0014070,response to organic cyclic compound
+GO:0071367,cellular response to brassinosteroid stimulus
+GO:0009742,brassinosteroid mediated signaling pathway
+GO:0043401,steroid hormone mediated signaling pathway
+GO:0048545,response to steroid hormone
+GO:0071383,cellular response to steroid hormone stimulus
+GO:0071407,cellular response to organic cyclic compound
+ath00592,alpha-Linolenic acid metabolism
+M00113,Jasmonic acid biosynthesis
+ath_M00113,Jasmonic acid biosynthesis
+GO:0009695,jasmonic acid biosynthetic process
+GO:0031407,oxylipin metabolic process
+GO:0031408,oxylipin biosynthetic process
+GO:0009694,jasmonic acid metabolic process
+ath00591,Linoleic acid metabolism
+GO:0000038,very long-chain fatty acid metabolic process
+ath00062,Fatty acid elongation
+M00415,"Fatty acid biosynthesis, elongation, endoplasmic reticulum"
+ath_M00415,"Fatty acid biosynthesis, elongation, endoplasmic reticulum"
+GO:0042335,cuticle development
+GO:0042761,very long-chain fatty acid biosynthetic process
+GO:0030497,fatty acid elongation
+GO:0006638,neutral lipid metabolic process
+GO:0006639,acylglycerol metabolic process
+GO:0046460,neutral lipid biosynthetic process
+GO:0046463,acylglycerol biosynthetic process
+GO:0019432,triglyceride biosynthetic process
+GO:0006641,triglyceride metabolic process
+ath00600,Sphingolipid metabolism
+GO:0006665,sphingolipid metabolic process
+GO:0030148,sphingolipid biosynthetic process
+GO:0006672,ceramide metabolic process
+GO:0046513,ceramide biosynthetic process
+ath00906,Carotenoid biosynthesis
+GO:0016119,carotene metabolic process
+GO:0016121,carotene catabolic process
+GO:0046247,terpene catabolic process
+GO:0006714,sesquiterpenoid metabolic process
+GO:0016106,sesquiterpenoid biosynthetic process
+M00372,"Abscisic acid biosynthesis, beta-carotene => abscisic acid"
+ath_M00372,"Abscisic acid biosynthesis, beta-carotene => abscisic acid"
+GO:0009687,abscisic acid metabolic process
+GO:0043288,apocarotenoid metabolic process
+GO:1902644,tertiary alcohol metabolic process
+GO:0009688,abscisic acid biosynthetic process
+GO:0043289,apocarotenoid biosynthetic process
+GO:1902645,tertiary alcohol biosynthetic process
+ath00020,Citrate cycle (TCA cycle)
+GO:0006099,tricarboxylic acid cycle
+GO:0006101,citrate metabolic process
+GO:0072350,tricarboxylic acid metabolic process
+GO:0009060,aerobic respiration
+M00012,Glyoxylate cycle
+ath_M00012,Glyoxylate cycle
+ath01210,2-Oxocarboxylic acid metabolism
+GO:0045333,cellular respiration
+GO:0015980,energy derivation by oxidation of organic compounds
+M00010,"Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate"
+ath_M00010,"Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate"
+GO:0016999,antibiotic metabolic process
+ath00280,"Valine, leucine and isoleucine degradation"
+M00036,"Leucine degradation, leucine => acetoacetate + acetyl-CoA"
+ath_M00036,"Leucine degradation, leucine => acetoacetate + acetyl-CoA"
+GO:0009081,branched-chain amino acid metabolic process
+GO:0009083,branched-chain amino acid catabolic process
+GO:0009063,cellular amino acid catabolic process
+GO:0006551,leucine metabolic process
+GO:0006520,cellular amino acid metabolic process
+GO:1901605,alpha-amino acid metabolic process
+GO:1901606,alpha-amino acid catabolic process
+ath00073,"Cutin, suberine and wax biosynthesis"
+GO:0010345,suberin biosynthetic process
+GO:0035337,fatty-acyl-CoA metabolic process
+GO:0035336,long-chain fatty-acyl-CoA metabolic process
+GO:0009556,microsporogenesis
+GO:0044703,multi-organism reproductive process
+GO:0019953,sexual reproduction
+GO:0034293,sexual sporulation
+GO:0043934,sporulation
+GO:0048236,plant-type sporogenesis
+GO:0044550,secondary metabolite biosynthetic process
+ath00640,Propanoate metabolism
+M00082,"Fatty acid biosynthesis, initiation"
+ath_M00082,"Fatty acid biosynthesis, initiation"
+GO:2001295,malonyl-CoA biosynthetic process
+GO:2001293,malonyl-CoA metabolic process
+GO:0033559,unsaturated fatty acid metabolic process
+GO:0006636,unsaturated fatty acid biosynthetic process
+GO:1901568,fatty acid derivative metabolic process
+GO:1901570,fatty acid derivative biosynthetic process
+GO:0010025,wax biosynthetic process
+GO:0010166,wax metabolic process
+ath00909,Sesquiterpenoid and triterpenoid biosynthesis
+GO:0016104,triterpenoid biosynthetic process
+GO:0006722,triterpenoid metabolic process
+GO:0019742,pentacyclic triterpenoid metabolic process
+GO:0019745,pentacyclic triterpenoid biosynthetic process
+GO:0008300,isoprenoid catabolic process
+GO:0016115,terpenoid catabolic process
+GO:0016103,diterpenoid catabolic process
+GO:0045487,gibberellin catabolic process
+GO:0042447,hormone catabolic process
+GO:0046839,phospholipid dephosphorylation
+GO:0046856,phosphatidylinositol dephosphorylation
+GO:0046164,alcohol catabolic process
+GO:1901616,organic hydroxy compound catabolic process
+GO:0046855,inositol phosphate dephosphorylation
+GO:0071545,inositol phosphate catabolic process
+GO:0046174,polyol catabolic process
+GO:0046838,phosphorylated carbohydrate dephosphorylation
+GO:0016311,dephosphorylation
+GO:0046470,phosphatidylcholine metabolic process
+GO:0097164,ammonium ion metabolic process
+GO:0006656,phosphatidylcholine biosynthetic process
+GO:1901661,quinone metabolic process
+GO:1901663,quinone biosynthetic process
+GO:0042181,ketone biosynthetic process
+ath00130,Ubiquinone and other terpenoid-quinone biosynthesis
+GO:0042180,cellular ketone metabolic process
+GO:0010236,plastoquinone biosynthetic process
+GO:0006743,ubiquinone metabolic process
+GO:0006744,ubiquinone biosynthetic process
+GO:0042372,phylloquinone biosynthetic process
+GO:0042374,phylloquinone metabolic process
+GO:0006071,glycerol metabolic process
+GO:0019400,alditol metabolic process
+GO:0044262,cellular carbohydrate metabolic process
+GO:0009240,isopentenyl diphosphate biosynthetic process
+GO:0046490,isopentenyl diphosphate metabolic process
+M00096,"C5 isoprenoid biosynthesis, non-mevalonate pathway"
+ath_M00096,"C5 isoprenoid biosynthesis, non-mevalonate pathway"
+GO:0019288,"isopentenyl diphosphate biosynthetic process, methylerythritol 4-phosphate pathway"
+GO:0006081,cellular aldehyde metabolic process
+GO:0019682,glyceraldehyde-3-phosphate metabolic process
+GO:0019915,lipid storage
+GO:0051235,maintenance of location
+GO:0016093,polyprenol metabolic process
+GO:0016094,polyprenol biosynthetic process
+GO:0019348,dolichol metabolic process
+GO:0019408,dolichol biosynthetic process
+GO:0016095,polyprenol catabolic process
+GO:0009668,plastid membrane organization
+GO:0009937,regulation of gibberellic acid mediated signaling pathway
+GO:0009938,negative regulation of gibberellic acid mediated signaling pathway
+GO:0021700,developmental maturation
+GO:2000377,regulation of reactive oxygen species metabolic process
+GO:0010162,seed dormancy process
+GO:0022611,dormancy process
+GO:0010431,seed maturation
+GO:2000033,regulation of seed dormancy process
+GO:0071695,anatomical structure maturation
+GO:0006972,hyperosmotic response
+GO:2000034,regulation of seed maturation
+GO:0080050,regulation of seed development
+GO:0048609,multicellular organismal reproductive process
+GO:0006970,response to osmotic stress
+GO:0009651,response to salt stress
+GO:0072583,clathrin-dependent endocytosis
+GO:0006898,receptor-mediated endocytosis
+GO:0006900,vesicle budding from membrane
+GO:0048268,clathrin coat assembly
+GO:0006897,endocytosis
+GO:0098657,import into cell
+GO:0016050,vesicle organization
+GO:0061024,membrane organization
+GO:0046339,diacylglycerol metabolic process
+GO:0007205,protein kinase C-activating G protein-coupled receptor signaling pathway
+GO:0007186,G protein-coupled receptor signaling pathway
+GO:0090351,seedling development
+GO:0009845,seed germination
+GO:0010187,negative regulation of seed germination
+GO:1900140,regulation of seedling development
+GO:0010029,regulation of seed germination
+GO:0051093,negative regulation of developmental process
+GO:0050793,regulation of developmental process
+GO:0016128,phytosteroid metabolic process
+GO:0016131,brassinosteroid metabolic process
+GO:0016129,phytosteroid biosynthetic process
+GO:0055088,lipid homeostasis
+GO:0016132,brassinosteroid biosynthetic process
+ath00905,Brassinosteroid biosynthesis
+M00371,"Castasterone biosynthesis, campesterol => castasterone"
+ath_M00371,"Castasterone biosynthesis, campesterol => castasterone"
+GO:0010268,brassinosteroid homeostasis
+GO:0048878,chemical homeostasis
+GO:0009753,response to jasmonic acid
+GO:0046677,response to antibiotic
+GO:0009751,response to salicylic acid
+GO:0009723,response to ethylene
+GO:0042493,response to drug
+GO:0009733,response to auxin
+M00095,"C5 isoprenoid biosynthesis, mevalonate pathway"
+ath_M00095,"C5 isoprenoid biosynthesis, mevalonate pathway"
+GO:0019287,"isopentenyl diphosphate biosynthetic process, mevalonate pathway"
+ath00072,Synthesis and degradation of ketone bodies
+ath00650,Butanoate metabolism
+GO:0097305,response to alcohol
+GO:0009737,response to abscisic acid
+GO:0009968,negative regulation of signal transduction
+GO:0010648,negative regulation of cell communication
+GO:0023057,negative regulation of signaling
+GO:0023051,regulation of signaling
+GO:0009966,regulation of signal transduction
+GO:0010646,regulation of cell communication
+GO:0048585,negative regulation of response to stimulus
+GO:0071215,cellular response to abscisic acid stimulus
+GO:0097306,cellular response to alcohol
+GO:0009738,abscisic acid-activated signaling pathway
+GO:0009787,regulation of abscisic acid-activated signaling pathway
+GO:1901419,regulation of response to alcohol
+GO:1905957,regulation of cellular response to alcohol
+GO:0009788,negative regulation of abscisic acid-activated signaling pathway
+GO:1901420,negative regulation of response to alcohol
+GO:1905958,negative regulation of cellular response to alcohol
+GO:0048523,negative regulation of cellular process
+GO:0048583,regulation of response to stimulus
+GO:0009611,response to wounding
+GO:0019374,galactolipid metabolic process
+GO:0019375,galactolipid biosynthetic process
+GO:0001676,long-chain fatty acid metabolic process
+GO:0042759,long-chain fatty acid biosynthetic process
+GO:0015914,phospholipid transport
+GO:0015748,organophosphate ester transport
+GO:0034204,lipid translocation
+GO:0097035,regulation of membrane lipid distribution
+GO:0045332,phospholipid translocation
+GO:0015711,organic anion transport
+GO:0016122,xanthophyll metabolic process
+GO:0016123,xanthophyll biosynthetic process
+ath04144,Endocytosis
+GO:0006020,inositol metabolic process
+M00132,"Inositol phosphate metabolism, Ins(1,3,4)P3 => phytate"
+ath_M00132,"Inositol phosphate metabolism, Ins(1,3,4)P3 => phytate"
+GO:0010264,myo-inositol hexakisphosphate biosynthetic process
+GO:0033517,myo-inositol hexakisphosphate metabolic process
+GO:0052746,inositol phosphorylation
+GO:0046835,carbohydrate phosphorylation
+GO:0009110,vitamin biosynthetic process
+GO:0006766,vitamin metabolic process
+GO:0042364,water-soluble vitamin biosynthetic process
+GO:0009409,response to cold
+GO:0009266,response to temperature stimulus
+GO:0019216,regulation of lipid metabolic process
+GO:0046890,regulation of lipid biosynthetic process
+GO:0010371,regulation of gibberellin biosynthetic process
+GO:0046885,regulation of hormone biosynthetic process
+GO:0032350,regulation of hormone metabolic process
+GO:0062012,regulation of small molecule metabolic process
+GO:0051055,negative regulation of lipid biosynthetic process
+GO:0019747,regulation of isoprenoid metabolic process
+GO:0010565,regulation of cellular ketone metabolic process
+GO:0045833,negative regulation of lipid metabolic process
+GO:0045827,negative regulation of isoprenoid metabolic process
+GO:0046337,phosphatidylethanolamine metabolic process
+GO:0006646,phosphatidylethanolamine biosynthetic process
+M00092,"Phosphatidylethanolamine (PE) biosynthesis, ethanolamine => PE"
+ath_M00092,"Phosphatidylethanolamine (PE) biosynthesis, ethanolamine => PE"
+ath00440,Phosphonate and phosphinate metabolism
+GO:0006914,autophagy
+GO:0061919,process utilizing autophagic mechanism
+ath04136,Autophagy - other
+GO:0031667,response to nutrient levels
+GO:0009267,cellular response to starvation
+GO:0006995,cellular response to nitrogen starvation
+GO:0031669,cellular response to nutrient levels
+GO:0009991,response to extracellular stimulus
+GO:0042594,response to starvation
+GO:0043562,cellular response to nitrogen levels
+GO:0031668,cellular response to extracellular stimulus
+GO:0071496,cellular response to external stimulus
+GO:0009555,pollen development
+GO:0048229,gametophyte development
+GO:0016049,cell growth
+GO:0040007,growth
+GO:0032989,cellular component morphogenesis
+GO:0000902,cell morphogenesis
+GO:0009826,unidimensional cell growth
+GO:0060560,developmental growth involved in morphogenesis
+GO:0009846,pollen germination
+GO:0048589,developmental growth
+GO:0000904,cell morphogenesis involved in differentiation
+GO:0009932,cell tip growth
+GO:0048868,pollen tube development
+GO:0030154,cell differentiation
+GO:0048588,developmental cell growth
+GO:0048468,cell development
+GO:0009860,pollen tube growth
+GO:0009856,pollination
+GO:0044706,multi-multicellular organism process
+GO:0006775,fat-soluble vitamin metabolic process
+GO:0042362,fat-soluble vitamin biosynthetic process
+GO:0010189,vitamin E biosynthetic process
+GO:0042360,vitamin E metabolic process
+M00112,Tocopherol/tocotorienol biosynthesis
+ath_M00112,Tocopherol/tocotorienol biosynthesis
+GO:0009939,positive regulation of gibberellic acid mediated signaling pathway
+GO:0046686,response to cadmium ion
+GO:0010038,response to metal ion
+GO:0018342,protein prenylation
+GO:0097354,prenylation
+GO:0018344,protein geranylgeranylation
+GO:0007033,vacuole organization
+GO:0000422,autophagy of mitochondrion
+GO:0061726,mitochondrion disassembly
+GO:0016236,macroautophagy
+GO:0000045,autophagosome assembly
+GO:1903008,organelle disassembly
+GO:1905037,autophagosome organization
+GO:0034497,protein localization to phagophore assembly site
+GO:0036092,phosphatidylinositol-3-phosphate biosynthetic process
+M00097,"beta-Carotene biosynthesis, GGAP => beta-carotene"
+ath_M00097,"beta-Carotene biosynthesis, GGAP => beta-carotene"
+GO:0016120,carotene biosynthetic process
+GO:0009967,positive regulation of signal transduction
+GO:0023056,positive regulation of signaling
+GO:0010647,positive regulation of cell communication
+GO:0048584,positive regulation of response to stimulus
+GO:0009789,positive regulation of abscisic acid-activated signaling pathway
+GO:1901421,positive regulation of response to alcohol
+GO:1905959,positive regulation of cellular response to alcohol
+GO:0007031,peroxisome organization
+GO:0015919,peroxisomal membrane transport
+GO:0043574,peroxisomal transport
+GO:0016558,protein import into peroxisome matrix
+GO:0006625,protein targeting to peroxisome
+GO:0072662,protein localization to peroxisome
+GO:0072663,establishment of protein localization to peroxisome
+GO:0006513,protein monoubiquitination
+ath00630,Glyoxylate and dicarboxylate metabolism
+M00532,Photorespiration
+ath_M00532,Photorespiration
+ath00260,"Glycine, serine and threonine metabolism"
+GO:0006546,glycine catabolic process
+GO:0015718,monocarboxylic acid transport
+GO:0015908,fatty acid transport
+GO:0015909,long-chain fatty acid transport
+GO:0032309,icosanoid secretion
+GO:0050482,arachidonic acid secretion
+GO:0071715,icosanoid transport
+GO:1901571,fatty acid derivative transport
+GO:1903963,arachidonate transport
+GO:0046717,acid secretion
+GO:0010152,pollen maturation
+GO:0046519,sphingoid metabolic process
+GO:0046520,sphingoid biosynthetic process
+M00114,"Ascorbate biosynthesis, plants, glucose-6P => ascorbate"
+ath_M00114,"Ascorbate biosynthesis, plants, glucose-6P => ascorbate"
+GO:0009298,GDP-mannose biosynthetic process
+GO:0019673,GDP-mannose metabolic process
+GO:0006072,glycerol-3-phosphate metabolic process
+GO:0052646,alditol phosphate metabolic process
+GO:0006116,NADH oxidation
+GO:0046168,glycerol-3-phosphate catabolic process
+GO:0006734,NADH metabolic process
+GO:1902652,secondary alcohol metabolic process
+GO:1902653,secondary alcohol biosynthetic process
+GO:0006695,cholesterol biosynthetic process
+GO:0008203,cholesterol metabolic process
+GO:0006696,ergosterol biosynthetic process
+GO:0008204,ergosterol metabolic process
+GO:0044107,cellular alcohol metabolic process
+GO:0044108,cellular alcohol biosynthetic process
+GO:0097384,cellular lipid biosynthetic process
+GO:0055081,anion homeostasis
+GO:0055083,monovalent inorganic anion homeostasis
+GO:0055062,phosphate ion homeostasis
+GO:0072506,trivalent inorganic anion homeostasis
+GO:0072505,divalent inorganic anion homeostasis
+M00072,N-glycosylation by oligosaccharyltransferase
+ath_M00072,N-glycosylation by oligosaccharyltransferase
+GO:0018196,peptidyl-asparagine modification
+GO:0018279,protein N-linked glycosylation via asparagine
+GO:0006651,diacylglycerol biosynthetic process
+GO:0009249,protein lipoylation
+ath00785,Lipoic acid metabolism
+GO:0018065,protein-cofactor linkage
+GO:0009106,lipoate metabolic process
+GO:0009642,response to light intensity
+GO:0009644,response to high light intensity
+GO:0043467,regulation of generation of precursor metabolites and energy
+GO:0010205,photoinhibition
+GO:0043155,"negative regulation of photosynthesis, light reaction"
+GO:0042548,"regulation of photosynthesis, light reaction"
+ath00780,Biotin metabolism
+M00083,"Fatty acid biosynthesis, elongation"
+ath_M00083,"Fatty acid biosynthesis, elongation"
+GO:0009639,response to red or far red light
+GO:0009640,photomorphogenesis
+GO:0006021,inositol biosynthetic process
+GO:0043687,post-translational protein modification
+GO:0018410,C-terminal protein amino acid modification
+GO:0016255,attachment of GPI anchor to protein
+GO:0043692,monoterpene metabolic process
+GO:0043693,monoterpene biosynthetic process
+ath00902,Monoterpenoid biosynthesis
+GO:0070542,response to fatty acid
+GO:0071398,cellular response to fatty acid
+ath00590,Arachidonic acid metabolism
+GO:0010118,stomatal movement
+GO:0045834,positive regulation of lipid metabolic process
+GO:0042304,regulation of fatty acid biosynthetic process
+GO:0046889,positive regulation of lipid biosynthetic process
+GO:0019217,regulation of fatty acid metabolic process
+GO:1901959,positive regulation of cutin biosynthetic process
+GO:1901957,regulation of cutin biosynthetic process
+GO:0045923,positive regulation of fatty acid metabolic process
+GO:0062013,positive regulation of small molecule metabolic process
+GO:0048443,stamen development
+GO:0048466,androecium development
+GO:0090567,reproductive shoot system development
+GO:0048437,floral organ development
+GO:0009908,flower development
+GO:0048438,floral whorl development
+GO:0009768,"photosynthesis, light harvesting in photosystem I"
+ath00196,Photosynthesis - antenna proteins
+GO:0009765,"photosynthesis, light harvesting"
+GO:0046471,phosphatidylglycerol metabolic process
+GO:0006655,phosphatidylglycerol biosynthetic process
+ath00340,Histidine metabolism
+ath00380,Tryptophan metabolism
+ath00310,Lysine degradation
+GO:0046466,membrane lipid catabolic process
+GO:0016137,glycoside metabolic process
+GO:0046514,ceramide catabolic process
+GO:0030149,sphingolipid catabolic process
+GO:0016139,glycoside catabolic process
+GO:0009850,auxin metabolic process
+GO:0002213,defense response to insect
+GO:0010941,regulation of cell death
+GO:0043067,regulation of programmed cell death
+GO:0060548,negative regulation of cell death
+GO:0008219,cell death
+GO:0012501,programmed cell death
+GO:2001289,lipid X metabolic process
+GO:0009245,lipid A biosynthetic process
+GO:0046493,lipid A metabolic process
+GO:1901269,lipooligosaccharide metabolic process
+GO:1901271,lipooligosaccharide biosynthetic process
+GO:0046473,phosphatidic acid metabolic process
+GO:0006654,phosphatidic acid biosynthetic process
+GO:0006805,xenobiotic metabolic process
+GO:0010124,phenylacetate catabolic process
+GO:0071466,cellular response to xenobiotic stimulus
+GO:0042178,xenobiotic catabolic process
+GO:0009410,response to xenobiotic stimulus
+GO:0009852,auxin catabolic process
+GO:0009735,response to cytokinin
+GO:0006549,isoleucine metabolic process
+GO:0009097,isoleucine biosynthetic process
+ath00290,"Valine, leucine and isoleucine biosynthesis"
+GO:0009099,valine biosynthetic process
+M00570,"Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine"
+ath_M00570,"Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine"
+GO:0006573,valine metabolic process
+GO:0009082,branched-chain amino acid biosynthetic process
+M00019,"Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine"
+ath_M00019,"Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine"
+ath00966,Glucosinolate biosynthesis
+GO:0010344,seed oilbody biogenesis
+GO:0050826,response to freezing
+GO:0046503,glycerolipid catabolic process
+ath00603,Glycosphingolipid biosynthesis - globo and isoglobo series
+ath00511,Other glycan degradation
+ath00604,Glycosphingolipid biosynthesis - ganglio series
+GO:0035246,peptidyl-arginine N-methylation
+GO:0018216,peptidyl-arginine methylation
+GO:0034969,histone arginine methylation
+GO:0018195,peptidyl-arginine modification
+GO:0019919,"peptidyl-arginine methylation, to asymmetrical-dimethyl arginine"
+GO:0035247,peptidyl-arginine omega-N-methylation
+GO:0080086,stamen filament development
+GO:0006006,glucose metabolic process
+GO:0009051,"pentose-phosphate shunt, oxidative branch"
+M00006,"Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P"
+ath_M00006,"Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P"
+M00004,Pentose phosphate pathway (Pentose phosphate cycle)
+ath_M00004,Pentose phosphate pathway (Pentose phosphate cycle)
+M00100,Sphingosine degradation
+ath_M00100,Sphingosine degradation
+GO:0006498,N-terminal protein lipidation
+GO:0006499,N-terminal protein myristoylation
+GO:0018377,protein myristoylation
+GO:0016110,tetraterpenoid catabolic process
+GO:0016118,carotenoid catabolic process
+GO:0016124,xanthophyll catabolic process
+GO:1901334,lactone metabolic process
+GO:1901336,lactone biosynthetic process
+GO:1901600,strigolactone metabolic process
+GO:1901601,strigolactone biosynthetic process
+GO:0050992,dimethylallyl diphosphate biosynthetic process
+GO:0050993,dimethylallyl diphosphate metabolic process
+GO:0006723,cuticle hydrocarbon biosynthetic process
+GO:0043447,alkane biosynthetic process
+GO:0043446,cellular alkane metabolic process
+GO:0046459,short-chain fatty acid metabolic process
+GO:0009743,response to carbohydrate
+GO:0034285,response to disaccharide
+GO:0009744,response to sucrose
+GO:0009691,cytokinin biosynthetic process
+ath00908,Zeatin biosynthesis
+M00073,N-glycan precursor trimming
+ath_M00073,N-glycan precursor trimming
+GO:0006491,N-glycan processing
+GO:0006768,biotin metabolic process
+GO:0009102,biotin biosynthetic process
+GO:0009855,determination of bilateral symmetry
+GO:0009799,specification of symmetry
+GO:0048654,anther morphogenesis
+GO:0048655,anther wall tapetum morphogenesis
+GO:0045926,negative regulation of growth
+GO:0048448,stamen morphogenesis
+GO:0009414,response to water deprivation
+GO:0009415,response to water
+GO:0071395,cellular response to jasmonic acid stimulus
+GO:0009867,jasmonic acid mediated signaling pathway
+ath00750,Vitamin B6 metabolism
+GO:0042822,pyridoxal phosphate metabolic process
+GO:0042823,pyridoxal phosphate biosynthetic process
+GO:0008614,pyridoxine metabolic process
+GO:0008615,pyridoxine biosynthetic process
+GO:0042816,vitamin B6 metabolic process
+GO:0042819,vitamin B6 biosynthetic process
+GO:0046184,aldehyde biosynthetic process
+GO:0009814,"defense response, incompatible interaction"
+GO:0048316,seed development
+GO:0051094,positive regulation of developmental process
+GO:0048582,positive regulation of post-embryonic development
+GO:0051240,positive regulation of multicellular organismal process
+GO:0009911,positive regulation of flower development
+GO:0015994,chlorophyll metabolic process
+GO:0006778,porphyrin-containing compound metabolic process
+GO:0033013,tetrapyrrole metabolic process
+GO:0015995,chlorophyll biosynthetic process
+GO:0033014,tetrapyrrole biosynthetic process
+GO:0090696,post-embryonic plant organ development
+GO:0048364,root development
+GO:0022622,root system development
+GO:0010026,trichome differentiation
+GO:0006047,UDP-N-acetylglucosamine metabolic process
+GO:0046349,amino sugar biosynthetic process
+GO:0048497,maintenance of floral organ identity
+GO:0090700,maintenance of plant organ identity
+GO:0045596,negative regulation of cell differentiation
+GO:1901703,protein localization involved in auxin polar transport
+GO:0009625,response to insect
+GO:0030259,lipid glycosylation
+GO:0010422,regulation of brassinosteroid biosynthetic process
+GO:0050810,regulation of steroid biosynthetic process
+GO:0090030,regulation of steroid hormone biosynthetic process
+GO:0019218,regulation of steroid metabolic process
+GO:0043617,cellular response to sucrose starvation
+GO:0008544,epidermis development
+GO:0009913,epidermal cell differentiation
+GO:0030855,epithelial cell differentiation
+GO:0034308,primary alcohol metabolic process
+GO:0035556,intracellular signal transduction
+GO:0034644,cellular response to UV
+GO:1900457,regulation of brassinosteroid mediated signaling pathway
+GO:0071071,regulation of phospholipid biosynthetic process
+GO:1903725,regulation of phospholipid metabolic process
+GO:0010288,response to lead ion
+GO:0006690,icosanoid metabolic process
+GO:0080024,indolebutyric acid metabolic process
+GO:0055089,fatty acid homeostasis
+GO:0080027,response to herbivore
+GO:0007584,response to nutrient

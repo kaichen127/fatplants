@@ -4,6 +4,17 @@
   <a mat-menu-item routerLink="/fatty_acid" class="menu-item">Fatty Acid</a>
 </mat-menu>
 
+<mat-menu #toolsMenu>
+  <a mat-menu-item routerLink="/blast" class="menu-item">Blast</a>
+  <a mat-menu-item routerLink="/glmol" class="menu-item">GLmol</a>
+  <a mat-menu-item routerLink="/color-pathway" class="menu-item">Color Pathway</a>
+</mat-menu>
+
+<mat-menu #graphMenu>
+  <a mat-menu-item routerLink="/graph" class="menu-item">Protein-Protein Network</a>
+  <a mat-menu-item routerLink="/go-network" class="menu-item">GO Network</a>
+</mat-menu>
+
 
 <nav class="nav-class">
   <div class="nav-wrapper nav-style">
@@ -15,8 +26,17 @@
       <li><a href="/investigator">Investigator</a></li>
       <!-- <li><a href="/go-network">GO Network</a></li> -->
       <li><a routerLink="/upload">File</a></li>
-      <li><a href="#">Pathway</a></li>
-      <li><a routerLink="/data_analysis">Data_Analysis</a></li>
+      <li><a routerLink="/one_click">One-Stop Search</a></li>
+    <li><button mat-button [matMenuTriggerFor]="toolsMenu">Tools</button></li>
+    <li><button mat-button [matMenuTriggerFor]="graphMenu">Cytoscape</button></li>
+<!--      <li><a routerLink="/graph">Protein-Protein Network</a></li>-->
+      <li><a routerLink="/camelina">Camelina</a></li>
+      <li><a routerLink="/fatty_acid">Fatty Acid</a></li>
+<!--    <li><a href="/goNetView.html">GO Net</a></li>-->
+<!--      <li><a href="/viewer.html">viewer</a></li>-->
+<!--      <li><a href="/proteinNetView.html">Protein Net</a></li>-->
+
+
     </ul>
     </div>
 </nav>

@@ -5,29 +5,39 @@
   </div>
 </div>
 
-<form action="#"  class="col s12">
+<div class="columns small-10 small-centered textrow " style="width: 1000px">
   <div class="row">
-    <input type="textarea" class="browser-default" placeholder="GeneID" [(ngModel)]="glmolID" [ngModelOptions]="{standalone: true}">
-    <p>eg. Glyma14g08610.1 Glyma16g01990.1 Glyma15g07360.1</p>
+    <input type="textarea" class="browser-default" placeholder="Uniprot ID" [(ngModel)]="glmolID">
+    <p>eg. A0JJX5, P04778</p>
   </div>
   <div class="row">
     <button class="btn waves-effect waves-light" (click)="Glmol()">SUBMIT</button>
   </div>
-</form>
+</div>
 <!--<div >-->
 <!--  <iframe src="http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb" style="width: 100%" height="768"></iframe>-->
 <!--</div>-->
-<div>
-  <iframe [src]="glmolUrl" *ngIf="isGlmol" style="width: 100%" height="768"></iframe>
+<!--<div>-->
+<!--  <iframe [src]="glmolUrl" *ngIf="isGlmol" style="width: 100%" height="768"></iframe>-->
+<!--</div>-->
+<br>
+<br>
+<div *ngIf="isGlmol">
+<label *ngIf="nopdb">No PDB file found in our database</label>
+<mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms">
+  <!--    <mat-tab label="Q9ZU49_5jwy.1.A_121_269_default">-->
+  <!--      <iframe src="/viewer.html?5jwy" style="width: 100%" height="768"></iframe>-->
+  <!--    </mat-tab>-->
+  <!--    <mat-tab label="Q9ZU49_5jwy.1.A_97_244">-->
+  <!--      <iframe src="/viewer.html?6jwy" style="width: 100%" height="768"></iframe>-->
+  <!--    </mat-tab>-->
+  <mat-tab *ngFor="let pdb of pdbs" label="{{pdb}}">
+    <ng-template matTabContent>
+      <iframe [src]="SafeUrl(pdb)" style="width: 100%" height="768"></iframe>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>

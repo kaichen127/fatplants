@@ -21,7 +21,8 @@ import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import { GraphComponent } from './graph/graph.component';
+import {NgCytoComponent} from './ng-cyto/ng-cyto.component';
 
 
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
@@ -48,7 +49,10 @@ import { LmpdCardComponent } from './lmpd-card/lmpd-card.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { BlastComponent } from './blast/blast.component';
 import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
+import { GoNetworkComponent } from './go-network/go-network.component';
 
 @NgModule({
   declarations: [
@@ -64,10 +68,11 @@ import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.compone
     ColorPathwayComponent,
     CameliaComponent,
     FattyacidComponent,
-    // GraphComponent,
-    // NgCytoComponent,
+    GraphComponent,
+    NgCytoComponent,
     IntroductionComponent,
     InvestigatorComponent,
+    BlastComponent,
     DetailviewComponent,
     // CytodemoComponent,
     UploadFilesComponent,
@@ -75,7 +80,8 @@ import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.compone
     DropzoneDirective,
     FileviewComponent,
     LmpdCardComponent,
-    LmpddetailviewComponent
+    LmpddetailviewComponent,
+    GoNetworkComponent
   ],
   imports: [
     BrowserModule,
@@ -102,6 +108,8 @@ import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.compone
     MatTabsModule,
     MatRadioModule,
     MatDividerModule,
+    MatProgressBarModule,
+    MatListModule,
     HttpClientModule,
     FormsModule,
     MatMenuModule
