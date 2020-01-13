@@ -18,6 +18,7 @@ import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { FileviewComponent } from './fileview/fileview.component';
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
+import { SoybeanComponent } from './soybean/soybean.component';
 
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
@@ -37,8 +38,8 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path:'upload',component:UploadFilesComponent},
 {path:'viewfiles',component:FileviewComponent},
 {path:'lmpddetailview/:uniprot_id',component:LmpddetailviewComponent},
-];
-
+{path:'fatty_acid',component:FattyacidComponent},
+{path: 'soybean',component:SoybeanComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
