@@ -27,6 +27,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { CameliaComponent } from './camelia/camelia.component';
 import { FattyacidComponent } from './fattyacid/fattyacid.component';
 import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
+import { SoybeanComponent } from './soybean/soybean.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.compone
     GoNetworkComponent,
     CameliaComponent,
     FattyacidComponent,
-    LmpddetailviewComponent
+    LmpddetailviewComponent,
+    SoybeanComponent
   ],
   imports: [
     BrowserModule,

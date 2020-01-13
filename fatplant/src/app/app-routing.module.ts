@@ -7,6 +7,7 @@ import { GoNetworkComponent } from './go-network/go-network.component';
 import { CameliaComponent } from './camelia/camelia.component';
 import { FattyacidComponent } from './fattyacid/fattyacid.component';
 import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
+import { SoybeanComponent } from './soybean/soybean.component';
 
 
 const routes: Routes = [{path:'',redirectTo:'/homepage',pathMatch:'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [{path:'',redirectTo:'/homepage',pathMatch:'full'},
 {path:'go-network',component:GoNetworkComponent},
 {path:'camelina',component:CameliaComponent},
 {path:'lmpddetailview/:uniprot_id',component:LmpddetailviewComponent},
-{path:'fatty_acid',component:FattyacidComponent}];
+{path:'fatty_acid',component:FattyacidComponent},
+{path: 'soybean',component:SoybeanComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
