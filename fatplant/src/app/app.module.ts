@@ -52,6 +52,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { BlastComponent } from './blast/blast.component';
 import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
+import { SoybeanComponent } from './soybean/soybean.component';
 import { GoNetworkComponent } from './go-network/go-network.component';
 
 @NgModule({
@@ -81,7 +82,9 @@ import { GoNetworkComponent } from './go-network/go-network.component';
     FileviewComponent,
     LmpdCardComponent,
     LmpddetailviewComponent,
-    GoNetworkComponent
+    GoNetworkComponent,
+    LmpddetailviewComponent,
+    SoybeanComponent
   ],
   imports: [
     BrowserModule,
