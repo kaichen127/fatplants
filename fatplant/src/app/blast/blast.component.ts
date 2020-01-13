@@ -41,12 +41,14 @@ export class BlastComponent implements OnInit {
     this.isBlastP = false;
     this.isBlastN = false;
     this.isGlmol = false;
-    this.items = db.collection('/Lmpd_Arapidopsis').valueChanges();
+    // this.items = db.collection('/Lmpd_Arapidopsis').valueChanges();
   }
   onSubmit() {
-    this.http.post('/blastp', {fasta: this.proteinSeq, database: this.database, matrix: this.matrix, evalue: this.evalue}, {responseType: 'text'}).subscribe((res: any) => {
-      this.result = res;
-      this.SplitRes(res);
+    // this.http.post('https://linux-shell-test.appspot.com/blastp', {fasta: this.proteinSeq, database: this.database, matrix: this.matrix, evalue: this.evalue}, {responseType: 'text'}).subscribe((res: any) => {
+      this.http.get('https://linux-shell-test.appspot.com/blastp?fasta=' + this.proteinSeq + '&database=' + this.database + '&matrix=' + this.matrix + '&evalue=' + this.evalue, {responseType: 'text'}).subscribe((res: any) => {
+
+        this.result = res;
+        this.SplitRes(res);
     });
   }
   ngOnInit() {
@@ -60,7 +62,7 @@ export class BlastComponent implements OnInit {
     // console.log("select p");
   }
   SplitRes(result: string) {
-    this.blastRes = []
+    this.blastRes = [];
     let tmp: any;
     // tmp = result.match(/>[\s\S]+Lambda/g)
     tmp = result.split('>');

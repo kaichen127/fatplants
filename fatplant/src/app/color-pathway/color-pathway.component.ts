@@ -44,7 +44,7 @@ export class ColorPathwayComponent implements OnInit {
 
   GeneListChange(selectGene: string) {
     // console.log(selectGene);
-    this.http.get('/link/pathway/' + selectGene, {responseType: 'text'}).subscribe((res: string) => {
+    this.http.get('http://rest.kegg.jp/link/pathway/' + selectGene, {responseType: 'text'}).subscribe((res: string) => {
       // console.log(res);
       this.defaultValue1 = selectGene;
       this.defaultValue2 = 'null';
@@ -80,10 +80,11 @@ export class ColorPathwayComponent implements OnInit {
   }
   SafeImg(input: string) {
     const tmpurl = 'http://rest.kegg.jp/get/' + input + '/image';
+    // const tmpurl = 'https://www.kegg.jp/kegg/path/get/' + input + '/image';
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
   public convFromKegg() {
-    this.http.get('/conv/genes/uniprot:' + this.uniprot, {responseType: 'text'}).subscribe((conv: string) => {
+    this.http.get('https://linux-shell-test.appspot.com/conv?uniprot=' + this.uniprot, {responseType: 'text'}).subscribe((conv: string) => {
       // console.log(res);
       // console.log(reg.exec(tmp));
       let pathways: any;
@@ -92,7 +93,7 @@ export class ColorPathwayComponent implements OnInit {
       console.log(pathways[0]);
       let target: string;
       target = pathways[0];
-      this.http.get('/link/pathway/' + target, {responseType: 'text'}).subscribe((res: string) => {
+      this.http.get('https://linux-shell-test.appspot.com/link?target=' + target, {responseType: 'text'}).subscribe((res: string) => {
         // console.log(res);
         // console.log(reg.exec(tmp));
         let tmp: any
@@ -102,7 +103,7 @@ export class ColorPathwayComponent implements OnInit {
         let x: any;
         for (x in tmp) {
           let y=x
-          this.http.get('/get/' + tmp[x].slice(5), {responseType: 'text'}).subscribe((data: string) => {
+          this.http.get('https://linux-shell-test.appspot.com/detail?target=' + tmp[x].slice(5), {responseType: 'text'}).subscribe((data: string) => {
             // console.log(res);
             let names = data.split('\n');
             // console.log(tmp);

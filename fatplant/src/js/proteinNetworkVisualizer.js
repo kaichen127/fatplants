@@ -5,7 +5,7 @@ $(document).foundation();
 
         $.get({
             // getting the data
-            url: '/data',
+            url: 'https://linux-shell-test.appspot.com/data',
             data: {pathway: "Fatty acid metabolism"},
             success: function (data) {
                 $("#loading").hide();
@@ -27,7 +27,7 @@ $(document).foundation();
                 var nodeDescriptionData = null;
                 // get node description info
                 $.get({
-                    url: '/node-description',
+                    url: 'https://linux-shell-test.appspot.com/node-description',
                     success: function (data) {
                         nodeDescriptionData = data;
                     }
@@ -256,7 +256,7 @@ $(document).foundation();
 
                     $.get({
                         // getting the data
-                        url: '/data',
+                        url: 'https://linux-shell-test.appspot.com/data',
                         data: {pathway: this.innerHTML},
                         success: function (data) {
                             console.log(data[0])

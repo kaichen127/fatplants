@@ -139,7 +139,8 @@ export class DataAnalysisComponent implements OnInit {
           this.proteinName = res[0].protein_name;
           this.proteinSeq = res[0].sequence;
           this.uniprot = res[0].uniprot_id
-          this.http.post('/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
+          // this.http.post('https://linux-shell-test.appspot.com/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
+          this.http.get('https://linux-shell-test.appspot.com/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, {responseType: 'text'}).subscribe((res: any) => {
             this.result = res;
             // this.ShowResult(res);
             console.log(res);
@@ -172,7 +173,8 @@ export class DataAnalysisComponent implements OnInit {
           this.proteinName = res[0].protein_name;
           this.proteinSeq = res[0].sequence;
           this.uniprot = res[0].uniprot_id
-          this.http.post('/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
+          // this.http.post('https://linux-shell-test.appspot.com/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
+            this.http.get('https://linux-shell-test.appspot.com/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, {responseType: 'text'}).subscribe((res: any) => {
             this.result = res;
             // this.ShowResult(res);
             this.SplitRes(res);
@@ -199,7 +201,8 @@ export class DataAnalysisComponent implements OnInit {
         break;
       case 2:
         this.blast = this.query;
-        this.http.post('/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
+        // this.http.post('https://linux-shell-test.appspot.com/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
+        this.http.get('https://linux-shell-test.appspot.com/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, {responseType: 'text'}).subscribe((res: any) => {
           this.result = res;
           // this.ShowResult(res);
           this.SplitRes(res);
@@ -299,7 +302,7 @@ export class DataAnalysisComponent implements OnInit {
     doc.save('Data.pdf');
   }
   public convFromKegg() {
-    this.http.get('/conv/genes/uniprot:' + this.uniprot, {responseType: 'text'}).subscribe((conv: string) => {
+    this.http.get('https://linux-shell-test.appspot.com/conv?uniprot=' + this.uniprot, {responseType: 'text'}).subscribe((conv: string) => {
       // console.log(res);
       // console.log(reg.exec(tmp));
       let pathways: any;
@@ -308,7 +311,7 @@ export class DataAnalysisComponent implements OnInit {
       console.log(pathways[0]);
       let target: string;
       target = pathways[0];
-      this.http.get('/link/pathway/' + target, {responseType: 'text'}).subscribe((res: string) => {
+      this.http.get('https://linux-shell-test.appspot.com/link?target=' + target, {responseType: 'text'}).subscribe((res: string) => {
         // console.log(res);
         // console.log(reg.exec(tmp));
         let tmp: any
@@ -318,7 +321,7 @@ export class DataAnalysisComponent implements OnInit {
         let x: any;
         for (x in tmp) {
           let y=x
-          this.http.get('/get/' + tmp[x].slice(5), {responseType: 'text'}).subscribe((data: string) => {
+          this.http.get('https://linux-shell-test.appspot.com/detail?target=' + tmp[x].slice(5), {responseType: 'text'}).subscribe((data: string) => {
             // console.log(res);
             let names = data.split('\n');
             // console.log(tmp);

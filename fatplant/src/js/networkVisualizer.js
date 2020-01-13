@@ -5,7 +5,7 @@ $(document).foundation();
 
         $.get({
             // getting the data
-            url: '/data1',
+            url: 'https://linux-shell-test.appspot.com/data1',
             success: function (data) {
                 $("#loading").hide();
                 $("#cy").show();
@@ -23,7 +23,7 @@ $(document).foundation();
                 var nodeDescriptionData = null;
                 // get node description info
                 $.get({
-                    url: '/node-description1',
+                    url: 'https://linux-shell-test.appspot.com/node-description1',
                     success: function (data) {
 
                         nodeDescriptionData = data;
@@ -562,7 +562,7 @@ $(document).foundation();
                     var newGraphElements = [];
                   $.get({
                     // getting the data
-                    url: '/data1',
+                    url: 'https://linux-shell-test.appspot.com/data1',
                     data: {identifier: searchVariable},
                     success: function (data) {
                       console.log(data)
