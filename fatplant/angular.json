@@ -29,7 +29,8 @@
               "src/js/cytoscape-cola.js",
               "src/demo.html",
               "src/js",
-              "src/proteinNetView.html"
+              "src/proteinNetView.html",
+              "src/goNetView.html"
             ],
             "styles": [
               "src/custom-theme.scss",

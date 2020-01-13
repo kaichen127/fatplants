@@ -52,6 +52,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { BlastComponent } from './blast/blast.component';
 import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
+import { GoNetworkComponent } from './go-network/go-network.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.compone
     DropzoneDirective,
     FileviewComponent,
     LmpdCardComponent,
-    LmpddetailviewComponent
+    LmpddetailviewComponent,
+    GoNetworkComponent
   ],
   imports: [
     BrowserModule,

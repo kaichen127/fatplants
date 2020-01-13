@@ -6,6 +6,7 @@ import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { GlmolComponent } from './glmol/glmol.component';
 import { ColorPathwayComponent } from './color-pathway/color-pathway.component';
 import { BlastComponent } from './blast/blast.component';
+import { GoNetworkComponent } from './go-network/go-network.component';
 
 
 import { CameliaComponent } from './camelia/camelia.component';
@@ -30,6 +31,7 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'camelina', component: CameliaComponent},
 {path: 'fatty_acid', component: FattyacidComponent},
 {path: 'graph', component: GraphComponent},
+{path: 'go-network', component: GoNetworkComponent},
 {path: 'one_click', component: DataAnalysisComponent},
 {path: 'blast', component: BlastComponent},
 {path:'upload',component:UploadFilesComponent},

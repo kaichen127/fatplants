@@ -4,9 +4,15 @@
     "secure": false,
     "changeOrigin": true
   },
-  "/test": {
-    "target": "http://localhost:4201",
-    "secure": false
+  "/data1": {
+    "target": "http://linux-shell-test.appspot.com",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/node-description1": {
+    "target": "http://linux-shell-test.appspot.com",
+    "secure": false,
+    "changeOrigin": true
   },
   "/link": {
     "target": "http://rest.kegg.jp",
