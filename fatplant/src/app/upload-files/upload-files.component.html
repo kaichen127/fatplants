@@ -14,13 +14,13 @@
     (hovered)="toggleHover($event)"
     (dropped)="onDrop($event)"
     [class.hovering]="isHovering">
-    <h2>Please Upload Files for your Event</h2>
+    <h3>Please Upload Files for your Event</h3>
     <p>Drag and Drop Files</p>
 </div>
 
 <!-- Add typical file input and make it work with a button -->
 
-<h1>Uploads</h1>
+<h3>Uploads</h3>
 <div *ngFor="let file of files">
     <app-upload-task [file]="file" [lab]="lab"></app-upload-task>
 </div>

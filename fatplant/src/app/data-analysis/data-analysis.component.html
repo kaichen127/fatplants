@@ -1,4 +1,6 @@
-<h1>One-Stop Search</h1>
+<h3>One-Stop Search</h3>
+<p>User can submit a protein sequence, a uniprot ID or a Gene name of fatty acid related proteins, it will automatically show the structures, blastp results and related pathway.</p>
+<p>e.g. P46086 as UniProt ID.<p>
 <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
   <mat-tab label="Gene">
 
@@ -14,7 +16,7 @@
   <div class="row">
     <div class="input-field col s12">
       <textarea style="min-height: 150px" name="Search" class="browser-default" placeholder="Search" (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
-      <p>eg. P46086</p>
+
     </div>
   </div>
   <div class="row">

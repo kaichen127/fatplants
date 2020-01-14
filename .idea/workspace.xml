@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a456f0f2-12d0-4f86-b3d5-545142f8fa71" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fatplant/.firebase/hosting.ZGlzdC9mYXRwbGFudA.cache" afterPath="$PROJECT_DIR$/fatplant/.firebase/hosting.ZGlzdC9mYXRwbGFudA.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fatplant/src/app/data-analysis/data-analysis.component.html" afterPath="$PROJECT_DIR$/fatplant/src/app/data-analysis/data-analysis.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fatplant/src/app/fattyacid/fattyacid.component.html" afterPath="$PROJECT_DIR$/fatplant/src/app/fattyacid/fattyacid.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fatplant/src/app/fileview/fileview.component.html" afterPath="$PROJECT_DIR$/fatplant/src/app/fileview/fileview.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fatplant/src/app/header/header.component.html" afterPath="$PROJECT_DIR$/fatplant/src/app/header/header.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fatplant/src/app/investigator/investigator.component.html" afterPath="$PROJECT_DIR$/fatplant/src/app/investigator/investigator.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fatplant/src/app/lmpd-arapidopsis/lmpd-arapidopsis.component.html" afterPath="$PROJECT_DIR$/fatplant/src/app/lmpd-arapidopsis/lmpd-arapidopsis.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fatplant/src/app/upload-files/upload-files.component.html" afterPath="$PROJECT_DIR$/fatplant/src/app/upload-files/upload-files.component.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,11 +32,83 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fatplant/src/app/header/header.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            <state relative-caret-position="480">
+              <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fileview.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fatplant/src/app/fileview/fileview.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload-files.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fatplant/src/app/upload-files/upload-files.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="investigator.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fatplant/src/app/investigator/investigator.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="glmol.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fatplant/src/app/glmol/glmol.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="72" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fattyacid.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fatplant/src/app/fattyacid/fattyacid.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="92" lean-forward="true" selection-start-line="8" selection-start-column="92" selection-end-line="8" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lmpd-arapidopsis.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fatplant/src/app/lmpd-arapidopsis/lmpd-arapidopsis.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="75" lean-forward="false" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data-analysis.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fatplant/src/app/data-analysis/data-analysis.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -38,80 +116,6 @@
       </file>
       <file leaf-file-name="header.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fatplant/src/app/header/header.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="soybean.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fatplant/src/app/soybean/soybean.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="14" column="59" lean-forward="false" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fatplant/src/app/table/table.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fatplant/src/app/table/table.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table.component.spec.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fatplant/src/app/table/table.component.spec.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#73#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fatplant/src/app/table/table.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="soybean.component.spec.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fatplant/src/app/soybean/soybean.component.spec.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#73#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="soybean.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fatplant/src/app/soybean/soybean.component.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -131,6 +135,7 @@
       <find>Lmpd_Arapidopsis</find>
       <find>elem.species</find>
       <find>SoybeanComponent</find>
+      <find>Uploads</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,9 +147,13 @@
         <option value="$PROJECT_DIR$/fatplant/src/app/homepage/homepage.component.ts" />
         <option value="$PROJECT_DIR$/fatplant/src/app/homepage/homepage.component.html" />
         <option value="$PROJECT_DIR$/fatplant/src/app/investigator/investigator.component.ts" />
-        <option value="$PROJECT_DIR$/fatplant/src/app/investigator/investigator.component.html" />
+        <option value="$PROJECT_DIR$/fatplant/src/app/fattyacid/fattyacid.component.html" />
         <option value="$PROJECT_DIR$/fatplant/src/app/lmpd-arapidopsis/lmpd-arapidopsis.component.html" />
+        <option value="$PROJECT_DIR$/fatplant/src/app/data-analysis/data-analysis.component.html" />
         <option value="$PROJECT_DIR$/fatplant/src/app/header/header.component.html" />
+        <option value="$PROJECT_DIR$/fatplant/src/app/fileview/fileview.component.html" />
+        <option value="$PROJECT_DIR$/fatplant/src/app/upload-files/upload-files.component.html" />
+        <option value="$PROJECT_DIR$/fatplant/src/app/investigator/investigator.component.html" />
       </list>
     </option>
   </component>
@@ -210,7 +219,31 @@
               <item name="fatplant" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="data-analysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FatPlant-FirebaseMaster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FatPlant-FirebaseMaster" type="462c0819:PsiDirectoryNode" />
+              <item name="fatplant" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="fileview" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FatPlant-FirebaseMaster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FatPlant-FirebaseMaster" type="462c0819:PsiDirectoryNode" />
+              <item name="fatplant" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FatPlant-FirebaseMaster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FatPlant-FirebaseMaster" type="462c0819:PsiDirectoryNode" />
+              <item name="fatplant" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="investigator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -387,22 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fatplant/src/app/investigator/investigator.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fatplant/src/app/lmpd-arapidopsis/lmpd-arapidopsis.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fatplant/src/app/datatable/datatable.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -424,7 +441,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#73#0" expanded="true" />
+            <element signature="e#0#73#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -489,10 +506,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/glmol/glmol.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/fattyacid/fattyacid.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="92" lean-forward="true" selection-start-line="8" selection-start-column="92" selection-end-line="8" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/lmpd-arapidopsis/lmpd-arapidopsis.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="75" lean-forward="false" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/data-analysis/data-analysis.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fatplant/src/app/header/header.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        <state relative-caret-position="480">
+          <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/fileview/fileview.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/upload-files/upload-files.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/investigator/investigator.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
           <folding />
         </state>
       </provider>
