@@ -30,7 +30,8 @@
               "src/demo.html",
               "src/js",
               "src/proteinNetView.html",
-              "src/goNetView.html"
+              "src/goNetView.html",
+              "src/pathway.html"
             ],
             "styles": [
               "src/custom-theme.scss",

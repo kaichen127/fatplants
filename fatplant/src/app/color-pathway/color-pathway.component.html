@@ -48,7 +48,7 @@
   <div class="columns small-10 small-centered textrow " style="width: 1000px">
     <div class="row">
       <input type="textarea" class="browser-default" placeholder="Uniprot ID" [(ngModel)]="uniprot">
-      <p>eg. P04778</p>
+      <p>eg. P46086</p>
     </div>
     <div class="row">
       <button class="btn waves-effect waves-light" (click)="OnSubmit()">SUBMIT</button>
@@ -62,17 +62,12 @@
 
     <mat-tab *ngFor="let img of imgs" label="{{img[1]}}">
       <ng-template matTabContent>
-        <div class="click-zoom">
-          <label>
-            <input type="checkbox">
-            <img [src]="SafeImg(img[0])" style="max-width: 1000px">
-          </label>
-        </div>
+        <iframe [src]="SafeImg(img[0])" style="width: 100%" height="768" frameborder="0" scrolling="0"></iframe>
       </ng-template>
     </mat-tab>
   </mat-tab-group>
 
-  <h5 *ngIf="noimg">No figure found in KEGG</h5>
+  <h5 *ngIf="noimg">No figure found in database</h5>
 
 </div>
 <br>

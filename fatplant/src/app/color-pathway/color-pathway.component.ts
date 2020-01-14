@@ -11,6 +11,7 @@ export class ColorPathwayComponent implements OnInit {
   private imgs = [];
   private uniprot: string;
   private debug: boolean;
+  private pathwaydb = [];
 
   private imgUrl: SafeResourceUrl;
   private imgID: string;
@@ -19,108 +20,37 @@ export class ColorPathwayComponent implements OnInit {
   private defaultValue1 = 'null';
   private defaultValue2 = 'null';
   private linkList = [];
-  public geneList = [
-    {
-      key: 'hsa:10458',
-      value: 'gene1'
-    },
-    {
-      key: 'ece:Z5100',
-      value: 'gene2'
-    }
-    ];
+
   constructor(private sanitizer: DomSanitizer, private http: HttpClient) {
+    this.pathwaydb = [];
+    this.http.get('/js/reactome.csv', {responseType: 'text'}).subscribe(data => {
+      for (const line of data.split(/[\r\n]+/)) {
+        // console.log(line.split(','));
+        this.pathwaydb.push(line.split(','));
+      }
+    });
   }
 
   ngOnInit() {
-  }
-  showPathway() {
-    this.showImg = false; // hide iframe
-    let tmp: string;
-    tmp = this.imgID;
-    this.imgUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://rest.kegg.jp/get/' + tmp + '/image');
-    this.showImg = true; // show iframe
-  }
-
-  GeneListChange(selectGene: string) {
-    // console.log(selectGene);
-    this.http.get('http://rest.kegg.jp/link/pathway/' + selectGene, {responseType: 'text'}).subscribe((res: string) => {
-      // console.log(res);
-      this.defaultValue1 = selectGene;
-      this.defaultValue2 = 'null';
-      this.showLinkList = false;
-      this.showImg = false;
-      this.linkList = [];
-      const reg: RegExp = new RegExp('path:', 'g');
-      // console.log(reg.exec(tmp));
-      let tmp: any;
-      tmp = res.match(/path:[a-zA-Z0-9]{8}/g);
-      let x: any;
-      for (x in tmp) {
-        this.linkList.push({
-          key: tmp[x].slice(5),
-          value: tmp[x].slice(5)
-        });
-      }
-      this.showLinkList = true;
-      // console.log(this.linkList);
-    });
-  }
-  LinkListChange(selectPath: string) {
-    this.defaultValue2 = selectPath;
-    this.showImg = false; // hide iframe
-    this.imgUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://rest.kegg.jp/get/' + selectPath + '/image');
-    this.showImg = true; // show iframe
   }
   public OnSubmit() {
     this.debug = false;
     this.imgs = [];
     this.noimg = false;
-    this.convFromKegg();
+    this.SearchUniprot(this.uniprot);
   }
   SafeImg(input: string) {
-    const tmpurl = 'http://rest.kegg.jp/get/' + input + '/image';
-    // const tmpurl = 'https://www.kegg.jp/kegg/path/get/' + input + '/image';
+    const tmpurl = '/pathway.html?id=' + input;
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
-  public convFromKegg() {
-    this.http.get('https://linux-shell-test.appspot.com/conv?uniprot=' + this.uniprot, {responseType: 'text'}).subscribe((conv: string) => {
-      // console.log(res);
-      // console.log(reg.exec(tmp));
-      let pathways: any;
-      // 位数！
-      pathways = conv.match(/ath:[a-zA-Z0-9]{9}/g);
-      console.log(pathways[0]);
-      let target: string;
-      target = pathways[0];
-      this.http.get('https://linux-shell-test.appspot.com/link?target=' + target, {responseType: 'text'}).subscribe((res: string) => {
-        // console.log(res);
-        // console.log(reg.exec(tmp));
-        let tmp: any
-        tmp = res.match(/path:[a-zA-Z0-9]{8}/g);
-        console.log(tmp);
-        this.imgUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://rest.kegg.jp/get/' + tmp[0].slice(5) + '/image');
-        let x: any;
-        for (x in tmp) {
-          let y=x
-          this.http.get('https://linux-shell-test.appspot.com/detail?target=' + tmp[x].slice(5), {responseType: 'text'}).subscribe((data: string) => {
-            // console.log(res);
-            let names = data.split('\n');
-            // console.log(tmp);
-            for (var name in names) {
-              console.log(names[name].slice(0, 11));
-              if (names[name].slice(0, 11) === 'PATHWAY_MAP') {
-                this.imgs.push([tmp[y].slice(5), names[name].slice(12)]);
-                break;
-              }
-            }
-          });
-          // let name = this.getNameFromKegg(tmp[x].slice(5));
-          // this.imgs.push([tmp[x].slice(5), name]);
-        }
-        this.debug = true;
-      });
-    });
+
+  SearchUniprot(id: string) {
+    for (var index in this.pathwaydb) {
+      // console.log(this.pathwaydb[index][4])
+      if (this.pathwaydb[index][4] === id) {
+        this.imgs.push([this.pathwaydb[index][0], this.pathwaydb[index][1]]);
+      }
+    }
     setTimeout(() => {
       console.log('timeout');
 

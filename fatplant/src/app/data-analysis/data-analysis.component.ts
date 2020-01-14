@@ -30,64 +30,27 @@ export class DataAnalysisComponent implements OnInit {
   private noimg: boolean;
   private nopdb: boolean;
   private proteindatabase: string;
+  private pathwaydb = [];
 
   private blast: string;
-  private isVisibale: boolean;
   private result: string;
-  private isBlastP: boolean;
-  private isBlastN: boolean;
-  private isGlmol: boolean;
-  private glmolUrl: string;
   private blastRes = [];
   private showblastRes = [];
-  blastForm: FormGroup;
   constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer) {
-    // this.blastForm = fb.group({method: ['', Validators.required]});
-    this.blastForm = new FormGroup({
-      fasta : new FormControl(),
-      method : new FormControl(),
-      ProteinDatabase : new FormControl(),
-      Ethreshold : new FormControl(),
-      maxhit : new FormControl(),
-      NucleotideDatabase : new FormControl()
+    this.pathwaydb = [];
+    this.http.get('/js/reactome.csv', {responseType: 'text'}).subscribe(data => {
+      for (const line of data.split(/[\r\n]+/)) {
+        // console.log(line.split(','));
+        this.pathwaydb.push(line.split(','));
+      }
     });
-    this.isVisibale = true;
-    this.isBlastP = false;
-    this.isBlastN = false;
-    this.isGlmol = false;
-
     this.isLoading = false;
     this.noimg = false;
     this.nopdb = false;
-    // this.itemCollection = afs.collection('/Lmpd_Arapidopsis');
-    // this.items = this.itemCollection.valueChanges();
-    // this.items = afs.collection('/Lmpd_Arapidopsis',ref =>ref.where('uniprot_id','>=','F4HQ').where('uniprot_id','<=', 'F4HQ' + '\uf8ff') ).valueChanges();
     this.tabIndex = 0;
   }
-  onSubmit(blastData) {
-    console.log(blastData);
-    // console.log(this.http.get('linux-shell-test.appspot.com'));
-    // this.http.get('/test?q=Glyma14g08610.1').subscribe((res: Response) => {console.log(res); });
-    // this.http.get('/ng/index').subscribe((res: Response) => {console.log(res); });
-    // this.http.post('/blastp', blastData).subscribe((res: Response) => {console.log(res); });
-    this.http.post('/test', blastData, {responseType: 'text'}).subscribe((res: any) => {
-      // this.result = res.result;
-      // console.log(res.result);
-      // this.ShowResult(res.result);
-      this.result = res;
-      // console.log(res);
-      this.ShowResult(res);
-      this.SplitRes(res);
-    });
-  }
-  ngOnInit() {
-  }
 
-  ShowResult(result: string) {
-    // const newWindow = window.open('Result', '_blank');
-    // newWindow.document.write('<p style="white-space: pre-wrap">' + result + '</p>');
-    const newWindow = window.open('Result', '_blank');
-    newWindow.document.write('<pre>' + result + '</pre>');
+  ngOnInit() {
   }
   SplitRes(result: string) {
     this.showblastRes = [];
@@ -148,7 +111,8 @@ export class DataAnalysisComponent implements OnInit {
             // this.glmolUrl = '/viewer.html?5jwy';
             this.pdbs = [];
             this.SearchPDB(this.uniprot);
-            this.convFromKegg();
+            this.SearchUniprot(this.uniprot);
+            //this.convFromKegg();
           });
         });
         setTimeout(() => {
@@ -165,7 +129,7 @@ export class DataAnalysisComponent implements OnInit {
           }
           this.debug = true;
           this.isLoading = false;
-        }, 10000);
+        }, 5000);
         break;
       case 1:
         this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
@@ -180,7 +144,8 @@ export class DataAnalysisComponent implements OnInit {
             this.SplitRes(res);
             this.pdbs = [];
             this.SearchPDB(this.uniprot);
-            this.convFromKegg();
+            this.SearchUniprot(this.uniprot);
+            //this.convFromKegg();
           });
         });
         setTimeout(() => {
@@ -197,7 +162,7 @@ export class DataAnalysisComponent implements OnInit {
           }
           this.debug = true;
           this.isLoading = false;
-        }, 10000);
+        }, 5000);
         break;
       case 2:
         this.blast = this.query;
@@ -254,11 +219,11 @@ export class DataAnalysisComponent implements OnInit {
   }
   SafeUrl(input: string) {
     const tmpurl = '/viewer.html?' + input;
-    console.log(tmpurl);
+    // console.log(tmpurl);
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
   SafeImg(input: string) {
-    const tmpurl = 'http://rest.kegg.jp/get/' + input + '/image';
+    const tmpurl = '/pathway.html?id=' + input;
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
   SearchPDB(pdb: string) {
@@ -275,10 +240,18 @@ export class DataAnalysisComponent implements OnInit {
         }
 
       }
-      if (this.pdbs.length === 0){
+      if (this.pdbs.length === 0) {
         this.nopdb = true;
       }
   });
+  }
+  SearchUniprot(id: string) {
+    for (var index in this.pathwaydb) {
+      // console.log(this.pathwaydb[index][4])
+      if (this.pathwaydb[index][4] === id) {
+        this.imgs.push([this.pathwaydb[index][0], this.pathwaydb[index][1]]);
+      }
+    }
   }
   Loading() {
     this.isLoading = true;
