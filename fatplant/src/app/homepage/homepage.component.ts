@@ -6,10 +6,10 @@ declare var require: any;
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  partner1 = require("../assets/partner1.jpg");
+  partner1 = require("../assets/DD.png");
   partner2 = require("../assets/partner2.jpg");
   partner3 = require("../assets/partner3.jpg");
-  partner4 = require("../assets/partner4.jpg");
+  partner4 = require("../assets/WU.png");
   partner5 = require("../assets/partner5.jpg");
   partner6 = require("../assets/partner6.jpg");
   image1 = require("../assets/1.png");
