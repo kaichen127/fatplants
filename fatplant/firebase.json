@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/fatplant",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
