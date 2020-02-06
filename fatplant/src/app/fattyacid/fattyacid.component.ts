@@ -19,7 +19,7 @@ export class FattyacidComponent implements OnInit {
   ngOnInit() {
     let docs=this.db.connect('Fatty Acid').subscribe(data =>{
         this.dataSource=new MatTableDataSource(data)
-        this.dataSource.paginator = this.paginator;
+        this.dataSource.paginator = this.paginator
     })
   }
 
