@@ -1,3 +1,25 @@
+<mat-card class="nav-bar dark-background">
+<nav>
+  <ul  class="nav-style light">
+    <li><a class="light" href="/">Project</a></li>
+    <li><a class="light" href="/introduction">Introduction</a></li>
+    <li><a class="light" href="/investigator">Investigator</a></li>
+    <!-- <li><a href="/go-network">GO Network</a></li> -->
+    <li><div class="menu" [matMenuTriggerFor]="dataMenu">Data</div></li>
+    <li><a class="light" routerLink="/one_click">One-Stop Search</a></li>
+    <li><div class="menu" [matMenuTriggerFor]="toolsMenu">Tools</div></li>
+    <li><div class="menu" [matMenuTriggerFor]="graphMenu">Networks</div></li>
+    <!--      <li><a routerLink="/graph">Protein-Protein Network</a></li>-->
+    <li><a class="light" routerLink="/upload">File</a></li>
+    <li><a class="light" href="http://www.muscifest.com/">Sci-FEST</a></li>
+    <!--    <li><a href="/goNetView.html">GO Net</a></li>-->
+    <!--      <li><a href="/viewer.html">viewer</a></li>-->
+    <!--      <li><a href="/proteinNetView.html">Protein Net</a></li>-->
+
+
+  </ul>
+</nav>
+</mat-card>
 <mat-menu #dataMenu>
   <a mat-menu-item routerLink="/lmpd_arapidopsis" class="menu-item">Arabidopsis</a>
   <a mat-menu-item routerLink="/camelina" class="menu-item">Camelina</a>
@@ -17,25 +39,4 @@
 </mat-menu>
 
 
-<nav class="nav-class">
-  <div class="nav-wrapper nav-style">
-  <ul id = "nav-mobile" class = "left">
-      <li><a href="/">Project</a></li>
-      <li><a href="/introduction">Introduction</a></li>
-      <li><a href="/investigator">Investigator</a></li>
-      <!-- <li><a href="/go-network">GO Network</a></li> -->
-      <li><button mat-button [matMenuTriggerFor]="dataMenu">Data</button></li>
-      <li><a routerLink="/one_click">One-Stop Search</a></li>
-      <li><button mat-button [matMenuTriggerFor]="toolsMenu">Tools</button></li>
-      <li><button mat-button [matMenuTriggerFor]="graphMenu">Networks</button></li>
-<!--      <li><a routerLink="/graph">Protein-Protein Network</a></li>-->
-      <li><a routerLink="/upload">File</a></li>
-      <li><a href="http://www.muscifest.com/">Sci-FEST</a></li>
-<!--    <li><a href="/goNetView.html">GO Net</a></li>-->
-<!--      <li><a href="/viewer.html">viewer</a></li>-->
-<!--      <li><a href="/proteinNetView.html">Protein Net</a></li>-->
 
-
-    </ul>
-    </div>
-</nav>

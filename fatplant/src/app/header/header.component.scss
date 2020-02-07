@@ -1,0 +1,35 @@
+.nav-style{
+  word-break: break-word;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  list-style-type: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.nav-bar {
+  height: 4%;
+  margin-bottom: 2%;
+}
+
+a{
+  text-decoration: none;
+}
+
+li, button{
+  height: 64px;
+  margin-left: 2%;
+}
+
+.menu{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.menu-item{
+  background-color:gray;
+  color: powderblue;
+}
+
+nav {
+  width: 100%;
+}
