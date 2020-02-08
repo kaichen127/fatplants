@@ -1,5 +1,13 @@
-<mat-form-field>
-    <mat-label>Lab</mat-label>
+<div class="dropzone"
+    dropzone
+    (hovered)="toggleHover($event)"
+    (dropped)="onDrop($event)"
+    [class.hovering]="isHovering">
+    <h3>Drag Files Here</h3>
+    <p>{{lab}} Lab</p>
+</div>
+<mat-form-field class='lab-selector'>
+    <mat-label>Select Lab</mat-label>
     <mat-select [(value)]="lab">
         <mat-option value="Dong_Xu">Dong Xu</mat-option>
         <mat-option value="Jay_Thelen">Jay Thelen</mat-option>
@@ -9,23 +17,18 @@
         <mat-option value="General">General</mat-option>
     </mat-select>
 </mat-form-field>
-<div class="dropzone"
-    dropzone
-    (hovered)="toggleHover($event)"
-    (dropped)="onDrop($event)"
-    [class.hovering]="isHovering">
-    <h2>Please Upload Files for your Event</h2>
-    <p>Drag and Drop Files</p>
-</div>
 
 <!-- Add typical file input and make it work with a button -->
 
-<h1>Uploads</h1>
-<div *ngFor="let file of files">
-    <app-upload-task [file]="file" [lab]="lab"></app-upload-task>
+<div *ngIf="files.length > 0" class="upload-pane">
+    <h3>Uploads</h3>
+    <div *ngFor="let file of files">
+        <app-upload-task [file]="file" [lab]="lab"></app-upload-task>
+    </div>
 </div>
 
-<div>
+<div class="fileview">
     <app-fileview></app-fileview>
 </div>
+
 

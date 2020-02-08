@@ -10,12 +10,14 @@ import { FormControl } from '@angular/forms';
 })
 export class UploadFilesComponent{
 
+  isUploading: boolean = false;
+  isHovering: boolean;
+  lab: string = "General";
+
   constructor(private route:ActivatedRoute,private router:Router,private afs:AngularFirestore){}
-  lab="General"
   ngOnInit(){
   }
 
-  isHovering: boolean;
 
   files: File[]=[]
 
@@ -24,8 +26,10 @@ export class UploadFilesComponent{
   }
 
   onDrop(files:FileList){
+    this.isUploading = true;
     for(let i=0;i<files.length;i++){
       this.files.push(files.item(i))
     }
+    this.isUploading = false;
   }
 }

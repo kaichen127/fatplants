@@ -52,6 +52,7 @@ export class UploadTaskComponent implements OnInit {
   isActive(snapshot){
     return snapshot.state==='running' &&snapshot.bytesTrasnferred <snapshot.totalBytes;
   }
+  
 
 
 }
