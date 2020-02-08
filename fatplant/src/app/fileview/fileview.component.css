@@ -1,0 +1,25 @@
+.folders {
+    display: inline-block;
+    width: 15%;
+    border-right: 1px solid grey;
+}
+
+.files {
+    display: inline-block;
+    width: 85%;
+    vertical-align: top;
+}
+.file-list {
+    overflow: auto;
+    max-height: 300px;
+}
+.folder-icon {
+    transition: color 0.5s;
+    cursor: pointer;
+}
+.folder-icon:hover {
+    color: green;
+}
+.selected {
+    color: green;
+}

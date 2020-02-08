@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
 import { tap, finalize } from 'rxjs/operators';
@@ -14,6 +14,8 @@ export class UploadTaskComponent implements OnInit {
 
   @Input() file:File;
   @Input() lab:string;
+
+  @Output() delete: EventEmitter<File> = new EventEmitter();
   
   task: AngularFireUploadTask;
 
@@ -47,6 +49,10 @@ export class UploadTaskComponent implements OnInit {
         this.afs.collection('Files').doc(id).set({url:this.downloadURL,fileName:this.file.name,lab:this.lab});
       }),
     );
+  }
+
+  deleteThis() {
+    this.delete.emit(this.file);
   }
 
   isActive(snapshot){

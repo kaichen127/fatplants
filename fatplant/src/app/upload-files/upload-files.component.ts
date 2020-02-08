@@ -25,11 +25,15 @@ export class UploadFilesComponent{
     this.isHovering=event;
   }
 
+
+
   onDrop(files:FileList){
-    this.isUploading = true;
     for(let i=0;i<files.length;i++){
       this.files.push(files.item(i))
     }
-    this.isUploading = false;
+  }
+
+  removeFile(file: File) {
+    this.files.splice(this.files.indexOf(file), 1);
   }
 }

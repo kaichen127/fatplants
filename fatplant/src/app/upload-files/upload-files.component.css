@@ -28,15 +28,8 @@ progress::-webkit-progress-value {
     transition: width 0.1s ease;
 }
 
-.fileview {
-  background-color: white;
-  box-shadow: 1px 0px grey;
-  border: 1px solid black;
-  margin: 15px;
-}
-
-.upload-pane {
-  margin: 15px;
+.pane {
+  margin: 15px 15px 30px 15px;
   border: 1px solid gray;
   padding: 10px;
   box-shadow: 2px 2px 2px lightgray;
