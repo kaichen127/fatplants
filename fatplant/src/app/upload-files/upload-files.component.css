@@ -34,3 +34,6 @@ progress::-webkit-progress-value {
   padding: 10px;
   box-shadow: 2px 2px 2px lightgray;
 }
+#fileButton {
+  margin-left: 5px;
+}

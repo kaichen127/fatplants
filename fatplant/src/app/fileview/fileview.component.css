@@ -11,7 +11,7 @@
 }
 .file-list {
     overflow: auto;
-    max-height: 300px;
+    max-height: 275px;
 }
 .folder-icon {
     transition: color 0.5s;

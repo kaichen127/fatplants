@@ -18,12 +18,14 @@
     </mat-select>
 </mat-form-field>
 
-<!-- Add typical file input and make it work with a button -->
+<button mat-button id='fileButton' (click)='triggerFileWindow()'>Browse Files</button>
+<input id='fileInput' mat-input #fileBrowser hidden type=file (change)='onDrop(fileBrowser.files)'>
 
-<div *ngIf="files.length > 0" class="pane">
+<div *ngIf="files.length > 0" class="pane" [@fadeAnimation]="'in'">
     <h4>Current Uploads</h4>
-    <div *ngFor="let file of files">
-        <app-upload-task [file]="file" [lab]="lab" (delete)="removeFile($event)"></app-upload-task>
+    <div *ngFor="let file of files" [@fadeAnimation]="'in'">
+        <app-upload-task [file]="file" [lab]="lab" 
+        (delete)="removeFile($event)"></app-upload-task>
     </div>
 </div>
 
