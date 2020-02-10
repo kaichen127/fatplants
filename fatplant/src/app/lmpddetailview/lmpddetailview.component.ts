@@ -40,19 +40,20 @@ export class LmpddetailviewComponent implements OnInit {
   // displayedColumns = ['Entry','Entry_name','Status','Protein_names','Gene_names','Organism','Length','Chain'];
   // displayedColumns = ['Entry','Status','Organism','Length','Chain'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  displayedColumns = ['term','start','end','details','evidence'];
+  displayedColumns = ['term','start','end','details','evidence'];// columns for Domains table
   dataSource:MatTableDataSource<any>;
   constructor(private db:FirestoreConnectionService,private afs:AngularFirestore, private route: ActivatedRoute, private _tabService: TabService) {
 
    }
   ngOnInit() {
+    //get uniprotID from url for searching later
     this.sub = this.route.params.subscribe(params => {
        this.uniprot_id = params['uniprot_id'];
        console.log(this.uniprot_id);
     })
 
 
-
+    //get data from Lmpd_Arapidopsis table
     this.afs.collectionGroup('Lmpd_Arapidopsis', ref => ref)
        .valueChanges().subscribe(res => {
        this.tabresult = res as string [];
@@ -62,7 +63,7 @@ export class LmpddetailviewComponent implements OnInit {
 
     })
 
-
+    //get data from Lmpd_Arapidopsis_Detail1 table by uniprot_id
     this.afs.collectionGroup('Lmpd_Arapidopsis_Detail1', ref => ref.where('entry', '==', this.uniprot_id))
        .valueChanges().subscribe(res => {
        this.detailresult = res as string [];
@@ -70,7 +71,7 @@ export class LmpddetailviewComponent implements OnInit {
        console.log(this.detailitem);
 
     })
-
+    //get data from Lmpd_Arapidopsis_Evidence table by uniprot_id
     this.afs.collectionGroup('Lmpd_Arapidopsis_Evidence', ref => ref.where('uniprotID', '==', this.uniprot_id))
        .valueChanges().subscribe(res => {
        this.dataSource = new MatTableDataSource(res);
@@ -80,7 +81,7 @@ export class LmpddetailviewComponent implements OnInit {
        console.log(this.dataSource);
     })
 
-
+    //get data from Lmpd_Arapidopsis table by uniprot_id
     this.afs.collectionGroup('Lmpd_Arapidopsis', ref => ref.where('uniprot_id', '==', this.uniprot_id))
        .valueChanges().subscribe(res => {
        this.result = res as string [];
@@ -93,7 +94,7 @@ export class LmpddetailviewComponent implements OnInit {
        let l: number = this.items.seqlength;
        let sequenceorigin: string = this.items.sequence;
        let sequencegroup: string = '';
-
+       // reorganize sequence for better looking
        do {
 
          sequencegroup = sequencegroup + sequenceorigin.substring(i,j);
