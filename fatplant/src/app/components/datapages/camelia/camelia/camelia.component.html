@@ -1,0 +1,40 @@
+<div>
+  <h1>Camelina</h1>
+</div>
+
+<div class="mat-elevation-z8">
+      <div>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="camelina">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Camelina </mat-header-cell>
+        <mat-cell *matCellDef="let elem"> {{ elem.Camelina }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="aralip_pathways">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Aralip Pathways </mat-header-cell>
+            <mat-cell *matCellDef="let elem">{{elem.Aralip_Pathways}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="ath_description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Ath Description </mat-header-cell>
+                <mat-cell *matCellDef="let elem">{{ elem.Ath_description }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="no">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+                    <mat-cell *matCellDef="let elem"> {{ elem.No }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="homeologs">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Homeologs </mat-header-cell>
+                        <mat-cell *matCellDef="let elem"> {{ elem.Homeologs }} </mat-cell>
+                      </ng-container>
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>
+ <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
