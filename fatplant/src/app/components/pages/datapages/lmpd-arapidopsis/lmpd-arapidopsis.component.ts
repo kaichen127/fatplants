@@ -5,16 +5,13 @@ import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestore'
 import { ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
-import {Observable} from 'rxjs';
-import {DataSource} from '@angular/cdk/collections'
-import { FirestoreConnectionService } from '../services/firestore-connection.service';
+import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
 
 @Component({
   selector: 'app-lmpd-arapidopsis',
   templateUrl: './lmpd-arapidopsis.component.html',
   styleUrls: ['./lmpd-arapidopsis.component.css']
 })
-// (element:any)=>'<a href=uniprot.org/unpriot'+element.uniprot_id+'>Uniprot Page</a>'}
 // 'https://www.uniprot.org/uniprot'+element.uniprot_id
 export class LmpdArapidopsisComponent implements OnInit {
   displayedColumns = ['species','uniprot_id','refseq_id','gene_name','gene_symbol','protein_entry','protein_name','moreInfo'];

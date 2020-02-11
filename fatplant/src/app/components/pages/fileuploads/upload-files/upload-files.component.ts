@@ -1,7 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-upload-files',
@@ -12,8 +11,7 @@ export class UploadFilesComponent{
 
   constructor(private route:ActivatedRoute,private router:Router,private afs:AngularFirestore){}
   lab="General"
-  ngOnInit(){
-  }
+
 
   isHovering: boolean;
 

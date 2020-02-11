@@ -1,12 +1,9 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import {DatatableComponent} from '../datatable/datatable.component'
 import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 import {MatPaginator} from '@angular/material/paginator';
 
 
-// import { AngularFirestore } from 'angularfire2/firestore';
-import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestore';
-import { FirestoreConnectionService } from '../services/firestore-connection.service';
+import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
 
 @Component({
   selector: 'app-camelia',
