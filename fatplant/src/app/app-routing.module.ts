@@ -12,7 +12,7 @@ import { IntroductionComponent } from './introduction/introduction.component';
 import { InvestigatorComponent } from './investigator/investigator.component';
 import { GraphComponent } from './graph/graph.component';
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
-import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
+import { LmpddetailviewComponent } from './components/pages/datapages/lmpddetailview/lmpddetailview.component';
 import { LmpdArapidopsisComponent } from './components/pages/datapages/lmpd-arapidopsis/lmpd-arapidopsis.component';
 import { FattyacidComponent } from './components/pages/datapages/fattyacid/fattyacid.component';
 import { CameliaComponent } from './components/pages/datapages/camelia/camelia/camelia.component';
