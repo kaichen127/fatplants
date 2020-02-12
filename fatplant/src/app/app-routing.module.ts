@@ -8,8 +8,8 @@ import { BlastComponent } from './blast/blast.component';
 import { GoNetworkComponent } from './go-network/go-network.component';
 
 
-import { IntroductionComponent } from './introduction/introduction.component';
-import { InvestigatorComponent } from './investigator/investigator.component';
+import { IntroductionComponent } from './components/pages/introductions/introduction/introduction.component';
+import { InvestigatorComponent } from './components/pages/introductions/investigator/investigator.component';
 import { GraphComponent } from './graph/graph.component';
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 import { LmpddetailviewComponent } from './components/pages/datapages/lmpddetailview/lmpddetailview.component';

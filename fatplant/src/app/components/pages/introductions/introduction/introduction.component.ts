@@ -6,7 +6,7 @@ declare var require: any;
   styleUrls: ['./introduction.component.css']
 })
 export class IntroductionComponent implements OnInit {
-  intro = require("../assets/intro.png");
+  intro = require("../../../../assets/intro.png");
   constructor() { }
 
   ngOnInit() {
