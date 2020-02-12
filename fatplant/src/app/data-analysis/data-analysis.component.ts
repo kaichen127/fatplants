@@ -6,6 +6,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {Observable} from 'rxjs';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import * as jsPDF from 'jspdf';
+import { ViewportScroller } from '@angular/common';
 
 
 @Component({
@@ -32,11 +33,24 @@ export class DataAnalysisComponent implements OnInit {
   private proteindatabase: string;
   private pathwaydb = [];
 
+  private species: string;
+  private species_long: string;
+  private gene_name: string;
+
+  private gene_symbol: string;
+  private lmp_id: string;
+  private mrna_id: string;
+  private protein_entry: string;
+  private protein_gi: string;
+  private refseq_id: string;
+  private seqlength: string;
+  private taxid: string;
+
   private blast: string;
   private result: string;
   private blastRes = [];
   private showblastRes = [];
-  constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer) {
+  constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller) {
     this.pathwaydb = [];
     this.http.get('/js/reactome.csv', {responseType: 'text'}).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
@@ -98,10 +112,11 @@ export class DataAnalysisComponent implements OnInit {
       case 0:
         // 根据name拿
         this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
-          this.blast = res[0].sequence;
-          this.proteinName = res[0].protein_name;
-          this.proteinSeq = res[0].sequence;
-          this.uniprot = res[0].uniprot_id
+          this.setValues(res);
+          // this.blast = res[0].sequence;
+          // this.proteinName = res[0].protein_name;
+          // this.proteinSeq = res[0].sequence;
+          // this.uniprot = res[0].uniprot_id
           // this.http.post('https://linux-shell-test.appspot.com/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
           this.http.get('https://linux-shell-test.appspot.com/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, {responseType: 'text'}).subscribe((res: any) => {
             this.result = res;
@@ -133,10 +148,11 @@ export class DataAnalysisComponent implements OnInit {
         break;
       case 1:
         this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
-          this.blast = res[0].sequence;
-          this.proteinName = res[0].protein_name;
-          this.proteinSeq = res[0].sequence;
-          this.uniprot = res[0].uniprot_id
+          this.setValues(res);
+          // this.blast = res[0].sequence;
+          // this.proteinName = res[0].protein_name;
+          // this.proteinSeq = res[0].sequence;
+          // this.uniprot = res[0].uniprot_id
           // this.http.post('https://linux-shell-test.appspot.com/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
             this.http.get('https://linux-shell-test.appspot.com/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, {responseType: 'text'}).subscribe((res: any) => {
             this.result = res;
@@ -315,6 +331,30 @@ export class DataAnalysisComponent implements OnInit {
         // this.getNameFromKegg('ath00196');
       });
     });
+  }
+  setValues(res: any){
+    // console.log(res);
+    this.blast = res[0].sequence;
+    this.proteinName = res[0].protein_name;
+    this.proteinSeq = res[0].sequence;
+    this.uniprot = res[0].uniprot_id;
+    this.species = res[0].species;
+    this.species_long = res[0].species_long;
+    this.gene_name = res[0].gene_name;
+
+    this.gene_symbol = res[0].gene_symbol;
+    this.lmp_id = res[0].lmp_id;
+    this.mrna_id = res[0].mrna_id;
+    this.protein_entry = res[0].protein_entry;
+    this.protein_gi = res[0].protein_gi;
+    this.refseq_id = res[0].refseq_id;
+    this.seqlength = res[0].seqlength;
+    this.taxid = res[0].taxid;
+  }
+
+  public clickScroll(elementId: string): void {
+    console.log("scroll")
+    this.viewportScroller.scrollToAnchor(elementId);
   }
   // selectOption(id: number) {
   //   // getted from event

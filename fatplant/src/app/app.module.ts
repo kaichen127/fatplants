@@ -54,6 +54,7 @@ import { BlastComponent } from './blast/blast.component';
 import { LmpddetailviewComponent } from './lmpddetailview/lmpddetailview.component';
 import { SoybeanComponent } from './soybean/soybean.component';
 import { GoNetworkComponent } from './go-network/go-network.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { GoNetworkComponent } from './go-network/go-network.component';
     MatListModule,
     HttpClientModule,
     FormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -518,7 +518,6 @@ $(document).foundation();
             //
             //         $('.button').removeClass('disabled')
             //         $(this).addClass('disabled')
-                  $('#layout4').trigger('click');
                   cy.stop()
                   cy.clearQueue()
 
@@ -526,7 +525,14 @@ $(document).foundation();
                     cy.startBatch();
 
                     var layout = cy.layout({
-                      name: 'avsdf'
+                      name: 'avsdf',
+                      refresh: 30,
+                      fit: true,
+                      padding: 10,
+                      ungrabifyWhileSimulating: false,
+                      animate: 'end',
+                      animationDuration: 500,
+                      nodeSeparation: 60
                     });
                     layout.run();
 
@@ -537,12 +543,6 @@ $(document).foundation();
                     cy.endBatch();
                     cy.stop()
                     cy.clearQueue()
-                    const ext = cy.extent()
-                    const nodesInView = cy.nodes().filter(n => {
-                      const bb = n.boundingBox()
-                      return bb.x1 > ext.x1 && bb.x2 < ext.x2 && bb.y1 > ext.y1 && bb.y2 < ext.y2
-                    })
-                    console.log(nodesInView.length)
                   });
 
                   $('.button').removeClass('disabled')
