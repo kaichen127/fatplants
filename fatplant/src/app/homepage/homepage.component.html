@@ -1,58 +1,153 @@
 <div class="container">
-  <mat-card class="primary header">
-    <mat-card-title class="header-title secondary">Fat-Plants</mat-card-title>
-        <mat-card-content>
-          The comprehensive platform of plant fat related genes, proteins, and metabolisms.
-        </mat-card-content>
+  <div class="homeLinks">
+    <mat-card class="header">The comprehensive platform for plant fat related genes, proteins, and metabolism</mat-card>
+    <mat-card class="blastP">Blast P</mat-card>
+    <mat-card class="three-d">3D Structure</mat-card>
+    <mat-card class="colorPath">Color Pathway</mat-card>
+    <img class="mainBG" [src]="mainBG" alt="mainBG" />
+  </div>
+  <div class="descriptions">
+    <mat-card class="description1">
+      <h2>Increasing seed oil content by plant breeding has resulted in trade-offs or penalties with respect to protein content, seed size, and seed set.</h2>
+      <p>
+        The molecular basis for this impasse is mostly speculative. Use of global profiling approaches to better understand
+        both the metabolic consequences of higher oil and the basis for reduced yield must also deal with off-target genetic
+        mutations (even in near-isogenic lines), ultimately confounding cause-effect interpretations. We propose a diverse,
+        integrated strategy to study the consequences of higher lipid production by studying transgenic plants specifically
+        engineered to produce higher seed oil.
+      </p>
+      <p>
+        Breakthroughs on the regulation of the committed step of de novo fatty acid synthesis (FAS) have been leveraged to
+        produce oilseeds with substantially higher oil content. Prior to this time, changes in oil content have been minor
+        which has made identification of small differences in metabolism difficult to study. We are now in a position to
+        address recalcitrant questions about the metabolic consequences for enhancing seed oil.
+      </p>
+      <p>
+
+      </p>
+    </mat-card>
+    <mat-card class="description2">
+      <div class="aims">
+        <span class="pa">Project Aims</span>
+        <p class="establish">
+          <strong>Establish</strong> regulatory features in oil-for-protein or oil-for-seed yield tradeoffs by measuring:
+          transcripts, polysomal loading (i.e. dynamically translated transcript levels), proteins and metabolites during
+          three stages of seed development in the engineered high-oil lines compared to wild type (WT).
+        </p>
+        <p class="measure">
+          <strong>Measure</strong> the oil-protein tradeoff through analysis of carbon flux into central and fatty acid
+          metabolism in high-oil versus WT germplasm.
+        </p>
+        <p class="assess">
+          <strong>Assess</strong> acyl-lipid biosynthetic/turnover rates as well as bottlenecks within the lipid metabolic
+          network through targeted flux analysis.
+        </p>
+        <p class="develop">
+          <strong>Develop</strong> a "one-stop-shop" community web resource for all data pertaining to enhancing oil content
+          in plants in order to leverage data generated from this project with curated forms of public data, other funded web
+          sites, and literature.
+        </p>
+        <p class="improve">
+          <strong>Improve</strong> STEM education by providing multidisciplinary training to college students, graduates,
+          postgraduates, and high school educators.
+        </p>
+      </div>
+      <img class="aimBG" [src]="aimBG" alt="mainBG" />
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="latestNews">
+      <div>
+        <strong class="news-title">Latest News</strong>
+        <hr />
+      </div>
+      <div class="newsHeaders">
+        <div class="story">
+          <a style="display:inline;" href="https://10times.com/pag" target="_blank">FatPlants is heading to PAG!</a><br />
+          <img class="PAG" [src]="PAG" alt="pag" />
+        </div>
+        <div class="story">
+          <a style="display:inline;" href="" target="_blank">Fatplants is transferring to Firebase!</a><br />
+          <img class="FB" [src]="FB" alt="firebase" />
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <mat-card class="alum">
+    <div class="alumPics">
+      <div>
+        <img class="profile" [src]="JT" alt="jt" /><br />
+        Jay Thelen
+      </div>
+      <div>
+        <img class="profile" [src]="DA" alt="da" /><br />
+        Douglas Allen
+      </div>
+      <div>
+        <img class="profile" [src]="PB" alt="pb" /><br />
+        Phillip Bates
+      </div>
+      <div>
+        <img class="profile" [src]="AK" alt="ak" /><br />
+        Abe Koo
+      </div>
+      <div>
+        <img class="profile" [src]="DX" alt="dx" /><br />
+        Dong Xu
+      </div>
+    </div>
+    <div class="affiliation">
+
+    </div>
+    <div class="contact">
+
+    </div>
   </mat-card>
   <div>
-    <mat-card class="left_column_wrap main">
-      <mat-card-title class="main-title secondary">Fat-Plants Home</mat-card-title>
-      <mat-card class="small_graphic"></mat-card>
-      <div class="story">
 
-      <mat-card-content class="primary main-content">Increasing seed oil content by plant breeding has resulted in trade-offs or penalties with
-          respect to protein content, seed size, or seed set. The molecular basis for this impasse is
-          mostly speculative. Use of current global profiling approaches to better understand both the
-          metabolic consequences of higher oil and the basis for reduced yield must also deal with off-target
-          genetic mutations (even in near-isogenic lines), ultimately confounding cause-effect interpretations.
-          We propose a diverse, integrated strategy to study the consequences of higher lipid production by studying
-          transgenic plants specifically engineered to produce higher seed oil.<br /><br />
-          Breakthroughs on the regulation of the committed step of de novo fatty acid synthesis (FAS) have been leveraged to produce oilseeds with
-          substantially higher oil content. Prior to this time, changes in oil content have been minor which
-          has made identification of small differences in metabolism difficult to study. We are now in a
-          position to address recalcitrant questions about the metabolic consequences for enhancing seed oil.
-    </mat-card-content>
-      </div>
-
-    </mat-card>
-
-    <mat-card class="right_column_wrap">
-      <mat-card-title class="news-title secondary">Latest News</mat-card-title>
-      <div class="story">
-        <a style="display:inline;" href="https://10times.com/pag" target="_blank">FatPlants is heading to PAG!</a>
-        <br>
-        </div>
-      <br>
-      <br>
-      <br>
-        <div class="story">
-
-          <a style="display:inline;" href="" target="_blank">Fatplants is transferred to Firebase!</a>
-        </div>
-        <br>
-        <br>
-        <div class="story">
-        </div>
-    </mat-card>
   </div>
-  <div class="sponsors">
-      <mat-card-title class="sponsors-title">Our Sponsors</mat-card-title>
-    <div class="partners">
-      <a href="http://www.energy.gov/" target="_blank"><img class="img-size" [src]="partner1" alt="partner1"/></a>
-      <a href="http://www.nsf.gov/" target="_blank"><img class="img-size" [src]="partner2" alt="partner2"/></a>
-      <a href="http://www.missouri.edu/" target="_blank"><img class="img-size" [src]="partner6" alt="partner6"/></a>
-      <a href="http://www.soybiotechcenter.org/" target="_blank"><img class="img-size" [src]="partner4" alt="partner4"/></a>
-    </div>
+  <div>
+
   </div>
 </div>
+
+
+        <!--<mat-card class="primary header">-->
+<!--  <mat-card-title class="header-title secondary">Fat-Plants</mat-card-title>-->
+<!--  <mat-card-content>-->
+<!--    The comprehensive platform of plant fat related genes, proteins, and metabolisms.-->
+<!--  </mat-card-content>-->
+<!--</mat-card>-->
+<!--<div>-->
+<!--  <mat-card class="left_column_wrap main">-->
+<!--    <mat-card-title class="main-title secondary">Fat-Plants Home</mat-card-title>-->
+<!--    <mat-card class="small_graphic"></mat-card>-->
+<!--    <div class="story">-->
+
+<!--      <mat-card-content class="primary main-content">Increasing seed oil content by plant breeding has resulted in trade-offs or penalties with-->
+<!--        respect to protein content, seed size, or seed set. The molecular basis for this impasse is-->
+<!--        mostly speculative. Use of current global profiling approaches to better understand both the-->
+<!--        metabolic consequences of higher oil and the basis for reduced yield must also deal with off-target-->
+<!--        genetic mutations (even in near-isogenic lines), ultimately confounding cause-effect interpretations.-->
+<!--        We propose a diverse, integrated strategy to study the consequences of higher lipid production by studying-->
+<!--        transgenic plants specifically engineered to produce higher seed oil.<br /><br />-->
+<!--        Breakthroughs on the regulation of the committed step of de novo fatty acid synthesis (FAS) have been leveraged to produce oilseeds with-->
+<!--        substantially higher oil content. Prior to this time, changes in oil content have been minor which-->
+<!--        has made identification of small differences in metabolism difficult to study. We are now in a-->
+<!--        position to address recalcitrant questions about the metabolic consequences for enhancing seed oil.-->
+<!--      </mat-card-content>-->
+<!--    </div>-->
+
+<!--  </mat-card>-->
+
+
+<!--</div>-->
+<!--<div class="sponsors">-->
+<!--  <mat-card-title class="sponsors-title">Our Sponsors</mat-card-title>-->
+<!--  <div class="partners">-->
+<!--    <a href="http://www.energy.gov/" target="_blank"><img class="img-size" [src]="partner1" alt="partner1"/></a>-->
+<!--    <a href="http://www.nsf.gov/" target="_blank"><img class="img-size" [src]="partner2" alt="partner2"/></a>-->
+<!--    <a href="http://www.missouri.edu/" target="_blank"><img class="img-size" [src]="partner6" alt="partner6"/></a>-->
+<!--    <a href="http://www.soybiotechcenter.org/" target="_blank"><img class="img-size" [src]="partner4" alt="partner4"/></a>-->
+<!--  </div>-->
+<!--</div>-->

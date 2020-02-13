@@ -34,6 +34,9 @@ mat-card {
 }
 
 .container {
+  height: 100%;
+  width: 80%;
+  margin-left: 10%;
   display: flex;
   flex-direction: column;
 }
@@ -50,6 +53,160 @@ p {
 
 .sponsors {
   margin-top: 2%;
+}
+
+.homeLinks {
+  margin-top: 1%;
+  height: 30%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+
+img {
+  height: 100%;
+}
+
+.aims {
+  position: absolute;
+  z-index: 300;
+  margin-top: 2%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 80%;
+  background-color: $orange-yellow;
+  padding: 2% 2% 2% 2%;
+  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.pa {
+  margin-left: 70%;
+  margin-bottom: 10%;
+}
+
+.profile {
+  border-radius: 100%;
+  width: 50%;
+  height: 100%;
+}
+
+.alum {
+  display: flex;
+  flex-direction: column;
+  background-color: $white-yellow;
+  height: 15%;
+}
+
+.alumPics {
+  display: flex;
+  justify-content: space-evenly;
+  height: 42%;
+}
+
+.alumNames {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.latestNews {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsHeaders {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.FB {
+  width: 20%;
+  height: 80%;
+  border-radius: 2%;
+  margin-top: 1%;
+}
+
+.PAG {
+  width: 90%;
+  height: 80%;
+  border-radius: 2%;
+  margin-top: 5%;
+}
+
+.descriptions {
+  margin-top: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.description1 {
+  width: 40%;
+}
+
+.description2 {
+  width: 50%;
+}
+
+.mainBG {
+  position: relative;
+  width: 100%;
+  z-index: -5;
+  top: 0;
+  left: 0;
+}
+
+.aimBG {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  margin-top: .1%;
+  margin-left: .1%;
+  position: absolute;
+  z-index: 300;
+  text-align: center;
+  background-color: $cream;
+}
+
+.blastP {
+  height: 12em;
+  width: 12em;
+  margin-top: 4%;
+  left: 20%;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 300;
+  text-align: center;
+  background-color: $lime-green;
+}
+
+.three-d {
+  height: 12em;
+  width: 12em;
+  margin-top: 10%;
+  left: 45%;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 300;
+  text-align: center;
+  background-color: $lime-green;
+}
+
+.colorPath {
+  height: 12em;
+  width: 12em;
+  margin-top: 4%;
+  right: 20%;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 300;
+  text-align: center;
+  background-color: $lime-green;
 }
 
 table { empty-cells:show; }

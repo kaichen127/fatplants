@@ -6,15 +6,15 @@ declare var require: any;
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  partner1 = require('../assets/DD.png');
-  partner2 = require('../assets/partner2.jpg');
-  partner3 = require('../assets/partner3.jpg');
-  partner4 = require('../assets/WU.png');
-  partner5 = require('../assets/partner5.jpg');
-  partner6 = require('../assets/partner6.jpg');
-  image1 = require('../assets/1.png');
-  image2 = require('../assets/2.png');
-  image3 = require('../assets/3.png');
+  mainBG = require('../assets/homepageAssets/MainBG.png');
+  aimBG = require('../assets/homepageAssets/AimBG.png');
+  FB = require('../assets/homepageAssets/FB.png');
+  PAG = require('../assets/homepageAssets/News.png');
+  JT = require('../assets/homepageAssets/JT.png');
+  DA = require('../assets/homepageAssets/DA.png');
+  PB = require('../assets/homepageAssets/PB.png');
+  AK = require('../assets/homepageAssets/AK.png');
+  DX = require('../assets/homepageAssets/DX.png');
   constructor() { }
 
   ngOnInit() {
