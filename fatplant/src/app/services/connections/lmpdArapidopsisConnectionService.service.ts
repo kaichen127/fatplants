@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore,AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Lmpd_Arapidopsis,Lmpd_Arapidopsis_ID } from "../../interfaces/Lmpd_Arapidopsis";
+import { Lmpd_Arapidopsis,Lmpd_Arapidopsis_ID } from "../../interfaces/lmpd_Arapidopsis";
 import { Observable } from "rxjs";
 
 @Injectable({

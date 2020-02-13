@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
-import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
-import { GlmolComponent } from './glmol/glmol.component';
-import { ColorPathwayComponent } from './color-pathway/color-pathway.component';
-import { BlastComponent } from './blast/blast.component';
-import { GoNetworkComponent } from './go-network/go-network.component';
+import { DataAnalysisComponent } from './components/pages/onestopsearch/data-analysis/data-analysis.component';
+import { GlmolComponent } from './components/pages/tools/glmol/glmol.component';
+import { ColorPathwayComponent } from './components/pages/tools/color-pathway/color-pathway.component';
+import { BlastComponent } from './components/pages/tools/blast/blast.component';
+import { GoNetworkComponent } from './components/pages/networks/go-network/go-network.component';
 
 
 import { IntroductionComponent } from './components/pages/introductions/introduction/introduction.component';
 import { InvestigatorComponent } from './components/pages/introductions/investigator/investigator.component';
-import { GraphComponent } from './graph/graph.component';
+import { GraphComponent } from './components/pages/networks/protein-network/graph.component';
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 import { LmpddetailviewComponent } from './components/pages/datapages/lmpddetailview/lmpddetailview.component';
 import { LmpdArapidopsisComponent } from './components/pages/datapages/lmpd-arapidopsis/lmpd-arapidopsis.component';
@@ -31,7 +31,7 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'color-pathway', component: ColorPathwayComponent},
 {path: 'camelina', component: CameliaComponent},
 {path: 'fatty_acid', component: FattyacidComponent},
-{path: 'graph', component: GraphComponent},
+{path: 'protein-network', component: GraphComponent},
 {path: 'go-network', component: GoNetworkComponent},
 {path: 'one_click', component: DataAnalysisComponent},
 {path: 'blast', component: BlastComponent},
