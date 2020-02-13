@@ -5,7 +5,9 @@
   "projects": {
     "fatplant": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {  "@schematics/angular:component": {
+        "styleext": "scss"
+      }},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -35,7 +37,7 @@
             ],
             "styles": [
               "src/custom-theme.scss",
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/cytoscape/dist/cytoscape.min.js",
@@ -109,7 +111,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }

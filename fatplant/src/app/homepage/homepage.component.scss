@@ -1,5 +1,5 @@
 @import "~src/custom-theme.scss";
-
+@import "~src/variables.scss";
 
 a {text-decoration:none;  color:#285CAB; }
 a:hover { text-decoration:underline; color:#000000;}
@@ -11,6 +11,10 @@ mat-card {
 .header-title {
   font-size: 50px;
   text-shadow: 1px 1px black;
+}
+
+.primary {
+  color: $dark-green;
 }
 
 .main-title {
@@ -47,7 +51,6 @@ p {
 .sponsors {
   margin-top: 2%;
 }
-
 
 table { empty-cells:show; }
 .new_font_style { font-family: Impact; font-size: 22px; text-transform: uppercase; font-weight:normal; }
