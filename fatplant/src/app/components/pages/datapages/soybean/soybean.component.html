@@ -16,7 +16,7 @@
         </ng-container>
         <ng-container matColumnDef="uniprot_id">
               <mat-header-cell *matHeaderCellDef mat-sort-header> Uniprot Page </mat-header-cell>
-              <mat-cell *matCellDef="let elem"> <a href="http://uniprot.org/uniprot/{{elem.UniprotID}}" target="_blank">{{elem.UniprotID}}</a></mat-cell>
+              <mat-cell *matCellDef="let elem"> <a href='http://uniprot.org/uniprot/{{elem.UniprotID}}' target="_blank">{{elem.UniprotID}}</a></mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="refseq_id">

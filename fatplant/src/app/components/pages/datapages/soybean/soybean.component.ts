@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
-import { FirestoreConnectionService } from '../services/firestore-connection.service';
+import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
 
 @Component({
   selector: 'app-soybean',
