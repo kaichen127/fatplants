@@ -1,9 +1,9 @@
 <div class="container">
   <div class="homeLinks">
     <mat-card class="header">The comprehensive platform for plant fat related genes, proteins, and metabolism</mat-card>
-    <mat-card class="blastP">Blast P</mat-card>
-    <mat-card class="three-d">3D Structure</mat-card>
-    <mat-card class="colorPath">Color Pathway</mat-card>
+    <mat-card class="blastP"><br /><br /><h1>Blast P</h1></mat-card>
+    <mat-card class="three-d"><br /><br /><h1>3D Structure</h1></mat-card>
+    <mat-card class="colorPath"><br /><h1>Color Pathway</h1></mat-card>
     <img class="mainBG" [src]="mainBG" alt="mainBG" />
   </div>
   <div class="descriptions">
@@ -63,11 +63,11 @@
       </div>
       <div class="newsHeaders">
         <div class="story">
-          <a style="display:inline;" href="https://10times.com/pag" target="_blank">FatPlants is heading to PAG!</a><br />
+          <a class="newsLinks" href="https://10times.com/pag" target="_blank">FatPlants is heading to PAG!</a><br />
           <img class="PAG" [src]="PAG" alt="pag" />
         </div>
         <div class="story">
-          <a style="display:inline;" href="" target="_blank">Fatplants is transferring to Firebase!</a><br />
+          <a class="newsLinks" href="" target="_blank">Fatplants is transferring to Firebase!</a><br />
           <img class="FB" [src]="FB" alt="firebase" />
         </div>
       </div>
@@ -75,25 +75,36 @@
   </div>
   <mat-card class="alum">
     <div class="alumPics">
-      <div>
+      <div class="profileTotal">
         <img class="profile" [src]="JT" alt="jt" /><br />
-        Jay Thelen
+        <span class="profileSpan">Jay Thelen</span>
+        <span class="profileSpan">University of Missouri - Columbia</span>
+        <span class="profileSpan">thelenj@missouri.edu
+        </span>
       </div>
-      <div>
+      <div class="profileTotal">
         <img class="profile" [src]="DA" alt="da" /><br />
-        Douglas Allen
+        <span class="profileSpan">Douglas Allen</span>
+        <span class="profileSpan">Danforth Center USDA - ARS</span>
+        <span class="profileSpan">Doug.allen@ars.usda.gov</span>
       </div>
-      <div>
+      <div class="profileTotal">
         <img class="profile" [src]="PB" alt="pb" /><br />
-        Phillip Bates
+        <span class="profileSpan">Phillip Bates</span>
+        <span class="profileSpan">Washington State University</span>
+        <span class="profileSpan">phil bates@wsu.edu</span>
       </div>
-      <div>
+      <div class="profileTotal">
         <img class="profile" [src]="AK" alt="ak" /><br />
-        Abe Koo
+        <span class="profileSpan">Abe Koo</span>
+        <span class="profileSpan">University of Missouri - Columbia</span>
+        <span class="profileSpan">kooaj@missouri.edu</span>
       </div>
-      <div>
+      <div class="profileTotal">
         <img class="profile" [src]="DX" alt="dx" /><br />
-        Dong Xu
+        <span class="profileSpan">Dong Xu</span>
+        <span class="profileSpan">University of Missouri - Columbia</span>
+        <span class="profileSpan">xudong@missouri.edu</span>
       </div>
     </div>
     <div class="affiliation">

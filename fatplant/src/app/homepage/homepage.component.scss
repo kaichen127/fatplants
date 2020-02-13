@@ -1,5 +1,6 @@
 @import "~src/custom-theme.scss";
 @import "~src/variables.scss";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 a {text-decoration:none;  color:#285CAB; }
 a:hover { text-decoration:underline; color:#000000;}
@@ -34,6 +35,7 @@ mat-card {
 }
 
 .container {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   height: 100%;
   width: 80%;
   margin-left: 10%;
@@ -80,6 +82,7 @@ img {
   overflow: scroll;
   overflow-y: auto;
   overflow-x: hidden;
+  color: $white-yellow;
 }
 
 .pa {
@@ -89,8 +92,13 @@ img {
 
 .profile {
   border-radius: 100%;
-  width: 50%;
+  width: 10em;
   height: 100%;
+}
+
+.profileSpan {
+  width: 100%;
+  text-align: center;
 }
 
 .alum {
@@ -103,12 +111,12 @@ img {
 .alumPics {
   display: flex;
   justify-content: space-evenly;
-  height: 42%;
+  height: 45%;
 }
 
-.alumNames {
+.profileTotal {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .latestNews {
@@ -144,6 +152,14 @@ img {
 
 .description1 {
   width: 40%;
+  color: $light-green;
+  text-shadow: 1px 1px $main-green;
+}
+
+.newsLinks {
+  display:inline;
+  color: $light-green;
+  text-shadow: 1px 1px $main-green;
 }
 
 .description2 {
@@ -171,6 +187,8 @@ img {
   z-index: 300;
   text-align: center;
   background-color: $cream;
+  color: $orange-yellow;
+  text-shadow: 1px 1px $dark-green;
 }
 
 .blastP {
@@ -183,6 +201,8 @@ img {
   z-index: 300;
   text-align: center;
   background-color: $lime-green;
+  color: $light-green;
+  text-shadow: 2px 2px $dark-green;
 }
 
 .three-d {
@@ -195,6 +215,8 @@ img {
   z-index: 300;
   text-align: center;
   background-color: $lime-green;
+  color: $light-green;
+  text-shadow: 2px 2px $dark-green;
 }
 
 .colorPath {
@@ -207,6 +229,8 @@ img {
   z-index: 300;
   text-align: center;
   background-color: $lime-green;
+  color: $light-green;
+  text-shadow: 2px 2px $dark-green;
 }
 
 table { empty-cells:show; }

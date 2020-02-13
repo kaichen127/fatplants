@@ -1,3 +1,5 @@
+@import "~src/variables.scss";
+
 .nav-style{
   word-break: break-word;
   display: flex;
@@ -8,11 +10,13 @@
 }
 
 .nav-bar {
-  height: 4%;
+  height: 3%;
 }
 
 a{
   text-decoration: none;
+  color: $lime-green;
+  text-shadow: 2px 2px $dark-green;
 }
 
 li, button{
@@ -31,4 +35,11 @@ li, button{
 
 nav {
   width: 100%;
+}
+
+.dark-background {
+  background-color: $main-green;
+  color: $lime-green;
+  text-decoration: none;
+  text-shadow: 2px 2px $dark-green;
 }
