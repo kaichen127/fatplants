@@ -22,15 +22,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/viewer.html",
-              "src/js/GLmol.js",
-              "src/js/jquery-1.7.min.js",
-              "src/js/Three49custom.js",
-              "src/js/cytoscape-cola.js",
-              "src/demo.html",
-              "src/js",
-              "src/proteinNetView.html",
-              "src/goNetView.html"
+              "src/static"
             ],
             "styles": [
               "src/custom-theme.scss",
@@ -81,7 +73,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fatplant:build"
+            "browserTarget": "fatplant:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

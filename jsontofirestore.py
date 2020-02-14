@@ -13,11 +13,11 @@ app=firebase_admin.initialize_app(cred)
 
 client=firestore.client()
 
-with open('Jason_fatty_acid.json') as file:
+with open('data_soybean.json') as file:
     listofobj=json.load(file)
     ctr=0
     for obj in listofobj:
         for key in obj.keys():
             obj[key.replace(' ','')]=obj.pop(key)
-        doc_ref=client.collection('Fatty Acid').add(obj)
-        # print "doc added"
+        doc_ref=client.collection('Soybean').add(obj)
+        print "doc added"
