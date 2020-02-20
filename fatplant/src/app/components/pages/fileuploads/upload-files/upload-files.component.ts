@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { MobileService } from 'src/app/services/mobile/mobile.service';
 
 @Component({
   selector: 'app-upload-files',
@@ -25,8 +26,13 @@ export class UploadFilesComponent{
   isHovering: boolean;
   lab: string = "General";
 
-  constructor(private route:ActivatedRoute,private router:Router,private afs:AngularFirestore){}
+  constructor(private route:ActivatedRoute,private router:Router,private afs:AngularFirestore,
+    private mobileService: MobileService){}
   ngOnInit(){
+  }
+
+  get isMobile(): boolean {
+    return this.mobileService.isMobile();
   }
 
   files: File[]=[]
@@ -50,5 +56,10 @@ export class UploadFilesComponent{
   }
   triggerFileWindow() {
     document.getElementById('fileInput').click();
+  }
+  // set the class of this div dynamically for mobile devices
+  mobilePane() {
+    if (this.isMobile) return "mobilePane";
+    else return "pane";
   }
 }

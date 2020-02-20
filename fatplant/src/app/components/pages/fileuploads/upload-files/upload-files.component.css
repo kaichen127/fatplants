@@ -37,3 +37,7 @@ progress::-webkit-progress-value {
 #fileButton {
   margin-left: 5px;
 }
+.mobile {
+  margin: auto;
+  width: 95%;
+}

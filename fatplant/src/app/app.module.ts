@@ -42,6 +42,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { BlastComponent } from './components/pages/tools/blast/blast.component';
 import { LmpddetailviewComponent } from './components/pages/datapages/lmpddetailview/lmpddetailview.component';
 import { GoNetworkComponent } from './components/pages/networks/go-network/go-network.component';
@@ -103,6 +104,7 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
     MatPaginatorModule,
     MatSelectModule,
     MatMenuModule,
+    MatTooltipModule,
     CdkTableModule,
     HttpClientModule,
     FormsModule,

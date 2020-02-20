@@ -1,9 +1,22 @@
-.nav-style{
-  background-color: gray;
+/* using theme A colors */
+
+
+.mobile-nav{
+  margin-bottom: 15px;
+  background-color: #666666;
+  min-width: 500px;
+  min-height: 64px;
 }
 
-a{
-  color:powderblue;
+a {
+  color: white;
+  height: 64px;
+  align-items: center;
+  display: flex;
+}
+
+ul {
+  height: inherit;
 }
 
 li, button{
@@ -12,12 +25,23 @@ li, button{
 
 button{
   border: none;
-  background-color: gray;
-  color: powderblue;
-  width: 80px;
+}
+
+button:focus {
+  background-color: inherit;
 }
 
 .menu-item{
-  background-color:gray;
-  color: powderblue;
+  background-color: white;
+  color: black;
+}
+
+.icon {
+  margin: auto;
+}
+
+.active-nav {
+  border-bottom: 3px solid #91c784;
+  color: #9ec68f;
+  transition: border-bottom 0.5s, color 0.5s;
 }

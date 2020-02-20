@@ -2,7 +2,8 @@
     dropzone
     (hovered)="toggleHover($event)"
     (dropped)="onDrop($event)"
-    [class.hovering]="isHovering">
+    [class.hovering]="isHovering"
+    *ngIf="!isMobile">
     <h3>Drag Files Here</h3>
     <p>{{lab}} Lab</p>
 </div>
@@ -29,7 +30,7 @@
     </div>
 </div>
 
-<div class="pane">
+<div [class]="mobilePane()">
     <app-fileview></app-fileview>
 </div>
 
