@@ -6,11 +6,12 @@ html {
   box-sizing: inherit;
 }
 
-.column {
+mat-card {
+  width: 28%;
   float: left;
-  width: 20%;
-  margin-bottom: 16px;
-  padding: 0 8px;
+  margin-left: 2%;
+  margin-top: 3%;
+  font-family: 'Catamaran', sans-serif;
 }
 
 @media screen and (max-width: 650px) {
@@ -20,12 +21,7 @@ html {
   }
 }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
 .container {
-  padding: 0 16px;
 }
 
 .container::after, .row::after {
