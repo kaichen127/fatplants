@@ -1,6 +1,7 @@
 @import "~src/custom-theme.scss";
 @import "~src/variables.scss";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css?family=Catamaran:200&display=swap');
 
 a {text-decoration:none;  color:#285CAB; }
 a:hover { text-decoration:underline; color:#000000;}
@@ -25,6 +26,7 @@ mat-card {
 
 .news-title {
   font-size: 25px;
+  font-family: 'Catamaran', sans-serif;
   text-shadow: 1px 1px grey;
 }
 
@@ -59,7 +61,7 @@ p {
 
 .homeLinks {
   margin-top: 1%;
-  height: 30%;
+  height: 20%;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
 }
@@ -83,6 +85,23 @@ img {
   overflow-y: auto;
   overflow-x: hidden;
   color: $white-yellow;
+  font-family: 'Catamaran', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $light;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $dark;
 }
 
 .pa {
@@ -97,7 +116,7 @@ img {
 }
 
 .profileSpan {
-  width: 100%;
+  width: 80%;
   text-align: center;
 }
 
@@ -152,14 +171,14 @@ img {
 
 .description1 {
   width: 40%;
-  color: $light-green;
-  text-shadow: 1px 1px $main-green;
+  font-family: 'Catamaran', sans-serif;
+  color: black;
 }
 
 .newsLinks {
   display:inline;
   color: $light-green;
-  text-shadow: 1px 1px $main-green;
+  text-shadow: 1px 1px $lime-green;
 }
 
 .description2 {
@@ -174,10 +193,20 @@ img {
   left: 0;
 }
 
+.affiliations {
+  margin-top: 10%;
+  height: 10%;
+}
+
 .aimBG {
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+.affimg {
+  width: 25%;
+  height: 60%;
 }
 
 .header {
@@ -200,7 +229,7 @@ img {
   position: absolute;
   z-index: 300;
   text-align: center;
-  background-color: $lime-green;
+  background-image: linear-gradient($lime-green, $light-green);
   color: $light-green;
   text-shadow: 2px 2px $dark-green;
 }
@@ -214,7 +243,7 @@ img {
   position: absolute;
   z-index: 300;
   text-align: center;
-  background-color: $lime-green;
+  background-image: linear-gradient($lime-green, $light-green);
   color: $light-green;
   text-shadow: 2px 2px $dark-green;
 }
@@ -228,19 +257,45 @@ img {
   position: absolute;
   z-index: 300;
   text-align: center;
-  background-color: $lime-green;
+  background-image: linear-gradient($lime-green, $light-green);
   color: $light-green;
   text-shadow: 2px 2px $dark-green;
 }
 
-table { empty-cells:show; }
-.new_font_style { font-family: Impact; font-size: 22px; text-transform: uppercase; font-weight:normal; }
-sup,sub {	height: 0;	line-height: 1;	vertical-align: baseline;	_vertical-align: bottom;	position: relative;	}sup {	bottom: 1ex;}sub {	top: .5ex;}
-ul { padding:10px 0px 10px 30px; }
-ol { padding:10px 0px 10px 38px; }
+table {
+  empty-cells:show;
+}
 
-h2{ font-size:17px; line-height:22px; color:#406716; }
-h3{ font-size:13px; line-height:22px; color:#272727;  }
+.new_font_style {
+  font-family: Impact, serif; font-size: 22px; text-transform: uppercase; font-weight:normal;
+}
+
+sup,sub {
+  height: 0;
+  line-height: 1;
+  vertical-align: baseline;
+  _vertical-align: bottom;
+  position: relative;
+}
+
+sup {
+  bottom: 1ex;
+}
+
+sub {
+  top: .5ex;
+}
+
+ul {
+  padding:10px 0 10px 30px;
+}
+
+ol { padding:10px 0 10px 38px; }
+
+
+h3{
+  font-size:13px; line-height:22px; color:#272727;
+}
 
 
 /*
@@ -260,7 +315,7 @@ CSS GLOBAL
 
 
 */
-body {  margin:0 auto; padding-top: 0px; text-align: center; font-family:Arial, Helvetica, sans-serif; font-size: 12px; line-height: 120%; text-align:left; overflow-x: hidden;
+body {  margin:0 auto; padding-top: 0; text-align: center; font-family:Arial, Helvetica, sans-serif; font-size: 12px; line-height: 120%; text-align:left; overflow-x: hidden;
   background-attachment: fixed;   /* IE */  }
 
 

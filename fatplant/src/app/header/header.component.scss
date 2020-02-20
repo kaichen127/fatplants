@@ -22,6 +22,7 @@ a{
 li, button{
   height: 64px;
   margin-left: 2%;
+  cursor: pointer;
 }
 
 .menu{
@@ -29,8 +30,9 @@ li, button{
 }
 
 .menu-item{
-  background-color:gray;
-  color: powderblue;
+  background-image: linear-gradient($light-green, $main-green);
+  color: $lime-green;
+  text-shadow: none;
 }
 
 nav {
@@ -38,7 +40,7 @@ nav {
 }
 
 .dark-background {
-  background-color: $main-green;
+  background-image: linear-gradient($light-green, $main-green);
   color: $lime-green;
   text-decoration: none;
   text-shadow: 2px 2px $dark-green;

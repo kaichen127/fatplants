@@ -15,6 +15,10 @@ export class HomepageComponent implements OnInit {
   PB = require('../assets/homepageAssets/PB.png');
   AK = require('../assets/homepageAssets/AK.png');
   DX = require('../assets/homepageAssets/DX.png');
+  WSU = require('../assets/homepageAssets/WSU.png');
+  MU = require('../assets/homepageAssets/MU.png');
+  NSF = require('../assets/homepageAssets/NSF.png');
+  PSC = require('../assets/homepageAssets/PSC.png');
   constructor() { }
 
   ngOnInit() {

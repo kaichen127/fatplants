@@ -7,13 +7,19 @@ import {Router} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { TableComponent } from './table/table.component';
 import { LmpdArapidopsisComponent } from './lmpd-arapidopsis/lmpd-arapidopsis.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
 import { DatatableComponent } from './datatable/datatable.component';
-import { MatTableModule, MatSelectModule, MatListModule, MatIconModule, MatCardModule } from '@angular/material';
+import {
+  MatTableModule,
+  MatSelectModule,
+  MatListModule,
+  MatIconModule,
+  MatCardModule,
+  MatButtonModule
+} from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material';
 import { MatPaginatorModule} from '@angular/material/paginator';
@@ -59,7 +65,6 @@ import { GoNetworkComponent } from './go-network/go-network.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     TableComponent,
     LmpdArapidopsisComponent,
     HomepageComponent,
@@ -115,7 +120,8 @@ import { GoNetworkComponent } from './go-network/go-network.component';
     MatListModule,
     HttpClientModule,
     FormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
