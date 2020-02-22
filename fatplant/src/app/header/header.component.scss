@@ -1,0 +1,47 @@
+@import "~src/variables.scss";
+
+.nav-style{
+  word-break: break-word;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  list-style-type: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.nav-bar {
+  height: 3%;
+}
+
+a{
+  text-decoration: none;
+  color: $lime-green;
+  text-shadow: 2px 2px $dark-green;
+}
+
+li, button{
+  height: 64px;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.menu{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.menu-item{
+  background-image: linear-gradient($light-green, $main-green);
+  color: $lime-green;
+  text-shadow: none;
+}
+
+nav {
+  width: 100%;
+}
+
+.dark-background {
+  background-image: linear-gradient($light-green, $main-green);
+  color: $lime-green;
+  text-decoration: none;
+  text-shadow: 2px 2px $dark-green;
+}

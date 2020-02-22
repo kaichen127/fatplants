@@ -1,3 +1,32 @@
+<mat-card class="nav-bar dark-background" *ngIf='!isMobile'>
+<nav>
+  <ul  class="nav-style light">
+    <li><a class="light" href="/">HOME</a></li>
+    <li><a class="light" href="/introduction">INTRODUCTION</a></li>
+
+    <!-- <li><a href="/go-network">GO Network</a></li> -->
+    <li><div class="menu" [matMenuTriggerFor]="dataMenu">OUR DATA</div></li>
+    <li><a class="light" routerLink="/upload">FILE LIBRARY</a></li>
+    <li><a class="light" routerLink="/one_click">SEARCH</a></li>
+    <li><div class="menu" [matMenuTriggerFor]="graphMenu">NETWORKING</div></li>
+    <li><a class="light" href="/investigator">STAFF</a></li>
+    <li><div class="menu" [matMenuTriggerFor]="toolsMenu">TOOLS</div></li>
+    <!--      <li><a routerLink="/graph">Protein-Protein Network</a></li>-->
+<!--    <li><a class="light" href="http://www.muscifest.com/">SCI-FEST</a></li>-->
+    <!--    <li><a href="/goNetView.html">GO Net</a></li>-->
+    <!--      <li><a href="/viewer.html">viewer</a></li>-->
+    <!--      <li><a href="/proteinNetView.html">Protein Net</a></li>-->
+
+
+  </ul>
+</nav>
+</mat-card>
+<mat-menu #dataMenu>
+  <a mat-menu-item routerLink="/lmpd_arapidopsis" class="menu-item">Arabidopsis</a>
+  <a mat-menu-item routerLink="/camelina" class="menu-item">Camelina</a>
+  <a mat-menu-item routerLink="/soybean" class="menu-item">Soybean</a>
+  <a mat-menu-item routerLink="/fatty_acid" class="menu-item">Fatty Acid</a>
+</mat-menu>
 
 
 <!-- Mobile menu 1: no icons
@@ -29,7 +58,7 @@
     </ul>
     </div>
 </nav> -->
-      <div class="nav-wrapper nav-style">
+      <div class="nav-wrapper nav-style" *ngIf="isMobile">
             <nav class="mobile-nav">
             <span class="title">FatPlant</span>
             <ul class="right" id="mobile-burger">

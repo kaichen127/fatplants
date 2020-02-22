@@ -7,14 +7,20 @@ import {Router} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { TableComponent } from './table/table.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { DataAnalysisComponent } from './components/pages/onestopsearch/data-analysis/data-analysis.component';
-import { MatTableModule, MatSelectModule, MatListModule, MatIconModule, MatCardModule } from '@angular/material';
+//import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
+//import { DataTableComponent } from './datatable/datatable.component';
+import {
+  MatTableModule,
+  MatSelectModule,
+  MatListModule,
+  MatIconModule,
+  MatCardModule,
+  MatButtonModule
+} from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material';
-import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -61,11 +67,10 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     TableComponent,
     LmpdArapidopsisComponent,
     HomepageComponent,
-    DataAnalysisComponent,
+    // DataAnalysisComponent,
     DatatableComponent,
     GlmolComponent,
     ColorPathwayComponent,
@@ -119,7 +124,8 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
     HttpClientModule,
     FormsModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

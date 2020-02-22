@@ -1,17 +1,14 @@
-<div>
-  <h3>Arapidopsis</h3>
-  <p>This is the fatty-related proteins of <i>Arabidopsis thaliana.</i></p>
-  <p>The column, 'Uniprot Page' and 'Refseq page' will redirect the entry protein to UniProt and NCBI pages.</p>
-  <p>Protein Entry column will redirect to our internal details information page of entry protein.</p>
-  <p>More Info card will pop up a card of identifiers of entry protein.</p>
-</div>
-
 <mat-menu #dropdownMenu>
 <app-lmpd-card [fields]="cardfields" [headers]="headerfields" [subheaders]="subheaders"></app-lmpd-card>
 </mat-menu>
 
-<div class="mat-elevation-z8">
+<mat-card class="mat-elevation-z8">
       <div>
+        <h3>Arapidopsis</h3>
+        <p>This is the fatty-related proteins of <i>Arabidopsis thaliana.</i></p>
+        <p>The column, 'Uniprot Page' and 'Refseq page' will redirect the entry protein to UniProt and NCBI pages.</p>
+        <p>Protein Entry column will redirect to our internal details information page of entry protein.</p>
+        <p>More Info card will pop up a card of identifiers of entry protein.</p>
         <mat-form-field>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
@@ -54,7 +51,7 @@
 
                   <ng-container matColumnDef="moreInfo">
                       <mat-header-cell *matHeaderCellDef mat-sort-header>More</mat-header-cell>
-                      <mat-cell *matCellDef="let elem"><button mat-button [matMenuTriggerFor]="dropdownMenu" (click)="changeElem(elem)">More Info?</button></mat-cell>
+                      <mat-cell *matCellDef="let elem"><button mat-raised-button [matMenuTriggerFor]="dropdownMenu" (click)="changeElem(elem)">More Info?</button></mat-cell>
                   </ng-container>
 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
