@@ -46,6 +46,9 @@ button:focus {
   border-left: 3px solid #91c784;
   transition: border-left 0.5s, color 0.5s;
 }
+.active-nav>mat-icon {
+  color: #91c784;
+}
 .title {
   margin-left: 10px;
 }

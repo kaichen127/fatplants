@@ -16,7 +16,8 @@
   <a mat-menu-item routerLink="/go-network" routerLinkActive="active-nav" class="menu-item">GO enrichment Network</a>
 </mat-menu>
 
-<mat-menu #mobileMenu>
+<!-- Mobile menu 1: no icons
+      <mat-menu #mobileMenu>
       <a mat-menu-item routerLink="/homepage" routerLinkActive="active-nav" class="menu-item">Home</a>
       <a mat-menu-item routerLink="/introduction" routerLinkActive="active-nav" class="menu-item">Introduction</a>
       <a mat-menu-item routerLink="/investigator" routerLinkActive="active-nav" class="menu-item">Investigators</a>
@@ -25,6 +26,26 @@
       <button mat-menu-item [matMenuTriggerFor]="toolsMenu">Tools</button>
       <button mat-menu-item [matMenuTriggerFor]="graphMenu">Networks</button>
       <a mat-menu-item routerLink="/files" routerLinkActive="active-nav" class="menu-item">Files</a>
+      <a mat-menu-item href="http://www.muscifest.com" target="_blank" class="menu-item">Sci-FEST</a>
+</mat-menu> -->
+<!-- Mobile menu 2: with icons -->
+<mat-menu #mobileMenu>
+      <a mat-menu-item routerLink="/homepage" routerLinkActive="active-nav" class="menu-item">
+            <mat-icon>home</mat-icon>Home</a>
+      <a mat-menu-item routerLink="/introduction" routerLinkActive="active-nav" class="menu-item">
+            <mat-icon>help</mat-icon>Introduction</a>
+      <a mat-menu-item routerLink="/investigator" routerLinkActive="active-nav" class="menu-item">
+            <mat-icon>people</mat-icon>Investigators</a>
+      <a mat-menu-item routerLink="/one_click" routerLinkActive="active-nav" class="menu-item">
+            <mat-icon>search</mat-icon>One-Stop Search</a>
+      <button mat-menu-item [matMenuTriggerFor]="dataMenu">
+            <mat-icon>graphic_eq</mat-icon>Data</button>
+      <button mat-menu-item [matMenuTriggerFor]="toolsMenu">
+            <mat-icon>build</mat-icon>Tools</button>
+      <button mat-menu-item [matMenuTriggerFor]="graphMenu">
+            <mat-icon>signal_cellular_alt</mat-icon>Networks</button>
+      <a mat-menu-item routerLink="/files" routerLinkActive="active-nav" class="menu-item">
+            <mat-icon>attach_file</mat-icon>Files</a>
       <a mat-menu-item href="http://www.muscifest.com" target="_blank" class="menu-item">Sci-FEST</a>
 </mat-menu>
 
