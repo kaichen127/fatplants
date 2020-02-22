@@ -8,7 +8,7 @@
     flex-direction: column;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center;
+    align-items: normal;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
 	  justify-content: space-between;
@@ -28,7 +28,10 @@ button:focus {
 #sideNav {
     display: flex;
 }
-#sideNavContainer {
+.absolute {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
 }
