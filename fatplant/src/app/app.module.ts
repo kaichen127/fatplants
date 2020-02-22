@@ -9,8 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 import { HomepageComponent } from './homepage/homepage.component';
-//import { DataAnalysisComponent } from './data-analysis/data-analysis.component';
-//import { DataTableComponent } from './datatable/datatable.component';
+import { DataAnalysisComponent } from './components/pages/onestopsearch/data-analysis/data-analysis.component';
 import {
   MatTableModule,
   MatSelectModule,
@@ -70,7 +69,6 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
     TableComponent,
     LmpdArapidopsisComponent,
     HomepageComponent,
-    // DataAnalysisComponent,
     DatatableComponent,
     GlmolComponent,
     ColorPathwayComponent,
@@ -90,7 +88,8 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
     LmpddetailviewComponent,
     GoNetworkComponent,
     LmpddetailviewComponent,
-    SoybeanComponent
+    SoybeanComponent,
+    DataAnalysisComponent
   ],
   imports: [
     BrowserModule,
