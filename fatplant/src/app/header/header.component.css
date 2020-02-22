@@ -13,10 +13,12 @@ a {
   height: 64px;
   align-items: center;
   display: flex;
+  /* justify-content: space-between; fix between to fill out entire page */
 }
 
 ul {
   height: inherit;
+
 }
 
 li, button{
@@ -41,7 +43,14 @@ button:focus {
 }
 
 .active-nav {
-  border-bottom: 3px solid #91c784;
-  color: #9ec68f;
-  transition: border-bottom 0.5s, color 0.5s;
+  border-left: 3px solid #91c784;
+  transition: border-left 0.5s, color 0.5s;
+}
+.title {
+  margin-left: 10px;
+}
+
+#mobile-burger {
+  position: sticky;
+  right: 0;
 }

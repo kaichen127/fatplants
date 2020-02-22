@@ -1,19 +1,31 @@
 <mat-menu #dataMenu>
-  <a mat-menu-item routerLink="/lmpd_arapidopsis" class="menu-item">Arabidopsis</a>
-  <a mat-menu-item routerLink="/camelina" class="menu-item">Camelina</a>
-  <a mat-menu-item routerLink="/soybean" class="menu-item">Soybean</a>
-  <a mat-menu-item routerLink="/fatty_acid" class="menu-item">Fatty Acid</a>
+  <a mat-menu-item routerLink="/lmpd_arapidopsis" routerLinkActive="active-nav" class="menu-item">Arabidopsis</a>
+  <a mat-menu-item routerLink="/camelina" routerLinkActive="active-nav" class="menu-item">Camelina</a>
+  <a mat-menu-item routerLink="/soybean" routerLinkActive="active-nav" class="menu-item">Soybean</a>
+  <a mat-menu-item routerLink="/fatty_acid" routerLinkActive="active-nav"  class="menu-item">Fatty Acid</a>
 </mat-menu>
 
 <mat-menu #toolsMenu>
-  <a mat-menu-item routerLink="/blast" class="menu-item">Blastp</a>
-  <a mat-menu-item routerLink="/glmol" class="menu-item">3D Structure</a>
-  <a mat-menu-item routerLink="/color-pathway" class="menu-item">Color Pathway</a>
+  <a mat-menu-item routerLink="/blast" routerLinkActive="active-nav" class="menu-item">Blastp</a>
+  <a mat-menu-item routerLink="/glmol" routerLinkActive="active-nav" class="menu-item">3D Structure</a>
+  <a mat-menu-item routerLink="/color-pathway" routerLinkActive="active-nav" class="menu-item">Color Pathway</a>
 </mat-menu>
 
 <mat-menu #graphMenu>
-  <a mat-menu-item routerLink="/protein-network" class="menu-item">Protein-Protein Network</a>
-  <a mat-menu-item routerLink="/go-network" class="menu-item">GO enrichment Network</a>
+  <a mat-menu-item routerLink="/protein-network" routerLinkActive="active-nav" class="menu-item">Protein-Protein Network</a>
+  <a mat-menu-item routerLink="/go-network" routerLinkActive="active-nav" class="menu-item">GO enrichment Network</a>
+</mat-menu>
+
+<mat-menu #mobileMenu>
+      <a mat-menu-item routerLink="/homepage" routerLinkActive="active-nav" class="menu-item">Home</a>
+      <a mat-menu-item routerLink="/introduction" routerLinkActive="active-nav" class="menu-item">Introduction</a>
+      <a mat-menu-item routerLink="/investigator" routerLinkActive="active-nav" class="menu-item">Investigators</a>
+      <a mat-menu-item routerLink="/one_click" routerLinkActive="active-nav" class="menu-item">One-Stop Search</a>
+      <button mat-menu-item [matMenuTriggerFor]="dataMenu">Data</button>
+      <button mat-menu-item [matMenuTriggerFor]="toolsMenu">Tools</button>
+      <button mat-menu-item [matMenuTriggerFor]="graphMenu">Networks</button>
+      <a mat-menu-item routerLink="/files" routerLinkActive="active-nav" class="menu-item">Files</a>
+      <a mat-menu-item href="http://www.muscifest.com" target="_blank" class="menu-item">Sci-FEST</a>
 </mat-menu>
 
 <!-- 
@@ -33,8 +45,10 @@
 </nav> -->
       <div class="nav-wrapper nav-style">
             <nav class="mobile-nav">
-            <ul class="left">
-                  <li><a routerLink="/homepage" routerLinkActive="active-nav" matTooltip="Home">
+            <span class="title">FatPlant</span>
+            <ul class="right" id="mobile-burger">
+                  <li><button mat-button [matMenuTriggerFor]="mobileMenu"><mat-icon>list</mat-icon></button></li>
+                  <!-- <li><a routerLink="/homepage" routerLinkActive="active-nav" matTooltip="Home">
                         <mat-icon class="icon">home</mat-icon>
                   </a></li>
                   <li><a routerLink="/introduction" routerLinkActive="active-nav" matTooltip="Info">
@@ -49,7 +63,7 @@
       <li><button mat-button [matMenuTriggerFor]="toolsMenu" matTooltip="Tools"><mat-icon>build</mat-icon></button></li>
       <li><button mat-button [matMenuTriggerFor]="graphMenu" matTooltip="Networks"><mat-icon>signal_cellular_alt</mat-icon></button></li>
       <li><a routerLink="/files" routerLinkActive="active-nav" matTooltip="Files"><mat-icon>attach_file</mat-icon></a></li>
-      <li><a href="http://www.muscifest.com/" target="_blank" matTooltip="Sci-FEST">Sci-FEST</a></li>
+      <li><a href="http://www.muscifest.com/" target="_blank" matTooltip="Sci-FEST">Sci-FEST</a></li> -->
             </ul>
       </nav>
 </div>
