@@ -1,20 +1,4 @@
-<mat-menu #dataMenu>
-  <a mat-menu-item routerLink="/lmpd_arapidopsis" routerLinkActive="active-nav" class="menu-item">Arabidopsis</a>
-  <a mat-menu-item routerLink="/camelina" routerLinkActive="active-nav" class="menu-item">Camelina</a>
-  <a mat-menu-item routerLink="/soybean" routerLinkActive="active-nav" class="menu-item">Soybean</a>
-  <a mat-menu-item routerLink="/fatty_acid" routerLinkActive="active-nav"  class="menu-item">Fatty Acid</a>
-</mat-menu>
 
-<mat-menu #toolsMenu>
-  <a mat-menu-item routerLink="/blast" routerLinkActive="active-nav" class="menu-item">Blastp</a>
-  <a mat-menu-item routerLink="/glmol" routerLinkActive="active-nav" class="menu-item">3D Structure</a>
-  <a mat-menu-item routerLink="/color-pathway" routerLinkActive="active-nav" class="menu-item">Color Pathway</a>
-</mat-menu>
-
-<mat-menu #graphMenu>
-  <a mat-menu-item routerLink="/protein-network" routerLinkActive="active-nav" class="menu-item">Protein-Protein Network</a>
-  <a mat-menu-item routerLink="/go-network" routerLinkActive="active-nav" class="menu-item">GO enrichment Network</a>
-</mat-menu>
 
 <!-- Mobile menu 1: no icons
       <mat-menu #mobileMenu>
@@ -29,25 +13,6 @@
       <a mat-menu-item href="http://www.muscifest.com" target="_blank" class="menu-item">Sci-FEST</a>
 </mat-menu> -->
 <!-- Mobile menu 2: with icons -->
-<mat-menu #mobileMenu>
-      <a mat-menu-item routerLink="/homepage" routerLinkActive="active-nav" class="menu-item">
-            <mat-icon>home</mat-icon>Home</a>
-      <a mat-menu-item routerLink="/introduction" routerLinkActive="active-nav" class="menu-item">
-            <mat-icon>help</mat-icon>Introduction</a>
-      <a mat-menu-item routerLink="/investigator" routerLinkActive="active-nav" class="menu-item">
-            <mat-icon>people</mat-icon>Investigators</a>
-      <a mat-menu-item routerLink="/one_click" routerLinkActive="active-nav" class="menu-item">
-            <mat-icon>search</mat-icon>One-Stop Search</a>
-      <button mat-menu-item [matMenuTriggerFor]="dataMenu">
-            <mat-icon>graphic_eq</mat-icon>Data</button>
-      <button mat-menu-item [matMenuTriggerFor]="toolsMenu">
-            <mat-icon>build</mat-icon>Tools</button>
-      <button mat-menu-item [matMenuTriggerFor]="graphMenu">
-            <mat-icon>signal_cellular_alt</mat-icon>Networks</button>
-      <a mat-menu-item routerLink="/files" routerLinkActive="active-nav" class="menu-item">
-            <mat-icon>attach_file</mat-icon>Files</a>
-      <a mat-menu-item href="http://www.muscifest.com" target="_blank" class="menu-item">Sci-FEST</a>
-</mat-menu>
 
 <!-- 
 <nav class="nav-class" *ngIf="!isMobile">
@@ -68,7 +33,7 @@
             <nav class="mobile-nav">
             <span class="title">FatPlant</span>
             <ul class="right" id="mobile-burger">
-                  <li><button mat-button [matMenuTriggerFor]="mobileMenu"><mat-icon>list</mat-icon></button></li>
+                  <li><button mat-button (click)="sideNav.toggle()"><mat-icon>list</mat-icon></button></li>
                   <!-- <li><a routerLink="/homepage" routerLinkActive="active-nav" matTooltip="Home">
                         <mat-icon class="icon">home</mat-icon>
                   </a></li>

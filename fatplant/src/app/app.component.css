@@ -14,3 +14,21 @@
 	  justify-content: space-between;
     background-size: cover;
 }
+
+.active-nav {
+    border-left: 3px solid #91c784;
+    transition: border-left 0.5s, color 0.5s;
+}
+.active-nav>mat-icon {
+    color: #91c784;
+}
+button:focus {
+    background-color: inherit;
+}
+#sideNav {
+    display: flex;
+}
+#sideNavContainer {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
