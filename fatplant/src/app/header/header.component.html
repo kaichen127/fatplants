@@ -1,15 +1,15 @@
 <mat-card class="nav-bar dark-background" *ngIf='!isMobile'>
 <nav>
   <ul  class="nav-style light">
-    <li><a class="light" href="/">HOME</a></li>
-    <li><a class="light" href="/introduction">INTRODUCTION</a></li>
+    <li><a class="light" routerLink="/">HOME</a></li>
+    <li><a class="light" routerLink="/introduction">INTRODUCTION</a></li>
 
     <!-- <li><a href="/go-network">GO Network</a></li> -->
     <li><div class="menu" [matMenuTriggerFor]="dataMenu">OUR DATA</div></li>
-    <li><a class="light" routerLink="/upload">FILE LIBRARY</a></li>
+    <li><a class="light" routerLink="/files">FILE LIBRARY</a></li>
     <li><a class="light" routerLink="/one_click">SEARCH</a></li>
     <li><div class="menu" [matMenuTriggerFor]="graphMenu">NETWORKING</div></li>
-    <li><a class="light" href="/investigator">STAFF</a></li>
+    <li><a class="light" routerLink="/investigator">STAFF</a></li>
     <li><div class="menu" [matMenuTriggerFor]="toolsMenu">TOOLS</div></li>
     <!--      <li><a routerLink="/graph">Protein-Protein Network</a></li>-->
 <!--    <li><a class="light" href="http://www.muscifest.com/">SCI-FEST</a></li>-->
@@ -61,8 +61,7 @@
       <div class="nav-wrapper nav-style" *ngIf="isMobile">
             <nav class="mobile-nav">
             <span class="title">FatPlant</span>
-            <ul class="right" id="mobile-burger">
-                  <li><button mat-button (click)="sideNav.toggle()"><mat-icon>list</mat-icon></button></li>
+            <button mat-button (click)="sideNav.toggle()" class="right"><mat-icon>list</mat-icon></button>
                   <!-- <li><a routerLink="/homepage" routerLinkActive="active-nav" matTooltip="Home">
                         <mat-icon class="icon">home</mat-icon>
                   </a></li>
@@ -79,6 +78,6 @@
       <li><button mat-button [matMenuTriggerFor]="graphMenu" matTooltip="Networks"><mat-icon>signal_cellular_alt</mat-icon></button></li>
       <li><a routerLink="/files" routerLinkActive="active-nav" matTooltip="Files"><mat-icon>attach_file</mat-icon></a></li>
       <li><a href="http://www.muscifest.com/" target="_blank" matTooltip="Sci-FEST">Sci-FEST</a></li> -->
-            </ul>
+            
       </nav>
 </div>

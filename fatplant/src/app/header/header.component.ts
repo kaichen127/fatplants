@@ -9,9 +9,13 @@ import { MatSidenav } from '@angular/material';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mobileService: MobileService) { }
 
   ngOnInit() {
+  }
+
+  get isMobile(): boolean {
+    return this.mobileService.isMobile();
   }
 
   @Input() sideNav: MatSidenav;

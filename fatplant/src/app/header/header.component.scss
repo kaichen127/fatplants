@@ -45,3 +45,31 @@ nav {
   text-decoration: none;
   text-shadow: 2px 2px $dark-green;
 }
+
+.mobile-nav {
+  margin-bottom: 15px;
+  color: white;
+  background-color: #666666;
+  min-width: 500px;
+  min-height: 64px;
+}
+.mobile-a {
+  color: white;
+  height: 64px;
+  align-items: center;
+  display: flex;
+  /* justify-content: space-between; fix between to fill out entire page */
+}
+
+.title {
+  margin-left: 10px;
+}
+#mobile-burger {
+  position: sticky;
+  right: 0;
+}
+.right {
+  float: right;
+  position: absolute;
+  right: 0;
+}
