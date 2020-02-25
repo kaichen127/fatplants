@@ -1,115 +1,79 @@
-<div class="row columns" style="width: 1000px">
-  <div class="columns small-10 small-centered textrow ">
-
+<div class="row columns" style="min-width: 1000px">
+  <div class="col s10 small-centered textrow ">
     <h1>Blast Tools</h1>
-    <p>BLAST finds regions of similarity between biological sequences. The program</p>
-    <p>compares nucleotide or protein sequences to sequence databases and calculates</p>
-    <p>the statistical significance.</p>
+    <p>BLAST finds regions of similarity between biological sequences.</p>
+    <p>The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.</p>
   </div>
 </div>
-<!--<div class="container" style="width: 500px">-->
 
-  <div class="row">
-    <div class="input-field col s6">
-      <textarea style="height: 100px" name="fasta" class="browser-default" placeholder="Sequence" [(ngModel)]="proteinSeq" ></textarea>
-      <!--        <label for="fasta">Sequence</label>-->
-    </div>
-
-  </div>
-  <div class="row">
-    <div class="col s2">
-      <input class="with-gap" name="method" type="radio" id="BlastP" value="blastp" (change)="SelectBlastP()"/>
-      <label for="BlastP">BlastP</label>
-    </div>
-<!--    <div class="col s2">-->
-<!--      <input class="with-gap" name="method" type="radio" id="BlastX" value="blastx" (change)="SelectBlastP()"/>-->
-<!--      <label for="BlastX">BlastX</label>-->
-<!--    </div>-->
-  </div>
-  <div class="row">
-    <div class="col s6">
-      <label>Protein Database</label>
-      <select name="ProteinDatabase" class="browser-default" [(ngModel)]="database">
-        <option value="Arabidopsis" selected>Arabidopsis</option>
-        <option value="Soybean">Soybean</option>
-      </select>
-    </div>
+<div class="row">
+  <div class="input-field col s6">
+    <textarea style="height: 100px" name="fasta" class="browser-default" placeholder="Sequence"
+      [(ngModel)]="proteinSeq"></textarea>
   </div>
 
-  <div class="row">
-    <div class="col s6">
-      <label>E-value threshold</label>
-      <select class="browser-default" [(ngModel)]="evalue">
-        <option value="0.0001">0.0001</option>
-        <option value="0.001">0.001</option>
-        <option value="0.01">0.01</option>
-        <option value="1">1</option>
-        <option value="10" selected>10</option>
-        <option value="100">100</option>
-        <option value="1000">1000</option>
-      </select>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s6">
-      <label>Scoring matrix</label>
-      <select class="browser-default" [(ngModel)]="matrix">
-        <option value="PAM30">PAM30</option>
-        <option value="PAM70">PAM70</option>
-        <option value="PAM250">PAM250</option>
-        <option value="BLOSUM80">BLOSUM80</option>
-        <option value="BLOSUM62" selected>BLOSUM62</option>
-        <option value="BLOSUM45">BLOSUM45</option>
-        <option value="BLOSUM50">BLOSUM50</option>
-        <option value="BLOSUM90">BLOSUM90</option>
-      </select>
-    </div>
+</div>
+<div class="row">
+  <div class="col s2">
+    <input class="with-gap" name="method" type="radio" id="BlastP" value="blastp" (change)="SelectBlastP()" />
+    <label for="BlastP">BlastP</label>
   </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col s2">-->
-<!--      <input class="with-gap" name="method" type="radio" id="BlastN" formControlName="method" value="blastn" (change)="SelectBlastN()"/>-->
-<!--      <label for="BlastN">BlastN</label>-->
-<!--    </div>-->
-<!--    <div class="col s2">-->
-<!--      <input class="with-gap" name="method" type="radio" id="TBlastX" formControlName="method" value="tblastx" (change)="SelectBlastN()"/>-->
-<!--      <label for="TBlastX">TBlastX</label>-->
-<!--    </div>-->
-<!--    <div class="col s2">-->
-<!--      <input class="with-gap" name="method" type="radio" id="TBlastN" formControlName="method" value="tblastn" (change)="SelectBlastN()"/>-->
-<!--      <label for="TBlastN">TBlastN</label>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--  <div class="row">-->
-<!--    <div *ngIf="isBlastN" class="col s6">-->
-<!--      <label>Nucleotide Database</label>-->
-<!--      <select class="browser-default" formControlName="NucleotideDatabase">-->
-<!--        <option value="Glyma1.cDNA.fa" selected>Glyma1.cDNA.fa</option>-->
-<!--        <option value="Glyma1.cds.fa">Glyma1.cds.fa</option>-->
-<!--        <option value="Genome Version 1.0">Genome Version 1.0</option>-->
-<!--        <option value="Genome Version 9.0">Genome Version 9.0</option>-->
-<!--        <option value="Full Length CDNA">Full Length CDNA</option>-->
-<!--        <option value="Gmax_189_cds.fa">Gmax_189_cds.fa</option>-->
-<!--        <option value="Gmax_189_transcript.fa">Gmax_189_transcript.fa</option>-->
-<!--      </select>-->
-<!--    </div>-->
-<!--  </div>-->
-
-  <div class="row">
-    <div class="col s3">
-      <button class="btn waves-effect waves-light" type="submit" name="action" (click)="onSubmit()" >submit
-      </button>
-    </div>
-    <div class="col s3">
-      <button class="btn waves-effect waves-light" type="reset" name="action">clear
-      </button>
-    </div>
-
+</div>
+<div class="row">
+  <div class="col s6">
+    <label>Protein Database</label>
+    <select name="ProteinDatabase" class="browser-default" [(ngModel)]="database">
+      <option value="Arabidopsis" selected>Arabidopsis</option>
+      <option value="Soybean">Soybean</option>
+    </select>
   </div>
+</div>
+
+<div class="row">
+  <div class="col s6">
+    <label>E-value threshold</label>
+    <select class="browser-default" [(ngModel)]="evalue">
+      <option value="0.0001">0.0001</option>
+      <option value="0.001">0.001</option>
+      <option value="0.01">0.01</option>
+      <option value="1">1</option>
+      <option value="10" selected>10</option>
+      <option value="100">100</option>
+      <option value="1000">1000</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col s6">
+    <label>Scoring matrix</label>
+    <select class="browser-default" [(ngModel)]="matrix">
+      <option value="PAM30">PAM30</option>
+      <option value="PAM70">PAM70</option>
+      <option value="PAM250">PAM250</option>
+      <option value="BLOSUM80">BLOSUM80</option>
+      <option value="BLOSUM62" selected>BLOSUM62</option>
+      <option value="BLOSUM45">BLOSUM45</option>
+      <option value="BLOSUM50">BLOSUM50</option>
+      <option value="BLOSUM90">BLOSUM90</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s3">
+    <button class="btn waves-effect waves-light" type="submit" name="action" (click)="onSubmit()">submit
+    </button>
+  </div>
+  <div class="col s3">
+    <button class="btn waves-effect waves-light" type="reset" name="action">clear
+    </button>
+  </div>
+
+</div>
 
 <div class="row" *ngFor="let res of blastRes">
-  <div style="max-width: 800px">
+  <div class="col s10">
     <div class="card">
       <div class="card-content">
         <!--        <span class="card-title">{{res.title}}</span>-->
@@ -118,7 +82,3 @@
     </div>
   </div>
 </div>
-
-
-
-
