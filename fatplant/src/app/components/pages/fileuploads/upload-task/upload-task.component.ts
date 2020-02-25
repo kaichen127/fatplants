@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
 import { tap, finalize } from 'rxjs/operators';
@@ -8,12 +8,14 @@ import { AngularFirestore } from 'angularfire2/firestore';
 @Component({
   selector: 'app-upload-task',
   templateUrl: './upload-task.component.html',
-  styleUrls: ['./upload-task.component.css']
+  styleUrls: ['./upload-task.component.css'],
 })
 export class UploadTaskComponent implements OnInit {
 
   @Input() file:File;
   @Input() lab:string;
+
+  @Output() delete: EventEmitter<File> = new EventEmitter();
   
   task: AngularFireUploadTask;
 
@@ -49,9 +51,14 @@ export class UploadTaskComponent implements OnInit {
     );
   }
 
+  deleteThis() {
+    this.delete.emit(this.file);
+  }
+
   isActive(snapshot){
     return snapshot.state==='running' &&snapshot.bytesTrasnferred <snapshot.totalBytes;
   }
+  
 
 
 }

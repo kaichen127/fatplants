@@ -14,6 +14,7 @@ import { DataAnalysisComponent } from './components/pages/onestopsearch/data-ana
 import { MatTableModule, MatSelectModule, MatListModule, MatIconModule, MatCardModule } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -96,6 +97,7 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     MatListModule,
     MatIconModule,
     MatPaginatorModule,
