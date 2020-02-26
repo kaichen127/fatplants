@@ -7,7 +7,7 @@ html {
 }
 
 mat-card {
-  width: 28%;
+  max-width: 350px;
   float: left;
   margin-left: 2%;
   font-family: 'Catamaran', sans-serif;
