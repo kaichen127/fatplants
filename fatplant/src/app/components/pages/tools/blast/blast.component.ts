@@ -45,7 +45,7 @@ export class BlastComponent implements OnInit {
   }
   onSubmit() {
     // this.http.post('https://linux-shell-test.appspot.com/blastp', {fasta: this.proteinSeq, database: this.database, matrix: this.matrix, evalue: this.evalue}, {responseType: 'text'}).subscribe((res: any) => {
-      this.http.get('https://linux-shell-test.appspot.com/blastp?fasta=' + this.proteinSeq + '&database=' + this.database + '&matrix=' + this.matrix + '&evalue=' + this.evalue, {responseType: 'text'}).subscribe((res: any) => {
+      this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/blastp?fasta=' + this.proteinSeq + '&database=' + this.database + '&matrix=' + this.matrix + '&evalue=' + this.evalue, {responseType: 'text'}).subscribe((res: any) => {
 
         this.result = res;
         this.SplitRes(res);
