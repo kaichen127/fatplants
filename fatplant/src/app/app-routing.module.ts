@@ -26,7 +26,6 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'introduction', component: IntroductionComponent},
 {path: 'investigator', component: InvestigatorComponent},
 {path: 'lmpd_arapidopsis', component: LmpdArapidopsisComponent},
-{path: 'data_analysis', component: DataAnalysisComponent}, // ???
 {path: 'glmol', component: GlmolComponent},
 {path: 'color-pathway', component: ColorPathwayComponent},
 {path: 'camelina', component: CameliaComponent},

@@ -6,8 +6,6 @@ declare var require: any;
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  mainBG = require('../assets/homepageAssets/MainBG.png');
-  aimBG = require('../assets/homepageAssets/AimBG.png');
   FB = require('../assets/homepageAssets/FB.png');
   PAG = require('../assets/homepageAssets/News.png');
   JT = require('../assets/homepageAssets/JT.png');

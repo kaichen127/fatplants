@@ -3,31 +3,18 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "~src/variables.scss";
 @import url('https://fonts.googleapis.com/css?family=Catamaran:200&display=swap');
-
-.hero-full-screen {
-    height: 450px;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-	justify-content: space-between;
-	background: url(/fatplant/src/app/assets/header.jpg) center center no-repeat;
-    background-size: cover;
-}
 html, body { height: 100%; }
-body {
-  margin: 0;
-}
 
 .background {
-  background-image: linear-gradient(#a1a5a1, $main-green);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: url("app/assets/homepageAssets/plantParalax.JPG") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+mat-card {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2%;
 }

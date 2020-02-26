@@ -1,0 +1,144 @@
+@import "~src/variables.scss";
+
+mat-card {
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-top: 0;
+  position: fixed;
+}
+
+.nav-style{
+  word-break: break-word;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style-type: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.nav-bar {
+  width: 100%;
+}
+
+a{
+  text-decoration: none;
+  color: $lime-green;
+  text-shadow: 2px 2px $dark-green;
+}
+
+li, button{
+  height: 64px;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.menu{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $lime-green;
+}
+
+.menu-item{
+  background-image: linear-gradient($light-green, $main-green);
+  color: $lime-green;
+  text-shadow: none;
+}
+
+nav {
+  width: 100%;
+}
+
+.dark-background {
+  background-image: linear-gradient($light-green 1%, $lime-green);
+  color: $lime-green;
+  text-decoration: none;
+  text-shadow: 2px 2px $dark-green;
+}
+
+.mobile-nav {
+  margin-bottom: 15px;
+  color: white;
+  background-color: #666666;
+  min-width: 500px;
+  min-height: 64px;
+}
+.mobile-a {
+  color: white;
+  height: 64px;
+  align-items: center;
+  display: flex;
+  /* justify-content: space-between; fix between to fill out entire page */
+}
+
+.title {
+  margin-left: 10px;
+}
+#mobile-burger {
+  position: sticky;
+  right: 0;
+}
+.right {
+  float: right;
+  position: absolute;
+  right: 0;
+}
+
+
+/* using theme A colors */
+
+
+.mobile-nav-class {
+  margin-bottom: 15px;
+  background-color: #666666;
+  min-width: 500px;
+  min-height: 64px;
+}
+
+a {
+  color: white;
+  height: 64px;
+  align-items: center;
+  display: flex;
+  /* justify-content: space-between; fix between to fill out entire page */
+}
+
+ul {
+  height: inherit;
+}
+
+li, button{
+  height: 64px;
+}
+
+button{
+  border: none;
+}
+
+button:focus {
+  background-color: inherit;
+}
+
+.menu-item{
+  background-color: white;
+  color: black;
+}
+
+.icon {
+  margin: auto;
+}
+
+.active-nav {
+  border-left: 3px solid #91c784;
+  transition: border-left 0.5s, color 0.5s;
+}
+.active-nav>mat-icon {
+  color: #91c784;
+}
+.title {
+  margin-left: 10px;
+}
+
+#mobile-burger {
+  position: sticky;
+  right: 0;
+}

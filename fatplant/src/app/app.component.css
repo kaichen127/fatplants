@@ -1,16 +1,20 @@
-.hero-full-screen {
-    height: 450px;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+.active-nav {
+    border-left: 3px solid #91c784;
+    transition: border-left 0.5s, color 0.5s;
+}
+.active-nav>mat-icon {
+    color: #91c784;
+}
+button:focus {
+    background-color: inherit;
+}
+#sideNav {
     display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
+}
+.absolute {
+    display: flex;
     flex-direction: column;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-	  justify-content: space-between;
-    background-size: cover;
+    flex: 1;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
 }
