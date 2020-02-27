@@ -50,10 +50,10 @@ nav {
 .mobile-nav {
   margin-bottom: 15px;
   color: white;
-  background-color: #666666;
+  background-image: linear-gradient($light-green, $main-green);
   min-width: 500px;
-  min-height: 64px;
   display: flex;
+  min-height: 50px;
 }
 .mobile-a {
   color: white;
