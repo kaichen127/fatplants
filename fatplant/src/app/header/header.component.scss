@@ -7,6 +7,7 @@
   justify-content: left;
   list-style-type: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 0;
 }
 
 .nav-bar {
@@ -30,8 +31,8 @@ li, button{
 }
 
 .menu-item{
-  background-image: linear-gradient($light-green, $main-green);
-  color: $lime-green;
+  // background-image: linear-gradient($light-green, $main-green);
+  color: black;
   text-shadow: none;
 }
 
@@ -52,6 +53,7 @@ nav {
   background-color: #666666;
   min-width: 500px;
   min-height: 64px;
+  display: flex;
 }
 .mobile-a {
   color: white;
@@ -63,6 +65,8 @@ nav {
 
 .title {
   margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 #mobile-burger {
   position: sticky;
@@ -72,4 +76,11 @@ nav {
   float: right;
   position: absolute;
   right: 0;
+}
+.desktop-active {
+  color: white;
+  transition: color 0.5s;
+}
+.desktop-active-menu-item {
+  color: $lime-green;
 }

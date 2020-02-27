@@ -1,15 +1,15 @@
 <mat-card class="nav-bar dark-background" *ngIf='!isMobile'>
 <nav>
   <ul  class="nav-style light">
-    <li><a class="light" routerLink="/">HOME</a></li>
-    <li><a class="light" routerLink="/introduction">INTRODUCTION</a></li>
+    <li><a class="light" routerLink="/homepage" routerLinkActive="desktop-active">HOME</a></li>
+    <li><a class="light" routerLink="/introduction" routerLinkActive="desktop-active">INTRODUCTION</a></li>
 
     <!-- <li><a href="/go-network">GO Network</a></li> -->
-    <li><div class="menu" [matMenuTriggerFor]="dataMenu">OUR DATA</div></li>
-    <li><a class="light" routerLink="/files">FILE LIBRARY</a></li>
-    <li><a class="light" routerLink="/one_click">SEARCH</a></li>
+    <li><div class="menu" [matMenuTriggerFor]="dataMenu" routerLinkActive="desktop-active">OUR DATA</div></li>
+    <li><a class="light" routerLink="/files" routerLinkActive="desktop-active">FILE LIBRARY</a></li>
+    <li><a class="light" routerLink="/one_click" routerLinkActive="desktop-active">SEARCH</a></li>
     <li><div class="menu" [matMenuTriggerFor]="graphMenu">NETWORKING</div></li>
-    <li><a class="light" routerLink="/investigator">STAFF</a></li>
+    <li><a class="light" routerLink="/investigator" routerLinkActive="desktop-active">STAFF</a></li>
     <li><div class="menu" [matMenuTriggerFor]="toolsMenu">TOOLS</div></li>
     <!--      <li><a routerLink="/graph">Protein-Protein Network</a></li>-->
 <!--    <li><a class="light" href="http://www.muscifest.com/">SCI-FEST</a></li>-->
@@ -21,11 +21,21 @@
   </ul>
 </nav>
 </mat-card>
-<mat-menu #dataMenu>
-  <a mat-menu-item routerLink="/lmpd_arapidopsis" class="menu-item">Arabidopsis</a>
-  <a mat-menu-item routerLink="/camelina" class="menu-item">Camelina</a>
-  <a mat-menu-item routerLink="/soybean" class="menu-item">Soybean</a>
-  <a mat-menu-item routerLink="/fatty_acid" class="menu-item">Fatty Acid</a>
+<mat-menu #dataMenu class="mat-menu-content">
+  <a mat-menu-item routerLink="/lmpd_arapidopsis" class="menu-item" routerLinkActive="desktop-active-menu-item">Arabidopsis</a>
+  <a mat-menu-item routerLink="/camelina" class="menu-item" routerLinkActive="desktop-active-menu-item">Camelina</a>
+  <a mat-menu-item routerLink="/soybean" class="menu-item" routerLinkActive="desktop-active-menu-item">Soybean</a>
+  <a mat-menu-item routerLink="/fatty_acid" class="menu-item" routerLinkActive="desktop-active-menu-item">Fatty Acid</a>
+</mat-menu>
+<mat-menu #toolsMenu class="mat-menu-content">
+  <a mat-menu-item routerLink="/blast" routerLinkActive="desktop-active-menu-item"class="menu-item" (click)="sideNav.close()">Blastp</a>
+  <a mat-menu-item routerLink="/glmol" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">3D Structure</a>
+  <a mat-menu-item routerLink="/color-pathway" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Color Pathway</a>
+</mat-menu>
+
+<mat-menu #graphMenu class="mat-menu-content">
+  <a mat-menu-item routerLink="/protein-network" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Protein-Protein Network</a>
+  <a mat-menu-item routerLink="/go-network" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">GO enrichment Network</a>
 </mat-menu>
 
 
