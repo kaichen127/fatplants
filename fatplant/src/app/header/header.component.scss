@@ -51,9 +51,9 @@ nav {
   margin-bottom: 15px;
   color: white;
   background-image: linear-gradient($light-green, $main-green);
-  min-width: 500px;
   display: flex;
   min-height: 50px;
+  position: relative;
 }
 .mobile-a {
   color: white;
@@ -71,6 +71,12 @@ nav {
 #mobile-burger {
   position: sticky;
   right: 0;
+}
+.burger-icon {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  float: right;
 }
 .right {
   float: right;
