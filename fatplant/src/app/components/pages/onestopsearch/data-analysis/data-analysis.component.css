@@ -99,3 +99,35 @@ table.blueTable tfoot .links a{
   background: transparent;
 
 }
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main,
+.sidebar {
+  padding: 15px;
+  background-color: #fff;
+}
+
+.main {
+  width: 85%;
+  height: 600vh;
+}
+
+.sidebar {
+  width: 5%;
+  height: 25vh;
+}
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+a:hover {
+  color: blue;
+  cursor:pointer;
+  text-decoration: underline;
+}
