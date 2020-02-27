@@ -1,12 +1,13 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
-import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
-import {MatTabsModule} from '@angular/material/tabs';
-import {Observable} from 'rxjs';
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { MatTabsModule } from '@angular/material/tabs';
+import { Observable } from 'rxjs';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import * as jsPDF from 'jspdf';
 import { ViewportScroller } from '@angular/common';
+import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 
 
 @Component({
@@ -15,9 +16,13 @@ import { ViewportScroller } from '@angular/common';
   styleUrls: ['./data-analysis.component.css']
 })
 export class DataAnalysisComponent implements OnInit {
-  @ViewChild('pdf', {static: false}) pdf: ElementRef;
+  @ViewChild('pdf', { static: false }) pdf: ElementRef;
   public items: Observable<any>;
   private itemCollection: AngularFirestoreCollection<any>;
+
+  private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
+  private lmpd: Observable<Lmpd_Arapidopsis[]>
+
   private query: string;
   private debug: boolean;
   private tabIndex: number;
@@ -51,8 +56,11 @@ export class DataAnalysisComponent implements OnInit {
   private blastRes = [];
   private showblastRes = [];
   constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller) {
+    this.lmpdCollection = afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis');
+    this.lmpd = this.lmpdCollection.valueChanges();
+
     this.pathwaydb = [];
-    this.http.get('/static/reactome.csv', {responseType: 'text'}).subscribe(data => {
+    this.http.get('/static/reactome.csv', { responseType: 'text' }).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
         // console.log(line.split(','));
         this.pathwaydb.push(line.split(','));
@@ -66,6 +74,7 @@ export class DataAnalysisComponent implements OnInit {
 
   ngOnInit() {
   }
+
   SplitRes(result: string) {
     this.showblastRes = [];
     this.blastRes = [];
@@ -92,15 +101,14 @@ export class DataAnalysisComponent implements OnInit {
     // tmp.length = 5 ;
     this.showblastRes = tmp.slice(0, 3);
 
-    // console.log(this.showblastRes);
   }
 
   OneClick() {
-    console.log(this.proteindatabase);
+
     if (this.proteindatabase === undefined) {
       this.proteindatabase = 'Arabidopsis';
     }
-    // 清空所有
+    // init
     this.debug = false;
     this.items = new Observable<any>();
     this.imgs = [];
@@ -110,20 +118,14 @@ export class DataAnalysisComponent implements OnInit {
 
     switch (this.tabIndex) {
       case 0:
-        // 根据name拿
+        // name
         this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
           this.setValues(res);
-          // this.blast = res[0].sequence;
-          // this.proteinName = res[0].protein_name;
-          // this.proteinSeq = res[0].sequence;
-          // this.uniprot = res[0].uniprot_id
-          // this.http.post('https://linux-shell-test.appspot.com/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
-          this.http.get('https://linux-shell-test.appspot.com/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, {responseType: 'text'}).subscribe((res: any) => {
+          this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, { responseType: 'text' }).subscribe((res: any) => {
             this.result = res;
             // this.ShowResult(res);
             console.log(res);
             this.SplitRes(res);
-            // this.glmolUrl = '/viewer.html?5jwy';
             this.pdbs = [];
             this.SearchPDB(this.uniprot);
             this.SearchUniprot(this.uniprot);
@@ -132,8 +134,6 @@ export class DataAnalysisComponent implements OnInit {
         });
         setTimeout(() => {
           console.log('timeout');
-          // console.log(this.pdbs);
-          // console.log(this.imgs);
           if (this.pdbs.length === 0) {
             console.log('No pdb');
             this.nopdb = true;
@@ -149,12 +149,7 @@ export class DataAnalysisComponent implements OnInit {
       case 1:
         this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
           this.setValues(res);
-          // this.blast = res[0].sequence;
-          // this.proteinName = res[0].protein_name;
-          // this.proteinSeq = res[0].sequence;
-          // this.uniprot = res[0].uniprot_id
-          // this.http.post('https://linux-shell-test.appspot.com/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
-            this.http.get('https://linux-shell-test.appspot.com/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, {responseType: 'text'}).subscribe((res: any) => {
+          this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, { responseType: 'text' }).subscribe((res: any) => {
             this.result = res;
             // this.ShowResult(res);
             this.SplitRes(res);
@@ -166,8 +161,6 @@ export class DataAnalysisComponent implements OnInit {
         });
         setTimeout(() => {
           console.log('timeout');
-          // console.log(this.pdbs);
-          // console.log(this.imgs);
           if (this.pdbs.length === 0) {
             console.log('No pdb');
             this.nopdb = true;
@@ -182,8 +175,7 @@ export class DataAnalysisComponent implements OnInit {
         break;
       case 2:
         this.blast = this.query;
-        // this.http.post('https://linux-shell-test.appspot.com/oneclick', {fasta: this.blast, database: this.proteindatabase}, {responseType: 'text'}).subscribe((res: any) => {
-        this.http.get('https://linux-shell-test.appspot.com/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, {responseType: 'text'}).subscribe((res: any) => {
+        this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/oneclick?fasta=' + this.blast + '&database=' + this.proteindatabase, { responseType: 'text' }).subscribe((res: any) => {
           this.result = res;
           // this.ShowResult(res);
           this.SplitRes(res);
@@ -198,24 +190,19 @@ export class DataAnalysisComponent implements OnInit {
         break;
     }
 
-    // 这里的异步的 需要处理
-    // this.http.post('/oneclick', {fasta: this.blast}, {responseType: 'text'}).subscribe((res: any) => {
-    //   this.result = res;
-    //   // this.ShowResult(res);
-    //   this.SplitRes(res);
-    //   this.debug = true;
-    // });
+    // how to achieve async
   }
+
   Search(query: string) {
-    this.items = new Observable<any>();
+    this.items = new Observable<Lmpd_Arapidopsis>();
     if (query === '') { return; }
     switch (this.tabIndex) {
       case 0:
 
-        this.items = this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(10).where('gene_name','>=', query).where('gene_name','<=', query + '\uf8ff') ).valueChanges();
+        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('gene_name', '>=', query).where('gene_name', '<=', query + '\uf8ff')).valueChanges();
         break;
       case 1:
-        this.items = this.afs.collection('/Lmpd_Arapidopsis',ref =>ref.limit(10).where('uniprot_id','>=', query).where('uniprot_id','<=', query + '\uf8ff') ).valueChanges();
+        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', query).where('uniprot_id', '<=', query + '\uf8ff')).valueChanges();
         break;
       case 2:
         break;
@@ -224,26 +211,29 @@ export class DataAnalysisComponent implements OnInit {
         break;
     }
   }
-  ListClick(query: any) {
-    // console.log(query);
-    this.query = query;
 
-    this.items = new Observable<any>();
+  ListClick(query: any) {
+    // need interface update
+    this.query = query;
+    this.items = new Observable<Lmpd_Arapidopsis>();
   }
+
   ShowAllRes() {
     this.showblastRes = this.blastRes.slice(0);
   }
+
   SafeUrl(input: string) {
     const tmpurl = '/static/viewer.html?' + input;
-    // console.log(tmpurl);
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
+
   SafeImg(input: string) {
     const tmpurl = '/static/pathway.html?id=' + input;
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
+
   SearchPDB(pdb: string) {
-    this.http.get('/static/uniprot_pdb_list.txt', {responseType: 'text'}).subscribe(data => {
+    this.http.get('/static/uniprot_pdb_list.txt', { responseType: 'text' }).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
         if (line.slice(0, 6) === pdb) {
           let tmp = line.slice(0, -4);
@@ -259,8 +249,9 @@ export class DataAnalysisComponent implements OnInit {
       if (this.pdbs.length === 0) {
         this.nopdb = true;
       }
-  });
+    });
   }
+
   SearchUniprot(id: string) {
     for (var index in this.pathwaydb) {
       // console.log(this.pathwaydb[index][4])
@@ -269,9 +260,12 @@ export class DataAnalysisComponent implements OnInit {
       }
     }
   }
+
+  //loading progress
   Loading() {
     this.isLoading = true;
   }
+
   public downloadAsPDF() {
     const doc = new jsPDF();
 
@@ -290,27 +284,25 @@ export class DataAnalysisComponent implements OnInit {
 
     doc.save('Data.pdf');
   }
+
+  // not use now
   public convFromKegg() {
-    this.http.get('https://linux-shell-test.appspot.com/conv?uniprot=' + this.uniprot, {responseType: 'text'}).subscribe((conv: string) => {
-      // console.log(res);
-      // console.log(reg.exec(tmp));
+    this.http.get('https://linux-shell-test.appspot.com/conv?uniprot=' + this.uniprot, { responseType: 'text' }).subscribe((conv: string) => {
       let pathways: any;
       // 位数！
       pathways = conv.match(/ath:[a-zA-Z0-9]{9}/g);
       console.log(pathways[0]);
       let target: string;
       target = pathways[0];
-      this.http.get('https://linux-shell-test.appspot.com/link?target=' + target, {responseType: 'text'}).subscribe((res: string) => {
-        // console.log(res);
-        // console.log(reg.exec(tmp));
+      this.http.get('https://linux-shell-test.appspot.com/link?target=' + target, { responseType: 'text' }).subscribe((res: string) => {
         let tmp: any
         tmp = res.match(/path:[a-zA-Z0-9]{8}/g);
         console.log(tmp);
         this.imgUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://rest.kegg.jp/get/' + tmp[0].slice(5) + '/image');
         let x: any;
         for (x in tmp) {
-          let y=x
-          this.http.get('https://linux-shell-test.appspot.com/detail?target=' + tmp[x].slice(5), {responseType: 'text'}).subscribe((data: string) => {
+          let y = x
+          this.http.get('https://linux-shell-test.appspot.com/detail?target=' + tmp[x].slice(5), { responseType: 'text' }).subscribe((data: string) => {
             // console.log(res);
             let names = data.split('\n');
             // console.log(tmp);
@@ -322,18 +314,15 @@ export class DataAnalysisComponent implements OnInit {
               }
             }
           });
-          // let name = this.getNameFromKegg(tmp[x].slice(5));
-          // this.imgs.push([tmp[x].slice(5), name]);
         }
         console.log(this.imgs);
         this.debug = true;
         this.isLoading = false;
-        // this.getNameFromKegg('ath00196');
       });
     });
   }
-  setValues(res: any){
-    // console.log(res);
+  setValues(res: any) {
+    // need update while apply interface
     this.blast = res[0].sequence;
     this.proteinName = res[0].protein_name;
     this.proteinSeq = res[0].sequence;
@@ -356,26 +345,6 @@ export class DataAnalysisComponent implements OnInit {
     console.log("scroll")
     this.viewportScroller.scrollToAnchor(elementId);
   }
-  // selectOption(id: number) {
-  //   // getted from event
-  //   console.log(id);
-  //   // getted from binding
-  //   console.log(this.proteindatabase);
-  // }
-  // public getNameFromKegg(id: any) {
-  //   this.http.get('/get/' + id, {responseType: 'text'}).subscribe((res: string) => {
-  //     // console.log(res);
-  //     let tmp = res.split('\n');
-  //     // console.log(tmp);
-  //     for (var name in tmp) {
-  //       console.log(tmp[name].slice(0, 11));
-  //       if (tmp[name].slice(0, 11) === 'PATHWAY_MAP') {
-  //         return tmp[name].slice(12);
-  //         break;
-  //       }
-  //     }
-  //   });
-  //   // return id;
-  // }
+
 
 }

@@ -1,0 +1,86 @@
+@import "~src/variables.scss";
+
+.nav-style{
+  word-break: break-word;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  list-style-type: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 0;
+}
+
+.nav-bar {
+  height: 3%;
+}
+
+a{
+  text-decoration: none;
+  color: $lime-green;
+  text-shadow: 2px 2px $dark-green;
+}
+
+li, button{
+  height: 64px;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.menu{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.menu-item{
+  // background-image: linear-gradient($light-green, $main-green);
+  color: black;
+  text-shadow: none;
+}
+
+nav {
+  width: 100%;
+}
+
+.dark-background {
+  background-image: linear-gradient($light-green, $main-green);
+  color: $lime-green;
+  text-decoration: none;
+  text-shadow: 2px 2px $dark-green;
+}
+
+.mobile-nav {
+  margin-bottom: 15px;
+  color: white;
+  background-color: #666666;
+  min-width: 500px;
+  min-height: 64px;
+  display: flex;
+}
+.mobile-a {
+  color: white;
+  height: 64px;
+  align-items: center;
+  display: flex;
+  /* justify-content: space-between; fix between to fill out entire page */
+}
+
+.title {
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+#mobile-burger {
+  position: sticky;
+  right: 0;
+}
+.right {
+  float: right;
+  position: absolute;
+  right: 0;
+}
+.desktop-active {
+  color: white;
+  transition: color 0.5s;
+}
+.desktop-active-menu-item {
+  color: $lime-green;
+}

@@ -5,7 +5,7 @@ $(document).foundation();
 
         $.get({
             // getting the data
-            url: 'https://linux-shell-test.appspot.com/data1',
+            url: 'https://us-central1-fatplant-76987.cloudfunctions.net/godata',
             success: function (data) {
                 $("#loading").hide();
                 $("#cy").show();
@@ -23,7 +23,7 @@ $(document).foundation();
                 var nodeDescriptionData = null;
                 // get node description info
                 $.get({
-                    url: 'https://linux-shell-test.appspot.com/node-description1',
+                    url: 'https://us-central1-fatplant-76987.cloudfunctions.net/gonodedescription',
                     success: function (data) {
 
                         nodeDescriptionData = data;
@@ -562,7 +562,7 @@ $(document).foundation();
                     var newGraphElements = [];
                   $.get({
                     // getting the data
-                    url: 'https://linux-shell-test.appspot.com/data1',
+                    url: 'https://us-central1-fatplant-76987.cloudfunctions.net/godata',
                     data: {identifier: searchVariable},
                     success: function (data) {
                       console.log(data)

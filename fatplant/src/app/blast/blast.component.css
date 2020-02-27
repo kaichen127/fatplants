@@ -1,0 +1,22 @@
+mat-card {
+  font-family: 'Catamaran', sans-serif;
+  margin-top: 5%;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 10px;
+  padding: 4px 4px 4px 4px;
+}
+
+mat-radio-button {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+mat-select {
+  width: 20%;
+  border: solid grey 1px;
+  border-radius: 2px;
+  padding: 4px 4px 4px 4px;
+}

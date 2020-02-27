@@ -2,3 +2,9 @@
     margin: 0 auto;
     display: inline-block;
 }
+
+mat-card {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-family: 'Catamaran', sans-serif;
+}
