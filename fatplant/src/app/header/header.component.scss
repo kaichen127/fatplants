@@ -17,6 +17,7 @@ mat-card {
   justify-content: space-evenly;
   list-style-type: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 0;
 }
 
 .nav-bar {
@@ -59,9 +60,10 @@ nav {
 .mobile-nav {
   margin-bottom: 15px;
   color: white;
-  background-color: #666666;
-  min-width: 500px;
-  min-height: 64px;
+  background-image: linear-gradient($light-green, $main-green);
+  display: flex;
+  min-height: 50px;
+  position: relative;
 }
 .mobile-a {
   color: white;
@@ -73,73 +75,28 @@ nav {
 
 .title {
   margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 #mobile-burger {
   position: sticky;
   right: 0;
+}
+.burger-icon {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  float: right;
 }
 .right {
   float: right;
   position: absolute;
   right: 0;
 }
-
-
-/* using theme A colors */
-
-
-.mobile-nav-class {
-  margin-bottom: 15px;
-  background-color: #666666;
-  min-width: 500px;
-  min-height: 64px;
-}
-
-a {
+.desktop-active {
   color: white;
-  height: 64px;
-  align-items: center;
-  display: flex;
-  /* justify-content: space-between; fix between to fill out entire page */
+  transition: color 0.5s;
 }
-
-ul {
-  height: inherit;
-}
-
-li, button{
-  height: 64px;
-}
-
-button{
-  border: none;
-}
-
-button:focus {
-  background-color: inherit;
-}
-
-.menu-item{
-  background-color: white;
-  color: black;
-}
-
-.icon {
-  margin: auto;
-}
-
-.active-nav {
-  border-left: 3px solid #91c784;
-  transition: border-left 0.5s, color 0.5s;
-}
-.active-nav>mat-icon {
-  color: #91c784;
-}
-.title {
-  margin-left: 10px;
-}
-
-#mobile-burger {
-  position: sticky;
-  right: 0;
+.desktop-active-menu-item {
+  color: $lime-green;
 }
