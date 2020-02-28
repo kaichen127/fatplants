@@ -7,10 +7,11 @@ html {
 }
 
 mat-card {
-  max-width: 350px;
+  max-width: 300px;
   float: left;
   margin-left: 2%;
   font-family: 'Catamaran', sans-serif;
+  background-image: linear-gradient(#FEFEEF, #81C784) !important;
 }
 
 @media screen and (max-width: 650px) {

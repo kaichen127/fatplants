@@ -18,30 +18,135 @@
   box-sizing: border-box;
   background: url("../assets/homepageAssets/plantBanner.JPG") no-repeat center center;
   background-size: cover;
+  padding: 10%;
+  font-size: 3em;
+}
+
+#italics {
+  font-size: .5em;
+  background-color: $dark;
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+  opacity: .8;
+}
+
+.bannerText {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: $light;
 }
 
 .links {
   min-height: 500px;
   background-image: linear-gradient(to left, $cream, $white-yellow);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.link {
+  text-align: center;
+  width: 20%;
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $dark;
+  margin-top: 5%;
+  font-size: 1.5em;
+  text-shadow: 1px 1px grey;
+  cursor: pointer;
+}
+
+.linkIcon {
+  font-size: 4em;
+  width: 40%;
 }
 
 .quote {
   min-height: 500px;
+  text-align: center;
+}
+
+.quoteText {
+  margin-top: 10%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $cream;
+  font-size: 3em;
+  display: inline-block;
+  text-align: left;
+  text-shadow: 2px 2px black;
 }
 
 .staff {
   min-height: 500px;
   background-color: whitesmoke;
+  display: flex;
+  justify-content: space-around;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.staffPP {
+  border-radius: 200px;
+  width: 10em;
+  height: 10em;
+  box-shadow: 2px 2px 2px 2px $dark;
+}
+
+.staffText {
+  font-size: 10px;
+}
+
+.staffContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 10%;
 }
 
 .news {
   min-height: 500px;
   background-image: linear-gradient(to right, lightgrey, whitesmoke);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: grey;
+  text-shadow: 2px 2px lightgrey;
+  font-size: 2em;
+}
+
+.newsInfo {
+  display: flex;
+  justify-content: space-evenly;
+  text-shadow: 1px 1px grey;
+  color: black;
+}
+
+.newsPics {
+  width: 5em;
+  height: 4em;
+  box-shadow: 2px 2px 2px 2px $dark;
 }
 
 .information {
   min-height: 150px;
   background-image: linear-gradient($light-green 1%, $main-green);
+}
+
+.sponsors {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sponsorImg {
+  height: 7em;
+  width: 10em;
+  border-radius: 5px 5px 0 0;
+  margin-top: 50%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 

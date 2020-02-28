@@ -2,4 +2,5 @@ mat-card {
   width: 90%;
   box-sizing: border-box;
   margin-left: 5%;
+  text-align: center;
 }

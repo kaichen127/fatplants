@@ -4,7 +4,13 @@
 }
 
 mat-card {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 10%;
   font-family: 'Catamaran', sans-serif;
 }
+
+mat-paginator {
+  background-color: #FEFEEF;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+}
+
