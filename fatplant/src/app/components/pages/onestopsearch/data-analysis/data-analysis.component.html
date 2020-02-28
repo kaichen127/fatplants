@@ -1,8 +1,9 @@
+<mat-card>
 <!--<mat-sidenav-container class="example-container">-->
 <!--  <mat-sidenav-content>-->
 <h3 id="title">One-Stop Search</h3>
-<p>User can submit a protein sequence, a uniprot ID or a Gene name of fatty acid related proteins, it will automatically
-  show the structures, blastp results and related pathway.</p>
+<p>Here you can submit a protein sequence, a uniprot ID, or the Gene names of fatty acid related proteins and our program will automatically
+  build the structures, blastp results, and the related pathways.</p>
 <p>e.g. P46086 as UniProt ID.<p>
     <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
       <mat-tab label="Gene">
@@ -34,13 +35,13 @@
       </div>
       <div class="row">
         <div class="col s6" (click)="Loading()">
-          <button class="btn waves-effect waves-light" (click)="OneClick()">submit</button>
+          <button mat-raised-button class="btn waves-effect waves-light" (click)="OneClick()">Submit</button>
         </div>
       </div>
 
     </div>
 
-
+</mat-card>
 
     <div *ngIf="isLoading">
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
@@ -237,3 +238,4 @@
         </div>
       </div>
     </div>
+

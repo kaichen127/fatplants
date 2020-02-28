@@ -1,21 +1,4 @@
-<mat-menu #dataMenu>
-    <a mat-menu-item routerLink="/lmpd_arapidopsis" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Arabidopsis</a>
-    <a mat-menu-item routerLink="/camelina" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Camelina</a>
-    <a mat-menu-item routerLink="/soybean" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Soybean</a>
-    <a mat-menu-item routerLink="/fatty_acid" routerLinkActive="active-nav"  class="menu-item" (click)="sideNav.close()">Fatty Acid</a>
-  </mat-menu>
-  
-  <mat-menu #toolsMenu>
-    <a mat-menu-item routerLink="/blast" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Blastp</a>
-    <a mat-menu-item routerLink="/glmol" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">3D Structure</a>
-    <a mat-menu-item routerLink="/color-pathway" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Color Pathway</a>
-  </mat-menu>
-  
-  <mat-menu #graphMenu>
-    <a mat-menu-item routerLink="/protein-network" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Protein-Protein Network</a>
-    <a mat-menu-item routerLink="/go-network" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">GO enrichment Network</a>
-  </mat-menu>
-<mat-sidenav-container autosize #mobileMenu id="sideNavContainer" class="absolute">
+<mat-sidenav-container autosize #mobileMenu id="sideNavContainer" class="absolute background">
     <mat-sidenav mode="over" position="end" disableClose="false" #sideNav id="sideNav">
     <a mat-menu-item routerLink="/homepage" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">
           <mat-icon>home</mat-icon>Home</a>
@@ -37,9 +20,24 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <app-header [sideNav]="sideNav"></app-header>
-    <div class="hero-full-screen">
-    <router-outlet></router-outlet>
-    </div>
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
 
+<mat-menu #dataMenu>
+  <a mat-menu-item routerLink="/lmpd_arapidopsis" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Arabidopsis</a>
+  <a mat-menu-item routerLink="/camelina" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Camelina</a>
+  <a mat-menu-item routerLink="/soybean" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Soybean</a>
+  <a mat-menu-item routerLink="/fatty_acid" routerLinkActive="active-nav"  class="menu-item" (click)="sideNav.close()">Fatty Acid</a>
+</mat-menu>
+
+<mat-menu #toolsMenu>
+  <a mat-menu-item routerLink="/blast" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Blastp</a>
+  <a mat-menu-item routerLink="/glmol" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">3D Structure</a>
+  <a mat-menu-item routerLink="/color-pathway" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Color Pathway</a>
+</mat-menu>
+
+<mat-menu #graphMenu>
+  <a mat-menu-item routerLink="/protein-network" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">Protein-Protein Network</a>
+  <a mat-menu-item routerLink="/go-network" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">GO enrichment Network</a>
+</mat-menu>

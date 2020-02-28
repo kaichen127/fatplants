@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,15 +15,16 @@ import {
   MatListModule,
   MatIconModule,
   MatCardModule,
-  MatButtonModule
+  MatButtonModule,
+  MatInputModule,
+  MatTooltipModule,
+  MatSidenavModule
 } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule} from '@angular/material';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { GraphComponent } from './components/pages/networks/protein-network/graph.component';
 
 
@@ -47,11 +47,9 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {MatTooltipModule} from '@angular/material/tooltip';
 import { BlastComponent } from './components/pages/tools/blast/blast.component';
 import { LmpddetailviewComponent } from './components/pages/datapages/lmpddetailview/lmpddetailview.component';
 import { GoNetworkComponent } from './components/pages/networks/go-network/go-network.component';
-import {MatSidenavModule} from "@angular/material/sidenav";
 import { LmpdArapidopsisComponent } from './components/pages/datapages/lmpd-arapidopsis/lmpd-arapidopsis.component';
 import { DatatableComponent } from './components/pages/datapages/datatable/datatable.component';
 import { CameliaComponent } from './components/pages/datapages/camelia/camelia/camelia.component';

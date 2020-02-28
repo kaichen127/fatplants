@@ -1,17 +1,27 @@
 @import "~src/variables.scss";
 
+mat-card {
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-top: 0;
+  position: fixed;
+  z-index: 1000;
+  background-image: linear-gradient($light-green 1%, $lime-green) !important;
+}
+
 .nav-style{
   word-break: break-word;
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: space-evenly;
   list-style-type: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 0;
 }
 
 .nav-bar {
-  height: 3%;
+  width: 100%;
 }
 
 a{
@@ -28,11 +38,11 @@ li, button{
 
 .menu{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $lime-green;
 }
 
 .menu-item{
-  // background-image: linear-gradient($light-green, $main-green);
-  color: black;
+  color: $lime-green;
   text-shadow: none;
 }
 
@@ -41,7 +51,7 @@ nav {
 }
 
 .dark-background {
-  background-image: linear-gradient($light-green, $main-green);
+  background-image: linear-gradient($light-green 1%, $lime-green);
   color: $lime-green;
   text-decoration: none;
   text-shadow: 2px 2px $dark-green;

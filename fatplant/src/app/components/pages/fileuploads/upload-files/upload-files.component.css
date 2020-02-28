@@ -37,7 +37,12 @@ progress::-webkit-progress-value {
 #fileButton {
   margin-left: 5px;
 }
+
 .mobile {
   margin: auto;
   width: 95%;
+}
+
+mat-card {
+  background-image: linear-gradient(to right, white, lightgrey) !important;
 }

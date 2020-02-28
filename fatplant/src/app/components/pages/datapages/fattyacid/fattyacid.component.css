@@ -1,0 +1,9 @@
+mat-card {
+  font-family: 'Catamaran', sans-serif;
+}
+
+mat-paginator {
+  background-color: #FEFEEF;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+}

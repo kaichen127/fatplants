@@ -1,25 +1,24 @@
 <mat-card class="nav-bar dark-background" *ngIf='!isMobile'>
-<nav>
-  <ul  class="nav-style light">
-    <li><a class="light" routerLink="/homepage" routerLinkActive="desktop-active">HOME</a></li>
-    <li><a class="light" routerLink="/introduction" routerLinkActive="desktop-active">INTRODUCTION</a></li>
+  <nav>
+    <ul class="nav-style light">
+      <li routerLink="/"><mat-icon>home</mat-icon><div class="menu">HOME</div></li>
+      <li routerLink="/introduction"><mat-icon>help</mat-icon><div class="menu">INTRODUCTION</div></li>
 
-    <!-- <li><a href="/go-network">GO Network</a></li> -->
-    <li><div class="menu" [matMenuTriggerFor]="dataMenu" routerLinkActive="desktop-active">OUR DATA</div></li>
-    <li><a class="light" routerLink="/files" routerLinkActive="desktop-active">FILE LIBRARY</a></li>
-    <li><a class="light" routerLink="/one_click" routerLinkActive="desktop-active">SEARCH</a></li>
-    <li><div class="menu" [matMenuTriggerFor]="graphMenu">NETWORKING</div></li>
-    <li><a class="light" routerLink="/investigator" routerLinkActive="desktop-active">STAFF</a></li>
-    <li><div class="menu" [matMenuTriggerFor]="toolsMenu">TOOLS</div></li>
-    <!--      <li><a routerLink="/graph">Protein-Protein Network</a></li>-->
-<!--    <li><a class="light" href="http://www.muscifest.com/">SCI-FEST</a></li>-->
-    <!--    <li><a href="/goNetView.html">GO Net</a></li>-->
-    <!--      <li><a href="/viewer.html">viewer</a></li>-->
-    <!--      <li><a href="/proteinNetView.html">Protein Net</a></li>-->
+      <!-- <li><a href="/go-network">GO Network</a></li> -->
+      <li [matMenuTriggerFor]="dataMenu"><mat-icon>graphic_eq</mat-icon><div class="menu">OUR DATA</div></li>
+      <li routerLink="/files"><mat-icon>attach_file</mat-icon><div class="menu">FILE LIBRARY</div></li>
+      <li routerLink="/one_click"><mat-icon>search</mat-icon><div class="menu">SEARCH</div></li>
+      <li [matMenuTriggerFor]="graphMenu"><mat-icon>signal_cellular_alt</mat-icon><div class="menu">NETWORKS</div></li>
+      <li routerLink="/investigator"><mat-icon>people</mat-icon><div class="menu">STAFF</div></li>
+      <li [matMenuTriggerFor]="toolsMenu"><mat-icon>build</mat-icon><div class="menu">TOOLS</div></li>
+      <!--      <li><a routerLink="/graph">Protein-Protein Network</a></li>-->
+  <!--    <li><a class="light" href="http://www.muscifest.com/">SCI-FEST</a></li>-->
+      <!--    <li><a href="/goNetView.html">GO Net</a></li>-->
+      <!--      <li><a href="/viewer.html">viewer</a></li>-->
+      <!--      <li><a href="/proteinNetView.html">Protein Net</a></li>-->
 
-
-  </ul>
-</nav>
+    </ul>
+  </nav>
 </mat-card>
 <mat-menu #dataMenu class="mat-menu-content">
   <a mat-menu-item routerLink="/lmpd_arapidopsis" class="menu-item" routerLinkActive="desktop-active-menu-item">Arabidopsis</a>
@@ -37,6 +36,7 @@
   <a mat-menu-item routerLink="/protein-network" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Protein-Protein Network</a>
   <a mat-menu-item routerLink="/go-network" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">GO enrichment Network</a>
 </mat-menu>
+
 
 
 <!-- Mobile menu 1: no icons

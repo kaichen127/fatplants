@@ -16,15 +16,6 @@
                 <mat-cell *matCellDef="let elem"> <a href="http://uniprot.org/uniprot/{{elem.UniprotID}}" target="_blank">{{elem.UniprotID}}</a></mat-cell>
               </ng-container>
 
-  <table mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="species">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Species </mat-header-cell>
-          <mat-cell *matCellDef="let elem"> {{ elem.Species }} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="uniprot_id">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Uniprot Page </mat-header-cell>
-              <mat-cell *matCellDef="let elem"> <a href='http://uniprot.org/uniprot/{{elem.UniprotID}}' target="_blank">{{elem.UniprotID}}</a></mat-cell>
-            </ng-container>
               <ng-container matColumnDef="refseq_id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Page </mat-header-cell>
                     <mat-cell *matCellDef="let elem">{{ elem.RefSeq }}</mat-cell>
@@ -53,4 +44,4 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20,2500]" showFirstLastButtons></mat-paginator>
-<!-- </mat-card> -->
+</mat-card>
