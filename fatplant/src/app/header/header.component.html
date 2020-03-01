@@ -1,22 +1,14 @@
 <mat-card class="nav-bar dark-background" *ngIf='!isMobile'>
   <nav>
     <ul class="nav-style light">
-      <li routerLink="/"><mat-icon>home</mat-icon><div class="menu">HOME</div></li>
-      <li routerLink="/introduction"><mat-icon>help</mat-icon><div class="menu">INTRODUCTION</div></li>
-
-      <!-- <li><a href="/go-network">GO Network</a></li> -->
-      <li [matMenuTriggerFor]="dataMenu"><mat-icon>graphic_eq</mat-icon><div class="menu">OUR DATA</div></li>
-      <li routerLink="/files"><mat-icon>attach_file</mat-icon><div class="menu">FILE LIBRARY</div></li>
-      <li routerLink="/one_click"><mat-icon>search</mat-icon><div class="menu">SEARCH</div></li>
-      <li [matMenuTriggerFor]="graphMenu"><mat-icon>signal_cellular_alt</mat-icon><div class="menu">NETWORKS</div></li>
-      <li routerLink="/investigator"><mat-icon>people</mat-icon><div class="menu">STAFF</div></li>
-      <li [matMenuTriggerFor]="toolsMenu"><mat-icon>build</mat-icon><div class="menu">TOOLS</div></li>
-      <!--      <li><a routerLink="/graph">Protein-Protein Network</a></li>-->
-  <!--    <li><a class="light" href="http://www.muscifest.com/">SCI-FEST</a></li>-->
-      <!--    <li><a href="/goNetView.html">GO Net</a></li>-->
-      <!--      <li><a href="/viewer.html">viewer</a></li>-->
-      <!--      <li><a href="/proteinNetView.html">Protein Net</a></li>-->
-
+      <li routerLink="/homepage" routerLinkActive="desktop-active"><mat-icon>home</mat-icon><div class="menu">HOME</div></li>
+      <li routerLink="/introduction" routerLinkActive="desktop-active"><mat-icon>help</mat-icon><div class="menu">INTRODUCTION</div></li>
+      <li [matMenuTriggerFor]="dataMenu" routerLinkActive="desktop-active"><mat-icon>graphic_eq</mat-icon><div class="menu">OUR DATA</div></li>
+      <li routerLink="/files" routerLinkActive="desktop-active"><mat-icon>attach_file</mat-icon><div class="menu">FILE LIBRARY</div></li>
+      <li routerLink="/one_click" routerLinkActive="desktop-active"><mat-icon>search</mat-icon><div class="menu">SEARCH</div></li>
+      <li [matMenuTriggerFor]="graphMenu" routerLinkActive="desktop-active"><mat-icon>signal_cellular_alt</mat-icon><div class="menu">NETWORKS</div></li>
+      <li routerLink="/investigator" routerLinkActive="desktop-active"><mat-icon>people</mat-icon><div class="menu">STAFF</div></li>
+      <li [matMenuTriggerFor]="toolsMenu" routerLinkActive="desktop-active"><mat-icon>build</mat-icon><div class="menu">TOOLS</div></li>
     </ul>
   </nav>
 </mat-card>
@@ -37,57 +29,9 @@
   <a mat-menu-item routerLink="/go-network" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">GO enrichment Network</a>
 </mat-menu>
 
-
-
-<!-- Mobile menu 1: no icons
-      <mat-menu #mobileMenu>
-      <a mat-menu-item routerLink="/homepage" routerLinkActive="active-nav" class="menu-item">Home</a>
-      <a mat-menu-item routerLink="/introduction" routerLinkActive="active-nav" class="menu-item">Introduction</a>
-      <a mat-menu-item routerLink="/investigator" routerLinkActive="active-nav" class="menu-item">Investigators</a>
-      <a mat-menu-item routerLink="/one_click" routerLinkActive="active-nav" class="menu-item">One-Stop Search</a>
-      <button mat-menu-item [matMenuTriggerFor]="dataMenu">Data</button>
-      <button mat-menu-item [matMenuTriggerFor]="toolsMenu">Tools</button>
-      <button mat-menu-item [matMenuTriggerFor]="graphMenu">Networks</button>
-      <a mat-menu-item routerLink="/files" routerLinkActive="active-nav" class="menu-item">Files</a>
-      <a mat-menu-item href="http://www.muscifest.com" target="_blank" class="menu-item">Sci-FEST</a>
-</mat-menu> -->
-<!-- Mobile menu 2: with icons -->
-
-<!-- 
-<nav class="nav-class" *ngIf="!isMobile">
-  <div class="nav-wrapper nav-style">
-  <ul id = "nav-mobile" class = "left">
-      <li><a href="/">Project</a></li>
-      <li><a href="/introduction">Introduction</a></li>
-      <li><a href="/investigator">Investigator</a></li>
-      <li><a routerLink="/one_click">One-Stop Search</a></li>
-      <li><button mat-button [matMenuTriggerFor]="toolsMenu">Tools</button></li>
-      <li><button mat-button [matMenuTriggerFor]="graphMenu">Networks</button></li>
-      <li><a routerLink="/files">Files</a></li>
-      <li><a href="http://www.muscifest.com/">Sci-FEST</a></li>
-    </ul>
-    </div>
-</nav> -->
-      <div class="nav-wrapper nav-style" *ngIf="isMobile">
-            <nav class="mobile-nav">
-            <span class="title">FatPlant</span>
-            <button mat-button (click)="sideNav.toggle()" class="burger-icon"><mat-icon>list</mat-icon></button>
-                  <!-- <li><a routerLink="/homepage" routerLinkActive="active-nav" matTooltip="Home">
-                        <mat-icon class="icon">home</mat-icon>
-                  </a></li>
-                  <li><a routerLink="/introduction" routerLinkActive="active-nav" matTooltip="Info">
-                        <mat-icon>help</mat-icon>
-                  </a></li>
-                  <li><a routerLink="/investigator" routerLinkActive="active-nav" matTooltip="Investigators">
-                        <mat-icon class="icon">people</mat-icon>
-                  </a></li>
-                  <li><a routerLink="/one_click" routerLinkActive="active-nav" matTooltip="One-Stop Search">
-                        <mat-icon>search</mat-icon>
-                  </a></li>
-      <li><button mat-button [matMenuTriggerFor]="toolsMenu" matTooltip="Tools"><mat-icon>build</mat-icon></button></li>
-      <li><button mat-button [matMenuTriggerFor]="graphMenu" matTooltip="Networks"><mat-icon>signal_cellular_alt</mat-icon></button></li>
-      <li><a routerLink="/files" routerLinkActive="active-nav" matTooltip="Files"><mat-icon>attach_file</mat-icon></a></li>
-      <li><a href="http://www.muscifest.com/" target="_blank" matTooltip="Sci-FEST">Sci-FEST</a></li> -->
-            
-      </nav>
+<div class="nav-wrapper nav-style" *ngIf="isMobile">
+  <nav class="mobile-nav">
+    <span class="title">FatPlant</span>
+    <button mat-button (click)="sideNav.toggle()" class="burger-icon"><mat-icon>list</mat-icon></button>   
+  </nav>
 </div>
