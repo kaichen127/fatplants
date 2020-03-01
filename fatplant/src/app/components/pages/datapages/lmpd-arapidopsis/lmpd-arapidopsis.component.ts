@@ -30,8 +30,7 @@ export class LmpdArapidopsisComponent implements OnInit {
   ngOnInit() {
     var localArapidopsisData: FatPlantDataSource = JSON.parse(localStorage.getItem('arapidopsis_data'));
     if (localArapidopsisData != null && (Date.now() - localArapidopsisData.retrievalDate <= this.dayInMillis)) {
-      let arapidopsisData: FatPlantDataSource = JSON.parse(localStorage.getItem('arapidopsis_data'));
-      this.dataSource = new MatTableDataSource(arapidopsisData.data);
+      this.dataSource = new MatTableDataSource(localArapidopsisData.data);
       this.dataSource.paginator = this.paginator;
     }
     else {
