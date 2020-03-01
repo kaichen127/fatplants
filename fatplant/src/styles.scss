@@ -19,3 +19,11 @@ mat-card {
   margin-top: 10%;
   background-image: linear-gradient($lime-green, $light)  !important;
 }
+
+.pointer {
+  cursor: pointer;
+}
+.pointer:hover {
+  color: $lime-green;
+  transition: color 0.2s;
+}

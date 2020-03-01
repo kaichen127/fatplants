@@ -20,6 +20,7 @@ export class LmpdArapidopsisComponent implements OnInit {
   dayInMillis = 86400000;
   dataSource:MatTableDataSource<any>;
   chosenelem: any;
+  loading: boolean;
   headerfields=[{name: 'Protein Name',val:null},{name:'Protein Entry',val:null}]
   subheaders=[{name:'Species',val:null}]
   cardfields=[{name:'Entrez Gene Id',val:null},{name:'Gene Name',val:null},{name:'Gene Symbol',val:null},{name:'Lmp ID',val:null},
@@ -28,21 +29,15 @@ export class LmpdArapidopsisComponent implements OnInit {
 
 
   ngOnInit() {
+    this.loading = true;
     var localArapidopsisData: FatPlantDataSource = JSON.parse(localStorage.getItem('arapidopsis_data'));
     if (localArapidopsisData != null && (Date.now() - localArapidopsisData.retrievalDate <= this.dayInMillis)) {
       this.dataSource = new MatTableDataSource(localArapidopsisData.data);
       this.dataSource.paginator = this.paginator;
+      this.loading = false;
     }
     else {
-      let docs=this.db.connect('Lmpd_Arapidopsis').subscribe(data =>{
-        this.dataSource=new MatTableDataSource(data)
-        this.dataSource.paginator = this.paginator;
-        let arapidopsisData: FatPlantDataSource = {
-          retrievalDate: Date.now(),
-          data: data
-        };
-        localStorage.setItem('arapidopsis_data', JSON.stringify(arapidopsisData));
-      });
+      this.getDBData();
     }
   }
 
@@ -62,5 +57,24 @@ export class LmpdArapidopsisComponent implements OnInit {
       entry.val=elem[entry.name.toLowerCase().replace(/ /g,"_")]
     }
 
+  }
+  refreshData() {
+    localStorage.removeItem('arapidopsis_data');
+    this.dataSource = null;
+    this.getDBData();
+
+  }
+  getDBData() {
+    this.loading = true;
+    let docs=this.db.connect('Lmpd_Arapidopsis').subscribe(data =>{
+      this.dataSource=new MatTableDataSource(data)
+      this.dataSource.paginator = this.paginator;
+      let arapidopsisData: FatPlantDataSource = {
+        retrievalDate: Date.now(),
+        data: data
+      };
+      localStorage.setItem('arapidopsis_data', JSON.stringify(arapidopsisData));
+      this.loading = false;
+    });
   }
 }

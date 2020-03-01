@@ -16,6 +16,7 @@ export class CameliaComponent implements OnInit {
   displayedColumns = ['camelina','aralip_pathways','ath_description','no','homeologs'];
   dataSource:MatTableDataSource<any>;
   dayInMillis = 86400000;
+  loading: boolean;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   // columns=[{columnDef: 'aralip_pathways',header:'Aralip Pathways',cell:(element:any)=>element.Aralip_Pathways},
@@ -25,21 +26,15 @@ export class CameliaComponent implements OnInit {
   //      {columnDef: 'homeologs',header:'Homeologs',cell:(element:any)=>element.Homeologs}]
   // docs;
   constructor(private db:FirestoreConnectionService) {
+    this.loading = true;
     var localCamelinaData: FatPlantDataSource = JSON.parse(localStorage.getItem('camelina_data'));
     if (localCamelinaData != null && (Date.now() - localCamelinaData.retrievalDate <= this.dayInMillis)) {
       this.dataSource = new MatTableDataSource(localCamelinaData.data);
       this.dataSource.paginator = this.paginator;
+      this.loading = false;
     }
     else {
-      let docs=this.db.connect('Camelina').subscribe(data =>{
-        this.dataSource=new MatTableDataSource(data)
-        this.dataSource.paginator = this.paginator;
-        let localCamelinaData: FatPlantDataSource = {
-          retrievalDate: Date.now(),
-          data: data
-        };
-        localStorage.setItem('camelina_data', JSON.stringify(localCamelinaData));
-      });
+      this.getDBData();
     }
 }
 
@@ -52,4 +47,23 @@ applyFilter(filterValue: string) {
   ngOnInit() {
   }
 
+  refreshData() {
+    localStorage.removeItem('camelina_data');
+    this.dataSource = null;
+    this.getDBData();
+
+  }
+  getDBData() {
+    this.loading = true;
+    let docs=this.db.connect('Camelina').subscribe(data =>{
+      this.dataSource=new MatTableDataSource(data)
+      this.dataSource.paginator = this.paginator;
+      let camelinaData: FatPlantDataSource = {
+        retrievalDate: Date.now(),
+        data: data
+      };
+      localStorage.setItem('camelina_data', JSON.stringify(camelinaData));
+      this.loading = false;
+    });
+  }
 }

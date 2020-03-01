@@ -5,9 +5,10 @@
             <mat-form-field>
               <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
             </mat-form-field>
+            <mat-icon (click)='refreshData()' class="pointer" matTooltip="Refresh Data">refresh</mat-icon>
           </div>
 
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" *ngIf='!loading'>
       <ng-container matColumnDef="picture">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Picture</mat-header-cell>
           <mat-cell *matCellDef="let elem"><a href="http://opsin.ch.cam.ac.uk/opsin/{{elem.SystematicName}}.png" target="_blank"><img src="http://opsin.ch.cam.ac.uk/opsin/{{elem.SystematicName}}.png" height="40" width="100" alt="Fatty Acid Picture"></a></mat-cell>
@@ -49,4 +50,5 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </table>
      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+     <mat-progress-bar mode="indeterminate" *ngIf='loading'></mat-progress-bar>
 </mat-card>

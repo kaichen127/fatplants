@@ -14,24 +14,19 @@ export class FattyacidComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   dayInMillis = 86400000;
   dataSource:MatTableDataSource<any>;
+  loading: boolean;
   constructor(private db:FirestoreConnectionService) { }
 
   ngOnInit() {
+    this.loading = true;
     var localFattyAcidData: FatPlantDataSource = JSON.parse(localStorage.getItem('fattyacid_data'));
     if (localFattyAcidData != null && (Date.now() - localFattyAcidData.retrievalDate <= this.dayInMillis)) {
       this.dataSource = new MatTableDataSource(localFattyAcidData.data);
       this.dataSource.paginator = this.paginator;
+      this.loading = false;
     }
     else {
-      let docs=this.db.connect('Fatty Acid').subscribe(data =>{
-        this.dataSource=new MatTableDataSource(data)
-        this.dataSource.paginator = this.paginator;
-        let localFattyAcidData: FatPlantDataSource = {
-          retrievalDate: Date.now(),
-          data: data
-        };
-        localStorage.setItem('fattyacid_data', JSON.stringify(localFattyAcidData));
-      });
+      this.getDBData();
     }
   }
 
@@ -39,6 +34,25 @@ export class FattyacidComponent implements OnInit {
       filterValue = filterValue.trim();
       filterValue = filterValue.toLowerCase();
       this.dataSource.filter = filterValue;
+    }
+    refreshData() {
+      localStorage.removeItem('fattyacid_data');
+      this.dataSource = null;
+      this.getDBData();
+  
+    }
+    getDBData() {
+      this.loading = true;
+      let docs=this.db.connect('Fatty Acid').subscribe(data =>{
+        this.dataSource=new MatTableDataSource(data)
+        this.dataSource.paginator = this.paginator;
+        let fattyAcidData: FatPlantDataSource = {
+          retrievalDate: Date.now(),
+          data: data
+        };
+        localStorage.setItem('fattyacid_data', JSON.stringify(fattyAcidData));
+        this.loading = false;
+      });
     }
 
 }
