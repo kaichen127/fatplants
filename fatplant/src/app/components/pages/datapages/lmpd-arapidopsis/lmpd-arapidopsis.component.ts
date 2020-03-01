@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
-
-// import { AngularFirestore } from 'angularfire2/firestore';
+import { FatPlantDataSource } from 'src/app/interfaces/FatPlantDataSource';
 import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestore'
 import { ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
@@ -18,6 +17,7 @@ export class LmpdArapidopsisComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
+  dayInMillis = 86400000;
   dataSource:MatTableDataSource<any>;
   chosenelem: any;
   headerfields=[{name: 'Protein Name',val:null},{name:'Protein Entry',val:null}]
@@ -28,10 +28,23 @@ export class LmpdArapidopsisComponent implements OnInit {
 
 
   ngOnInit() {
-    let docs=this.db.connect('Lmpd_Arapidopsis').subscribe(data =>{
+    var localArapidopsisData: FatPlantDataSource = JSON.parse(localStorage.getItem('arapidopsis_data'));
+    if (localArapidopsisData != null && (Date.now() - localArapidopsisData.retrievalDate <= this.dayInMillis)) {
+      let arapidopsisData: FatPlantDataSource = JSON.parse(localStorage.getItem('arapidopsis_data'));
+      this.dataSource = new MatTableDataSource(arapidopsisData.data);
+      this.dataSource.paginator = this.paginator;
+    }
+    else {
+      let docs=this.db.connect('Lmpd_Arapidopsis').subscribe(data =>{
         this.dataSource=new MatTableDataSource(data)
         this.dataSource.paginator = this.paginator;
-    })
+        let arapidopsisData: FatPlantDataSource = {
+          retrievalDate: Date.now(),
+          data: data
+        };
+        localStorage.setItem('arapidopsis_data', JSON.stringify(arapidopsisData));
+      });
+    }
   }
 
   applyFilter(filterValue: string) {
