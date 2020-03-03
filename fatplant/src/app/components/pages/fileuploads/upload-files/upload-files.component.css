@@ -1,15 +1,14 @@
 .dropzone { 
     display: flex;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
     flex-direction: column; 
-    min-width: 80vw;
+    min-width: 79vw;
     font-weight: 200;
-    max-width: 30%;
     height: 200px;
     border: 2px dashed #226D4D;
     border-radius: 5px;
-    background: white;
     margin: 10px 0;
     background-color: #eeeeee;
     transition: color 0.5s, background-color 0.5s, border 1s;
