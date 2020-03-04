@@ -21,7 +21,6 @@
         <div class="input-field col s12">
           <textarea style="min-height: 150px" name="Search" class="browser-default" placeholder="Search"
             (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
-
         </div>
       </div>
       <div class="row">
@@ -41,7 +40,6 @@
 
     </div>
 
-</mat-card>
 
     <div *ngIf="isLoading">
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
@@ -57,7 +55,7 @@
         (click)="ListClick($event.target.innerText)">{{item.gene_name}}</button>
     </mat-action-list>
 
-    <div class="wrapper">
+    <div class="wrapper" *ngIf="!isLoading && hasSearched">
       <div class="main">
 
         <div *ngIf="debug">
@@ -238,4 +236,5 @@
         </div>
       </div>
     </div>
+  </mat-card>
 

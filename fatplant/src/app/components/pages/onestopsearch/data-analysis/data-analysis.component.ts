@@ -31,6 +31,7 @@ export class DataAnalysisComponent implements OnInit {
   private uniprot: string;
   private pdbs = [];
   private isLoading: boolean;
+  private hasSearched: boolean = false;
   private imgUrl: SafeResourceUrl;
   private imgs = [];
   private noimg: boolean;
@@ -109,6 +110,7 @@ export class DataAnalysisComponent implements OnInit {
       this.proteindatabase = 'Arabidopsis';
     }
     // init
+    this.hasSearched = true;
     this.debug = false;
     this.items = new Observable<any>();
     this.imgs = [];
@@ -346,5 +348,10 @@ export class DataAnalysisComponent implements OnInit {
     this.viewportScroller.scrollToAnchor(elementId);
   }
 
+  getAutocomplete(): String {
+    if (this.tabIndex == 1) return "uniprot_id";
+    else if (this.tabIndex == 0) return "gene_name";
+    else return "";
+  }
 
 }
