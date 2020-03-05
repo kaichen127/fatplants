@@ -41,9 +41,9 @@
     </div>
 
 
-    <div *ngIf="isLoading">
+    <mat-card *ngIf="isLoading">
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </div>
+    </mat-card>
 
     <mat-action-list *ngIf="tabIndex==1">
       <button mat-list-item *ngFor="let item of items | async"
@@ -55,8 +55,13 @@
         (click)="ListClick($event.target.innerText)">{{item.gene_name}}</button>
     </mat-action-list>
 
+<<<<<<< HEAD
     <div class="wrapper" *ngIf="!isLoading && hasSearched">
       <div class="main">
+=======
+    <mat-card class="wrapper">
+      <mat-card class="main">
+>>>>>>> Design
 
         <div *ngIf="debug">
           <mat-divider></mat-divider>
@@ -214,8 +219,8 @@
 
         <!--  </mat-sidenav>-->
         <!--</mat-sidenav-container>-->
-      </div>
-      <div class="sidebar" *ngIf="debug">
+      </mat-card>
+      <mat-card class="sidebar" *ngIf="debug">
         <div class="row">
           <a (click)="clickScroll('title')">Title</a>
         </div>
@@ -234,7 +239,12 @@
         <div class="row">
           <a (click)="clickScroll('pathway')">Pathway</a>
         </div>
+<<<<<<< HEAD
       </div>
     </div>
   </mat-card>
+=======
+      </mat-card>
+    </mat-card>
+>>>>>>> Design
 

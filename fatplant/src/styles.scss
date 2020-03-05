@@ -3,6 +3,8 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "~src/variables.scss";
 @import url('https://fonts.googleapis.com/css?family=Catamaran:200&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500&display=swap');
+
 html, body { height: 100%; }
 
 .background {
@@ -17,7 +19,7 @@ mat-card {
   width: 80%;
   margin-left: 10%;
   margin-top: 10%;
-  background-image: linear-gradient($lime-green, $light)  !important;
+  background-image: linear-gradient($light, whitesmoke) !important;
 }
 
 .pointer {

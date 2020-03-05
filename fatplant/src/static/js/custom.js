@@ -65,10 +65,10 @@ function getCSS(element, property) {
     var elem = document.getElementsByTagName(element)[0];
     var css = null;
 
-    if (elem.currentStyle) {
+    if (elem !== undefined && elem.currentStyle) {
         css = elem.currentStyle[property];
 
-    } else if (window.getComputedStyle) {
+    } else if (window === Element && window.getComputedStyle) {
         css = document.defaultView.getComputedStyle(elem, null).
         getPropertyValue(property);
     }
@@ -86,7 +86,7 @@ function stickyFooter() {
     //only get the last footer
     var footer = document.getElementsByTagName("footer")[document.getElementsByTagName("footer").length-1];
 
-    if (footer.getAttribute("style") !== null) {
+    if (footer !== undefined && footer.getAttribute("style") !== null) {
         footer.removeAttribute("style");
     }
 
@@ -94,7 +94,7 @@ function stickyFooter() {
         var offset = window.innerHeight - document.body.offsetHeight;
         var current = getCSS("footer", "margin-top");
 
-        if (isNaN(parseInt(current)) === true) {
+        if (footer !== undefined && isNaN(parseInt(current)) === true) {
             footer.setAttribute("style","margin-top:0px;");
             current = 0;
         } else {
