@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
 import { FatPlantDataSource } from 'src/app/interfaces/FatPlantDataSource';
+import { globalRefreshTime } from 'src/app/app.module';
 
 @Component({
   selector: 'app-fattyacid',
@@ -12,7 +13,6 @@ export class FattyacidComponent implements OnInit {
 
   displayedColumns = ['picture','name','mass','sofa_id','other_names','delta_notation'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  dayInMillis = 86400000;
   dataSource:MatTableDataSource<any>;
   loading: boolean;
   constructor(private db:FirestoreConnectionService) { }
@@ -20,7 +20,7 @@ export class FattyacidComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     var localFattyAcidData: FatPlantDataSource = JSON.parse(localStorage.getItem('fattyacid_data'));
-    if (localFattyAcidData != null && (Date.now() - localFattyAcidData.retrievalDate <= this.dayInMillis)) {
+    if (localFattyAcidData != null && (Date.now() - localFattyAcidData.retrievalDate <= globalRefreshTime)) {
       this.dataSource = new MatTableDataSource(localFattyAcidData.data);
       this.dataSource.paginator = this.paginator;
       this.loading = false;

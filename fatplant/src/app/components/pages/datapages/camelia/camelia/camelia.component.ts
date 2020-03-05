@@ -5,6 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 
 import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
 import { FatPlantDataSource } from 'src/app/interfaces/FatPlantDataSource';
+import { globalRefreshTime } from 'src/app/app.module';
 
 @Component({
   selector: 'app-camelia',
@@ -15,7 +16,6 @@ export class CameliaComponent implements OnInit {
 
   displayedColumns = ['camelina','aralip_pathways','ath_description','no','homeologs'];
   dataSource:MatTableDataSource<any>;
-  dayInMillis = 86400000;
   loading: boolean;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -28,7 +28,7 @@ export class CameliaComponent implements OnInit {
   constructor(private db:FirestoreConnectionService) {
     this.loading = true;
     var localCamelinaData: FatPlantDataSource = JSON.parse(localStorage.getItem('camelina_data'));
-    if (localCamelinaData != null && (Date.now() - localCamelinaData.retrievalDate <= this.dayInMillis)) {
+    if (localCamelinaData != null && (Date.now() - localCamelinaData.retrievalDate <= globalRefreshTime)) {
       this.dataSource = new MatTableDataSource(localCamelinaData.data);
       this.dataSource.paginator = this.paginator;
       this.loading = false;

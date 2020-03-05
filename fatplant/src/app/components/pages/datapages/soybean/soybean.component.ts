@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
 import { FatPlantDataSource } from 'src/app/interfaces/FatPlantDataSource';
+import { globalRefreshTime } from 'src/app/app.module';
 
 @Component({
   selector: 'app-soybean',
@@ -12,7 +13,6 @@ export class SoybeanComponent implements OnInit {
 
    // ,'lmp_id','mrna_id','protein_gi','seqlength','sequence','species_long','taxid'
    displayedColumns = ['species','uniprot_id','refseq_id','gene_name','Alternativegenenames','protein_entry','protein_name'];
-   dayInMillis = 86400000;
    loading: boolean;
    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
  
@@ -22,7 +22,7 @@ export class SoybeanComponent implements OnInit {
    ngOnInit() {
     this.loading = true;
     var localSoybeanData: FatPlantDataSource = JSON.parse(localStorage.getItem('soybean_data'));
-    if (localSoybeanData != null && (Date.now() - localSoybeanData.retrievalDate <= this.dayInMillis)) {
+    if (localSoybeanData != null && (Date.now() - localSoybeanData.retrievalDate <= globalRefreshTime)) {
       this.dataSource = new MatTableDataSource(localSoybeanData.data);
       this.dataSource.paginator = this.paginator;
       this.loading = false;

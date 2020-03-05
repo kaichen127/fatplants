@@ -128,3 +128,4 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export const globalRefreshTime = 86400000; // one day in milliseconds

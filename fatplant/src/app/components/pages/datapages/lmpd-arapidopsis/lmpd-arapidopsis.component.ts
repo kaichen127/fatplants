@@ -5,6 +5,7 @@ import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestor
 import { ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
+import { globalRefreshTime } from 'src/app/app.module';
 
 @Component({
   selector: 'app-lmpd-arapidopsis',
@@ -17,7 +18,6 @@ export class LmpdArapidopsisComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  dayInMillis = 86400000;
   dataSource:MatTableDataSource<any>;
   chosenelem: any;
   loading: boolean;
@@ -31,7 +31,7 @@ export class LmpdArapidopsisComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     var localArapidopsisData: FatPlantDataSource = JSON.parse(localStorage.getItem('arapidopsis_data'));
-    if (localArapidopsisData != null && (Date.now() - localArapidopsisData.retrievalDate <= this.dayInMillis)) {
+    if (localArapidopsisData != null && (Date.now() - localArapidopsisData.retrievalDate <= globalRefreshTime)) {
       this.dataSource = new MatTableDataSource(localArapidopsisData.data);
       this.dataSource.paginator = this.paginator;
       this.loading = false;
