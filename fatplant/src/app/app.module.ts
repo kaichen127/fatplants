@@ -59,6 +59,8 @@ import { UploadTaskComponent } from './components/pages/fileuploads/upload-task/
 import { FileviewComponent } from './components/pages/fileuploads/fileview/fileview.component';
 import { LmpdCardComponent } from './components/pages/datapages/lmpd-card/lmpd-card.component';
 import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.component';
+import { ShowresultsComponent } from './components/pages/onestopsearch/showresults/showresults.component';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -87,7 +89,8 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
     GoNetworkComponent,
     LmpddetailviewComponent,
     SoybeanComponent,
-    DataAnalysisComponent
+    DataAnalysisComponent,
+    ShowresultsComponent
   ],
   imports: [
     BrowserModule,
@@ -122,7 +125,8 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
     FormsModule,
     MatMenuModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,70 +1,3 @@
-
-.click-zoom input[type=checkbox] {
-  display: none
-}
-
-.click-zoom img {
-  margin: 100px;
-  transition: transform 0.25s ease;
-  cursor: zoom-in
-}
-
-.click-zoom input[type=checkbox]:checked~img {
-  transform: scale(3);
-  cursor: zoom-out
-}
-
-button {
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-textarea {
-  width: 100%;
-  border-radius: 10px;
-}
-
-mat-card {
-  font-family: 'Catamaran', sans-serif;
-}
-
-mat-select {
-  width: 20%;
-  border: solid grey 1px;
-  border-radius: 2px;
-  padding: 4px 4px 4px 4px;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.main,
-.sidebar {
-  padding: 15px;
-}
-
-.main {
-  width: 85%;
-}
-
-.sidebar {
-  width: 15%;
-}
-.sidebar {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 100px;
-  height: 25vh;
-}
-
-a:hover {
-  color: blue;
-  cursor:pointer;
-  text-decoration: underline;
-}
-
 table.blueTable {
   border: 1px solid #1C6EA4;
   background-color: #EEEEEE;
@@ -121,4 +54,89 @@ table.blueTable tfoot .links a{
   color: #FFFFFF;
   padding: 2px 8px;
   border-radius: 5px;
+}
+
+
+
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Left and right column */
+.column.left {
+  width: 10%;
+}
+
+.column.right {
+  width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
 }

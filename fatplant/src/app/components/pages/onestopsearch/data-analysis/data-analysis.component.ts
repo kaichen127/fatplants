@@ -343,7 +343,9 @@ export class DataAnalysisComponent implements OnInit {
 
   public clickScroll(elementId: string): void {
     console.log("scroll")
-    this.viewportScroller.scrollToAnchor(elementId);
+    this.viewportScroller.scrollToAnchor(elementId); //no use?
+    let el = document.getElementById(elementId);
+    el.scrollIntoView();
   }
 
 

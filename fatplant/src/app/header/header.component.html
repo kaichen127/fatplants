@@ -22,6 +22,8 @@
   <a mat-menu-item routerLink="/blast" routerLinkActive="desktop-active-menu-item"class="menu-item" (click)="sideNav.close()">Blastp</a>
   <a mat-menu-item routerLink="/glmol" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">3D Structure</a>
   <a mat-menu-item routerLink="/color-pathway" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Color Pathway</a>
+  <a mat-menu-item routerLink="/showresults" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Show Results</a>
+
 </mat-menu>
 
 <mat-menu #graphMenu class="mat-menu-content">
@@ -32,6 +34,6 @@
 <div class="nav-wrapper nav-style" *ngIf="isMobile">
   <nav class="mobile-nav">
     <span class="title">FatPlant</span>
-    <button mat-button (click)="sideNav.toggle()" class="burger-icon"><mat-icon>list</mat-icon></button>   
+    <button mat-button (click)="sideNav.toggle()" class="burger-icon"><mat-icon>list</mat-icon></button>
   </nav>
 </div>

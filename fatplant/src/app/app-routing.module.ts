@@ -19,6 +19,7 @@ import { CameliaComponent } from './components/pages/datapages/camelia/camelia/c
 import { UploadFilesComponent } from './components/pages/fileuploads/upload-files/upload-files.component';
 import { FileviewComponent } from './components/pages/fileuploads/fileview/fileview.component';
 import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.component';
+import { ShowresultsComponent } from './components/pages/onestopsearch/showresults/showresults.component';
 
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
@@ -38,7 +39,10 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path:'viewfiles',component:FileviewComponent},
 {path:'lmpddetailview/:uniprot_id',component:LmpddetailviewComponent},
 {path:'fatty_acid',component:FattyacidComponent},
-{path: 'soybean',component:SoybeanComponent}];
+{path: 'soybean',component:SoybeanComponent},
+{path:'showresults', component:ShowresultsComponent}
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes,{ anchorScrolling: 'enabled'})],
