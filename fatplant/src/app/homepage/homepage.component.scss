@@ -150,6 +150,35 @@
   text-shadow: 2px 2px black;
 }
 
+.splitInfo {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 500px;
+  font-family: "PT Serif", sans-serif;
+}
+
+.oilContent {
+  width: 50%;
+  background-color: rgb(254,254,239, .9);
+  color: $dark;
+  padding: 1% 2% 1% 2%;
+}
+
+.oilHeader {
+  font-size: 2vw;
+}
+
+.aims {
+  width: 50%;
+  background-color: rgb(204,170,124, .9);
+  color: $light;
+  padding: 1% 2% 1% 2%;
+}
+
+.aimsHeader {
+  font-size: 2vw;
+}
+
 .staff {
   min-height: 500px;
   background-color: whitesmoke;
