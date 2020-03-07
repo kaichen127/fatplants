@@ -17,9 +17,59 @@ export class HomepageComponent implements OnInit {
   MU = require('../assets/homepageAssets/MU.png');
   NSF = require('../assets/homepageAssets/NSF.png');
   PSC = require('../assets/homepageAssets/PSC.png');
+
+  page1 = 'active pages';
+  page2 = 'inactive pages';
+  page3 = 'inactive pages';
+  page4 = 'inactive pages';
+
+  pageDisplay = 'page1';
+  pager = 1;
+
   constructor() { }
 
   ngOnInit() {
+    setInterval(() => {
+      this.pager += 1;
+      this.page(this.pager);
+    }, 5000);
+  }
+
+  page(page) {
+    this.pager = page;
+
+    if (page > 4) {
+      this.pager = 1;
+      page = 1;
+    }
+
+    this.pageDisplay = 'page' + page;
+
+    if (page === 1) {
+      this.page1 = 'active pages';
+      this.page2 = 'inactive pages';
+      this.page3 = 'inactive pages';
+      this.page4 = 'inactive pages';
+    }
+    if (page === 2) {
+      this.page1 = 'inactive pages';
+      this.page2 = 'active pages';
+      this.page3 = 'inactive pages';
+      this.page4 = 'inactive pages';
+    }
+    if (page === 3) {
+      this.page1 = 'inactive pages';
+      this.page2 = 'inactive pages';
+      this.page3 = 'active pages';
+      this.page4 = 'inactive pages';
+    }
+    if (page === 4) {
+      this.page1 = 'inactive pages';
+      this.page2 = 'inactive pages';
+      this.page3 = 'inactive pages';
+      this.page4 = 'active pages';
+    }
+
   }
 
 }

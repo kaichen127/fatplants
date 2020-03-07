@@ -4,16 +4,52 @@
 <div class="container">
 
   <div class="banner">
-    <div class="bannerText">
-      WE KEEP THINGS<br />
-      <strong>CLEAN AND SIMPLE</strong><br />
-      ___<br /><br />
-      <i id="italics">The comprehensive platform for plant fat related genes, proteins, and metabolism</i>
+    <div class="banner1" *ngIf="pageDisplay === 'page1'">
+      <div class="bannerText">
+        <span>WE KEEP THINGS</span>
+        <strong>CLEAN AND SIMPLE</strong>
+        <span>___</span>
+      </div>
+      <br /><br />
     </div>
+
+    <div class="banner2" *ngIf="pageDisplay === 'page2'">
+      <div class="bannerText bannerText2">
+        <span>The one-stop tool for</span>
+        <span>biological data procedures</span>
+        <div class="buttonDiv"><button mat-button class="pageButton">One Stop</button></div>
+      </div>
+      <br /><br />
+    </div>
+
+    <div class="banner3" *ngIf="pageDisplay === 'page3'">
+      <div class="bannerText bannerText2">
+        <span>Fatty related protein data</span>
+        <span>for typical plants</span>
+        <div class="buttonDiv"><button mat-button class="pageButton">Our Data</button></div>
+      </div>
+      <br /><br />
+    </div>
+
+    <div class="banner4" *ngIf="pageDisplay === 'page4'">
+      <div class="bannerText bannerText2">
+        <span>Protein to protein networks</span>
+        <span>and GO enrichment networks</span>
+        <div class="buttonDiv"><button mat-button class="pageButton">Networks</button></div>
+      </div>
+      <br /><br />
+    </div>
+
+    <div class="pageDisplay">
+      <div [class]="page1" (click)="page(1)"></div>&nbsp;
+      <div [class]="page2"  (click)="page(2)"></div>&nbsp;
+      <div [class]="page3"  (click)="page(3)"></div>&nbsp;
+      <div [class]="page4"  (click)="page(4)"></div>&nbsp;
+    </div>
+
   </div>
 
   <div class="links">
-
     <div class="link" routerLink="/blast">
       <div>
         _________________<br /><br />BLASTP
@@ -45,7 +81,7 @@
 
   <div class="quote">
     <div class="quoteText">
-      The comprehensive platform of plant fat related<br />
+      The comprehensive platform for plant fat related<br />
       genes, proteins and metabolism<br />
       __
     </div>

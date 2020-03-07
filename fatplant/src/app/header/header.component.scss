@@ -2,19 +2,21 @@
 
 mat-card {
   width: 100%;
+  max-height: 100px;
   box-sizing: border-box;
   margin-left: 0;
   margin-top: 0;
   position: fixed;
   z-index: 1000;
-  background-image: linear-gradient(grey, $dark) !important;
+  background-image: none !important;
+  background-color: rgb(128,128,128, .2);
   border-radius: 0 0 0 0;
   box-shadow: 2px 2px 2px 2px $dark;
   font-family: 'Raleway', sans-serif;
 }
 
 .nav-style{
-  word-break: break-word;
+  word-break: keep-all;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -30,6 +32,8 @@ li, button{
   height: 64px;
   margin-left: 2%;
   cursor: pointer;
+  border-left: solid grey 2px;
+  padding-left: 2%;
 }
 
 

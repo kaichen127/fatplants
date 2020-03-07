@@ -13,27 +13,102 @@
 }
 
 .banner {
-  min-height: 500px;
+  min-height: 480px;
+  max-height: 480px;
   width: 100%;
-  box-sizing: border-box;
-  background: url("../assets/homepageAssets/plantBanner.JPG") no-repeat center center;
-  background-size: cover;
-  padding: 10%;
   font-size: 3em;
 }
 
-#italics {
-  font-size: .5em;
-  background-color: $dark;
-  border-radius: 10px;
-  padding: 5px 5px 5px 5px;
-  opacity: .8;
+.banner1 {
+  width: 100%;
+  padding: 10% 10% 10% 10%;
+  box-sizing: border-box;
+  background: url("../assets/homepageAssets/plantBanner.JPG") no-repeat center center;
+  background-size: cover;
+}
+
+.banner2 {
+  width: 100%;
+  padding: 5% 10% 10% 10%;
+  box-sizing: border-box;
+  background: url("../assets/homepageAssets/plantBanner2.JPG") no-repeat center center;
+  background-size: cover;
+}
+
+.banner3 {
+  width: 100%;
+  padding: 5% 10% 10% 10%;
+  box-sizing: border-box;
+  background: url("../assets/homepageAssets/plantBanner3.JPG") no-repeat center center;
+  background-size: cover;
+}
+
+.banner4 {
+  width: 100%;
+  padding: 5% 10% 10% 10%;
+  box-sizing: border-box;
+  background: url("../assets/homepageAssets/plantBanner4.JPG") no-repeat center center;
+  background-size: cover;
+}
+
+.pageButton {
+  width: 10%;
+  border: solid $light 2px;
+  background-color: rgba(255, 255, 255, .6);
+  font-family: "PT Serif", sans-serif !important;
+  color: $dark;
+}
+
+.buttonDiv {
+  width: 100%;
+  text-align: center;
 }
 
 .bannerText {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   color: $light;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.bannerText2 {
+  background-color: rgba(245,245,245, .5);
+  border-radius: 2px;
+  padding: 10px 0 40px 0;
+  font-family: "PT Serif", sans-serif !important;
+  text-shadow: 1px 1px $dark;
+  color: $light;
+}
+
+.pageDisplay {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100px;
+  position: absolute;
+  width: 100%;
+  top: 550px;
+}
+
+.pages {
+  border-radius: 200px;
+  min-width: 10px;
+  max-height: 10px;
+  max-width: 10px;
+  cursor: pointer;
+  margin-left: 1%;
+}
+
+.active {
+  opacity: 1;
+  background-color: white;
+}
+
+.inactive {
+  opacity: .5;
+  background-color: whitesmoke;
 }
 
 .links {
