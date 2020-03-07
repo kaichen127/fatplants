@@ -9,7 +9,7 @@ mat-card {
   position: fixed;
   z-index: 1000;
   background-image: none !important;
-  background-color: rgb(128,128,128, .2);
+  background-color: rgb(128,128,128, 0);
   border-radius: 0 0 0 0;
   box-shadow: 2px 2px 2px 2px $dark;
   font-family: "PT Sans narrow", sans-serif;
@@ -18,11 +18,11 @@ mat-card {
 }
 
 #mobile-navbar.opaque {
-  background-color: rgb(24, 24, 24);
+  background-color: rgb(24, 24, 24, 0.8);
   transition: 0.5s background-color;
 }
 #desktop-navbar.opaque {
-  background-color: rgb(24, 24, 24);
+  background-color: rgb(24, 24, 24, 0.8);
   transition: 0.5s background-color;
 }
 
@@ -84,7 +84,7 @@ nav {
 .mobile-nav {
   margin-bottom: 15px;
   color: white;
-  background-image: rgb(128,128,128, .2);
+  background-image: rgb(128,128,128,0);
   display: inline-block;
   min-height: 50px;
   position: fixed;
