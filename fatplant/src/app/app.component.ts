@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MobileService } from './services/mobile/mobile.service';
 
 @Component({
   selector: 'app-root',
@@ -12,17 +13,16 @@ export class AppComponent {
   scrollObserver: IntersectionObserver;
   opaque: boolean = false;
 
+  constructor(private mobileService: MobileService) {}
   ngOnInit() {
     this.scrollMarker = document.querySelector('#scroll-marker');
     this.scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.intersectionRatio <= 0) {
           this.setOpaque();
-          console.log('opaque');
         }
         else {
           this.setTransparent();
-          console.log('transparent');
         }
       });
     });
@@ -31,10 +31,12 @@ export class AppComponent {
 
   setOpaque() {
     this.opaque = true;
-    document.getElementById('desktop-navbar').classList.add('opaque');
+    if (this.mobileService.isMobile()) document.getElementById('mobile-navbar').classList.add('opaque');
+    else document.getElementById('desktop-navbar').classList.add('opaque');
   }
   setTransparent() {
     this.opaque = false;
-    document.getElementById('desktop-navbar').classList.remove('opaque');
+    if (this.mobileService.isMobile()) document.getElementById('mobile-navbar').classList.remove('opaque');
+    else document.getElementById('desktop-navbar').classList.remove('opaque');
   }
 }

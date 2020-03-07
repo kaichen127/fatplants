@@ -17,6 +17,10 @@ mat-card {
   transition: 0.5s background-color;
 }
 
+#mobile-navbar.opaque {
+  background-color: rgb(24, 24, 24);
+  transition: 0.5s background-color;
+}
 #desktop-navbar.opaque {
   background-color: rgb(24, 24, 24);
   transition: 0.5s background-color;
@@ -30,7 +34,18 @@ mat-card {
   background-image: url("../assets/homepageAssets/icon.PNG");
   background-size: cover;
 }
+.mobile-icon {
+  float: left;
+  background-image: url('../assets/homepageAssets/icon.PNG');
+  background-size: cover;
+  min-height: 60px;
+  width: 22vw;
+}
 
+#mobile-navbar {
+  background-color: rgb(128,128,128, 0);
+  transition: 0.5s background-color;
+}
 .nav-style{
   word-break: keep-all;
   display: flex;
@@ -69,10 +84,15 @@ nav {
 .mobile-nav {
   margin-bottom: 15px;
   color: white;
-  background-image: linear-gradient($light-green, $main-green);
-  display: flex;
+  background-image: rgb(128,128,128, .2);
+  display: inline-block;
   min-height: 50px;
-  position: relative;
+  position: fixed;
+  left: 0;
+  font-family: "PT Sans narrow", sans-serif;
+}
+#mobile-navbar {
+  position: fixed;
 }
 .mobile-a {
   color: white;
@@ -88,7 +108,7 @@ nav {
   margin-bottom: auto;
 }
 #mobile-burger {
-  position: sticky;
+  position: absolute;
   right: 0;
 }
 .burger-icon {
@@ -96,6 +116,7 @@ nav {
   height: 100%;
   right: 0;
   float: right;
+  border-left: none;
 }
 .right {
   float: right;
