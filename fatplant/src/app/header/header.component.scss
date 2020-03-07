@@ -2,19 +2,31 @@
 
 mat-card {
   width: 100%;
+  max-height: 100px;
   box-sizing: border-box;
   margin-left: 0;
   margin-top: 0;
   position: fixed;
   z-index: 1000;
-  background-image: linear-gradient(grey, $dark) !important;
+  background-image: none !important;
+  background-color: rgb(128,128,128, .2);
   border-radius: 0 0 0 0;
   box-shadow: 2px 2px 2px 2px $dark;
-  font-family: 'Raleway', sans-serif;
+  font-family: "PT Sans narrow", sans-serif;
+  font-size: 1.3vw
+}
+
+.icon {
+  float: left;
+  width: 17vw;
+  min-height: 80px;
+  border-radius: 2px;
+  background-image: url("../assets/homepageAssets/icon.PNG");
+  background-size: cover;
 }
 
 .nav-style{
-  word-break: break-word;
+  word-break: keep-all;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -28,8 +40,9 @@ mat-card {
 
 li, button{
   height: 64px;
-  margin-left: 2%;
   cursor: pointer;
+  border-left: solid grey 2px;
+  padding-left: 2%;
 }
 
 
