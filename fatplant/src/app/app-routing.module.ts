@@ -40,7 +40,7 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path:'lmpddetailview/:uniprot_id',component:LmpddetailviewComponent},
 {path:'fatty_acid',component:FattyacidComponent},
 {path: 'soybean',component:SoybeanComponent},
-{path:'showresults', component:ShowresultsComponent}
+{path:'showresults/:uniprot_id/:cfg', component:ShowresultsComponent}
 ];
 
 

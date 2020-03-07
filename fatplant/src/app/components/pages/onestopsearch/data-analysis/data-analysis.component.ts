@@ -348,5 +348,4 @@ export class DataAnalysisComponent implements OnInit {
     el.scrollIntoView();
   }
 
-
 }

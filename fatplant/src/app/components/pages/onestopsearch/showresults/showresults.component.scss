@@ -58,12 +58,6 @@ table.blueTable tfoot .links a{
 
 
 
-.header {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-}
-
 /* Style the top navigation bar */
 .topnav {
   overflow: hidden;
@@ -106,6 +100,10 @@ table.blueTable tfoot .links a{
   width: 60%;
 }
 
+.column.middleright {
+  width: 80%;
+}
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -120,12 +118,6 @@ table.blueTable tfoot .links a{
   }
 }
 
-textarea {
-  width: 100%;
-  height: 120px;
-  font-family: monospace;
-  word-break: break-all;
-}
 
 table, td, th {
   border: 1px solid #ddd;
@@ -139,4 +131,13 @@ table {
 
 th, td {
   padding: 15px;
+}
+
+textarea {
+  width: 100%;
+  height: 350px;
+  font-family: monospace;
+  word-break: break-all;
+  border-radius: 10px;
+  background: transparent;
 }

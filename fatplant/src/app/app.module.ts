@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './components/pages/onestopsearch/data-analysis/data-analysis.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 import {
   MatTableModule,
   MatSelectModule,
@@ -126,7 +127,16 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatMenuModule,
     MatSidenavModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
