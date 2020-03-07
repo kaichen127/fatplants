@@ -16,6 +16,15 @@ mat-card {
   font-size: 1.3vw
 }
 
+.icon {
+  float: left;
+  width: 17vw;
+  min-height: 80px;
+  border-radius: 2px;
+  background-image: url("../assets/homepageAssets/icon.PNG");
+  background-size: cover;
+}
+
 .nav-style{
   word-break: keep-all;
   display: flex;
@@ -31,7 +40,6 @@ mat-card {
 
 li, button{
   height: 64px;
-  margin-left: 2%;
   cursor: pointer;
   border-left: solid grey 2px;
   padding-left: 2%;
