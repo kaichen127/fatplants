@@ -1,0 +1,12 @@
+.all{ 
+        font-weight: 200;
+        background: white;
+}
+.clear {
+        cursor: pointer;
+        float: right;
+        transition: color 0.5s;
+}
+.clear:hover {
+        color: red;
+}

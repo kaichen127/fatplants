@@ -5,7 +5,9 @@
   "projects": {
     "fatplant": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {  "@schematics/angular:component": {
+        "styleext": "scss"
+      }},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -21,12 +23,22 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/static"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/cytoscape/dist/cytoscape.min.js",
+              "node_modules/dagre/dist/dagre.min.js",
+              "node_modules/cytoscape-dagre/cytoscape-dagre.js",
+              "node_modules/cytoscape-cola/cytoscape-cola.js",
+              "node_modules/webcola/WebCola/cola.min.js",
+              "node_modules/webcola/WebCola/cola.js",
+              "node_modules/jspdf/dist/jspdf.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -63,7 +75,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fatplant:build"
+            "browserTarget": "fatplant:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -89,7 +102,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -120,6 +133,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "fatplant"
 }

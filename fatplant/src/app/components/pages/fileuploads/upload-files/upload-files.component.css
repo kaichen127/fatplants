@@ -1,0 +1,47 @@
+.dropzone { 
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    min-width: 79vw;
+    font-weight: 200;
+    height: 200px;
+    border: 2px dashed #226D4D;
+    border-radius: 5px;
+    margin: 10px 0;
+    background-color: #eeeeee;
+    transition: color 0.5s, background-color 0.5s, border 1s;
+
+}
+.hovering{
+color: white;
+background-color: #9EC68F;
+border: 2px solid #226D4D;
+}
+.file-label {
+    font-size: 1.2em;
+}
+  
+progress::-webkit-progress-value {
+    transition: width 0.1s ease;
+}
+
+.pane {
+  margin: 15px 15px 30px 15px;
+  border: 1px solid gray;
+  padding: 10px;
+  box-shadow: 2px 2px 2px lightgray;
+}
+#fileButton {
+  margin-left: 5px;
+}
+
+.mobile {
+  margin: auto;
+  width: 95%;
+}
+
+mat-card {
+  background-image: linear-gradient(to right, white, lightgrey) !important;
+}

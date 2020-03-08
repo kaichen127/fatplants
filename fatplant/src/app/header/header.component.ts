@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from '../services/auth.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { MobileService } from '../services/mobile/mobile.service';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private mobileService: MobileService, private authService: AuthService) { }
 
   email:string
   ngOnInit() {
@@ -17,6 +20,16 @@ export class HeaderComponent implements OnInit {
         this.email=data.email
       }    
     })
+  }
+
+  get isMobile(): boolean {
+    return this.mobileService.isMobile();
+  }
+
+  @Input() sideNav: MatSidenav;
+  currentMenu: string = "mobileMenu";
+  selectMenu(menu: string) {
+    this.currentMenu = menu;
   }
 
 }

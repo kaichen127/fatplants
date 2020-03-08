@@ -1,126 +1,207 @@
+<div class="header">
 
-<div class="body_wrap">
-  <div class="card-panel">
-      <div class="card-panel green lighten-2">
-          <h1><span class = "white-text">FatPlant</span></h1>
-          </div>
-      <!--subheader -->
-      <p class="green-text text-darken-2"> The comprehensive platform of plant fat related genes,
-              proteins and metabolism.</p>
-      <a href="/table" class="button">Learn Data</a>
-      <a href="/cy"  class="button">Learn Graph</a>
-  </div>
-  <div class="left_column_wrap">
-    <span class="title1">FatPlant Home</span>
-    <div class="small_graphic"></div>
-    <div class="story">
+</div>
+<div class="container">
 
-    <p class="green-text">Increasing seed oil content by plant breeding has resulted in trade-offs or penalties with
-        respect to protein content, seed size, or seed set. The molecular basis for this impasse is
-        mostly speculative. Use of current global profiling approaches to better understand both the
-        metabolic consequences of higher oil and the basis for reduced yield must also deal with off-target
-        genetic mutations (even in near-isogenic lines), ultimately confounding cause-effect interpretations.
-        We propose a diverse, integrated strategy to study the consequences of higher lipid production by studying
-        transgenic plants specifically engineered to produce higher seed oil.<br /><br />
-        Breakthroughs on the regulation of the committed step of de novo fatty acid synthesis (FAS) have been leveraged to produce oilseeds with
-        substantially higher oil content. Prior to this time, changes in oil content have been minor which
-        has made identification of small differences in metabolism difficult to study. We are now in a
-        position to address recalcitrant questions about the metabolic consequences for enhancing seed oil.
-  </p>
+  <div class="banner">
+    <div class="banner1" *ngIf="pageDisplay === 'page1'">
+      <div class="bannerText">
+        <span>WE KEEP THINGS</span>
+        <strong>CLEAN AND SIMPLE</strong>
+        <span>___</span>
+      </div>
+      <br /><br />
+    </div>
+
+    <div class="banner2" *ngIf="pageDisplay === 'page2'">
+      <div class="bannerText bannerText2">
+        <span>The one-stop tool for</span>
+        <span>biological data procedures</span>
+        <div class="buttonDiv"><button mat-button class="pageButton" routerLink="/one_click">One Stop</button></div>
+      </div>
+      <br /><br />
+    </div>
+
+    <div class="banner3" *ngIf="pageDisplay === 'page3'">
+      <div class="bannerText bannerText2">
+        <span>Fatty related protein data</span>
+        <span>for typical plants</span>
+        <div class="buttonDiv"><button mat-button class="pageButton" routerLink="/lmpd_arapidopsis">Our Data</button></div>
+      </div>
+      <br /><br />
+    </div>
+
+    <div class="banner4" *ngIf="pageDisplay === 'page4'">
+      <div class="bannerText bannerText2">
+        <span>Protein to protein networks</span>
+        <span>and GO enrichment networks</span>
+        <div class="buttonDiv"><button mat-button class="pageButton" routerLink="/protein-network">Networks</button></div>
+      </div>
+      <br /><br />
+    </div>
+
+    <div class="pageDisplay">
+      <div [class]="page1" (click)="page(1)"></div>&nbsp;
+      <div [class]="page2"  (click)="page(2)"></div>&nbsp;
+      <div [class]="page3"  (click)="page(3)"></div>&nbsp;
+      <div [class]="page4"  (click)="page(4)"></div>&nbsp;
     </div>
 
   </div>
 
-  <div class="right_column_wrap">
-    <span class="title2">Latest News</span>
-	<div class="story">
-    <a><img [src]="image1" align="left" width="108px" height="95px"/></a>
-		<a style="display:inline;" href="https://www.xsede.org/soybean-science-blooms-with-supercomputers" target="_blank">Soybean science blooms with supercomputers [XSEDE]</a>
-		<br>
-		</div>
-<br>
-<br>
-<br>
-	<div class="story">
-		<a><img [src]="image2" align="left" width="108px" height="95px"/></a>
-		<a style="display:inline;" href="http://dev.soykb.org/images/MizzouEngineerSpringSum2015_SoyKB.pdf" target="_blank">SoyKB: a powerful tool at the junction of plant biology and computer science</a>
+  <div class="links">
+    <div class="link" routerLink="/blast">
+      <div>
+        _________________<br /><br />BLASTP
+      </div><br />
+      <mat-icon class="linkIcon">
+        eco
+      </mat-icon>
+    </div>
+
+    <div class="link" routerLink="/glmol">
+      <div>
+        _________________<br /><br />3D STRUCTURE
+      </div><br />
+      <mat-icon class="linkIcon">
+        select_all
+      </mat-icon>
+    </div>
+
+    <div class="link" routerLink="/color-pathway">
+      <div>
+        _________________<br /><br />COLOR PATHWAY
+      </div><br />
+      <mat-icon class="linkIcon">
+        timeline
+      </mat-icon>
+    </div>
+
   </div>
-  <br>
-  <br>
-	<div class="story">
-		<a><img [src]="image3" align="left" width="108px" height="95px"/></a>
-		<a style="display:inline;" href="http://decodingscience.missouri.edu/2014/06/soykb-leading-the-convergence-of-wet-and-dry-science-in-the-era-of-big-data" target="_blank">SoyKB: Leading the convergence of wet and dry science in the era of Big Data</a>
-	</div>
-  <br clear="all">
-  <span class="title2">Sponsors</span>
-<div class="partners">
 
-	<a href="http://www.energy.gov/" target="_blank"><img [src]="partner1" /></a>
-	<a href="http://www.nsf.gov/" target="_blank"><img [src]="partner2" /></a>
-	<a><img [src]="partner3" /></a>
-	<a href="http://www.soybiotechcenter.org/" target="_blank"><img [src]="partner4" /></a>
-	<a href="http://unitedsoybean.org/" target="_blank"><img [src]="partner5" /></a>
-	<a href="http://www.missouri.edu/" target="_blank"><img [src]="partner6" /></a>
-</div>
-</div>
-<div class="left_column_sub_wrap">
-			<div class="left">
-				<span class="title2">Latest Developments</span>
-				<div class="content" >
+  <div class="quote">
+    <div class="quoteText">
+      The comprehensive platform for plant fat related<br />
+      genes, proteins and metabolism<br />
+      __
+    </div>
+  </div>
 
-				<h3>August 2015</h3>
-				<ul>
-				<li>New upgraded combined gene and metabolite pathway viewer available.</li>
-				</ul>
+  <div class="splitInfo">
+    <div class="oilContent">
+      <p>
+        <strong class="oilHeader">Increasing seed oil content by plant breeding has resulted in trade-offs or penalties with respect to protein content, seed size, and seed set.</strong><br /><br />
 
-				<h3>January 2015</h3>
-					<ul>
-					<li>RNA-seq data added for seed germination stages for private access.</li>
-					</ul>
+        The molecular basis for this impasse is mostly speculative.
+        Use of current global profiling approaches to better understand both the metabolic consequences of higher oil and the basis for reduced yield must also deal with off-target genetic mutations (even in near-isogenic lines),
+        ultimately confounding cause-effect interpretations.
+        We propose a diverse, integrated strategy to study the consequences of higher lipid production by studying transgenic plants specifically engineered to produce higher seed oil.<br /><br />
 
-				<h3>July 2014</h3>
-					<ul>
-					<li>New Gene Model Glycine Max Wm82.a2.v1 along with mapping to the old gene models added into gene card page.</li>
-					</ul>
+        Breakthroughs in the regulations of the committed step of de novo fatty acid synthesis (FAS) have been leveraged to produce oilseeds with substantially higher oil content.
+        Prior to this time, changes in oil content have been minor, which has made the identification of small differences in metabolism difficult to study.
+        We are now in a position to address recalcitrant questions about the metabolic consequences for enhancing seed oil.
+      </p>
+    </div>
+    <div class="aims">
+      <p>
+        <strong class="aimsHeader">Project Aims</strong><br /><br />
 
-					<h3>June 2014</h3>
+        <strong>Establish</strong> regulatory features in oil-for-protein and oil-for-seed yield trade-offs by measuring:
+        transcripts, polysomal loading (i.e. dynamically translated transcript levels),
+        proteins, and metabolites during the three stages of seed development in engineered high-oil lines as compared to wild type(WT).<br /><br />
 
-						<ul>
+        <strong>Measure</strong> the oil to protein trade-off through analysis of carbon flux into central and fatty acid metabolism in high-oil as compared to WT germplasm.<br /><br />
 
-							<li>Iplant username update/signup for SoyKB users implemented. Users with current Iplant accounts can add/verify their usernames and new users can sign-up for Iplant username and add information in SoyKB. Iplant username will be used for data access control for tools such as Jbrowse using Coge and future analysis pipelines access.</li>
-							<li>User analysis jobs section added under the user profile page for easy access to results for jobs submitted for certain SoyKB tools.</li>
-							<li>Function enrichment analysis capacity added under Tools and also in Differential Expression Suite of Tools.</li>
-							<li>Soybean SNP50K array data added to SoyKB. Users can browse this data for multiple PI lines under SNP search.</li>
-						</ul>
+        <strong>Assess</strong> acyl-lipid biosynthetic turnover rates as well as bottlenecks within the lipid metabolic network through targeted flux analysis.<br /><br />
 
+        <strong>Develop</strong> a “one-stop-shop” community web resource for all data pertaining to enhancing oil content in plants and leverage data generated from this project with curated forms of public data such as other funded web sites and literature.<br /><br />
 
+        <strong>Improve</strong> STEM education by providing multidisciplinary training to college students, graduates, postgraduates, and high school teachers.<br />
+      </p>
+    </div>
+  </div>
 
-				</div>
-			</div>
-      <div class="right">
-				<span class="title3">Featured Tools</span>
-				<div class="content">
-					<div class="story">
-						<a href="search/affy_probe.php">Affymetrix Probe ID Mapper
-						<img [src]="image1" /></a>
-						Search our database by Affymetrix Probe ID.
-					</div>
-					<div class="story">
-						<br>
-						<a href="search/gene_pathway.php">Gene PathwayViewer
-						<img [src]="image2" /></a>
-						View the Gene PathwayViewer.
-					</div>
-					<div class="story">
-						<br>
-						<a href="http://genomebrowser.missouri.edu/cgi-bin/hgTracks?hgsid=4287&clade=plant&org=soybean&db=gm101&position=Gm01&pix=620&Submit=submit&hgsid=4287" target="_blank">Genome Browser
-                                                <img [src]="image3" /></a>
-                                                Explore the Genome Browser.
-					</div>
+  <div class="staff">
+    <div class="staffContainer">
+      <img [src]="JT" alt="JT" class="staffPP" />
+      <br />
+      <strong class="staffText">Jay Thelen</strong>
+      <br />
+      <i class="staffText">PI</i>
+      <br />
+      <div class="staffText">University of Missouri - Columbia</div>
+      <br />
+      <div class="staffText">thelenj@missouri.edu</div>
+    </div>
 
-				</div>
-			</div>
-		</div>
+    <div class="staffContainer">
+      <img [src]="DA" alt="DA"  class="staffPP" />
+      <br />
+      <strong class="staffText">Douglas Allen</strong>
+      <br />
+      <i class="staffText">CO-PI</i>
+      <br />
+      <div class="staffText">Danforth Center USDA-ARS</div>
+      <br />
+      <div class="staffText">Doug.allen@ars.usda.gov</div>
+    </div>
 
+    <div class="staffContainer">
+      <img [src]="PB" alt="PB"  class="staffPP" />
+      <br />
+      <strong class="staffText">Philip Bates</strong>
+      <br />
+      <i class="staffText">CO-PI</i>
+      <br />
+      <div class="staffText">Washington State University</div>
+      <br />
+      <div class="staffText">phil_bates@wsu.edu</div>
+    </div>
+
+    <div class="staffContainer">
+      <img [src]="AK" alt="AK"  class="staffPP" />
+      <br />
+      <strong class="staffText">Abe Koo</strong>
+      <br />
+      <i class="staffText">CO-PI</i>
+      <br />
+      <div class="staffText">University of Missouri - Columbia</div>
+      <br />
+      <div class="staffText">kooaj@missouri.edu</div>
+    </div>
+
+    <div class="staffContainer">
+      <img [src]="DX" alt="DX"  class="staffPP" />
+      <br />
+      <strong class="staffText">Dong Xu</strong>
+      <br />
+      <i class="staffText">CO-PI</i>
+      <br />
+      <div class="staffText">University of Missouri - Columbia</div>
+      <br />
+      <div class="staffText">xudong@missouri.edu</div>
+    </div>
+  </div>
+
+  <div class="news">
+    <div>
+      Latest News<br />
+      ____
+    </div>
+
+    <div class="newsInfo">
+      <div><a href="https://10times.com/pag"><img class="newsPics" [src]="FB" alt="FB" /><br /><br />Fatplant is moving to firebase! </a></div>
+      <div><a href="https://fatplant-76987.firebaseapp.com/homepage"><img class="newsPics" [src]="PAG" alt="PAG"/><br /><br />Fatplant is heading to PAG! </a></div>
+    </div>
+  </div>
+
+  <div class="information">
+    <div class="sponsors">
+      <div><img class="sponsorImg" [src]="MU" alt="MU"/></div>
+      <div><img class="sponsorImg" [src]="PSC" alt="PSC"/></div>
+      <div><img class="sponsorImg" [src]="WSU" alt="WSU"/></div>
+      <div><img class="sponsorImg" [src]="NSF" alt="NSF"/></div>
+    </div>
+  </div>
 
 </div>

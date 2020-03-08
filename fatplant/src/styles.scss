@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "~src/variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Catamaran:200&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Serif&display=swap');
+
+html, body {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.background {
+  background: url("app/assets/homepageAssets/plantParalax.JPG") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+mat-card {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10%;
+  background-image: linear-gradient($light, whitesmoke) !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.pointer:hover {
+  color: $lime-green;
+  transition: color 0.2s;
+}

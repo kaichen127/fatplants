@@ -3,21 +3,73 @@ declare var require: any;
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  private partner1 = require("../assets/partner1.jpg");
-  private partner2 = require("../assets/partner2.jpg");
-  private partner3 = require("../assets/partner3.jpg");
-  private partner4 = require("../assets/partner4.jpg");
-  private partner5 = require("../assets/partner5.jpg");
-  private partner6 = require("../assets/partner6.jpg");
-  private image1 = require("../assets/1.png");
-  private image2 = require("../assets/2.png");
-  private image3 = require("../assets/3.png");
+  FB = require('../assets/homepageAssets/FB.png');
+  PAG = require('../assets/homepageAssets/News.png');
+  JT = require('../assets/homepageAssets/JT.png');
+  DA = require('../assets/homepageAssets/DA.png');
+  PB = require('../assets/homepageAssets/PB.png');
+  AK = require('../assets/homepageAssets/AK.png');
+  DX = require('../assets/homepageAssets/DX.png');
+  WSU = require('../assets/homepageAssets/WSU.png');
+  MU = require('../assets/homepageAssets/MU.png');
+  NSF = require('../assets/homepageAssets/NSF.png');
+  PSC = require('../assets/homepageAssets/PSC.png');
+
+  page1 = 'active pages';
+  page2 = 'inactive pages';
+  page3 = 'inactive pages';
+  page4 = 'inactive pages';
+
+  pageDisplay = 'page1';
+  pager = 1;
+
   constructor() { }
 
   ngOnInit() {
+    setInterval(() => {
+      this.pager += 1;
+      this.page(this.pager);
+    }, 5000);
+  }
+
+  page(page) {
+    this.pager = page;
+
+    if (page > 4) {
+      this.pager = 1;
+      page = 1;
+    }
+
+    this.pageDisplay = 'page' + page;
+
+    if (page === 1) {
+      this.page1 = 'active pages';
+      this.page2 = 'inactive pages';
+      this.page3 = 'inactive pages';
+      this.page4 = 'inactive pages';
+    }
+    if (page === 2) {
+      this.page1 = 'inactive pages';
+      this.page2 = 'active pages';
+      this.page3 = 'inactive pages';
+      this.page4 = 'inactive pages';
+    }
+    if (page === 3) {
+      this.page1 = 'inactive pages';
+      this.page2 = 'inactive pages';
+      this.page3 = 'active pages';
+      this.page4 = 'inactive pages';
+    }
+    if (page === 4) {
+      this.page1 = 'inactive pages';
+      this.page2 = 'inactive pages';
+      this.page3 = 'inactive pages';
+      this.page4 = 'active pages';
+    }
+
   }
 
 }
