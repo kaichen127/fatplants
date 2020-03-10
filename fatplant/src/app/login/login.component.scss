@@ -1,0 +1,85 @@
+@import "~src/variables.scss";
+
+mat-card {
+  background-image: linear-gradient(to bottom left, $main-green, $light-green) !important;
+}
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.loginForm {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.loginButtons {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.displayName {
+  margin-bottom: 10%;
+  height: 10%;
+  width: 100%;
+  background-image: none !important;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 1px 1px $dark;
+  font-family: "Catamaran", sans-serif !important;
+  font-size: 2vw;
+}
+
+button {
+  margin-top: 10%;
+  height: 10%;
+  background-color: $white-yellow;
+  font-family: "Catamaran", sans-serif !important;
+  font-size: 2vw;
+}
+
+.buttonFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.newAdmin {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.futureAdmin {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: none !important;
+  width: 80%;
+  height: 50%;
+  box-sizing: border-box;
+}
+
+.adminInput {
+  width: 50%;
+}
+
+.adminButtons {
+  display: flex;
+  justify-content: space-between;
+  height: 15%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.adminButton {
+  height: 100%;
+  font-size: 1vw;
+}

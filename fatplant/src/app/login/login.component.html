@@ -1,0 +1,57 @@
+<div class="container">
+  <mat-card class="loginForm">
+
+    <div class="loginButtons" *ngIf="!admin && !email">
+      <div class="displayName" *ngIf="user !== null && user.displayName !== ''">
+        Welcome, {{ user.displayName }}
+      </div>
+      <div class="displayName" *ngIf="user === null || user.displayName === ''">
+        Welcome, Guest
+      </div>
+      <button mat-raised-button (click)="login('google')">
+        <div class="buttonFlex">
+          <mat-icon>cloud</mat-icon><span>Google Login</span><div></div>
+        </div>
+      </button>
+
+      <button mat-raised-button (click)="login('email')">
+        <div class="buttonFlex">
+          <mat-icon>email</mat-icon><span>Email Login</span><div></div>
+        </div>
+      </button>
+
+      <button mat-raised-button (click)="login('admin')" *ngIf="user.admin === true">
+        <div class="buttonFlex">
+          <mat-icon>perm_identity</mat-icon><span>Assign a new Admin</span><div></div>
+        </div>
+      </button>
+
+      <button mat-raised-button (click)="login('logout')">
+        <div class="buttonFlex">
+          <mat-icon>account_box</mat-icon><span>Logout</span><div></div>
+        </div>
+      </button>
+
+    </div>
+
+    <div class="emailForm" *ngIf="email">
+      <div class="adminButtons">
+        <button mat-raised-button (click)="email = false" class="adminButton">Back</button>
+      </div>
+    </div>
+
+    <div class="newAdmin" *ngIf="admin">
+      <mat-card class="futureAdmin">
+        <mat-form-field class="adminInput" >
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="adminEmail" matInput placeholder="Enter a User's email to add them as an admin."/>
+        </mat-form-field>
+        <mat-error *ngIf="failed">Could not find this user.</mat-error>
+        <div class="adminButtons">
+          <button mat-raised-button (click)="findAdmin(adminEmail)" class="adminButton">Assign Admin Role</button>
+          <button mat-raised-button (click)="admin = false" class="adminButton">Back</button>
+        </div>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>

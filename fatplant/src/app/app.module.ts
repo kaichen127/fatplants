@@ -64,6 +64,7 @@ import { UploadTaskComponent } from './components/pages/fileuploads/upload-task/
 import { FileviewComponent } from './components/pages/fileuploads/fileview/fileview.component';
 import { LmpdCardComponent } from './components/pages/datapages/lmpd-card/lmpd-card.component';
 import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
     GoNetworkComponent,
     LmpddetailviewComponent,
     SoybeanComponent,
-    DataAnalysisComponent
+    DataAnalysisComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

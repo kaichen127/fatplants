@@ -6,10 +6,9 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class FirestoreConnectionService {
 
-  constructor(private afs:AngularFirestore) { }
+  constructor(private afs: AngularFirestore) { }
 
   connect(collectionName:string){
-    let docs=this.afs.collection(collectionName,ref=>ref.limit(100)).valueChanges()
-    return docs;
+    return this.afs.collection(collectionName,ref=>ref.limit(100)).valueChanges();
   }
 }

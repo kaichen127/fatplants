@@ -19,10 +19,12 @@ import { CameliaComponent } from './components/pages/datapages/camelia/camelia/c
 import { UploadFilesComponent } from './components/pages/fileuploads/upload-files/upload-files.component';
 import { FileviewComponent } from './components/pages/fileuploads/fileview/fileview.component';
 import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.component';
+import {LoginComponent} from './login/login.component';
 
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'homepage', component: HomepageComponent},
+{path: 'login', component: LoginComponent},
 {path: 'introduction', component: IntroductionComponent},
 {path: 'investigator', component: InvestigatorComponent},
 {path: 'lmpd_arapidopsis', component: LmpdArapidopsisComponent},
@@ -34,10 +36,10 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'go-network', component: GoNetworkComponent},
 {path: 'one_click', component: DataAnalysisComponent},
 {path: 'blast', component: BlastComponent},
-{path:'files',component:UploadFilesComponent, canActivate: [AngularFireAuthGuard]},
-{path:'lmpddetailview/:uniprot_id',component:LmpddetailviewComponent},
-{path:'fatty_acid',component:FattyacidComponent},
-{path: 'soybean',component:SoybeanComponent}];
+{path: 'files', component:UploadFilesComponent, canActivate: [AngularFireAuthGuard]},
+{path: 'lmpddetailview/:uniprot_id', component: LmpddetailviewComponent},
+{path: 'fatty_acid', component: FattyacidComponent},
+{path: 'soybean', component: SoybeanComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes,{ anchorScrolling: 'enabled'})],

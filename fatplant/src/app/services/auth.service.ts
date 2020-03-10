@@ -3,55 +3,53 @@ import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(public afAuth: AngularFireAuth, private router: Router){
+  constructor(public afAuth: AngularFireAuth, private router: Router, private afs: AngularFirestore){
   }
 
   googleLogin(){
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
-  logout() {
-    this.afAuth.auth.signOut();
-    this.router.navigate(["/"]);
+  emailLogin(email, password) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
-  doLogin(value: any):Promise<any> {
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().signInWithEmailAndPassword(value.email, value.password)
-      .then(res => {
-        resolve(res);
-      }, err => reject(err))
-    })
+  emailRegister(email, password) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  doRegister(value: any):Promise<number> {
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
-      .then(res => {
-        resolve(res);
-      }, err => reject(err))
-    })
+  findUser(email) {
+    return this.afs.collection('users', ref =>
+        ref.where('email', '==', email)
+      ).get();
+  }
+
+  addUser(user) {
+    return this.afs.collection('users').add(user);
+  }
+
+  updateUser(user, id) {
+    return this.afs.collection('users').doc(id).update(user);
+  }
+
+  assignAdmin(uid) {
+    return this.afs.collection('users', ref =>
+        ref.where('uid', '==', uid)
+      ).get();
   }
 
   doLogout(){
-    return new Promise((resolve, reject) => {
-      if(firebase.auth().currentUser){
-        this.afAuth.auth.signOut();
-        resolve();
-      }
-      else{
-        reject();
-      }
-    });
+    return this.afAuth.auth.signOut();
   }
 
   checkUser(){
-    return this.afAuth.user
+    return this.afAuth.user;
   }
 }

@@ -31,12 +31,12 @@ export class AppComponent {
   }
 
   setOpaque() {
-    this.opaque = true;
+    this.mobileService.opaque = true;
     if (this.mobileService.isMobile()) document.getElementById('mobile-navbar').classList.add('opaque');
     else document.getElementById('desktop-navbar').classList.add('opaque');
   }
   setTransparent() {
-    this.opaque = false;
+    this.mobileService.opaque = false;
     if (this.mobileService.isMobile()) document.getElementById('mobile-navbar').classList.remove('opaque');
     else document.getElementById('desktop-navbar').classList.remove('opaque');
   }

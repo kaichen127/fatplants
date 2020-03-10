@@ -2,18 +2,42 @@
   <div class="icon"></div>
   <nav>
     <ul class="nav-style light">
-      <li routerLink="/homepage" routerLinkActive="desktop-active" id="home-item"><div class="menu">HOME</div></li>
+      <li routerLink="/homepage" routerLinkActive="desktop-active" id="home-item">
+        <mat-icon *ngIf="!mobileService.opaque">home</mat-icon><div class="menu">HOME</div>
+      </li>
+
 <!--      <li routerLink="/introduction" routerLinkActive="desktop-active"><mat-icon>help</mat-icon><div class="menu">INTRODUCTION</div></li>-->
-      <li [matMenuTriggerFor]="dataMenu" routerLinkActive="desktop-active"><div class="menu">OUR DATA</div></li>
-      <li routerLink="/files" routerLinkActive="desktop-active" *ngIf="authService.checkUser() | async;"><div class="menu">FILE LIBRARY</div></li>
-      <li routerLink="/one_click" routerLinkActive="desktop-active"><div class="menu">SEARCH</div></li>
-      <li [matMenuTriggerFor]="graphMenu" routerLinkActive="desktop-active"><div class="menu">NETWORKS</div></li>
-      <li routerLink="/investigator" routerLinkActive="desktop-active"><div class="menu">STAFF</div></li>
-      <li [matMenuTriggerFor]="toolsMenu" routerLinkActive="desktop-active"><div class="menu">TOOLS</div></li>
-      <li (click)="authService.logout()" *ngIf="authService.checkUser() | async; else showLogin"><div class="menu">LOGOUT</div></li>
+      <li [matMenuTriggerFor]="dataMenu" routerLinkActive="desktop-active">
+        <mat-icon *ngIf="!mobileService.opaque">graphic_eq</mat-icon><div class="menu">OUR DATA</div>
+      </li>
+
+      <li routerLink="/files" routerLinkActive="desktop-active" *ngIf="authService.checkUser() | async;">
+        <mat-icon *ngIf="!mobileService.opaque">attach_file</mat-icon><div class="menu">FILE LIBRARY</div>
+      </li>
+
+      <li routerLink="/one_click" routerLinkActive="desktop-active">
+        <mat-icon *ngIf="!mobileService.opaque">search</mat-icon><div class="menu">SEARCH</div>
+      </li>
+
+      <li [matMenuTriggerFor]="graphMenu" routerLinkActive="desktop-active">
+        <mat-icon *ngIf="!mobileService.opaque">signal_cellular_alt</mat-icon><div class="menu">NETWORKS</div>
+      </li>
+
+      <li routerLink="/investigator" routerLinkActive="desktop-active">
+        <mat-icon *ngIf="!mobileService.opaque">people</mat-icon><div class="menu">STAFF</div>
+      </li>
+
+      <li [matMenuTriggerFor]="toolsMenu" routerLinkActive="desktop-active">
+        <mat-icon *ngIf="!mobileService.opaque">build</mat-icon><div class="menu">TOOLS</div>
+      </li>
+
+      <li routerLink="/login" *ngIf="authService.checkUser() | async; else showLogin">
+        <mat-icon *ngIf="!mobileService.opaque">account_box</mat-icon><div class="menu">LOGOUT</div>
+      </li>
+
       <ng-template #showLogin>
-        <li>
-          <a (click)='authService.googleLogin()'>LOGIN</a>
+        <li routerLink="/login">
+          <mat-icon *ngIf="!mobileService.opaque">person</mat-icon><div class="menu">LOGIN</div>
         </li>
       </ng-template>
     </ul>

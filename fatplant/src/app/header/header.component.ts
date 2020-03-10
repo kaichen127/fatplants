@@ -1,6 +1,6 @@
 
 import { AuthService } from '../services/auth.service';
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import { MobileService } from '../services/mobile/mobile.service';
 import { MatSidenav } from '@angular/material';
 
@@ -13,11 +13,11 @@ export class HeaderComponent implements OnInit {
 
   constructor(private mobileService: MobileService, private authService: AuthService) { }
 
-  email:string
+  email = '';
   ngOnInit() {
     this.authService.checkUser().subscribe(data => {
       if (data){
-        this.email=data.email
+        this.email = data.email;
       }    
     })
   }
