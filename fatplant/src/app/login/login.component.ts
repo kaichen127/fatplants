@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   email = false;
   admin = false;
   failed = false;
+  success = false;
   adminEmail = '';
   user: any = {
     displayName: ''
@@ -19,24 +20,36 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.authService.checkUser().subscribe(res => {
-      this.authService.findUser(res.email).subscribe(ret => {
-        this.user = ret.docs[0].data();
-      });
+      if (res !== null) {
+        this.authService.findUser(res.email).subscribe(ret => {
+          this.user = ret.docs[0].data();
+        });
+      }
     });
   }
 
   login(type) {
     if (type === 'google') {
-      this.authService.googleLogin().then(res => {
-        const user = {
-          uid: res.user.uid,
-          displayName: res.user.displayName,
-          email: res.user.email,
-          admin: false
-        };
-        this.authService.addUser(user).then(res => {
-          this.failed = false;
-        });
+      this.authService.checkUser().subscribe(ret => {
+        if (ret === null){
+          this.authService.googleLogin().then(res => {
+            const user = {
+              uid: res.user.uid,
+              displayName: res.user.displayName,
+              email: res.user.email,
+              admin: false
+            };
+            this.authService.findUser(user.email).subscribe(returned => {
+              if (returned.docs.length < 1) {
+                this.authService.addUser(user).then(res => {
+                  this.failed = false;
+                });
+              }
+            });
+          });
+        } else {
+          this.user = ret;
+        }
       });
     }
 
@@ -72,7 +85,7 @@ export class LoginComponent implements OnInit {
             user.admin = true;
             const id = ret.docs[0].id;
             this.authService.updateUser(user, id).then(returned => {
-              this.user = returned;
+              this.success = true;
             });
           });
         } else {

@@ -46,6 +46,11 @@ button {
   font-size: 2vw;
 }
 
+mat-hint {
+  color: green;
+  font-family: "Catamaran", sans-serif !important;
+}
+
 .buttonFlex {
   display: flex;
   justify-content: space-between;
