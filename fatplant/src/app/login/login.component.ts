@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
   failed = false;
   success = false;
   adminEmail = '';
+  submittedEmail = '';
+  submittedPassword = '';
+  type = '';
   user: any = {
     displayName: ''
   };
@@ -29,9 +32,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(type) {
+    this.type = type;
     if (type === 'google') {
       this.authService.checkUser().subscribe(ret => {
-        if (ret === null){
+        if (ret === null && this.type === 'google'){
+          this.type = '';
           this.authService.googleLogin().then(res => {
             const user = {
               uid: res.user.uid,
@@ -47,13 +52,11 @@ export class LoginComponent implements OnInit {
               }
             });
           });
-        } else {
-          this.user = ret;
         }
       });
     }
 
-    if (type === 'email') {
+    if (type === 'email' && !this.user.displayName) {
       this.email = true;
     }
 
@@ -63,8 +66,9 @@ export class LoginComponent implements OnInit {
 
     if (type === 'logout') {
       this.authService.doLogout().then(res => {
-        this.router.navigate(['/', 'homepage']);
-      });
+          this.authService.loginStatus.next('out');
+          this.router.navigate(['/', 'homepage']);
+        });
     }
 
   }
@@ -100,6 +104,7 @@ export class LoginComponent implements OnInit {
       if (res.docs.length > 0) {
         this.authService.emailLogin(email, password).then(res => {
           this.failed = false;
+          this.success = true;
         });
       } else {
         this.authService.emailRegister(email, password).then(res => {
@@ -110,8 +115,11 @@ export class LoginComponent implements OnInit {
             admin: false
           };
           this.authService.addUser(user).then(res => {
-            this.failed = false;
-          })
+            this.authService.emailLogin(email, password).then(returned => {
+              this.failed = false;
+              this.success = true;
+            });
+          });
         });
       }
     })

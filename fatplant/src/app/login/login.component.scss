@@ -56,6 +56,36 @@ mat-hint {
   justify-content: space-between;
 }
 
+.emailForm {
+  width: 100%;
+  height: 60%;
+}
+
+.futureEmail {
+  background-image: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.emailInput {
+  width: 50%;
+}
+
+.emailButtons {
+  display: flex;
+  justify-content: space-between;
+  height: 15%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.emailButton {
+  height: 100%;
+  font-size: 1vw;
+}
+
+
 .newAdmin {
   width: 100%;
   height: 100%;

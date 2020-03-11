@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
 import { FatPlantDataSource } from 'src/app/interfaces/FatPlantDataSource';
-import { globalRefreshTime } from 'src/app/app.module';
+import {globalRefreshTime} from '../../../../constants';
+
 
 @Component({
   selector: 'app-fattyacid',

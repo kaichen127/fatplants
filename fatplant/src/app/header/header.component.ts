@@ -14,12 +14,16 @@ export class HeaderComponent implements OnInit {
   constructor(private mobileService: MobileService, private authService: AuthService) { }
 
   email = '';
+  user: any = {
+    admin: false
+  };
   ngOnInit() {
-    this.authService.checkUser().subscribe(data => {
-      if (data){
-        this.email = data.email;
-      }    
-    })
+    this.refresh();
+    this.authService.watchLogin().subscribe(ret => {
+      if (ret === 'out') {
+        this.refresh();
+      }
+    });
   }
 
   get isMobile(): boolean {
@@ -30,6 +34,22 @@ export class HeaderComponent implements OnInit {
   currentMenu: string = "mobileMenu";
   selectMenu(menu: string) {
     this.currentMenu = menu;
+  }
+
+  refresh() {
+    this.authService.checkUser().subscribe(data => {
+      if (data){
+        this.email = data.email;
+        this.authService.findUser(this.email).subscribe(res => {
+          this.user = res.docs[0].data();
+        });
+      } else {
+        this.email = '';
+        this.user = {
+          admin: false
+        }
+      }
+    });
   }
 
 }
