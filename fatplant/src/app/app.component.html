@@ -21,8 +21,8 @@
     <a mat-menu-item href="http://www.muscifest.com" target="_blank" class="menu-item" (click)="sideNav.close()">Sci-FEST</a>
     </mat-sidenav>
     <mat-sidenav-content>
-        <app-header [sideNav]="sideNav"></app-header>
-        <div id="scroll-marker"></div>
+        <app-header [sideNav]="sideNav" #header></app-header>
+        <div id="scroll-marker" #scrollMarker></div>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
