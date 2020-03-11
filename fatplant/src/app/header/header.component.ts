@@ -25,7 +25,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
           ':leave', 
           [
             style({ "font-size": "24px", height: "24px", opacity: 1 }),
-            animate('0.9s ease-in', 
+            animate('0.4s ease-in', 
                     style({ "font-size": "0px", height: 0, opacity: 0 }))
           ]
         )
