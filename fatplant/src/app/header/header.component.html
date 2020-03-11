@@ -3,7 +3,7 @@
   <nav>
     <ul class="nav-style light">
       <li routerLink="/homepage" routerLinkActive="desktop-active" id="home-item">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>home</mat-icon><div class="menu">HOME</div>
+        <mat-icon #icon *ngIf="!mobileService.opaque" [@inOutAnimation]>home</mat-icon><div class="menu">HOME</div>
       </li>
 
 <!--      <li routerLink="/introduction" routerLinkActive="desktop-active"><mat-icon>help</mat-icon><div class="menu">INTRODUCTION</div></li>-->
@@ -37,7 +37,7 @@
 
       <ng-template #showLogin>
         <li routerLink="/login">
-          <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>person</mat-icon><div class="menu">LOGIN</div>
+          <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>person</mat-icon><div class="menu" [class.no-transform]="this.shouldNoTransform">LOGIN</div>
         </li>
       </ng-template>
     </ul>
