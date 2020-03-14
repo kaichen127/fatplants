@@ -3,41 +3,45 @@
   <nav>
     <ul class="nav-style light">
       <li routerLink="/homepage" routerLinkActive="desktop-active" id="home-item">
-        <mat-icon #icon *ngIf="!mobileService.opaque" [@inOutAnimation]>home</mat-icon><div class="menu">HOME</div>
+        <mat-icon #icon *ngIf="!mobileService.opaque" [@inOutAnimation]>home</mat-icon><div class="menu">Home</div>
       </li>
 
 <!--      <li routerLink="/introduction" routerLinkActive="desktop-active"><mat-icon>help</mat-icon><div class="menu">INTRODUCTION</div></li>-->
       <li [matMenuTriggerFor]="dataMenu" routerLinkActive="desktop-active">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>graphic_eq</mat-icon><div class="menu">OUR DATA</div>
+        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>view_carousel</mat-icon><div class="menu">View...</div>
+      </li>
+
+      <li routerLink="/datasets" routerLinkActive="desktop-active">
+        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>graphic_eq</mat-icon><div class="menu">Data</div>
       </li>
 
       <li routerLink="/files" routerLinkActive="desktop-active" *ngIf="user.admin">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>attach_file</mat-icon><div class="menu">FILE LIBRARY</div>
+        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>attach_file</mat-icon><div class="menu">Project Files</div>
       </li>
 
       <li routerLink="/one_click" routerLinkActive="desktop-active">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>search</mat-icon><div class="menu">SEARCH</div>
+        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>search</mat-icon><div class="menu">Search</div>
       </li>
 
       <li [matMenuTriggerFor]="graphMenu" routerLinkActive="desktop-active">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>signal_cellular_alt</mat-icon><div class="menu">NETWORKS</div>
+        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>signal_cellular_alt</mat-icon><div class="menu">Networks</div>
       </li>
 
       <li routerLink="/investigator" routerLinkActive="desktop-active">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>people</mat-icon><div class="menu">STAFF</div>
+        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>people</mat-icon><div class="menu">Staff</div>
       </li>
 
       <li [matMenuTriggerFor]="toolsMenu" routerLinkActive="desktop-active">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>build</mat-icon><div class="menu">TOOLS</div>
+        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>build</mat-icon><div class="menu">Tools</div>
       </li>
 
       <li routerLink="/login" *ngIf="authService.checkUser() | async; else showLogin">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>account_box</mat-icon><div class="menu">LOGOUT</div>
+        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>account_box</mat-icon><div class="menu">Logout</div>
       </li>
 
       <ng-template #showLogin>
         <li routerLink="/login">
-          <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>person</mat-icon><div class="menu" [class.no-transform]="this.shouldNoTransform">LOGIN</div>
+          <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>person</mat-icon><div class="menu" [class.no-transform]="this.shouldNoTransform">Login</div>
         </li>
       </ng-template>
     </ul>
