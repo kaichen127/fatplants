@@ -1,8 +1,8 @@
 <mat-card id="base">
     <div class="left-menu">
-        <a class="menu active">Arabidopsis</a>
-        <a class="menu">Camelina</a>
-        <a class="menu">Soybean</a>
-        <a class="menu">Fatty Acid</a>
+        <a class="menu" [class.active]='this.dataset == "arapidopsis"' (click)='changeDataset("arapidopsis")'>Arapidopsis</a>
+        <a class="menu" [class.active]='this.dataset == "camelina"' (click)='changeDataset("camelina")'>Camelina</a>
+        <a class="menu" [class.active]='this.dataset == "soybean"' (click)='changeDataset("soybean")'>Soybean</a>
+        <a class="menu" [class.active]='this.dataset == "fattyacid"' (click)='changeDataset("fattyacid")'>Fatty Acid</a>
     </div>
 </mat-card>
