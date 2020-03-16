@@ -2,7 +2,7 @@
 
 #base {
     width: 100%;
-    height: 100%;
+    height: auto;
     margin: auto;
     margin-top: 5%;
     background-color: white;
@@ -32,4 +32,32 @@ a.active {
     padding-bottom: none;
     font-size: 1.3vw;
     transition: all 0.5s;
+}
+#table {
+    margin-left: 12%;
+    margin-right: 5%;
+    font-family: "PT Sans", sans-serif;
+}
+mat-header-cell {
+    font-family: "PT Serif", serif;
+    color: black;
+    padding-right: 2%;
+}
+mat-header-row {
+    border-bottom-color: rgba($pale-green, 0.5);
+    font-size: 1.0vw;
+    padding-top: 5%;
+}
+mat-row {
+    border-bottom-color: $pale-green;
+}
+mat-cell {
+    padding-right: 2%;
+}
+mat-cell>a {
+    text-decoration: none;
+    color: $light-green;
+}
+mat-cell>a:visited {
+    color: $dark-green;
 }
