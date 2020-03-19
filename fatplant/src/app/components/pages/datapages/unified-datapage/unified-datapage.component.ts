@@ -63,6 +63,12 @@ export class UnifiedDatapageComponent implements OnInit {
 
    }
 
+   applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.currentDataSource.filter = filterValue;
+  }
+
   get currentDataSource(): MatTableDataSource<any> {
     switch(this.dataset) {
       case "arapidopsis":
@@ -93,7 +99,31 @@ export class UnifiedDatapageComponent implements OnInit {
   }
 
   changeDataset(newDataset: string) {
+    // preserve filter for new dataset
+    switch(newDataset) {
+      case "arapidopsis":
+        this.arapidopsisDataSource.filter = this.currentDataSource.filter;
+      case "camelina":
+        this.camelinaDataSource.filter = this.currentDataSource.filter;
+      case "soybean":
+        this.soybeanDataSource.filter = this.currentDataSource.filter;
+      default:
+        this.fattyAcidDataSource.filter = this.currentDataSource.filter;
+    }
     this.router.navigate(["datasets/" + newDataset]);
+  }
+
+  refreshData() {
+    switch (this.dataset) {
+      case "arapidopsis":
+        this.refreshArapidopsisData();
+      case "camelina":
+        this.refreshCamelinaData();
+      case "soybean":
+        this.refreshSoybeanData();
+      default:
+        this.refreshFattyAcidData();
+    }
   }
 
   refreshArapidopsisData() {
