@@ -6,8 +6,10 @@
           <mat-icon>people</mat-icon>Staff</a>
     <a mat-menu-item routerLink="/one_click" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">
           <mat-icon>search</mat-icon>One-Stop Search</a>
-    <button mat-menu-item [matMenuTriggerFor]="dataMenu">
-          <mat-icon>graphic_eq</mat-icon>Data</button>
+    <!-- <button mat-menu-item [matMenuTriggerFor]="dataMenu">
+          <mat-icon>view_carousel</mat-icon>View...</button> -->
+    <a mat-menu-item routerLink="/datasets" routerLinkActive="active-nav" class="menu-item" (click)="sideNav.close()">
+          <mat-icon>graphic_eq</mat-icon>Data</a>
     <button mat-menu-item [matMenuTriggerFor]="toolsMenu">
           <mat-icon>build</mat-icon>Tools</button>
     <button mat-menu-item [matMenuTriggerFor]="graphMenu">
