@@ -4,16 +4,18 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  loginStatus = new Subject();
   constructor(public afAuth: AngularFireAuth, private router: Router, private afs: AngularFirestore){
   }
 
   googleLogin(){
+    console.log('google!!!!');
     return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
@@ -52,4 +54,10 @@ export class AuthService {
   checkUser(){
     return this.afAuth.user;
   }
+
+  watchLogin() {
+    return this.loginStatus;
+  }
+
+
 }

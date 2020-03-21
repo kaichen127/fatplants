@@ -8,11 +8,11 @@ declare var require: any;
 export class HomepageComponent implements OnInit {
   FB = require('../assets/homepageAssets/FB.png');
   PAG = require('../assets/homepageAssets/News.png');
-  JT = require('../assets/homepageAssets/JT.png');
-  DA = require('../assets/homepageAssets/DA.png');
-  PB = require('../assets/homepageAssets/PB.png');
-  AK = require('../assets/homepageAssets/AK.png');
-  DX = require('../assets/homepageAssets/DX.png');
+  JT = require('../assets/homepageAssets/JT.jpg');
+  DA = require('../assets/homepageAssets/DA.jpg');
+  PB = require('../assets/homepageAssets/PB.jpg');
+  AK = require('../assets/homepageAssets/AK.jpg');
+  DX = require('../assets/homepageAssets/DX.jpg');
   WSU = require('../assets/homepageAssets/WSU.png');
   MU = require('../assets/homepageAssets/MU.png');
   NSF = require('../assets/homepageAssets/NSF.png');

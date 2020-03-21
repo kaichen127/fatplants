@@ -11,7 +11,11 @@ export class LoginComponent implements OnInit {
   email = false;
   admin = false;
   failed = false;
+  success = false;
   adminEmail = '';
+  submittedEmail = '';
+  submittedPassword = '';
+  type = '';
   user: any = {
     displayName: ''
   };
@@ -19,28 +23,40 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.authService.checkUser().subscribe(res => {
-      this.authService.findUser(res.email).subscribe(ret => {
-        this.user = ret.docs[0].data();
-      });
+      if (res !== null) {
+        this.authService.findUser(res.email).subscribe(ret => {
+          this.user = ret.docs[0].data();
+        });
+      }
     });
   }
 
   login(type) {
+    this.type = type;
     if (type === 'google') {
-      this.authService.googleLogin().then(res => {
-        const user = {
-          uid: res.user.uid,
-          displayName: res.user.displayName,
-          email: res.user.email,
-          admin: false
-        };
-        this.authService.addUser(user).then(res => {
-          this.failed = false;
-        });
+      this.authService.checkUser().subscribe(ret => {
+        if (ret === null && this.type === 'google'){
+          this.type = '';
+          this.authService.googleLogin().then(res => {
+            const user = {
+              uid: res.user.uid,
+              displayName: res.user.displayName,
+              email: res.user.email,
+              admin: false
+            };
+            this.authService.findUser(user.email).subscribe(returned => {
+              if (returned.docs.length < 1) {
+                this.authService.addUser(user).then(res => {
+                  this.failed = false;
+                });
+              }
+            });
+          });
+        }
       });
     }
 
-    if (type === 'email') {
+    if (type === 'email' && !this.user.displayName) {
       this.email = true;
     }
 
@@ -50,8 +66,9 @@ export class LoginComponent implements OnInit {
 
     if (type === 'logout') {
       this.authService.doLogout().then(res => {
-        this.router.navigate(['/', 'homepage']);
-      });
+          this.authService.loginStatus.next('out');
+          this.router.navigate(['/', 'homepage']);
+        });
     }
 
   }
@@ -72,7 +89,7 @@ export class LoginComponent implements OnInit {
             user.admin = true;
             const id = ret.docs[0].id;
             this.authService.updateUser(user, id).then(returned => {
-              this.user = returned;
+              this.success = true;
             });
           });
         } else {
@@ -87,6 +104,7 @@ export class LoginComponent implements OnInit {
       if (res.docs.length > 0) {
         this.authService.emailLogin(email, password).then(res => {
           this.failed = false;
+          this.success = true;
         });
       } else {
         this.authService.emailRegister(email, password).then(res => {
@@ -97,8 +115,11 @@ export class LoginComponent implements OnInit {
             admin: false
           };
           this.authService.addUser(user).then(res => {
-            this.failed = false;
-          })
+            this.authService.emailLogin(email, password).then(returned => {
+              this.failed = false;
+              this.success = true;
+            });
+          });
         });
       }
     })

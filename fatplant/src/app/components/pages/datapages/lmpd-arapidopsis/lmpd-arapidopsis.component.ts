@@ -5,7 +5,8 @@ import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestor
 import { ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
-import { globalRefreshTime } from 'src/app/app.module';
+import {globalRefreshTime} from '../../../../constants';
+
 
 @Component({
   selector: 'app-lmpd-arapidopsis',
@@ -21,8 +22,9 @@ export class LmpdArapidopsisComponent implements OnInit {
   dataSource:MatTableDataSource<any>;
   chosenelem: any;
   loading: boolean;
-  headerfields=[{name: 'Protein Name',val:null},{name:'Protein Entry',val:null}]
-  subheaders=[{name:'Species',val:null}]
+  headerfields=[{name: 'Protein Name',val:null},{name:'Protein Entry',val:null}
+    ];
+  subheaders=[{name:'Species',val:null}];
   cardfields=[{name:'Entrez Gene Id',val:null},{name:'Gene Name',val:null},{name:'Gene Symbol',val:null},{name:'Lmp ID',val:null},
   {name:'Mrna ID',val:null},{name:'Protein GI',val:null},{name:'Sequence Length',val:null},{name:'Species Long',val:null},{name:'Taxid',val:null}];
   constructor(private afs:AngularFirestore, private db:FirestoreConnectionService) { }

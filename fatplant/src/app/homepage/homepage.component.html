@@ -6,8 +6,8 @@
   <div class="banner">
     <div class="banner1" *ngIf="pageDisplay === 'page1'">
       <div class="bannerText">
-        <span>WE KEEP THINGS</span>
-        <strong>CLEAN AND SIMPLE</strong>
+        <span>We keep things</span>
+        <strong>clean and simple</strong>
         <span>___</span>
       </div>
       <br /><br />
@@ -123,7 +123,7 @@
 
   <div class="staff">
     <div class="staffContainer">
-      <img [src]="JT" alt="JT" class="staffPP" />
+      <div class="ppContainer"><img [src]="JT" alt="JT" class="staffPP" /></div>
       <br />
       <strong class="staffText">Jay Thelen</strong>
       <br />
@@ -135,7 +135,7 @@
     </div>
 
     <div class="staffContainer">
-      <img [src]="DA" alt="DA"  class="staffPP" />
+      <div class="ppContainer"><img [src]="DA" alt="DA"  class="staffPP" /></div>
       <br />
       <strong class="staffText">Douglas Allen</strong>
       <br />
@@ -147,7 +147,7 @@
     </div>
 
     <div class="staffContainer">
-      <img [src]="PB" alt="PB"  class="staffPP" />
+      <div class="ppContainer"><img [src]="PB" alt="PB"  class="staffPP" /></div>
       <br />
       <strong class="staffText">Philip Bates</strong>
       <br />
@@ -159,7 +159,7 @@
     </div>
 
     <div class="staffContainer">
-      <img [src]="AK" alt="AK"  class="staffPP" />
+      <div class="ppContainer"><img [src]="AK" alt="AK"  class="staffPP" /></div>
       <br />
       <strong class="staffText">Abe Koo</strong>
       <br />
@@ -171,7 +171,7 @@
     </div>
 
     <div class="staffContainer">
-      <img [src]="DX" alt="DX"  class="staffPP" />
+      <div class="ppContainer"><img [src]="DX" alt="DX"  class="staffPP" /></div>
       <br />
       <strong class="staffText">Dong Xu</strong>
       <br />
@@ -197,6 +197,14 @@
 
   <div class="information">
     <div class="sponsors">
+      <div class="external">
+        <a href="http://www.muscifest.com/">Sci-FEST</a>
+        <a href="">Soybean Knowledge Base</a>
+      </div>
+      <div class="contact">
+        <span style="font-size: 25px;">Contact Us</span>
+        <span>Bond Life Sciences Center</span>
+      </div>
       <div><img class="sponsorImg" [src]="MU" alt="MU"/></div>
       <div><img class="sponsorImg" [src]="PSC" alt="PSC"/></div>
       <div><img class="sponsorImg" [src]="WSU" alt="WSU"/></div>

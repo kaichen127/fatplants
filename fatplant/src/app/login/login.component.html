@@ -35,9 +35,22 @@
     </div>
 
     <div class="emailForm" *ngIf="email">
-      <div class="adminButtons">
-        <button mat-raised-button (click)="email = false" class="adminButton">Back</button>
-      </div>
+      <mat-card class="futureEmail">
+        <mat-form-field class="emailInput" >
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="submittedEmail" matInput placeholder="Enter your email"/>
+        </mat-form-field>
+        <mat-form-field class="emailInput">
+          <mat-label>Password</mat-label>
+          <input [(ngModel)] = "submittedPassword" matInput placeholder="Enter your password"/>
+        </mat-form-field>
+        <mat-error *ngIf="failed">This email password combination failed.</mat-error>
+        <mat-hint *ngIf="success">Successfully logged in as {{ user.displayName }}.</mat-hint>
+        <div class="emailButtons">
+          <button mat-raised-button (click)="emailLogin(submittedEmail, submittedPassword)" class="emailButton">Sign in</button>
+          <button mat-raised-button (click)="email = false" class="emailButton">Back</button>
+        </div>
+      </mat-card>
     </div>
 
     <div class="newAdmin" *ngIf="admin">
@@ -47,6 +60,7 @@
           <input [(ngModel)]="adminEmail" matInput placeholder="Enter a User's email to add them as an admin."/>
         </mat-form-field>
         <mat-error *ngIf="failed">Could not find this user.</mat-error>
+        <mat-hint *ngIf="success">Successfully made the user an admin.</mat-hint>
         <div class="adminButtons">
           <button mat-raised-button (click)="findAdmin(adminEmail)" class="adminButton">Assign Admin Role</button>
           <button mat-raised-button (click)="admin = false" class="adminButton">Back</button>
