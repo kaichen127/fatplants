@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './components/pages/onestopsearch/data-analysis/data-analysis.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 import {
   MatTableModule,
   MatSelectModule,
@@ -64,6 +65,10 @@ import { UploadTaskComponent } from './components/pages/fileuploads/upload-task/
 import { FileviewComponent } from './components/pages/fileuploads/fileview/fileview.component';
 import { LmpdCardComponent } from './components/pages/datapages/lmpd-card/lmpd-card.component';
 import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.component';
+import { ShowresultsComponent } from './components/pages/onestopsearch/showresults/showresults.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {DataService} from 'src/app/services/data/data.service';
 import { LoginComponent } from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 
@@ -96,7 +101,9 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     SoybeanComponent,
     DataAnalysisComponent,
     LoginComponent,
-    UnifiedDatapageComponent
+    UnifiedDatapageComponent,
+    DataAnalysisComponent,
+    ShowresultsComponent
   ],
   imports: [
     BrowserModule,
@@ -133,7 +140,18 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     FormsModule,
     MatMenuModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    }),
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

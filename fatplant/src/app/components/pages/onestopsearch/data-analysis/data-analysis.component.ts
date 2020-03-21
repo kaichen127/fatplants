@@ -8,6 +8,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 import * as jsPDF from 'jspdf';
 import { ViewportScroller } from '@angular/common';
 import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -31,7 +32,6 @@ export class DataAnalysisComponent implements OnInit {
   private uniprot: string;
   private pdbs = [];
   private isLoading: boolean;
-  private hasSearched: boolean = false;
   private imgUrl: SafeResourceUrl;
   private imgs = [];
   private noimg: boolean;
@@ -56,11 +56,12 @@ export class DataAnalysisComponent implements OnInit {
   private result: string;
   private blastRes = [];
   private showblastRes = [];
-  constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller) {
+  constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller, private router: Router) {
     this.lmpdCollection = afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis');
     this.lmpd = this.lmpdCollection.valueChanges();
 
     this.pathwaydb = [];
+    // HTTP requests should be made in a service, not here
     this.http.get('/static/reactome.csv', { responseType: 'text' }).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
         // console.log(line.split(','));
@@ -110,7 +111,6 @@ export class DataAnalysisComponent implements OnInit {
       this.proteindatabase = 'Arabidopsis';
     }
     // init
-    this.hasSearched = true;
     this.debug = false;
     this.items = new Observable<any>();
     this.imgs = [];
@@ -197,7 +197,10 @@ export class DataAnalysisComponent implements OnInit {
 
   Search(query: string) {
     this.items = new Observable<Lmpd_Arapidopsis>();
-    if (query === '') { return; }
+    if (query === '') {
+      return;
+    }
+
     switch (this.tabIndex) {
       case 0:
 
@@ -255,8 +258,8 @@ export class DataAnalysisComponent implements OnInit {
   }
 
   SearchUniprot(id: string) {
+    // var is antiquated. Use 'let' instead.
     for (var index in this.pathwaydb) {
-      // console.log(this.pathwaydb[index][4])
       if (this.pathwaydb[index][4] === id) {
         this.imgs.push([this.pathwaydb[index][0], this.pathwaydb[index][1]]);
       }
@@ -345,13 +348,38 @@ export class DataAnalysisComponent implements OnInit {
 
   public clickScroll(elementId: string): void {
     console.log("scroll")
-    this.viewportScroller.scrollToAnchor(elementId);
+    this.viewportScroller.scrollToAnchor(elementId); //no use?
+    let el = document.getElementById(elementId);
+    el.scrollIntoView();
   }
 
-  getAutocomplete(): String {
-    if (this.tabIndex == 1) return "uniprot_id";
-    else if (this.tabIndex == 0) return "gene_name";
-    else return "";
+  ClickSearch(){
+    switch (this.tabIndex){
+      case 0:
+        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
+          this.uniprot = res[0].uniprot_id;;
+          const tmp = '/showresults/'+this.uniprot+'/summary';
+          this.router.navigateByUrl(tmp);
+        })
+        break;
+      case 1:
+        this.uniprot = this.query;
+        const tmp = '/showresults/'+this.uniprot+'/summary'
+        this.router.navigateByUrl(tmp);
+        break;
+      case 2:
+        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('sequence', '==', this.query)).valueChanges().subscribe((res: any) => {
+          this.uniprot = res[0].uniprot_id;
+          const tmp = '/showresults/'+this.uniprot+'/summary';
+          this.router.navigateByUrl(tmp);
+        })
+        setTimeout(() => {
+          console.log('timeout');
+          this.isLoading = false;
+        }, 3000);
+        break;
+    }
+
   }
 
 }
