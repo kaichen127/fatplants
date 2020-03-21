@@ -242,6 +242,9 @@
 .sponsors {
   display: flex;
   justify-content: space-between;
+  color: whitesmoke;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 1px 1px $dark;
 }
 
 .sponsorImg {
@@ -253,7 +256,21 @@
 
 a {
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 1px 1px $dark;
 }
 
+.external {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 2%;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 
