@@ -5,6 +5,7 @@ import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/firest
 import {HttpClient} from "@angular/common/http";
 import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 import {Observable} from "rxjs";
+import {DataService} from "../../../../services/data/data.service";
 
 
 @Component({
@@ -44,10 +45,18 @@ export class ShowresultsComponent implements OnInit {
   private pathwayList=[];
   private pathwayDb=[];
 
-  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient) { }
+
+  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient,private dataService:DataService) { }
 
   ngOnInit() {
-      this.route.params.subscribe(params => {
+
+
+    this.route.params.subscribe(params => {
+      this.isSummary = false;
+      this.isStructure = false;
+      this.isBlast = false;
+      this.isPathway = false;
+
       this.uniprot_id = params['uniprot_id'];
       this.cfg = params['cfg'];
 
@@ -73,6 +82,19 @@ export class ShowresultsComponent implements OnInit {
 
           break;
         case 'blast':
+          console.log(this.dataService.uniprot_id);
+          if (this.uniprot_id === this.dataService.uniprot_id){
+            this.dataService.getBlastRes().subscribe(res=>{
+              console.log("get!");
+              console.log(res);
+            });
+          }
+          else {
+            this.dataService.updateBlastRes(this.uniprot_id).subscribe(res=>{
+              console.log("update!");
+              console.log(res);
+            })
+          }
           this.percent=0;
           const getDownloadProgress = () => {
             if (this.percent <= 99) {
@@ -133,11 +155,19 @@ export class ShowresultsComponent implements OnInit {
     let index: number;
     index = tmp[tmp.length - 1].search('Lambda');
     tmp[tmp.length - 1] = tmp[tmp.length - 1].substring(0, index);
-    this.blastResList = tmp.slice(0);
-    console.log(this.blastResList);
-    // tmp.length = 5 ;
-    this.showBlastResList = tmp.slice(0, 3);
 
+    //this.blastResList = tmp.slice(0);
+    //console.log(this.blastResList);
+    // tmp.length = 5 ;
+    // this.showBlastResList = tmp.slice(0, 3);
+    //
+    // this.showBlastResList[0].split(/\r?\n/)[0];
+
+    for (var i in tmp) {
+      //console.log(tmp[i]);
+      this.showBlastResList.push([tmp[i].split(/\r?\n/)[0],tmp[i]])
+      }
+    //console.log(this.blastResList);
   }
   ShowAllBlastRes() {
     this.showBlastResList = this.blastResList.slice(0);

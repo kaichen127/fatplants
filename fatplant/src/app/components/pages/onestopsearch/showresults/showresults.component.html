@@ -12,12 +12,12 @@
 
   <div class="row" style="width: 100%">
     <div class="column left">
-      <p>links</p>
+      <p>LINK</p>
       <mat-nav-list>
-        <a mat-list-item [href]="href2summary"> Summary </a>
-        <a mat-list-item [href]="href2structure"> Structure </a>
-        <a mat-list-item [href]="href2blast"> Blast </a>
-        <a mat-list-item [href]="href2pathway"> Pathway </a>
+        <a mat-list-item [routerLink]="href2summary" style="color: darkcyan"> Summary </a>
+        <a mat-list-item [routerLink]="href2structure" style="color: darkcyan"> Structure </a>
+        <a mat-list-item [routerLink]="href2blast" style="color: darkcyan"> Blast </a>
+        <a mat-list-item [routerLink]="href2pathway" style="color: darkcyan"> Pathway </a>
 
       </mat-nav-list>
     </div>
@@ -118,6 +118,7 @@
     </div>
 <!--    blast-->
     <div class="column middleright" *ngIf="isBlast">
+      <p>blast</p>
       <div class="row" *ngIf="showProgress">
         <circle-progress
           [percent]="percent"
@@ -131,22 +132,35 @@
           [startFromZero]="false"
         ></circle-progress>
       </div>
-      <div class="row">
-        <button class="btn waves-effect waves-light" (click)="ShowAllBlastRes()">Show All</button>
-      </div>
+<!--      <div class="row">-->
+<!--        <button class="btn waves-effect waves-light" (click)="ShowAllBlastRes()">Show All Result</button>-->
+<!--      </div>-->
       <div class="row" *ngFor="let res of showBlastResList">
-        <div>
-          <div class="card">
-            <div class="card-content">
-              <pre>{{res}}</pre>
-            </div>
-          </div>
-        </div>
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{res[0]}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <pre>{{res[1]}}</pre>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+<!--          <div class="card">-->
+<!--            <div class="card-content">-->
+<!--              <mat-card style="background: white">-->
+<!--              <pre>{{res}}</pre>-->
+<!--              </mat-card>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
       </div>
     </div>
 <!--    pathway-->
     <div class="column middleright" *ngIf="isPathway">
-      <iframe [src]="SafeImg()" style="width: 100%" height="768" frameborder="0" scrolling="0"></iframe>
+<!--      <iframe [src]="SafeImg()" style="width: 100%" height="768" frameborder="0" scrolling="0"></iframe>-->
+      <p>pathway</p>
     </div>
   </div>
 </mat-card>

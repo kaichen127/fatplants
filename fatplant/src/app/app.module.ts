@@ -62,6 +62,8 @@ import { LmpdCardComponent } from './components/pages/datapages/lmpd-card/lmpd-c
 import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.component';
 import { ShowresultsComponent } from './components/pages/onestopsearch/showresults/showresults.component';
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {DataService} from 'src/app/services/data/data.service';
 
 @NgModule({
   declarations: [
@@ -136,7 +138,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
       outerStrokeColor: "#78C000",
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
-    })
+    }),
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

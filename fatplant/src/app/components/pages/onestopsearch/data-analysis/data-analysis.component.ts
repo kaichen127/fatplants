@@ -8,6 +8,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 import * as jsPDF from 'jspdf';
 import { ViewportScroller } from '@angular/common';
 import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -55,7 +56,7 @@ export class DataAnalysisComponent implements OnInit {
   private result: string;
   private blastRes = [];
   private showblastRes = [];
-  constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller) {
+  constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller, private router: Router) {
     this.lmpdCollection = afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis');
     this.lmpd = this.lmpdCollection.valueChanges();
 
@@ -346,6 +347,35 @@ export class DataAnalysisComponent implements OnInit {
     this.viewportScroller.scrollToAnchor(elementId); //no use?
     let el = document.getElementById(elementId);
     el.scrollIntoView();
+  }
+
+  ClickSearch(){
+    switch (this.tabIndex){
+      case 0:
+        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
+          this.uniprot = res[0].uniprot_id;;
+          const tmp = '/showresults/'+this.uniprot+'/summary';
+          this.router.navigateByUrl(tmp);
+        })
+        break;
+      case 1:
+        this.uniprot = this.query;
+        const tmp = '/showresults/'+this.uniprot+'/summary'
+        this.router.navigateByUrl(tmp);
+        break;
+      case 2:
+        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('sequence', '==', this.query)).valueChanges().subscribe((res: any) => {
+          this.uniprot = res[0].uniprot_id;
+          const tmp = '/showresults/'+this.uniprot+'/summary';
+          this.router.navigateByUrl(tmp);
+        })
+        setTimeout(() => {
+          console.log('timeout');
+          this.isLoading = false;
+        }, 3000);
+        break;
+    }
+
   }
 
 }
