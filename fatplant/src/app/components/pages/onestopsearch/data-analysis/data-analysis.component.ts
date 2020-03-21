@@ -13,7 +13,7 @@ import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 @Component({
   selector: 'app-data-analysis',
   templateUrl: './data-analysis.component.html',
-  styleUrls: ['./data-analysis.component.css']
+  styleUrls: ['./data-analysis.component.scss']
 })
 export class DataAnalysisComponent implements OnInit {
   @ViewChild('pdf', { static: false }) pdf: ElementRef;

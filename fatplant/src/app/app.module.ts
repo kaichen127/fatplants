@@ -46,6 +46,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import * as firebase from 'firebase';
@@ -133,7 +134,8 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     FormsModule,
     MatMenuModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

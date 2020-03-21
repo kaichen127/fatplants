@@ -1,3 +1,4 @@
+@import "~src/variables.scss";
 
 div{
   width:100%;
@@ -30,6 +31,13 @@ textarea {
 
 mat-card {
   font-family: 'Catamaran', sans-serif;
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  background-image: none !important;
+  background-color: white;
+  margin: 0;
+  margin-top: 6%;
 }
 
 mat-select {
@@ -58,6 +66,7 @@ mat-select {
   width: 5%;
   height: 25vh;
 }
+
 .sidebar {
   position: -webkit-sticky;
   position: sticky;
@@ -67,8 +76,38 @@ mat-select {
   border-radius: 5px;
 }
 
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label {
+  transition: all 0.5s cubic-bezier(.35,0,.25,1); // match ink bar
+}
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  background-color: rgba($lime-green, 0.4);
+  transition: all 0.5s cubic-bezier(.35,0,.25,1);
+}
+
+::ng-deep .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+  background-color: #fafafa;
+}
+
 a:hover {
   color: blue;
   cursor:pointer;
   text-decoration: underline;
+}
+
+#input {
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+}
+
+#input-toggle {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+}
+
+.input-option {
+  margin: 10px;
+  font-family: "PT Sans", sans-serif;
 }
