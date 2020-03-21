@@ -65,6 +65,7 @@ import { FileviewComponent } from './components/pages/fileuploads/fileview/filev
 import { LmpdCardComponent } from './components/pages/datapages/lmpd-card/lmpd-card.component';
 import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.component';
 import { LoginComponent } from './login/login.component';
+import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { LoginComponent } from './login/login.component';
     LmpddetailviewComponent,
     SoybeanComponent,
     DataAnalysisComponent,
-    LoginComponent
+    LoginComponent,
+    UnifiedDatapageComponent
   ],
   imports: [
     BrowserModule,

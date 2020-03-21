@@ -20,6 +20,7 @@ import { UploadFilesComponent } from './components/pages/fileuploads/upload-file
 import { FileviewComponent } from './components/pages/fileuploads/fileview/fileview.component';
 import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.component';
 import {LoginComponent} from './login/login.component';
+import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
@@ -39,7 +40,10 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'files', component:UploadFilesComponent, canActivate: [AngularFireAuthGuard]},
 {path: 'lmpddetailview/:uniprot_id', component: LmpddetailviewComponent},
 {path: 'fatty_acid', component: FattyacidComponent},
-{path: 'soybean', component: SoybeanComponent}];
+{path: 'soybean', component: SoybeanComponent},
+{path: 'datasets', redirectTo: '/datasets/arapidopsis', pathMatch: 'full'},
+{path: 'datasets/:dataset', component: UnifiedDatapageComponent},
+{path: '**', redirectTo: '/homepage'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes,{ anchorScrolling: 'enabled'})],
