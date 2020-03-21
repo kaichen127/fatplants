@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -8,6 +8,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 import * as jsPDF from 'jspdf';
 import { ViewportScroller } from '@angular/common';
 import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
+import { startWith, map, filter } from 'rxjs/operators';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 })
 export class DataAnalysisComponent implements OnInit {
   @ViewChild('pdf', { static: false }) pdf: ElementRef;
-  public items: Observable<any>;
+  public items: Observable<Lmpd_Arapidopsis[]>;
   private itemCollection: AngularFirestoreCollection<any>;
 
   private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
@@ -36,7 +37,7 @@ export class DataAnalysisComponent implements OnInit {
   private imgs = [];
   private noimg: boolean;
   private nopdb: boolean;
-  private proteindatabase: string;
+  private proteindatabase: string = "Arapidopsis";
   private pathwaydb = [];
 
   private species: string;
@@ -56,6 +57,11 @@ export class DataAnalysisComponent implements OnInit {
   private result: string;
   private blastRes = [];
   private showblastRes = [];
+
+  blastSelected: boolean = false; 
+  identifierControl = new FormControl();
+  filteredOptions: Observable<Lmpd_Arapidopsis[]>;
+
   constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller) {
     this.lmpdCollection = afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis');
     this.lmpd = this.lmpdCollection.valueChanges();
@@ -73,7 +79,28 @@ export class DataAnalysisComponent implements OnInit {
     this.tabIndex = 0;
   }
 
+  private _filter (items: Lmpd_Arapidopsis[], value: string): Lmpd_Arapidopsis[] {
+    const filterValue = value.toLowerCase();
+
+    if (this.tabIndex == 0) return items.filter(option => option.gene_name.toLowerCase().includes(filterValue));
+    else return items.filter(option => option.uniprot_id.toLowerCase().includes(filterValue));
+  }
+
   ngOnInit() {
+    this.items = this.lmpdCollection.valueChanges();
+    this.items.subscribe(items => {
+      this.identifierControl = new FormControl(this.query, [this.identifierValidator(items)]);
+      this.filteredOptions = this.identifierControl.valueChanges.pipe(startWith(''),
+      map(value => this._filter(items, value)));
+    });
+  }
+
+  identifierValidator(items: Lmpd_Arapidopsis[]): ValidatorFn {
+    if(this.blastSelected) return null;
+    return (control: AbstractControl): {[key: string]: any} | null => {
+      const forbidden = !items.find(control.value);
+      return (forbidden == undefined) ? {'notFound': {value: control.value}} : null;
+    };
   }
 
   SplitRes(result: string) {
@@ -107,12 +134,11 @@ export class DataAnalysisComponent implements OnInit {
   OneClick() {
 
     if (this.proteindatabase === undefined) {
-      this.proteindatabase = 'Arabidopsis';
+      this.proteindatabase = 'Arapidopsis';
     }
     // init
     this.hasSearched = true;
     this.debug = false;
-    this.items = new Observable<any>();
     this.imgs = [];
     this.pdbs = [];
     this.noimg = false;
@@ -196,28 +222,27 @@ export class DataAnalysisComponent implements OnInit {
   }
 
   Search(query: string) {
-    this.items = new Observable<Lmpd_Arapidopsis>();
-    if (query === '') { return; }
-    switch (this.tabIndex) {
-      case 0:
+    // this.items = new Observable<Lmpd_Arapidopsis>();
+    // if (query === '') { return; }
+    // switch (this.tabIndex) {
+    //   case 0:
 
-        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('gene_name', '>=', query).where('gene_name', '<=', query + '\uf8ff')).valueChanges();
-        break;
-      case 1:
-        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', query).where('uniprot_id', '<=', query + '\uf8ff')).valueChanges();
-        break;
-      case 2:
-        break;
-      default:
-        console.log("No");
-        break;
-    }
+    //     this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis').valueChanges();
+    //     break;
+    //   case 1:
+    //     this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis').valueChanges();
+    //     break;
+    //   case 2:
+    //     break;
+    //   default:
+    //     console.log("No");
+    //     break;
+    // }
   }
 
   ListClick(query: any) {
     // need interface update
     this.query = query;
-    this.items = new Observable<Lmpd_Arapidopsis>();
   }
 
   ShowAllRes() {
@@ -352,6 +377,10 @@ export class DataAnalysisComponent implements OnInit {
     if (this.tabIndex == 1) return "uniprot_id";
     else if (this.tabIndex == 0) return "gene_name";
     else return "";
+  }
+
+  changeDatabase(database: string) {
+    this.proteindatabase = database;
   }
 
 }

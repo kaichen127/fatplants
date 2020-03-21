@@ -94,7 +94,7 @@ a:hover {
   text-decoration: underline;
 }
 
-#input {
+.container {
   margin-top: 10%;
   margin-left: 30%;
   margin-right: 30%;
@@ -107,7 +107,58 @@ a:hover {
   left: 5%;
 }
 
+.bordered {
+  margin-top: 3%;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: inset 0px 2px 2px grey;
+}
+
 .input-option {
   margin: 10px;
   font-family: "PT Sans", sans-serif;
+  color: grey;
+  transition: all 0.2s;
+}
+
+.input-option.selected {
+  color: black;
+  transition: all 0.2s;
+}
+
+.input-container {
+  width: 80%;
+  padding: 2%;
+  padding-top: 5%;
+  display: inline-block;
+}
+
+#search-button {
+  position: absolute;
+  width: 16%;
+  height: 100%;
+  top: 0;
+  margin: 0;
+  background-color: rgba($pale-green, 0.4);
+}
+.form {
+  position: relative;
+}
+.database-selector {
+  display: inline-block;
+  background-color: inherit;
+  width: 40%;
+  height: 50%;
+  margin: 2%;
+  border: 1px solid black;
+  text-align: center;
+  padding: 2%;
+  cursor: pointer;
+  transition: all 0.5s;
+  box-shadow: 2px 2px 2px grey;
+}
+
+.database-selector.selected {
+  background-color: rgba($lime-green, 0.4);
+  transition: all 0.5s;
 }

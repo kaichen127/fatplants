@@ -21,6 +21,7 @@ import {
   MatSidenavModule
 } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -109,6 +110,7 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatAutocompleteModule,
     AngularFireAuthGuardModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
