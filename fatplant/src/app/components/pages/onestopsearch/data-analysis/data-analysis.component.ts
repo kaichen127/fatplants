@@ -59,13 +59,10 @@ export class DataAnalysisComponent implements OnInit {
   private showblastRes = [];
 
   blastSelected: boolean = false; 
-  identifierControl = new FormControl();
+  identifierControl = new FormControl(this.query);
   filteredOptions: Observable<Lmpd_Arapidopsis[]>;
 
   constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller) {
-    this.lmpdCollection = afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis');
-    this.lmpd = this.lmpdCollection.valueChanges();
-
     this.pathwaydb = [];
     this.http.get('/static/reactome.csv', { responseType: 'text' }).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
@@ -79,28 +76,7 @@ export class DataAnalysisComponent implements OnInit {
     this.tabIndex = 0;
   }
 
-  private _filter (items: Lmpd_Arapidopsis[], value: string): Lmpd_Arapidopsis[] {
-    const filterValue = value.toLowerCase();
-
-    if (this.tabIndex == 0) return items.filter(option => option.gene_name.toLowerCase().includes(filterValue));
-    else return items.filter(option => option.uniprot_id.toLowerCase().includes(filterValue));
-  }
-
   ngOnInit() {
-    this.items = this.lmpdCollection.valueChanges();
-    this.items.subscribe(items => {
-      this.identifierControl = new FormControl(this.query, [this.identifierValidator(items)]);
-      this.filteredOptions = this.identifierControl.valueChanges.pipe(startWith(''),
-      map(value => this._filter(items, value)));
-    });
-  }
-
-  identifierValidator(items: Lmpd_Arapidopsis[]): ValidatorFn {
-    if(this.blastSelected) return null;
-    return (control: AbstractControl): {[key: string]: any} | null => {
-      const forbidden = !items.find(control.value);
-      return (forbidden == undefined) ? {'notFound': {value: control.value}} : null;
-    };
   }
 
   SplitRes(result: string) {
@@ -221,23 +197,21 @@ export class DataAnalysisComponent implements OnInit {
     // how to achieve async
   }
 
-  Search(query: string) {
-    // this.items = new Observable<Lmpd_Arapidopsis>();
-    // if (query === '') { return; }
-    // switch (this.tabIndex) {
-    //   case 0:
-
-    //     this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis').valueChanges();
-    //     break;
-    //   case 1:
-    //     this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis').valueChanges();
-    //     break;
-    //   case 2:
-    //     break;
-    //   default:
-    //     console.log("No");
-    //     break;
-    // }
+  Search() {
+    if (this.query === '' || this.blastSelected) { return; }
+    switch (this.tabIndex) {
+      case 0:
+        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('gene_name', '>=', this.query).where('gene_name', '<=', this.query + '\uf8ff')).valueChanges();
+        break;
+      case 1:
+        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', this.query).where('uniprot_id', '<=', this.query + '\uf8ff')).valueChanges();
+        break;
+      case 2:
+        break;
+      default:
+        console.log("No");
+        break;
+    }
   }
 
   ListClick(query: any) {

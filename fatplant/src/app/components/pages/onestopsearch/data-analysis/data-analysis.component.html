@@ -16,15 +16,15 @@
       <div class="row bordered">
         <form class="form">
         <mat-form-field *ngIf='tabIndex == 0' class="input-container">
-          <input type="text" placeholder="Gene Name" matInput [(ngModel)]="query" [matAutocomplete]="gene" [formControl]="identifierControl">
+          <input type="text" placeholder="Gene Name" matInput [(ngModel)]="query" [matAutocomplete]="gene" [formControl]="identifierControl" (keyup)="Search()">
           <mat-autocomplete #gene="matAutocomplete" position="below">
-            <mat-option *ngFor="let item of filteredOptions | async | slice:0:19" [value]="item.gene_name">{{item.gene_name}}</mat-option>
+            <mat-option *ngFor="let item of items | async" [value]="item.gene_name">{{item.gene_name}}</mat-option>
           </mat-autocomplete>
         </mat-form-field>
         <mat-form-field *ngIf="tabIndex == 1" class="input-container">
-          <input type="text" placeholder="Uniprot ID" matInput [(ngModel)]="query" [matAutocomplete]="uniprot" [formControl]="identifierControl">
+          <input type="text" placeholder="Uniprot ID" matInput [(ngModel)]="query" [matAutocomplete]="uniprot" [formControl]="identifierControl" (keyup)="Search()">
           <mat-autocomplete #uniprot="matAutocomplete" position="below">
-            <mat-option *ngFor="let item of filteredOptions | async | slice:0:19" [value]="item.uniprot_id">{{item.uniprot_id}}</mat-option>
+            <mat-option *ngFor="let item of items | async" [value]="item.uniprot_id">{{item.uniprot_id}}</mat-option>
           </mat-autocomplete>
         </mat-form-field>
         <button mat-button (click)="OneClick()" id="search-button" [disabled]="!identifierControl.valid"><mat-icon>search</mat-icon></button>
