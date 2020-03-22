@@ -9,6 +9,8 @@ import * as jsPDF from 'jspdf';
 import { ViewportScroller } from '@angular/common';
 import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 import {Router} from "@angular/router";
+import {MatTableDataSource} from "@angular/material/table";
+import {FatPlantDataSource} from "../../../../interfaces/FatPlantDataSource";
 
 
 @Component({
@@ -57,8 +59,8 @@ export class DataAnalysisComponent implements OnInit {
   private blastRes = [];
   private showblastRes = [];
   constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller, private router: Router) {
-    this.lmpdCollection = afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis');
-    this.lmpd = this.lmpdCollection.valueChanges();
+    //this.lmpdCollection = afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis');
+    //this.lmpd = this.lmpdCollection.valueChanges();
 
     this.pathwaydb = [];
     // HTTP requests should be made in a service, not here

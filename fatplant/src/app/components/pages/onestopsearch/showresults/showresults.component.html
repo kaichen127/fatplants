@@ -26,81 +26,81 @@
     <div *ngIf="isSummary">
     <div class="column middle">
       <h2>Summary</h2>
-      <div class="row" *ngFor="let item of lmpd | async">
+      <div class="row">
         <table class="blueTable">
           <tr>
             <th><strong>Gene Name: </strong></th>
-            <td>{{item.gene_name}}</td>
+            <td>{{this.lmpd.gene_name}}</td>
           </tr>
           <tr>
             <th><strong>Protein Name: </strong></th>
-            <td>{{item.protein_name}}</td>
+            <td>{{this.lmpd.protein_name}}</td>
           </tr>
           <tr>
             <th><strong>Species: </strong></th>
-            <td>{{item.species}}</td>
+            <td>{{this.lmpd.species}}</td>
           </tr>
           <tr>
             <th><strong>Species Long: </strong></th>
-            <td>{{item.species_long}}</td>
+            <td>{{this.lmpd.species_long}}</td>
           </tr>
         </table>
       </div>
       <br>
       <div class="row">
         <label *ngIf="noPdb">No PDB file found in our database</label>
-        <iframe [src]="SafeUrl(defaultPdb)" style="transform: scale(1);transform-origin: 0 0;width: 100%; min-height: 600px" *ngIf="!noPdb"></iframe>
+        <iframe [src]="defaultPdb" style="transform: scale(1);transform-origin: 0 0;width: 100%; min-height: 600px" *ngIf="!noPdb"></iframe>
       </div>
 
     </div>
 
     <div class="column right">
       <h2>Detail</h2>
-      <div class="row" *ngFor="let item of lmpd | async">
+      <div class="row">
                 <table class="blueTable">
                   <tr>
                     <th><strong>Gene Symbol: </strong></th>
-                    <td>{{item.gene_symbol}}</td>
+                    <td>{{this.lmpd.gene_symbol}}</td>
                   </tr>
                   <tr>
                     <th><strong>Protein Lmp ID: </strong></th>
-                    <td>{{item.lmp_id}}</td>
+                    <td>{{this.lmpd.lmp_id}}</td>
                   </tr>
                   <tr>
                     <th><strong>Protein mrna id: </strong></th>
-                    <td>{{item.mrna_id}}</td>
+                    <td>{{this.lmpd.mrna_id}}</td>
                   </tr>
                   <tr>
                     <th><strong>Protein Entry: </strong></th>
-                    <td>{{item.protein_entry}}</td>
+                    <td>{{this.lmpd.protein_entry}}</td>
                   </tr>
                   <tr>
                     <th><strong>Protein GI: </strong></th>
-                    <td>{{item.protein_gi}}</td>
+                    <td>{{this.lmpd.protein_gi}}</td>
                   </tr>
                   <tr>
                     <th><strong>Protein Refseq ID: </strong></th>
-                    <td>{{item.refseq_id}}</td>
+                    <td>{{this.lmpd.refseq_id}}</td>
                   </tr>
                   <tr>
                     <th><strong>Protein Sequence Length: </strong></th>
-                    <td>{{item.species_long}}</td>
+                    <td>{{this.lmpd.species_long}}</td>
                   </tr>
                   <tr>
                     <th><strong>Protein Tax ID: </strong></th>
-                    <td>{{item.taxid}}</td>
+                    <td>{{this.lmpd.taxid}}</td>
                   </tr>
                   <tr>
                     <th><strong>Protein Uniprot ID: </strong></th>
-                    <td>{{item.uniprot_id}}</td>
+                    <td>{{this.lmpd.uniprot_id}}</td>
                   </tr>
                 </table>
       </div>
-      <div class="row" *ngFor="let item of lmpd | async">
+      <div class="row">
         <h2>Sequence</h2>
         <strong>Protein Sequence: </strong>
         <p class="row">
-          <textarea>{{item.sequence}}</textarea>
+          <textarea>{{this.lmpd.sequence}}</textarea>
         </p>
       </div>
     </div>
@@ -109,16 +109,15 @@
     <div class="column middleright" *ngIf="isStructure">
       <label *ngIf="noPdb">No PDB file found in our database</label>
       <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms" *ngIf="!noPdb">
-        <mat-tab *ngFor="let pdb of pdbList" label="{{pdb}}">
+        <mat-tab *ngFor="let pdb of pdbList" label="{{pdb.name}}">
           <ng-template matTabContent>
-            <iframe [src]="SafeUrl(pdb)" style="width: 100%" height="768"></iframe>
+            <iframe [src]="pdb.url" style="width: 100%" height="768"></iframe>
           </ng-template>
         </mat-tab>
       </mat-tab-group>
     </div>
 <!--    blast-->
     <div class="column middleright" *ngIf="isBlast">
-      <p>blast</p>
       <div class="row" *ngIf="showProgress">
         <circle-progress
           [percent]="percent"
@@ -132,9 +131,7 @@
           [startFromZero]="false"
         ></circle-progress>
       </div>
-<!--      <div class="row">-->
-<!--        <button class="btn waves-effect waves-light" (click)="ShowAllBlastRes()">Show All Result</button>-->
-<!--      </div>-->
+
       <div class="row" *ngFor="let res of showBlastResList">
           <mat-accordion>
             <mat-expansion-panel>
@@ -147,20 +144,17 @@
             </mat-expansion-panel>
           </mat-accordion>
 
-<!--          <div class="card">-->
-<!--            <div class="card-content">-->
-<!--              <mat-card style="background: white">-->
-<!--              <pre>{{res}}</pre>-->
-<!--              </mat-card>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
       </div>
     </div>
 <!--    pathway-->
     <div class="column middleright" *ngIf="isPathway">
-<!--      <iframe [src]="SafeImg()" style="width: 100%" height="768" frameborder="0" scrolling="0"></iframe>-->
-      <p>pathway</p>
+      <mat-tab-group style="color: #4CAF50" style="min-height: 600px" animationDuration="0ms" *ngIf="!noPdb">
+        <mat-tab *ngFor="let pathway of pathwayList" label="{{pathway.name}}">
+          <ng-template matTabContent>
+            <iframe [src]="pathway.url" style="width: 80%;min-height: 600px"></iframe>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
 </mat-card>

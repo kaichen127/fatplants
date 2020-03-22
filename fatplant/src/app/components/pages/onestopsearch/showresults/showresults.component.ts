@@ -33,7 +33,8 @@ export class ShowresultsComponent implements OnInit {
   private href2pathway: string;
 
   private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
-  private lmpd: Observable<Lmpd_Arapidopsis[]>
+  //private lmpd: Observable<Lmpd_Arapidopsis[]>
+  private lmpd: Lmpd_Arapidopsis;
 
   private blastResList=[];
   private showBlastResList=[];
@@ -55,10 +56,17 @@ export class ShowresultsComponent implements OnInit {
       this.isBlast = false;
       this.isPathway = false;
 
+      this.pathwayDb = [];
+      this.pathwayList = [];
+      this.pdbList = [];
+
       this.uniprot_id = params['uniprot_id'];
       this.cfg = params['cfg'];
 
       console.log(this.uniprot_id,this.cfg);
+      //this.lmpd = new Observable<Lmpd_Arapidopsis[]>();
+      //this.lmpd = new Lmpd_Arapidopsis();
+
       this.noPdb = false;
 
       this.href2summary='/showresults/'+ this.uniprot_id + '/summary';
@@ -69,10 +77,26 @@ export class ShowresultsComponent implements OnInit {
 
       switch (this.cfg) {
         case 'summary':
-          this.lmpdCollection = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot_id));
-          this.lmpd = this.lmpdCollection.valueChanges();
-          this.SearchDefaultPDB(this.uniprot_id);
-          this.isSummary=true;
+          //this.lmpdCollection = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot_id));
+          //this.lmpd = this.lmpdCollection.valueChanges();
+          if(this.uniprot_id === this.dataService.uniprot_id ){
+            console.log("get lmpd");
+            this.lmpd = this.dataService.getLmpdData();
+            this.SearchDefaultPDB(this.uniprot_id);
+            this.isSummary=true;
+          }
+          else{
+            console.log("update lmpd");
+            this.dataService.getDataFromAbs(this.uniprot_id).subscribe(res=>{
+              this.dataService.seqence = res[0].sequence;
+              this.dataService.lmpd = res[0];
+              this.dataService.BlastNeedUpdate = true;
+              this.lmpd = res[0];
+              this.SearchDefaultPDB(this.uniprot_id);
+              this.isSummary=true;
+            });
+          }
+
           break;
         case 'structure':
           this.SearchPDB(this.uniprot_id);
@@ -80,53 +104,37 @@ export class ShowresultsComponent implements OnInit {
 
           break;
         case 'blast':
-          console.log(this.dataService.uniprot_id);
-          if (this.uniprot_id === this.dataService.uniprot_id){
-            this.dataService.getBlastRes().subscribe(res=>{
-              console.log("get!");
-              console.log(res);
-            });
+          if (!this.dataService.BlastNeedUpdate){
+            console.log("get BlastRes");
+            this.SplitRes(this.dataService.getBlastRes());
+            this.isBlast = true;
           }
           else {
+            console.log("update BlastRes");
+            this.percent=0;
+            const getDownloadProgress = () => {
+              if (this.percent <= 99) {
+                this.percent = this.percent + 10;
+              }
+              else {
+                clearInterval(this.intervalId);
+              }
+            };
+            this.intervalId = setInterval(getDownloadProgress, 500);
+            this.isBlast = true;
+            this.showProgress = true;
             this.dataService.updateBlastRes(this.uniprot_id).subscribe(res=>{
-              console.log("update!");
-              console.log(res);
-            })
-          }
-          this.percent=0;
-          const getDownloadProgress = () => {
-            if (this.percent <= 99) {
-              this.percent = this.percent + 10;
-            }
-            else {
-              clearInterval(this.intervalId);
-            }
-          };
-          this.intervalId = setInterval(getDownloadProgress, 500);
-          this.showProgress = true;
-
-          this.isBlast = true;
-          this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot_id)).valueChanges().subscribe((dbres: any) => {
-            const seq=dbres[0].sequence;
-            console.log(dbres);
-            const proteindatabase = 'Arabidopsis';
-            this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/oneclick?fasta=' + seq + '&database=' + proteindatabase, { responseType: 'text' }).subscribe((blastres: any) => {
-              console.log(blastres);
-              this.SplitRes(blastres);
+              this.SplitRes(res);
               this.showProgress = false;
               clearInterval(this.intervalId);
 
-            });
-          });
+            })
+          }
+
           break;
         case 'pathway':
-          this.http.get('/static/reactome.csv', { responseType: 'text' }).subscribe(data => {
-            for (const line of data.split(/[\r\n]+/)) {
-              // console.log(line.split(','));
-              this.pathwayDb.push(line.split(','));
-            }
-          });
-
+          this.pathwayDb = this.dataService.getPathwayDB();
+          this.SearchPathway(this.uniprot_id);
           this.isPathway=true;
           break;
         default:
@@ -139,8 +147,8 @@ export class ShowresultsComponent implements OnInit {
     const tmpurl = '/static/viewer.html?' + input;
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
-  SafeImg() {
-    const input="R-ATH-1119615.1"
+  SafeImg(input: string) {
+    //const input="R-ATH-1119615.1"
     const tmpurl = '/static/pathway.html?id=' + input;
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
@@ -167,23 +175,22 @@ export class ShowresultsComponent implements OnInit {
       }
     //console.log(this.blastResList);
   }
-  ShowAllBlastRes() {
-    this.showBlastResList = this.blastResList.slice(0);
-  }
+
   SearchPDB(uniprot_id: string) {
     this.http.get('/static/uniprot_pdb_list.txt', { responseType: 'text' }).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
         if (line.slice(0, 6) === uniprot_id) {
           let tmp = line.slice(0, -4);
-          this.pdbList.push(tmp);
+          this.pdbList.push({name:tmp,url:this.SafeUrl(tmp)});
           if (tmp.slice(-7, -1) === 'defaul') {
-            let swap = this.pdbList[0].toString();
-            this.pdbList[0] = tmp;
+            let swap = this.pdbList[0];
+            this.pdbList[0] = {name:tmp,url:this.SafeUrl(tmp)};
             this.pdbList[this.pdbList.length - 1] = swap;
           }
         }
 
       }
+      console.log(this.pdbList);
       if (this.pdbList.length === 0) {
         this.noPdb = true;
       }
@@ -195,9 +202,9 @@ export class ShowresultsComponent implements OnInit {
       for (const line of data.split(/[\r\n]+/)) {
         if (line.slice(0, 6) === uniprot_id) {
           let tmp = line.slice(0, -4);
-          this.pdbList.push(tmp);
+          this.pdbList.push({name:tmp,url:this.SafeUrl(tmp)});
           if (tmp.slice(-7, -1) === 'defaul') {
-            this.defaultPdb=tmp
+            this.defaultPdb=this.SafeUrl(tmp);
           }
         }
 
@@ -210,7 +217,7 @@ export class ShowresultsComponent implements OnInit {
   SearchPathway(id: string) {
     for (var index in this.pathwayDb) {
       if (this.pathwayDb[index][4] === id) {
-        this.pathwayList.push([this.pathwayDb[index][0], this.pathwayDb[index][1]]);
+        this.pathwayList.push({id:this.pathwayDb[index][0],name:this.pathwayDb[index][1],url:this.SafeImg(this.pathwayDb[index][0])});
       }
     }
   }
