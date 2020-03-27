@@ -114,6 +114,7 @@ export class DataAnalysisComponent implements OnInit {
     }
     // init
     this.hasSearched = true;
+    this.isLoading = true;
     this.debug = false;
     this.imgs = [];
     this.pdbs = [];

@@ -32,12 +32,14 @@ textarea {
 mat-card {
   font-family: 'Catamaran', sans-serif;
   width: 100%;
-  min-height: 100%;
   height: auto;
+  min-height: 70%;
   background-image: none !important;
   background-color: white;
   margin: 0;
   margin-top: 6%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 mat-select {
@@ -58,8 +60,11 @@ mat-select {
 }
 
 .main {
-  width: 85%;
-  height: 600vh;
+  width: 100%;
+  min-height: 30%;
+  background-color: white;
+  font-family: 'Catamaran', sans-serif;
+  margin: 0;
 }
 
 .sidebar {
@@ -103,8 +108,8 @@ a:hover {
 
 #input-toggle {
   position: absolute;
-  top: 20%;
-  left: 5%;
+  top: 100px;
+  left: 50px;
 }
 
 .bordered {
@@ -160,5 +165,15 @@ a:hover {
 
 .database-selector.selected {
   background-color: rgba($lime-green, 0.4);
+  transition: all 0.5s;
+}
+#loading-bar {
+  width: 60%;
+  margin: auto;
+  margin-top: 2%;
+}
+.no-border {
+  border-bottom: none;
+  box-shadow: none;
   transition: all 0.5s;
 }
