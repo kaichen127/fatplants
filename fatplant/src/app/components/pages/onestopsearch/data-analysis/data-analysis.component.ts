@@ -6,13 +6,14 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { Observable } from 'rxjs';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import * as jsPDF from 'jspdf';
-import { ViewportScroller } from '@angular/common';
+import { ViewportScroller, Location } from '@angular/common';
 import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 import { startWith, map, filter } from 'rxjs/operators';
 import {Router, ActivatedRoute} from "@angular/router";
 import {MatTableDataSource} from "@angular/material/table";
 import {FatPlantDataSource} from "../../../../interfaces/FatPlantDataSource";
 import { DataService } from 'src/app/services/data/data.service';
+import { ShowresultsComponent } from '../showresults/showresults.component';
 
 
 @Component({
@@ -57,13 +58,15 @@ export class DataAnalysisComponent implements OnInit {
   private result: string;
   private blastRes = [];
   private showblastRes = [];
+  @ViewChild(ShowresultsComponent, null)
+  private results: ShowresultsComponent;
 
   blastSelected: boolean = false; 
   identifierControl = new FormControl(this.query);
   filteredOptions: Observable<Lmpd_Arapidopsis[]>;
 
   constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller, private router: Router,
-     private route: ActivatedRoute, private dataService: DataService) {
+     private route: ActivatedRoute, private dataService: DataService, private location: Location) {
     this.pathwaydb = [];
     this.http.get('/static/reactome.csv', { responseType: 'text' }).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
@@ -132,18 +135,20 @@ export class DataAnalysisComponent implements OnInit {
       case 0:
         if (!this.blastSelected) this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
           this.uniprot = res[0].uniprot_id;
-          this.router.navigate(['one_click/' + this.uniprot + "/summary"]);
+          this.location.replaceState('one_click/' + this.uniprot + "/summary");
         });
         else {
           this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('sequence', '==', this.query)).valueChanges().subscribe((res: any) => {
           this.uniprot = res[0].uniprot_id;
-          this.router.navigate(['one_click/' + this.uniprot + "/summary"]);
+          this.location.replaceState('one_click/' + this.uniprot + "/summary");
         });
       }
         break;
       case 1:
         this.uniprot = this.query;
-        this.router.navigate(['one_click/' + this.uniprot + "/summary"]);
+        this.results.uniprot_id = this.uniprot;
+        this.results.checkLmpd(); // refresh lmpd data for new uniprot
+        this.location.replaceState('one_click/' + this.uniprot + "/summary");
         break;
       default:
         break;

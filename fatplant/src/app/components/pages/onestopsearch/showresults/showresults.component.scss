@@ -1,3 +1,5 @@
+@import '~src/variables.scss';
+
 table.blueTable {
   border: 1px solid #1C6EA4;
   background-color: #EEEEEE;
@@ -88,11 +90,11 @@ table.blueTable tfoot .links a{
 
 /* Left and right column */
 .column.left {
-  width: 10%;
+  width: 15%;
 }
 
 .column.right {
-  width: 25%;
+  width: 20%;
 }
 
 /* Middle column */
@@ -145,4 +147,46 @@ textarea {
   width: 60%;
   margin: auto;
   margin-top: 2%;
+}
+.centered {
+  text-align: center;
+  margin: auto;
+}
+#pathway-view {
+  width: 99.5%;
+  min-height: 600px;
+}
+#pathway-tabs {
+  width: 80%;
+  min-width: 910px;
+}
+
+.nav-item {
+  color: grey;
+  transition: color 0.5s;
+}
+.nav-item:hover {
+  color: $light-green;
+}
+.active {
+  color: black;
+  transition: color 0.5s;
+}
+
+::ng-deep .mat-step .mat-step-header .mat-step-icon-selected {
+  background-color: $lime-green;
+  height: 24px !important;
+  width: 24px !important;
+  margin-left: 0px !important;
+  transition: all 0.5s cubic-bezier(.35,0,.25,1);
+}
+::ng-deep .mat-step .mat-step-header .mat-step-icon {
+  height: 12px;
+  width: 12px;
+  margin-left: 6px;
+  transition: all 0.5s cubic-bezier(.35,0,.25,1);
+}
+#stepper {
+  position: sticky;
+  top: 20%;
 }

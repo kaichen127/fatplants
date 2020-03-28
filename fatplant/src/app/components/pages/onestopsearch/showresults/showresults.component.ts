@@ -3,6 +3,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/firestore";
 import {HttpClient} from "@angular/common/http";
+import {Location} from '@angular/common';
 import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 import {Observable} from "rxjs";
 import {DataService} from "../../../../services/data/data.service";
@@ -14,7 +15,8 @@ import {DataService} from "../../../../services/data/data.service";
   styleUrls: ['./showresults.component.scss']
 })
 export class ShowresultsComponent implements OnInit {
-  private uniprot_id: any;
+  @Input()
+  uniprot_id: any;
   private cfg: any;
 
   private percent: number;
@@ -47,7 +49,8 @@ export class ShowresultsComponent implements OnInit {
   private pathwayDb=[];
 
 
-  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient,private dataService:DataService) { }
+  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient,private dataService:DataService,
+    private location: Location) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -60,19 +63,17 @@ export class ShowresultsComponent implements OnInit {
       this.pathwayList = [];
       this.pdbList = [];
 
-      this.uniprot_id = params['uniprot_id'];
+      if (this.uniprot_id == undefined) this.uniprot_id = params['uniprot_id'];
       this.cfg = params['cfg'];
-
-      console.log(this.uniprot_id,this.cfg);
+      if (this.cfg == undefined) this.cfg = "summary";
       //this.lmpd = new Observable<Lmpd_Arapidopsis[]>();
       //this.lmpd = new Lmpd_Arapidopsis();
+      this.checkLmpd();
+    });
+  }
 
-      this.noPdb = false;
-
-      this.href2summary='/one_click/'+ this.uniprot_id + '/summary';
-      this.href2structure='/one_click/'+ this.uniprot_id + '/structure';
-      this.href2blast='/one_click/'+ this.uniprot_id + '/blast';
-      this.href2pathway='/one_click/'+ this.uniprot_id + '/pathway';
+  public checkLmpd() {
+    this.noPdb = false;
 
       if(this.uniprot_id === this.dataService.uniprot_id && !this.dataService.loading){
         console.log("get lmpd");
@@ -94,10 +95,28 @@ export class ShowresultsComponent implements OnInit {
           
         });
       }
-     
-    })
   }
 
+  changeConfig(newConfig: string) {
+    newConfig = newConfig.toLowerCase();
+    switch (this.cfg) {
+      case 'summary':
+        this.isSummary = false;
+        break;
+      case 'structure':
+        this.isStructure = false;
+        break;
+      case 'blast':
+        this.isBlast = false;
+        break;
+      default:
+        this.isPathway = false;
+        break;
+    }
+    this.cfg = newConfig;
+    this.location.replaceState('/one-click/' + this.uniprot_id + '/' + this.cfg);
+    this.SelectConfig();
+  }
   SelectConfig() {
     switch (this.cfg) {
       case 'summary':

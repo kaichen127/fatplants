@@ -52,8 +52,8 @@ export class DataService {
     this.blastResOb = this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/oneclick?fasta=' + this.seqence + '&database=' + 'Arabidopsis', { responseType: 'text' })
     this.blastResOb.subscribe(res=>{
       this.blastRes = res;
+      this.BlastNeedUpdate = false;
     })
-    this.BlastNeedUpdate = false;
     return this.blastResOb;
 
 

@@ -22,7 +22,7 @@
           <mat-icon>attach_file</mat-icon>Files</a>
     <a mat-menu-item href="http://www.muscifest.com" target="_blank" class="menu-item" (click)="sideNav.close()">Sci-FEST</a>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content class="no-overflow">
         <app-header [sideNav]="sideNav" #header></app-header>
         <div id="scroll-marker" #scrollMarker></div>
         <router-outlet></router-outlet>

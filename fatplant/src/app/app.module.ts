@@ -19,7 +19,8 @@ import {
   MatButtonModule,
   MatInputModule,
   MatTooltipModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatStepperModule
 } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -146,6 +147,7 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     MatButtonModule,
     MatSlideToggleModule,
     MatGridListModule,
+    MatStepperModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,

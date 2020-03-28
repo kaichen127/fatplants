@@ -60,7 +60,6 @@ mat-select {
 
 .main {
   width: 100%;
-  min-height: 30%;
   background-color: white;
   font-family: 'Catamaran', sans-serif;
   margin: 0;
@@ -103,6 +102,10 @@ a:hover {
   margin-left: 30%;
   margin-right: 30%;
   width: 40%;
+}
+.container.compressed {
+  margin-top: 0%;
+  transition: margin-top 1s;
 }
 
 #input-toggle {
@@ -170,4 +173,12 @@ a:hover {
   border-bottom: none;
   box-shadow: none;
   transition: all 0.5s;
+}
+#results {
+  display: block;
+  width: 100%;
+}
+#searchpage {
+  min-height: calc(94% - 32px);
+  background-color: white;
 }
