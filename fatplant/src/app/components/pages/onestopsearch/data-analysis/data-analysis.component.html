@@ -55,19 +55,18 @@
           <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
         </div>
         <div class="row">
-          <div class="col s6" (click)="Loading()">
+          <div class="col s6">
             <button mat-raised-button class="btn waves-effect waves-light" (click)="OneClick()">Compare</button>
           </div>
         </div>
   
       </div>
-    <mat-progress-bar id="loading-bar" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 </mat-card>
 
     <div class="wrapper main">
 
       <div *ngIf="!isLoading && hasSearched">
         <mat-divider></mat-divider>
-        <app-showresults *ngIf="this.uniprot != null" [uniprot_id]="this.uniprot"></app-showresults>
+        <app-showresults *ngIf="this.uniprot != null"></app-showresults>
       </div>
     </div>

@@ -14,7 +14,6 @@ import {DataService} from "../../../../services/data/data.service";
   styleUrls: ['./showresults.component.scss']
 })
 export class ShowresultsComponent implements OnInit {
-  @Input()
   private uniprot_id: any;
   private cfg: any;
 
@@ -60,6 +59,8 @@ export class ShowresultsComponent implements OnInit {
       this.pathwayDb = [];
       this.pathwayList = [];
       this.pdbList = [];
+
+      this.uniprot_id = params['uniprot_id'];
       this.cfg = params['cfg'];
 
       console.log(this.uniprot_id,this.cfg);
@@ -68,73 +69,82 @@ export class ShowresultsComponent implements OnInit {
 
       this.noPdb = false;
 
+      this.href2summary='/one_click/'+ this.uniprot_id + '/summary';
+      this.href2structure='/one_click/'+ this.uniprot_id + '/structure';
+      this.href2blast='/one_click/'+ this.uniprot_id + '/blast';
+      this.href2pathway='/one_click/'+ this.uniprot_id + '/pathway';
 
-      switch (this.cfg) {
-        case 'summary':
-          //this.lmpdCollection = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot_id));
-          //this.lmpd = this.lmpdCollection.valueChanges();
-          if(this.uniprot_id === this.dataService.uniprot_id ){
-            console.log("get lmpd");
-            this.lmpd = this.dataService.getLmpdData();
-            this.SearchDefaultPDB(this.uniprot_id);
-            this.isSummary=true;
-          }
-          else{
-            console.log("update lmpd");
-            this.dataService.getDataFromAbs(this.uniprot_id).subscribe(res=>{
-              this.dataService.seqence = res[0].sequence;
-              this.dataService.lmpd = res[0];
-              this.dataService.BlastNeedUpdate = true;
-              this.lmpd = res[0];
-              this.SearchDefaultPDB(this.uniprot_id);
-              this.isSummary=true;
-            });
-          }
-
-          break;
-        case 'structure':
-          this.SearchPDB(this.uniprot_id);
-          this.isStructure=true;
-
-          break;
-        case 'blast':
-          if (!this.dataService.BlastNeedUpdate){
-            console.log("get BlastRes");
-            this.SplitRes(this.dataService.getBlastRes());
-            this.isBlast = true;
-          }
-          else {
-            console.log("update BlastRes");
-            this.percent=0;
-            const getDownloadProgress = () => {
-              if (this.percent <= 99) {
-                this.percent = this.percent + 10;
-              }
-              else {
-                clearInterval(this.intervalId);
-              }
-            };
-            this.intervalId = setInterval(getDownloadProgress, 500);
-            this.isBlast = true;
-            this.showProgress = true;
-            this.dataService.updateBlastRes(this.uniprot_id).subscribe(res=>{
-              this.SplitRes(res);
-              this.showProgress = false;
-              clearInterval(this.intervalId);
-
-            })
-          }
-
-          break;
-        case 'pathway':
-          this.pathwayDb = this.dataService.getPathwayDB();
-          this.SearchPathway(this.uniprot_id);
-          this.isPathway=true;
-          break;
-        default:
-          console.log("wrong config");
+      if(this.uniprot_id === this.dataService.uniprot_id && !this.dataService.loading){
+        console.log("get lmpd");
+        this.lmpd = this.dataService.getLmpdData();
+        this.SearchDefaultPDB(this.uniprot_id);
+        this.SelectConfig();
       }
+      else{
+        console.log("update lmpd");
+        this.dataService.loading = true;
+        this.dataService.getDataFromAbs(this.uniprot_id).subscribe(res=>{
+          this.dataService.seqence = res[0].sequence;
+          this.dataService.lmpd = res[0];
+          this.dataService.BlastNeedUpdate = true;
+          this.lmpd = res[0];
+          this.SearchDefaultPDB(this.uniprot_id);
+          this.dataService.loading = false;
+          this.SelectConfig();
+          
+        });
+      }
+     
     })
+  }
+
+  SelectConfig() {
+    switch (this.cfg) {
+      case 'summary':
+        this.isSummary = true;
+        break;
+      case 'structure':
+        this.SearchPDB(this.uniprot_id);
+        this.isStructure=true;
+
+        break;
+      case 'blast':
+        if (!this.dataService.BlastNeedUpdate){
+          console.log("get BlastRes");
+          this.SplitRes(this.dataService.getBlastRes());
+          this.isBlast = true;
+        }
+        else {
+          console.log("update BlastRes");
+          this.percent=0;
+          const getDownloadProgress = () => {
+            if (this.percent <= 99) {
+              this.percent = this.percent + 10;
+            }
+            else {
+              clearInterval(this.intervalId);
+            }
+          };
+          this.intervalId = setInterval(getDownloadProgress, 500);
+          this.isBlast = true;
+          this.showProgress = true;
+          this.dataService.updateBlastRes(this.uniprot_id).subscribe(res=>{
+            this.SplitRes(res);
+            this.showProgress = false;
+            clearInterval(this.intervalId);
+
+          });
+        }
+
+        break;
+      case 'pathway':
+        this.pathwayDb = this.dataService.getPathwayDB();
+        this.SearchPathway(this.uniprot_id);
+        this.isPathway=true;
+        break;
+      default:
+        console.log("wrong config");
+    }
   }
   SafeUrl(input: string) {
     // const input1 = "A0JJX5_4p42.1.A_67_560";

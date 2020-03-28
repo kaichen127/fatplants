@@ -21,6 +21,7 @@ export class DataService {
 
   public lmpd: Lmpd_Arapidopsis;
   public seqence: string;
+  public loading = false;
   private blastRes: string;
   private blastResOb = new Observable<string>();
 
@@ -28,7 +29,7 @@ export class DataService {
 
   constructor(private http: HttpClient, private afs: AngularFirestore) {
     console.log('DataService Init');
-    this.BlastNeedUpdate = false;
+    this.BlastNeedUpdate = true;
     this.http.get('/static/reactome.csv', { responseType: 'text' }).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
         this.pathwayDb.push(line.split(','));
