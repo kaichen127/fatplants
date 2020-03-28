@@ -19,6 +19,7 @@ import { CameliaComponent } from './components/pages/datapages/camelia/camelia/c
 import { UploadFilesComponent } from './components/pages/fileuploads/upload-files/upload-files.component';
 import { FileviewComponent } from './components/pages/fileuploads/fileview/fileview.component';
 import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.component';
+import { ShowresultsComponent } from './components/pages/onestopsearch/showresults/showresults.component';
 import {LoginComponent} from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 
@@ -38,11 +39,13 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'one_click', component: DataAnalysisComponent},
 {path: 'blast', component: BlastComponent},
 {path: 'files', component:UploadFilesComponent, canActivate: [AngularFireAuthGuard]},
+{path:'viewfiles',component:FileviewComponent},
 {path: 'lmpddetailview/:uniprot_id', component: LmpddetailviewComponent},
 {path: 'fatty_acid', component: FattyacidComponent},
 {path: 'soybean', component: SoybeanComponent},
 {path: 'datasets', redirectTo: '/datasets/arapidopsis', pathMatch: 'full'},
 {path: 'datasets/:dataset', component: UnifiedDatapageComponent},
+{path:'showresults/:uniprot_id/:cfg', component:ShowresultsComponent},
 {path: '**', redirectTo: '/homepage'}];
 
 @NgModule({

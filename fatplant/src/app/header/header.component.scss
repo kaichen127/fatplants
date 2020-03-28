@@ -2,7 +2,7 @@
 
 mat-card {
   width: 100%;
-  max-height: 84px;
+  max-height: 10%;
   box-sizing: border-box;
   margin-left: 0;
   margin-top: 0;
@@ -12,8 +12,8 @@ mat-card {
   background-image: none !important;
   background-color: rgb(128,128,128, 0);
   border-radius: 0 0 0 0;
-  font-family: "PT Sans narrow", sans-serif;
-  font-size: 1.3vw;
+  font-family: "PT Serif", sans-serif;
+  font-size: 1.2vw;
   transition: 0.6s all;
 }
 
@@ -25,8 +25,8 @@ mat-card {
 }
 #desktop-navbar.opaque {
   background-color: rgb(24, 24, 24, 0.8);
-  max-height: 60px;
-  min-height: 60px;
+  max-height: 7%;
+  min-height: 7%;
   transition: 0.6s all;
 }
 
@@ -46,6 +46,7 @@ mat-card {
   border-radius: 2px;
   background-image: url("../assets/homepageAssets/icon.PNG");
   background-size: cover;
+  cursor: pointer;
 }
 .mobile-icon {
   float: left;

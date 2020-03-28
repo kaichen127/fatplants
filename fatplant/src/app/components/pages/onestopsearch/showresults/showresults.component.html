@@ -1,0 +1,158 @@
+<div class="row">
+    <h2>{{uniprot_id}}</h2>
+  </div>
+
+<!--  <div class="topnav">-->
+<!--    <a href="#">Details</a>-->
+<!--    <a href="#">3D Structure</a>-->
+<!--    <a href="#">Pathway</a>-->
+<!--  </div>-->
+
+  <div class="row" style="width: 100%">
+    <div class="column left">
+      <p>LINK</p>
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="href2summary" style="color: darkcyan"> Summary </a>
+        <a mat-list-item [routerLink]="href2structure" style="color: darkcyan"> Structure </a>
+        <a mat-list-item [routerLink]="href2blast" style="color: darkcyan"> Blast </a>
+        <a mat-list-item [routerLink]="href2pathway" style="color: darkcyan"> Pathway </a>
+
+      </mat-nav-list>
+    </div>
+
+<!--    summary-->
+    <div *ngIf="isSummary">
+    <div class="column middle">
+      <h2>Summary</h2>
+      <div class="row">
+        <table class="blueTable">
+          <tr>
+            <th><strong>Gene Name: </strong></th>
+            <td>{{this.lmpd.gene_name}}</td>
+          </tr>
+          <tr>
+            <th><strong>Protein Name: </strong></th>
+            <td>{{this.lmpd.protein_name}}</td>
+          </tr>
+          <tr>
+            <th><strong>Species: </strong></th>
+            <td>{{this.lmpd.species}}</td>
+          </tr>
+          <tr>
+            <th><strong>Species Long: </strong></th>
+            <td>{{this.lmpd.species_long}}</td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <div class="row">
+        <label *ngIf="noPdb">No PDB file found in our database</label>
+        <iframe [src]="defaultPdb" style="transform: scale(1);transform-origin: 0 0;width: 100%; min-height: 600px" *ngIf="!noPdb"></iframe>
+      </div>
+
+    </div>
+
+    <div class="column right">
+      <h2>Detail</h2>
+      <div class="row">
+                <table class="blueTable">
+                  <tr>
+                    <th><strong>Gene Symbol: </strong></th>
+                    <td>{{this.lmpd.gene_symbol}}</td>
+                  </tr>
+                  <tr>
+                    <th><strong>Protein Lmp ID: </strong></th>
+                    <td>{{this.lmpd.lmp_id}}</td>
+                  </tr>
+                  <tr>
+                    <th><strong>Protein mrna id: </strong></th>
+                    <td>{{this.lmpd.mrna_id}}</td>
+                  </tr>
+                  <tr>
+                    <th><strong>Protein Entry: </strong></th>
+                    <td>{{this.lmpd.protein_entry}}</td>
+                  </tr>
+                  <tr>
+                    <th><strong>Protein GI: </strong></th>
+                    <td>{{this.lmpd.protein_gi}}</td>
+                  </tr>
+                  <tr>
+                    <th><strong>Protein Refseq ID: </strong></th>
+                    <td>{{this.lmpd.refseq_id}}</td>
+                  </tr>
+                  <tr>
+                    <th><strong>Protein Sequence Length: </strong></th>
+                    <td>{{this.lmpd.species_long}}</td>
+                  </tr>
+                  <tr>
+                    <th><strong>Protein Tax ID: </strong></th>
+                    <td>{{this.lmpd.taxid}}</td>
+                  </tr>
+                  <tr>
+                    <th><strong>Protein Uniprot ID: </strong></th>
+                    <td>{{this.lmpd.uniprot_id}}</td>
+                  </tr>
+                </table>
+      </div>
+      <div class="row">
+        <h2>Sequence</h2>
+        <strong>Protein Sequence: </strong>
+        <p class="row">
+          <textarea>{{this.lmpd.sequence}}</textarea>
+        </p>
+      </div>
+    </div>
+  </div>
+<!--    structure-->
+    <div class="column middleright" *ngIf="isStructure">
+      <label *ngIf="noPdb">No PDB file found in our database</label>
+      <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms" *ngIf="!noPdb">
+        <mat-tab *ngFor="let pdb of pdbList" label="{{pdb.name}}">
+          <ng-template matTabContent>
+            <iframe [src]="pdb.url" style="width: 100%" height="768"></iframe>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+<!--    blast-->
+    <div class="column middleright" *ngIf="isBlast">
+      <div class="row" *ngIf="showProgress">
+        <circle-progress
+          [percent]="percent"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="8"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="300"
+          [startFromZero]="false"
+        ></circle-progress>
+      </div>
+
+      <div class="row" *ngFor="let res of showBlastResList">
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{res[0]}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <pre>{{res[1]}}</pre>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+      </div>
+    </div>
+<!--    pathway-->
+    <div class="column middleright" *ngIf="isPathway">
+      <mat-tab-group style="color: #4CAF50" style="min-height: 600px" animationDuration="0ms" *ngIf="!noPdb">
+        <mat-tab *ngFor="let pathway of pathwayList" label="{{pathway.name}}">
+          <ng-template matTabContent>
+            <iframe [src]="pathway.url" style="width: 80%;min-height: 600px"></iframe>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+

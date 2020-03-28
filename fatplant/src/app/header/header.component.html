@@ -1,5 +1,5 @@
 <mat-card class="nav-bar dark-background" id="desktop-navbar" #desktopNavbar *ngIf='!isMobile'>
-  <div class="icon"></div>
+  <div class="icon" routerLink="/homepage"></div>
   <nav>
     <ul class="nav-style light">
       <li routerLink="/homepage" routerLinkActive="desktop-active" id="home-item">
@@ -7,12 +7,8 @@
       </li>
 
 <!--      <li routerLink="/introduction" routerLinkActive="desktop-active"><mat-icon>help</mat-icon><div class="menu">INTRODUCTION</div></li>-->
-      <!-- <li [matMenuTriggerFor]="dataMenu" routerLinkActive="desktop-active">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>view_carousel</mat-icon><div class="menu">View...</div>
-      </li> -->
-
-      <li routerLink="/datasets" routerLinkActive="desktop-active">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>graphic_eq</mat-icon><div class="menu">Data</div>
+      <li [matMenuTriggerFor]="dataMenu" routerLinkActive="desktop-active">
+        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>graphic_eq</mat-icon><div class="menu">Our Data</div>
       </li>
 
       <li routerLink="/files" routerLinkActive="desktop-active" *ngIf="user.admin">
@@ -57,6 +53,7 @@
   <a mat-menu-item routerLink="/blast" routerLinkActive="desktop-active-menu-item"class="menu-item" (click)="sideNav.close()">Blastp</a>
   <a mat-menu-item routerLink="/glmol" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">3D Structure</a>
   <a mat-menu-item routerLink="/color-pathway" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Color Pathway</a>
+  <a mat-menu-item routerLink="/showresults" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Show Results</a>
 </mat-menu>
 
 <mat-menu #graphMenu class="mat-menu-content">
