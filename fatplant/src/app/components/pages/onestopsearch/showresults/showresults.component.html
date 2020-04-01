@@ -14,11 +14,10 @@
     <div class="column left">
       <p>LINK</p>
       <mat-nav-list>
-        <a mat-list-item [routerLink]="href2summary" style="color: darkcyan"> Summary </a>
-        <a mat-list-item [routerLink]="href2structure" style="color: darkcyan"> Structure </a>
-        <a mat-list-item [routerLink]="href2blast" style="color: darkcyan"> Blast </a>
-        <a mat-list-item [routerLink]="href2pathway" style="color: darkcyan"> Pathway </a>
-
+        <a class="hrefselect" mat-list-item [routerLink]="href2summary"> Summary </a>
+        <a class="hrefnotselect" mat-list-item [routerLink]="href2structure"> Structure </a>
+        <a class="hrefnotselect" mat-list-item [routerLink]="href2blast"> Blast </a>
+        <a class="hrefnotselect" mat-list-item [routerLink]="href2pathway"> Pathway </a>
       </mat-nav-list>
     </div>
 
@@ -27,7 +26,7 @@
     <div class="column middle">
       <h2>Summary</h2>
       <div class="row">
-        <table class="blueTable">
+        <table class="flat-table">
           <tr>
             <th><strong>Gene Name: </strong></th>
             <td>{{this.lmpd.gene_name}}</td>
@@ -57,7 +56,7 @@
     <div class="column right">
       <h2>Detail</h2>
       <div class="row">
-                <table class="blueTable">
+                <table class="flat-table">
                   <tr>
                     <th><strong>Gene Symbol: </strong></th>
                     <td>{{this.lmpd.gene_symbol}}</td>
@@ -98,7 +97,6 @@
       </div>
       <div class="row">
         <h2>Sequence</h2>
-        <strong>Protein Sequence: </strong>
         <p class="row">
           <textarea>{{this.lmpd.sequence}}</textarea>
         </p>

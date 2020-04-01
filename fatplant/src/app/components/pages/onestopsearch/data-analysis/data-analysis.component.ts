@@ -63,6 +63,7 @@ export class DataAnalysisComponent implements OnInit {
 
   ListClick(query: any) {
     // need interface update
+    //console.log("click list");
     this.query = query;
     this.items = new Observable<Lmpd_Arapidopsis>();
   }

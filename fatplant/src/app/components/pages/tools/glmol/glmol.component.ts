@@ -43,10 +43,10 @@ export class GlmolComponent implements OnInit {
       for (const line of data.split(/[\r\n]+/)) {
         if (line.slice(0, 6) === pdb) {
           let tmp = line.slice(0, -4);
-          this.pdbs.push(tmp);
+          this.pdbs.push({name:tmp,url:this.SafeUrl(tmp)});
           if (tmp.slice(-7, -1) === 'defaul') {
-            let swap = this.pdbs[0].toString();
-            this.pdbs[0] = tmp;
+            let swap = this.pdbs[0];
+            this.pdbs[0] = {name:tmp,url:this.SafeUrl(tmp)};
             this.pdbs[this.pdbs.length - 1] = swap;
           }
         }
