@@ -1,16 +1,8 @@
 <mat-progress-bar id="loading-bar" mode="indeterminate" *ngIf="this.dataService.loading"></mat-progress-bar>
-<div class="row">
-    <h2>Uniprot ID: {{uniprot_id}}</h2>
-  </div>
-
-<!--  <div class="topnav">-->
-<!--    <a href="#">Details</a>-->
-<!--    <a href="#">3D Structure</a>-->
-<!--    <a href="#">Pathway</a>-->
-<!--  </div>-->
 
   <div class="row" style="width: 100%">
     <div class="column left" id="stepper">
+      <h3>Uniprot ID: {{uniprot_id}}</h3>
       <mat-vertical-stepper (selectionChange)="changeConfig($event.selectedStep.label)" disableRipple="true">
         <ng-template matStepperIcon="number">
         </ng-template>

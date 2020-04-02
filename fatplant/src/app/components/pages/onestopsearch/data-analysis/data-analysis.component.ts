@@ -32,6 +32,7 @@ export class DataAnalysisComponent implements OnInit {
   private query: string;
   private tabIndex: number;
   private uniprot: string = null;
+  private searchError: boolean = false;
   private isLoading: boolean;
   private hasSearched: boolean = false;
   private imgUrl: SafeResourceUrl;
@@ -86,17 +87,21 @@ export class DataAnalysisComponent implements OnInit {
         switch (this.tabIndex) {
           case 0: {
             if (!this.blastSelected) this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
-              this.query = res[0].gene_name;
+              if (this.validateResult(res[0])) this.query = res[0].gene_name;
             });
             else this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
-              this.query = res[0].sequence;
-            })
+              if (this.validateResult(res[0])) this.query = res[0].sequence;
+            });
             setTimeout(() => {
               console.log('timeout');
             }, 3000);
             break;
           }
-          case 1: this.query = this.uniprot; break;
+          case 1: 
+            this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
+              if (this.validateResult(res[0])) this.query = this.uniprot;
+            });
+            break;
           default: break;
         }
       }
@@ -126,6 +131,7 @@ export class DataAnalysisComponent implements OnInit {
     // init
     this.hasSearched = true;
     this.uniprot = null;
+    this.searchError = false;
     this.imgs = [];
     this.noimg = false;
     this.nopdb = false;
@@ -134,21 +140,21 @@ export class DataAnalysisComponent implements OnInit {
     switch (this.tabIndex){
       case 0:
         if (!this.blastSelected) this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
-          this.uniprot = res[0].uniprot_id;
-          this.location.replaceState('one_click/' + this.uniprot + "/summary");
+         this.validateResult(res[0]);
         });
         else {
           this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('sequence', '==', this.query)).valueChanges().subscribe((res: any) => {
-          this.uniprot = res[0].uniprot_id;
-          this.location.replaceState('one_click/' + this.uniprot + "/summary");
-        });
-      }
+            this.validateResult(res[0]);
+          });
+        }
         break;
       case 1:
-        this.uniprot = this.query;
-        this.results.uniprot_id = this.uniprot;
-        this.results.checkLmpd(); // refresh lmpd data for new uniprot
-        this.location.replaceState('one_click/' + this.uniprot + "/summary");
+        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
+          if (this.validateResult(res[0])) {
+            this.results.uniprot_id = this.uniprot;
+            this.results.checkLmpd(); // refresh lmpd data for new uniprot
+          }
+         });
         break;
       default:
         break;
@@ -169,6 +175,19 @@ export class DataAnalysisComponent implements OnInit {
       default:
         console.log("No");
         break;
+    }
+  }
+
+  validateResult(result: Lmpd_Arapidopsis): boolean {
+    if (result == undefined) {
+      this.searchError = true;
+      this.location.replaceState('one_click');
+      return false;
+    }
+    else {
+      this.uniprot = result.uniprot_id;
+      this.location.replaceState('one_click/' + this.uniprot + "/summary");
+      return true;
     }
   }
 

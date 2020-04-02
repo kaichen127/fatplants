@@ -68,7 +68,8 @@
 
       <div *ngIf="!isLoading && hasSearched">
         <mat-divider></mat-divider>
-        <app-showresults #results id="results" *ngIf="this.uniprot != null" [uniprot_id]="this.uniprot"></app-showresults>
+        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot"></app-showresults>
+        <div *ngIf="searchError" class="centered" id="error">The previous search did not match any records in the database.</div>
       </div>
     </div>
   </div>
