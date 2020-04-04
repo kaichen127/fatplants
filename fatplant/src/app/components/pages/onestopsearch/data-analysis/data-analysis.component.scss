@@ -135,8 +135,7 @@ a:hover {
 
 .input-container {
   width: 80%;
-  padding: 2%;
-  padding-top: 5%;
+  padding: 2% 2% 0 2%;
   display: inline-block;
 }
 
@@ -177,6 +176,7 @@ a:hover {
 #results {
   display: block;
   width: 100%;
+  font-family: 'PT Sans', sans-serif;
 }
 #searchpage {
   min-height: calc(94% - 32px);

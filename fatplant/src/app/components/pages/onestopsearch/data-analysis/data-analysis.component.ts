@@ -168,7 +168,7 @@ export class DataAnalysisComponent implements OnInit {
         this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('gene_name', '>=', this.query).where('gene_name', '<=', this.query + '\uf8ff')).valueChanges();
         break;
       case 1:
-        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', this.query).where('uniprot_id', '<=', this.query + '\uf8ff')).valueChanges();
+        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', this.query.toUpperCase()).where('uniprot_id', '<=', this.query + '\uf8ff')).valueChanges();
         break;
       case 2:
         break;

@@ -1,7 +1,7 @@
 @import '~src/variables.scss';
 
 table.blueTable {
-  border: 1px solid #1C6EA4;
+  border: 1px solid $main-green;
   background-color: #EEEEEE;
   width: 100%;
   text-align: left;
@@ -15,13 +15,10 @@ table.blueTable tbody td {
   font-size: 13px;
 }
 table.blueTable tr:nth-child(even) {
-  background: #D0E4F5;
+  background: rgba($lime-green, 0.2);
 }
 table.blueTable thead {
-  background: #1C6EA4;
-  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: rgba($main-green, 0.4);
   border-bottom: 2px solid #444444;
 }
 table.blueTable thead th {
@@ -190,4 +187,9 @@ textarea {
 #stepper {
   position: sticky;
   top: 20%;
+}
+
+#sequence-display {
+  word-wrap: break-word;
+  margin-top: 5px;
 }
