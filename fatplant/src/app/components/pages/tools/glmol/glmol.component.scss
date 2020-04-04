@@ -1,3 +1,5 @@
+@import "~src/variables.scss";
+
 div{
   width:100%;
   /* background-color: #FCFF7B; */
@@ -29,6 +31,15 @@ textarea {
 
 mat-card {
   font-family: 'Catamaran', sans-serif;
+}
+
+mat-card.base {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  background-image: none !important;
+  margin: 6% 0 0 0 !important;
+  min-height: 110%;
 }
 
 mat-select {
@@ -67,4 +78,27 @@ a:hover {
   color: blue;
   cursor:pointer;
   text-decoration: underline;
+}
+
+.btn{
+  margin: 10px 0 0 0;
+  transition: background-color 0.5s;
+}
+
+.btn:hover {
+  background-color: rgba($lime-green, 0.3);
+  transition: all 0.5s;
+}
+
+#glmol-display {
+  width: 80%;
+  margin: auto;
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label {
+  transition: all 0.5s cubic-bezier(.35,0,.25,1); // match ink bar
+}
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  background-color: rgba($lime-green, 0.4);
+  transition: all 0.5s cubic-bezier(.35,0,.25,1);
 }

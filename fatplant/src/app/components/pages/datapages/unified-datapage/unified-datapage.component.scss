@@ -26,6 +26,11 @@ a.menu {
     transition: all 0.5s;
 }
 
+a.menu:not(.active):hover {
+    color: $lime-green;
+    transition: color 0.2s;
+}
+
 a.active {
     color: black;
     border-bottom: 1px solid $lime-green;
