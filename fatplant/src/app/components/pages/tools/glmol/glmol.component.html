@@ -1,19 +1,21 @@
-<mat-card>
-  <div class="row columns " style="width: 1000px">
+<mat-card class="base">
+  <div class="row columns ">
     <div class="columns small-10 small-centered textrow ">
       <h1>GLmol Tools</h1>
       <p>GLmol is a 3D molecular viewer based on WebGL and Javascript.</p>
     </div>
   </div>
 
-  <div class="columns small-10 small-centered textrow " style="width: 1000px">
+  <div class="columns small-10 small-centered textrow ">
     <div class="row">
-      <input type="textarea" class="browser-default" placeholder="Uniprot ID" [(ngModel)]="glmolID">
-      <p>eg. A0JJX5, P04778</p>
+      <mat-form-field>
+        <input matInput type="text" class="browser-default" placeholder="Uniprot ID" [matAutocomplete]="uniprot" [(ngModel)]="glmolID" (keyup)="Search()">
+        <mat-autocomplete #uniprot="matAutocomplete" position="below">
+          <mat-option *ngFor="let item of items | async" [value]="item.uniprot_id">{{item.uniprot_id}}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
     </div>
-    <div class="row">
-      <button mat-raised-button class="btn waves-effect waves-light" (click)="Glmol()">Submit</button>
-    </div>
+      <button mat-raised-button class="btn waves-effect waves-light" (click)="Glmol()">Search</button>
   </div>
   <!--<div >-->
   <!--  <iframe src="http://soykb.org/search/glmol/viewer.html?Glyma14g08610_1.pdb" style="width: 100%" height="768"></iframe>-->
@@ -23,8 +25,9 @@
   <!--</div>-->
   <br>
   <br>
-  <div *ngIf="isGlmol">
-  <label *ngIf="nopdb">No PDB file found in our database</label>
+  <div *ngIf="isGlmol" id="glmol-display">
+  <label *ngIf="nopdb">No PDB file found for Uniprot ID "{{this.searchQuery}}".</label>
+  <label *ngIf="!nopdb">Results for Uniprot ID {{this.searchQuery}}</label>
   <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms">
     <!--    <mat-tab label="Q9ZU49_5jwy.1.A_121_269_default">-->
     <!--      <iframe src="/viewer.html?5jwy" style="width: 100%" height="768"></iframe>-->

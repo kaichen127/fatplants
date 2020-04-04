@@ -3,20 +3,22 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 import {Observable} from "rxjs";
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import {HttpClient} from '@angular/common/http';
+import { Lmpd_Arapidopsis } from 'src/app/interfaces/lmpd_Arapidopsis';
 
 @Component({
   selector: 'app-glmol',
   templateUrl: './glmol.component.html',
-  styleUrls: ['./glmol.component.css']
+  styleUrls: ['./glmol.component.scss']
 })
 export class GlmolComponent implements OnInit {
   private pdbs = [];
-  public items: Observable<any>;
+  public items: Observable<Lmpd_Arapidopsis[]>;
   private nopdb: boolean;
 
   private glmolUrl: SafeResourceUrl;
   private isGlmol: boolean;
   private glmolID: string;
+  private searchQuery: string;
   constructor(private sanitizer: DomSanitizer, private afs: AngularFirestore, private http: HttpClient) { }
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class GlmolComponent implements OnInit {
     this.isGlmol = false; // hide iframe
     this.pdbs = [];
     this.nopdb = false;
+    this.searchQuery = this.glmolID;
     // let tmp: string;
     // tmp = this.glmolID;
     // tmp = tmp.replace('.', '_');
@@ -37,6 +40,12 @@ export class GlmolComponent implements OnInit {
     const tmpurl = '/static/viewer.html?' + input;
     console.log(tmpurl);
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
+  }
+  Search() {
+    if (this.glmolID == '') { return; }
+    else {
+        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', this.glmolID.toUpperCase()).where('uniprot_id', '<=', this.glmolID + '\uf8ff')).valueChanges();
+    }
   }
   SearchPDB(pdb: string) {
     this.http.get('/static/uniprot_pdb_list.txt', {responseType: 'text'}).subscribe(data => {
