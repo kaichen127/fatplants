@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="base">
   <div class="dropzone"
       dropzone
       (hovered)="toggleHover($event)"
@@ -20,7 +20,7 @@
       </mat-select>
   </mat-form-field>
 
-  <button mat-button id='fileButton' (click)='triggerFileWindow()'>Browse Files</button>
+  <button mat-raised-button id='fileButton' (click)='triggerFileWindow()'>Browse Files</button>
   <input id='fileInput' mat-input #fileBrowser hidden type=file (change)='onDrop(fileBrowser.files)'>
 
   <div *ngIf="files.length > 0" class="pane" [@fadeAnimation]="'in'">

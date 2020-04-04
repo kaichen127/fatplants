@@ -7,7 +7,7 @@ import { MobileService } from 'src/app/services/mobile/mobile.service';
 @Component({
   selector: 'app-upload-files',
   templateUrl: './upload-files.component.html',
-  styleUrls: ['./upload-files.component.css'],
+  styleUrls: ['./upload-files.component.scss'],
   animations: [
     trigger('fadeAnimation', [
       state('in', style({opacity: 1})),

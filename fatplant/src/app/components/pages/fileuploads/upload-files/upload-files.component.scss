@@ -1,15 +1,17 @@
+@import "~src/variables.scss";
+
 .dropzone { 
     display: flex;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
     flex-direction: column; 
-    min-width: 79vw;
+    width: 50%;
     font-weight: 200;
     height: 200px;
     border: 2px dashed #226D4D;
     border-radius: 5px;
-    margin: 10px 0;
+    margin: 10px auto;
     background-color: #eeeeee;
     transition: color 0.5s, background-color 0.5s, border 1s;
 
@@ -28,13 +30,19 @@ progress::-webkit-progress-value {
 }
 
 .pane {
-  margin: 15px 15px 30px 15px;
+  margin: 15px auto 30px auto;
   border: 1px solid gray;
   padding: 10px;
   box-shadow: 2px 2px 2px lightgray;
+  width: 90%;
 }
 #fileButton {
-  margin-left: 5px;
+  margin-left: 15px;
+  transition: background-color 0.5s;
+}
+#fileButton:hover {
+  background-color: rgba($lime-green, 0.3);
+  transition: all 0.5s;
 }
 
 .mobile {
@@ -42,6 +50,9 @@ progress::-webkit-progress-value {
   width: 95%;
 }
 
-mat-card {
-  background-image: linear-gradient(to right, white, lightgrey) !important;
+mat-card.base {
+  // background-image: linear-gradient(to right, white, lightgrey) !important;
+  background-image: none !important;
+  width: 100%;
+  margin: 6% 0 0 0 !important;
 }
