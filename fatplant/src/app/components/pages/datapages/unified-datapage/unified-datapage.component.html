@@ -1,16 +1,17 @@
 <mat-card id="base">
     <div class="left-menu">
-        <p class="subheader">Protein</p>
+      <mat-form-field id="filter">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <mat-icon (click)='refreshData()' class="pointer" matTooltip="Refresh Data">refresh</mat-icon>
+      <br><br><br>
+        <p class="subheader protein">Protein Species</p>
         <a class="menu" [class.active]='this.dataset == "arapidopsis"' (click)='changeDataset("arapidopsis")'>Arapidopsis</a>
         <a class="menu" [class.active]='this.dataset == "camelina"' (click)='changeDataset("camelina")'>Camelina</a>
         <a class="menu" [class.active]='this.dataset == "soybean"' (click)='changeDataset("soybean")'>Soybean</a>
-        <p class="subheader">Fatty Acids</p>
-        <a class="menu" [class.active]='this.dataset == "fattyacid"' (click)='changeDataset("fattyacid")'>Fatty Acid</a>
+        <p class="subheader fattyacid">Fatty Acids</p>
+        <a class="menu" [class.active]='this.dataset == "fattyacid"' (click)='changeDataset("fattyacid")'>Chemical Data</a>
     </div>
-    <mat-form-field id="filter">
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-    <mat-icon (click)='refreshData()' class="pointer" matTooltip="Refresh Data">refresh</mat-icon>
     <mat-table [dataSource]='currentDataSource' id='table' *ngIf="!loading">
         
       <ng-container matColumnDef="uniprot_id">
