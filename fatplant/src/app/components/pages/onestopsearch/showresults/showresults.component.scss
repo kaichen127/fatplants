@@ -1,5 +1,7 @@
+@import '~src/variables.scss';
+
 table.blueTable {
-  border: 1px solid #1C6EA4;
+  border: 1px solid $main-green;
   background-color: #EEEEEE;
   width: 100%;
   text-align: left;
@@ -13,13 +15,10 @@ table.blueTable tbody td {
   font-size: 13px;
 }
 table.blueTable tr:nth-child(even) {
-  background: #D0E4F5;
+  background: rgba($lime-green, 0.2);
 }
 table.blueTable thead {
-  background: #1C6EA4;
-  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: rgba($main-green, 0.4);
   border-bottom: 2px solid #444444;
 }
 table.blueTable thead th {
@@ -88,11 +87,12 @@ table.blueTable tfoot .links a{
 
 /* Left and right column */
 .column.left {
-  width: 10%;
+  width: 15%;
+  padding: 0;
 }
 
 .column.right {
-  width: 25%;
+  width: 20%;
 }
 
 /* Middle column */
@@ -140,4 +140,56 @@ textarea {
   word-break: break-all;
   border-radius: 10px;
   background: transparent;
+}
+#loading-bar {
+  width: 60%;
+  margin: auto;
+  margin-top: 2%;
+}
+.centered {
+  text-align: center;
+  margin: auto;
+}
+#pathway-view {
+  width: 99.5%;
+  min-height: 600px;
+}
+#pathway-tabs {
+  width: 80%;
+  min-width: 910px;
+}
+
+.nav-item {
+  color: grey;
+  transition: color 0.5s;
+}
+.nav-item:hover {
+  color: $light-green;
+}
+.active {
+  color: black;
+  transition: color 0.5s;
+}
+
+::ng-deep .mat-step .mat-step-header .mat-step-icon-selected {
+  background-color: $lime-green;
+  height: 24px !important;
+  width: 24px !important;
+  margin-left: 0px !important;
+  transition: all 0.5s cubic-bezier(.35,0,.25,1);
+}
+::ng-deep .mat-step .mat-step-header .mat-step-icon {
+  height: 12px;
+  width: 12px;
+  margin-left: 6px;
+  transition: all 0.5s cubic-bezier(.35,0,.25,1);
+}
+#stepper {
+  position: sticky;
+  top: 20%;
+}
+
+#sequence-display {
+  word-wrap: break-word;
+  margin-top: 5px;
 }

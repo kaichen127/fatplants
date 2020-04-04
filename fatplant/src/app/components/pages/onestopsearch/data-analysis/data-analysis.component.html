@@ -1,225 +1,75 @@
-<mat-card>
-  <div class="row">
-    <h3 id="title">One-Stop Search</h3>
-    <p>Here you can submit a protein sequence, a uniprot ID, or the Gene names of fatty acid related proteins and our
-      program will automatically
-      build the structures, blastp results, and the related pathways.</p>
-    <p>e.g. P46086 as UniProt ID.<p>
-        <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
-          <mat-tab label="Gene">
+<div id='searchpage'>
+<mat-card [class.no-border]="!hasSearched || !isLoading">
+  <div id="input-toggle">
+    <span class="input-option" [class.selected]="!blastSelected">Identifier</span>
+    <mat-slide-toggle aria-label="input-selector" color=primary [(ngModel)]="blastSelected"></mat-slide-toggle>
+    <span class="input-option" [class.selected]="blastSelected">BLAST</span>
+  </div>
+  <div id="identifier-input" class="container" [class.compressed]="hasSearched" *ngIf="!blastSelected">
+    <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
+      <mat-tab label="Gene">
+      </mat-tab>
+      <mat-tab label="Uniprot ID">
+      </mat-tab>
+    </mat-tab-group>
 
-          </mat-tab>
-          <mat-tab label="Uniprot ID">
-            <!--    <input (keyup)="Search($event.target.value)">-->
-          </mat-tab>
-          <mat-tab label="Sequence">
-          </mat-tab>
-        </mat-tab-group>
-        <div id="input" class="container">
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea style="min-height: 150px" name="Search" class="browser-default" placeholder="Search"
-                (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s6">
-              <mat-action-list *ngIf="tabIndex==1">
-                <button mat-list-item *ngFor="let item of items | async"
-                  (click)="ListClick($event.target.innerText)">{{item.uniprot_id}}</button>
-              </mat-action-list>
+    
+      <div class="row bordered">
+        <form class="form">
+        <mat-form-field *ngIf='tabIndex == 0' class="input-container">
+          <input type="text" placeholder="Gene Name" matInput [(ngModel)]="query" [matAutocomplete]="gene" [formControl]="identifierControl" (keyup)="Search()">
+          <mat-autocomplete #gene="matAutocomplete" position="below">
+            <mat-option *ngFor="let item of items | async" [value]="item.gene_name">{{item.gene_name}}</mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field *ngIf="tabIndex == 1" class="input-container">
+          <input type="text" placeholder="Uniprot ID" matInput [(ngModel)]="query" [matAutocomplete]="uniprot" [formControl]="identifierControl" (keyup)="Search()">
+          <mat-autocomplete #uniprot="matAutocomplete" position="below">
+            <mat-option *ngFor="let item of items | async" [value]="item.uniprot_id">{{item.uniprot_id}}</mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <button mat-button (click)="OneClick()" id="search-button" [disabled]="!identifierControl.valid"><mat-icon>search</mat-icon></button>
+      </form>
+      </div>
+      <div class="row">
+        <div class="database-selector" (click)="changeDatabase('Arapidopsis')" [class.selected]="this.proteindatabase == 'Arapidopsis'">Arapidopsis</div>
+        <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
+      </div>
 
-              <mat-action-list *ngIf="tabIndex==0">
-                <button mat-list-item *ngFor="let item of items | async"
-                  (click)="ListClick($event.target.innerText)">{{item.gene_name}}</button>
-              </mat-action-list>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s6">
-              <label>Protein Database</label>
-              <select name="ProteinDatabase" class="browser-default" [(ngModel)]="proteindatabase">
-                <option value="Arabidopsis" selected>Arabidopsis</option>
-                <option value="Soybean">Soybean</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s6" (click)="Loading()">
-              <button mat-raised-button class="btn waves-effect waves-light" (click)="ClickSearch()">Submit</button>
-            </div>
+    </div>
+
+    <div id="blast-input" class="container" [class.compressed]="hasSearched" *ngIf="blastSelected">
+      <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
+        <mat-tab label="Sequence">
+        </mat-tab>
+      </mat-tab-group>
+  
+      
+        <div class="row">
+          <div class="input-field col s12 bordered">
+            <textarea matInput style="min-height: 150px" name="Search" class="browser-default" placeholder="Sequence"
+              (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
           </div>
         </div>
-  </div>
-  <div class="row">
-    <div *ngIf="isLoading">
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </div>
-  </div>
+        <div class="row">
+          <div class="database-selector" (click)="changeDatabase('Arapidopsis')" [class.selected]="this.proteindatabase == 'Arapidopsis'">Arapidopsis</div>
+          <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <button mat-raised-button class="btn waves-effect waves-light" (click)="OneClick()">Compare</button>
+          </div>
+        </div>
+  
+      </div>
 </mat-card>
 
-<mat-card *ngIf="debug">
-  <div class="wrapper">
-    <div class="sidebar" *ngIf="debug">
-      <div class="row">
-        <a (click)="clickScroll('title')">Title</a>
-      </div>
-      <div class="row">
-        <a (click)="clickScroll('input')">Search</a>
-      </div>
-      <div class="row">
-        <a (click)="clickScroll('details')">Details</a>
+    <div class="wrapper main">
 
-      </div>
-      <div class="row">
-        <a (click)="clickScroll('structure')">Structure</a>
-
-      </div>
-      <div class="row">
-        <a (click)="clickScroll('blast')">Blast</a>
-
-      </div>
-      <div class="row">
-        <a (click)="clickScroll('pathway')">Pathway</a>
-
+      <div *ngIf="!isLoading && hasSearched">
+        <mat-divider></mat-divider>
+        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot"></app-showresults>
+        <div *ngIf="searchError" class="centered" id="error">The previous search did not match any records in the database.</div>
       </div>
     </div>
-
-    <div class="main">
-
-      <div *ngIf="debug">
-        <h2 id="details">Details</h2>
-        <!--    <div class="row">-->
-        <!--      <div class="column">Name</div>-->
-        <!--      <div class="column">{{proteinName}}</div>-->
-        <!--    </div>-->
-
-        <div class="row">
-          <strong>Protein General: </strong>
-          <table class="blueTable">
-            <tr>
-              <th><strong>Gene Name: </strong></th>
-              <td>{{gene_name}}</td>
-            </tr>
-            <tr>
-              <th><strong>Protein Name: </strong></th>
-              <td>{{proteinName}}</td>
-            </tr>
-            <tr>
-              <th><strong>Species: </strong></th>
-              <td>{{species}}</td>
-            </tr>
-            <tr>
-              <th><strong>Species Long: </strong></th>
-              <td>{{species_long}}</td>
-            </tr>
-          </table>
-          <br>
-          <strong>Protein Detail: </strong>
-          <table class="blueTable">
-            <tr>
-              <th><strong>Gene Symbol: </strong></th>
-              <td>{{gene_symbol}}</td>
-            </tr>
-            <tr>
-              <th><strong>Protein Lmp ID: </strong></th>
-              <td>{{lmp_id}}</td>
-            </tr>
-            <tr>
-              <th><strong>Protein mrna id: </strong></th>
-              <td>{{mrna_id}}</td>
-            </tr>
-            <tr>
-              <th><strong>Protein Entry: </strong></th>
-              <td>{{protein_entry}}</td>
-            </tr>
-            <tr>
-              <th><strong>Protein GI: </strong></th>
-              <td>{{protein_gi}}</td>
-            </tr>
-            <tr>
-              <th><strong>Protein Refseq ID: </strong></th>
-              <td>{{refseq_id}}</td>
-            </tr>
-            <tr>
-              <th><strong>Protein Sequence Length: </strong></th>
-              <td>{{seqlength}}</td>
-            </tr>
-            <tr>
-              <th><strong>Protein Tax ID: </strong></th>
-              <td>{{taxid}}</td>
-            </tr>
-            <tr>
-              <th><strong>Protein Uniprot ID: </strong></th>
-              <td>{{uniprot}}</td>
-            </tr>
-          </table>
-        </div>
-        <div class="row">
-          <div class="column">
-            <strong>Sequence: </strong>
-          </div>
-          <div class="column"><textarea [(ngModel)]="proteinSeq" style="min-height: 100px"></textarea></div>
-        </div>
-
-        <br>
-      </div>
-
-      <div *ngIf="debug" id="structure">
-        <mat-divider></mat-divider>
-        <h2>3D Structure</h2>
-        <label *ngIf="nopdb">No PDB file found in our database</label>
-        <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms">
-          <mat-tab *ngFor="let pdb of pdbs" label="{{pdb}}">
-            <ng-template matTabContent>
-              <iframe [src]="SafeUrl(pdb)" style="width: 100%" height="768"></iframe>
-            </ng-template>
-          </mat-tab>
-        </mat-tab-group>
-        <br>
-      </div>
-
-
-      <div *ngIf="debug" id="blast">
-        <mat-divider></mat-divider>
-        <h2>Blast Result</h2>
-        <div class="row">
-          <button class="btn waves-effect waves-light" (click)="ShowAllRes()">Show All</button>
-        </div>
-        <div class="row" *ngFor="let res of showblastRes">
-          <div style="max-width: 1000px">
-            <div class="card">
-              <div class="card-content">
-                <!--        <span class="card-title">{{res.title}}</span>-->
-                <pre>{{res}}</pre>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-      </div>
-
-
-      <!--<iframe style="width: 100%" height="768" frameborder="0" scrolling="0" src="/pathway.html?id=R-ATH-1119438.1"></iframe>-->
-
-      <div *ngIf="debug" id="pathway">
-        <mat-divider></mat-divider>
-        <h2>Pathway Figure</h2>
-        <label *ngIf="noimg">No figure found in database</label>
-        <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms">
-
-          <mat-tab *ngFor="let img of imgs" label="{{img[1]}}">
-            <ng-template matTabContent>
-              <iframe [src]="SafeImg(img[0])" style="width: 100%" height="768" frameborder="0" scrolling="0"></iframe>
-            </ng-template>
-          </mat-tab>
-        </mat-tab-group>
-      </div>
-
-    </div>
-
-
   </div>
-
-
-</mat-card>
