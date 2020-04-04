@@ -1,24 +1,16 @@
-
-<mat-card>
-  <div class="row">
-    <h2>{{uniprot_id}}</h2>
-  </div>
-
-<!--  <div class="topnav">-->
-<!--    <a href="#">Details</a>-->
-<!--    <a href="#">3D Structure</a>-->
-<!--    <a href="#">Pathway</a>-->
-<!--  </div>-->
+<mat-progress-bar id="loading-bar" mode="indeterminate" *ngIf="this.dataService.loading"></mat-progress-bar>
 
   <div class="row" style="width: 100%">
-    <div class="column left">
-      <p>LINK</p>
-      <mat-nav-list>
-        <a class="hrefselect" mat-list-item [routerLink]="href2summary"> Summary </a>
-        <a class="hrefnotselect" mat-list-item [routerLink]="href2structure"> Structure </a>
-        <a class="hrefnotselect" mat-list-item [routerLink]="href2blast"> Blast </a>
-        <a class="hrefnotselect" mat-list-item [routerLink]="href2pathway"> Pathway </a>
-      </mat-nav-list>
+    <div class="column left" id="stepper">
+      <h3>Uniprot ID: {{uniprot_id}}</h3>
+      <mat-vertical-stepper (selectionChange)="changeConfig($event.selectedStep.label)" disableRipple="true">
+        <ng-template matStepperIcon="number">
+        </ng-template>
+        <mat-step class="nav-item" [class.active]="isSummary" label="Summary" [completed]='false'></mat-step>
+        <mat-step class="nav-item" [class.active]="isStructure" label="Structure" [completed]='false'></mat-step>
+        <mat-step class="nav-item" [class.active]="isBlast" label="Blast" [completed]='false'></mat-step>
+        <mat-step class="nav-item" [class.active]="isPathway" label="Pathway" [completed]='false'></mat-step>
+      </mat-vertical-stepper>
     </div>
 
 <!--    summary-->
@@ -95,17 +87,15 @@
                   </tr>
                 </table>
       </div>
-      <div class="row">
         <h2>Sequence</h2>
-        <p class="row">
-          <textarea>{{this.lmpd.sequence}}</textarea>
-        </p>
-      </div>
+        <div id="sequence-display">
+          {{this.lmpd.sequence}}
+        </div>
     </div>
   </div>
 <!--    structure-->
     <div class="column middleright" *ngIf="isStructure">
-      <label *ngIf="noPdb">No PDB file found in our database</label>
+      <div *ngIf="noPdb" class="centered">No PDB file found in our database</div>
       <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms" *ngIf="!noPdb">
         <mat-tab *ngFor="let pdb of pdbList" label="{{pdb.name}}">
           <ng-template matTabContent>
@@ -116,7 +106,7 @@
     </div>
 <!--    blast-->
     <div class="column middleright" *ngIf="isBlast">
-      <div class="row" *ngIf="showProgress">
+      <div class="row centered" *ngIf="showProgress">
         <circle-progress
           [percent]="percent"
           [radius]="100"
@@ -146,14 +136,14 @@
     </div>
 <!--    pathway-->
     <div class="column middleright" *ngIf="isPathway">
-      <mat-tab-group style="color: #4CAF50" style="min-height: 600px" animationDuration="0ms" *ngIf="!noPdb">
+      <div class="centered" *ngIf="pathwayList.length == 0">No pathway diagrams found in our database.</div>
+      <mat-tab-group style="color: #4CAF50" style="min-height: 600px" id="pathway-tabs" animationDuration="0ms" *ngIf="pathwayList.length > 0">
         <mat-tab *ngFor="let pathway of pathwayList" label="{{pathway.name}}">
           <ng-template matTabContent>
-            <iframe [src]="pathway.url" style="width: 80%;min-height: 600px"></iframe>
+            <iframe id="pathway-view" [src]="pathway.url"></iframe>
           </ng-template>
         </mat-tab>
       </mat-tab-group>
     </div>
   </div>
-</mat-card>
 

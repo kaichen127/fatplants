@@ -1,26 +1,29 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { MatTabsModule } from '@angular/material/tabs';
 import { Observable } from 'rxjs';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import * as jsPDF from 'jspdf';
-import { ViewportScroller } from '@angular/common';
+import { ViewportScroller, Location } from '@angular/common';
 import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
-import {Router} from "@angular/router";
+import { startWith, map, filter } from 'rxjs/operators';
+import {Router, ActivatedRoute} from "@angular/router";
 import {MatTableDataSource} from "@angular/material/table";
 import {FatPlantDataSource} from "../../../../interfaces/FatPlantDataSource";
+import { DataService } from 'src/app/services/data/data.service';
+import { ShowresultsComponent } from '../showresults/showresults.component';
 
 
 @Component({
   selector: 'app-data-analysis',
   templateUrl: './data-analysis.component.html',
-  styleUrls: ['./data-analysis.component.css']
+  styleUrls: ['./data-analysis.component.scss']
 })
 export class DataAnalysisComponent implements OnInit {
   @ViewChild('pdf', { static: false }) pdf: ElementRef;
-  public items: Observable<any>;
+  public items: Observable<Lmpd_Arapidopsis[]>;
   private itemCollection: AngularFirestoreCollection<any>;
 
   private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
@@ -28,30 +31,144 @@ export class DataAnalysisComponent implements OnInit {
 
   private query: string;
   private tabIndex: number;
-  private proteindatabase;
-  private uniprot: string;
+  private uniprot: string = null;
+  private searchError: boolean = false;
   private isLoading: boolean;
+  private hasSearched: boolean = false;
+  private imgUrl: SafeResourceUrl;
+  private imgs = [];
+  private noimg: boolean;
+  private nopdb: boolean;
+  private proteindatabase: string = "Arapidopsis";
+  private pathwaydb = [];
 
-  constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller, private router: Router) {
+  private species: string;
+  private species_long: string;
+  private gene_name: string;
+
+  private gene_symbol: string;
+  private lmp_id: string;
+  private mrna_id: string;
+  private protein_entry: string;
+  private protein_gi: string;
+  private refseq_id: string;
+  private seqlength: string;
+  private taxid: string;
+
+  private blast: string;
+  private result: string;
+  private blastRes = [];
+  private showblastRes = [];
+  @ViewChild(ShowresultsComponent, null)
+  private results: ShowresultsComponent;
+
+  blastSelected: boolean = false; 
+  identifierControl = new FormControl(this.query);
+  filteredOptions: Observable<Lmpd_Arapidopsis[]>;
+
+  constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller, private router: Router,
+     private route: ActivatedRoute, private dataService: DataService, private location: Location) {
+    this.pathwaydb = [];
+    this.http.get('/static/reactome.csv', { responseType: 'text' }).subscribe(data => {
+      for (const line of data.split(/[\r\n]+/)) {
+        // console.log(line.split(','));
+        this.pathwaydb.push(line.split(','));
+      }
+    });
     this.isLoading = false;
     this.tabIndex = 0;
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      if (params['uniprot_id'] != null) {
+        this.uniprot = params['uniprot_id'];
+        this.hasSearched = true;
+        switch (this.tabIndex) {
+          case 0: {
+            if (!this.blastSelected) this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
+              if (this.validateResult(res[0])) this.query = res[0].gene_name;
+            });
+            else this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
+              if (this.validateResult(res[0])) this.query = res[0].sequence;
+            });
+            setTimeout(() => {
+              console.log('timeout');
+            }, 3000);
+            break;
+          }
+          case 1: 
+            this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
+              if (this.validateResult(res[0])) this.query = this.uniprot;
+            });
+            break;
+          default: break;
+        }
+      }
+    });
   }
 
-  Search(query: string) {
-    this.items = new Observable<Lmpd_Arapidopsis>();
-    if (query === '') {
-      return;
-    }
+  SplitRes(result: string) {
+    this.showblastRes = [];
+    this.blastRes = [];
+    let tmp: any;
+    tmp = result.split('>');
+    tmp.shift();
+    let index: number;
+    index = tmp[tmp.length - 1].search('Lambda');
+    tmp[tmp.length - 1] = tmp[tmp.length - 1].substring(0, index);
+    this.blastRes = tmp.slice(0);
+    console.log(this.blastRes);
+    this.showblastRes = tmp.slice(0, 3);
 
-    switch (this.tabIndex) {
+  }
+
+  OneClick() {
+
+    if (this.proteindatabase === undefined) {
+      this.proteindatabase = 'Arapidopsis';
+    }
+    // init
+    this.hasSearched = true;
+    this.uniprot = null;
+    this.searchError = false;
+    this.imgs = [];
+    this.noimg = false;
+    this.nopdb = false;
+    this.dataService.BlastNeedUpdate = true;
+
+    switch (this.tabIndex){
       case 0:
-        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('gene_name', '>=', query).where('gene_name', '<=', query + '\uf8ff')).valueChanges();
+        if (!this.blastSelected) this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
+         this.validateResult(res[0]);
+        });
+        else {
+          this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('sequence', '==', this.query)).valueChanges().subscribe((res: any) => {
+            this.validateResult(res[0]);
+          });
+        }
         break;
       case 1:
-        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', query).where('uniprot_id', '<=', query + '\uf8ff')).valueChanges();
+        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
+          if (this.validateResult(res[0])) {
+            this.results.uniprot_id = this.uniprot;
+            this.results.checkLmpd(); // refresh lmpd data for new uniprot
+          }
+         });
+        break;
+      default:
+        break;
+    }
+  }
+
+  Search() {
+    if (this.query === '' || this.blastSelected) { return; }
+    switch (this.tabIndex) {
+      case 0:
+        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('gene_name', '>=', this.query).where('gene_name', '<=', this.query + '\uf8ff')).valueChanges();
+        break;
+      case 1:
+        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', this.query.toUpperCase()).where('uniprot_id', '<=', this.query + '\uf8ff')).valueChanges();
         break;
       case 2:
         break;
@@ -61,11 +178,23 @@ export class DataAnalysisComponent implements OnInit {
     }
   }
 
+  validateResult(result: Lmpd_Arapidopsis): boolean {
+    if (result == undefined) {
+      this.searchError = true;
+      this.location.replaceState('one_click');
+      return false;
+    }
+    else {
+      this.uniprot = result.uniprot_id;
+      this.location.replaceState('one_click/' + this.uniprot + "/summary");
+      return true;
+    }
+  }
+
   ListClick(query: any) {
     // need interface update
     //console.log("click list");
     this.query = query;
-    this.items = new Observable<Lmpd_Arapidopsis>();
   }
 
   //loading progress
@@ -92,43 +221,6 @@ export class DataAnalysisComponent implements OnInit {
     doc.save('Data.pdf');
   }
 
-  // not use now
-  // public convFromKegg() {
-  //   this.http.get('https://linux-shell-test.appspot.com/conv?uniprot=' + this.uniprot, { responseType: 'text' }).subscribe((conv: string) => {
-  //     let pathways: any;
-  //     // 位数！
-  //     pathways = conv.match(/ath:[a-zA-Z0-9]{9}/g);
-  //     console.log(pathways[0]);
-  //     let target: string;
-  //     target = pathways[0];
-  //     this.http.get('https://linux-shell-test.appspot.com/link?target=' + target, { responseType: 'text' }).subscribe((res: string) => {
-  //       let tmp: any
-  //       tmp = res.match(/path:[a-zA-Z0-9]{8}/g);
-  //       console.log(tmp);
-  //       this.imgUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://rest.kegg.jp/get/' + tmp[0].slice(5) + '/image');
-  //       let x: any;
-  //       for (x in tmp) {
-  //         let y = x
-  //         this.http.get('https://linux-shell-test.appspot.com/detail?target=' + tmp[x].slice(5), { responseType: 'text' }).subscribe((data: string) => {
-  //           // console.log(res);
-  //           let names = data.split('\n');
-  //           // console.log(tmp);
-  //           for (var name in names) {
-  //             console.log(names[name].slice(0, 11));
-  //             if (names[name].slice(0, 11) === 'PATHWAY_MAP') {
-  //               this.imgs.push([tmp[y].slice(5), names[name].slice(12)]);
-  //               break;
-  //             }
-  //           }
-  //         });
-  //       }
-  //       console.log(this.imgs);
-  //       this.debug = true;
-  //       this.isLoading = false;
-  //     });
-  //   });
-  // }
-
   public clickScroll(elementId: string): void {
     console.log("scroll")
     this.viewportScroller.scrollToAnchor(elementId); //no use?
@@ -136,33 +228,8 @@ export class DataAnalysisComponent implements OnInit {
     el.scrollIntoView();
   }
 
-  ClickSearch(){
-    switch (this.tabIndex){
-      case 0:
-        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
-          this.uniprot = res[0].uniprot_id;;
-          const tmp = '/showresults/'+this.uniprot+'/summary';
-          this.router.navigateByUrl(tmp);
-        })
-        break;
-      case 1:
-        this.uniprot = this.query;
-        const tmp = '/showresults/'+this.uniprot+'/summary'
-        this.router.navigateByUrl(tmp);
-        break;
-      case 2:
-        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('sequence', '==', this.query)).valueChanges().subscribe((res: any) => {
-          this.uniprot = res[0].uniprot_id;
-          const tmp = '/showresults/'+this.uniprot+'/summary';
-          this.router.navigateByUrl(tmp);
-        })
-        setTimeout(() => {
-          console.log('timeout');
-          this.isLoading = false;
-        }, 3000);
-        break;
-    }
-
+  changeDatabase(database: string) {
+    this.proteindatabase = database;
   }
 
 }

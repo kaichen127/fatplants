@@ -1,0 +1,191 @@
+@import "~src/variables.scss";
+
+div{
+  width:100%;
+  /* background-color: #FCFF7B; */
+}
+.click-zoom input[type=checkbox] {
+  display: none
+}
+
+.click-zoom img {
+  margin: 100px;
+  transition: transform 0.25s ease;
+  cursor: zoom-in
+}
+
+.click-zoom input[type=checkbox]:checked~img {
+  transform: scale(3);
+  cursor: zoom-out
+}
+
+button {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 10px;
+}
+
+mat-card {
+  font-family: 'Catamaran', sans-serif;
+  width: 100%;
+  height: auto;
+  background-image: none !important;
+  background-color: white;
+  margin: 0;
+  margin-top: 6%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+mat-select {
+  width: 20%;
+  border: solid grey 1px;
+  border-radius: 2px;
+  padding: 4px 4px 4px 4px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main,
+.sidebar {
+  padding: 15px;
+}
+
+.main {
+  width: 100%;
+  background-color: white;
+  font-family: 'Catamaran', sans-serif;
+  margin: 0;
+}
+
+.sidebar {
+  width: 5%;
+  height: 25vh;
+}
+
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20%;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label {
+  transition: all 0.5s cubic-bezier(.35,0,.25,1); // match ink bar
+}
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  background-color: rgba($lime-green, 0.4);
+  transition: all 0.5s cubic-bezier(.35,0,.25,1);
+}
+
+::ng-deep .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+  background-color: #fafafa;
+}
+
+a:hover {
+  color: blue;
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+.container {
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+}
+.container.compressed {
+  margin-top: 0%;
+  transition: margin-top 1s;
+}
+
+#input-toggle {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+}
+
+.bordered {
+  margin-top: 3%;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: inset 0px 2px 2px grey;
+}
+
+.input-option {
+  margin: 10px;
+  font-family: "PT Sans", sans-serif;
+  color: grey;
+  transition: all 0.2s;
+}
+
+.input-option.selected {
+  color: black;
+  transition: all 0.2s;
+}
+
+.input-container {
+  width: 80%;
+  padding: 2% 2% 0 2%;
+  display: inline-block;
+}
+
+#search-button {
+  position: absolute;
+  width: 16%;
+  height: 100%;
+  top: 0;
+  margin: 0;
+  background-color: rgba($pale-green, 0.4);
+}
+.form {
+  position: relative;
+}
+.database-selector {
+  display: inline-block;
+  background-color: inherit;
+  width: 40%;
+  height: 50%;
+  margin: 2%;
+  border: 1px solid black;
+  text-align: center;
+  padding: 2%;
+  cursor: pointer;
+  transition: all 0.5s;
+  box-shadow: 2px 2px 2px grey;
+}
+
+.database-selector.selected {
+  background-color: rgba($lime-green, 0.4);
+  transition: all 0.5s;
+}
+.no-border {
+  border-bottom: none;
+  box-shadow: none;
+  transition: all 0.5s;
+}
+#results {
+  display: block;
+  width: 100%;
+  font-family: 'PT Sans', sans-serif;
+}
+#searchpage {
+  min-height: calc(94% - 32px);
+  background-color: white;
+}
+.centered {
+  text-align: center;
+  margin: auto;
+}
+#error {
+  margin-top: 50px;
+}

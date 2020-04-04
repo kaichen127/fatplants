@@ -6,11 +6,11 @@ declare var require: any;
   styleUrls: ['./investigator.component.css']
 })
 export class InvestigatorComponent implements OnInit {
-  ppl1 = require("../../../../assets/ppl1.jpg");
-  ppl2 = require("../../../../assets/ppl2.jpg");
-  ppl3 = require("../../../../assets/ppl3.png");
-  ppl4 = require("../../../../assets/ppl4.jpg");
-  ppl5 = require("../../../../assets/ppl5.png");
+  ppl1 = require("../../../../assets/homepageAssets/AK.jpg");
+  ppl2 = require("../../../../assets/homepageAssets/DA.jpg");
+  ppl3 = require("../../../../assets/homepageAssets/DX.jpg");
+  ppl4 = require("../../../../assets/homepageAssets/JT.jpg");
+  ppl5 = require("../../../../assets/homepageAssets/PB.jpg");
   constructor() { }
 
   ngOnInit() {

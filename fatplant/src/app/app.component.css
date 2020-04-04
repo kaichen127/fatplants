@@ -23,3 +23,6 @@ button:focus {
     top: 100px;
     width:100%;
 }
+.no-overflow {
+    overflow-x: hidden;
+}

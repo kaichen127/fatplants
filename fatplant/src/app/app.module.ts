@@ -19,9 +19,11 @@ import {
   MatButtonModule,
   MatInputModule,
   MatTooltipModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatStepperModule
 } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -47,6 +49,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import * as firebase from 'firebase';
@@ -115,6 +118,7 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatAutocompleteModule,
     AngularFireAuthGuardModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
@@ -141,7 +145,9 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     MatMenuModule,
     MatSidenavModule,
     MatButtonModule,
+    MatSlideToggleModule,
     MatGridListModule,
+    MatStepperModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,

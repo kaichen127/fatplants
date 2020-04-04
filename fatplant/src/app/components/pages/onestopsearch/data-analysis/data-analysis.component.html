@@ -1,59 +1,75 @@
-<mat-card>
-  <div class="row">
-    <h3 id="title">One-Stop Search</h3>
-    <p>Here you can submit a protein sequence, a uniprot ID, or the Gene names of fatty acid related proteins and our
-      program will automatically
-      build the structures, blastp results, and the related pathways.</p>
-    <p>e.g. P46086 as UniProt ID.<p>
-        <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
-          <mat-tab label="Gene">
+<div id='searchpage'>
+<mat-card [class.no-border]="!hasSearched || !isLoading">
+  <div id="input-toggle">
+    <span class="input-option" [class.selected]="!blastSelected">Identifier</span>
+    <mat-slide-toggle aria-label="input-selector" color=primary [(ngModel)]="blastSelected"></mat-slide-toggle>
+    <span class="input-option" [class.selected]="blastSelected">BLAST</span>
+  </div>
+  <div id="identifier-input" class="container" [class.compressed]="hasSearched" *ngIf="!blastSelected">
+    <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
+      <mat-tab label="Gene">
+      </mat-tab>
+      <mat-tab label="Uniprot ID">
+      </mat-tab>
+    </mat-tab-group>
 
-          </mat-tab>
-          <mat-tab label="Uniprot ID">
-            <!--    <input (keyup)="Search($event.target.value)">-->
-          </mat-tab>
-          <mat-tab label="Sequence">
-          </mat-tab>
-        </mat-tab-group>
-        <div id="input" class="container">
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea style="min-height: 150px" name="Search" class="browser-default" placeholder="Search"
-                (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s6">
-              <mat-action-list *ngIf="tabIndex==1">
-                <button mat-list-item *ngFor="let item of items | async"
-                  (click)="ListClick($event.target.innerText)">{{item.uniprot_id}}</button>
-              </mat-action-list>
+    
+      <div class="row bordered">
+        <form class="form">
+        <mat-form-field *ngIf='tabIndex == 0' class="input-container">
+          <input type="text" placeholder="Gene Name" matInput [(ngModel)]="query" [matAutocomplete]="gene" [formControl]="identifierControl" (keyup)="Search()">
+          <mat-autocomplete #gene="matAutocomplete" position="below">
+            <mat-option *ngFor="let item of items | async" [value]="item.gene_name">{{item.gene_name}}</mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field *ngIf="tabIndex == 1" class="input-container">
+          <input type="text" placeholder="Uniprot ID" matInput [(ngModel)]="query" [matAutocomplete]="uniprot" [formControl]="identifierControl" (keyup)="Search()">
+          <mat-autocomplete #uniprot="matAutocomplete" position="below">
+            <mat-option *ngFor="let item of items | async" [value]="item.uniprot_id">{{item.uniprot_id}}</mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <button mat-button (click)="OneClick()" id="search-button" [disabled]="!identifierControl.valid"><mat-icon>search</mat-icon></button>
+      </form>
+      </div>
+      <div class="row">
+        <div class="database-selector" (click)="changeDatabase('Arapidopsis')" [class.selected]="this.proteindatabase == 'Arapidopsis'">Arapidopsis</div>
+        <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
+      </div>
 
-              <mat-action-list *ngIf="tabIndex==0">
-                <button mat-list-item *ngFor="let item of items | async"
-                  (click)="ListClick($event.target.innerText)">{{item.gene_name}}</button>
-              </mat-action-list>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s6">
-              <label>Protein Database</label>
-              <select name="ProteinDatabase" class="browser-default" [(ngModel)]="proteindatabase">
-                <option value="Arabidopsis" selected>Arabidopsis</option>
-                <option value="Soybean">Soybean</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s6">
-              <button mat-raised-button class="btn waves-effect waves-light" (click)="ClickSearch()">Submit</button>
-            </div>
+    </div>
+
+    <div id="blast-input" class="container" [class.compressed]="hasSearched" *ngIf="blastSelected">
+      <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
+        <mat-tab label="Sequence">
+        </mat-tab>
+      </mat-tab-group>
+  
+      
+        <div class="row">
+          <div class="input-field col s12 bordered">
+            <textarea matInput style="min-height: 150px" name="Search" class="browser-default" placeholder="Sequence"
+              (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
           </div>
         </div>
-  </div>
-  <div class="row">
-    <div *ngIf="isLoading">
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        <div class="row">
+          <div class="database-selector" (click)="changeDatabase('Arapidopsis')" [class.selected]="this.proteindatabase == 'Arapidopsis'">Arapidopsis</div>
+          <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <button mat-raised-button class="btn waves-effect waves-light" (click)="OneClick()">Compare</button>
+          </div>
+        </div>
+  
+      </div>
+</mat-card>
+
+    <div class="wrapper main">
+
+      <div *ngIf="!isLoading && hasSearched">
+        <mat-divider></mat-divider>
+        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot"></app-showresults>
+        <div *ngIf="searchError" class="centered" id="error">The previous search did not match any records in the database.</div>
+      </div>
     </div>
   </div>
-</mat-card>
