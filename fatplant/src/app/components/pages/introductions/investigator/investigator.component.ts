@@ -3,7 +3,7 @@ declare var require: any;
 @Component({
   selector: 'app-investigator',
   templateUrl: './investigator.component.html',
-  styleUrls: ['./investigator.component.css']
+  styleUrls: ['./investigator.component.scss']
 })
 export class InvestigatorComponent implements OnInit {
   ppl1 = require("../../../../assets/homepageAssets/AK.jpg");
