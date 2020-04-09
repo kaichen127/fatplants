@@ -1,13 +1,16 @@
 <div class="container">
-  <mat-card class="loginForm">
-
+  <div class="picture">
+    <div class="pictureTint"></div>
+  </div>
+  <div class="loginForm">
+    <div class="displayName" *ngIf="user !== null && user.displayName !== ''">
+      Welcome, {{ user.displayName }}
+    </div>
+    <div class="displayName" *ngIf="user === null || user.displayName === ''">
+      Welcome, Guest
+    </div>
     <div class="loginButtons" *ngIf="!admin && !email">
-      <div class="displayName" *ngIf="user !== null && user.displayName !== ''">
-        Welcome, {{ user.displayName }}
-      </div>
-      <div class="displayName" *ngIf="user === null || user.displayName === ''">
-        Welcome, Guest
-      </div>
+
       <button mat-raised-button (click)="login('google')">
         <div class="buttonFlex">
           <mat-icon>cloud</mat-icon><span>Google Login</span><div></div>
@@ -67,5 +70,6 @@
         </div>
       </mat-card>
     </div>
-  </mat-card>
+  </div>
+
 </div>
