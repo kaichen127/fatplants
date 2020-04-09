@@ -1,5 +1,5 @@
 .container {
-  margin-top: 100px;
+  margin-top: 150px;
   box-sizing: border-box;
   font-family: "PT Serif", sans-serif;
   width: 100%;
@@ -20,7 +20,8 @@
 }
 
 .profile {
-  max-height: 8vw;
+  max-height: 10vw;
+  min-height: 10vw;
   max-width: 8vw;
   border-radius: 200px;
   margin-top: 2%;
