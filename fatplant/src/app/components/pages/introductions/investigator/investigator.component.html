@@ -1,68 +1,163 @@
-<div class="container top">
-  <div class="spacer"></div>
-  <mat-card class="profile">
-    <img [src]="ppl4" alt="JT" />
-    Dr. Jay Thelen
-  </mat-card>
-  <mat-card class="information">
-    Dr. Thelen is a Professor of Biochemistry at the University of Missouri.
-    His lab is located in the Bond Life Sciences Center.
-    He is a recipient of both the Mizzou Chancellor’s and Presidential Awards for research creativity and excellence.
-    His lab studies metabolic regulation of oil production in plants, and leverages these findings to engineer higher oil crops.
-  </mat-card>
-</div>
-
-<div class="container right">
-  <mat-card class="informationRight">
-    Dr. Xu is Shumaker Endowed Professor in Department of Electrical Engineering and Computer Science,
-    with appointments in the Christopher S. Bond Life Sciences Center and the Informatics Institute at the University of Missouri.
-    His research is in computational biology and bioinformatics, including machine-learning application in bioinformatics,
-    protein structure prediction, post-translational modification prediction, high-throughput biological data analyses,
-    and in silico studies of plants, microbes and cancers, biological information systems. More information can be found at <a href="http://digbio.missouri.edu/">http://digbio.missouri.edu/</a>.
-  </mat-card>
-  <mat-card class="profile">
-    <img [src]="ppl3" alt="DX" />
-    Dr. Dong Xu
-  </mat-card>
-  <div class="spacer"></div>
-</div>
-
 <div class="container">
-  <div class="spacer"></div>
-  <mat-card class="profile">
-    <img [src]="ppl2" alt="DA" />
-    Dr. Doug Allen
-  </mat-card>
-  <mat-card class="information">
-    Dr. Allen is a USDA-ARS Research Scientist and Principal Investigator at the Donald Danforth Plant Science Center.
-    His research focuses on quantitative descriptions of central carbon metabolism in plants that includes
-    photosynthetic carbon assimilation and partitioning into important storage reserves such as protein and oil.
-  </mat-card>
+  <div class="row">
+    <div></div>
+    <div class="profileHolder">
+      <div class="profInfo">
+        <img class="profile" [src]="ppl4" alt="JT" />
+        <div class="info">
+          <strong>Jay Thelen</strong>
+          <a href="mailto:thelenj@missouri.edu">thelenj@missouri.edu</a>
+          <strong><i>Principal Investigator</i></strong>
+          <div>University of Missouri - Columbia</div>
+        </div>
+      </div>
+      <div class="information">
+        Dr. Thelen is a Professor of Biochemistry at the University of Missouri.
+        His lab is located in the Bond Life Sciences Center.
+        He is a recipient of both the Mizzou Chancellor’s and Presidential Awards for research creativity and excellence.
+        His lab studies metabolic regulation of oil production in plants, and leverages these findings to engineer higher oil crops.
+      </div>
+    </div>
+    <div></div>
+  </div>
+
+
+  <div class="row">
+
+    <div class="profileHolder">
+      <div class="profInfo">
+        <img class="profile" [src]="ppl2" alt="DA" />
+        <div class="info">
+          <strong>Douglas Allen</strong>
+          <a href="mailto:Doug.allen@ars.usda.gov">Doug.allen@ars.usda.gov</a>
+          <strong><i>Co-Principal Investigator</i></strong>
+          <div>Danforth Center USDA-ARS</div>
+        </div>
+      </div>
+      <div class="information">
+        Dr. Allen is a USDA-ARS Research Scientist and Principal Investigator at the Donald Danforth Plant Science Center.
+        His research focuses on quantitative descriptions of central carbon metabolism in plants that includes
+        photosynthetic carbon assimilation and partitioning into important storage reserves such as protein and oil.
+      </div>
+    </div>
+
+    <div class="profileHolder">
+      <div class="profInfo">
+        <img class="profile" [src]="ppl5" alt="PB" />
+        <div class="info">
+          <strong>Phillip Bates</strong>
+          <a href="mailto:phil_bates@wsu.edu">phil_bates@wsu.edu</a>
+          <strong><i>Co-Principal Investigator</i></strong>
+          <div>Washington State University</div>
+        </div>
+      </div>
+      <div class="information">
+        Dr. Philip Bates is an Assistant Professor in the Institute of Biological Chemistry at Washington State University.
+        His research focuses on characterizing the biochemical pathways of plant lipid synthesis including the mechanisms
+        that control seed oil accumulation and oil composition for use in food, biofuels, or the chemical industry.
+        More information can be found at: <a href="https://ibc.wsu.edu/philip-bates/">https://ibc.wsu.edu/philip-bates/</a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+
+    <div class="profileHolder">
+      <div class="profInfo">
+        <img class="profile" [src]="ppl1" alt="AK" />
+        <div class="info">
+          <strong>Abe Koo</strong>
+          <a href="mailto:kooaj@missouri.edu">kooaj@missouri.edu</a>
+          <strong><i>Co-Principal Investigator</i></strong>
+          <div>University of Missouri - Columbia</div>
+        </div>
+      </div>
+      <div class="information">
+        Dr. Koo is Associate Professor of Biochemistry Department at the University of Missouri.
+        Main areas of his research are plant defense against insects, phytohormone jasmonate metabolism and signaling,
+        and metabolic engineering of plants to increase oil production.
+      </div>
+    </div>
+
+    <div class="profileHolder">
+      <div class="profInfo">
+        <img class="profile" [src]="ppl3" alt="DX" />
+        <div class="info">
+          <strong>Dong Xu</strong>
+          <a href="mailto:xudong@missouri.edu">xudong@missouri.edu</a>
+          <strong><i>Co-Principal Investigator</i></strong>
+          <div>University of Missouri - Columbia</div>
+        </div>
+      </div>
+      <div class="information">
+        Dr. Xu is Shumaker Endowed Professor in Department of Electrical Engineering and Computer Science,
+        with appointments in the Christopher S. Bond Life Sciences Center and the Informatics Institute at the University of Missouri.
+        His research is in computational biology and bioinformatics, including machine-learning application in bioinformatics,
+        protein structure prediction, post-translational modification prediction, high-throughput biological data analyses,
+        and in silico studies of plants, microbes and cancers, biological information systems. More information can be found at <a href="http://digbio.missouri.edu/">http://digbio.missouri.edu/</a>.
+      </div>
+    </div>
+
+  </div>
+
+
 </div>
 
-<div class="container right">
-  <mat-card class="informationRight">
-    Dr. Koo is Associate Professor of Biochemistry Department at the University of Missouri.
-    Main areas of his research are plant defense against insects, phytohormone jasmonate metabolism and signaling,
-    and metabolic engineering of plants to increase oil production.
-  </mat-card>
-  <mat-card class="profile">
-    <img [src]="ppl1" alt="AK" />
-    Dr. Abraham J. Koo
-  </mat-card>
-  <div class="spacer"></div>
-</div>
 
-<div class="container bottom">
-  <div class="spacer"></div>
-  <mat-card class="profile">
-    <img [src]="ppl5" alt="PB" />
-    Dr. Phil Bates
-  </mat-card>
-  <mat-card class="information">
-    Dr. Philip Bates is an Assistant Professor in the Institute of Biological Chemistry at Washington State University.
-    His research focuses on characterizing the biochemical pathways of plant lipid synthesis including the mechanisms
-    that control seed oil accumulation and oil composition for use in food, biofuels, or the chemical industry.
-    More information can be found at: <a href="https://ibc.wsu.edu/philip-bates/">https://ibc.wsu.edu/philip-bates/</a>
-  </mat-card>
-</div>
+<!--<div class="spacer"></div>-->
+<!--<mat-card class="profile">-->
+<!--  <img [src]="ppl4" alt="JT" />-->
+<!--  Dr. Jay Thelen-->
+<!--</mat-card>-->
+<!--<mat-card class="information">-->
+<!--  Dr. Thelen is a Professor of Biochemistry at the University of Missouri.-->
+<!--  His lab is located in the Bond Life Sciences Center.-->
+<!--  He is a recipient of both the Mizzou Chancellor’s and Presidential Awards for research creativity and excellence.-->
+<!--  His lab studies metabolic regulation of oil production in plants, and leverages these findings to engineer higher oil crops.-->
+<!--</mat-card>-->
+<!--</div>-->
+
+<!--<div class="container right">-->
+<!--  <mat-card class="informationRight">-->
+
+<!--  </mat-card>-->
+<!--  <mat-card class="profile">-->
+<!--    <img [src]="ppl3" alt="DX" />-->
+<!--    Dr. Dong Xu-->
+<!--  </mat-card>-->
+<!--  <div class="spacer"></div>-->
+<!--</div>-->
+
+<!--<div class="container">-->
+<!--  <div class="spacer"></div>-->
+<!--  <mat-card class="profile">-->
+<!--    <img [src]="ppl2" alt="DA" />-->
+<!--    Dr. Doug Allen-->
+<!--  </mat-card>-->
+<!--  <mat-card class="information">-->
+
+<!--  </mat-card>-->
+<!--</div>-->
+
+<!--<div class="container right">-->
+<!--  <mat-card class="informationRight">-->
+
+<!--  </mat-card>-->
+<!--  <mat-card class="profile">-->
+<!--    <img [src]="ppl1" alt="AK" />-->
+<!--    Dr. Abraham J. Koo-->
+<!--  </mat-card>-->
+<!--  <div class="spacer"></div>-->
+<!--</div>-->
+
+<!--<div class="container bottom">-->
+<!--  <div class="spacer"></div>-->
+<!--  <mat-card class="profile">-->
+<!--    <img [src]="ppl5" alt="PB" />-->
+<!--    Dr. Phil Bates-->
+<!--  </mat-card>-->
+<!--  <mat-card class="information">-->
+
+<!--  </mat-card>-->

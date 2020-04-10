@@ -20,7 +20,16 @@
 
     <!-- <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/basic/jquery.qtip.css" /> -->
   <style type="text/css">
-    body {background-color: transparent}
+    body {background-color: transparent; font-family: 'PT Sans', sans-serif;}
+    .info {
+      font-size: 16px;
+      margin: 5px;
+      text-align: center;
+    }
+    .title {
+      text-align: center;
+      margin: 5px;
+    }
   </style>
 </head>
 <body>
@@ -28,12 +37,11 @@
 <br>
 <div class="row columns">
     <div class="columns small-10 small-centered textrow ">
-
-        <p>The GO enrichment network with all terms of fatty acid related genes, each node indicates a type of GO term, and the edge represents the similarity between two terms among the data.
-        </p>
-
+  
+        <h3 class="title">Go Enrichment Network</h3>
+  
     </div>
-</div>
+  </div>
 
 <div class="row columns">
     <div class="columns small-10 small-centered">
@@ -56,7 +64,7 @@
 <div class="row columns">
 
     <div class=" text-center" id="loading" style="margin-top: 35px">
-        <h5><i class="fas fa-spinner fa-spin fa-1.5x"></i>&nbsp;Loading to the page .... </h5>
+        <h5><i class="fas fa-spinner fa-spin fa-1.5x"></i>&nbsp;Loading network...</h5>
     </div>
 
 </div>
@@ -102,5 +110,13 @@
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@4.0.1/index.css" />
 <script src='js/networkVisualizer.js'></script>
 
+<div class="row columns">
+    <div class="columns small-10 small-centered textrow ">
+
+        <p class="info">The GO Enrichment Network shows all terms of fatty acid related genes. Each node indicates a type of GO term, and each edge signifies the similarity between two terms.
+        </p>
+
+    </div>
+</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="base">
   <div class="row columns" style="min-width: 1000px">
     <div class="col s10 small-centered textrow ">
       <h1>Blast Tools</h1>
@@ -9,32 +9,39 @@
 
   <div class="row">
     <div class="input-field col s6">
-      <textarea style="height: 100px" name="fasta" class="browser-default" placeholder="Sequence"
+      <textarea style="height: 100px" name="fasta" class="browser-default input-area" placeholder="Sequence"
         [(ngModel)]="proteinSeq"></textarea>
     </div>
 
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col s2">
       <input class="with-gap" name="method" type="radio" id="BlastP" value="blastp" />
       <label for="BlastP">BlastP</label>
     </div>
 
-  </div>
-  <div class="row">
-    <div class="col s6">
-      <label>Protein Database</label><br />
-      <select name="ProteinDatabase" class="browser-default" [(ngModel)]="database">
-        <option value="Arabidopsis" selected>Arabidopsis</option>
-        <option value="Soybean">Soybean</option>
-      </select>
-    </div>
+  </div> -->
+  <div class="row selector-wrapper">
+    <p class="centered">Database</p>
+    <div class="database-selector" (click)="changeDatabase('Arabidopsis')" [class.selected]="this.database == 'Arabidopsis'">Arabidopsis</div>
+    <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.database == 'Soybean'">Soybean</div>
   </div>
 
   <div class="row">
     <div class="col s6">
-      <label>E-value threshold</label><br />
-      <select class="browser-default" [(ngModel)]="evalue">
+      <p class="centered">E-value threshold</p>
+      <mat-radio-group color="primary" [(ngModel)]="evalue">
+        <mat-radio-button class="option" value="0.0001">0.0001</mat-radio-button>
+        <mat-radio-button class="option" value="0.001">0.001</mat-radio-button>
+        <mat-radio-button class="option" value="0.01">0.01</mat-radio-button>
+        <mat-radio-button class="option" value="0.1">0.1</mat-radio-button>
+        <mat-radio-button class="option" value="1">1</mat-radio-button>
+        <mat-radio-button class="option" value="10">10</mat-radio-button>
+        <mat-radio-button class="option" value="100">100</mat-radio-button>
+        <mat-radio-button class="option" value="1000">10000</mat-radio-button>
+      </mat-radio-group>
+      
+      <!-- <select class="browser-default" [(ngModel)]="evalue">
         <option value="0.0001">0.0001</option>
         <option value="0.001">0.001</option>
         <option value="0.01">0.01</option>
@@ -42,12 +49,23 @@
         <option value="10" selected>10</option>
         <option value="100">100</option>
         <option value="1000">1000</option>
-      </select>
+      </select> -->
     </div>
   </div>
   <div class="row">
     <div class="col s6">
-      <label>Scoring matrix</label><br />
+      <p class="centered">Scoring Matrix</p>
+      <mat-radio-group color="primary" [(ngModel)]="matrix">
+        <mat-radio-button class="option" value="PAM30">PAM30</mat-radio-button>
+        <mat-radio-button class="option" value="PAM70">PAM70</mat-radio-button>
+        <mat-radio-button class="option" value="PAM250">PAM250</mat-radio-button>
+        <mat-radio-button class="option" value="BLOSUM80">BLOSUM80</mat-radio-button>
+        <mat-radio-button class="option" value="BLOSUM62">BLOSUM62</mat-radio-button>
+        <mat-radio-button class="option" value="BLOSUM45">BLOSUM45</mat-radio-button>
+        <mat-radio-button class="option" value="BLOSUM50">BLOSUM50</mat-radio-button>
+        <mat-radio-button class="option" value="BLOSUM90">BLOSUM90</mat-radio-button>
+      </mat-radio-group>
+      <!-- <label>Scoring matrix</label><br />
       <select class="browser-default" [(ngModel)]="matrix">
         <option value="PAM30">PAM30</option>
         <option value="PAM70">PAM70</option>
@@ -57,15 +75,15 @@
         <option value="BLOSUM45">BLOSUM45</option>
         <option value="BLOSUM50">BLOSUM50</option>
         <option value="BLOSUM90">BLOSUM90</option>
-      </select>
+      </select> -->
     </div>
   </div>
-
+  <br>
   <div class="row">
     <div class="col s3">
-      <button mat-raised-button class="btn waves-effect waves-light" type="submit" name="action" (click)="onSubmit()">Submit
+      <button mat-raised-button class="btn waves-effect waves-light" type="submit" name="action" (click)="onSubmit()">Run BLAST
       </button>
-      <button style="float: right" mat-raised-button class="btn waves-effect waves-light" type="reset" name="action" (click)="OnClear()" >clear
+      <button *ngIf="this.result != undefined" mat-raised-button class="btn clear waves-effect waves-light" type="reset" name="action" (click)="clear()">Clear Results
       </button>
     </div>
 
@@ -75,6 +93,10 @@
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </div>
   </div>
+
+  <mat-progress-bar id="loading-bar" mode="indeterminate" *ngIf="this.loading"></mat-progress-bar>
+
+  <p *ngIf="blastError" class="centered">No results were found for the previous search.</p>
 
   <div class="row" *ngFor="let res of blastRes">
     <mat-accordion>

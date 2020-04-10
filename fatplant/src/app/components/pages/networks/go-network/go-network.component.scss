@@ -1,0 +1,14 @@
+@import "~src/variables.scss";
+
+mat-card.base {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  background-image: none !important;
+  margin: 6% 0 0 0 !important;
+}
+#network {
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+}

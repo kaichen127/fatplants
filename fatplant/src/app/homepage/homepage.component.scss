@@ -248,8 +248,15 @@
 }
 
 .sponsorImg {
-  height: 7em;
-  width: 10em;
+  height: 7vw;
+  width: 10vw;
+  border-radius: 5px 5px 0 0;
+  margin-top: 50%;
+}
+
+.sponsorImgWSU {
+  height: 3vw;
+  width: 10vw;
   border-radius: 5px 5px 0 0;
   margin-top: 50%;
 }
