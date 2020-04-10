@@ -92,7 +92,7 @@ export class ShowresultsComponent implements OnInit {
           this.SearchDefaultPDB(this.uniprot_id);
           this.dataService.loading = false;
           this.SelectConfig();
-          
+
         });
       }
   }
@@ -123,6 +123,7 @@ export class ShowresultsComponent implements OnInit {
         this.isSummary = true;
         break;
       case 'structure':
+        this.pdbList = [];
         this.SearchPDB(this.uniprot_id);
         this.isStructure=true;
 
@@ -176,6 +177,7 @@ export class ShowresultsComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
   SplitRes(result: string) {
+    //console.log(result);
     this.blastResList = [];
     this.showBlastResList = [];
     let tmp: any;

@@ -50,6 +50,7 @@ export class ColorPathwayComponent implements OnInit {
       if (this.pathwaydb[index][4] === id) {
         this.imgs.push([this.SafeImg(this.pathwaydb[index][0]), this.pathwaydb[index][1]]);
       }
+      //console.log(this.imgs);
     }
     setTimeout(() => {
       console.log('timeout');
