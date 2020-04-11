@@ -74,8 +74,10 @@
       </ng-container>
 
       <ng-container matColumnDef="soybean_refseq_id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Page </mat-header-cell>
-        <mat-cell *matCellDef="let elem">{{ elem.RefSeq }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Pages </mat-header-cell>
+        <mat-cell *matCellDef="let elem" id="refseq-cell">
+            <p *ngFor="let refSeq of elem.RefSeqList" class="refseq-entry">{{refSeq}}</p>
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="soybean_gene_name">
