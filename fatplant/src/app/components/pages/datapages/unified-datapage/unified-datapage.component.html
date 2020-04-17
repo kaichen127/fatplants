@@ -76,7 +76,7 @@
       <ng-container matColumnDef="soybean_refseq_id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Pages </mat-header-cell>
         <mat-cell *matCellDef="let elem" id="refseq-cell">
-            <p *ngFor="let refSeq of elem.RefSeqList" class="refseq-entry">{{refSeq}}</p>
+            <a *ngFor="let refSeq of elem.RefSeqList" class="refseq-entry" href="https://www.ncbi.nlm.nih.gov/protein/{{refSeq}}" target="_blank">{{refSeq}}</a>
         </mat-cell>
       </ng-container>
 
