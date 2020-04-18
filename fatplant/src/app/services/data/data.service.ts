@@ -22,6 +22,7 @@ export class DataService {
   public lmpd: Lmpd_Arapidopsis;
   public seqence: string;
   public loading = false;
+  public g2sLoading = false;
   private blastRes: string;
   private blastResOb = new Observable<string>();
 

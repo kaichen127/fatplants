@@ -39,8 +39,9 @@
       </div>
       <br>
       <div class="row">
-        <label *ngIf="noPdb">No PDB file found in our database</label>
-        <iframe [src]="defaultPdb" style="transform: scale(1);transform-origin: 0 0;width: 100%; min-height: 600px" *ngIf="!noPdb"></iframe>
+        <mat-progress-bar id="pdb-loading-bar" mode="indeterminate" *ngIf="g2sLoading"></mat-progress-bar>
+        <label *ngIf="!g2sLoading && noPdb">No PDB match found.</label>
+        <iframe [src]="defaultPdb" style="transform: scale(1);transform-origin: 0 0;width: 100%; min-height: 600px" *ngIf="!g2sLoading && !noPdb"></iframe>
       </div>
 
     </div>
@@ -93,14 +94,54 @@
   </div>
 <!--    structure-->
     <div class="column middleright" *ngIf="isStructure">
-      <div *ngIf="noPdb" class="centered">No PDB file found in our database</div>
-      <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms" *ngIf="!noPdb">
+      <div *ngIf="noPdb" class="centered">No PDB matches found.</div>
+      <mat-table [dataSource]='G2SDataSource' id='table'>
+        <ng-container matColumnDef="pdbId">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> pdbId </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{elem.pdbId}} </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="pdbNo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> pdbNo </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{elem.pdbNo}} </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="chain">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Chain </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{elem.chain}} </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="evalue">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> EValue </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{elem.evalue}} </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="bitscore">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Bitscore </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{elem.bitscore}} </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="identity">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Identity - IdentityPositive </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{elem.identity}} / {{elem.identityPositive}} </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="pdbRange">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> pdb From-To </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{elem.pdbFrom}}-{{elem.pdbTo}} </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="seqRange">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> seq From-To </mat-header-cell>
+          <mat-cell *matCellDef="let elem"> {{elem.seqFrom}}-{{elem.seqTo}} </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="3DViewer">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> 3D Display </mat-header-cell>
+          <mat-cell *matCellDef="let elem"><a mat-raised-button href="https://www.musite.net/display3d.html?url=rcsb://{{elem.pdbId}}&sele=&position=" target="_blank">Show 3D</a></mat-cell>
+        </ng-container> 
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <!-- <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms" *ngIf="!noPdb">
         <mat-tab *ngFor="let pdb of pdbList" label="{{pdb.name}}">
           <ng-template matTabContent>
             <iframe [src]="pdb.url" style="width: 100%" height="768"></iframe>
           </ng-template>
         </mat-tab>
-      </mat-tab-group>
+      </mat-tab-group> -->
     </div>
 <!--    blast-->
     <div class="column middleright" *ngIf="isBlast">
