@@ -197,3 +197,20 @@ textarea {
 #pdb-loading-bar {
   width: 100%;
 }
+
+mat-header-cell {
+  font-family: "PT Serif", serif;
+  color: black;
+  padding-right: 2%;
+}
+mat-header-row {
+  border-bottom-color: rgba(grey, 0.5);
+  font-size: 1.0vw;
+  padding-top: 5%;
+}
+mat-row {
+  border-bottom-color: $pale-green;
+}
+mat-cell {
+  padding-right: 2%;
+}
