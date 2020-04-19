@@ -59,5 +59,11 @@ export class AuthService {
     return this.loginStatus;
   }
 
+  getAdmins() {
+    return this.afs.collection('users', ref =>
+      ref.where('admin', '==', true)
+    ).get();
+  }
+
 
 }

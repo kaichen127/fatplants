@@ -9,13 +9,23 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   email = false;
+  new = false;
+  apply = false;
   admin = false;
   failed = false;
   success = false;
+  match = false;
+  exists = false;
+  badEmail = false;
+  message = '';
   adminEmail = '';
   submittedEmail = '';
   submittedPassword = '';
+  newEmail = '';
+  newPassword = '';
+  checkPassword = '';
   type = '';
+  admins = [];
   user: any = {
     displayName: ''
   };
@@ -58,6 +68,19 @@ export class LoginComponent implements OnInit {
 
     if (type === 'email' && !this.user.displayName) {
       this.email = true;
+    }
+
+    if (type === 'new' && !this.user.displayName) {
+      this.new = true;
+    }
+
+    if (type === 'apply') {
+      this.apply = true;
+      this.authService.getAdmins().subscribe(res => {
+        res.docs.forEach(e => {
+          this.admins.push(e.data());
+        });
+      });
     }
 
     if (type === 'admin') {
@@ -105,24 +128,57 @@ export class LoginComponent implements OnInit {
         this.authService.emailLogin(email, password).then(res => {
           this.failed = false;
           this.success = true;
+          this.message = '';
+        }, err => {
+          this.message = err.message;
         });
       } else {
-        this.authService.emailRegister(email, password).then(res => {
-          const user = {
-            uid: res.user.uid,
-            displayName: res.user.email,
-            email: res.user.email,
-            admin: false
-          };
-          this.authService.addUser(user).then(res => {
-            this.authService.emailLogin(email, password).then(returned => {
-              this.failed = false;
-              this.success = true;
-            });
-          });
-        });
+        this.failed = true;
+        this.success = false;
       }
     })
+  }
+
+  signUp(email, password) {
+    console.log('Called sign up');
+    let validEmail = this.emailValid(email);
+
+    if (validEmail && this.match) {
+      this.authService.findUser(email).subscribe(res => {
+        if (res.docs.length > 0) {
+          this.exists = true;
+        } else {
+          this.authService.emailRegister(email, password).then(res => {
+            const user = {
+              uid: res.user.uid,
+              displayName: res.user.email,
+              email: res.user.email,
+              admin: false
+            };
+            this.authService.addUser(user).then(res => {
+              this.authService.emailLogin(email, password).then(returned => {
+                this.failed = false;
+                this.success = true;
+                this.message = '';
+              });
+            });
+          }, err => {
+            this.message = err.message;
+          });
+        }
+      });
+    }
+
+    this.badEmail = !validEmail;
+  }
+
+  checkPass() {
+    this.match = this.checkPassword === this.newPassword;
+  }
+
+  emailValid(email) {
+    let regex = new RegExp(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`);
+    return regex.test(email);
   }
 
 }
