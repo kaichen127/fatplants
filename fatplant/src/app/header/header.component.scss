@@ -25,7 +25,7 @@ mat-card {
 }
 #desktop-navbar.opaque {
   background-color: rgb(24, 24, 24, 0.8);
-  max-height: 7%;
+  max-height: 4.5vw;
   min-height: 7%;
   transition: 0.6s all;
 }
@@ -41,19 +41,12 @@ mat-card {
 
 .icon {
   float: left;
-  width: 11vw;
-  min-height: 50px;
+  width: 9vw;
+  min-height: 31px;
   border-radius: 2px;
   background-image: url("../assets/homepageAssets/icon.PNG");
   background-size: cover;
   cursor: pointer;
-}
-.mobile-icon {
-  float: left;
-  background-image: url('../assets/homepageAssets/icon.PNG');
-  background-size: cover;
-  min-height: 60px;
-  width: 22vw;
 }
 
 #mobile-navbar {

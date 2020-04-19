@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
 import { MatTableDataSource } from '@angular/material';
 import { FatPlantDataSource } from 'src/app/interfaces/FatPlantDataSource';
 import { globalRefreshTime } from 'src/app/constants';
+
+import { Soybean } from 'src/app/interfaces/Soybean';
 
 @Component({
   selector: 'app-unified-datapage',
@@ -177,11 +178,11 @@ export class UnifiedDatapageComponent implements OnInit {
     });
   }
   getSoybeanData() {
-    let docs=this.db.connect('Soybean').subscribe(data =>{
+    let docs=this.db.connect('Soybean').subscribe( (data : Soybean[]) =>{
       this.soybeanDataSource = new MatTableDataSource(data);
       let soybeanData: FatPlantDataSource = {
         retrievalDate: Date.now(),
-        data: data
+        data: this.convertSoybeanData(data)
       };
       localStorage.setItem('soybean_data', JSON.stringify(soybeanData));
       this.loading = false;
@@ -197,5 +198,16 @@ export class UnifiedDatapageComponent implements OnInit {
       localStorage.setItem('fattyacid_data', JSON.stringify(fattyAcidData));
       this.loading = false;
     });
+  }
+
+  convertSoybeanData(data: Soybean[]) {
+    data.forEach(value => {
+      if (value.RefSeq == "") value.RefSeqList = [];
+      else {
+        value.RefSeqList = value.RefSeq.split(";");
+        value.RefSeqList.splice(-1, 1); // removes empty string from list
+      }
+    });
+    return data;
   }
 }
