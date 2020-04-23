@@ -9,6 +9,8 @@ import {Observable} from "rxjs";
 import {DataService} from "../../../../services/data/data.service";
 import {G2SEntry} from "../../../../interfaces/G2SEntry";
 import { MatTableDataSource } from '@angular/material';
+import { MatDialog } from '@angular/material';
+import { StructureViewerComponent } from '../structure-viewer/structure-viewer.component';
 
 
 @Component({
@@ -58,7 +60,7 @@ export class ShowresultsComponent implements OnInit {
   }
 
   constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient,private dataService:DataService,
-    private location: Location) { }
+    private location: Location, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -266,6 +268,14 @@ export class ShowresultsComponent implements OnInit {
     }, error => {
       console.log('g2s error');
       this.dataService.g2sLoading = false;
+    });
+  }
+
+  showViewer(pdbId: string) {
+    this.dialog.open(StructureViewerComponent, {
+      width: '700px',
+      height: '700px',
+      data: {pdbId: pdbId}
     });
   }
 

@@ -94,7 +94,8 @@
   </div>
 <!--    structure-->
     <div class="column middleright" *ngIf="isStructure">
-      <div *ngIf="noPdb" class="centered">No PDB matches found.</div>
+      <div *ngIf="noPdb && !g2sLoading" class="centered">No PDB matches found.</div>
+      <mat-progress-bar mode="indeterminate" *ngIf="g2sLoading"></mat-progress-bar>
       <mat-table [dataSource]='G2SDataSource' id='table'>
         <ng-container matColumnDef="pdbId">
           <mat-header-cell *matHeaderCellDef mat-sort-header> pdbId </mat-header-cell>
@@ -130,7 +131,8 @@
         </ng-container> 
         <ng-container matColumnDef="3DViewer">
           <mat-header-cell *matHeaderCellDef mat-sort-header> 3D Display </mat-header-cell>
-          <mat-cell *matCellDef="let elem"><a mat-raised-button href="https://www.musite.net/display3d.html?url=rcsb://{{elem.pdbId}}&sele=&position=" target="_blank">Show 3D</a></mat-cell>
+          <mat-cell *matCellDef="let elem"><a mat-raised-button class="green-button" href="https://www.musite.net/display3d.html?url=rcsb://{{elem.pdbId}}&sele=&position=" target="_blank">(1)</a>
+                                          <button mat-raised-button class="green-button" (click)="showViewer(elem.pdbId)">(2)</button></mat-cell>
         </ng-container> 
         <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

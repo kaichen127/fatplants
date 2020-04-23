@@ -214,3 +214,11 @@ mat-row {
 mat-cell {
   padding-right: 2%;
 }
+
+.green-button {
+  transition: background-color 0.5s;
+}
+.green-button:hover {
+  background-color: rgba($lime-green, 0.3);
+  transition: all 0.5s;
+}
