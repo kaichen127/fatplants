@@ -1,9 +1,47 @@
-<mat-card style="
-  width: 100%;
-  box-sizing: border-box;
-  margin: 6% 0 0 0 !important;
-  text-align: center;
-  background-image: none !important;
-">
-  <iframe src="/static/proteinNetView.html" frameborder="0" scrolling="0" style="min-height: 900px; min-width: 1100px;"></iframe>
+<!--<mat-card style="-->
+<!--  width: 100%;-->
+<!--  box-sizing: border-box;-->
+<!--  margin: 6% 0 0 0 !important;-->
+<!--  text-align: center;-->
+<!--  background-image: none !important;-->
+<!--">-->
+<!--  <iframe src="/static/proteinNetView.html" frameborder="0" scrolling="0" style="min-height: 900px; min-width: 1100px;"></iframe>-->
+<!--</mat-card>-->
+
+<link rel='stylesheet' href='/static/js/foundation.css'/>
+<link rel='stylesheet' href='/static/js/custom.css'/>
+
+<<mat-card>
+  <div class="row columns" style="text-align: center">
+    <div class="columns small-10 small-centered textrow ">
+
+      <h3 class="title">Protein-Protein Interaction Network</h3>
+
+    </div>
+  </div>
+  <div class="row columns">
+    <div class="columns small-10 small-centered">
+      <!--    <h5 id="layouts-header">Layouts:</h5>-->
+      <div class="btn-group">
+        <button id="layout1" title="Dynamic Node Cluster" class="button button1" value="cose" (click)="layoutChange($event)">CoSE</button>
+        <button id="layout2" title="D3 Force Graph" class="button button2" value="cola" (click)="layoutChange($event)">Cola</button>
+        <button id="layout3" title="Circluar Pattern" class="button button3" value="circle" (click)="layoutChange($event)">Circle</button>
+        <button id="layout4" title="Symetric" class="button button4" value="concentric" (click)="layoutChange($event)">Concentric</button>
+      </div>
+    </div>
+    <div class="columns small-10 small-centered">
+      <mat-form-field>
+        <mat-label>Target Pathway</mat-label>
+        <mat-select [(value)]="selectedpathway" (selectionChange)="selectionChange()">
+          <mat-option *ngFor="let pathway of pathways" [value]="pathway.value">
+            {{pathway.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div style="height: 800px; width: 1000px; overflow: auto; overflow-y: hidden;background: white; margin-left: auto; margin-right: auto;" >
+    <ng2-cytoscape [elements]="graphData" [layout]="layout" [style]="style" [data]="node_description" [graph]="graph" (description)="nodeChange($event)" *ngIf="visiable"></ng2-cytoscape>
+  </div>
+  <h2>{{node_name}}</h2>
 </mat-card>

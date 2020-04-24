@@ -1,3 +1,35 @@
-<mat-card class="base">
-  <iframe src="/static/goNetView.html" id="network" frameborder="0" scrolling="0" style="min-height: 900px; min-width: 1200px;"></iframe>
+<!--<mat-card class="base">-->
+<!--  <iframe src="/static/goNetView.html" id="network" frameborder="0" scrolling="0" style="min-height: 900px; min-width: 1200px;"></iframe>-->
+<!--</mat-card>-->
+<link rel='stylesheet' href='/static/js/foundation.css'/>
+<link rel='stylesheet' href='/static/js/custom.css'/>
+<<mat-card>
+<div class="row columns" style="text-align: center">
+  <div class="columns small-10 small-centered textrow ">
+    <h3 class="title">Go Enrichment Network</h3>
+  </div>
+</div>
+<div class="row columns">
+  <div class="columns small-10 small-centered">
+    <div class="btn-group">
+      <button id="layout1" title="Dynamic Node Cluster" class="button button1" value="cose" (click)="layoutChange($event)">CoSE</button>
+      <button id="layout2" title="D3 Force Graph" class="button button2" value="cola" (click)="layoutChange($event)">Cola</button>
+      <button id="layout3" title="Circluar Pattern" class="button button3" value="circle" (click)="layoutChange($event)">Circle</button>
+      <button id="layout4" title="Symetric" class="button button4" value="concentric" (click)="layoutChange($event)">Concentric</button>
+      <button id="layout5" title="Balanced Circular Pattern" value="avsdf" class="button button5" (click)="layoutChange($event)">Avsdf</button>
+    </div>
+    <br>
+    <div id="filter-box">
+      Entity Identifier:<br>
+      <input id="entity-identifier-textbox" type="text" name="entity-name" placeholder="Gene/RefSeq_id/mRna_id" [(ngModel)]="filter">
+      <button id="entity-identifier-submit" class="button" (click)="filterClick()">Filter</button>
+      <h2>{{node_name}}</h2>
+    </div>
+  </div>
+</div>
+  <div style="height: 800px; width: 1000px; overflow: auto; overflow-y: hidden;background: white; margin-left: auto; margin-right: auto;" >
+    <ng2-cytoscape [elements]="graphData" [layout]="layout" [style]="style" [data]="node_description" [graph]="graph" (description)="nodeChange($event)" *ngIf="visiable"></ng2-cytoscape>
+  </div>
 </mat-card>
+
+

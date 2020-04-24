@@ -29,12 +29,13 @@ import { MatMenuModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GraphComponent } from './components/pages/networks/protein-network/graph.component';
+import {NgCytoComponent} from './components/pages/networks/ng-cyto/ng-cyto.component';
 
 
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 import { CytoscapeModule } from 'ngx-cytoscape';
 // import { GraphComponent } from './go-network/protein-network/protein-network.component';
-// import {NgCytoComponent} from './go-network/ng-cyto/ng-cyto.component';
+
 //Firestore modules
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
@@ -92,7 +93,7 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     InvestigatorComponent,
     BlastComponent,
     DetailviewComponent,
-    // CytodemoComponent,
+    NgCytoComponent,
     UploadFilesComponent,
     UploadTaskComponent,
     DropzoneDirective,
@@ -106,7 +107,7 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     LoginComponent,
     UnifiedDatapageComponent,
     DataAnalysisComponent,
-    ShowresultsComponent
+    ShowresultsComponent,
   ],
   imports: [
     BrowserModule,

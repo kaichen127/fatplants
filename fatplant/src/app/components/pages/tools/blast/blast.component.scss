@@ -37,7 +37,7 @@ mat-card {
 mat-card.base {
   width: 100%;
   box-sizing: border-box;
-  text-align: center;
+
   background-image: none !important;
   margin: 6% 0 0 0 !important;
   min-height: 110%;
@@ -126,4 +126,13 @@ a:hover {
   width: 60%;
   margin: auto;
   margin-top: 2%;
+}
+
+.textali{
+  text-align: center;
+}
+.blast{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
