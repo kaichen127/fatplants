@@ -132,3 +132,23 @@ mat-hint {
   height: 100%;
   font-size: 1vw;
 }
+
+.error {
+  color: red;
+}
+
+.apply {
+  background-image: none !important;
+}
+
+.applyCard  {
+  background-image: none !important;
+  background-color: whitesmoke;
+  border: solid $white-yellow 4px;
+  color: black;
+}
+
+.admin {
+  text-decoration: none;
+  color: $light-green;
+}
