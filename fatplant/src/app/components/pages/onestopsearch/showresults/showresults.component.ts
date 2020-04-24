@@ -8,9 +8,10 @@ import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 import {Observable} from "rxjs";
 import {DataService} from "../../../../services/data/data.service";
 import {G2SEntry} from "../../../../interfaces/G2SEntry";
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatSnackBar } from '@angular/material';
 import { MatDialog } from '@angular/material';
 import { StructureViewerComponent } from '../structure-viewer/structure-viewer.component';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 
 
 @Component({
@@ -60,7 +61,7 @@ export class ShowresultsComponent implements OnInit {
   }
 
   constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient,private dataService:DataService,
-    private location: Location, public dialog: MatDialog) { }
+    private location: Location, public dialog: MatDialog, private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -225,7 +226,7 @@ export class ShowresultsComponent implements OnInit {
 
       }
       console.log(this.pdbList);
-      if (this.pdbList.length === 0) {
+      if (this.pdbList.length === 0 && this.defaultPdb == undefined) {
         this.noPdb = true;
       }
     });

@@ -10,6 +10,7 @@ import { TableComponent } from './table/table.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DataAnalysisComponent } from './components/pages/onestopsearch/data-analysis/data-analysis.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ClipboardModule } from 'ngx-clipboard';
 import {
   MatTableModule,
   MatSelectModule,
@@ -20,7 +21,9 @@ import {
   MatInputModule,
   MatTooltipModule,
   MatSidenavModule,
-  MatStepperModule
+  MatStepperModule,
+  MatDialogModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -74,6 +77,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {DataService} from 'src/app/services/data/data.service';
 import { LoginComponent } from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
+import { StructureViewerComponent } from './components/pages/onestopsearch/structure-viewer/structure-viewer.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +110,11 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
     LoginComponent,
     UnifiedDatapageComponent,
     DataAnalysisComponent,
-    ShowresultsComponent
+    ShowresultsComponent,
+    StructureViewerComponent
+  ],
+  entryComponents: [
+    StructureViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -157,7 +165,10 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
     }),
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
