@@ -54,7 +54,7 @@ export class ShowresultsComponent implements OnInit {
 
   private pathwayList=[];
   private pathwayDb=[];
-  private displayedColumns = ['pdbId', 'pdbNo', 'chain', 'evalue', 'bitscore', 'identity', 'pdbRange', 'seqRange', '3DViewer'];
+  private displayedColumns = ['pdbId', 'pdbNo', 'chain', 'evalue', 'bitscore', 'identity', 'pdbRange', 'seqRange', '3DViewer', '3DViewer2'];
 
   get g2sLoading(): boolean {
     return this.dataService.g2sLoading;
@@ -274,7 +274,7 @@ export class ShowresultsComponent implements OnInit {
 
   showViewer(pdbId: string) {
     this.dialog.open(StructureViewerComponent, {
-      width: '700px',
+      width: '1000px',
       height: '700px',
       data: {pdbId: pdbId}
     });
