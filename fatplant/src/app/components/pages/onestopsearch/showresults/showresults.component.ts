@@ -20,6 +20,7 @@ export class ShowresultsComponent implements OnInit {
   private cfg: any;
 
   private percent: number;
+  private g2sUrl: string = "https://g2s.genomenexus.org/api/alignments?sequence=";
   progressBar = document.querySelector('.progress-bar');
   private intervalId: any;
   private showProgress: boolean;
@@ -80,6 +81,7 @@ export class ShowresultsComponent implements OnInit {
         this.lmpd = this.dataService.getLmpdData();
         this.SearchDefaultPDB(this.uniprot_id);
         this.SelectConfig();
+        this.searchG2S();
       }
       else{
         console.log("update lmpd");
@@ -92,7 +94,7 @@ export class ShowresultsComponent implements OnInit {
           this.SearchDefaultPDB(this.uniprot_id);
           this.dataService.loading = false;
           this.SelectConfig();
-
+          this.searchG2S();
         });
       }
   }
@@ -245,6 +247,14 @@ export class ShowresultsComponent implements OnInit {
         this.pathwayList.push({id:this.pathwayDb[index][0],name:this.pathwayDb[index][1],url:this.SafeImg(this.pathwayDb[index][0])});
       }
     }
+  }
+
+  searchG2S() {
+    this.http.get(this.g2sUrl + this.dataService.seqence).subscribe(result => {
+      console.dir(result);
+    }, error => {
+      console.log("g2s error");
+    });
   }
 
 }

@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
         });
       }
     });
+    this.login('apply');
   }
 
   login(type) {
@@ -75,7 +76,7 @@ export class LoginComponent implements OnInit {
     }
 
     if (type === 'apply') {
-      this.apply = true;
+      this.admins = [];
       this.authService.getAdmins().subscribe(res => {
         res.docs.forEach(e => {
           this.admins.push(e.data());
@@ -181,4 +182,23 @@ export class LoginComponent implements OnInit {
     return regex.test(email);
   }
 
+  reset() {
+    this.email = false;
+    this.new = false;
+    this.apply = false;
+    this.admin = false;
+    this.failed = false;
+    this.success = false;
+    this.match = false;
+    this.exists = false;
+    this.badEmail = false;
+    this.message = '';
+    this.adminEmail = '';
+    this.submittedEmail = '';
+    this.submittedPassword = '';
+    this.newEmail = '';
+    this.newPassword = '';
+    this.checkPassword = '';
+    this.type = '';
+  }
 }
