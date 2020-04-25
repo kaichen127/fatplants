@@ -1,137 +1,128 @@
 <div class="container">
   <div class="picture">
-    <div class="pictureTint"></div>
-  </div>
-  <div class="loginForm">
-    <div class="displayName" *ngIf="user !== null && user.displayName !== ''">
-      Welcome, {{ user.displayName }}
-    </div>
-    <div class="displayName" *ngIf="user === null || user.displayName === ''">
-      Welcome, Guest
-    </div>
-    <div class="loginButtons" *ngIf="!admin && !email && !new && !apply">
+    <div class="loginForm">
+        <mat-tab-group class="tabs" (selectedTabChange)="reset()" [backgroundColor]="'primary'" [color]="'accent'" class="tabs">
+          <mat-tab label="Email Login">
+            <div class="emailForm">
+              <mat-card class="futureEmail" *ngIf="user.displayName === ''">
+                <mat-label>Log in with your Fatplants account</mat-label>
+                <mat-form-field class="emailInput" >
+                  <mat-label>Email</mat-label>
+                  <input [(ngModel)]="submittedEmail" matInput placeholder="Enter your email"/>
+                </mat-form-field>
+                <mat-form-field class="emailInput">
+                  <mat-label>Password</mat-label>
+                  <input [(ngModel)]="submittedPassword" type="password" matInput placeholder="Enter your password"/>
+                </mat-form-field>
+                <mat-hint *ngIf="message !== ''" class="error">{{ message }}</mat-hint>
+                <mat-hint *ngIf="failed" class="error">This email password combination failed.</mat-hint>
+                <mat-hint *ngIf="success">Successfully logged in as {{ user.displayName }}.</mat-hint>
+                <div class="emailButtons">
+                  <button mat-raised-button (click)="emailLogin(submittedEmail, submittedPassword)" class="emailButton">Sign in</button>
+                </div>
+              </mat-card>
+              <mat-card *ngIf="user.displayName !== ''">
+                You are already logged in.
+              </mat-card>
+            </div>
+          </mat-tab>
 
-      <button mat-raised-button (click)="login('google')">
-        <div class="buttonFlex">
-          <mat-icon>cloud</mat-icon><span>Google Login</span><div></div>
-        </div>
-      </button>
+          <mat-tab label="Google Login">
+            <mat-card *ngIf="user.displayName === ''">
+              <button mat-raised-button (click)="login('google')">
+                <div class="buttonFlex">
+                  <mat-icon>cloud</mat-icon><span>Login to Google</span><div></div>
+                </div>
+              </button>
+            </mat-card>
+            <mat-card *ngIf="user.displayName !== ''">
+              You are already logged in.
+            </mat-card>
+          </mat-tab>
 
-      <button mat-raised-button (click)="login('email')">
-        <div class="buttonFlex">
-          <mat-icon>email</mat-icon><span>Email Login</span><div></div>
-        </div>
-      </button>
+          <mat-tab label="Sign Up">
+            <div class="new">
+              <mat-card class="futureEmail" *ngIf="user.displayName === ''">
+                <mat-label>Sign up for a Fatplants account</mat-label>
+                <mat-form-field class="emailInput" >
+                  <mat-label>Email</mat-label>
+                  <input type="email" (change)="badEmail = false" [(ngModel)]="newEmail" matInput placeholder="Enter your email"/>
+                  <mat-hint class="error" *ngIf="badEmail">This is not a valid email address.</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="emailInput">
+                  <mat-label>Password</mat-label>
+                  <input [(ngModel)] = "newPassword" type="password" matInput placeholder="Enter your password"/>
+                </mat-form-field>
+                <mat-form-field class="emailInput">
+                  <mat-label>Confirm Password</mat-label>
+                  <input (change)="checkPass()" [(ngModel)] = "checkPassword" type="password" matInput placeholder="Confirm your password"/>
+                  <mat-hint *ngIf="!match" class="error">Passwords do not match.</mat-hint>
+                </mat-form-field>
+                <mat-hint *ngIf="message !== ''" class="error">{{ message }}</mat-hint>
+                <mat-hint *ngIf="failed" class="error">This email password combination failed.</mat-hint>
+                <mat-hint *ngIf="exists" class="error">An account with this email already exists.</mat-hint>
+                <mat-hint *ngIf="success">Successfully logged in as {{ user.displayName }}.</mat-hint>
+                <br />
+                <div class="emailButtons">
+                  <button mat-raised-button (click)="signUp(newEmail, newPassword)" class="emailButton" [disabled]="!match">Sign up</button>
+                </div>
+              </mat-card>
+              <mat-card *ngIf="user.displayName !== ''">
+                You are already logged in.
+              </mat-card>
+            </div>
+          </mat-tab>
 
-      <button mat-raised-button (click)="login('new')">
-        <div class="buttonFlex">
-          <mat-icon>mail_outline</mat-icon><span>Sign Up</span><div></div>
-        </div>
-      </button>
+          <mat-tab label="Apply for Admin" *ngIf="user.admin !== true">
+            <div class="apply">
+              <mat-card class="applyCard">
+                <mat-label>
+                  To apply to become an admin, please email one of our current admins and request membership.<br />
+                  Please include your name, your organization, and why you need administrator access in your request.<br />
+                  As soon as one of our admins receives your request, they can add you as an admin here in the app.
+                </mat-label>
+                <br />
+                <br />
+                <div *ngFor="let admin of admins">
+                  <a [href]="'mailto:' + admin.email" class="admin">{{ admin.displayName }}: {{ admin.email }}</a>
+                </div>
+                <br />
+              </mat-card>
+            </div>
+          </mat-tab>
 
-      <button mat-raised-button (click)="login('apply')" *ngIf="user.admin !== true">
-        <div class="buttonFlex">
-          <mat-icon>perm_identity</mat-icon><span>Apply for Admin</span><div></div>
-        </div>
-      </button>
+          <mat-tab label="Assign a New Admin" *ngIf="user.admin === true">
+            <div class="newAdmin">
+              <mat-card class="futureAdmin">
+                <mat-form-field class="adminInput" >
+                  <mat-label>Email</mat-label>
+                  <input [(ngModel)]="adminEmail" matInput placeholder="Enter a User's email to add them as an admin."/>
+                </mat-form-field>
+                <mat-error *ngIf="failed">Could not find this user.</mat-error>
+                <mat-hint *ngIf="success">Successfully made the user an admin.</mat-hint>
+                <div class="adminButtons">
+                  <button mat-raised-button (click)="findAdmin(adminEmail)" class="adminButton">Assign Admin Role</button>
+                </div>
+              </mat-card>
+            </div>
+          </mat-tab>
 
-      <button mat-raised-button (click)="login('admin')" *ngIf="user.admin === true">
-        <div class="buttonFlex">
-          <mat-icon>perm_identity</mat-icon><span>Assign a new Admin</span><div></div>
-        </div>
-      </button>
-
-      <button mat-raised-button (click)="login('logout')">
-        <div class="buttonFlex">
-          <mat-icon>account_box</mat-icon><span>Logout</span><div></div>
-        </div>
-      </button>
-
-    </div>
-
-    <div class="emailForm" *ngIf="email">
-      <mat-card class="futureEmail">
-        <mat-label>Log in with your Fatplants account</mat-label>
-        <mat-form-field class="emailInput" >
-          <mat-label>Email</mat-label>
-          <input [(ngModel)]="submittedEmail" matInput placeholder="Enter your email"/>
-        </mat-form-field>
-        <mat-form-field class="emailInput">
-          <mat-label>Password</mat-label>
-          <input [(ngModel)]="submittedPassword" type="password" matInput placeholder="Enter your password"/>
-        </mat-form-field>
-        <mat-hint *ngIf="message !== ''" class="error">{{ message }}</mat-hint>
-        <mat-hint *ngIf="failed" class="error">This email password combination failed.</mat-hint>
-        <mat-hint *ngIf="success">Successfully logged in as {{ user.displayName }}.</mat-hint>
-        <div class="emailButtons">
-          <button mat-raised-button (click)="emailLogin(submittedEmail, submittedPassword)" class="emailButton">Sign in</button>
-          <button mat-raised-button (click)="email = false" class="emailButton">Back</button>
-        </div>
-      </mat-card>
-    </div>
-
-    <div class="new" *ngIf="new">
-      <mat-card class="futureEmail">
-        <mat-label>Sign up for a Fatplants account</mat-label>
-        <mat-form-field class="emailInput" >
-          <mat-label>Email</mat-label>
-          <input type="email" (change)="badEmail = false" [(ngModel)]="newEmail" matInput placeholder="Enter your email"/>
-          <mat-hint class="error" *ngIf="badEmail">This is not a valid email address.</mat-hint>
-        </mat-form-field>
-        <mat-form-field class="emailInput">
-          <mat-label>Password</mat-label>
-          <input [(ngModel)] = "newPassword" type="password" matInput placeholder="Enter your password"/>
-        </mat-form-field>
-        <mat-form-field class="emailInput">
-          <mat-label>Confirm Password</mat-label>
-          <input (change)="checkPass()" [(ngModel)] = "checkPassword" type="password" matInput placeholder="Confirm your password"/>
-          <mat-hint *ngIf="!match" class="error">Passwords do not match.</mat-hint>
-        </mat-form-field>
-        <mat-hint *ngIf="message !== ''" class="error">{{ message }}</mat-hint>
-        <mat-hint *ngIf="failed" class="error">This email password combination failed.</mat-hint>
-        <mat-hint *ngIf="exists" class="error">An account with this email already exists.</mat-hint>
-        <mat-hint *ngIf="success">Successfully logged in as {{ user.displayName }}.</mat-hint>
-        <br />
-        <div class="emailButtons">
-          <button mat-raised-button (click)="signUp(newEmail, newPassword)" class="emailButton" [disabled]="!match">Sign up</button>
-          <button mat-raised-button (click)="new = false" class="emailButton">Back</button>
-        </div>
-      </mat-card>
-    </div>
-
-    <div class="apply" *ngIf="apply">
-      <mat-card class="applyCard">
-        <mat-label>
-          To apply to become an admin, please email one of our current admins and request membership.<br />
-          Please include your name, your organization, and why you need administrator access in your request.<br />
-          As soon as one of our admins receives your request, they can add you as an admin here in the app.
-        </mat-label>
-        <br />
-        <br />
-        <div *ngFor="let admin of admins">
-          <a [href]="'mailto:' + admin.email" class="admin">{{ admin.displayName }}: {{ admin.email }}</a>
-        </div>
-        <br />
-        <div class="adminButtons">
-          <button mat-raised-button (click)="apply = false" class="adminButton">Back</button>
-        </div>
-      </mat-card>
-    </div>
-
-    <div class="newAdmin" *ngIf="admin">
-      <mat-card class="futureAdmin">
-        <mat-form-field class="adminInput" >
-          <mat-label>Email</mat-label>
-          <input [(ngModel)]="adminEmail" matInput placeholder="Enter a User's email to add them as an admin."/>
-        </mat-form-field>
-        <mat-error *ngIf="failed">Could not find this user.</mat-error>
-        <mat-hint *ngIf="success">Successfully made the user an admin.</mat-hint>
-        <div class="adminButtons">
-          <button mat-raised-button (click)="findAdmin(adminEmail)" class="adminButton">Assign Admin Role</button>
-          <button mat-raised-button (click)="admin = false" class="adminButton">Back</button>
-        </div>
-      </mat-card>
+          <mat-tab label="Logout">
+            <mat-card>
+              <button mat-raised-button (click)="login('logout')">
+                <div class="buttonFlex">
+                  <mat-icon>account_box</mat-icon><span>Logout</span><div></div>
+                </div>
+              </button>
+            </mat-card>
+          </mat-tab>
+        </mat-tab-group>
+<!--        <div class="displayName" *ngIf="user !== null && user.displayName !== ''">-->
+<!--          Welcome, {{ user.displayName }}-->
+<!--        </div>-->
+<!--        <div class="displayName" *ngIf="user === null || user.displayName === ''">-->
+<!--          Welcome, Guest-->
+<!--        </div>-->
     </div>
   </div>
-
 </div>

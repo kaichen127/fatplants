@@ -1,40 +1,46 @@
 @import "~src/variables.scss";
 
 mat-card {
-  background-image: linear-gradient(to bottom left, $main-green, $light-green) !important;
+  background-image: none !important;
+  margin: 0 0 0 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-y: hidden !important;
+  min-height: 400px;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-
 .container {
   width: 100%;
-  box-sizing: border-box;
-  height: 89.70%;
+  height: 100%;
   overflow-y: hidden;
   margin-top: 100px;
-  display: flex;
-  justify-content: space-evenly;
 }
 
 .picture {
   height: 100%;
-  width: 50%;
+  width: 100%;
+  padding-top: 10%;
   box-sizing: border-box;
   background: url("../assets/login.JPG") no-repeat center center;
   background-size: cover;
 }
 
-.pictureTint {
-  height: 100%;
-  width: 100%;
-  opacity: .3;
-  background-color: #16eeff;
-}
-
 .loginForm {
-  height: 100%;
+  margin-top: 0;
+  margin-left: 25%;
+  height: 51%;
   width: 50%;
   box-sizing: border-box;
   text-align: center;
-  background-color: #699c86;
+  background-color: #4caf50;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px 5px 5px 5px;
+  opacity: .95;
 }
 
 .loginButtons {
@@ -44,6 +50,16 @@ mat-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.tabs {
+  border-radius: 20px 20px 0 0;
+}
+
+::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+  min-width: 0!important;
+  padding: 3px!important;
+  margin: 3px!important;
 }
 
 .displayName {
@@ -75,23 +91,13 @@ mat-hint {
   height: 60%;
 }
 
-.futureEmail {
-  background-image: none !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
 .emailInput {
   width: 50%;
+  margin-left: 25%;
 }
 
 .emailButtons {
-  display: flex;
-  justify-content: space-between;
-  height: 15%;
-  width: 100%;
-  box-sizing: border-box;
+
 }
 
 .emailButton {
@@ -101,9 +107,7 @@ mat-hint {
 
 
 .newAdmin {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+
 }
 
 .futureAdmin {
