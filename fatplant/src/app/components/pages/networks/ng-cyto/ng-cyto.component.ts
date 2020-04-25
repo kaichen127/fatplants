@@ -1,5 +1,5 @@
 import {Component, OnChanges, Renderer, ElementRef, Input, Output, EventEmitter} from '@angular/core';
-
+import avsdf from 'cytoscape-avsdf';
 declare var cytoscape: any;
 
 @Component({
@@ -100,6 +100,7 @@ export class NgCytoComponent implements OnChanges {
 
       let cy_contianer = this.renderer.selectRootElement("#cy");
       let localselect = this.select;
+      cytoscape.use( avsdf );
       let cy = cytoscape({
             container : cy_contianer,
             layout: this.layout,

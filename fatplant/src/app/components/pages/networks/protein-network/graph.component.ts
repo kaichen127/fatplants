@@ -16,6 +16,7 @@ export class GraphComponent {
   pathways: any;
   selectedpathway: string;
   graph: string;
+  descriptionList={};
 
   graphData = {nodes: [], edges: []};
 
@@ -252,6 +253,12 @@ export class GraphComponent {
     });
   }
   nodeChange(event) {
+      let splitres = event.split(';')
+      this.descriptionList = [{
+        name: splitres[0],
+        desList: splitres[1].split('.')
+      }]
+
     this.node_name = event;
   }
   layoutChange(event){

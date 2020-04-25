@@ -23,12 +23,18 @@
       Entity Identifier:<br>
       <input id="entity-identifier-textbox" type="text" name="entity-name" placeholder="Gene/RefSeq_id/mRna_id" [(ngModel)]="filter">
       <button id="entity-identifier-submit" class="button" (click)="filterClick()">Filter</button>
-      <h2>{{node_name}}</h2>
     </div>
   </div>
 </div>
-  <div style="height: 800px; width: 1000px; overflow: auto; overflow-y: hidden;background: white; margin-left: auto; margin-right: auto;" >
+  <div style="height: 600px; max-width: 800px; overflow: auto; overflow-y: hidden;background: white; margin-left: auto; margin-right: auto;" >
+    <div *ngIf="!visiable" style="max-width: 800px">
+      <p>Loading...</p>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
     <ng2-cytoscape [elements]="graphData" [layout]="layout" [style]="style" [data]="node_description" [graph]="graph" (description)="nodeChange($event)" *ngIf="visiable"></ng2-cytoscape>
+  </div>
+  <div style="max-width: 800px;margin-left: auto; margin-right: auto;">
+  <h5 *ngIf="node_name!=null">Name: {{node_name}}</h5>
   </div>
 </mat-card>
 

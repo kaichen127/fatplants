@@ -29,7 +29,7 @@
         <button id="layout4" title="Symetric" class="button button4" value="concentric" (click)="layoutChange($event)">Concentric</button>
       </div>
     </div>
-    <div class="columns small-10 small-centered">
+    <div class="columns small-10 small-centered" style="max-width: 200px">
       <mat-form-field>
         <mat-label>Target Pathway</mat-label>
         <mat-select [(value)]="selectedpathway" (selectionChange)="selectionChange()">
@@ -40,8 +40,23 @@
       </mat-form-field>
     </div>
   </div>
-  <div style="height: 800px; width: 1000px; overflow: auto; overflow-y: hidden;background: white; margin-left: auto; margin-right: auto;" >
+  <div style="height: 600px; max-width: 800px; overflow: auto; overflow-y: hidden;background: white; margin-left: auto; margin-right: auto;">
+    <div *ngIf="!visiable" style="max-width: 800px">
+      <p>Loading...</p>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
     <ng2-cytoscape [elements]="graphData" [layout]="layout" [style]="style" [data]="node_description" [graph]="graph" (description)="nodeChange($event)" *ngIf="visiable"></ng2-cytoscape>
   </div>
-  <h2>{{node_name}}</h2>
+  <div *ngFor="let des of descriptionList" style="max-width: 800px;margin-left: auto; margin-right: auto;">
+    <h5>Name: {{des.name}}</h5>
+    <h5>Details:</h5>
+    <mat-list>
+      <mat-list-item *ngFor="let d of des.desList">
+        <mat-icon mat-list-icon>chevron_right</mat-icon>
+        <p style="margin-top: 15px">{{d}}</p>
+      </mat-list-item>
+    </mat-list>
+
+  </div>
+
 </mat-card>
