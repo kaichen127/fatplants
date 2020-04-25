@@ -193,3 +193,42 @@ textarea {
   word-wrap: break-word;
   margin-top: 5px;
 }
+
+#pdb-loading-bar {
+  width: 100%;
+}
+
+mat-header-cell {
+  font-family: "PT Serif", serif;
+  color: black;
+  padding-right: 2%;
+}
+mat-header-row {
+  border-bottom-color: rgba(grey, 0.5);
+  font-size: 1.0vw;
+  padding-top: 5%;
+}
+mat-row {
+  border-bottom-color: $pale-green;
+}
+mat-cell {
+  padding-right: 2%;
+}
+
+#sequence-button {
+  margin: 15px auto;
+  display: block;
+  color: white;
+}
+
+.green-button {
+  transition: background-color 0.5s;
+}
+.green-button:hover {
+  background-color: rgba($lime-green, 0.3);
+  transition: all 0.5s;
+}
+
+.viewer-button {
+  color: white;
+}

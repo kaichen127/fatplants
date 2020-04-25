@@ -7,6 +7,11 @@ import {Location} from '@angular/common';
 import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 import {Observable} from "rxjs";
 import {DataService} from "../../../../services/data/data.service";
+import {G2SEntry} from "../../../../interfaces/G2SEntry";
+import { MatTableDataSource, MatSnackBar } from '@angular/material';
+import { MatDialog } from '@angular/material';
+import { StructureViewerComponent } from '../structure-viewer/structure-viewer.component';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 
 
 @Component({
@@ -20,7 +25,7 @@ export class ShowresultsComponent implements OnInit {
   private cfg: any;
 
   private percent: number;
-  private g2sUrl: string = "https://g2s.genomenexus.org/api/alignments?sequence=";
+  private g2sUrl: string = "https://g2s.genomenexus.org/api/alignments";
   progressBar = document.querySelector('.progress-bar');
   private intervalId: any;
   private showProgress: boolean;
@@ -34,6 +39,7 @@ export class ShowresultsComponent implements OnInit {
   private href2structure: string;
   private href2blast: string;
   private href2pathway: string;
+  private G2SDataSource: MatTableDataSource<G2SEntry>;
 
   private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
   //private lmpd: Observable<Lmpd_Arapidopsis[]>
@@ -48,10 +54,14 @@ export class ShowresultsComponent implements OnInit {
 
   private pathwayList=[];
   private pathwayDb=[];
+  private displayedColumns = ['pdbId', 'pdbNo', 'chain', 'evalue', 'bitscore', 'identity', 'pdbRange', 'seqRange', '3DViewer', '3DViewer2'];
 
+  get g2sLoading(): boolean {
+    return this.dataService.g2sLoading;
+  }
 
   constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient,private dataService:DataService,
-    private location: Location) { }
+    private location: Location, public dialog: MatDialog, private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -218,7 +228,7 @@ export class ShowresultsComponent implements OnInit {
 
       }
       console.log(this.pdbList);
-      if (this.pdbList.length === 0) {
+      if (this.pdbList.length === 0 && this.defaultPdb == undefined) {
         this.noPdb = true;
       }
     });
@@ -231,7 +241,6 @@ export class ShowresultsComponent implements OnInit {
           let tmp = line.slice(0, -4);
           this.pdbList.push({name:tmp,url:this.SafeUrl(tmp)});
           if (tmp.slice(-7, -1) === 'defaul') {
-            this.defaultPdb=this.SafeUrl(tmp);
           }
         }
 
@@ -250,10 +259,26 @@ export class ShowresultsComponent implements OnInit {
   }
 
   searchG2S() {
-    this.http.get(this.g2sUrl + this.dataService.seqence).subscribe(result => {
-      console.dir(result);
+    this.dataService.g2sLoading = true;
+    this.http.get(this.g2sUrl + "?sequence=" + this.dataService.seqence).subscribe((result : G2SEntry[]) => {
+      this.G2SDataSource = new MatTableDataSource(result);
+      if (result != undefined && result.length >= 1) {
+        this.defaultPdb = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.musite.net/display3d.html?url=rcsb://" + result[0].pdbId + "&sele=&position=");
+        this.noPdb = false;
+      }
+      
+      this.dataService.g2sLoading = false;
     }, error => {
-      console.log("g2s error");
+      console.log('g2s error');
+      this.dataService.g2sLoading = false;
+    });
+  }
+
+  showViewer(pdbId: string) {
+    this.dialog.open(StructureViewerComponent, {
+      width: '1000px',
+      height: '700px',
+      data: {pdbId: pdbId}
     });
   }
 

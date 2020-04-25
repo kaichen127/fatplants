@@ -161,8 +161,9 @@ export class DataAnalysisComponent implements OnInit {
     }
   }
 
-  Search() {
-    if (this.query === '' || this.blastSelected) { return; }
+  Search(event) {
+    if (this.query === '' || this.blastSelected || event.key == "ArrowUp"
+    || event.key == "ArrowDown" || event.key == "ArrowLeft" || event.key == "ArrowDown") { return; }
     switch (this.tabIndex) {
       case 0:
         this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('gene_name', '>=', this.query).where('gene_name', '<=', this.query + '\uf8ff')).valueChanges();
