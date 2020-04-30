@@ -52,8 +52,10 @@
     <h5>Details:</h5>
     <mat-list>
       <mat-list-item *ngFor="let d of des.desList">
-        <mat-icon mat-list-icon>chevron_right</mat-icon>
-        <p style="margin-top: 15px">{{d}}</p>
+
+        <mat-icon mat-list-icon *ngIf="d.length>=2">chevron_right</mat-icon>
+        <p style="margin-top: 15px" *ngIf="d.length>=2">{{d}}</p>
+
       </mat-list-item>
     </mat-list>
 

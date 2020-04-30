@@ -4,6 +4,7 @@ import {Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 import { MobileService } from '../services/mobile/mobile.service';
 import { MatSidenav, MatIcon} from '@angular/material';
 import { trigger, transition, style, animate } from '@angular/animations';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,22 +12,22 @@ import { trigger, transition, style, animate } from '@angular/animations';
   styleUrls: ['./header.component.scss'],
   animations: [
     trigger(
-      'inOutAnimation', 
+      'inOutAnimation',
       [
         transition(
-          ':enter', 
+          ':enter',
           [
-            style({ "font-size": "0px", height: 0, opacity: 0 }),
-            animate('0.9s ease-out', 
-                    style({ "font-size": "24px", height: "24px", opacity: 1 }))
+            style({ 'font-size': '0', height: 0, opacity: 0 }),
+            animate('0.9s ease-out',
+                    style({ 'font-size': '24px', height: '24px', opacity: 1 }))
           ]
         ),
         transition(
-          ':leave', 
+          ':leave',
           [
-            style({ "font-size": "24px", height: "24px", opacity: 1 }),
-            animate('0.4s ease-in', 
-                    style({ "font-size": "0px", height: 0, opacity: 0 }))
+            style({ 'font-size': '24px', height: '24px', opacity: 1 }),
+            animate('0.4s ease-in',
+                    style({ 'font-size': '0', height: 0, opacity: 0 }))
           ]
         )
       ]
@@ -35,18 +36,26 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private mobileService: MobileService, private authService: AuthService) { }
+  constructor(private mobileService: MobileService, private authService: AuthService, private router: Router) { }
 
   email = '';
   user: any = {
-    admin: false
+    admin: false,
+    displayName: 'Guest'
   };
+  hello = false;
 
   @ViewChild('mobileNavbar', null)
+
   mobileNavbar: ElementRef;
 
   @ViewChild('desktopNavbar', {read: ElementRef, static: false})
+
   desktopNavbar: ElementRef;
+
+  @Input() sideNav: MatSidenav;
+
+  currentMenu = 'mobileMenu';
 
   ngOnInit() {
     this.refresh();
@@ -55,21 +64,30 @@ export class HeaderComponent implements OnInit {
         this.refresh();
       }
     });
+    this.router.events.subscribe(res => {
+      this.routerChange();
+    });
   }
 
   get isMobile(): boolean {
     return this.mobileService.isMobile();
   }
 
-  @Input() sideNav: MatSidenav;
-  currentMenu: string = "mobileMenu";
   selectMenu(menu: string) {
     this.currentMenu = menu;
   }
 
+  routerChange() {
+    if (this.router.url === '/login' || this.router.url === '/homepage' || this.router.url === '/') {
+      this.hello = true;
+    } else {
+      this.hello = false;
+    }
+  }
+
   refresh() {
     this.authService.checkUser().subscribe(data => {
-      if (data){
+      if (data) {
         this.email = data.email;
         this.authService.findUser(this.email).subscribe(res => {
           this.user = res.docs[0].data();
@@ -77,20 +95,27 @@ export class HeaderComponent implements OnInit {
       } else {
         this.email = '';
         this.user = {
-          admin: false
-        }
+          admin: false,
+          displayName: 'Guest'
+        };
       }
     });
   }
   setOpaque() {
     this.mobileService.opaque = true;
-    if (this.mobileService.isMobile()) this.mobileNavbar.nativeElement.classList.add('opaque');
-    else this.desktopNavbar.nativeElement.classList.add('opaque');
+    if (this.mobileService.isMobile()) {
+      this.mobileNavbar.nativeElement.classList.add('opaque');
+    } else {
+      this.desktopNavbar.nativeElement.classList.add('opaque');
+    }
   }
   setTransparent() {
     this.mobileService.opaque = false;
-    if (this.mobileService.isMobile()) this.mobileNavbar.nativeElement.classList.remove('opaque');
-    else this.desktopNavbar.nativeElement.classList.remove('opaque');
+    if (this.mobileService.isMobile()) {
+      this.mobileNavbar.nativeElement.classList.remove('opaque');
+    } else {
+      this.desktopNavbar.nativeElement.classList.remove('opaque');
+    }
   }
 
 }

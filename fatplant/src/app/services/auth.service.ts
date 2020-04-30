@@ -47,11 +47,11 @@ export class AuthService {
       ).get();
   }
 
-  doLogout(){
+  doLogout() {
     return this.afAuth.auth.signOut();
   }
 
-  checkUser(){
+  checkUser() {
     return this.afAuth.user;
   }
 
