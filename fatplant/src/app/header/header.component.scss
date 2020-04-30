@@ -38,11 +38,12 @@ mat-card {
 
 .icon {
   float: left;
-  width: 9vw;
-  min-height: 31px;
+  width: 120px;
+  height: 50px;
   border-radius: 2px;
   background-image: url("../assets/homepageAssets/icon.PNG");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   cursor: pointer;
 }
 
