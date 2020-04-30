@@ -39,7 +39,7 @@ export class DataAnalysisComponent implements OnInit {
   private imgs = [];
   private noimg: boolean;
   private nopdb: boolean;
-  private proteindatabase: string = "Arapidopsis";
+  private proteindatabase: string = "Arabidopsis";
   private pathwaydb = [];
 
   private species: string;
@@ -62,7 +62,7 @@ export class DataAnalysisComponent implements OnInit {
   @ViewChild(ShowresultsComponent, null)
   private results: ShowresultsComponent;
 
-  blastSelected: boolean = false; 
+  blastSelected: boolean = false;
   identifierControl = new FormControl(this.query);
   filteredOptions: Observable<Lmpd_Arapidopsis[]>;
 
@@ -97,7 +97,7 @@ export class DataAnalysisComponent implements OnInit {
             }, 3000);
             break;
           }
-          case 1: 
+          case 1:
             this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
               if (this.validateResult(res[0])) this.query = this.uniprot;
             });
@@ -126,7 +126,7 @@ export class DataAnalysisComponent implements OnInit {
   OneClick() {
 
     if (this.proteindatabase === undefined) {
-      this.proteindatabase = 'Arapidopsis';
+      this.proteindatabase = 'Arabidopsis';
     }
     // init
     this.hasSearched = true;

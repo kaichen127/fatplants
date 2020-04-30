@@ -19,6 +19,7 @@ export class ShowresultsComponent implements OnInit {
   uniprot_id: any;
   private cfg: any;
 
+  @Input() proteinDatabase: any;
   private percent: number;
   private g2sUrl: string = "https://g2s.genomenexus.org/api/alignments?sequence=";
   progressBar = document.querySelector('.progress-bar');
@@ -150,7 +151,11 @@ export class ShowresultsComponent implements OnInit {
           this.intervalId = setInterval(getDownloadProgress, 500);
           this.isBlast = true;
           this.showProgress = true;
-          this.dataService.updateBlastRes(this.uniprot_id).subscribe(res=>{
+          if(this.proteinDatabase === undefined){
+            this.proteinDatabase = 'Arabidopsis';
+          }
+          console.log(this.proteinDatabase);
+          this.dataService.updateBlastRes(this.uniprot_id, this.proteinDatabase).subscribe(res=>{
             this.SplitRes(res);
             this.showProgress = false;
             clearInterval(this.intervalId);

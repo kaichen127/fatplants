@@ -13,7 +13,7 @@
       </mat-tab>
     </mat-tab-group>
 
-    
+
       <div class="row bordered">
         <form class="form">
         <mat-form-field *ngIf='tabIndex == 0' class="input-container">
@@ -32,7 +32,7 @@
       </form>
       </div>
       <div class="row">
-        <div class="database-selector" (click)="changeDatabase('Arapidopsis')" [class.selected]="this.proteindatabase == 'Arapidopsis'">Arapidopsis</div>
+        <div class="database-selector" (click)="changeDatabase('Arabidopsis')" [class.selected]="this.proteindatabase == 'Arabidopsis'">Arabidopsis</div>
         <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
       </div>
 
@@ -43,8 +43,8 @@
         <mat-tab label="Sequence">
         </mat-tab>
       </mat-tab-group>
-  
-      
+
+
         <div class="row">
           <div class="input-field col s12 bordered">
             <textarea matInput style="min-height: 150px" name="Search" class="browser-default" placeholder="Sequence"
@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="database-selector" (click)="changeDatabase('Arapidopsis')" [class.selected]="this.proteindatabase == 'Arapidopsis'">Arapidopsis</div>
+          <div class="database-selector" (click)="changeDatabase('Arabidopsis')" [class.selected]="this.proteindatabase == 'Arabidopsis'">Arabidopsis</div>
           <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
         </div>
         <div class="row">
@@ -60,7 +60,7 @@
             <button mat-raised-button class="btn waves-effect waves-light" (click)="OneClick()">Compare</button>
           </div>
         </div>
-  
+
       </div>
 </mat-card>
 
@@ -68,7 +68,7 @@
 
       <div *ngIf="!isLoading && hasSearched">
         <mat-divider></mat-divider>
-        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot"></app-showresults>
+        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot" [proteinDatabase]="this.proteindatabase"></app-showresults>
         <div *ngIf="searchError" class="centered" id="error">The previous search did not match any records in the database.</div>
       </div>
     </div>
