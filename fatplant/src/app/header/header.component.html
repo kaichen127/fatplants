@@ -44,9 +44,15 @@
           <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>person</mat-icon><div class="menu" [class.no-transform]="this.shouldNoTransform">Login</div>
         </li>
       </ng-template>
+
     </ul>
   </nav>
+
 </mat-card>
+<div class="loginInfo" *ngIf="hello">
+  Hello,<span *ngIf="user.admin"> admin</span> {{ user.displayName }}
+</div>
+
 <mat-menu #dataMenu class="mat-menu-content">
   <a mat-menu-item routerLink="/lmpd_arapidopsis" class="menu-item" routerLinkActive="desktop-active-menu-item">Arabidopsis</a>
   <a mat-menu-item routerLink="/camelina" class="menu-item" routerLinkActive="desktop-active-menu-item">Camelina</a>

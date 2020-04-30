@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     this.type = type;
     if (type === 'google') {
       this.authService.checkUser().subscribe(ret => {
-        if (ret === null && this.type === 'google'){
+        if (ret === null && this.type === 'google') {
           this.type = '';
           this.authService.googleLogin().then(res => {
             const user = {
@@ -57,11 +57,13 @@ export class LoginComponent implements OnInit {
             };
             this.authService.findUser(user.email).subscribe(returned => {
               if (returned.docs.length < 1) {
-                this.authService.addUser(user).then(res => {
+                this.authService.addUser(user).then(resi => {
                   this.failed = false;
+                  this.router.navigate(['/', 'homepage']);
                 });
               }
             });
+            this.router.navigate(['/', 'homepage']);
           });
         }
       });
@@ -107,13 +109,14 @@ export class LoginComponent implements OnInit {
     if (successStatus !== null) {
       successStatus.subscribe(res => {
         if (res.docs.length > 0) {
-          const user = res.docs[0].data();
-          this.authService.assignAdmin(user.uid).subscribe(ret =>{
+          const foundUser = res.docs[0].data();
+          this.authService.assignAdmin(foundUser.uid).subscribe(ret => {
             const user = ret.docs[0].data();
             user.admin = true;
             const id = ret.docs[0].id;
             this.authService.updateUser(user, id).then(returned => {
               this.success = true;
+              this.failed = false;
             });
           });
         } else {
@@ -130,6 +133,7 @@ export class LoginComponent implements OnInit {
           this.failed = false;
           this.success = true;
           this.message = '';
+          this.router.navigate(['/', 'homepage']);
         }, err => {
           this.message = err.message;
         });
@@ -137,30 +141,31 @@ export class LoginComponent implements OnInit {
         this.failed = true;
         this.success = false;
       }
-    })
+    });
   }
 
   signUp(email, password) {
     console.log('Called sign up');
-    let validEmail = this.emailValid(email);
+    const validEmail = this.emailValid(email);
 
     if (validEmail && this.match) {
       this.authService.findUser(email).subscribe(res => {
         if (res.docs.length > 0) {
           this.exists = true;
         } else {
-          this.authService.emailRegister(email, password).then(res => {
+          this.authService.emailRegister(email, password).then(resi => {
             const user = {
-              uid: res.user.uid,
-              displayName: res.user.email,
-              email: res.user.email,
+              uid: resi.user.uid,
+              displayName: resi.user.email,
+              email: resi.user.email,
               admin: false
             };
-            this.authService.addUser(user).then(res => {
+            this.authService.addUser(user).then(ret => {
               this.authService.emailLogin(email, password).then(returned => {
                 this.failed = false;
                 this.success = true;
                 this.message = '';
+                this.router.navigate(['/', 'homepage']);
               });
             });
           }, err => {
@@ -178,7 +183,7 @@ export class LoginComponent implements OnInit {
   }
 
   emailValid(email) {
-    let regex = new RegExp(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`);
+    const regex = new RegExp(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`);
     return regex.test(email);
   }
 
