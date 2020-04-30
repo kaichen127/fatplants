@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class MobileService {
 
   constructor() { }
-  opaque = false;
+  opaque = true;
   minHeight = 400;
   minWidth = 850;
   isMobile(): boolean {
