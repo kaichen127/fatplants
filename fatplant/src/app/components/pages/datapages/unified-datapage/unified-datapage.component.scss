@@ -10,13 +10,15 @@
     background-image: none !important;
     font-family: "PT Sans", sans-serif;
     font-size: 1.0vw;
+    display: flex;
 }
 .left-menu {
-    position: fixed;
-    top: 100px;
+    position: sticky;
+    top: 10%;
     left: 2%;
     height: auto;
     width: 12%;
+    align-self: flex-start;
 }
 a.menu {
     display: block;
@@ -40,7 +42,7 @@ a.active {
     transition: all 0.5s;
 }
 #table {
-    margin-left: 15%;
+    margin-left: 5%;
     margin-right: 5%;
     font-family: "PT Sans", sans-serif;
 }
