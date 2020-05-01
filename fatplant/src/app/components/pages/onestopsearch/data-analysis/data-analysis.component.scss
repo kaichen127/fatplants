@@ -199,6 +199,9 @@ a:hover {
   position: absolute;
   top: 24px;
 }
-#blast-help-icon {
+.help-icon {
   margin-left: 20px;
+}
+#identifier-help-icon {
+  color: rgba($main-green, 0.6);
 }

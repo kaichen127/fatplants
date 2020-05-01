@@ -44,7 +44,7 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'lmpddetailview/:uniprot_id', component: LmpddetailviewComponent},
 {path: 'fatty_acid', component: FattyacidComponent},
 {path: 'soybean', component: SoybeanComponent},
-{path: 'datasets', redirectTo: '/datasets/arapidopsis', pathMatch: 'full'},
+{path: 'datasets', redirectTo: '/datasets/arabidopsis', pathMatch: 'full'},
 {path: 'datasets/:dataset', component: UnifiedDatapageComponent},
 {path:'showresults/:uniprot_id/:cfg', component:ShowresultsComponent},
 {path: '**', redirectTo: '/homepage'}];

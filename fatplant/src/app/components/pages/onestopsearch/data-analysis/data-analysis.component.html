@@ -4,6 +4,7 @@
     <span class="input-option" [class.selected]="!blastSelected">Identifier</span>
     <mat-slide-toggle aria-label="input-selector" color=primary [(ngModel)]="blastSelected"></mat-slide-toggle>
     <span class="input-option" [class.selected]="blastSelected">BLAST</span>
+    <mat-icon class="help-icon" id="identifier-help-icon" [matTooltip]="'Identifier searches by gene name or uniprot id. BLAST searches by gene sequence.'">help</mat-icon>
   </div>
   <div id="identifier-input" class="container" [class.compressed]="hasSearched" *ngIf="!blastSelected">
     <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
@@ -30,7 +31,7 @@
         </mat-form-field>
         <button mat-button (click)="OneClick()" id="search-button" [disabled]="!identifierControl.valid"><mat-icon>search</mat-icon></button>
         <span id="help-icon-div">
-        <mat-icon id="help-icon" [matTooltip]="'Enter an identifier (gene name or uniprot id) to search. Click this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
+        <mat-icon id="help-icon" class="pointer" [matTooltip]="'Enter an identifier (gene name or uniprot id) to search. Click this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
         </span>
       </form>
       </div>
@@ -61,7 +62,7 @@
         <div class="row">
           <div class="col s6">
             <button mat-raised-button class="btn waves-effect waves-light" (click)="OneClick()">Compare</button>
-            <mat-icon id="blast-help-icon" [matTooltip]="'Enter the sequence of a gene to search for a matching BLAST result. Click on this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
+            <mat-icon class="help-icon pointer" [matTooltip]="'Enter the sequence of a gene to search for a matching BLAST result. Click on this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
           </div>
         </div>
 
