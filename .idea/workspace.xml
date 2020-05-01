@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a456f0f2-12d0-4f86-b3d5-545142f8fa71" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/fatplant/src/app/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fatplant/src/app/header/header.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fatplant/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fatplant/src/app/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fatplant/src/app/components/pages/onestopsearch/data-analysis/data-analysis.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fatplant/src/app/components/pages/onestopsearch/data-analysis/data-analysis.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fatplant/src/app/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fatplant/src/app/login/login.component.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,28 +18,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fatplant/src/app/homepage/homepage.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fatplant/src/app/homepage/homepage.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+            <state relative-caret-position="51">
+              <caret line="3" column="66" lean-forward="true" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="106" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fatplant/src/app/components/pages/onestopsearch/data-analysis/data-analysis.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+              <folding>
+                <element signature="n#style#0;n#mat-tab-group#0;n#div#1;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fatplant/src/app/components/pages/onestopsearch/data-analysis/data-analysis.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="81" column="18" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -52,20 +56,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fatplant/src/app/header/header.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="41" column="11" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+            <state relative-caret-position="510">
+              <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+            <state relative-caret-position="391">
+              <caret line="53" column="1" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -109,7 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>foundation.core.js</find>
       <find>bootst</find>
       <find>bootstrap</find>
       <find>right</find>
@@ -139,6 +142,7 @@
       <find>Abe</find>
       <find>Koo</find>
       <find>back</find>
+      <find>mat-tab</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,7 +166,6 @@
         <option value="$PROJECT_DIR$/fatplant/src/static/js/foundation.js" />
         <option value="$PROJECT_DIR$/fatplant/src/static/js/custom.js" />
         <option value="$PROJECT_DIR$/fatplant/src/static/goNetView.html" />
-        <option value="$PROJECT_DIR$/fatplant/src/app/components/pages/onestopsearch/data-analysis/data-analysis.component.html" />
         <option value="$PROJECT_DIR$/fatplant/src/app/components/pages/fileuploads/upload-files/upload-files.component.css" />
         <option value="$PROJECT_DIR$/fatplant/src/app/app.component.css" />
         <option value="$PROJECT_DIR$/fatplant/src/styles.scss" />
@@ -195,9 +198,10 @@
         <option value="$PROJECT_DIR$/../../School/SoftDev/bdwmzc/assignments/assignment-thirteen/LICENSE.md" />
         <option value="$PROJECT_DIR$/fatplant/src/app/services/auth.service.ts" />
         <option value="$PROJECT_DIR$/fatplant/src/app/login/login.component.ts" />
-        <option value="$PROJECT_DIR$/fatplant/src/app/login/login.component.scss" />
         <option value="$PROJECT_DIR$/fatplant/src/app/login/login.component.html" />
         <option value="$PROJECT_DIR$/fatplant/src/app/header/header.component.scss" />
+        <option value="$PROJECT_DIR$/fatplant/src/app/components/pages/onestopsearch/data-analysis/data-analysis.component.html" />
+        <option value="$PROJECT_DIR$/fatplant/src/app/login/login.component.scss" />
       </list>
     </option>
   </component>
@@ -244,7 +248,37 @@
               <item name="fatplant" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FatPlant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FatPlant" type="462c0819:PsiDirectoryNode" />
+              <item name="fatplant" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FatPlant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FatPlant" type="462c0819:PsiDirectoryNode" />
+              <item name="fatplant" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="onestopsearch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FatPlant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FatPlant" type="462c0819:PsiDirectoryNode" />
+              <item name="fatplant" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="onestopsearch" type="462c0819:PsiDirectoryNode" />
+              <item name="data-analysis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FatPlant" type="b2602c69:ProjectViewProjectNode" />
@@ -338,23 +372,23 @@
       <workItem from="1587168945392" duration="868000" />
       <workItem from="1587238471367" duration="10505000" />
       <workItem from="1587764211547" duration="8310000" />
-      <workItem from="1588359386828" duration="81000" />
+      <workItem from="1588359386828" duration="1198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127995000" />
+    <option name="totallyTimeSpent" value="129112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2208" height="1208" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14640884" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14640884" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24141133" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24141133" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -450,7 +484,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fatplant/src/app/components/pages/fileuploads/upload-files/upload-files.component.css" />
     <entry file="file://$PROJECT_DIR$/fatplant/src/app/homepage/homepage.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -618,13 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fatplant/src/app/components/pages/onestopsearch/data-analysis/data-analysis.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/js/GLmol.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -780,13 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -814,13 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fatplant/src/app/header/header.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -830,8 +842,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fatplant/src/app/header/header.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="41" column="11" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+        <state relative-caret-position="510">
+          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/components/pages/onestopsearch/data-analysis/data-analysis.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="81" column="18" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="66" lean-forward="true" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/components/pages/onestopsearch/data-analysis/data-analysis.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#mat-tab-group#0;n#div#1;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="53" column="1" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
         </state>
       </provider>
     </entry>

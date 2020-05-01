@@ -57,11 +57,7 @@ mat-card {
   border-radius: 20px 20px 0 0;
 }
 
-::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
-  min-width: 0!important;
-  padding: 3px!important;
-  margin: 3px!important;
-}
+
 
 .displayName {
   font-family: "Catamaran", sans-serif !important;
