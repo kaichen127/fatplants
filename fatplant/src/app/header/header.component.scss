@@ -38,9 +38,10 @@ mat-card {
 
 .icon {
   float: left;
-  width: 120px;
-  height: 50px;
   border-radius: 2px;
+  height: 10vw;
+  width: 12vw;
+  box-sizing: border-box;
   background-image: url("../assets/homepageAssets/icon.PNG");
   background-size: contain;
   background-repeat: no-repeat;
@@ -114,7 +115,7 @@ nav {
 .mobile-nav {
   margin-bottom: 15px;
   color: white;
-  background-image: rgb(128,128,128,0);
+  background-color: rgb(128,128,128,0);
   display: inline-block;
   min-height: 50px;
   position: fixed;
