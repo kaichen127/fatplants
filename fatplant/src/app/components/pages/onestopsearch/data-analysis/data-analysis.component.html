@@ -7,7 +7,7 @@
     <mat-icon class="help-icon" id="identifier-help-icon" [matTooltip]="'Identifier searches by gene name or uniprot id. BLAST searches by gene sequence.'">help</mat-icon>
   </div>
   <div id="identifier-input" class="container" [class.compressed]="hasSearched" *ngIf="!blastSelected">
-    <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
+    <mat-tab-group mat-stretch-tabs mat-align-tabs="center" style="color: #4CAF50" [(selectedIndex)]="tabIndex">
       <mat-tab label="Gene">
       </mat-tab>
       <mat-tab label="Uniprot ID">
