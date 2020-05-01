@@ -17,7 +17,7 @@
       <div class="bannerText bannerText2">
         <span>The one-stop tool for</span>
         <span>biological data procedures</span>
-        <div class="buttonDiv"><button mat-button class="pageButton" routerLink="/one_click">One Stop</button></div>
+        <div class="buttonDiv"><button mat-button class="pageButton" routerLink="/one_click">One Stop <mat-icon>search</mat-icon></button></div>
       </div>
       <br /><br />
     </div>
@@ -41,7 +41,6 @@
     </div>
 
     <div class="pageDisplay">
-      <div [class]="page1" (click)="page(1)"></div>&nbsp;
       <div [class]="page2"  (click)="page(2)"></div>&nbsp;
       <div [class]="page3"  (click)="page(3)"></div>&nbsp;
       <div [class]="page4"  (click)="page(4)"></div>&nbsp;
@@ -50,33 +49,37 @@
   </div>
 
   <div class="links">
-    <div class="link" routerLink="/blast">
-      <div>
-        _________________<br /><br />BLASTP
-      </div><br />
-      <mat-icon class="linkIcon">
-        eco
-      </mat-icon>
+    <div class="linksTitle">
+      <mat-icon>search</mat-icon> One Stop Search:
     </div>
+    <div class="linksContainer">
+      <div class="link" routerLink="/blast">
+        <div>
+          _________________<br /><br />1. BLASTp
+        </div><br />
+        <mat-icon class="linkIcon">
+          eco
+        </mat-icon>
+      </div>
 
-    <div class="link" routerLink="/glmol">
-      <div>
-        _________________<br /><br />3D STRUCTURE
-      </div><br />
-      <mat-icon class="linkIcon">
-        select_all
-      </mat-icon>
+      <div class="link" routerLink="/glmol">
+        <div>
+          _________________<br /><br />2. 3D Structure
+        </div><br />
+        <mat-icon class="linkIcon">
+          select_all
+        </mat-icon>
+      </div>
+
+      <div class="link" routerLink="/color-pathway">
+        <div>
+          _________________<br /><br />3. Color Pathway
+        </div><br />
+        <mat-icon class="linkIcon">
+          timeline
+        </mat-icon>
+      </div>
     </div>
-
-    <div class="link" routerLink="/color-pathway">
-      <div>
-        _________________<br /><br />COLOR PATHWAY
-      </div><br />
-      <mat-icon class="linkIcon">
-        timeline
-      </mat-icon>
-    </div>
-
   </div>
 
   <div class="quote">
@@ -123,7 +126,7 @@
   </div>
 
   <div class="news">
-    <div>
+    <div class="latest">
       Latest News<br />
       ____
     </div>
@@ -151,7 +154,7 @@
       <div><img class="sponsorImg" [src]="MU" alt="MU"/></div>
       <div><img class="sponsorImg" [src]="PSC" alt="PSC"/></div>
       <div><img class="sponsorImgWSU" [src]="WSU" alt="WSU"/></div>
-      <div><img class="sponsorImg" [src]="NSF" alt="NSF"/></div>
+      <div><img class="sponsorImgNSF" [src]="NSF" alt="NSF"/></div>
     </div>
   </div>
 
