@@ -18,13 +18,13 @@ export class HomepageComponent implements OnInit {
   NSF = require('../assets/homepageAssets/NSF.png');
   PSC = require('../assets/homepageAssets/PSC.png');
 
-  page1 = 'active pages';
-  page2 = 'inactive pages';
+  page1 = 'gone';
+  page2 = 'active pages';
   page3 = 'inactive pages';
   page4 = 'inactive pages';
 
-  pageDisplay = 'page1';
-  pager = 1;
+  pageDisplay = 'page2';
+  pager = 2;
 
   constructor() { }
 
@@ -39,32 +39,23 @@ export class HomepageComponent implements OnInit {
     this.pager = page;
 
     if (page > 4) {
-      this.pager = 1;
-      page = 1;
+      this.pager = 2;
+      page = 2;
     }
 
     this.pageDisplay = 'page' + page;
 
-    if (page === 1) {
-      this.page1 = 'active pages';
-      this.page2 = 'inactive pages';
-      this.page3 = 'inactive pages';
-      this.page4 = 'inactive pages';
-    }
     if (page === 2) {
-      this.page1 = 'inactive pages';
       this.page2 = 'active pages';
       this.page3 = 'inactive pages';
       this.page4 = 'inactive pages';
     }
     if (page === 3) {
-      this.page1 = 'inactive pages';
       this.page2 = 'inactive pages';
       this.page3 = 'active pages';
       this.page4 = 'inactive pages';
     }
     if (page === 4) {
-      this.page1 = 'inactive pages';
       this.page2 = 'inactive pages';
       this.page3 = 'inactive pages';
       this.page4 = 'active pages';

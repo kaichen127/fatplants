@@ -71,6 +71,7 @@ mat-card {
 .loginInfo {
   width: 10%;
   max-height: 10%;
+  word-break: break-word;
   margin-right: 1%;
   margin-top: 100px;
   position: fixed;
@@ -78,7 +79,7 @@ mat-card {
   background-image: linear-gradient(whitesmoke, $white-yellow);
   color: black;
   font-family: "PT Serif", sans-serif;
-  font-size: 1vw;
+  font-size: .8vw;
   transition: 0.6s all;
   padding: 5px 5px 5px 5px;
   border-radius: 4px 4px 4px 4px;

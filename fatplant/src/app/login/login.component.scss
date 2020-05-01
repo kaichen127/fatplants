@@ -58,7 +58,6 @@ mat-card {
 }
 
 
-
 .displayName {
   font-family: "Catamaran", sans-serif !important;
   font-size: 2vw;
@@ -67,10 +66,10 @@ mat-card {
 button {
   height: 4vw;
   margin-bottom: 2%;
-  border: solid $white-yellow 4px;
+  border: solid #50ab4e 4px;
   font-family: "Catamaran", sans-serif !important;
   font-size: 2vw;
-  background-color: #50ab4e;
+  background-color: $white-yellow;
 }
 
 mat-hint {
