@@ -4,6 +4,7 @@
     <span class="input-option" [class.selected]="!blastSelected">Identifier</span>
     <mat-slide-toggle aria-label="input-selector" color=primary [(ngModel)]="blastSelected"></mat-slide-toggle>
     <span class="input-option" [class.selected]="blastSelected">BLAST</span>
+    <mat-icon class="help-icon" id="identifier-help-icon" [matTooltip]="'Identifier searches by gene name or uniprot id. BLAST searches by gene sequence.'">help</mat-icon>
   </div>
   <div id="identifier-input" class="container" [class.compressed]="hasSearched" *ngIf="!blastSelected">
     <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
@@ -13,7 +14,7 @@
       </mat-tab>
     </mat-tab-group>
 
-    
+
       <div class="row bordered">
         <form class="form">
         <mat-form-field *ngIf='tabIndex == 0' class="input-container">
@@ -29,10 +30,13 @@
           </mat-autocomplete>
         </mat-form-field>
         <button mat-button (click)="OneClick()" id="search-button" [disabled]="!identifierControl.valid"><mat-icon>search</mat-icon></button>
+        <span id="help-icon-div">
+        <mat-icon id="help-icon" class="pointer" [matTooltip]="'Enter an identifier (gene name or uniprot id) to search. Click this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
+        </span>
       </form>
       </div>
       <div class="row">
-        <div class="database-selector" (click)="changeDatabase('Arapidopsis')" [class.selected]="this.proteindatabase == 'Arapidopsis'">Arapidopsis</div>
+        <div class="database-selector" (click)="changeDatabase('Arabidopsis')" [class.selected]="this.proteindatabase == 'Arabidopsis'">Arabidopsis</div>
         <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
       </div>
 
@@ -43,8 +47,8 @@
         <mat-tab label="Sequence">
         </mat-tab>
       </mat-tab-group>
-  
-      
+
+
         <div class="row">
           <div class="input-field col s12 bordered">
             <textarea matInput style="min-height: 150px" name="Search" class="browser-default" placeholder="Sequence"
@@ -52,15 +56,16 @@
           </div>
         </div>
         <div class="row">
-          <div class="database-selector" (click)="changeDatabase('Arapidopsis')" [class.selected]="this.proteindatabase == 'Arapidopsis'">Arapidopsis</div>
+          <div class="database-selector" (click)="changeDatabase('Arabidopsis')" [class.selected]="this.proteindatabase == 'Arabidopsis'">Arabidopsis</div>
           <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
         </div>
         <div class="row">
           <div class="col s6">
             <button mat-raised-button class="btn waves-effect waves-light" (click)="OneClick()">Compare</button>
+            <mat-icon class="help-icon pointer" [matTooltip]="'Enter the sequence of a gene to search for a matching BLAST result. Click on this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
           </div>
         </div>
-  
+
       </div>
 </mat-card>
 
@@ -68,7 +73,7 @@
 
       <div *ngIf="!isLoading && hasSearched">
         <mat-divider></mat-divider>
-        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot"></app-showresults>
+        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot" [proteinDatabase]="this.proteindatabase"></app-showresults>
         <div *ngIf="searchError" class="centered" id="error">The previous search did not match any records in the database.</div>
       </div>
     </div>

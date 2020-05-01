@@ -16,7 +16,7 @@ export class UnifiedDatapageComponent implements OnInit {
 
   dataset: String = "";
   loading: boolean = false;
-  arapidopsisDataSource: MatTableDataSource<any>;
+  arabidopsisDataSource: MatTableDataSource<any>;
   camelinaDataSource: MatTableDataSource<any>;
   soybeanDataSource: MatTableDataSource<any>;
   fattyAcidDataSource: MatTableDataSource<any>;
@@ -26,13 +26,13 @@ export class UnifiedDatapageComponent implements OnInit {
       this.dataset = params.get('dataset');
     });
 
-    var localArapidopsisData: FatPlantDataSource = JSON.parse(localStorage.getItem('arapidopsis_data'));
-    if (localArapidopsisData != null && (Date.now() - localArapidopsisData.retrievalDate <= globalRefreshTime)) {
-      this.arapidopsisDataSource = new MatTableDataSource(localArapidopsisData.data);
+    var localArabidopsisData: FatPlantDataSource = JSON.parse(localStorage.getItem('arabidopsis_data'));
+    if (localArabidopsisData != null && (Date.now() - localArabidopsisData.retrievalDate <= globalRefreshTime)) {
+      this.arabidopsisDataSource = new MatTableDataSource(localArabidopsisData.data);
     }
     else {
       this.loading = true;
-      this.getArapidopsisData();
+      this.getArabidopsisData();
     }
 
     var localCamelinaData: FatPlantDataSource = JSON.parse(localStorage.getItem('camelina_data'));
@@ -72,8 +72,8 @@ export class UnifiedDatapageComponent implements OnInit {
 
   get currentDataSource(): MatTableDataSource<any> {
     switch(this.dataset) {
-      case "arapidopsis":
-        return this.arapidopsisDataSource;
+      case "arabidopsis":
+        return this.arabidopsisDataSource;
       case "camelina":
         return this.camelinaDataSource;
       case "soybean":
@@ -85,7 +85,7 @@ export class UnifiedDatapageComponent implements OnInit {
 
   get displayedColumns(): String[] {
     switch(this.dataset) {
-      case "arapidopsis":
+      case "arabidopsis":
         return ['uniprot_id','refseq_id','gene_name','gene_symbol','protein_entry','protein_name'];
       case "camelina":
         return ['camelina','aralip_pathways','ath_description','no','homeologs'];
@@ -102,8 +102,8 @@ export class UnifiedDatapageComponent implements OnInit {
   changeDataset(newDataset: string) {
     // preserve filter for new dataset
     switch(newDataset) {
-      case "arapidopsis":
-        this.arapidopsisDataSource.filter = this.currentDataSource.filter;
+      case "arabidopsis":
+        this.arabidopsisDataSource.filter = this.currentDataSource.filter;
       case "camelina":
         this.camelinaDataSource.filter = this.currentDataSource.filter;
       case "soybean":
@@ -116,7 +116,7 @@ export class UnifiedDatapageComponent implements OnInit {
 
   refreshData() {
     switch (this.dataset) {
-      case "arapidopsis":
+      case "arabidopsis":
         this.refreshArapidopsisData();
       case "camelina":
         this.refreshCamelinaData();
@@ -128,10 +128,10 @@ export class UnifiedDatapageComponent implements OnInit {
   }
 
   refreshArapidopsisData() {
-    localStorage.removeItem('arapidopsis_data');
-    this.arapidopsisDataSource = null;
+    localStorage.removeItem('arabidopsis_data');
+    this.arabidopsisDataSource = null;
     this.loading = true;
-    this.getArapidopsisData();
+    this.getArabidopsisData();
   }
 
   refreshCamelinaData() {
@@ -155,14 +155,14 @@ export class UnifiedDatapageComponent implements OnInit {
     this.getFattyAcidData();
   }
 
-  getArapidopsisData() {
+  getArabidopsisData() {
     let docs=this.db.connect('Lmpd_Arapidopsis').subscribe(data =>{
-      this.arapidopsisDataSource = new MatTableDataSource(data);
-      let arapidopsisData: FatPlantDataSource = {
+      this.arabidopsisDataSource = new MatTableDataSource(data);
+      let arabidopsisData: FatPlantDataSource = {
         retrievalDate: Date.now(),
         data: data
       };
-      localStorage.setItem('arapidopsis_data', JSON.stringify(arapidopsisData));
+      localStorage.setItem('arabidopsis_data', JSON.stringify(arabidopsisData));
       this.loading = false;
     });
   }

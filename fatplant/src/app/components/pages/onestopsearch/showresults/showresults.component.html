@@ -2,15 +2,25 @@
 
   <div class="row" style="width: 100%">
     <div class="column left" id="stepper">
+      <h3>{{proteinDatabase}}</h3>
       <h3>Uniprot ID: {{uniprot_id}}</h3>
       <mat-vertical-stepper (selectionChange)="changeConfig($event.selectedStep.label)" disableRipple="true">
         <ng-template matStepperIcon="number">
         </ng-template>
-        <mat-step class="nav-item" [class.active]="isSummary" label="Summary" [completed]='false'></mat-step>
-        <mat-step class="nav-item" [class.active]="isStructure" label="Structure" [completed]='false'></mat-step>
-        <mat-step class="nav-item" [class.active]="isBlast" label="Blast" [completed]='false'></mat-step>
-        <mat-step class="nav-item" [class.active]="isPathway" label="Pathway" [completed]='false'></mat-step>
+        <mat-step class="nav-item" #summaryStep [class.active]="isSummary" label="Summary" [completed]='false'></mat-step>
+        <mat-step class="nav-item" #structureStep [class.active]="isStructure" label="Structure" [completed]='false'></mat-step>
+        <mat-step class="nav-item" #blastStep [class.active]="isBlast" label="Blast" [completed]='false'></mat-step>
+        <mat-step class="nav-item" #pathwayStep [class.active]="isPathway" label="Pathway" [completed]='false'></mat-step>
       </mat-vertical-stepper>
+      <div id="arrow-wrapper">
+        <mat-icon id="left-arrow" [class.disabled-arrow]="!this.leftArrowEnabled" [class.enabled-arrow]="this.leftArrowEnabled" 
+        matTooltip="Previous Tab" matTooltipPosition="below" [matTooltipDisabled]="!this.leftArrowEnabled" 
+        (click)="arrowSelect('left', summaryStep, structureStep, blastStep, pathwayStep)">keyboard_arrow_left</mat-icon>
+        <span id="arrow-label">{{prettyConfig}}</span>
+        <mat-icon id="right-arrow"[class.disabled-arrow]="!this.rightArrowEnabled" [class.enabled-arrow]="this.rightArrowEnabled" 
+        matTooltip="Next Tab" matTooltipPosition="below" [matTooltipDisabled]="!this.rightArrowEnabled" 
+        (click)="arrowSelect('right', summaryStep, structureStep, blastStep, pathwayStep)">keyboard_arrow_right</mat-icon>
+      </div>
     </div>
 
 <!--    summary-->
@@ -144,7 +154,7 @@
           <mat-header-cell *matHeaderCellDef mat-sort-header>MUSite</mat-header-cell>
           <mat-cell *matCellDef="let elem">
             <a mat-button href="https://www.musite.net/display3d.html?url=rcsb://{{elem.pdbId}}&sele=&position=" target="_blank">
-              <mat-icon [matTooltip]="'MUSite Page for ' + elem.pdbId">exit_to_app</mat-icon>
+              <mat-icon [matTooltip]="'Visit MUSite for ' + elem.pdbId">exit_to_app</mat-icon>
             </a>
           </mat-cell>
         </ng-container>

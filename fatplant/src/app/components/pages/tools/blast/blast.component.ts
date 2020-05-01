@@ -23,14 +23,24 @@ export class BlastComponent implements OnInit {
   private blastRes = [];
   private loading = false;
   private blastError = false;
+  private alertVisible = false;
   blastForm: FormGroup;
   constructor(private http: HttpClient, private router: Router, db: AngularFirestore) {
     this.database = 'Arabidopsis';
     this.evalue = "1";
     this.matrix = "PAM30";
+    this.alertVisible = false;
     // this.items = db.collection('/Lmpd_Arapidopsis').valueChanges();
   }
   onSubmit() {
+    if (this.proteinSeq === undefined){
+      this.showAlert();
+      return;
+    }
+    if (this.proteinSeq.length<1){
+      this.showAlert();
+      return;
+    }
     this.loading = true;
     this.blastError = false;
     // this.http.post('https://linux-shell-test.appspot.com/blastp', {fasta: this.proteinSeq, database: this.database, matrix: this.matrix, evalue: this.evalue}, {responseType: 'text'}).subscribe((res: any) => {
@@ -69,6 +79,19 @@ export class BlastComponent implements OnInit {
   clear() {
     this.result = undefined;
     this.blastRes = [];
+  }
+  setDefaultSearch() {
+    this.proteinSeq = "MEVKARAPGKIILAGEHAVVHGSTAVAAAIDLYTYVTLRFPLPSAENNDRLTLQLKDISLEFSWSLARIKEAIPYDSSTLCRSTPASCSEETLKSIAVLVEEQNLPKEKMWLSSGISTFLWLYTRIIGFNPATVVINSELPYGSGLGSSAALCVALTAALLASSISEKTRGNGWSSLDETNLELLNKWAFEGEKIIHGKPSGIDNTVSAYGNMIKFCSGEITRLQSNMPLRMLITNTRVGRNTKALVSGVSQRAVRHPDAMKSVFNAVDSISKELAAIIQSKDETSVTEKEERIKELMEMNQGLLLSMGVSHSSIEAVILTTVKHKLVSKLTGAGGGGCVLTLLPTGTVVDKVVEELESSGFQCFTALIGGNGAQICY";
+  }
+
+  showAlert() : void {
+    alert("Sequence should not be empty");
+    console.log("alert")
+    // if (this.alertVisible) {
+    //   return;
+    // }
+    // this.alertVisible = true;
+    // setTimeout(()=> this.alertVisible = false,3000)
   }
 
 }

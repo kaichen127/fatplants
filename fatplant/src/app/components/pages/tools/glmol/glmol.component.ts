@@ -66,4 +66,7 @@ export class GlmolComponent implements OnInit {
       }
     });
   }
+  setDefaultSearch() {
+    this.glmolID = "P46086";
+  }
 }

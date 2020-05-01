@@ -4,12 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.html" line="112" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a456f0f2-12d0-4f86-b3d5-545142f8fa71" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fatplant/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fatplant/src/app/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fatplant/src/app/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fatplant/src/app/login/login.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fatplant/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fatplant/src/app/login/login.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="a456f0f2-12d0-4f86-b3d5-545142f8fa71" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +49,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
+            <state relative-caret-position="127">
               <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
             </state>
           </provider>
@@ -201,10 +196,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="3827" />
-    <option name="y" value="227" />
-    <option name="width" value="1106" />
-    <option name="height" value="1906" />
+    <option name="x" value="-13" />
+    <option name="y" value="-13" />
+    <option name="width" value="3864" />
+    <option name="height" value="2114" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -336,18 +331,17 @@
       <workItem from="1586466707491" duration="2304000" />
       <workItem from="1587168945392" duration="868000" />
       <workItem from="1587238471367" duration="10505000" />
-      <workItem from="1587764211547" duration="7694000" />
+      <workItem from="1587764211547" duration="8310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127298000" />
+    <option name="totallyTimeSpent" value="127914000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3832" y="232" width="1096" height="1896" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="2208" height="1208" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30056712" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14640884" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -358,7 +352,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.34940442" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.57195914" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="11" />
@@ -828,7 +822,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fatplant/src/app/login/login.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
+        <state relative-caret-position="127">
           <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
         </state>
       </provider>

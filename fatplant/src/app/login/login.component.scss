@@ -12,6 +12,7 @@ mat-card {
   justify-content: center;
   flex-direction: column;
 }
+
 .container {
   width: 100%;
   height: 100%;
@@ -35,7 +36,7 @@ mat-card {
   width: 50%;
   box-sizing: border-box;
   text-align: center;
-  background-color: #4caf50;
+  background-image: linear-gradient(to left, $cream, $white-yellow);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -73,11 +74,11 @@ button {
   border: solid $white-yellow 4px;
   font-family: "Catamaran", sans-serif !important;
   font-size: 2vw;
-  background-color: #699c86;
+  background-color: #50ab4e;
 }
 
 mat-hint {
-  color: green;
+  color: #50ab4e;
   font-family: "Catamaran", sans-serif !important;
 }
 
@@ -154,5 +155,5 @@ mat-hint {
 
 .admin {
   text-decoration: none;
-  color: $light-green;
+  color: #50ab4e;
 }

@@ -8,7 +8,7 @@ import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 import {Observable} from "rxjs";
 import {DataService} from "../../../../services/data/data.service";
 import {G2SEntry} from "../../../../interfaces/G2SEntry";
-import { MatTableDataSource, MatSnackBar } from '@angular/material';
+import { MatTableDataSource, MatSnackBar, MatStep } from '@angular/material';
 import { MatDialog } from '@angular/material';
 import { StructureViewerComponent } from '../structure-viewer/structure-viewer.component';
 import { NotificationService } from 'src/app/services/notification/notification.service';
@@ -22,14 +22,16 @@ import { NotificationService } from 'src/app/services/notification/notification.
 export class ShowresultsComponent implements OnInit {
   @Input()
   uniprot_id: any;
-  private cfg: any;
+  private cfg: string;
 
+  @Input() proteinDatabase: any;
   private percent: number;
   private g2sUrl: string = "https://g2s.genomenexus.org/api/alignments";
   progressBar = document.querySelector('.progress-bar');
   private intervalId: any;
   private showProgress: boolean;
-
+  private leftArrowEnabled: boolean;
+  private rightArrowEnabled: boolean;
   private isSummary: boolean;
   private isStructure: boolean;
   private isBlast: boolean;
@@ -60,6 +62,11 @@ export class ShowresultsComponent implements OnInit {
     return this.dataService.g2sLoading;
   }
 
+  get prettyConfig(): string {
+    if (this.cfg != undefined) return this.cfg[0].toUpperCase() + this.cfg.slice(1);
+    else return "";
+  }
+
   constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient,private dataService:DataService,
     private location: Location, public dialog: MatDialog, private notificationService: NotificationService) { }
 
@@ -80,6 +87,7 @@ export class ShowresultsComponent implements OnInit {
       //this.lmpd = new Observable<Lmpd_Arapidopsis[]>();
       //this.lmpd = new Lmpd_Arapidopsis();
       this.checkLmpd();
+      this.SelectConfig();
     });
   }
 
@@ -130,6 +138,7 @@ export class ShowresultsComponent implements OnInit {
     this.SelectConfig();
   }
   SelectConfig() {
+    console.log(this.cfg);
     switch (this.cfg) {
       case 'summary':
         this.isSummary = true;
@@ -160,7 +169,11 @@ export class ShowresultsComponent implements OnInit {
           this.intervalId = setInterval(getDownloadProgress, 500);
           this.isBlast = true;
           this.showProgress = true;
-          this.dataService.updateBlastRes(this.uniprot_id).subscribe(res=>{
+          if(this.proteinDatabase === undefined){
+            this.proteinDatabase = 'Arabidopsis';
+          }
+          console.log(this.proteinDatabase);
+          this.dataService.updateBlastRes(this.uniprot_id, this.proteinDatabase).subscribe(res=>{
             this.SplitRes(res);
             this.showProgress = false;
             clearInterval(this.intervalId);
@@ -176,6 +189,30 @@ export class ShowresultsComponent implements OnInit {
         break;
       default:
         console.log("wrong config");
+        break;
+    }
+    // update arrows
+    switch (this.cfg) {
+      case "summary":
+        this.leftArrowEnabled = false;
+        this.rightArrowEnabled = true;
+        break;
+      case "structure":
+        this.leftArrowEnabled = true;
+        this.rightArrowEnabled = true;
+        break;
+      case "blast":
+        this.leftArrowEnabled = true;
+        this.rightArrowEnabled = true;
+        break;
+      case "pathway":
+        this.leftArrowEnabled = true;
+        this.rightArrowEnabled = false;
+        break;
+      default:
+        this.leftArrowEnabled = false;
+        this.rightArrowEnabled = true;
+        break;
     }
   }
   SafeUrl(input: string) {
@@ -280,6 +317,45 @@ export class ShowresultsComponent implements OnInit {
       height: '700px',
       data: {pdbId: pdbId}
     });
+  }
+
+  arrowSelect(arrow: string, summaryStep: MatStep, structureStep: MatStep, blastStep: MatStep, pathwayStep: MatStep) { // arrow = "left" or "right" depending on what arrow was clicked
+    if (arrow == "left") {
+      switch (this.cfg) {
+        case "summary":
+          break;
+        case "structure":
+          summaryStep.select();
+          // this.changeConfig("summary");
+          break;
+        case "blast":
+          structureStep.select();
+          // this.changeConfig("structure");
+          break;
+        case "pathway":
+          blastStep.select();
+          // this.changeConfig("blast");
+          break;
+      }
+    }
+    else {
+      switch (this.cfg) {
+        case "summary":
+          structureStep.select();
+          // this.changeConfig("structure");
+          break;
+        case "structure":
+          blastStep.select();
+          // this.changeConfig("blast");
+          break;
+        case "blast":
+          pathwayStep.select();
+          // this.changeConfig("pathway");
+          break;
+        case "pathway":
+          break; // should not happen
+      }
+    }
   }
 
 }
