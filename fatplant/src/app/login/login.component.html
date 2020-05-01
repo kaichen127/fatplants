@@ -1,7 +1,7 @@
 <div class="container">
   <div class="picture">
     <div class="loginForm">
-        <mat-tab-group class="tabs" (selectedTabChange)="reset()" [backgroundColor]="'primary'" [color]="'accent'" class="tabs">
+        <mat-tab-group class="tabs" (selectedTabChange)="reset()" mat-stretch-tabs mat-align-tabs="center" [color]="'primary'">
           <mat-tab label="Email Login">
             <div class="emailForm">
               <mat-card class="futureEmail" *ngIf="user.displayName === ''">

@@ -229,14 +229,18 @@
 }
 
 .newsPics {
-  width: 5em;
+  width: 6em;
   height: 4em;
   box-shadow: 2px 2px 2px 2px $dark;
 }
 
+.fb {
+  width: 7em;
+}
+
 .information {
   min-height: 150px;
-  background-image: linear-gradient($light-green 1%, $main-green);
+  background-image: linear-gradient($cream, $light-green);
 }
 
 .sponsors {
@@ -251,14 +255,15 @@
   height: 7vw;
   width: 10vw;
   border-radius: 5px 5px 0 0;
-  margin-top: 50%;
+  margin-top: 10%;
+  padding-bottom: 20%;
 }
 
 .sponsorImgWSU {
   height: 3vw;
   width: 10vw;
   border-radius: 5px 5px 0 0;
-  margin-top: 50%;
+  margin-top: 30%;
 }
 
 a {
@@ -266,6 +271,10 @@ a {
   color: whitesmoke;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 1px 1px $dark;
+}
+
+.newsLink {
+  color: grey;
 }
 
 .external {
