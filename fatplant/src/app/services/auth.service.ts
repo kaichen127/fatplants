@@ -14,7 +14,7 @@ export class AuthService {
   constructor(public afAuth: AngularFireAuth, private router: Router, private afs: AngularFirestore){
   }
 
-  googleLogin(){
+  googleLogin() {
     console.log('google!!!!');
     return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
