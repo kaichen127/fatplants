@@ -17,7 +17,8 @@ export class ColorPathwayComponent implements OnInit {
   private loading = false;
   private searchQuery: string;
   private pathwaydb = [];
-  private items: Observable<Lmpd_Arapidopsis[]>;
+  //private items: Observable<Lmpd_Arapidopsis[]>;
+  private items = [];
 
   private imgUrl: SafeResourceUrl;
   private imgID: string;
@@ -36,6 +37,12 @@ export class ColorPathwayComponent implements OnInit {
         // console.log(line.split(','));
         this.pathwaydb.push(line.split(','));
       }
+      //console.log(this.pathwaydb);
+      this.pathwaydb.sort(function(a, b) {
+        if (a[a.length-1] < b[b.length-1]) return -1;
+        if (a[a.length-1] > b[b.length-1]) return 1;
+        return 0;
+      });
     });
   }
 
@@ -57,13 +64,20 @@ export class ColorPathwayComponent implements OnInit {
   Search() {
     if (this.uniprot == '') { return; }
     else {
-        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', this.uniprot.toUpperCase()).where('uniprot_id', '<=', this.uniprot + '\uf8ff')).valueChanges();
+      this.items = [];
+      for (var index in this.pathwaydb){
+        if (this.uniprot <= this.pathwaydb[index][this.pathwaydb[index].length-1] && this.uniprot+'\uf8ff' >= this.pathwaydb[index][this.pathwaydb[index].length-1] && !this.items.includes(this.pathwaydb[index][this.pathwaydb[index].length-1])){
+          this.items.push(this.pathwaydb[index][this.pathwaydb[index].length-1]);
+        }
+      }
+      console.log(this.items);
+      //this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', this.uniprot.toUpperCase()).where('uniprot_id', '<=', this.uniprot + '\uf8ff')).valueChanges();
     }
   }
 
   SearchUniprot(id: string) {
     for (var index in this.pathwaydb) {
-        if (this.pathwaydb[index][4] === id) {
+        if (this.pathwaydb[index][this.pathwaydb[index].length-1] === id) {
           this.pathwayList.push({id:this.pathwaydb[index][0],name:this.pathwaydb[index][1],url:this.SafeImg(this.pathwaydb[index][0])});
         }
       if (this.pathwayList.length != 0) this.loading = false;
@@ -78,6 +92,9 @@ export class ColorPathwayComponent implements OnInit {
       this.loading = false;
     }, 5000);
     this.debug = true;
-    
+
+  }
+  setDefaultSearch() {
+    this.uniprot = "Q06588";
   }
 }

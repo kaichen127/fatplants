@@ -13,6 +13,9 @@
         <mat-autocomplete #uniprot="matAutocomplete" position="below">
           <mat-option *ngFor="let item of items | async" [value]="item.uniprot_id">{{item.uniprot_id}}</mat-option>
         </mat-autocomplete>
+        <span id="help-icon-div">
+        <mat-icon id="help-icon" class="pointer" [matTooltip]="'Enter uniprot id to search. Click this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
+        </span>
       </mat-form-field>
     </div>
       <button mat-raised-button class="btn waves-effect waves-light" (click)="Glmol()">Search</button>

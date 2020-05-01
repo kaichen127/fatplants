@@ -102,3 +102,20 @@ a:hover {
   background-color: rgba($lime-green, 0.4);
   transition: all 0.5s cubic-bezier(.35,0,.25,1);
 }
+
+#help-icon-div {
+  position: absolute;
+  right: -10%;
+  vertical-align: middle;
+  height: 100%;
+}
+#help-icon {
+  position: absolute;
+  top: 0px;
+}
+.help-icon {
+  margin-left: 20px;
+}
+#identifier-help-icon {
+  color: rgba($main-green, 0.6);
+}
