@@ -2,16 +2,24 @@
   <div class="columns small-10 small-centered textrow ">
     <h1>Pathway Viewer</h1>
     <p>A tool for viewing Reactome Pathway Diagrams.</p>
+
   </div>
     <div class="row">
       <mat-form-field>
+
         <input type="text" matInput [matAutocomplete]="uniprotComplete" class="browser-default" placeholder="Uniprot ID" [(ngModel)]="uniprot" (keyup)="Search()">
+
         <mat-autocomplete #uniprotComplete="matAutocomplete" position="below">
-          <mat-option *ngFor="let item of items | async" [value]="item.uniprot_id">{{item.uniprot_id}}</mat-option>
+          <mat-option *ngFor="let item of items" [value]="item">{{item}}</mat-option>
         </mat-autocomplete>
+        <span id="help-icon-div">
+        <mat-icon id="help-icon" class="pointer" [matTooltip]="'Enter uniprot id to search. Click this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
+        </span>
       </mat-form-field>
+
     </div>
       <button mat-raised-button class="btn waves-effect waves-light" (click)="OnSubmit()">Search</button>
+
 
       <mat-progress-bar id="loading-bar" mode="indeterminate" *ngIf="this.loading"></mat-progress-bar>
 <div *ngIf="!loading && searchQuery != undefined">
