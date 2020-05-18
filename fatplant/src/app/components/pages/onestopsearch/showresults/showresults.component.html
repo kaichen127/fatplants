@@ -148,13 +148,8 @@
             <button mat-raised-button color="primary" class="viewer-button" (click)="showViewer(elem.pdbId)">
               <mat-icon [matTooltip]="'View ' + elem.pdbId">launch</mat-icon>
             </button>
-          </mat-cell>
-        </ng-container> 
-        <ng-container matColumnDef="3DViewer2">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>MUSite</mat-header-cell>
-          <mat-cell *matCellDef="let elem">
-            <a mat-button href="/static/display3d.html?url=rcsb://{{elem.pdbId}}" target="_blank">
-              <mat-icon [matTooltip]="'Visit MUSite for ' + elem.pdbId">exit_to_app</mat-icon>
+            <a mat-button href="/static/display3d.html?pdbId={{elem.pdbId}}" target="_blank">
+              <mat-icon [matTooltip]="'Open ' + elem.pdbId + ' in new tab'">exit_to_app</mat-icon>
             </a>
           </mat-cell>
         </ng-container>
