@@ -153,7 +153,7 @@
         <ng-container matColumnDef="3DViewer2">
           <mat-header-cell *matHeaderCellDef mat-sort-header>MUSite</mat-header-cell>
           <mat-cell *matCellDef="let elem">
-            <a mat-button href="https://www.musite.net/display3d.html?url=rcsb://{{elem.pdbId}}&sele=&position=" target="_blank">
+            <a mat-button href="/static/display3d.html?url=rcsb://{{elem.pdbId}}" target="_blank">
               <mat-icon [matTooltip]="'Visit MUSite for ' + elem.pdbId">exit_to_app</mat-icon>
             </a>
           </mat-cell>

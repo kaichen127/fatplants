@@ -225,6 +225,10 @@ export class ShowresultsComponent implements OnInit {
     const tmpurl = '/static/pathway.html?id=' + input;
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
+  SafeViewer(url: string) {
+    const tmpurl = '/static/display3d.html?url=' + url;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
+  }
   SplitRes(result: string) {
     //console.log(result);
     this.blastResList = [];
@@ -300,7 +304,7 @@ export class ShowresultsComponent implements OnInit {
     this.http.get(this.g2sUrl + "?sequence=" + this.dataService.seqence).subscribe((result : G2SEntry[]) => {
       this.G2SDataSource = new MatTableDataSource(result);
       if (result != undefined && result.length >= 1) {
-        this.defaultPdb = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.musite.net/display3d.html?url=rcsb://" + result[0].pdbId + "&sele=&position=");
+        this.defaultPdb = this.sanitizer.bypassSecurityTrustResourceUrl("/static/display3d.html?url=rcsb://" + result[0].pdbId);
         this.noPdb = false;
       }
       
