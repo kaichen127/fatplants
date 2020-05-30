@@ -1,12 +1,15 @@
 <mat-card>
-    <mat-card-header>
-      <div mat-card-avatar></div>
-      <mat-card-title *ngFor="let element of headers">{{element.name}}: {{element.val}}</mat-card-title>
-      <mat-card-subtitle *ngFor="let element of subheaders">{{element.name}}: {{element.val}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-       <ul> 
-         <li *ngFor="let element of fields">{{element.name}}: {{element.val}}</li>
-        </ul>
-    </mat-card-content>
-  </mat-card>
+
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title *ngFor="let element of headers">{{element.name}}: {{element.val}}</mat-card-title>
+    <mat-card-subtitle *ngFor="let element of subheaders">{{element.name}}: {{element.val}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <ul>
+      <li *ngFor="let element of fields">{{element.name}}: {{element.val}}</li>
+    </ul>
+  </mat-card-content>
+
+</mat-card>

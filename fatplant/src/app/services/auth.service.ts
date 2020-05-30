@@ -27,6 +27,10 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
+  getUsers() {
+    return this.afs.collection('users').get();
+  }
+
   findUser(email) {
     return this.afs.collection('users', ref =>
         ref.where('email', '==', email)
@@ -61,7 +65,7 @@ export class AuthService {
 
   getAdmins() {
     return this.afs.collection('users', ref =>
-      ref.where('admin', '==', true)
+      ref.where('admin', '<=', 1)
     ).get();
   }
 
