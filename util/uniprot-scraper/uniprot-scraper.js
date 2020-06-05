@@ -38,6 +38,8 @@ const readline = require('readline').createInterface({
     output: process.stdout
 });
 
+let data;
+
 switch(command) {
     case undefined:
         console.log("Specify an option to the script - use node uniprot-scraper.js help for available commands.");
@@ -100,6 +102,31 @@ switch(command) {
         }
         break;
 
+        // write 
+    case "write-uniprot-data":
+        data = JSON.parse(fs.readFileSync('./uniprot-data.json'));
+        var uniprotData = [];
+        data.forEach(entry => {
+            if(entry.uniprot_id.length === 6) {
+                uniprotData.push(entry);
+            }
+        });
+        writeUniprots(uniprotData).then(() => {
+            process.exit(0);
+        });
+        break;
+    case "write-soybean-data":
+        data = JSON.parse(fs.readFileSync('./uniprot-data.json'));
+        var soybeanData = [];
+        data.forEach(entry => {
+            if(entry.uniprot_id.length !== 6) {
+                soybeanData.push(entry);
+            }
+        });
+        writeSoybean(soybeanData).then(() => {
+            process.exit(0);
+        });
+        break;
     case "help":
         console.log(`
         Fatplant Uniprot Scraper
@@ -127,6 +154,110 @@ switch(command) {
         break;
 }
 
+
+async function writeUniprots(uniprotData) {
+    let FieldValue = require('firebase-admin').firestore.FieldValue;
+    return await async.eachLimit(uniprotData, 1, (uniprot, done) => {
+        fatplantdb.collection('Lmpd_Arapidopsis').where('uniprot_id', '==', uniprot.uniprot_id).get().then((res) => {
+            res.forEach((doc) => {
+                let updates = {
+                    dataset: (uniprot.data.dataset !== undefined) ? uniprot.data.dataset : undefined,
+                    created: (uniprot.data.created !== undefined) ? uniprot.data.created : undefined,
+                    modified: (uniprot.data.modified !== undefined) ? uniprot.data.modified : undefined,
+                    version: (uniprot.data.version !== undefined) ? uniprot.data.version : undefined,
+                    accession: (uniprot.data.accession !== undefined) ? uniprot.data.accession : undefined,
+                    name: (uniprot.data.name !== undefined) ? uniprot.data.name : undefined,
+                    recommendedName: (uniprot.data.protein.recommendedName !== undefined) ? (uniprot.data.protein.recommendedName.fullName['#text'] !== undefined)
+                    ? uniprot.data.protein.recommendedName.fullName['#text'] : uniprot.data.protein.recommendedName.fullText : undefined,
+                    primaryGeneName: (uniprot.data.gene !== undefined && uniprot.data.gene.name !== undefined) ? (typeof uniprot.data.gene.name === 'object') ? (Object.values(uniprot.data.gene.name).filter(nameObj => {
+                        return (nameObj.type === 'primary')
+                    })[0] !== undefined) ? Object.values(uniprot.data.gene.name).filter(nameObj => {
+                        return (nameObj.type === 'primary')
+                    })[0]['#text'] : undefined : (uniprot.data.gene.name.filter(nameObj => {
+                        return (nameObj.type === 'primary')
+                    })[0] !== undefined) ? uniprot.data.gene.name.filter(nameObj => {
+                        return (nameObj.type === 'primary')
+                    })[0]['#text'] : undefined : undefined,
+                    goReferences: (uniprot.data.dbReference !== undefined) ? uniprot.data.dbReference.filter(ref => {
+                        return (ref.type === 'GO')
+                    }) : undefined,
+                    subcelluarLocations: (uniprot.data.comment !== undefined) ? (typeof uniprot.data.comment === 'object') ? Object.values(uniprot.data.comment).filter(ref => {
+                        return ref.type === 'subcellular location'
+                    }) : uniprot.data.comment.filter(ref => {
+                        return ref.type === 'subcellular location'
+                    }) : undefined,
+                    features: (uniprot.data.feature !== undefined) ? (typeof uniprot.data.feature === 'object') ? Object.values(uniprot.data.feature).filter(feature => {
+                        return (feature.type === 'modified residue'
+                        || feature.type === 'region of interest'
+                        || feature.type === 'DNA-binding region'
+                        || feature.type === 'cross-link')
+                    }) : uniprot.data.feature.filter(feature => {
+                        return (feature.type === 'modified residue'
+                        || feature.type === 'region of interest'
+                        || feature.type === 'DNA-binding region'
+                        || feature.type === 'cross-link')
+                    }) : undefined
+                };
+                Object.keys(updates).forEach(key => {
+                    if(updates[key] === undefined) delete updates[key];
+                });
+                fatplantdb.collection('Lmpd_Arapidopsis').doc(doc.id).update(updates)
+                .then(res => { console.log("Written " + uniprot.uniprot_id) ; done()}).catch(error => {console.error('Document failed to write: ' + uniprot.uniprot_id);});
+            });
+        }).catch(error => {console.error('database fail'); done()});
+    });
+}
+async function writeSoybean(soybeanData) {
+    let FieldValue = require('firebase-admin').firestore.FieldValue;
+    return await async.eachLimit(soybeanData, 1, (uniprot, done) => {
+        fatplantdb.collection('Soybean').where('UniprotID', '==', uniprot.uniprot_id).get().then((res) => {
+            res.forEach((doc) => {
+                let updates = {
+                    dataset: (uniprot.data.dataset !== undefined) ? uniprot.data.dataset : undefined,
+                    created: (uniprot.data.created !== undefined) ? uniprot.data.created : undefined,
+                    modified: (uniprot.data.modified !== undefined) ? uniprot.data.modified : undefined,
+                    version: (uniprot.data.version !== undefined) ? uniprot.data.version : undefined,
+                    accession: (uniprot.data.accession !== undefined) ? uniprot.data.accession : undefined,
+                    name: (uniprot.data.name !== undefined) ? uniprot.data.name : undefined,
+                    recommendedName: (uniprot.data.protein.recommendedName !== undefined) ? (uniprot.data.protein.recommendedName.fullName['#text'] !== undefined)
+                    ? uniprot.data.protein.recommendedName.fullName['#text'] : uniprot.data.protein.recommendedName.fullText : undefined,
+                    primaryGeneName: (uniprot.data.gene !== undefined && uniprot.data.gene.name !== undefined) ? (typeof uniprot.data.gene.name === 'object') ? (Object.values(uniprot.data.gene.name).filter(nameObj => {
+                        return (nameObj.type === 'primary')
+                    })[0] !== undefined) ? Object.values(uniprot.data.gene.name).filter(nameObj => {
+                        return (nameObj.type === 'primary')
+                    })[0]['#text'] : undefined : (uniprot.data.gene.name.filter(nameObj => {
+                        return (nameObj.type === 'primary')
+                    })[0] !== undefined) ? uniprot.data.gene.name.filter(nameObj => {
+                        return (nameObj.type === 'primary')
+                    })[0]['#text'] : undefined : undefined,
+                    goReferences: (uniprot.data.dbReference !== undefined) ? uniprot.data.dbReference.filter(ref => {
+                        return (ref.type === 'GO')
+                    }) : undefined,
+                    subcelluarLocations: (uniprot.data.comment !== undefined) ? (typeof uniprot.data.comment === 'object') ? Object.values(uniprot.data.comment).filter(ref => {
+                        return ref.type === 'subcellular location'
+                    }) : uniprot.data.comment.filter(ref => {
+                        return ref.type === 'subcellular location'
+                    }) : undefined,
+                    features: (uniprot.data.feature !== undefined) ? (typeof uniprot.data.feature === 'object') ? Object.values(uniprot.data.feature).filter(feature => {
+                        return (feature.type === 'modified residue'
+                        || feature.type === 'region of interest'
+                        || feature.type === 'DNA-binding region'
+                        || feature.type === 'cross-link')
+                    }) : uniprot.data.feature.filter(feature => {
+                        return (feature.type === 'modified residue'
+                        || feature.type === 'region of interest'
+                        || feature.type === 'DNA-binding region'
+                        || feature.type === 'cross-link')
+                    }) : undefined
+                };
+                Object.keys(updates).forEach(key => {
+                    if(updates[key] === undefined) delete updates[key];
+                });
+                 fatplantdb.collection('Soybean').doc(doc.id).update(updates).then(res => { console.log("Written " + uniprot.uniprot_id) ; done()}).catch(error => {console.error('Document failed to write: ' + soybean.uniprot_id);});
+            });
+        }).catch(error => {console.error('database fail'); done()});
+    });
+}
 async function callUniprotAPI(uIdList) {
     var uIdEntries = [];
     var i = 0;
@@ -139,7 +270,7 @@ async function callUniprotAPI(uIdList) {
                 let data = XML.parse(xml, { ignoreAttributes: false, attributeNamePrefix: "" });
                 uIdEntries.push({
                     uniprot_id: uId,
-                    data: data.uniprot.entry.feature
+                    data: data.uniprot.entry
                 });
                 i++;
                 process.stdout.write("Uniprot ID: " + i + " / " + uIdList.length + " - " + ((i / uIdList.length * 100).toPrecision(3)) + "%   " + "\r");
