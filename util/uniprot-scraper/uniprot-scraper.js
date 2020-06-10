@@ -18,6 +18,7 @@ var fs = require('fs');
 var async = require('async');
 var fetch = require('node-fetch');
 var XML = require('fast-xml-parser');
+var lineReader = require('line-reader');
 
 const uniprotUrl = "https://uniprot.org/uniprot/";
 const fatplantFile = "./fatplant-uniprots.json";
@@ -127,6 +128,37 @@ switch(command) {
             process.exit(0);
         });
         break;
+    case "get-tair-ids":
+        var uniprotsToTair = [];
+        var fields = [];
+        var tmpTairs;
+        lineReader.eachLine('./uniprottoTAIR.txt', (line) => {
+            fields = line.split('\t');
+            if(line.includes("STOP")) {
+                fs.writeFileSync('./uniprotToTair.json', JSON.stringify(uniprotsToTair));
+                console.log('Written tair id json!');
+                process.exit(0);
+            }
+            if(uniprotsToTair.find(entry => entry.uniprot_id === fields[0]) !== undefined) {
+                uniprotsToTair.find(entry => entry.uniprot_id === fields[0]).tair_ids.push(fields[fields.length - 1]);
+                tmpTairs = uniprotsToTair.find(entry => entry.uniprot_id === fields[0]).tair_ids;
+                tairSet = new Set(tmpTairs);
+                uniprotsToTair.find(entry => entry.uniprot_id === fields[0]).tair_ids = Array.from(tairSet);
+            }
+            else {
+                uniprotsToTair.push({
+                    uniprot_id: fields[0],
+                    tair_ids: [fields[fields.length - 1]]
+                });
+            }
+        });
+        break;
+    case "write-tair-ids":
+        data = JSON.parse(fs.readFileSync('./uniprotToTair.json'));
+        writeTairIds(data).then(() => {
+            process.exit(0);
+        })
+        break;
     case "help":
         console.log(`
         Fatplant Uniprot Scraper
@@ -154,9 +186,18 @@ switch(command) {
         break;
 }
 
-
+async function writeTairIds(uniprotToTairs) {
+    return await async.eachLimit(uniprotToTairs, 1, (uniprotToTair, done) => {
+        if(uniprotToTair.uniprot_id.length !== 6) done();
+        fatplantdb.collection('Lmpd_Arapidopsis').where('uniprot_id', '==', uniprotToTair.uniprot_id).get().then(res => {
+            res.forEach(doc => {
+                fatplantdb.collection('Lmpd_Arapidopsis').doc(doc.id).update({tair_ids: uniprotToTair.tair_ids})
+                .then(res => { console.log("Written " + uniprotToTair.uniprot_id) ; done()}).catch(error => {console.error('Document failed to write: ' + uniprotToTair.uniprot_id);});
+            })
+        }).catch(error => {console.error('database fail'); done()});
+    })
+}  
 async function writeUniprots(uniprotData) {
-    let FieldValue = require('firebase-admin').firestore.FieldValue;
     return await async.eachLimit(uniprotData, 1, (uniprot, done) => {
         fatplantdb.collection('Lmpd_Arapidopsis').where('uniprot_id', '==', uniprot.uniprot_id).get().then((res) => {
             res.forEach((doc) => {
