@@ -106,6 +106,10 @@ mat-hint {
   box-sizing: border-box;
 }
 
+mat-row {
+  cursor: pointer;
+}
+
 .table-holder {
   overflow-y: scroll;
 }
@@ -160,4 +164,9 @@ mat-hint {
 .admin {
   text-decoration: none;
   color: #50ab4e;
+}
+
+.remove-cell {
+  display: flex;
+  justify-content: flex-end;
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
-import {MatTableDataSource} from '@angular/material';
+import {MatDialog, MatTableDataSource} from '@angular/material';
+import {UserModalComponent} from '../components/commons/user-modal/user-modal.component';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +35,9 @@ export class LoginComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   displayedColumns = ['users', 'emails', 'permissions'];
   newTab = 0;
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService,
+              private router: Router,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.authService.checkUser().subscribe(res => {
@@ -206,6 +209,13 @@ export class LoginComponent implements OnInit {
   emailValid(email) {
     const regex = new RegExp(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`);
     return regex.test(email);
+  }
+
+  openUser(user) {
+    const dialogRef = this.dialog.open(UserModalComponent, {
+      width: '60rem',
+      data: user
+    });
   }
 
   reset() {

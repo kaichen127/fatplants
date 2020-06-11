@@ -79,6 +79,7 @@ import {DataService} from 'src/app/services/data/data.service';
 import { LoginComponent } from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 import { StructureViewerComponent } from './components/pages/onestopsearch/structure-viewer/structure-viewer.component';
+import { UserModalComponent } from './components/commons/user-modal/user-modal.component';
 
 @NgModule({
   declarations: [
@@ -112,10 +113,12 @@ import { StructureViewerComponent } from './components/pages/onestopsearch/struc
     UnifiedDatapageComponent,
     DataAnalysisComponent,
     ShowresultsComponent,
-    StructureViewerComponent
+    StructureViewerComponent,
+    UserModalComponent
   ],
   entryComponents: [
-    StructureViewerComponent
+    StructureViewerComponent,
+    UserModalComponent
   ],
   imports: [
     BrowserModule,

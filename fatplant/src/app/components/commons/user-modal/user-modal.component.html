@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Manage User</h1>
+<div mat-dialog-content>
+  <div class="user-display">
+    <div class="username">
+      <mat-form-field>
+        <mat-label>Username:</mat-label>
+        <input matInput [(ngModel)]="data.displayName" />
+      </mat-form-field>
+    </div>
+    <div class="email">
+      <mat-form-field>
+        <mat-label>Email:</mat-label>
+        <input matInput [(ngModel)]="data.email" />
+      </mat-form-field>
+    </div>
+    <div class="permission">
+      <mat-form-field>
+        <mat-label>Permissions:</mat-label>
+        <input matInput [(ngModel)]="data.admin" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</div>
