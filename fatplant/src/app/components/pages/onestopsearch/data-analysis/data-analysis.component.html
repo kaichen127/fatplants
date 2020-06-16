@@ -74,6 +74,9 @@
       <div *ngIf="!isLoading && hasSearched">
         <mat-divider></mat-divider>
         <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot" [proteinDatabase]="this.proteindatabase"></app-showresults>
+          <button mat-raised-button color="primary" (click)="clickScroll('searchpage')">
+            <mat-icon style="-webkit-text-fill-color:white">arrow_upward</mat-icon>
+        </button>
         <div *ngIf="searchError" class="centered" id="error">The previous search did not match any records in the database.</div>
       </div>
     </div>

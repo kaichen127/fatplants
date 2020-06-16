@@ -110,20 +110,79 @@
 
   <p *ngIf="blastError" class="centered">No results were found for the previous search.</p>
   </div>
-  <div class="row" *ngFor="let res of blastRes">
-    <div class="blast">
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{res[0]}}
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <pre>{{res[1]}}</pre>
-      </mat-expansion-panel>
-    </mat-accordion>
+<!--  <div class="row" *ngFor="let res of blastRes">-->
+<!--    <div class="blast">-->
+<!--    <mat-accordion>-->
+<!--      <mat-expansion-panel>-->
+<!--        <mat-expansion-panel-header>-->
+<!--          <mat-panel-title>-->
+<!--            {{res[0]}}-->
+<!--          </mat-panel-title>-->
+<!--        </mat-expansion-panel-header>-->
+<!--        <pre>{{res[1]}}</pre>-->
+<!--      </mat-expansion-panel>-->
+<!--    </mat-accordion>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <mat-table [dataSource]='blastDataSource' id='table' *ngIf="blastDataSource">
+
+    <ng-container matColumnDef="sequences">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Sequences producing significant alignments </mat-header-cell>
+      <mat-cell *matCellDef="let elem">{{elem.sequences}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="score">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Score </mat-header-cell>
+      <mat-cell *matCellDef="let elem">{{ elem.score }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="evalue">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Evalue </mat-header-cell>
+      <mat-cell *matCellDef="let elem"> {{ elem.evalue }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="identities">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Identities </mat-header-cell>
+      <mat-cell *matCellDef="let elem"> {{ elem.identities }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="positives">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Positives </mat-header-cell>
+      <mat-cell *matCellDef="let elem"> {{ elem.positives }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gaps">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Gaps </mat-header-cell>
+      <mat-cell *matCellDef="let elem"> {{ elem.gaps }} </mat-cell>
+    </ng-container>
+<!--    <ng-container matColumnDef="expand">-->
+<!--      <mat-header-cell *matHeaderCellDef mat-sort-header> Expand </mat-header-cell>-->
+<!--      <mat-cell *matCellDef="let elem">-->
+<!--        <mat-expansion-panel>-->
+<!--        <mat-expansion-panel-header>-->
+<!--          <mat-panel-title>-->
+<!--            Click-->
+<!--          </mat-panel-title>-->
+<!--        </mat-expansion-panel-header>-->
+<!--        <pre>{{elem.expand}}</pre>-->
+<!--      </mat-expansion-panel> </mat-cell>-->
+<!--    </ng-container>-->
+
+    <ng-container matColumnDef="expandedDetail">
+      <mat-cell *matCellDef="let elem">
+        <pre class="precenter">{{elem.expand}}</pre>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['sequences','score','evalue','identities','gaps','positives']; sticky: true;"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['sequences','score','evalue','identities','gaps','positives'];" matRipple
+             class="element-row"
+             [cdkDetailRow]="row" [cdkDetailRowTpl]="tpl"></mat-row>
+
+  </mat-table>
+
+  <ng-template #tpl let-elem>
+    <div class="mat-row" [@detailExpand] style="overflow: hidden">
+      <pre class="precenter">{{elem.expand}}</pre>
     </div>
-  </div>
+  </ng-template>
+
 
 </mat-card>
 

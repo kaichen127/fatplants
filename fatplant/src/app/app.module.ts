@@ -79,6 +79,7 @@ import {DataService} from 'src/app/services/data/data.service';
 import { LoginComponent } from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 import { StructureViewerComponent } from './components/pages/onestopsearch/structure-viewer/structure-viewer.component';
+import { CdkDetailRowDirective } from './directives/cdk-detail-row.directive';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { StructureViewerComponent } from './components/pages/onestopsearch/struc
     UnifiedDatapageComponent,
     DataAnalysisComponent,
     ShowresultsComponent,
-    StructureViewerComponent
+    StructureViewerComponent,
+    CdkDetailRowDirective
   ],
   entryComponents: [
     StructureViewerComponent

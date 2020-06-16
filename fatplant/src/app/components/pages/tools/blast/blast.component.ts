@@ -3,13 +3,25 @@ import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, V
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AngularFirestore} from 'angularfire2/firestore';
+import {MatTableDataSource} from "@angular/material/table";
+import {DataSource} from '@angular/cdk/collections';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-blast',
   templateUrl: './blast.component.html',
-  styleUrls: ['./blast.component.scss']
+  styleUrls: ['./blast.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('void', style({height: '0px', minHeight: '0', visibility: 'hidden'})),
+      state('*', style({height: '*', visibility: 'visible'})),
+      transition('void <=> *', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class BlastComponent implements OnInit {
+
+  blastDataSource: MatTableDataSource<any>;
 
   public method: string;
   public proteinSeq: string;
@@ -31,6 +43,7 @@ export class BlastComponent implements OnInit {
     this.matrix = "PAM30";
     this.alertVisible = false;
     // this.items = db.collection('/Lmpd_Arapidopsis').valueChanges();
+    //this.blastDataSource = new MatTableDataSource([{'sequences':'aa','score':'aa','evalue':'aa','expand':'aa'},{'sequences':'aa','score':'aa','evalue':'aa','expand':'aa'}])
   }
   onSubmit() {
     if (this.proteinSeq === undefined){
@@ -48,12 +61,33 @@ export class BlastComponent implements OnInit {
       this.result = res;
         this.SplitRes(res);
         this.loading = false;
+        //console.log(res);
     });
   }
   ngOnInit() {
   }
 
   SplitRes(result: string) {
+    let lines = result.split('\n');
+    let start = 0;
+    let header = [];
+    let headerIndex = 0;
+    for (var l in lines){
+      //console.log(l,lines[l]);
+      if (lines[l].indexOf('Sequences producing significant alignment')!= -1){
+        start = Number(l);
+      }
+    }
+    if (start != 0){
+      start+=2;
+      while (lines[start].length>0){
+        let scoreEvalue = lines[start].substring(70,lines[start].length).split(' ');
+        header.push([lines[start].substring(0,70),Number(lines[start].substring(70,81)),Number(lines[start].substring(81,lines[start].length))]);
+        start+=1;
+      }
+    }
+    console.log(header);
+
     this.blastRes = [];
     let tmp: any;
     tmp = result.split('>');
@@ -67,9 +101,28 @@ export class BlastComponent implements OnInit {
       index = tmp[tmp.length - 1].search('Lambda');
       tmp[tmp.length - 1] = tmp[tmp.length - 1].substring(0, index);
       for (var i in tmp) {
-        this.blastRes.push([tmp[i].split(/\r?\n/)[0],tmp[i]])
+        var extract = tmp[i].split('\n');
+        var ScoreExpect = extract[4].split(',');
+        var IdentitiesPositivesGaps = extract[5].split(',');
+        var score = ScoreExpect[0].match(/=(.*)/)[1];
+        var expect = ScoreExpect[1].match(/=(.*)/)[1];
+        var identities = IdentitiesPositivesGaps[0].match(/=(.*)/)[1];
+        var positives = IdentitiesPositivesGaps[1].match(/=(.*)/)[1];
+        var gaps = IdentitiesPositivesGaps[2].match(/=(.*)/)[1];
+
+        console.log(ScoreExpect);
+        console.log(IdentitiesPositivesGaps);
+        console.log(score);
+        console.log(expect);
+        console.log(identities);
+
+        this.blastRes.push({'sequences':header[headerIndex][0],'score':score,'evalue':expect,'expand':tmp[i],'identities':identities,'positives':positives,'gaps':gaps})
+          //this.blastRes.push({'sequences':header[headerIndex][0],'score':header[headerIndex][1],'evalue':header[headerIndex][2],'expand':tmp[i]})
+        //this.blastRes.push([header[headerIndex],tmp[i]])
+        headerIndex+=1;
       }
     }
+    this.blastDataSource = new MatTableDataSource(this.blastRes);
   }
 
   changeDatabase(newDatabase: string) {

@@ -166,7 +166,7 @@ export class ShowresultsComponent implements OnInit {
               clearInterval(this.intervalId);
             }
           };
-          this.intervalId = setInterval(getDownloadProgress, 500);
+          this.intervalId = setInterval(getDownloadProgress, 700);
           this.isBlast = true;
           this.showProgress = true;
           if(this.proteinDatabase === undefined){
@@ -303,7 +303,7 @@ export class ShowresultsComponent implements OnInit {
         this.defaultPdb = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.musite.net/display3d.html?url=rcsb://" + result[0].pdbId + "&sele=&position=");
         this.noPdb = false;
       }
-      
+
       this.dataService.g2sLoading = false;
     }, error => {
       console.log('g2s error');
