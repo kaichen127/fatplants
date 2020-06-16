@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
+import {MatDialog, MatTableDataSource} from '@angular/material';
+import {UserModalComponent} from '../components/commons/user-modal/user-modal.component';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
   email = false;
   new = false;
   apply = false;
-  admin = false;
+  admin = 3;
   failed = false;
   success = false;
   match = false;
@@ -26,10 +28,16 @@ export class LoginComponent implements OnInit {
   checkPassword = '';
   type = '';
   admins = [];
+  users = [];
   user: any = {
     displayName: ''
   };
-  constructor(private authService: AuthService, private router: Router) { }
+  dataSource: MatTableDataSource<any>;
+  displayedColumns = ['users', 'emails', 'permissions'];
+  newTab = 0;
+  constructor(private authService: AuthService,
+              private router: Router,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.authService.checkUser().subscribe(res => {
@@ -40,6 +48,22 @@ export class LoginComponent implements OnInit {
       }
     });
     this.login('apply');
+    this.authService.getUsers().subscribe(res => {
+      res.docs.forEach(e => {
+        let currentUser = e.data();
+        if (currentUser.admin === 0) {
+          currentUser.admin = 'Administrator';
+        }
+        if (currentUser.admin === 1) {
+          currentUser.admin = 'Supervisor';
+        }
+        if (currentUser.admin === 2) {
+          currentUser.admin = 'General User';
+        }
+        this.users.push(currentUser);
+      });
+      this.dataSource = new MatTableDataSource(this.users);
+    })
   }
 
   login(type) {
@@ -53,7 +77,7 @@ export class LoginComponent implements OnInit {
               uid: res.user.uid,
               displayName: res.user.displayName,
               email: res.user.email,
-              admin: false
+              admin: 2
             };
             this.authService.findUser(user.email).subscribe(returned => {
               if (returned.docs.length < 1) {
@@ -87,7 +111,7 @@ export class LoginComponent implements OnInit {
     }
 
     if (type === 'admin') {
-      this.admin = true;
+      this.admin = 0;
     }
 
     if (type === 'logout') {
@@ -112,7 +136,7 @@ export class LoginComponent implements OnInit {
           const foundUser = res.docs[0].data();
           this.authService.assignAdmin(foundUser.uid).subscribe(ret => {
             const user = ret.docs[0].data();
-            user.admin = true;
+            user.admin = 1;
             const id = ret.docs[0].id;
             this.authService.updateUser(user, id).then(returned => {
               this.success = true;
@@ -158,7 +182,7 @@ export class LoginComponent implements OnInit {
               uid: resi.user.uid,
               displayName: resi.user.email,
               email: resi.user.email,
-              admin: false
+              admin: 2
             };
             this.authService.addUser(user).then(ret => {
               this.authService.emailLogin(email, password).then(returned => {
@@ -187,11 +211,18 @@ export class LoginComponent implements OnInit {
     return regex.test(email);
   }
 
+  openUser(user) {
+    const dialogRef = this.dialog.open(UserModalComponent, {
+      width: '60rem',
+      data: user
+    });
+  }
+
   reset() {
     this.email = false;
     this.new = false;
     this.apply = false;
-    this.admin = false;
+    this.admin = 3;
     this.failed = false;
     this.success = false;
     this.match = false;

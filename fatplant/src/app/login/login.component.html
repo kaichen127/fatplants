@@ -1,7 +1,7 @@
 <div class="container">
   <div class="picture">
     <div class="loginForm">
-        <mat-tab-group class="tabs" (selectedTabChange)="reset()" mat-stretch-tabs mat-align-tabs="center" [color]="'primary'">
+        <mat-tab-group class="tabs" [(selectedIndex)]="newTab" (selectedTabChange)="reset()" mat-stretch-tabs mat-align-tabs="center" [color]="'primary'">
           <mat-tab label="Email Login">
             <div class="emailForm">
               <mat-card class="futureEmail" *ngIf="user.displayName === ''">
@@ -73,11 +73,11 @@
             </div>
           </mat-tab>
 
-          <mat-tab label="Apply for Admin" *ngIf="user.admin !== true">
+          <mat-tab label="Apply for Supervisor" *ngIf="user.admin === 2">
             <div class="apply">
               <mat-card class="applyCard">
                 <mat-label>
-                  To apply to become an admin, please email one of our current admins and request membership.<br />
+                  To apply to become an Supervisor, please email one of our current admins and request membership.<br />
                   Please include your name, your organization, and why you need administrator access in your request.<br />
                   As soon as one of our admins receives your request, they can add you as an admin here in the app.
                 </mat-label>
@@ -91,17 +91,29 @@
             </div>
           </mat-tab>
 
-          <mat-tab label="Assign a New Admin" *ngIf="user.admin === true">
+          <mat-tab label="Manage Users" *ngIf="user.admin <= 1">
             <div class="newAdmin">
-              <mat-card class="futureAdmin">
-                <mat-form-field class="adminInput" >
-                  <mat-label>Email</mat-label>
-                  <input [(ngModel)]="adminEmail" matInput placeholder="Enter a User's email to add them as an admin."/>
-                </mat-form-field>
-                <mat-error *ngIf="failed">Could not find this user.</mat-error>
-                <mat-hint *ngIf="success">Successfully made the user an admin.</mat-hint>
-                <div class="adminButtons">
-                  <button mat-raised-button (click)="findAdmin(adminEmail)" class="adminButton">Assign Admin Role</button>
+              <mat-card>
+                <div class="table-holder">
+                  <table class="table" mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="users">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Users </mat-header-cell>
+                      <mat-cell *matCellDef="let user"> {{ user.displayName }} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="emails">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Emails </mat-header-cell>
+                      <mat-cell *matCellDef="let user"> {{ user.email }} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="permissions">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Permissions </mat-header-cell>
+                      <mat-cell *matCellDef="let user"> {{ user.admin }} </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openUser(row)"></mat-row>
+                  </table>
                 </div>
               </mat-card>
             </div>

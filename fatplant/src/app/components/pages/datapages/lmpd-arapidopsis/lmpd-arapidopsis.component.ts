@@ -19,7 +19,7 @@ export class LmpdArapidopsisComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  dataSource:MatTableDataSource<any>;
+  dataSource: MatTableDataSource<any>;
   chosenelem: any;
   loading: boolean;
   headerfields=[{name: 'Protein Name',val:null},{name:'Protein Entry',val:null}

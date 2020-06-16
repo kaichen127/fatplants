@@ -80,6 +80,7 @@ import { LoginComponent } from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 import { StructureViewerComponent } from './components/pages/onestopsearch/structure-viewer/structure-viewer.component';
 import { CdkDetailRowDirective } from './directives/cdk-detail-row.directive';
+import { UserModalComponent } from './components/commons/user-modal/user-modal.component';
 
 @NgModule({
   declarations: [
@@ -114,10 +115,12 @@ import { CdkDetailRowDirective } from './directives/cdk-detail-row.directive';
     DataAnalysisComponent,
     ShowresultsComponent,
     StructureViewerComponent,
-    CdkDetailRowDirective
+    CdkDetailRowDirective,
+    UserModalComponent
   ],
   entryComponents: [
-    StructureViewerComponent
+    StructureViewerComponent,
+    UserModalComponent
   ],
   imports: [
     BrowserModule,
