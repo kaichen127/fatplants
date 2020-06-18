@@ -116,6 +116,9 @@ switch(command) {
             process.exit(0);
         });
         break;
+    case "fix-protein-entries":
+        fixProteinEntries();
+        break;
     case "write-soybean-data":
         data = JSON.parse(fs.readFileSync('./uniprot-data.json'));
         var soybeanData = [];
@@ -184,6 +187,16 @@ switch(command) {
         console.log("Invalid command - use node uniprot-scraper.js help for available commands.");
         process.exit(0);
         break;
+}
+
+async function fixProteinEntries() {
+    return await fatplantdb.collection('Lmpd_Arapidopsis').get().then(async(snap) => {
+        return await async.eachLimit(snap.docs, 1, async(doc, done) => {
+            return await fatplantdb.collection('Lmpd_Arapidopsis').doc(doc.id).update({
+                protein_entry: doc.get('protein_entry').replace('_ARATH', '')
+            }).then(() => {console.log('written ' + doc.get('uniprot_id'))});
+        });
+    });
 }
 
 async function writeTairIds(uniprotToTairs) {
