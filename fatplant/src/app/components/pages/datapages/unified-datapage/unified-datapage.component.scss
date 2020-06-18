@@ -92,10 +92,10 @@ mat-cell>a:visited {
     background-color: rgba($yellow, 0.3);
 }
 
-#refseq-cell {
+.seq-cell {
     flex-wrap: wrap;
 }
 
-.refseq-entry {
+.seq-entry {
     margin: 2% 0;
 }

@@ -22,6 +22,12 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Page </mat-header-cell>
         <mat-cell *matCellDef="let elem"><a href="https://www.ncbi.nlm.nih.gov/protein/{{elem.refseq_id}}" target="_blank">{{ elem.refseq_id }}</a></mat-cell>
       </ng-container>
+      <ng-container matColumnDef="tair_ids">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Tair IDs </mat-header-cell>
+        <mat-cell *matCellDef="let elem" class="seq-cell">
+          <p *ngFor="let id of elem.tair_ids" class="seq-entry">{{id}}</p>
+        </mat-cell>
+      </ng-container>
       <ng-container matColumnDef="gene_name">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Gene Name </mat-header-cell>
         <mat-cell *matCellDef="let elem"> {{ elem.gene_name }} </mat-cell>
@@ -77,8 +83,8 @@
 
       <ng-container matColumnDef="soybean_refseq_id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Pages </mat-header-cell>
-        <mat-cell *matCellDef="let elem" id="refseq-cell">
-            <a *ngFor="let refSeq of elem.RefSeqList" class="refseq-entry" href="https://www.ncbi.nlm.nih.gov/protein/{{refSeq}}" target="_blank">{{refSeq}}</a>
+        <mat-cell *matCellDef="let elem" class="seq-cell">
+            <a *ngFor="let refSeq of elem.RefSeqList" class="seq-entry" href="https://www.ncbi.nlm.nih.gov/protein/{{refSeq}}" target="_blank">{{refSeq}}</a>
         </mat-cell>
       </ng-container>
 
