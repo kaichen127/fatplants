@@ -23,9 +23,14 @@
         <mat-cell *matCellDef="let elem"><a href="https://www.ncbi.nlm.nih.gov/protein/{{elem.refseq_id}}" target="_blank">{{ elem.refseq_id }}</a></mat-cell>
       </ng-container>
       <ng-container matColumnDef="tair_ids">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Tair IDs </mat-header-cell>
-        <mat-cell *matCellDef="let elem" class="seq-cell">
-          <p *ngFor="let id of elem.tair_ids" class="seq-entry">{{id}}</p>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Tair Page </mat-header-cell>
+        <mat-cell *matCellDef="let elem">
+          <span *ngIf="elem.tair_ids !== undefined && elem.tair_ids.length > 0">
+            <a class='link' *ngFor="let tair_id of uniqueTairs(elem.tair_ids)"
+              href="https://www.arabidopsis.org/servlets/TairObject?type=locus&name={{tair_id}}" target="_blank">
+              {{tair_id}}
+            </a>
+          </span>
         </mat-cell>
       </ng-container>
       <ng-container matColumnDef="gene_name">

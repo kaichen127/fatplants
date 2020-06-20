@@ -210,4 +210,7 @@ export class UnifiedDatapageComponent implements OnInit {
     });
     return data;
   }
+  uniqueTairs(tairIds) {
+    return [...new Set(tairIds.map(id => {return id.split('.')[0]}))];
+  }
 }
