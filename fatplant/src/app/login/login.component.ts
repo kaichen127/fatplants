@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           currentUser.admin = 'Supervisor';
         }
         if (currentUser.admin === 2) {
-          currentUser.admin = 'General User';
+          currentUser.admin = 'User';
         }
         this.users.push(currentUser);
       });

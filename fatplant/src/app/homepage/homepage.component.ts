@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../services/auth.service';
 declare var require: any;
 @Component({
   selector: 'app-homepage',
@@ -25,10 +26,20 @@ export class HomepageComponent implements OnInit {
 
   pageDisplay = 'page2';
   pager = 2;
+  user: any = {
+    displayName: ''
+  };
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.checkUser().subscribe(res => {
+      if (res !== null) {
+        this.authService.findUser(res.email).subscribe(ret => {
+          this.user = ret.docs[0].data();
+        });
+      }
+    });
     setInterval(() => {
       this.pager += 1;
       this.page(this.pager);

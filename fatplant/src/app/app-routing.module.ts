@@ -22,6 +22,7 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
 import { ShowresultsComponent } from './components/pages/onestopsearch/showresults/showresults.component';
 import {LoginComponent} from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
+import {AddNewsComponent} from './add-news/add-news.component';
 
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
@@ -44,6 +45,7 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'lmpddetailview/:uniprot_id', component: LmpddetailviewComponent},
 {path: 'fatty_acid', component: FattyacidComponent},
 {path: 'soybean', component: SoybeanComponent},
+{path: 'add-news', component: AddNewsComponent},
 {path: 'datasets', redirectTo: '/datasets/arabidopsis', pathMatch: 'full'},
 {path: 'datasets/:dataset', component: UnifiedDatapageComponent},
 {path:'showresults/:uniprot_id/:cfg', component:ShowresultsComponent},

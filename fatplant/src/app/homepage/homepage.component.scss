@@ -236,6 +236,19 @@
   font-size: 2em;
 }
 
+.add-news {
+  width: 5em;
+  height: 4em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-news-icon {
+  font-size: 5rem;
+}
+
 .newsInfo {
   display: flex;
   justify-content: space-evenly;
