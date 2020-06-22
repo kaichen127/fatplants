@@ -86,7 +86,7 @@ export class UnifiedDatapageComponent implements OnInit {
   get displayedColumns(): String[] {
     switch(this.dataset) {
       case "arabidopsis":
-        return ['uniprot_id','refseq_id','gene_name','gene_symbol','protein_entry','protein_name'];
+        return ['uniprot_id','refseq_id','tair_ids','gene_name','gene_symbol','protein_entry','protein_name'];
       case "camelina":
         return ['camelina','aralip_pathways','ath_description','no','homeologs'];
       case "soybean":
@@ -209,5 +209,8 @@ export class UnifiedDatapageComponent implements OnInit {
       }
     });
     return data;
+  }
+  uniqueTairs(tairIds) {
+    return [...new Set(tairIds.map(id => {return id.split('.')[0]}))];
   }
 }

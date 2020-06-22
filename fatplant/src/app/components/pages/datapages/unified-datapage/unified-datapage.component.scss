@@ -62,11 +62,11 @@ mat-row {
 mat-cell {
     padding-right: 2%;
 }
-mat-cell>a {
+mat-cell>a, mat-cell>span>a {
     text-decoration: none;
     color: $light-green;
 }
-mat-cell>a:visited {
+mat-cell>a:visited, mat-cell>span>a:visited {
     color: $dark-green;
 }
 
@@ -92,10 +92,10 @@ mat-cell>a:visited {
     background-color: rgba($yellow, 0.3);
 }
 
-#refseq-cell {
+.seq-cell {
     flex-wrap: wrap;
 }
 
-.refseq-entry {
+.seq-entry {
     margin: 2% 0;
 }
