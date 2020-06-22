@@ -1,0 +1,72 @@
+@import "~src/variables.scss";
+
+mat-card {
+  height: 60rem !important;
+  margin-bottom: 5rem;
+}
+
+.news-form {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.dropzone {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  font-weight: 200;
+  height: 200px;
+  border: 2px dashed #226D4D;
+  border-radius: 5px;
+  margin: 10px auto;
+  background-color: #eeeeee;
+  transition: color 0.5s, background-color 0.5s, border 1s;
+
+}
+.hovering{
+  color: white;
+  background-color: #9EC68F;
+  border: 2px solid #226D4D;
+}
+.file-label {
+  font-size: 1.2em;
+}
+
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}
+
+.pane {
+  margin: 15px auto 30px auto;
+  border: 1px solid gray;
+  padding: 10px;
+  box-shadow: 2px 2px 2px lightgray;
+  width: 90%;
+}
+#fileButton {
+  margin-left: 15px;
+  transition: background-color 0.5s;
+}
+#fileButton:hover {
+  background-color: rgba($lime-green, 0.3);
+  transition: all 0.5s;
+}
+
+.mobile {
+  margin: auto;
+  width: 95%;
+}
+
+mat-card.base {
+  // background-image: linear-gradient(to right, white, lightgrey) !important;
+  background-image: none !important;
+  width: 100%;
+  margin: 6% 0 0 0 !important;
+}

@@ -80,7 +80,7 @@ import { LoginComponent } from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 import { StructureViewerComponent } from './components/pages/onestopsearch/structure-viewer/structure-viewer.component';
 import { UserModalComponent } from './components/commons/user-modal/user-modal.component';
-import { AddNewsComponent } from './add-news/add-news.component';
+import { AddNewsComponent } from './components/pages/add-news/add-news.component';
 
 @NgModule({
   declarations: [

@@ -15,7 +15,7 @@
         <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>graphic_eq</mat-icon><div class="menu">Data</div>
       </li>
 
-      <li routerLink="/files" routerLinkActive="desktop-active" *ngIf="user.admin">
+      <li routerLink="/files" routerLinkActive="desktop-active" *ngIf="user.admin <= 2">
         <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>attach_file</mat-icon><div class="menu">Project Files</div>
       </li>
 

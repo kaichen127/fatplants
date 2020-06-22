@@ -11,4 +11,8 @@ export class FirestoreConnectionService {
   connect(collectionName:string){
     return this.afs.collection(collectionName,ref=>ref.limit(100)).valueChanges();
   }
+
+  getNews() {
+    return this.afs.collection('News').get();
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
+import {FirestoreConnectionService} from '../services/firestore-connection.service';
 declare var require: any;
 @Component({
   selector: 'app-homepage',
@@ -30,7 +31,10 @@ export class HomepageComponent implements OnInit {
     displayName: ''
   };
 
-  constructor(private authService: AuthService) { }
+  newsItems: any[] = [];
+
+  constructor(private authService: AuthService,
+              private firestoreConnection: FirestoreConnectionService) { }
 
   ngOnInit() {
     this.authService.checkUser().subscribe(res => {
@@ -39,6 +43,11 @@ export class HomepageComponent implements OnInit {
           this.user = ret.docs[0].data();
         });
       }
+    });
+    this.firestoreConnection.getNews().subscribe(res => {
+      res.forEach(doc => {
+        this.newsItems.push(doc.data());
+      });
     });
     setInterval(() => {
       this.pager += 1;

@@ -132,8 +132,12 @@
     </div>
 
     <div class="newsInfo">
-      <div><a href="https://10times.com/pag" class="newsLink"><img class="newsPics fb" [src]="FB" alt="FB" /><br /><br />Fatplant is moving to firebase! </a></div>
-      <div><a href="https://fatplant-76987.firebaseapp.com/homepage" class="newsLink"><img class="newsPics" [src]="PAG" alt="PAG"/><br /><br />Fatplant is heading to PAG! </a></div>
+      <div *ngFor="let item of newsItems">
+        <a class="newsLink" [href]="item.link">
+          <img class="newsPics" [src]="item.img" alt="news-thumbnail"/><br />
+          <span>{{ item.title }}</span>
+        </a>
+      </div>
       <div *ngIf="user.admin <= 1" class="add-news" routerLink="/add-news"><span class="material-icons add-news-icon">add_circle_outline</span></div>
     </div>
   </div>
