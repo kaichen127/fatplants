@@ -1,0 +1,15 @@
+mat-card {
+    font-family: 'Catamaran', sans-serif;
+    width: 100%;
+    height: auto;
+    background-image: none !important;
+    background-color: white;
+    margin: 0;
+    margin-top: 6%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  #protein-page {
+    min-height: calc(94% - 32px);
+    background-color: white;
+  }
