@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { ActivatedRoute } from '@angular/router';
+import { Lmpd_Arapidopsis } from 'src/app/interfaces/lmpd_Arapidopsis';
+import { ProteinEntry } from 'src/app/interfaces/ProteinEntry';
 
 @Component({
   selector: 'app-protein-detail',
@@ -7,9 +11,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProteinDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private afs: AngularFirestore, private route: ActivatedRoute) { }
 
+  uniprotId;
+  arapidopsisData: Lmpd_Arapidopsis;
+  proteinData: ProteinEntry;
+  proteinEntry;
+  isLoadingArapidopsis = true;
+  isLoadingProtein = true;
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.uniprotId = params['uniprot_id'];
+      this.proteinEntry = params['protein_entry'];
+      this.getUniprotData();
+      this.getProteinEntry();
+    });
+    
+  }
+
+  getUniprotData() {
+    this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprotId)).valueChanges().subscribe((res: any) => {
+      this.arapidopsisData = res[0];
+      console.dir(this.arapidopsisData);
+      this.isLoadingArapidopsis = false;
+    });
+  }
+  getProteinEntry() {
+    this.afs.collection('/Lmpd_Arapidopsis_Detail1', ref => ref.limit(1).where('entry', '==', this.proteinEntry)).valueChanges().subscribe((res: any) => {
+      this.proteinData = res[0];
+      console.dir(this.proteinData);
+      this.isLoadingProtein = false;
+    });
   }
 
 }

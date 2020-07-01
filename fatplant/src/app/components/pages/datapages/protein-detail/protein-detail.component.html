@@ -1,3 +1,13 @@
 <mat-card id="protein-page">
-
+    <div *ngIf='this.proteinData !== undefined && !this.isLoadingProtein'>
+        <strong class='protein-name'>Protein {{this.proteinData.entry}}</strong>
+        <div class='protein-info-card'>
+            <p>Gene: </p>
+            <p>Protein Lmp ID: </p>
+            <p>Protein mrna ID: </p>
+            <p>Protein Refseq ID: </p>
+            <p>Protein Tax ID: </p>
+            <p>Protein Uniprot ID: </p>
+        </div>
+    </div>
 </mat-card>

@@ -8,8 +8,22 @@ mat-card {
     margin-top: 6%;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-  }
-  #protein-page {
+}
+#protein-page {
     min-height: calc(94% - 32px);
     background-color: white;
-  }
+}
+.protein-name {
+    padding-left: 5%;
+    font-size: 20px;
+}
+.protein-info-card {
+    position: absolute;
+    left: 2%;
+    top: 10%;
+    width: 30%;
+    width: 30%;
+    background-color: #FDFAF0;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px;
+}
