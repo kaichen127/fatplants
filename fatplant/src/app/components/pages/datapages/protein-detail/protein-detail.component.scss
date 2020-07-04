@@ -1,5 +1,5 @@
 mat-card {
-    font-family: 'Catamaran', sans-serif;
+    font-family: "PT Sans", sans-serif;
     width: 100%;
     height: auto;
     background-image: none !important;
@@ -17,13 +17,47 @@ mat-card {
     padding-left: 5%;
     font-size: 20px;
 }
+.card-wrapper {
+    display: flex;
+    flex-direction: row;
+}
 .protein-info-card {
-    position: absolute;
-    left: 2%;
-    top: 10%;
     width: 30%;
-    width: 30%;
+    margin-top: 1%;
     background-color: #FDFAF0;
     border-radius: 5px;
     box-shadow: 0 1px 4px;
+}
+.protein-info-wrapper {
+    margin-left: 2%;
+}
+.protein-info {
+    margin-top: 0;
+}
+.protein-function-card {
+    width: 40%;
+    min-height: 40%;
+    margin-left: 10%;
+    margin-top: 1%;
+    background-color: rgba(#F9F9F9, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 1px 4px;
+}
+.domain-function-card {
+    width: 80%;
+    margin: auto;
+    margin-top: 3%;
+    background-color: rgba(#F9F9F9, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 1px 4px;
+}
+.protein-subtitle {
+    color: #205434;
+}
+.title {
+    margin-left: 1%;
+    font-weight: normal;
+}
+.back-text {
+    margin-left: 1vw;
 }

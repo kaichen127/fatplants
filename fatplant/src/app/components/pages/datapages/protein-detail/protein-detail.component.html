@@ -1,13 +1,31 @@
 <mat-card id="protein-page">
+    <button mat-button routerLink='/datasets/arabidopsis'>
+        <mat-icon>keyboard_arrow_left</mat-icon><span class='back-text'>Back</span>
+    </button>
+    <h2 class='title'>Protein Details</h2>
     <div *ngIf='this.proteinData !== undefined && !this.isLoadingProtein'>
-        <strong class='protein-name'>Protein {{this.proteinData.entry}}</strong>
-        <div class='protein-info-card'>
-            <p>Gene: </p>
-            <p>Protein Lmp ID: </p>
-            <p>Protein mrna ID: </p>
-            <p>Protein Refseq ID: </p>
-            <p>Protein Tax ID: </p>
-            <p>Protein Uniprot ID: </p>
+        <div class='card-wrapper'>
+        <mat-card class='protein-info-card'>
+            <div class='protein-info-wrapper'>
+                <p class='protein-info'>Gene: {{ arapidopsisData.gene_name }}</p>
+                <p class='protein-info protein-subtitle'>Lmp ID: {{ arapidopsisData.lmp_id }} </p>
+                <p class='protein-info'>Mrna ID: {{ arapidopsisData.mrna_id }}</p>
+                <p class='protein-info protein-subtitle'>Refseq ID: {{ arapidopsisData.refseq_id }}</p>
+                <p class='protein-info'>Tax ID: {{ arapidopsisData.taxid }}</p>
+                <p class='protein-info protein-subtitle'>Uniprot ID: {{ arapidopsisData.uniprot_id }}</p>
+            </div>
+        </mat-card>
+        <mat-card class='protein-function-card'>
+            <p class='protein-subtitle'>Protein Function</p>
+            <p class='protein-function'>{{ proteinData.function }}</p>
+        </mat-card>
         </div>
+        <mat-card class='domain-function-card'>
+            <p class='protein-subtitle'>Domain Function</p>
+        </mat-card>
+    </div>
+    <mat-progress-bar id="loading-bar" mode="indeterminate" *ngIf="this.isLoadingProtein"></mat-progress-bar>
+    <div class='no-data-message' *ngIf='this.proteinData === undefined && !this.isLoadingProtein'>
+        No protein data found matching '{{this.proteinEntry}}'
     </div>
 </mat-card>
