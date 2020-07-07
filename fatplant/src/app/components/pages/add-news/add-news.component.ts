@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {MobileService} from '../../../services/mobile/mobile.service';
 import { AngularFirestore } from 'angularfire2/firestore';
 import {NotificationService} from '../../../services/notification/notification.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-add-news',
@@ -55,6 +56,7 @@ export class AddNewsComponent implements OnInit {
     this.afs.collection('Files', ref => ref.where('fileName', '==', this.files[0].name)).get().subscribe(res => {
       this.afs.collection('News').add({
         title: this.title,
+        timestamp: firebase.firestore.Timestamp.now(),
         link: this.link,
         img: res.docs[0].data().url
       }).then(ret => {

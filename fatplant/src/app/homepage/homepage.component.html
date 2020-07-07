@@ -125,28 +125,54 @@
     </div>
   </div>
 
-  <div class="news">
-    <div class="latest">
-      Latest News<br />
-      ____
-    </div>
+  <div class="newspapers">
+    <div class="news">
+      <br />
+      <div class="latest">
+        Latest News<br />
+        ____
+      </div><br />
 
-    <div class="newsInfo">
-      <div *ngFor="let item of newsItems">
-        <a class="newsLink" [href]="item.link">
-          <img class="newsPics" [src]="item.img" alt="news-thumbnail"/><br />
-          <span>{{ item.title }}</span>
-        </a>
+      <div class="more-container">
+        <div class="less-news" *ngIf="more" (click)="previousNews()">
+
+        </div>
       </div>
+
+      <div class="news-item__container">
+        <div class="news-item" *ngFor="let item of displayedItems" [@enterAnimation]>
+          <a class="newsLink" [href]="item.link">
+            <img class="newsPics" [src]="item.img" alt="news-thumbnail"/><br />
+            <span>{{ item.title }}</span>
+          </a>
+        </div>
+      </div>
+      <div class="more-container">
+        <div class="more-news" (click)="moreNews()">
+
+        </div>
+      </div>
+
       <div *ngIf="user.admin <= 1" class="add-news" routerLink="/add-news"><span class="material-icons add-news-icon">add_circle_outline</span></div>
     </div>
+    <div class="papers">
+      <br />
+      <div class="latest">
+        Research Papers<br />
+        ____
+      </div>
+      <div class="paper-items">
+        paper 1
+      </div>
+    </div>
   </div>
-
   <div class="information">
     <div class="sponsors">
       <div class="external">
         <a href="http://www.muscifest.com/">Sci-FEST</a>
-        <a href="">Soybean Knowledge Base</a>
+        <a href="http://soykb.org/">Soybean Knowledge Base</a>
+        <a href="https://www.lipidmaps.org/">Lipid Maps</a>
+        <a href="https://www.lipidmaps.org/resources/lipidweb/index.php?page=info/cv-bchristie.htm">WW Christie</a>
       </div>
       <div class="contact">
         <span style="font-size: 25px;">Contact Us</span>

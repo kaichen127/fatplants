@@ -1,8 +1,18 @@
 @import "~src/variables.scss";
 
 mat-card {
-  height: 60rem !important;
-  margin-bottom: 5rem;
+  height: 100% !important;
+  margin: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 6rem;
+  overflow-y: hidden;
+  height: 64.3rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .news-form {

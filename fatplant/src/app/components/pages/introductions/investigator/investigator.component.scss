@@ -1,5 +1,5 @@
 .container {
-  margin-top: 6%;
+  margin-top: 8rem;
   box-sizing: border-box;
   font-family: "PT Serif", sans-serif;
   width: 100%;
@@ -55,4 +55,14 @@
 a {
   text-decoration: none;
   color: darkgray;
+}
+
+.header {
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  background-color: rgb(192, 192, 192, .8);
+  color: whitesmoke
 }

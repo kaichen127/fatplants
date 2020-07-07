@@ -11,6 +11,8 @@ export class InvestigatorComponent implements OnInit {
   ppl3 = require("../../../../assets/homepageAssets/DX.jpg");
   ppl4 = require("../../../../assets/homepageAssets/JT.jpg");
   ppl5 = require("../../../../assets/homepageAssets/PB.jpg");
+  pp16 = require("../../../../assets/homepageAssets/BW.jpg");
+
   constructor() { }
 
   ngOnInit() {

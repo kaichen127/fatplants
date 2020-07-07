@@ -1,3 +1,4 @@
+<div class="container">
 <mat-card>
   <div class="news-form">
     <mat-form-field>
@@ -21,7 +22,7 @@
       <p></p>
     </div>
     <button mat-raised-button id='fileButton' (click)='triggerFileWindow()'>Browse Files</button>
-    <input id='fileInput' mat-input #fileBrowser hidden type=file (change)='onDrop(fileBrowser.files)'>
+    <input id='fileInput' #fileBrowser hidden type=file (change)='onDrop(fileBrowser.files)'>
     <div *ngIf="files.length > 0" class="pane" [@fadeAnimation]="'in'">
       <h4>Current Uploads</h4>
       <div *ngFor="let file of files" [@fadeAnimation]="'in'">
@@ -32,3 +33,4 @@
     <button (click)="uploadNews()" mat-raised-button [disabled]="title === '' || link === '' || files.length !== 1">Add News</button>
   </div>
 </mat-card>
+</div>
