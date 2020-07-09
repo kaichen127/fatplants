@@ -63,6 +63,10 @@ export class AuthService {
     return this.loginStatus;
   }
 
+  resetPassword(email) {
+    return this.afAuth.auth.sendPasswordResetEmail(email);
+  }
+
   getAdmins() {
     return this.afs.collection('users', ref =>
       ref.where('admin', '<=', 1)

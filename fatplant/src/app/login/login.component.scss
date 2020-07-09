@@ -115,8 +115,10 @@ mat-row {
 }
 
 
-.newAdmin {
-
+.forgot {
+  color: #1C6EA4;
+  border-bottom: 1px solid #1C6EA4;
+  cursor: pointer;
 }
 
 .futureAdmin {
@@ -148,6 +150,10 @@ mat-row {
 
 .error {
   color: red;
+}
+
+.success-message {
+  color: #3adb76;
 }
 
 .apply {

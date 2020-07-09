@@ -16,7 +16,11 @@
     <div class="permission">
       <mat-form-field>
         <mat-label>Permissions:</mat-label>
-        <input matInput [(ngModel)]="data.admin" />
+        <mat-select [(value)]="data.admin">
+          <mat-option value="Administrator">Administrator</mat-option>
+          <mat-option value="Supervisor">Supervisor</mat-option>
+          <mat-option value="User">General User</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
   </div>
