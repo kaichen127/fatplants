@@ -50,7 +50,7 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'datasets', redirectTo: '/datasets/arabidopsis', pathMatch: 'full'},
 {path: 'datasets/:dataset', component: UnifiedDatapageComponent},
 {path: 'showresults/:uniprot_id/:cfg', component: ShowresultsComponent},
-{path: 'protein/:uniprot_id/:protein_entry', component: ProteinDetailComponent},
+{path: 'protein/:uniprot_id', component: ProteinDetailComponent},
 {path: '**', redirectTo: '/homepage'}];
 
 @NgModule({

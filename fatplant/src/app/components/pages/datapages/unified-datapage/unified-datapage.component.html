@@ -47,7 +47,7 @@
       </ng-container>
       <ng-container matColumnDef="protein_entry">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
-        <mat-cell *matCellDef="let elem"><a [routerLink]="['/protein', elem.uniprot_id, elem.protein_entry]"> {{ elem.protein_entry }} </a></mat-cell>
+        <mat-cell *matCellDef="let elem"><a [routerLink]="['/protein', elem.uniprot_id]"> {{ elem.protein_entry }} </a></mat-cell>
       </ng-container>
       <ng-container matColumnDef="moreInfo">
         <mat-header-cell *matHeaderCellDef mat-sort-header>More</mat-header-cell>
@@ -108,7 +108,7 @@
 
       <ng-container matColumnDef="soybean_protein_entry">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
-        <mat-cell *matCellDef="let elem"><a [routerLink]="['/protein', elem.UniprotID, elem.ProteinEntry]"> {{ elem.protein_entry }} </a>}</mat-cell>
+        <mat-cell *matCellDef="let elem">{{ elem.ProteinEntry }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="picture">
