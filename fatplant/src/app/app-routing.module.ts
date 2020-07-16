@@ -22,6 +22,7 @@ import { SoybeanComponent } from './components/pages/datapages/soybean/soybean.c
 import { ShowresultsComponent } from './components/pages/onestopsearch/showresults/showresults.component';
 import {LoginComponent} from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
+import { ProteinDetailComponent } from './components/pages/datapages/protein-detail/protein-detail.component';
 import {AddNewsComponent} from './components/pages/add-news/add-news.component';
 
 
@@ -48,7 +49,8 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'add-news', component: AddNewsComponent},
 {path: 'datasets', redirectTo: '/datasets/arabidopsis', pathMatch: 'full'},
 {path: 'datasets/:dataset', component: UnifiedDatapageComponent},
-{path:'showresults/:uniprot_id/:cfg', component:ShowresultsComponent},
+{path: 'showresults/:uniprot_id/:cfg', component: ShowresultsComponent},
+{path: 'protein/:uniprot_id', component: ProteinDetailComponent},
 {path: '**', redirectTo: '/homepage'}];
 
 @NgModule({

@@ -81,6 +81,7 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
 import { StructureViewerComponent } from './components/pages/onestopsearch/structure-viewer/structure-viewer.component';
 import { UserModalComponent } from './components/commons/user-modal/user-modal.component';
 import { AddNewsComponent } from './components/pages/add-news/add-news.component';
+import { ProteinDetailComponent } from './components/pages/datapages/protein-detail/protein-detail.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +117,8 @@ import { AddNewsComponent } from './components/pages/add-news/add-news.component
     ShowresultsComponent,
     StructureViewerComponent,
     UserModalComponent,
-    AddNewsComponent
+    AddNewsComponent,
+    ProteinDetailComponent
   ],
   entryComponents: [
     StructureViewerComponent,
