@@ -80,5 +80,17 @@ export class ProteinDetailComponent implements OnInit {
     });
     return output;
   }
+  getAlternativeNames(altNames) {
+    let output = '';
+    altNames.forEach((name, i, names) => {
+      if (i === names.length - 1) {
+        output += name;
+      }
+      else {
+        output += name + ', ';
+      }
+    });
+    return output;
+  }
 
 }

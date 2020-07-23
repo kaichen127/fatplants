@@ -60,6 +60,7 @@ mat-card {
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 0;
+    margin-bottom: 0;
     font-weight: normal;
 }
 .back-text {
@@ -99,4 +100,8 @@ mat-card {
 #sequence-button {
     color: white;
     margin-left: 2vw;
+}
+.alt-names {
+    margin: 0 0 0 1%;
+    font-size: 0.85em;
 }

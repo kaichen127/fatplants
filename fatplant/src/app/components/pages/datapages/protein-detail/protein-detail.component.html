@@ -11,7 +11,17 @@
             <mat-icon class='info-icon' [matTooltip]='"This entry has not been reviewed by the UniProtKB curators, and may not have complete data."'>info</mat-icon>
             Unreviewed
         </p>
-        <h2 class='title'>{{ proteinData.protein_names }}</h2>
+        <h2 class='title'>
+            <span *ngIf='arapidopsisData.recommendedName !== undefined'>
+                {{ arapidopsisData.recommendedName }}
+            </span>
+            <span *ngIf='arapidopsisData.recommendedName === undefined'>
+                {{ arapidopsisData.gene_name }}
+            </span>
+        </h2>
+        <p class='alt-names' *ngIf='arapidopsisData.alternativeNames !== undefined && arapidopsisData.alternativeNames.length > 0'>
+            Alternative Names: {{getAlternativeNames(arapidopsisData.alternativeNames)}}
+        </p>
         <p class='status'> Created {{arapidopsisData.created}} | Modified {{arapidopsisData.modified}}</p>
         <p class='status'>Version {{arapidopsisData.version}}</p>
         <div class='card-wrapper'>
@@ -64,7 +74,7 @@
                             {{ elem.location.end.position - elem.location.begin.position }}
                         </span>
                         <span *ngIf='elem.location.end === undefined && elem.location.begin === undefined'>
-                            0
+                            1
                         </span>
                     </mat-cell>
                 </ng-container>  
