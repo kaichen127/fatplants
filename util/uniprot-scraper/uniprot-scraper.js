@@ -190,11 +190,12 @@ switch(command) {
 }
 
 async function fixProteinEntries() {
-    return await fatplantdb.collection('Lmpd_Arapidopsis').get().then(async(snap) => {
+    return await fatplantdb.collection('Lmpd_Arapidopsis_Detail1').get().then(async(snap) => {
         return await async.eachLimit(snap.docs, 1, async(doc, done) => {
-            return await fatplantdb.collection('Lmpd_Arapidopsis').doc(doc.id).update({
-                protein_entry: doc.get('protein_entry').replace('_ARATH', '')
-            }).then(() => {console.log('written ' + doc.get('uniprot_id'))});
+            if (doc.get('entry_name') !== undefined) return await fatplantdb.collection('Lmpd_Arapidopsis_Detail1').doc(doc.id).update({
+                'entry_name': (doc.get('entry_name') !== undefined) ? doc.get('entry_name').replace('_ARATH', '') : undefined
+            }).then(() => {console.log('written')});
+            else return;
         });
     });
 }
@@ -211,6 +212,8 @@ async function writeTairIds(uniprotToTairs) {
     })
 }  
 async function writeUniprots(uniprotData) {
+    var count = 0;
+    var total = uniprotData.length;
     return await async.eachLimit(uniprotData, 1, (uniprot, done) => {
         fatplantdb.collection('Lmpd_Arapidopsis').where('uniprot_id', '==', uniprot.uniprot_id).get().then((res) => {
             res.forEach((doc) => {
@@ -221,8 +224,24 @@ async function writeUniprots(uniprotData) {
                     version: (uniprot.data.version !== undefined) ? uniprot.data.version : undefined,
                     accession: (uniprot.data.accession !== undefined) ? uniprot.data.accession : undefined,
                     name: (uniprot.data.name !== undefined) ? uniprot.data.name : undefined,
-                    recommendedName: (uniprot.data.protein.recommendedName !== undefined) ? (uniprot.data.protein.recommendedName.fullName['#text'] !== undefined)
-                    ? uniprot.data.protein.recommendedName.fullName['#text'] : uniprot.data.protein.recommendedName.fullText : undefined,
+                    recommendedName: (uniprot.data.protein.recommendedName !== undefined) 
+                    ? (uniprot.data.protein.recommendedName.fullName['#text'] !== undefined)
+                        ? uniprot.data.protein.recommendedName.fullName['#text'] 
+                        : uniprot.data.protein.recommendedName.fullText 
+                    : (uniprot.data.protein.submittedName !== undefined && uniprot.data.protein.submittedName.fullName !== undefined)
+                        ? (uniprot.data.protein.submittedName.fullName['#text'] !== undefined)
+                            ? uniprot.data.protein.submittedName.fullName['#text']
+                            : uniprot.data.protein.submittedName.fullText
+                        : undefined,
+                    alternativeNames: (uniprot.data.protein.alternativeName !== undefined)
+                    ? (uniprot.data.protein.alternativeName.map !== undefined)
+                            ? uniprot.data.protein.alternativeName.map(nameObj => {
+                            return (nameObj.fullName['#text'] !== undefined)
+                                ? nameObj.fullName['#text']
+                                : nameObj.fullName
+                        })
+                        : [uniprot.data.protein.alternativeName]
+                    : [],
                     primaryGeneName: (uniprot.data.gene !== undefined && uniprot.data.gene.name !== undefined) ? (typeof uniprot.data.gene.name === 'object') ? (Object.values(uniprot.data.gene.name).filter(nameObj => {
                         return (nameObj.type === 'primary')
                     })[0] !== undefined) ? Object.values(uniprot.data.gene.name).filter(nameObj => {
@@ -256,9 +275,9 @@ async function writeUniprots(uniprotData) {
                     if(updates[key] === undefined) delete updates[key];
                 });
                 fatplantdb.collection('Lmpd_Arapidopsis').doc(doc.id).update(updates)
-                .then(res => { console.log("Written " + uniprot.uniprot_id) ; done()}).catch(error => {console.error('Document failed to write: ' + uniprot.uniprot_id);});
+                .then(res => { count++; console.log(count + ' / ' + total + '\r') ; done()}).catch(error => {count++;});
             });
-        }).catch(error => {console.error('database fail'); done()});
+        }).catch(error => {console.error('database fail'); console.dir(error); done()});
     });
 }
 async function writeSoybean(soybeanData) {
