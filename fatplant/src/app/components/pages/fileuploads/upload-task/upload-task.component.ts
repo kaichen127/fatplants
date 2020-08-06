@@ -13,13 +13,14 @@ import { AngularFirestore } from 'angularfire2/firestore';
 export class UploadTaskComponent implements OnInit {
 
   @Input() file:File;
-  @Input() lab:string;
+  @Input() lab: string;
+  @Input() path: string;
 
   @Output() delete: EventEmitter<File> = new EventEmitter();
-  
+
   task: AngularFireUploadTask;
 
-  static ctr:number=0;
+  static ctr: number = 0;
 
   percentage: Observable<number>;
   snapshot: Observable<any>;
@@ -32,11 +33,11 @@ export class UploadTaskComponent implements OnInit {
 
   startUpload(){
     const id=this.afs.createId();
-    const path='files/'+this.lab+"/"+id+"_"+this.file.name;
+    const path= this.path + '/'+this.lab+"/"+id+"_"+this.file.name;
 
-    const ref=this.storage.ref(path)
+    const ref=this.storage.ref(path);
 
-    this.task=this.storage.upload(path,this.file)
+    this.task=this.storage.upload(path,this.file);
 
     this.percentage=this.task.percentageChanges();
 

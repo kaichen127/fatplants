@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   exists = false;
   badEmail = false;
   message = '';
+  successMessage = '';
   adminEmail = '';
   submittedEmail = '';
   submittedPassword = '';
@@ -58,7 +59,7 @@ export class LoginComponent implements OnInit {
           currentUser.admin = 'Supervisor';
         }
         if (currentUser.admin === 2) {
-          currentUser.admin = 'General User';
+          currentUser.admin = 'User';
         }
         this.users.push(currentUser);
       });
@@ -200,6 +201,21 @@ export class LoginComponent implements OnInit {
     }
 
     this.badEmail = !validEmail;
+  }
+
+  sendResetEmail() {
+    if (this.submittedEmail === '' || this.submittedEmail === undefined) {
+      this.message = 'Please add a valid email to reset your password.';
+    } else {
+      this.message = '';
+      this.authService.resetPassword(this.submittedEmail).then(res => {
+        this.message = '';
+        this.successMessage = 'Successfully sent reset email, please check your email.';
+        console.log('sent');
+      }, err => {
+        this.message = err.message;
+      });
+    }
   }
 
   checkPass() {

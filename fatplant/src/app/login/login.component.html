@@ -15,9 +15,11 @@
                   <input [(ngModel)]="submittedPassword" type="password" matInput placeholder="Enter your password"/>
                 </mat-form-field>
                 <mat-hint *ngIf="message !== ''" class="error">{{ message }}</mat-hint>
+                <mat-hint *ngIf="successMessage !== ''" class="success-message">{{ successMessage }}</mat-hint>
                 <mat-hint *ngIf="failed" class="error">This email password combination failed.</mat-hint>
                 <mat-hint *ngIf="success">Successfully logged in as {{ user.displayName }}.</mat-hint>
                 <div class="emailButtons">
+                  <span class="forgot" (click)="sendResetEmail()">Forgot your password? Request a new one here.</span><br /><br />
                   <button mat-raised-button (click)="emailLogin(submittedEmail, submittedPassword)" class="emailButton">Sign in</button>
                 </div>
               </mat-card>

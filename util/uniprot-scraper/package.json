@@ -1,0 +1,12 @@
+{
+	"name": "fatplant-uniprot-scraper",
+	"description": "A simple script to collect data from uniprot.org",
+	"version": "0.1.0",
+	"dependencies": {
+		"async": "^3.2.0",
+		"fast-xml-parser": "^3.17.2",
+		"firebase-admin": "^8.12.1",
+		"line-reader": "^0.4.0",
+		"node-fetch": "^2.6.0"
+	}
+}

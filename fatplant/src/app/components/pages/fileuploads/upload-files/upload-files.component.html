@@ -26,7 +26,7 @@
   <div *ngIf="files.length > 0" class="pane" [@fadeAnimation]="'in'">
       <h4>Current Uploads</h4>
       <div *ngFor="let file of files" [@fadeAnimation]="'in'">
-          <app-upload-task [file]="file" [lab]="lab"
+          <app-upload-task path="files" [file]="file" [lab]="lab"
           (delete)="removeFile($event)"></app-upload-task>
       </div>
   </div>

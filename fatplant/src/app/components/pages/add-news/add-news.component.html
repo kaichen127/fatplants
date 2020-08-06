@@ -1,0 +1,36 @@
+<div class="container">
+<mat-card>
+  <div class="news-form">
+    <mat-form-field>
+      <mat-label>News Title</mat-label>
+      <input [(ngModel)]="title" matInput placeholder="Enter the Title of Your News"/>
+      <mat-hint class="error"></mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>News Link</mat-label>
+      <input [(ngModel)]="link" matInput placeholder="Enter the Link to Your News"/>
+      <mat-hint class="error"></mat-hint>
+    </mat-form-field>
+    <mat-label>Upload a Thumbnail</mat-label>
+    <div class="dropzone"
+         dropzone
+         (hovered)="toggleHover($event)"
+         (dropped)="onDrop($event)"
+         [class.hovering]="isHovering"
+         *ngIf="!isMobile">
+      <h3>Drag Images Here</h3>
+      <p></p>
+    </div>
+    <button mat-raised-button id='fileButton' (click)='triggerFileWindow()'>Browse Files</button>
+    <input id='fileInput' #fileBrowser hidden type=file (change)='onDrop(fileBrowser.files)'>
+    <div *ngIf="files.length > 0" class="pane" [@fadeAnimation]="'in'">
+      <h4>Current Uploads</h4>
+      <div *ngFor="let file of files" [@fadeAnimation]="'in'">
+        <app-upload-task path="images" [file]="file" [lab]="lab"
+                         (delete)="removeFile($event)"></app-upload-task>
+      </div>
+    </div>
+    <button (click)="uploadNews()" mat-raised-button [disabled]="title === '' || link === '' || files.length !== 1">Add News</button>
+  </div>
+</mat-card>
+</div>

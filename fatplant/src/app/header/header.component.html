@@ -15,7 +15,7 @@
         <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>graphic_eq</mat-icon><div class="menu">Data</div>
       </li>
 
-      <li routerLink="/files" routerLinkActive="desktop-active" *ngIf="user.admin">
+      <li routerLink="/files" routerLinkActive="desktop-active" *ngIf="user.admin <= 2">
         <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>attach_file</mat-icon><div class="menu">Project Files</div>
       </li>
 
@@ -50,7 +50,11 @@
 
 </mat-card>
 <div class="loginInfo" *ngIf="hello">
-  Hello,<span *ngIf="user.admin"> admin</span> {{ user.displayName }}
+  Hello,
+  <span *ngIf="user.admin === 0"> admin</span>
+  <span *ngIf="user.admin === 1"> supervisor</span>
+  <span *ngIf="user.admin === 2"> user</span>
+  {{ user.displayName }}
 </div>
 
 <mat-menu #dataMenu class="mat-menu-content">
@@ -60,9 +64,10 @@
   <a mat-menu-item routerLink="/fatty_acid" class="menu-item" routerLinkActive="desktop-active-menu-item">Fatty Acid</a>
 </mat-menu>
 <mat-menu #toolsMenu class="mat-menu-content">
-  <a mat-menu-item routerLink="/blast" routerLinkActive="desktop-active-menu-item"class="menu-item" (click)="sideNav.close()">Blast</a>
+  <a mat-menu-item routerLink="/blast" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Blast</a>
   <a mat-menu-item routerLink="/glmol" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">GLmol</a>
   <a mat-menu-item routerLink="/color-pathway" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Pathway Viewer</a>
+  <a mat-menu-item routerLink="/add-news" routerLinkActive="desktop-active-menu-item" class="menu-item" (click)="sideNav.close()">Add News</a>
 </mat-menu>
 
 <mat-menu #graphMenu class="mat-menu-content">

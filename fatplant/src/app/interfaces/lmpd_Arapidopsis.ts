@@ -1,7 +1,9 @@
+import {FunctionEntry} from './FunctionEntry';
 export interface Lmpd_Arapidopsis {
 	entrez_gene_id: string;
 	gene_name: string;
 	gene_symbol: string;
+	features: Array<FunctionEntry>,
 	lmp_id: string;
 	mrna_id: string;
 	protein_entry: string;

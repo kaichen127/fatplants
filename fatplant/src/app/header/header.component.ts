@@ -95,7 +95,7 @@ export class HeaderComponent implements OnInit {
       } else {
         this.email = '';
         this.user = {
-          admin: false,
+          admin: 3,
           displayName: 'Guest'
         };
       }

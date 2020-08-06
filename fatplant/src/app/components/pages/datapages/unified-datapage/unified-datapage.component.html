@@ -22,6 +22,17 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Page </mat-header-cell>
         <mat-cell *matCellDef="let elem"><a href="https://www.ncbi.nlm.nih.gov/protein/{{elem.refseq_id}}" target="_blank">{{ elem.refseq_id }}</a></mat-cell>
       </ng-container>
+      <ng-container matColumnDef="tair_ids">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Tair Page </mat-header-cell>
+        <mat-cell *matCellDef="let elem">
+          <span *ngIf="elem.tair_ids !== undefined && elem.tair_ids.length > 0">
+            <a class='link' *ngFor="let tair_id of uniqueTairs(elem.tair_ids)"
+              href="https://www.arabidopsis.org/servlets/TairObject?type=locus&name={{tair_id}}" target="_blank">
+              {{tair_id}}
+            </a>
+          </span>
+        </mat-cell>
+      </ng-container>
       <ng-container matColumnDef="gene_name">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Gene Name </mat-header-cell>
         <mat-cell *matCellDef="let elem"> {{ elem.gene_name }} </mat-cell>
@@ -36,9 +47,7 @@
       </ng-container>
       <ng-container matColumnDef="protein_entry">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
-        <!-- link to old protein entry page
-        <mat-cell *matCellDef="let elem"><a [routerLink]="['/lmpddetailview', elem.uniprot_id]"> {{ elem.protein_entry }} </a></mat-cell> -->
-        <mat-cell *matCellDef="let elem">{{ elem.protein_entry }}</mat-cell>
+        <mat-cell *matCellDef="let elem"><a [routerLink]="['/protein', elem.uniprot_id]"> {{ elem.protein_entry }} </a></mat-cell>
       </ng-container>
       <ng-container matColumnDef="moreInfo">
         <mat-header-cell *matHeaderCellDef mat-sort-header>More</mat-header-cell>
@@ -77,8 +86,8 @@
 
       <ng-container matColumnDef="soybean_refseq_id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Pages </mat-header-cell>
-        <mat-cell *matCellDef="let elem" id="refseq-cell">
-            <a *ngFor="let refSeq of elem.RefSeqList" class="refseq-entry" href="https://www.ncbi.nlm.nih.gov/protein/{{refSeq}}" target="_blank">{{refSeq}}</a>
+        <mat-cell *matCellDef="let elem" class="seq-cell">
+            <a *ngFor="let refSeq of elem.RefSeqList" class="seq-entry" href="https://www.ncbi.nlm.nih.gov/protein/{{refSeq}}" target="_blank">{{refSeq}}</a>
         </mat-cell>
       </ng-container>
 
@@ -99,7 +108,7 @@
 
       <ng-container matColumnDef="soybean_protein_entry">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
-        <mat-cell *matCellDef="let elem"> {{ elem.ProteinEntry }}</mat-cell>
+        <mat-cell *matCellDef="let elem">{{ elem.ProteinEntry }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="picture">
