@@ -465,6 +465,10 @@ exports.blastp = functions.https.onRequest((req, res) => {
   });
 
   exports.kegg = functions.https.onRequest((req, res) => {
+    //see kegg api
+    //id is kegg id
+    //cfg: get or link
+    //para: image, conf, etc
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
@@ -487,8 +491,9 @@ exports.blastp = functions.https.onRequest((req, res) => {
     if (cfg === 'link'){
       url = 'http://rest.kegg.jp/link/pathway/' + id;
     }
-    if (url != undefined && url != ''){
+    if (url !== undefined && url !== ''){
       request.get(url).pipe(res);
+      console.log("request finished");
     }
-    
+
   });
