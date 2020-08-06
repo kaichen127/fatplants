@@ -56,6 +56,7 @@ export class ShowresultsComponent implements OnInit {
 
   private pathwayList=[];
   private pathwayDb=[];
+  private tairId=[];
   private displayedColumns = ['pdbId', 'pdbNo', 'chain', 'evalue', 'bitscore', 'identity', 'pdbRange', 'seqRange', '3DViewer'];
 
   get g2sLoading(): boolean {
@@ -97,6 +98,7 @@ export class ShowresultsComponent implements OnInit {
       if(this.uniprot_id === this.dataService.uniprot_id && !this.dataService.loading){
         console.log("get lmpd");
         this.lmpd = this.dataService.getLmpdData();
+        this.tairId = this.lmpd.tair_ids;
         this.SearchDefaultPDB(this.uniprot_id);
         this.SelectConfig();
         this.searchG2S();
@@ -109,6 +111,7 @@ export class ShowresultsComponent implements OnInit {
           this.dataService.lmpd = res[0];
           this.dataService.BlastNeedUpdate = true;
           this.lmpd = res[0];
+          this.tairId = this.lmpd.tair_ids;
           this.SearchDefaultPDB(this.uniprot_id);
           this.dataService.loading = false;
           this.SelectConfig();
@@ -292,9 +295,17 @@ export class ShowresultsComponent implements OnInit {
     });
   }
   SearchPathway(id: string) {
+    console.log(this.tairId);
     for (var index in this.pathwayDb) {
       if (this.pathwayDb[index][4] === id) {
         this.pathwayList.push({id:this.pathwayDb[index][0],name:this.pathwayDb[index][1],url:this.SafeImg(this.pathwayDb[index][0])});
+      }
+      else{
+        for(var i in this.tairId){
+          if (this.tairId[i].split('.')[0] === this.pathwayDb[index][3]){
+            this.pathwayList.push({id:this.pathwayDb[index][0],name:this.pathwayDb[index][1],url:this.SafeImg(this.pathwayDb[index][0])});
+          }
+        }
       }
     }
   }

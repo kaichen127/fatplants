@@ -133,3 +133,13 @@ a:hover {
 #identifier-help-icon {
   color: rgba($main-green, 0.6);
 }
+
+.pathway-radio-group {
+  flex-direction: column;
+  margin: auto;
+
+}
+
+.pathway-radio-button {
+  margin: 5px;
+}

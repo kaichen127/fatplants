@@ -1,7 +1,8 @@
+
 <mat-card class="row columns base" style="min-width: 1000px">
   <div class="columns small-10 small-centered textrow ">
     <h1>Pathway Viewer</h1>
-    <p>A tool for viewing Reactome Pathway Diagrams.</p>
+    <p>A tool for viewing KEGG pathway figure.</p>
 
   </div>
     <div class="row">
@@ -15,10 +16,20 @@
         <span id="help-icon-div">
         <mat-icon id="help-icon" class="pointer" [matTooltip]="'Enter uniprot id to search. Click this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
         </span>
+
       </mat-form-field>
 
     </div>
       <button mat-raised-button class="btn waves-effect waves-light" (click)="OnSubmit()">Search</button>
+<br>
+  <mat-radio-group
+    aria-labelledby="pathway-radio-group-label"
+    class="pathway-radio-group"
+    [(ngModel)]="currPath">
+    <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwayList" [value]="pathway" (change)="loadImage()">
+      {{pathway}}
+    </mat-radio-button>
+  </mat-radio-group>
 
 
       <mat-progress-bar id="loading-bar" mode="indeterminate" *ngIf="this.loading"></mat-progress-bar>
@@ -27,17 +38,27 @@
   <label>Pathway Figures for Uniprot ID {{this.searchQuery}}</label>
   <br>
   <div id="pathway-viewer">
-  <mat-tab-group style="color: #4CAF50" id="pathway-tabs" animationDuration="0ms">
+<!--  <mat-tab-group style="color: #4CAF50" id="pathway-tabs" animationDuration="0ms">-->
 
-    <mat-tab *ngFor="let pathway of pathwayList" [label]="pathway.name">
-      <ng-template matTabContent>
-        <iframe class="pathway-view" [src]="pathway.url" style="width: 100%" height="768" frameborder="0" scrolling="0"></iframe>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
+<!--    <mat-tab *ngFor="let pathway of pathwayList" [label]="pathway.name">-->
+<!--      <ng-template matTabContent>-->
+<!--        <iframe class="pathway-view" [src]="pathway.url" style="width: 100%" height="768" frameborder="0" scrolling="0"></iframe>-->
+<!--      </ng-template>-->
+<!--    </mat-tab>-->
+<!--  </mat-tab-group>-->
 </div>
 
   <h5 *ngIf="noimg">No pathway figure found in database.</h5>
 
 </div>
+
+  <div>
+    <br>
+    <br>
+    <canvas #canvasEl width="1500" height="1500">
+
+    </canvas>
+  </div>
+
 </mat-card>
+
