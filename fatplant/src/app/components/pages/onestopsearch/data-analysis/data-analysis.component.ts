@@ -29,17 +29,17 @@ export class DataAnalysisComponent implements OnInit {
   private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
   private lmpd: Observable<Lmpd_Arapidopsis[]>
 
-  private query: string;
-  private tabIndex: number;
-  private uniprot: string = null;
-  private searchError: boolean = false;
-  private isLoading: boolean;
-  private hasSearched: boolean = false;
+  query: string;
+  tabIndex: number;
+  uniprot: string = null;
+  searchError: boolean = false;
+  isLoading: boolean;
+  hasSearched: boolean = false;
   private imgUrl: SafeResourceUrl;
   private imgs = [];
   private noimg: boolean;
   private nopdb: boolean;
-  private proteindatabase: string = "Arabidopsis";
+  proteindatabase: string = "Arabidopsis";
   private pathwaydb = [];
 
   private species: string;

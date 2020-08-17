@@ -10,15 +10,15 @@ import { AngularFirestore } from 'angularfire2/firestore';
   styleUrls: ['./color-pathway.component.scss']
 })
 export class ColorPathwayComponent implements OnInit {
-  private noimg: boolean;
+  noimg: boolean;
   private imgs = [];
-  private uniprot: string;
+  uniprot: string;
   private debug: boolean;
-  private loading = false;
-  private searchQuery: string;
+  loading = false;
+  searchQuery: string;
   private pathwaydb = [];
   //private items: Observable<Lmpd_Arapidopsis[]>;
-  private items = [];
+  items = [];
 
   private imgUrl: SafeResourceUrl;
   private imgID: string;
@@ -27,7 +27,7 @@ export class ColorPathwayComponent implements OnInit {
   private defaultValue1 = 'null';
   private defaultValue2 = 'null';
   private linkList = [];
-  private pathwayList = [];
+  pathwayList = [];
 
   constructor(private sanitizer: DomSanitizer, private http: HttpClient, private afs: AngularFirestore) {
     this.pathwaydb = [];

@@ -49,10 +49,10 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
         <mat-cell *matCellDef="let elem"><a [routerLink]="['/protein', elem.uniprot_id]"> {{ elem.protein_entry }} </a></mat-cell>
       </ng-container>
-      <ng-container matColumnDef="moreInfo">
+      <!-- <ng-container matColumnDef="moreInfo">
         <mat-header-cell *matHeaderCellDef mat-sort-header>More</mat-header-cell>
         <mat-cell *matCellDef="let elem"><button mat-raised-button [matMenuTriggerFor]="dropdownMenu" (click)="changeElem(elem)">More Info?</button></mat-cell>
-      </ng-container>
+      </ng-container> -->
 
       <ng-container matColumnDef="camelina">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Camelina </mat-header-cell>

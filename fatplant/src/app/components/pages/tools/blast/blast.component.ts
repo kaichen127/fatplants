@@ -18,12 +18,12 @@ export class BlastComponent implements OnInit {
   public evalue: string;
   public items: any;
 
-  private isLoading: boolean;
-  private result: string;
-  private blastRes = [];
-  private loading = false;
-  private blastError = false;
-  private alertVisible = false;
+  isLoading: boolean;
+  result: string;
+  blastRes = [];
+  loading = false;
+  blastError = false;
+  alertVisible = false;
   blastForm: FormGroup;
   constructor(private http: HttpClient, private router: Router, db: AngularFirestore) {
     this.database = 'Arabidopsis';

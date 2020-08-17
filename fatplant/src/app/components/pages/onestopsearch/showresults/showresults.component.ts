@@ -25,38 +25,38 @@ export class ShowresultsComponent implements OnInit {
   private cfg: string;
 
   @Input() proteinDatabase: any;
-  private percent: number;
+  percent: number;
   private g2sUrl: string = "https://g2s.genomenexus.org/api/alignments";
   progressBar = document.querySelector('.progress-bar');
   private intervalId: any;
-  private showProgress: boolean;
-  private leftArrowEnabled: boolean;
-  private rightArrowEnabled: boolean;
-  private isSummary: boolean;
-  private isStructure: boolean;
-  private isBlast: boolean;
-  private isPathway: boolean;
+  showProgress: boolean;
+  leftArrowEnabled: boolean;
+  rightArrowEnabled: boolean;
+  isSummary: boolean;
+  isStructure: boolean;
+  isBlast: boolean;
+  isPathway: boolean;
 
   private href2summary: string;
   private href2structure: string;
   private href2blast: string;
   private href2pathway: string;
-  private G2SDataSource: MatTableDataSource<G2SEntry>;
+  G2SDataSource: MatTableDataSource<G2SEntry>;
 
   private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
   //private lmpd: Observable<Lmpd_Arapidopsis[]>
-  private lmpd: Lmpd_Arapidopsis;
+  lmpd: Lmpd_Arapidopsis;
 
   private blastResList=[];
-  private showBlastResList=[];
+  showBlastResList=[];
 
   private pdbList=[];
-  private noPdb: boolean;
-  private defaultPdb: any;
+  noPdb: boolean;
+  defaultPdb: any;
 
-  private pathwayList=[];
+  pathwayList=[];
   private pathwayDb=[];
-  private displayedColumns = ['pdbId', 'pdbNo', 'chain', 'evalue', 'bitscore', 'identity', 'pdbRange', 'seqRange', '3DViewer'];
+  displayedColumns = ['pdbId', 'pdbNo', 'chain', 'evalue', 'bitscore', 'identity', 'pdbRange', 'seqRange', '3DViewer'];
 
   get g2sLoading(): boolean {
     return this.dataService.g2sLoading;
@@ -67,8 +67,8 @@ export class ShowresultsComponent implements OnInit {
     else return "";
   }
 
-  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient,private dataService:DataService,
-    private location: Location, public dialog: MatDialog, private notificationService: NotificationService) { }
+  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient, public dataService: DataService,
+    private location: Location, public dialog: MatDialog, public notificationService: NotificationService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

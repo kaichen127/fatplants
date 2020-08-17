@@ -36,7 +36,7 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private mobileService: MobileService, private authService: AuthService, private router: Router) { }
+  constructor(public mobileService: MobileService, public authService: AuthService, private router: Router) { }
 
   email = '';
   user: any = {

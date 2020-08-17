@@ -19,7 +19,7 @@ export class AppComponent {
   @ViewChild('header', null)
   header: HeaderComponent;
 
-  constructor(private mobileService: MobileService, private authService: AuthService) {}
+  constructor(private mobileService: MobileService, public authService: AuthService) {}
   ngAfterViewInit() {
     this.scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

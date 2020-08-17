@@ -14,7 +14,7 @@ import { NotificationService } from 'src/app/services/notification/notification.
 })
 export class ProteinDetailComponent implements OnInit {
 
-  constructor(private afs: AngularFirestore, private route: ActivatedRoute, private notificationService: NotificationService) { }
+  constructor(private afs: AngularFirestore, private route: ActivatedRoute, public notificationService: NotificationService) { }
 
   uniprotId;
   arapidopsisData: Lmpd_Arapidopsis;

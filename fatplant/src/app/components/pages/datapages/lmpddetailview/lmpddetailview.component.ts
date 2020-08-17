@@ -26,16 +26,16 @@ export class LmpddetailviewComponent implements OnInit {
   public errorMsg;
   csvContent: string;
   private uniprot_id: any;
-  private items: any;
+  items: any;
   private result: any;
   private tabresult: any;
   private detailresult: any;
   private moreresult: any;
   private tabitem: any;
-  private detailitem: any;
+  detailitem: any;
   private moreitem: any;
   private sub: any;
-  private resultsequence: any;
+  resultsequence: any;
 
   // displayedColumns = ['Entry','Entry_name','Status','Protein_names','Gene_names','Organism','Length','Chain'];
   // displayedColumns = ['Entry','Status','Organism','Length','Chain'];

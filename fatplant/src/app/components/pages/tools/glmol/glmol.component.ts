@@ -11,14 +11,14 @@ import { Lmpd_Arapidopsis } from 'src/app/interfaces/lmpd_Arapidopsis';
   styleUrls: ['./glmol.component.scss']
 })
 export class GlmolComponent implements OnInit {
-  private pdbs = [];
+  pdbs = [];
   public items: Observable<Lmpd_Arapidopsis[]>;
-  private nopdb: boolean;
+  nopdb: boolean;
 
   private glmolUrl: SafeResourceUrl;
-  private isGlmol: boolean;
-  private glmolID: string;
-  private searchQuery: string;
+  isGlmol: boolean;
+  glmolID: string;
+  searchQuery: string;
   constructor(private sanitizer: DomSanitizer, private afs: AngularFirestore, private http: HttpClient) { }
 
   ngOnInit() {

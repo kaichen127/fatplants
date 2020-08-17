@@ -9,8 +9,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class StructureViewerComponent implements OnInit {
 
-  private pdbLink;
-  private pdbId: string;
+  pdbLink;
+  pdbId: string;
   constructor(public dialogRef: MatDialogRef<StructureViewerComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public sanitizer: DomSanitizer) {
     this.pdbId = data.pdbId;
     this.pdbLink = this.sanitizer.bypassSecurityTrustResourceUrl("/static/display3d.html?pdbId=" + this.pdbId);
