@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
 
   mobileNavbar: ElementRef;
 
-  @ViewChild('desktopNavbar', {read: ElementRef, static: false})
+  @ViewChild('desktopNavbar', { read: ElementRef })
 
   desktopNavbar: ElementRef;
 

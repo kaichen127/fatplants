@@ -1,4 +1,4 @@
-import {Component, OnChanges, Renderer, ElementRef, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnChanges, ElementRef, Input, Output, EventEmitter, Renderer2 } from '@angular/core';
 import avsdf from 'cytoscape-avsdf';
 declare var cytoscape: any;
 
@@ -32,7 +32,7 @@ export class NgCytoComponent implements OnChanges {
 
 
 
-    public constructor(private renderer : Renderer, private el: ElementRef) {
+    public constructor(private renderer : Renderer2, private el: ElementRef) {
 
         this.layout = this.layout || {
                 name: 'grid',

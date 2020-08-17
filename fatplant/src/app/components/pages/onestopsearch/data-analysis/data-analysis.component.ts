@@ -22,7 +22,7 @@ import { ShowresultsComponent } from '../showresults/showresults.component';
   styleUrls: ['./data-analysis.component.scss']
 })
 export class DataAnalysisComponent implements OnInit {
-  @ViewChild('pdf', { static: false }) pdf: ElementRef;
+  @ViewChild('pdf') pdf: ElementRef;
   public items: Observable<Lmpd_Arapidopsis[]>;
   private itemCollection: AngularFirestoreCollection<any>;
 
