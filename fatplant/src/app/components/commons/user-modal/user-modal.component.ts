@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {FirestoreConnectionService} from '../../../services/firestore-connection.service';
 import {NotificationService} from '../../../services/notification/notification.service';
 import {AuthService} from '../../../services/auth.service';

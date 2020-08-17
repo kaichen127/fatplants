@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { FatPlantDataSource } from 'src/app/interfaces/FatPlantDataSource';
 import {AngularFirestore,AngularFirestoreCollection} from 'angularfire2/firestore'
 import { ViewChild } from '@angular/core';

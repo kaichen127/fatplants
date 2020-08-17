@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirestoreConnectionService } from 'src/app/services/firestore-connection.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { FatPlantDataSource } from 'src/app/interfaces/FatPlantDataSource';
 import { globalRefreshTime } from 'src/app/constants';
 

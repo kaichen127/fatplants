@@ -2,7 +2,8 @@
 import { AuthService } from '../services/auth.service';
 import {Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 import { MobileService } from '../services/mobile/mobile.service';
-import { MatSidenav, MatIcon} from '@angular/material';
+import { MatIcon } from '@angular/material/icon';
+import { MatSidenav } from '@angular/material/sidenav';
 import { trigger, transition, style, animate } from '@angular/animations';
 import {Router} from '@angular/router';
 

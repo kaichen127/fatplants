@@ -8,8 +8,10 @@ import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 import {Observable} from "rxjs";
 import {DataService} from "../../../../services/data/data.service";
 import {G2SEntry} from "../../../../interfaces/G2SEntry";
-import { MatTableDataSource, MatSnackBar, MatStep } from '@angular/material';
-import { MatDialog } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatStep } from '@angular/material/stepper';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 import { StructureViewerComponent } from '../structure-viewer/structure-viewer.component';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 

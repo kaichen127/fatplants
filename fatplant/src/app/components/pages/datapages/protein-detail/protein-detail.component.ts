@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Lmpd_Arapidopsis } from 'src/app/interfaces/lmpd_Arapidopsis';
 import { ProteinEntry } from 'src/app/interfaces/ProteinEntry';
 import { FunctionEntry } from 'src/app/interfaces/FunctionEntry';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 
 @Component({
