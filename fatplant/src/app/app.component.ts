@@ -13,10 +13,10 @@ export class AppComponent {
   scrollObserver: IntersectionObserver;
   opaque: boolean = false;
 
-  @ViewChild('scrollMarker', null)
+  @ViewChild('scrollMarker', {})
   scrollMarker: ElementRef;
 
-  @ViewChild('header', null)
+  @ViewChild('header', {})
   header: HeaderComponent;
 
   constructor(private mobileService: MobileService, public authService: AuthService) {}

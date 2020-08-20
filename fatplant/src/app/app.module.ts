@@ -34,7 +34,7 @@ import {NgCytoComponent} from './components/pages/networks/ng-cyto/ng-cyto.compo
 
 
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
-import { CytoscapeModule } from 'ngx-cytoscape';
+// import { CytoscapeModule } from 'ngx-cytoscape';
 // import { GraphComponent } from './go-network/protein-network/protein-network.component';
 
 //Firestore modules
@@ -146,7 +146,7 @@ import { ProteinDetailComponent } from './components/pages/datapages/protein-det
     CdkTableModule,
     HttpClientModule,
     FormsModule,
-    CytoscapeModule,
+    // CytoscapeModule,
     ReactiveFormsModule,
     MatPaginatorModule,
     MatTabsModule,

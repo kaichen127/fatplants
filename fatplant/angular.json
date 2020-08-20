@@ -5,9 +5,11 @@
   "projects": {
     "fatplant": {
       "projectType": "application",
-      "schematics": {  "@schematics/angular:component": {
-        "style": "scss"
-      }},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -134,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "fatplant"
+  "defaultProject": "fatplant",
+  "cli": {
+    "analytics": "bb5e650b-8eb9-473a-ac7c-3862a9499838"
+  }
 }

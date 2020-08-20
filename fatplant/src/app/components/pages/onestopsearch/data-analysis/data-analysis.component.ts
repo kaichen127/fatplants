@@ -59,7 +59,7 @@ export class DataAnalysisComponent implements OnInit {
   private result: string;
   private blastRes = [];
   private showblastRes = [];
-  @ViewChild(ShowresultsComponent, null)
+  @ViewChild(ShowresultsComponent, {})
   private results: ShowresultsComponent;
 
   blastSelected: boolean = false;

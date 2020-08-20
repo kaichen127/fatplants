@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
   };
   hello = false;
 
-  @ViewChild('mobileNavbar', null)
+  @ViewChild('mobileNavbar', {})
 
   mobileNavbar: ElementRef;
 
