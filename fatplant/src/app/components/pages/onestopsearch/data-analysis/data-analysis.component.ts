@@ -137,28 +137,32 @@ export class DataAnalysisComponent implements OnInit {
     this.nopdb = false;
     this.dataService.BlastNeedUpdate = true;
 
-    switch (this.tabIndex){
-      case 0:
-        if (!this.blastSelected) this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
-         this.validateResult(res[0]);
-        });
-        else {
-          this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('sequence', '==', this.query)).valueChanges().subscribe((res: any) => {
+    if(this.blastSelected){
+      this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('sequence', '==', this.query)).valueChanges().subscribe((res: any) => {
+        this.validateResult(res[0]);
+      });
+    }
+    else{
+      switch (this.tabIndex){
+        case 0:
+          this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
             this.validateResult(res[0]);
           });
-        }
-        break;
-      case 1:
-        this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
-          if (this.validateResult(res[0])) {
-            this.results.uniprot_id = this.uniprot;
-            this.results.checkLmpd(); // refresh lmpd data for new uniprot
-          }
-         });
-        break;
-      default:
-        break;
+          break;
+        case 1:
+          this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
+            if (this.validateResult(res[0])) {
+              this.results.uniprot_id = this.uniprot;
+              this.results.checkLmpd(); // refresh lmpd data for new uniprot
+            }
+          });
+          break;
+        default:
+          break;
+      }
     }
+
+
   }
 
   Search(event) {

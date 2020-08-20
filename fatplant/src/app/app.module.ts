@@ -77,6 +77,7 @@ import {DataService} from 'src/app/services/data/data.service';
 import { LoginComponent } from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 import { StructureViewerComponent } from './components/pages/onestopsearch/structure-viewer/structure-viewer.component';
+import { CdkDetailRowDirective } from './directives/cdk-detail-row.directive';
 import { UserModalComponent } from './components/commons/user-modal/user-modal.component';
 import { AddNewsComponent } from './components/pages/add-news/add-news.component';
 import { ProteinDetailComponent } from './components/pages/datapages/protein-detail/protein-detail.component';
@@ -114,6 +115,7 @@ import { ProteinDetailComponent } from './components/pages/datapages/protein-det
     DataAnalysisComponent,
     ShowresultsComponent,
     StructureViewerComponent,
+    CdkDetailRowDirective,
     UserModalComponent,
     AddNewsComponent,
     ProteinDetailComponent

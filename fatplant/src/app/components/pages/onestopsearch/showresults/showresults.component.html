@@ -13,12 +13,12 @@
         <mat-step class="nav-item" #pathwayStep [class.active]="isPathway" label="Pathway" [completed]='false'></mat-step>
       </mat-vertical-stepper>
       <div id="arrow-wrapper">
-        <mat-icon id="left-arrow" [class.disabled-arrow]="!this.leftArrowEnabled" [class.enabled-arrow]="this.leftArrowEnabled" 
-        matTooltip="Previous Tab" matTooltipPosition="below" [matTooltipDisabled]="!this.leftArrowEnabled" 
+        <mat-icon id="left-arrow" [class.disabled-arrow]="!this.leftArrowEnabled" [class.enabled-arrow]="this.leftArrowEnabled"
+        matTooltip="Previous Tab" matTooltipPosition="below" [matTooltipDisabled]="!this.leftArrowEnabled"
         (click)="arrowSelect('left', summaryStep, structureStep, blastStep, pathwayStep)">keyboard_arrow_left</mat-icon>
         <span id="arrow-label">{{prettyConfig}}</span>
-        <mat-icon id="right-arrow"[class.disabled-arrow]="!this.rightArrowEnabled" [class.enabled-arrow]="this.rightArrowEnabled" 
-        matTooltip="Next Tab" matTooltipPosition="below" [matTooltipDisabled]="!this.rightArrowEnabled" 
+        <mat-icon id="right-arrow"[class.disabled-arrow]="!this.rightArrowEnabled" [class.enabled-arrow]="this.rightArrowEnabled"
+        matTooltip="Next Tab" matTooltipPosition="below" [matTooltipDisabled]="!this.rightArrowEnabled"
         (click)="arrowSelect('right', summaryStep, structureStep, blastStep, pathwayStep)">keyboard_arrow_right</mat-icon>
       </div>
     </div>
@@ -27,31 +27,38 @@
     <div *ngIf="isSummary">
     <div class="column middle">
       <h2>Summary</h2>
-      <div class="row">
-        <table class="blueTable">
-          <tr>
-            <th><strong>Gene Name: </strong></th>
-            <td>{{this.lmpd.gene_name}}</td>
-          </tr>
-          <tr>
-            <th><strong>Protein Name: </strong></th>
-            <td>{{this.lmpd.protein_name}}</td>
-          </tr>
-          <tr>
-            <th><strong>Species: </strong></th>
-            <td>{{this.lmpd.species}}</td>
-          </tr>
-          <tr>
-            <th><strong>Species Long: </strong></th>
-            <td>{{this.lmpd.species_long}}</td>
-          </tr>
-        </table>
-      </div>
-      <br>
+<!--      <div class="row">-->
+<!--        <table class="flat-table">-->
+<!--          <tr>-->
+<!--            <th><strong>Gene Name: </strong></th>-->
+<!--            <td>{{this.lmpd.gene_name}}</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th><strong>Protein Name: </strong></th>-->
+<!--            <td>{{this.lmpd.protein_name}}</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th><strong>Species: </strong></th>-->
+<!--            <td>{{this.lmpd.species}}</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th><strong>Species Long: </strong></th>-->
+<!--            <td>{{this.lmpd.species_long}}</td>-->
+<!--          </tr>-->
+<!--        </table>-->
+<!--      </div>-->
+<!--      <br>-->
       <div class="row">
         <mat-progress-bar id="pdb-loading-bar" mode="indeterminate" *ngIf="g2sLoading"></mat-progress-bar>
         <label *ngIf="!g2sLoading && noPdb">No PDB match found.</label>
         <iframe [src]="defaultPdb" style="transform: scale(1);transform-origin: 0 0;width: 100%; min-height: 600px" *ngIf="!g2sLoading && !noPdb"></iframe>
+      </div>
+      <div class="row">
+        <h2>Sequence</h2>
+        <div id="sequence-display">{{this.lmpd.sequence}}
+          <button mat-raised-button ngxClipboard id="sequence-button" color="primary" [cbContent]="this.lmpd.sequence"
+                  (click)="this.notificationService.popup('Copied to Clipboard!')">Copy Sequence</button>
+        </div>
       </div>
 
     </div>
@@ -60,6 +67,14 @@
       <h2>Detail</h2>
       <div class="row">
                 <table class="blueTable">
+                  <tr>
+                    <th><strong>Gene Name: </strong></th>
+                    <td>{{this.lmpd.gene_name}}</td>
+                  </tr>
+                  <tr>
+                    <th><strong>Species: </strong></th>
+                    <td>{{this.lmpd.species}}</td>
+                  </tr>
                   <tr>
                     <th><strong>Gene Symbol: </strong></th>
                     <td>{{this.lmpd.gene_symbol}}</td>
@@ -98,11 +113,7 @@
                   </tr>
                 </table>
       </div>
-        <h2>Sequence</h2>
-        <div id="sequence-display">{{this.lmpd.sequence}}
-        <button mat-raised-button ngxClipboard id="sequence-button" color="primary" [cbContent]="this.lmpd.sequence"
-         (click)="this.notificationService.popup('Copied to Clipboard!')">Copy Sequence</button>
-        </div>
+
     </div>
   </div>
 <!--    structure-->
@@ -113,35 +124,35 @@
         <ng-container matColumnDef="pdbId">
           <mat-header-cell *matHeaderCellDef mat-sort-header> pdbId </mat-header-cell>
           <mat-cell *matCellDef="let elem"> {{elem.pdbId}} </mat-cell>
-        </ng-container> 
+        </ng-container>
         <ng-container matColumnDef="pdbNo">
           <mat-header-cell *matHeaderCellDef mat-sort-header> pdbNo </mat-header-cell>
           <mat-cell *matCellDef="let elem"> {{elem.pdbNo}} </mat-cell>
-        </ng-container> 
+        </ng-container>
         <ng-container matColumnDef="chain">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Chain </mat-header-cell>
           <mat-cell *matCellDef="let elem"> {{elem.chain}} </mat-cell>
-        </ng-container> 
+        </ng-container>
         <ng-container matColumnDef="evalue">
           <mat-header-cell *matHeaderCellDef mat-sort-header> EValue </mat-header-cell>
           <mat-cell *matCellDef="let elem"> {{elem.evalue}} </mat-cell>
-        </ng-container> 
+        </ng-container>
         <ng-container matColumnDef="bitscore">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Bitscore </mat-header-cell>
           <mat-cell *matCellDef="let elem"> {{elem.bitscore}} </mat-cell>
-        </ng-container> 
+        </ng-container>
         <ng-container matColumnDef="identity">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Identity - IdentityPositive </mat-header-cell>
           <mat-cell *matCellDef="let elem"> {{elem.identity}} / {{elem.identityPositive}} </mat-cell>
-        </ng-container> 
+        </ng-container>
         <ng-container matColumnDef="pdbRange">
           <mat-header-cell *matHeaderCellDef mat-sort-header> pdb From-To </mat-header-cell>
           <mat-cell *matCellDef="let elem"> {{elem.pdbFrom}}-{{elem.pdbTo}} </mat-cell>
-        </ng-container> 
+        </ng-container>
         <ng-container matColumnDef="seqRange">
           <mat-header-cell *matHeaderCellDef mat-sort-header> seq From-To </mat-header-cell>
           <mat-cell *matCellDef="let elem"> {{elem.seqFrom}}-{{elem.seqTo}} </mat-cell>
-        </ng-container> 
+        </ng-container>
         <ng-container matColumnDef="3DViewer">
           <mat-header-cell *matHeaderCellDef mat-sort-header>3D Viewer </mat-header-cell>
           <mat-cell *matCellDef="let elem">

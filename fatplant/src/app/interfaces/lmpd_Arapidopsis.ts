@@ -21,6 +21,7 @@ export interface Lmpd_Arapidopsis {
 	taxid: string;
 	uniprot_id: string;
 	version: string;
+  tair_ids:[];
 }
 export interface Lmpd_Arapidopsis_ID extends Lmpd_Arapidopsis {
 	uniprot_id: string;
