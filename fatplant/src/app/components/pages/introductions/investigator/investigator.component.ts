@@ -12,6 +12,7 @@ export class InvestigatorComponent implements OnInit {
   ppl4 = require("../../../../assets/homepageAssets/JT.jpg");
   ppl5 = require("../../../../assets/homepageAssets/PB.jpg");
   pp16 = require("../../../../assets/homepageAssets/BW.jpg");
+  pp17 = require("../../../../assets/homepageAssets/MH.jpg");
 
   constructor() { }
 
