@@ -6,13 +6,13 @@ declare var require: any;
   styleUrls: ['./investigator.component.scss']
 })
 export class InvestigatorComponent implements OnInit {
-  ppl1 = require("../../../../assets/homepageAssets/AK.jpg");
-  ppl2 = require("../../../../assets/homepageAssets/DA.jpg");
-  ppl3 = require("../../../../assets/homepageAssets/DX.jpg");
-  ppl4 = require("../../../../assets/homepageAssets/JT.jpg");
-  ppl5 = require("../../../../assets/homepageAssets/PB.jpg");
-  pp16 = require("../../../../assets/homepageAssets/BW.jpg");
-  pp17 = require("../../../../assets/homepageAssets/MH.jpg");
+  ppl1 = "/AK.jpg";
+  ppl2 = "/DA.jpg";
+  ppl3 = "/DX.jpg";
+  ppl4 = "/JT.jpg";
+  ppl5 = "/PB.jpg";
+  pp16 = "/app/assets/homepageAssets/BW.jpg";
+  pp17 = "/app/assets/homepageAssets/MH.jpg";
 
   constructor() { }
 
