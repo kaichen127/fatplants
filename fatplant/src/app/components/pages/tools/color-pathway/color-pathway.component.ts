@@ -134,9 +134,9 @@ export class ColorPathwayComponent implements OnInit {
     this.uniprot = "A8MR93";
   }
 
-  loadImage(){
+  loadImage(pathway){
     //var id = selected[0]._value.slice(5);
-    var id = this.currPath;
+    var id = pathway;
     // console.log(selected[0]._value);
     // if (id === null || id.length < 1){
     //   return;

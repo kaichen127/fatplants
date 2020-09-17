@@ -26,7 +26,7 @@
     aria-labelledby="pathway-radio-group-label"
     class="pathway-radio-group"
     [(ngModel)]="currPath">
-    <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwayList" [value]="pathway" (change)="loadImage()">
+    <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwayList" [value]="pathway" (change)="loadImage(pathway)">
       {{pathway}}
     </mat-radio-button>
   </mat-radio-group>
