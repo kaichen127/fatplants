@@ -7,3 +7,4 @@ reformatted_fatty_acid.csv
 csvtofirestore.py
 .vscode
 fatplant/.firebase/hosting.ZGlzdA.cache
+node_modules/

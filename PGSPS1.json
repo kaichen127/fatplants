@@ -1,0 +1,243 @@
+{
+	"AralipsPathways" : {
+		"ProkGalSupho1": {
+			"name" : "ProkGalSupho1",
+			"title": "Prokaryotic Galactolipid, Sulfolipid, & Phospholipid Synthesis 1",
+			"imgPath": "",
+			"areas": [{
+					"coords": "530,567,574,578",
+					"title": "plastidial Phosphatidylglycerol-Phosphate Synthase",
+					"shape": "RECT",
+					"link": "/enzymes/29",
+					"fpLink": "https://www.fatplants.net/protein/O80952"
+				},
+				{
+					"coords": "527,202, 528,202, 529,202, 529,201, 530,201, 531,200, 532,199, 532,198, 533,198, 533,197, 533,196, 533,195, 533,194, 532,194, 532,193, 531,192, 530,191, 529,191, 528,190, 527,190, 526,190, 525,191, 524,191, 523,192, 522,193, 522,194, 521,195, 521,196, 521,197, 522,198, 522,199, 523,200, 524,201, 525,201, 525,202, 526,202, 527,202",
+					"title": "Fatty Acid Elongation, Desaturation & Export From Plastid",
+					"shape": "POLYGON",
+					"link": "/pathways/fatty_acid_elongation_desaturation_export_from_plastid",
+					"fpLink": "https://www.fatplants.net/protein/F4JJ27"
+				},
+				{
+					"coords": "332,260,374,272",
+					"title": "plastidial Glycerol-3-Phosphate Acyltransferase",
+					"shape": "RECT",
+					"link": "/enzymes/26",
+					"fpLink": "https://www.fatplants.net/protein/Q8GWG0"
+				},
+				{
+					"coords": "537,260,587,272",
+					"title": "1-acylglycerol-3-phosphate acyltransferase",
+					"shape": "RECT",
+					"link": "/enzymes/27",
+					"fpLink": "https://www.fatplants.net/protein/Q9SYC8"
+				},
+				{
+					"coords": "340,202, 341,202, 342,201, 343,201, 343,200, 344,200, 344,199, 345,199, 345,198, 345,197, 345,196, 345,195, 345,194, 345,193, 344,193, 344,192, 343,192, 343,191, 342,191, 341,191, 341,190, 340,190, 339,190, 338,190, 338,191, 337,191, 336,191, 336,192, 335,192, 335,193, 334,194, 334,195, 334,196, 334,197, 334,198, 335,199, 335,200, 336,200, 336,201, 337,201, 338,202, 339,202, 340,202",
+					"title": "Fatty Acid Elongation, Desaturation & Export From Plastid",
+					"shape": "POLYGON",
+					"link": "/pathways/fatty_acid_elongation_desaturation_export_from_plastid",
+					"fpLink": "https://www.fatplants.net/protein/F4JJ27"
+				},
+				{
+					"coords": "678,315,700,326",
+					"title": "Phosphatidate Phosphatase",
+					"shape": "RECT",
+					"link": "/enzymes/34",
+					"fpLink": "https://www.fatplants.net/protein/Q9XI60"
+				},
+				{
+					"coords": "372,570, 373,570, 374,570, 375,570, 375,569, 376,569, 376,568, 377,568, 377,567, 377,566, 378,565, 378,564, 377,563, 377,562, 377,561, 376,561, 375,560, 374,559, 373,559, 372,559, 371,559, 370,559, 369,560, 368,560, 368,561, 367,561, 367,562, 366,563, 366,564, 366,565, 366,566, 367,567, 367,568, 368,569, 369,569, 369,570, 370,570, 371,570, 372,570",
+					"title": "Prokaryotic Glycerolipid, Galactolipid, & Sulfolipid Synthesis ( 2 of 2)",
+					"shape": "POLYGON",
+					"link": "/pathways/prokaryotic_galactolipid_sulfolipid_phospholipid_synthesis_2",
+					"fpLink": "https://www.fatplants.net/protein/Q93WG3"
+				},
+				{
+					"coords": "830,324, 831,324, 832,324, 833,323, 834,323, 834,322, 835,321, 835,320, 835,319, 835,318, 835,317, 835,316, 834,316, 834,315, 833,314, 832,314, 831,313, 830,313, 829,313, 828,313, 827,314, 826,314, 826,315, 825,315, 825,316, 824,317, 824,318, 824,319, 824,320, 824,321, 825,321, 825,322, 826,323, 827,324, 828,324, 829,324, 830,324",
+					"title": "Prokaryotic Glycerolipid, Galactolipid, & Sulfolipid Synthesis ( 2 of 2)",
+					"shape": "POLYGON",
+					"link": "/pathways/prokaryotic_galactolipid_sulfolipid_phospholipid_synthesis_2",
+					"fpLink": "https://www.fatplants.net/protein/Q93WG3"
+				},
+				{
+					"coords": "165,261,212,273",
+					"title": "plastidial NAD-dependent Glycerol-3-Phosphate Dehydrogenase",
+					"shape": "RECT",
+					"link": "/enzymes/25",
+					"fpLink": "https://www.fatplants.net/protein/O22216"
+				},
+				{
+					"coords": "830,311, 831,311, 832,310, 833,310, 833,309, 834,309, 834,308, 835,308, 835,307, 835,306, 835,305, 835,304, 835,303, 835,302, 834,302, 834,301, 833,301, 833,300, 832,300, 831,300, 830,299, 829,299, 829,300, 828,300, 827,300, 826,300, 826,301, 825,301, 825,302, 824,303, 824,304, 824,305, 824,306, 824,307, 825,308, 825,309, 826,309, 826,310, 827,310, 828,311, 829,311, 830,311",
+					"title": "Prokaryotic Glycerolipid, Galactolipid, & Sulfolipid Synthesis ( 2 of 2)",
+					"shape": "POLYGON",
+					"link": "/pathways/prokaryotic_galactolipid_sulfolipid_phospholipid_synthesis_2",
+					"fpLink": "https://www.fatplants.net/protein/Q93WG3"
+				},
+				{
+					"coords": "602,368,615,442",
+					"title": "plastidial CDP-DAG Synthase",
+					"shape": "RECT",
+					"link": "/enzymes/28",
+					"fpLink": "https://www.fatplants.net/protein/O04928"
+				}
+			]
+
+		},
+
+		"ProkGalSupho2": {
+			"name" : "ProkGalSupho1",
+			"title": "Prokaryotic Galactolipid, Sulfolipid, & Phospholipid Synthesis 2",
+			"imgPath": "",
+			"areas": [{
+					"coords": "323,624,358,636",
+					"title": "UDP-Glucose Pyrophosphorylase",
+					"shape": "RECT",
+					"link": "/enzymes/251",
+					"fpLink": "https://www.fatplants.net/protein/F4IY62"
+				},
+				{
+					"coords": "128,209, 129,209, 130,209, 131,209, 132,208, 132,207, 133,207, 133,206, 134,205, 134,204, 134,203, 134,202, 133,202, 133,201, 132,200, 132,199, 131,199, 130,199, 130,198, 129,198, 128,198, 127,198, 126,198, 126,199, 125,199, 124,199, 124,200, 123,201, 123,202, 122,203, 122,204, 122,205, 123,205, 123,206, 123,207, 124,207, 124,208, 125,209, 126,209, 127,209, 128,209",
+					"title": "Prokaryotic Galactolipid Sulfolipid & Phospholipid Synthesis ( 1 of 2)",
+					"shape": "POLYGON",
+					"link": "/pathways/prokaryotic_galactolipid_sulfolipid_phospholipid_synthesis",
+					"fpLink": "https://www.fatplants.net/protein/Q9SJE2"
+				},
+				{
+					"coords": "128,478, 129,478, 130,478, 131,478, 131,477, 132,477, 132,476, 133,476, 133,475, 134,474, 134,473, 134,472, 134,471, 133,470, 133,469, 132,469, 132,468, 131,468, 130,467, 129,467, 128,467, 127,467, 126,467, 125,468, 124,468, 124,469, 123,469, 123,470, 123,471, 122,472, 122,473, 122,474, 123,474, 123,475, 123,476, 124,476, 124,477, 125,477, 125,478, 126,478, 127,478, 128,478",
+					"title": "Prokaryotic Galactolipid Sulfolipid & Phospholipid Synthesis  ( 1 of 2)",
+					"shape": "POLYGON",
+					"link": "/pathways/prokaryotic_galactolipid_sulfolipid_phospholipid_synthesis",
+					"fpLink": "https://www.fatplants.net/protein/Q9SJE2"
+				},
+				{
+					"coords": "128,423, 129,423, 129,422, 130,422, 131,422, 132,421, 132,420, 133,420, 133,419, 134,419, 134,418, 134,417, 134,416, 134,415, 133,415, 133,414, 132,413, 132,412, 131,412, 130,412, 130,411, 129,411, 128,411, 127,411, 126,411, 126,412, 125,412, 124,412, 124,413, 123,414, 123,415, 122,416, 122,417, 122,418, 123,419, 123,420, 124,420, 124,421, 125,422, 126,422, 127,422, 127,423, 128,423",
+					"title": "Prokaryotic Galactolipid Sulfolipid & Phospholipid Synthesis  ( 1 of 2)",
+					"shape": "POLYGON",
+					"link": "/pathways/prokaryotic_galactolipid_sulfolipid_phospholipid_synthesis",
+					"fpLink": "https://www.fatplants.net/protein/Q9SJE2"
+				},
+				{
+					"coords": "669,166,713,178",
+					"title": "Linoleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/33",
+					"fpLink": "https://www.fatplants.net/protein/P46310"
+				},
+				{
+					"coords": "182,587,195,613",
+					"title": "UDP-Sulfoquinovose Synthase",
+					"shape": "RECT",
+					"link": "/enzymes/38",
+					"fpLink": "https://www.fatplants.net/protein/Q9T0A0"
+				},
+				{
+					"coords": "178,479,211,497",
+					"title": "UDP-sulfoquinovose:DAG sulfoquinovosyltransferase",
+					"shape": "RECT",
+					"link": "/enzymes/39",
+					"fpLink": "https://www.fatplants.net/protein/A0A1P8BCW3"
+				},
+				{
+					"coords": "156,182,205,194",
+					"title": "Phosphatidylglycerol-Phosphate Phosphatase",
+					"shape": "RECT",
+					"link": "/enzymes/30",
+					"fpLink": "https://www.fatplants.net/protein/"
+				},
+				{
+					"coords": "251,366,313,378",
+					"title": "Digalactosyldiacylglycerol Synthase",
+					"shape": "RECT",
+					"link": "/enzymes/37",
+					"fpLink": "https://www.fatplants.net/protein/Q8W1S1"
+				},
+				{
+					"coords": "476,284,520,296",
+					"title": "Oleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/32",
+					"fpLink": "https://www.fatplants.net/protein/P46312"
+				},
+				{
+					"coords": "668,284,711,296",
+					"title": "Linoleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/274",
+					"fpLink": "https://www.fatplants.net/protein/F4K0R2"
+				},
+				{
+					"coords": "668,266,712,278",
+					"title": "Linoleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/33",
+					"fpLink": "https://www.fatplants.net/protein/P46310"
+				},
+				{
+					"coords": "476,419,520,431",
+					"title": "Oleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/32",
+					"fpLink": "https://www.fatplants.net/protein/P46312"
+				},
+				{
+					"coords": "156,329,207,383",
+					"title": "Monogalactosyldiacylglycerol Synthase",
+					"shape": "RECT",
+					"link": "/enzymes/35",
+					"fpLink": "https://www.fatplants.net/protein/A0A1P8B6W3"
+				},
+				{
+					"coords": "308,182,351,194",
+					"title": "Phosphatidylglycerol Desaturase (palmitate specific)",
+					"shape": "RECT",
+					"link": "/enzymes/31",
+					"fpLink": "https://www.fatplants.net/protein/O04584"
+				},
+				{
+					"coords": "668,537,711,550",
+					"title": "Linoleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/274",
+					"fpLink": "https://www.fatplants.net/protein/F4K0R2"
+				},
+				{
+					"coords": "668,183,711,195",
+					"title": "Linoleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/274",
+					"fpLink": "https://www.fatplants.net/protein/F4K0R2"
+				},
+				{
+					"coords": "668,519,712,531",
+					"title": "Linoleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/33",
+					"fpLink": "https://www.fatplants.net/protein/P46310"
+				},
+				{
+					"coords": "476,533,520,545",
+					"title": "Oleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/32",
+					"fpLink": "https://www.fatplants.net/protein/P46312"
+				},
+				{
+					"coords": "476,182,520,194",
+					"title": "Oleate Desaturase",
+					"shape": "RECT",
+					"link": "/enzymes/32",
+					"fpLink": "https://www.fatplants.net/protein/P46312"
+				},
+				{
+					"coords": "308,285,352,297",
+					"title": "MGDG Desaturase (palmitate-specific)",
+					"shape": "RECT",
+					"link": "/enzymes/36",
+					"fpLink": "https://www.fatplants.net/protein/Q9LVZ3"
+				}
+			]
+
+		}
+	}
+}

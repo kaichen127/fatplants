@@ -24,7 +24,7 @@ import {LoginComponent} from './login/login.component';
 import { UnifiedDatapageComponent } from './components/pages/datapages/unified-datapage/unified-datapage.component';
 import { ProteinDetailComponent } from './components/pages/datapages/protein-detail/protein-detail.component';
 import {AddNewsComponent} from './components/pages/add-news/add-news.component';
-
+import { PathwayAralipsComponent } from "./components/pages/tools/pathway-aralips/pathway-aralips.component";
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'homepage', component: HomepageComponent},
@@ -34,6 +34,7 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'lmpd_arapidopsis', component: LmpdArapidopsisComponent},
 {path: 'glmol', component: GlmolComponent},
 {path: 'color-pathway', component: ColorPathwayComponent},
+{path: 'aralips-pathway', component: PathwayAralipsComponent},
 {path: 'camelina', component: CameliaComponent},
 {path: 'fatty_acid', component: FattyacidComponent},
 {path: 'protein-network', component: GraphComponent},

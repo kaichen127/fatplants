@@ -1,0 +1,21 @@
+@import "~src/variables.scss";
+
+div{
+  width:100%;
+  text-align: center;
+  /* background-color: #FCFF7B; */
+}
+
+.imageArea{
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.infoSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+  margin: auto;
+}

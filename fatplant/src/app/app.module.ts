@@ -81,6 +81,7 @@ import { CdkDetailRowDirective } from './directives/cdk-detail-row.directive';
 import { UserModalComponent } from './components/commons/user-modal/user-modal.component';
 import { AddNewsComponent } from './components/pages/add-news/add-news.component';
 import { ProteinDetailComponent } from './components/pages/datapages/protein-detail/protein-detail.component';
+import { PathwayAralipsComponent } from './components/pages/tools/pathway-aralips/pathway-aralips.component';
 
 @NgModule({
   declarations: [
@@ -118,7 +119,8 @@ import { ProteinDetailComponent } from './components/pages/datapages/protein-det
     CdkDetailRowDirective,
     UserModalComponent,
     AddNewsComponent,
-    ProteinDetailComponent
+    ProteinDetailComponent,
+    PathwayAralipsComponent
   ],
   entryComponents: [
     StructureViewerComponent,

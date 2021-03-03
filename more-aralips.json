@@ -1,0 +1,19 @@
+{
+	"AralipsPathways" : {
+		"Sphingolipid I": {
+			"name" : "Sphingolipid I",
+			"title": "Sphingolipid Biosynthesis 1",
+			"imgPath": "",
+			"areas": [
+				{
+					"coords": "",
+					"title": "",
+					"shape": "RECT",
+					"link": "",
+					"fpLink": ""
+				},
+			]
+
+		}
+	}
+}

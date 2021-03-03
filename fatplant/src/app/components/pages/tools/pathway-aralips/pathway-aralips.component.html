@@ -1,0 +1,45 @@
+<mat-card class="row columns base" style="min-width: 1000px">
+    <div class="columns small-10 small-centered textrow ">
+      <h1>Aralips Pathway Viewer</h1>
+      <p>A tool for viewing Aralips pathway figure.</p>
+  
+    </div>
+    <div class="infoSection">
+        <mat-form-field appearance="fill">
+            <mat-label>Pathways</mat-label>
+            <mat-select (selectionChange)="onChange($event.value)">
+                <mat-option *ngFor="let option of pathwayOptions" [value]="option.id">{{ option.title }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-slide-toggle [(ngModel)]="showingAralips">Use Aralips Links</mat-slide-toggle>
+    </div>
+
+    <div *ngIf="selectedGraph != null"  class="imageArea">
+        
+        <div>
+            <IMG [src]="selectedGraph.imgPath" usemap="#chartMap">
+            
+            <!-- ARALIPS LINKS -->
+            <MAP NAME="chartMap" *ngIf="showingAralips">
+                <AREA *ngFor="let area of selectedGraph.areas" 
+                      [shape]="area.shape" 
+                      [href]="'http://aralip.plantbiology.msu.edu' + area.link" 
+                      target="_blank" 
+                      [title]="area.title"  
+                      [coords]="area.coords">
+            </MAP>
+            <!-- FATPLANTS LINKS -->
+            <MAP NAME="chartMap" *ngIf="!showingAralips">
+                <AREA *ngFor="let area of selectedGraph.areas" 
+                      [shape]="area.shape" 
+                      [href]="area.fpLink" 
+                      target="_blank" 
+                      [title]="area.title"  
+                      [coords]="area.coords">
+            </MAP>
+        </div>
+
+        
+    </div>
+  
+  </mat-card>
