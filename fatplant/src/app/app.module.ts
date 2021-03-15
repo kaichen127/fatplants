@@ -82,6 +82,7 @@ import { UserModalComponent } from './components/commons/user-modal/user-modal.c
 import { AddNewsComponent } from './components/pages/add-news/add-news.component';
 import { ProteinDetailComponent } from './components/pages/datapages/protein-detail/protein-detail.component';
 import { PathwayAralipsComponent } from './components/pages/tools/pathway-aralips/pathway-aralips.component';
+import { CustomPathwayComponent } from './components/pages/tools/custom-pathway/custom-pathway.component';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { PathwayAralipsComponent } from './components/pages/tools/pathway-aralip
     UserModalComponent,
     AddNewsComponent,
     ProteinDetailComponent,
-    PathwayAralipsComponent
+    PathwayAralipsComponent,
+    CustomPathwayComponent
   ],
   entryComponents: [
     StructureViewerComponent,
