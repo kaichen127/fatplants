@@ -83,6 +83,7 @@ import { AddNewsComponent } from './components/pages/add-news/add-news.component
 import { ProteinDetailComponent } from './components/pages/datapages/protein-detail/protein-detail.component';
 import { PathwayAralipsComponent } from './components/pages/tools/pathway-aralips/pathway-aralips.component';
 import { CustomPathwayComponent } from './components/pages/tools/custom-pathway/custom-pathway.component';
+import { CustomPathwayListComponent } from './components/pages/tools/custom-pathway-list/custom-pathway-list/custom-pathway-list.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import { CustomPathwayComponent } from './components/pages/tools/custom-pathway/
     AddNewsComponent,
     ProteinDetailComponent,
     PathwayAralipsComponent,
-    CustomPathwayComponent
+    CustomPathwayComponent,
+    CustomPathwayListComponent
   ],
   entryComponents: [
     StructureViewerComponent,

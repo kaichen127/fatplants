@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomPathwaysService } from '../../../../services/custom-pathways/custom-pathways.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-custom-pathway',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomPathwayComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pathwayService: CustomPathwaysService,
+              private activatedRoute: ActivatedRoute) { }
+
+  showingUniprot = false;
+  selectedGraph = null;
 
   ngOnInit(): void {
+    
+    this.activatedRoute.queryParams.subscribe(params => {
+      var graphId = params['id'];
+
+      this.pathwayService.getPathwayByTitle(graphId).subscribe(graph => {
+        
+        let graphAny: any = graph.payload.data();
+
+        if (graphAny == undefined) {
+          this.selectedGraph = null;
+        }
+        else {
+          this.selectedGraph = graphAny;
+        }
+      });
+    });
   }
 
 }

@@ -25,6 +25,8 @@ import { UnifiedDatapageComponent } from './components/pages/datapages/unified-d
 import { ProteinDetailComponent } from './components/pages/datapages/protein-detail/protein-detail.component';
 import {AddNewsComponent} from './components/pages/add-news/add-news.component';
 import { PathwayAralipsComponent } from "./components/pages/tools/pathway-aralips/pathway-aralips.component";
+import { CustomPathwayComponent } from './components/pages/tools/custom-pathway/custom-pathway.component';
+import { CustomPathwayListComponent } from './components/pages/tools/custom-pathway-list/custom-pathway-list/custom-pathway-list.component';
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'homepage', component: HomepageComponent},
@@ -35,6 +37,8 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'glmol', component: GlmolComponent},
 {path: 'color-pathway', component: ColorPathwayComponent},
 {path: 'aralips-pathway', component: PathwayAralipsComponent},
+{path: 'custom-pathway', component: CustomPathwayComponent},
+{path: 'custom-pathway-list', component: CustomPathwayListComponent},
 {path: 'camelina', component: CameliaComponent},
 {path: 'fatty_acid', component: FattyacidComponent},
 {path: 'protein-network', component: GraphComponent},

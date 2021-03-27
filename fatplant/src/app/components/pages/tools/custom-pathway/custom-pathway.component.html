@@ -1,1 +1,49 @@
-<p>custom-pathway works!</p>
+<mat-card class="row columns base" style="min-width: 1000px">
+    <div class="columns small-10 small-centered textrow ">
+      <h1>Custom Pathway Viewer</h1>
+      <p>A tool for viewing custom pathway figures.</p>
+  
+    </div>
+    <div class="infoSection">
+        <mat-slide-toggle [(ngModel)]="showingUniprot">Use Uniprot Links</mat-slide-toggle>
+    </div>
+
+    <div *ngIf="selectedGraph != null; else nullGraph"  class="imageArea">
+        
+        <div>
+            <IMG [src]="selectedGraph.imgPath" usemap="#chartMap">
+                
+            <!-- FATPLANT LINKS -->
+            
+            <MAP NAME="chartMap" *ngIf="!showingUniprot">
+                <AREA *ngFor="let area of selectedGraph.areas" 
+                        [shape]="area.shape" 
+                        [href]="area.fpLink" 
+                        target="_blank" 
+                        [title]="area.title"  
+                        [coords]="area.coords">
+            </MAP>
+
+            <!-- UNIPROT LINKS -->
+            
+            <MAP NAME="chartMap" *ngIf="showingUniprot">
+                <AREA *ngFor="let area of selectedGraph.areas" 
+                      [shape]="area.shape" 
+                      [href]="area.uniProtLink" 
+                      target="_blank" 
+                      [title]="area.title"  
+                      [coords]="area.coords">
+            </MAP>
+        </div>
+        
+    </div>
+    <ng-template #nullGraph>
+        <mat-card>
+            <mat-card-title>No Graph Found</mat-card-title>
+            <mat-card-content>
+                It looks like there isn't a pathway in the database for the id provided.
+            </mat-card-content>
+        </mat-card>
+    </ng-template>
+  
+  </mat-card>
