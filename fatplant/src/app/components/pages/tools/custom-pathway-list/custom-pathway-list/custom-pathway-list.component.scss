@@ -12,6 +12,20 @@
     font-size: 1.0vw;
 }
 
+.title-info {
+    margin-bottom: 50px;
+    text-align: center;
+}
+.error-text {
+    text-align: center;
+}
+
+.submit {
+    margin: 20px auto;
+    display: block;
+    width: 30%;
+}
+
 .form {
     display: flex;
     width: 60%;
@@ -72,6 +86,11 @@ mat-cell>a, mat-cell>span>a {
 }
 mat-cell>a:visited, mat-cell>span>a:visited {
     color: $dark-green;
+}
+
+mat-expansion-panel, mat-progress-bar {
+    width: 90%;
+    margin: auto;
 }
 
 .pointer {

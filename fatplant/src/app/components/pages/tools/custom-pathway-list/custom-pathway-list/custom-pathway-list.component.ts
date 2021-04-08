@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomPathwaysService } from 'src/app/services/custom-pathways/custom-pathways.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '../../../../../services/auth.service';
 
 @Component({
   selector: 'app-custom-pathway-list',
@@ -10,66 +11,124 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class CustomPathwayListComponent implements OnInit {
 
   constructor(private pathwayService: CustomPathwaysService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private authService: AuthService) { }
 
   panelOpenState = false;
   dataSource = [];
   loading = true;
   displayedColumns = ["title", "paper", "link"];
+  error: string = "";
 
   addPathwayForm: FormGroup;
+  imgFile;
+  coordFile;
+
+  user: any = null;
 
   submitFiles() {
-    let fileReader = new FileReader();
-    let pathObject = {
-      areas: [],
-      imgPath: "",
-      title: this.addPathwayForm.get("title"),
-      paper: this.addPathwayForm.get("paper")
-    };
+    this.error = "";
+    this.loading = true;
 
-    // setup reader function
-    fileReader.onload = () => {
-      var result: string = fileReader.result as string;
-      var lines = result.split('\n');
-
-      lines.forEach(line => {
-        
-        // break into initial segments
-        var segments = line.split(" ");
-
-        // remove parenthesis from coordinates
-        segments[1] = segments[1].substring(1, segments[1].length);
-        segments[2] = segments[2].substring(0, segments[2].length - 1);
-
-        segments[3] = segments[3].substring(1, segments[3].length);
-        segments[4] = segments[4].substring(0, segments[4].length - 1);
-
-        // create coords string
-        var coords = segments[1] + segments[2] + ',' + segments[3] + segments[4];
-        
-        // grab segmets of the link so we can get the ID portion
-        var linkSegments = segments[5].split("/");
-
-        // build object
-        var documentObject = {
-            shape: segments[0],
-            coords: coords,
-            uniProtLink: segments[5],
-            fpLink: "https://www.fatplants.net/protein/" + linkSegments[linkSegments.length - 1],
-            title: segments[6]
+    this.pathwayService.uploadPathwayImage(this.imgFile, this.imgFile.name).then(res => {
+      res.ref.getDownloadURL().then(url => {
+        let fileReader = new FileReader();
+        let pathObject = {
+          areas: [],
+          imgPath: url,
+          title: this.addPathwayForm.get("title").value,
+          paper: this.addPathwayForm.get("paper").value
         };
 
-        pathObject.areas.push(documentObject);
+        // setup reader function
+        fileReader.onload = () => {
+          var result: string = fileReader.result as string;
+          var lines = result.split('\n');
+
+          lines.forEach(line => {
+            
+            // break into initial segments
+            var segments = line.split(" ");
+
+            if (segments.length > 1 && segments != null) {
+              // remove parenthesis from coordinates
+              segments[1] = segments[1].substring(1, segments[1].length);
+              segments[2] = segments[2].substring(0, segments[2].length - 1);
+
+              segments[3] = segments[3].substring(1, segments[3].length);
+              segments[4] = segments[4].substring(0, segments[4].length - 1);
+
+              // create coords string
+              var coords = segments[1] + segments[2] + ',' + segments[3] + segments[4];
+              
+              // grab segmets of the link so we can get the ID portion
+              var linkSegments = segments[5].split("/");
+
+              // build object
+              var documentObject = {
+                  shape: segments[0],
+                  coords: coords,
+                  uniProtLink: segments[5],
+                  fpLink: "https://www.fatplants.net/protein/" + linkSegments[linkSegments.length - 1],
+                  title: segments[6]
+              };
+
+              pathObject.areas.push(documentObject);
+            }
+          });
+
+          // upload the parsed coordinates
+          this.pathwayService.uploadPathwayCoords(pathObject).then(res => {
+            this.loading = false;
+            this.error = "Successfully uploaded " + this.addPathwayForm.get("title").value;
+          })
+          .catch(err => {
+            // signal error and delete image
+            this.loading = false;
+            this.error = "There was a problem uploading the coordinate file. Please contact an administrator or try again later.";
+            res.ref.delete();
+          });
+        }
+
+        // start file processing then upload
+        fileReader.readAsText(this.coordFile);
+      })
+      // catch clause for image upload
+      .catch(err => {
+        // signal error
+        this.error = "There was a problem uploading the image. Make sure it is a valid image file or verify your connection.";
+        this.loading = false;
       });
-    }
+    });
 
     
+  }
 
+  onImageFileChange(event) {
+    if (event.target.files.length > 0)
+      this.imgFile = event.target.files[0];
+  }
+
+  onCoordFileChange(event) {
+    if (event.target.files.length > 0)
+      this.coordFile = event.target.files[0];
   }
 
   ngOnInit(): void {
 
+    // verify that user is signed in
+    this.authService.checkUser().subscribe(res => {
+      if (res !== null) {
+        this.authService.findUser(res.email).subscribe(ret => {
+          this.user = ret.docs[0].data();
+        });
+      }
+      else {
+        this.user= null;
+      }
+    });
+
+    // construct form validation
     this.addPathwayForm = this.formBuilder.group({
       title: ['', [
         Validators.required,
@@ -87,13 +146,15 @@ export class CustomPathwayListComponent implements OnInit {
       ]]
     });
 
+    // populate graph
     this.pathwayService.getAllPathways().subscribe(pathways => {
+      this.dataSource = [];
       pathways.forEach(graph => {
         let graphAny: any = graph.payload.doc.data();
 
         this.dataSource.push({
           title: graphAny.title,
-          paper: 'Test',
+          paper: graphAny.paper,
           link: '/custom-pathway?id=' + graph.payload.doc.id
         });
 
