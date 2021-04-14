@@ -119,3 +119,10 @@ a:hover {
 #identifier-help-icon {
   color: rgba($main-green, 0.6);
 }
+.viewer {
+  border: none;
+}
+#scroll-target {
+  position: absolute;
+  bottom: 5%;
+}

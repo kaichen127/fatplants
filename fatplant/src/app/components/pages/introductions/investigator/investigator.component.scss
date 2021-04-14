@@ -18,10 +18,14 @@
   border-bottom: solid grey 1px;
 }
 
+.row-white {
+  background-color: white !important;
+}
+
 .profile {
   max-height: 10vw;
   min-height: 10vw;
-  max-width: 8vw;
+  max-width: 10vw;
   border-radius: 200px;
   margin-top: 2%;
   margin-bottom: 1%;
@@ -29,7 +33,7 @@
 }
 
 .profileHolder {
-  max-width: 50%;
+  width: 50%;
 }
 
 .profInfo {
@@ -47,9 +51,8 @@
 .information {
   text-align: justify;
   width: 80%;
-  margin-left: 10%;
+  margin-left: 5%;
   margin-bottom: 5%;
-  word-wrap: break-word;
 }
 
 a {

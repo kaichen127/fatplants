@@ -143,3 +143,13 @@ a:hover {
 .pathway-radio-button {
   margin: 5px;
 }
+#canvas-container {
+  max-width: 90%;
+  max-height: 100%;
+  margin: auto;
+  overflow: scroll;
+}
+#canvas {
+  width: max-content;
+  height: max-content;
+}

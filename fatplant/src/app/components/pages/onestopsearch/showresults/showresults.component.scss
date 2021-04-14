@@ -267,3 +267,28 @@ mat-cell {
   margin-top: 10px;
   height: 30px;
 }
+.pathway-radio-group {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+
+}
+.pathway-label {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.pathway-radio-button {
+  margin: 5px;
+}
+#canvas-container {
+  max-width: 90%;
+  max-height: 100%;
+  margin: auto;
+  overflow: scroll;
+}
+#canvas {
+  width: max-content;
+  height: max-content;
+}

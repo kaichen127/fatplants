@@ -118,13 +118,18 @@ import { CustomPathwayListComponent } from './components/pages/tools/custom-path
     DataAnalysisComponent,
     ShowresultsComponent,
     StructureViewerComponent,
-    CdkDetailRowDirective,
     UserModalComponent,
     AddNewsComponent,
+<<<<<<< HEAD
+    CdkDetailRowDirective,
+    AddNewsComponent,
+    ProteinDetailComponent
+=======
     ProteinDetailComponent,
     PathwayAralipsComponent,
     CustomPathwayComponent,
     CustomPathwayListComponent
+>>>>>>> treyshaw
   ],
   entryComponents: [
     StructureViewerComponent,

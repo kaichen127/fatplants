@@ -31,11 +31,11 @@
     </mat-radio-button>
   </mat-radio-group>
 
-
-      <mat-progress-bar id="loading-bar" mode="indeterminate" *ngIf="this.loading"></mat-progress-bar>
+  <mat-progress-bar id="loading-bar" mode="indeterminate" *ngIf="this.isLoadingImage"></mat-progress-bar>
 <div *ngIf="!loading && searchQuery != undefined">
   <br>
   <label>Pathway Figures for Uniprot ID {{this.searchQuery}}</label>
+  <mat-progress-bar mode='indeterminate' *ngIf='this.isLoadingImage'></mat-progress-bar>
   <br>
   <div id="pathway-viewer">
 <!--  <mat-tab-group style="color: #4CAF50" id="pathway-tabs" animationDuration="0ms">-->
@@ -55,9 +55,13 @@
   <div>
     <br>
     <br>
-    <canvas #canvasEl width="1500" height="1500">
-
-    </canvas>
+    <div id='canvas-container'>
+      <canvas #canvasEl id='canvas'></canvas>
+      <!--
+        If you wanted to scale the image down and use a maximum defined height and width use this (replace the numbers with whatever you want)
+        <canvas #canvasEl id='calvas'></canvas>
+      -->
+    </div>
   </div>
 
 </mat-card>

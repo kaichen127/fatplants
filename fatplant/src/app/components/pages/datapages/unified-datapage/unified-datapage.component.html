@@ -69,11 +69,6 @@
         <mat-cell *matCellDef="let elem">{{ elem.Ath_description }}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="no">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
-        <mat-cell *matCellDef="let elem"> {{ elem.No }} </mat-cell>
-      </ng-container>
-
       <ng-container matColumnDef="homeologs">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Homeologs </mat-header-cell>
         <mat-cell *matCellDef="let elem"> {{ elem.Homeologs }} </mat-cell>
@@ -96,19 +91,19 @@
         <mat-cell *matCellDef="let elem"> {{ elem.Genenames }} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="Alternativegenenames">
+      <!-- <ng-container matColumnDef="Alternativegenenames">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Alternative Gene Names </mat-header-cell>
         <mat-cell *matCellDef="let elem"> {{ elem.Alternativegenenames }} </mat-cell>
-      </ng-container>
+      </ng-container> -->
 
       <ng-container matColumnDef="soybean_protein_name">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Protein Name </mat-header-cell>
-        <mat-cell *matCellDef="let elem"> {{ elem.Proteinnames }} </mat-cell>
+        <mat-cell *matCellDef="let elem"><a [href]='"https://www.soybase.org/sbt/search/search_results.php?category=FeatureName&version=Glyma2.0&search_term=" + elem.GeneID' target=_blank>{{elem.GeneID}}</a></mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="soybean_protein_entry">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Protein Entry </mat-header-cell>
-        <mat-cell *matCellDef="let elem">{{ elem.ProteinEntry }}</mat-cell>
+        <mat-cell *matCellDef="let elem"><a [routerLink]="['/protein', elem.UniprotID]"> {{ elem.ProteinEntry }} </a></mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="picture">

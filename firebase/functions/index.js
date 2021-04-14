@@ -1,5 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const fileWrite = require('fs');
+const parser = require('xml2json');
 admin.initializeApp();
 
 const childp = require('child_process');
@@ -24,8 +26,89 @@ var firebaseConfig = {
   databaseURL: "https://fatplant-76987.firebaseio.com",
   projectId: "fatplant-76987"
 };
+let titles = [];
+let journalCount = 0;
 
 firebase.initializeApp(firebaseConfig);
+
+exports.pubMed = functions.https.onRequest((req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+  let url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&retstart=0&term=' + req.body.term;
+
+  callForID(url, 0).then(ret => {
+    const idRequests = [];
+    for (let j = 21; j < journalCount; j += 20) {
+      url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&retstart='+ j + '&term=' + req.body.term;
+      idRequests.push(callForID(url, j));
+    }
+    Promise.all(idRequests).then(idRequest => {
+      let titlesString = '';
+      titles.forEach(title => {
+        titlesString += title + '\n \n';
+      });
+      fileWrite.writeFile('journalInfo.txt', titlesString, err => {
+        console.log(err);
+      });
+      res.send(titles);
+    }).catch(err => {
+      console.log(err);
+    });
+  }).catch(err => {
+    console.log(err);
+  });
+});
+
+function callForJournal(url, i){
+  return new Promise(function(resolve, reject){
+    setTimeout(() => {
+      request(url,  function (error, response, body) {
+        let journalInfo = '';
+        try {
+          journalInfo = JSON.parse(body);
+        } catch(e) {
+          console.log(e);
+        }
+        if (journalInfo.result !== undefined) {
+          const journalTitle = journalInfo.result[journalInfo.result.uids[0]].title;
+          titles.push(journalTitle);
+          resolve(console.log('Received Journal'));
+        } else {
+          reject(journalInfo);
+        }
+        if (error) return reject(error);
+      });
+    }, 800 * i);
+  });
+}
+
+function callForID(url, j) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(() => {
+      request(url, function (error, response, body) {
+        let ids = parser.toJson(body, {object: true});
+        if (j === 0) {
+          journalCount = ids.eSearchResult.Count;
+        }
+        titles = [];
+        const journalRequests = [];
+        for (let i = 0; i < 20; i++) {
+          const id = ids.eSearchResult.IdList.Id[i];
+          url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&id=' + id + '&retmode=json';
+          journalRequests.push(callForJournal(url, i).catch(err => {
+            console.log(err);
+          }));
+        }
+        Promise.all(journalRequests).then(ret => {
+          resolve(console.log('Received full page'))
+        }).catch(err => {
+          reject(console.log(err));
+        });
+      });
+    }, 800 * j);
+  });
+}
 
 exports.blastp = functions.https.onRequest((req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
