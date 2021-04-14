@@ -104,6 +104,13 @@ export class CustomPathwayListComponent implements OnInit {
     
   }
 
+  deleteButton(pathwayId, imgSrc) {
+    this.loading = true;
+    this.pathwayService.deletePathway(pathwayId, imgSrc).then(() => {
+      this.loading = false;
+    })
+  }
+
   onImageFileChange(event) {
     if (event.target.files.length > 0)
       this.imgFile = event.target.files[0];
@@ -121,6 +128,7 @@ export class CustomPathwayListComponent implements OnInit {
       if (res !== null) {
         this.authService.findUser(res.email).subscribe(ret => {
           this.user = ret.docs[0].data();
+          this.displayedColumns = ["title", "paper", "link", "actions"];
         });
       }
       else {
@@ -155,7 +163,9 @@ export class CustomPathwayListComponent implements OnInit {
         this.dataSource.push({
           title: graphAny.title,
           paper: graphAny.paper,
-          link: '/custom-pathway?id=' + graph.payload.doc.id
+          link: '/custom-pathway?id=' + graph.payload.doc.id,
+          id: graph.payload.doc.id,
+          imgPath: graphAny.imgPath
         });
 
         this.loading = false;

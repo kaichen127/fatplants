@@ -59,6 +59,14 @@
                     </mat-cell>
         </ng-container>
 
+        <ng-container matColumnDef="actions" *ngIf="user !== null">
+            <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+            <mat-cell
+                        *matCellDef="let pathway">
+                        <button mat-button (click)="deleteButton(pathway.id, pathway.imgPath)"><mat-icon>delete</mat-icon></button>
+                    </mat-cell>
+        </ng-container>
+
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
