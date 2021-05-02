@@ -15,3 +15,72 @@ mat-card.base {
 mat-card{
   background: white !important;
 }
+
+#base {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  margin: auto;
+  margin-top: 6%;
+  background-color: white;
+  background-image: none !important;
+  font-family: "PT Sans", sans-serif;
+  font-size: 1.0vw;
+  display: flex;
+}
+.left-menu {
+  position: sticky;
+  top: 10%;
+  left: 2%;
+  height: auto;
+  width: 12%;
+  align-self: flex-start;
+}
+
+.main-area {
+  width: 88%;
+}
+
+.graph-container {
+  width: 80%;
+  height: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ac, loading-bar {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.btn-group {
+  display: block;
+  margin-left: auto;
+}
+
+.btn-group button {
+  margin: 10px;
+}
+
+a.menu {
+  display: block;
+  padding: 3%;
+  color: gray;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+a.menu:not(.active):hover {
+  color: $lime-green;
+  transition: color 0.2s;
+}
+
+a.active {
+  color: black;
+  border-bottom: 1px solid $lime-green;
+  width: max-content;
+  padding-bottom: none;
+  font-size: 1.3vw;
+  transition: all 0.5s;
+}

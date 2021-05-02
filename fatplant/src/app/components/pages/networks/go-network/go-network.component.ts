@@ -12,7 +12,7 @@ export class GoNetworkComponent implements OnInit {
   filter: string;
   node_name: string;
   node_description: any;
-  layout = {};
+  layout;
   style=[];
   graph: string;
 
@@ -242,9 +242,9 @@ export class GoNetworkComponent implements OnInit {
     }
 
   }
-  layoutChange(event){
+  layoutChange(type){
     this.visiable = false;
-    switch (event.toElement.value) {
+    switch (type) {
       case 'cose':
         this.layout = {
           name: 'cose',
