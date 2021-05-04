@@ -40,7 +40,7 @@ export class BlastComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, db: AngularFirestore) {
     this.database = 'Arabidopsis';
     this.evalue = "1";
-    this.matrix = "PAM30";
+    this.matrix = "BLOSUM62";
     this.alertVisible = false;
     // this.items = db.collection('/Lmpd_Arapidopsis').valueChanges();
     //this.blastDataSource = new MatTableDataSource([{'sequences':'aa','score':'aa','evalue':'aa','expand':'aa'},{'sequences':'aa','score':'aa','evalue':'aa','expand':'aa'}])
@@ -132,6 +132,7 @@ export class BlastComponent implements OnInit {
   clear() {
     this.result = undefined;
     this.blastRes = [];
+    this.blastDataSource = undefined;
   }
   setDefaultSearch() {
     this.proteinSeq = "MEVKARAPGKIILAGEHAVVHGSTAVAAAIDLYTYVTLRFPLPSAENNDRLTLQLKDISLEFSWSLARIKEAIPYDSSTLCRSTPASCSEETLKSIAVLVEEQNLPKEKMWLSSGISTFLWLYTRIIGFNPATVVINSELPYGSGLGSSAALCVALTAALLASSISEKTRGNGWSSLDETNLELLNKWAFEGEKIIHGKPSGIDNTVSAYGNMIKFCSGEITRLQSNMPLRMLITNTRVGRNTKALVSGVSQRAVRHPDAMKSVFNAVDSISKELAAIIQSKDETSVTEKEERIKELMEMNQGLLLSMGVSHSSIEAVILTTVKHKLVSKLTGAGGGGCVLTLLPTGTVVDKVVEELESSGFQCFTALIGGNGAQICY";

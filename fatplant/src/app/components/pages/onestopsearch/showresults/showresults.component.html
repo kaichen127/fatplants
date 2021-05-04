@@ -207,14 +207,45 @@
     </div>
 <!--    pathway-->
     <div class="column middleright" *ngIf="isPathway">
-      <div class="centered" *ngIf="pathwayList.length == 0">No pathway diagrams found in our database.</div>
-      <mat-tab-group style="color: #4CAF50" style="min-height: 600px" id="pathway-tabs" animationDuration="0ms" *ngIf="pathwayList.length > 0">
+      <div class="centered" *ngIf="pathwaylist.length == 0">No pathway diagrams found in our database.</div>
+      <div *ngIf="pathwaylist.length !== 0">
+        <br>
+        <label class='pathway-label'><strong>Pathway Figures</strong></label>
+        <br>
+        <mat-radio-group
+       aria-labelledby="pathway-radio-group-label"
+        class="pathway-radio-group centered"
+        [(ngModel)]="currPath">
+        <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwaylist" [value]="pathway" (change)="loadImage(pathway)">
+         {{pathway}}
+        </mat-radio-button>
+      </mat-radio-group>
+        <mat-progress-bar mode='indeterminate' *ngIf='this.isLoadingImage'></mat-progress-bar>
+        <br>
+        <div id="pathway-viewer">
+      </div>
+      
+        <h5 *ngIf="noimg">No pathway figure found in database.</h5>
+      </div>
+      
+        <div>
+          <br>
+          <br>
+          <div id='canvas-container'>
+            <canvas #canvasEl id='canvas'></canvas>
+            <!--
+              If you wanted to scale the image down and use a maximum defined height and width use this (replace the numbers with whatever you want)
+              <canvas #canvasEl id='calvas'></canvas>
+            -->
+          </div>
+        </div>
+      <!-- <mat-tab-group style="color: #4CAF50" style="min-height: 600px" id="pathway-tabs" animationDuration="0ms" *ngIf="pathwayList.length > 0">
         <mat-tab *ngFor="let pathway of pathwayList" label="{{pathway.name}}">
           <ng-template matTabContent>
             <iframe id="pathway-view" [src]="pathway.url"></iframe>
           </ng-template>
         </mat-tab>
-      </mat-tab-group>
+      </mat-tab-group> -->
     </div>
   </div>
 

@@ -49,7 +49,7 @@
 
 <div id="glmol01"></div>
 
-<div class="tabBox" id="glmol01_infobox" style="left: 40%; z-index: 2;">
+<div class="tabBox" id="glmol01_infobox" style="left: 40%; z-index: 2; display: none;">
  <span class="bottomTab">About</span>
  <div class="insideTab" style="overflow: auto;">
   <h1>About</h1>
@@ -67,7 +67,7 @@ Version 0.47 (20120827)</p>
  </div>
 </div>
 
-<div class="tabBox" id="glmol01_srcbox" style="left: 10%; z-index:0;">
+<div class="tabBox" id="glmol01_srcbox" style="left: 10%; z-index:0; display: none;">
 <span class="bottomTab">Load</span>
 <div class="insideTab">
 You can load PDB, SDF/MOL(MDL not SYBYL) or XYZ files <br>
@@ -85,7 +85,7 @@ Compound ID(CID): <input id="glmol01_cid" value="2244" size=4><button onClick="d
 </div>
 </div>
 
-<div class="tabBox" id="glmol01_viewbox" style="left: 25%; z-index:1;">
+<div class="tabBox" id="glmol01_viewbox" style="left: 25%; z-index:1; display: none;">
 <span class="bottomTab">View</span>
 <div class="insideTab" style="overflow: auto;">
 Color by <select id="glmol01_color">
@@ -175,9 +175,9 @@ Please also make sure that WebGL is enabled in your browser.
 <script type="text/javascript">
 
 
-addTab('#glmol01_srcbox', '400px', 0);
-addTab('#glmol01_viewbox', '400px', 1);
-addTab('#glmol01_infobox', '400px', 2);
+// addTab('#glmol01_srcbox', '400px', 0);
+// addTab('#glmol01_viewbox', '400px', 1);
+// addTab('#glmol01_infobox', '400px', 2);
 
 var glmol01 = new GLmol('glmol01', true);
 var prequery = location.href.split('?')[1];

@@ -19,6 +19,7 @@ export class ColorPathwayComponent implements OnInit {
   currPath: string;
 
   noimg: boolean;
+  isLoadingImage: boolean = false;
   private imgs = [];
   uniprot: string;
   private debug: boolean;
@@ -136,6 +137,7 @@ export class ColorPathwayComponent implements OnInit {
 
   loadImage(pathway){
     //var id = selected[0]._value.slice(5);
+    this.isLoadingImage = true;
     var id = pathway;
     // console.log(selected[0]._value);
     // if (id === null || id.length < 1){
@@ -221,8 +223,20 @@ export class ColorPathwayComponent implements OnInit {
       // var img1 = document.getElementById('pathway1') as HTMLImageElement;
       // ctx.drawImage(img1,0,0);
       var img1 = new Image();
-      img1.onload = function(){
-        ctx.drawImage(img1,0,0);
+      img1.onload = () => {
+        this.isLoadingImage = false;
+        ctx.canvas.height = img1.height;
+        ctx.canvas.width = img1.width;
+        ctx.drawImage(img1,0,0)
+        // THESE LINES WOULD SCALE THE IMAGE DOWN
+        // if so, set the max height/width in the html
+        /* var scale = Math.min(canvas.width / img1.width, canvas.height / img1.height);
+        // get the top left position of the image
+        var x = (canvas.width / 2) - (img1.width / 2) * scale;
+        var y = (canvas.height / 2) - (img1.height / 2) * scale;
+        ctx.drawImage(img1, x, y, img1.width * scale, img1.height * scale);
+        */
+      
       }
         //img1.src = 'https://us-central1-linux-shell-test.cloudfunctions.net/keggget?cfg=get&para=image&id=' + id;
         img1.src = 'https://us-central1-fatplant-76987.cloudfunctions.net/keggget?cfg=get&para=image&id=' + id;

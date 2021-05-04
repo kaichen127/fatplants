@@ -88,9 +88,9 @@ export class UnifiedDatapageComponent implements OnInit {
       case "arabidopsis":
         return ['uniprot_id','refseq_id','tair_ids','gene_name','gene_symbol','protein_entry','protein_name'];
       case "camelina":
-        return ['camelina','aralip_pathways','ath_description','no','homeologs'];
+        return ['camelina','aralip_pathways','ath_description', 'homeologs'];
       case "soybean":
-        return ['soybean_uniprot_id','soybean_refseq_id','soybean_gene_name','Alternativegenenames','soybean_protein_entry','soybean_protein_name'];
+        return ['soybean_uniprot_id','soybean_refseq_id','soybean_gene_name','soybean_protein_entry','soybean_protein_name'];
       default:
         return ['picture','name','mass','sofa_id','other_names','delta_notation'];
     }

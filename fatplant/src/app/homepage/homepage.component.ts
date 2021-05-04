@@ -19,17 +19,10 @@ declare var require: any;
   ],
 })
 export class HomepageComponent implements OnInit {
-  FB = require('../assets/homepageAssets/FB.png');
-  PAG = require('../assets/homepageAssets/News.png');
-  JT = require('../assets/homepageAssets/JT.jpg');
-  DA = require('../assets/homepageAssets/DA.jpg');
-  PB = require('../assets/homepageAssets/PB.jpg');
-  AK = require('../assets/homepageAssets/AK.jpg');
-  DX = require('../assets/homepageAssets/DX.jpg');
-  WSU = require('../assets/homepageAssets/WSU.png');
-  MU = require('../assets/homepageAssets/MU.png');
-  NSF = require('../assets/homepageAssets/NSF.png');
-  PSC = require('../assets/homepageAssets/PSC.png');
+  MU = "/app/assets/homepageAssets/MU.png";
+  WSU = '/app/assets/homepageAssets/WSU.png';
+  NSF = '/app/assets/homepageAssets/NSF.png';
+  PSC = '/app/assets/homepageAssets/PSC.png';
 
   page1 = 'gone';
   page2 = 'active pages';

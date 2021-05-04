@@ -28,7 +28,7 @@
   <!--</div>-->
   <br>
   <br>
-  <div *ngIf="isGlmol" id="glmol-display">
+  <div *ngIf="isGlmol" id="glmol-display" #scroll>
   <label *ngIf="nopdb">No PDB file found for Uniprot ID "{{this.searchQuery}}".</label>
   <label *ngIf="!nopdb">Results for Uniprot ID {{this.searchQuery}}</label>
   <mat-tab-group style="color: #4CAF50" style="width: 100%" height="768" animationDuration="0ms">
@@ -40,7 +40,7 @@
     <!--    </mat-tab>-->
     <mat-tab *ngFor="let pdb of pdbs" label="{{pdb.name}}">
       <ng-template matTabContent>
-        <iframe [src]="pdb.url" style="width: 100%" height="768"></iframe>
+        <iframe [src]="pdb.url" style="width: 100%" height="768" class='viewer'></iframe>
       </ng-template>
     </mat-tab>
   </mat-tab-group>

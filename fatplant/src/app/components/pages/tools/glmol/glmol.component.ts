@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import {Observable} from "rxjs";
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
@@ -11,6 +11,9 @@ import { Lmpd_Arapidopsis } from 'src/app/interfaces/lmpd_Arapidopsis';
   styleUrls: ['./glmol.component.scss']
 })
 export class GlmolComponent implements OnInit {
+
+  @ViewChild('scroll') private myScrollContainer: ElementRef;
+  
   pdbs = [];
   public items: Observable<Lmpd_Arapidopsis[]>;
   nopdb: boolean;
@@ -64,9 +67,21 @@ export class GlmolComponent implements OnInit {
       if (this.pdbs.length === 0) {
         this.nopdb = true;
       }
+      else {
+        setTimeout(() => {
+          this.scroll();
+        }, 100);
+      }
     });
   }
   setDefaultSearch() {
     this.glmolID = "P46086";
   }
+  scroll(): void {
+    try {
+        this.myScrollContainer.nativeElement.scrollIntoView({
+          behavior: "smooth"
+        });
+    } catch(err) { }                 
+}
 }
