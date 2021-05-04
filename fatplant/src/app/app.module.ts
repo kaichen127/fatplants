@@ -32,7 +32,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GraphComponent } from './components/pages/networks/protein-network/graph.component';
 import {NgCytoComponent} from './components/pages/networks/ng-cyto/ng-cyto.component';
 
-
 // import { CytodemoComponent } from './cytodemo/cytodemo.component';
 // import { CytoscapeModule } from 'ngx-cytoscape';
 // import { GraphComponent } from './go-network/protein-network/protein-network.component';
@@ -120,16 +119,12 @@ import { CustomPathwayListComponent } from './components/pages/tools/custom-path
     StructureViewerComponent,
     UserModalComponent,
     AddNewsComponent,
-<<<<<<< HEAD
     CdkDetailRowDirective,
     AddNewsComponent,
-    ProteinDetailComponent
-=======
     ProteinDetailComponent,
     PathwayAralipsComponent,
     CustomPathwayComponent,
     CustomPathwayListComponent
->>>>>>> treyshaw
   ],
   entryComponents: [
     StructureViewerComponent,

@@ -11,12 +11,13 @@ export class GraphComponent {
   filter: string;
   node_name: string;
   node_description: any;
-  layout = {};
+  layout;
   style=[];
   pathways: any;
   selectedpathway: string;
   graph: string;
   descriptionList={};
+  panelOpenState = false;
 
   graphData = {nodes: [], edges: []};
 
@@ -261,9 +262,9 @@ export class GraphComponent {
 
     this.node_name = event;
   }
-  layoutChange(event){
+  layoutChange(type){
     this.visiable = false;
-    switch (event.toElement.value) {
+    switch (type) {
       case 'cose':
         this.layout = {
           name: 'cose',
@@ -289,7 +290,8 @@ export class GraphComponent {
             "style": {
               "selection-box-color": "#AAD8FF",
               "selection-box-border-color": "#8BB0D0",
-              "selection-box-opacity": "0.5"
+              "selection-box-opacity": "0.5",
+              "selection-box-border-width": "2"
             }
           }, {
             "selector": "node",

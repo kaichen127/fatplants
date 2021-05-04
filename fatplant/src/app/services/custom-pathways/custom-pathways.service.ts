@@ -37,4 +37,10 @@ export class CustomPathwaysService {
   uploadPathwayCoords(coordsObjs) {
     return this.afs.collection("CustomizedPathways").add(coordsObjs);
   }
+
+  deletePathway(pathwayId, imgUrl) {
+    return this.afStorage.storage.refFromURL(imgUrl).delete().then(res => {
+      this.afs.collection("CustomizedPathways").doc(pathwayId).delete();
+    });
+  }
 }

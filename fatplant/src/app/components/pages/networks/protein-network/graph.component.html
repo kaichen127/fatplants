@@ -11,54 +11,62 @@
 <link rel='stylesheet' href='/static/js/foundation.css'/>
 <link rel='stylesheet' href='/static/js/custom.css'/>
 
-<<mat-card>
-  <div class="row columns" style="text-align: center">
-    <div class="columns small-10 small-centered textrow ">
-
-      <h3 class="title">Arabidopsis PPI network</h3>
-
-    </div>
+<mat-card id="base">
+  <div class="left-menu">
+    <mat-form-field id="filter">
+      <mat-label>Target Pathway</mat-label>
+      <mat-select [(value)]="selectedpathway" (selectionChange)="selectionChange()">
+        <mat-option *ngFor="let pathway of pathways" [value]="pathway.value">
+          {{pathway.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br><br>
+      <p class="subheader protein">Graph Shape</p>
+      <a class="menu" [class.active]="layout?.name == 'cose'" title="Dynamic Node Cluster" value="cose" (click)="layoutChange('cose')">CoSE</a>
+      <a class="menu" [class.active]="layout?.name == 'cola'" title="D3 Force Graph" value="cola" (click)="layoutChange('cola')">Cola</a>
+      <a class="menu" [class.active]="layout?.name == 'circle'" title="Circluar Pattern" value="circle" (click)="layoutChange('circle')">Circle</a>
+      <a class="menu" [class.active]="layout?.name == 'concentric'" title="Symetric" value="concentric" (click)="layoutChange('concentric')">Concentric</a>
   </div>
-  <div class="row columns">
-    <div class="columns small-10 small-centered">
-      <!--    <h5 id="layouts-header">Layouts:</h5>-->
-      <div class="btn-group">
-        <button id="layout1" title="Dynamic Node Cluster" class="button button1" value="cose" (click)="layoutChange($event)">CoSE</button>
-        <button id="layout2" title="D3 Force Graph" class="button button2" value="cola" (click)="layoutChange($event)">Cola</button>
-        <button id="layout3" title="Circluar Pattern" class="button button3" value="circle" (click)="layoutChange($event)">Circle</button>
-        <button id="layout4" title="Symetric" class="button button4" value="concentric" (click)="layoutChange($event)">Concentric</button>
+  <div class="main-area">
+    <div class="row columns" style="text-align: center">
+      <div class="columns small-10 small-centered textrow ">
+
+        <h3 class="title">Arabidopsis PPI network</h3>
+
       </div>
     </div>
-    <div class="columns small-10 small-centered" style="max-width: 200px">
-      <mat-form-field>
-        <mat-label>Target Pathway</mat-label>
-        <mat-select [(value)]="selectedpathway" (selectionChange)="selectionChange()">
-          <mat-option *ngFor="let pathway of pathways" [value]="pathway.value">
-            {{pathway.value}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+    <div class="graph-container">
+      <div *ngIf="!visiable" class="loading-bar">
+        <p>Loading...</p>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+      <ng2-cytoscape 
+          [elements]="graphData" 
+          [layout]="layout" 
+          [style]="style"
+          [data]="node_description" 
+          [graph]="graph" 
+          (description)="nodeChange($event)" 
+          *ngIf="visiable"
+          >
+        </ng2-cytoscape>
     </div>
+    <mat-expansion-panel *ngFor="let des of descriptionList" class="ac" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{des.name}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-list-item *ngFor="let d of des.desList">
+  
+            <mat-icon mat-list-icon *ngIf="d.length>=2">chevron_right</mat-icon>
+            <p style="margin-top: 15px" *ngIf="d.length>=2">{{d}}</p>
+  
+          </mat-list-item>
+        </mat-list>
+    </mat-expansion-panel>
   </div>
-  <div style="height: 600px; max-width: 800px; overflow: auto; overflow-y: hidden;background: white; margin-left: auto; margin-right: auto;">
-    <div *ngIf="!visiable" style="max-width: 800px">
-      <p>Loading...</p>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </div>
-    <ng2-cytoscape [elements]="graphData" [layout]="layout" [style]="style" [data]="node_description" [graph]="graph" (description)="nodeChange($event)" *ngIf="visiable"></ng2-cytoscape>
-  </div>
-  <div *ngFor="let des of descriptionList" style="max-width: 800px;margin-left: auto; margin-right: auto;">
-    <h5>Name: {{des.name}}</h5>
-    <h5>Details:</h5>
-    <mat-list>
-      <mat-list-item *ngFor="let d of des.desList">
-
-        <mat-icon mat-list-icon *ngIf="d.length>=2">chevron_right</mat-icon>
-        <p style="margin-top: 15px" *ngIf="d.length>=2">{{d}}</p>
-
-      </mat-list-item>
-    </mat-list>
-
-  </div>
-
 </mat-card>
