@@ -1,13 +1,11 @@
 
-<link rel='stylesheet' href='/static/js/foundation.css'/>
-<link rel='stylesheet' href='/static/js/custom.css'/>
-
 <mat-card id="base">
   <div class="left-menu">
     <mat-form-field>
       <mat-label>Entity Identifier:</mat-label>
       <input matInput id="entity-identifier-textbox" type="text" name="entity-name" placeholder="Gene/RefSeq_id/mRna_id" [(ngModel)]="filter">
     </mat-form-field>
+    <button mat-raised-button color="primary" (click)="filterClick()">Submit</button>
     <br><br><br>
       <p class="subheader protein">Graph Shape</p>
       <a class="menu" [class.active]="layout?.name == 'cose'" title="Dynamic Node Cluster" value="cose" (click)="layoutChange('cose')">CoSE</a>

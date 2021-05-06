@@ -19,7 +19,126 @@ export class GraphComponent {
   descriptionList={};
   panelOpenState = false;
 
+  groupFilter: string;
+  comparator: string = "eq";
+  filterError: string = "";
+
   graphData = {nodes: [], edges: []};
+
+  onFilterChange() {
+    this.graphData = {nodes: [], edges: []};
+    var newEdges = [];
+    var newNodes = [];
+
+    this.filterError = "";
+    this.visiable = false;
+
+    // first grab everything
+    this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/ppidata?pathway=Glycerophospholipid metabolism').subscribe((res: any) => {
+      for (let item of res[0]) {
+        if (item.group === 'nodes') {
+          this.graphData.nodes.push({data: item.data});
+        }
+        if (item.group === 'edges') {
+          this.graphData.edges.push({data: item.data});
+        }
+      }
+      this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/ppinodedescription').subscribe((res: any) => {
+        this.node_description = res;
+        this.visiable = true;
+
+        // empty filter? do nothing
+        if (this.groupFilter == "") {
+          this.visiable = true;
+          this.filterError = "No Filter Given";
+          return;
+        }
+
+        let compNum = parseInt(this.groupFilter);
+        if (isNaN(compNum)) {
+          this.visiable = true;
+          this.filterError = "The filter must be a number";
+          return;
+        }
+        
+        console.log(this.graphData);
+        // lets store the nodes in such a way that we can index
+        // them by node id
+        let nodeGroupList = {};
+        this.graphData.nodes.forEach(node => {
+          nodeGroupList[node.data.id] = 0;
+        });
+
+        // based on the comparator, we'll clear out bad edges
+        // and keep track of good nodes
+        if (this.comparator == "eq") {
+          this.graphData.edges.forEach((edge, index) => {
+           
+            if (parseInt(edge.data.group) == compNum) {
+              nodeGroupList[edge.data.source] = 1;
+              nodeGroupList[edge.data.target] = 1;
+              newEdges.push(edge);
+            }
+          });
+        }
+        else if (this.comparator == "gr") {
+          this.graphData.edges.forEach((edge, index) => {
+           
+            if (parseInt(edge.data.group) > compNum) {
+              nodeGroupList[edge.data.source] = 1;
+              nodeGroupList[edge.data.target] = 1;
+              newEdges.push(edge);
+            }
+          });
+        }
+        else if (this.comparator == "greq") {
+          this.graphData.edges.forEach((edge, index) => {
+           
+            if (parseInt(edge.data.group) >= compNum) {
+              nodeGroupList[edge.data.source] = 1;
+              nodeGroupList[edge.data.target] = 1;
+              newEdges.push(edge);
+            }
+          });
+        }
+        else if (this.comparator == "le") {
+          this.graphData.edges.forEach((edge, index) => {
+           
+            if (parseInt(edge.data.group) < compNum) {
+              nodeGroupList[edge.data.source] = 1;
+              nodeGroupList[edge.data.target] = 1;
+              newEdges.push(edge);
+            }
+          });
+        }
+        else if (this.comparator == "leeq") {
+          this.graphData.edges.forEach((edge, index) => {
+           
+            if (parseInt(edge.data.group) <= compNum) {
+              nodeGroupList[edge.data.source] = 1;
+              nodeGroupList[edge.data.target] = 1;
+              newEdges.push(edge);
+            }
+          });
+        }
+        else {
+          this.visiable = true;
+          this.filterError = "The comparator value has somehow been improperly set...";
+          return;
+        }
+        //filter out bad nodes
+        this.graphData.nodes.forEach((node, index) => {
+          if (nodeGroupList[node.data.id] == 1)
+            newNodes.push(node);
+        });
+
+        this.graphData.nodes = newNodes;
+        this.graphData.edges = newEdges;
+
+        this.visiable = true;
+      });
+    });
+  }
 
     constructor(private http: HttpClient) {
       this.graph = 'PPI';
