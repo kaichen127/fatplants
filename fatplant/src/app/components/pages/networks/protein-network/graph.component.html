@@ -8,9 +8,6 @@
 <!--  <iframe src="/static/proteinNetView.html" frameborder="0" scrolling="0" style="min-height: 900px; min-width: 1100px;"></iframe>-->
 <!--</mat-card>-->
 
-<link rel='stylesheet' href='/static/js/foundation.css'/>
-<link rel='stylesheet' href='/static/js/custom.css'/>
-
 <mat-card id="base">
   <div class="left-menu">
     <mat-form-field id="filter">
@@ -21,6 +18,23 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <br><br><br>
+    <mat-form-field>
+      <mat-label>Group Filter Comparator:</mat-label>
+      <mat-select [(value)]="comparator">
+        <mat-option value="eq">Equal To</mat-option>
+        <mat-option value="gr">Greater Than</mat-option>
+        <mat-option value="greq">Greater Than or Equal To</mat-option>
+        <mat-option value="le">Less Than</mat-option>
+        <mat-option value="leeq">Less Than or Equal To</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Group Filter:</mat-label>
+      <input matInput type="text" placeholder="4" [(ngModel)]="groupFilter">
+    </mat-form-field>
+    <p class="error-text">{{filterError}}</p>
+    <button mat-raised-button color="primary" (click)="onFilterChange()">Submit</button>
     <br><br><br>
       <p class="subheader protein">Graph Shape</p>
       <a class="menu" [class.active]="layout?.name == 'cose'" title="Dynamic Node Cluster" value="cose" (click)="layoutChange('cose')">CoSE</a>

@@ -13,6 +13,7 @@ declare var cytoscape: any;
         top: 0;
         margin-left: auto;
         margin-right: auto;
+        border:1px solid #488b8f;
         
     }`]
 })

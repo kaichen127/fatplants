@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomPathwaysService } from '../../../../services/custom-pathways/custom-pathways.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { elementAt } from 'rxjs/operators';
 
 @Component({
   selector: 'app-custom-pathway',
@@ -14,6 +15,19 @@ export class CustomPathwayComponent implements OnInit {
 
   showingUniprot = false;
   selectedGraph = null;
+  graphTable = null;
+
+  displayedColumns = ["title", "fpLink", "uniProtLink"];
+
+  /*myHover(element)
+  {
+    element.focus();
+  }
+
+  myLeave(element)
+  {
+    element.blur();
+  }*/
 
   ngOnInit(): void {
     
@@ -29,6 +43,26 @@ export class CustomPathwayComponent implements OnInit {
         }
         else {
           this.selectedGraph = graphAny;
+
+          // we'll use this to quickly eliminate any duplicates
+          var graphHash = {};
+          this.graphTable = [];
+
+          this.selectedGraph.areas.forEach(graphEntry => {
+            // check the dictionary, if its not there, then
+            // we need to grab this for the table
+            if (graphHash[graphEntry.title] != 1) {
+              // add it to the dictionary
+              graphHash[graphEntry.title] = 1;
+
+              // push it to our graph list
+              this.graphTable.push({
+                title: graphEntry.title,
+                fpLink: graphEntry.fpLink,
+                uniProtLink: graphEntry.uniProtLink
+              });
+            }
+          });
         }
       });
     });
