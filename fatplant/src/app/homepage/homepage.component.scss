@@ -262,7 +262,14 @@
 
 .paper-items {
   margin-top: 8rem;
-  cursor: pointer
+  cursor: pointer;
+  color: black;
+}
+
+.paper-items a {
+  margin-top: 8rem;
+  cursor: pointer;
+  color: black;
 }
 
 .paper-items:hover {
