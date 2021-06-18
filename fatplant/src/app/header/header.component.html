@@ -35,27 +35,27 @@
         <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>build</mat-icon><div class="menu">Tools</div>
       </li>
 
-      <li routerLink="/login" *ngIf="authService.checkUser() | async; else showLogin">
-        <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>account_box</mat-icon><div class="menu">Logout</div>
-      </li>
+      <!--<li routerLink="/login" *ngIf="authService.checkUser() | async; else showLogin">-->
+        <!--<mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>account_box</mat-icon><div class="menu">Logout</div>-->
+      <!--</li>-->
 
-      <ng-template #showLogin>
-        <li routerLink="/login">
-          <mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>person</mat-icon><div class="menu">Login</div>
-        </li>
-      </ng-template>
+      <!--<ng-template #showLogin>-->
+        <!--<li routerLink="/login">-->
+          <!--<mat-icon *ngIf="!mobileService.opaque" [@inOutAnimation]>person</mat-icon><div class="menu">Login</div>-->
+        <!--</li>-->
+      <!--</ng-template>-->
 
     </ul>
   </nav>
 
 </mat-card>
-<div class="loginInfo" *ngIf="hello">
-  Hello,
-  <span *ngIf="user.admin === 0"> admin</span>
-  <span *ngIf="user.admin === 1"> supervisor</span>
-  <span *ngIf="user.admin === 2"> user</span>
-  {{ user.displayName }}
-</div>
+<!--<div class="loginInfo" *ngIf="hello">-->
+  <!--Hello,-->
+  <!--<span *ngIf="user.admin === 0"> admin</span>-->
+  <!--<span *ngIf="user.admin === 1"> supervisor</span>-->
+  <!--<span *ngIf="user.admin === 2"> user</span>-->
+  <!--{{ user.displayName }}-->
+<!--</div>-->
 
 <mat-menu #dataMenu class="mat-menu-content">
   <a mat-menu-item routerLink="/lmpd_arapidopsis" class="menu-item" routerLinkActive="desktop-active-menu-item">Arabidopsis</a>
