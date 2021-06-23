@@ -94,16 +94,14 @@
       <p>
         <strong class="oilHeader">Introduction</strong><br /><br />
 
-        Plant breeding has resulted in trade-offs or penalties with respect to protein content, seed size, and seed set.
+        Fatplants is a web portal with analysis and visualization tools for plant fat-related genes, proteins and metabolism.
+        It empowers researchers to develop and test hypotheses, and design crops with value-added compositions.
+        In particular, collating data in Fatplants on oilseed engineering through can accelerate the process of knowledge discovery and crop design for biology researchers with little computer skills.
+        For example, increasing seed oil content by plant breeding has resulted in trade-offs or penalties with respect to protein content, seed size, or seed set, and FatPlants provides useful information to address this issue. <br /><br />
 
-        The molecular basis for this impasse is mostly speculative.
-        Use of current global profiling approaches to better understand both the metabolic consequences of higher oil and the basis for reduced yield must also deal with off-target genetic mutations (even in near-isogenic lines),
-        ultimately confounding cause-effect interpretations.
-        We propose a diverse, integrated strategy to study the consequences of higher lipid production by studying transgenic plants specifically engineered to produce higher seed oil.<br /><br />
+        We have developed this “one-stop-shop” community web resource using various data of Glycine max, Arabidopsis thaliana, and Camelina sativa generated from our studies, curated from the public sources, and collected from the literature to help understand metabolism synthesis pathways and related protein interactions.
+        Some data and annotations come from Uniprot, TAIR, LIPIDMAPS, OPSIN, LMPD, PlantFAdb and ARALIPS. FatPlants also includes gene and protein information cards, Blast search function, and similar structure search function.
 
-        Breakthroughs in the regulations of the committed step of de novo fatty acid synthesis (FAS) have been leveraged to produce oilseeds with substantially higher oil content.
-        Prior to this time, changes in oil content have been minor, which has made the identification of small differences in metabolism difficult to study.
-        We are now in a position to address recalcitrant questions about the metabolic consequences for enhancing seed oil.
       </p>
     </div>
     <div class="aims">
@@ -111,15 +109,16 @@
         <strong class="aimsHeader">Site Features</strong><br /><br />
         <strong>Data</strong><br/>
         <li>Integrated data of fatty acid-related proteins, genes for Arabidopsis, Soybean and Camellia<br/></li>
-        <li>Functional information for each protein, includes the modification region, post-translation modification or functional structure region<br/></li>
-        <li>physicochemical information of fatty acids<br/><br/></li>
+        <li>Functional information for each protein, including the modification region, post-translation modification or functional structure region<br/></li>
+        <li>Physicochemical information of fatty acids<br/><br/></li>
         <strong>Analysis</strong><br/>
-        <li>Sequence and 3D-structure similarity search<br/></li>
-        <li>pathway mapping to KEGG and Reactome<br/></li>
-        <li>Literature pathway mapping<br/><br/></li>
+        <li>Sequence similarity search based on Blastp against the fatty-acid related proteins.<br/></li>
+        <li>3D-structure similarity search and visualization using in-house G2S against the fatty-acid related proteins. <br/></li>
+        <li>Pathway mapping to KEGG and Reactome<li>
+        <li>Collection of fatty-acid related pathway pictures from the literature and interactive visualization using our in-house machine learning image understanding tool <br/><br/></li>
         <strong>Visualization</strong><br/>
-        <li>Protein-Protein interaction for fatty-related proteins<br/></li>
-        <li>GO Enrichment network for fatty acid related proteins<br/></li>
+        <li>Visualization of protein-protein interaction for fatty-related proteins<br/></li>
+        <li>Visualization of GO Enrichment network for fatty acid related proteins<br/></li>
 
 
       </p>
@@ -129,15 +128,15 @@
   <div class="newspapers">
     <div class="news">
       <br />
-
       <div class="latest">
         Latest News<br />
         ____
-      </div><br /><br/>
-      <p>
+      </div>
+      <p style="font-size:20px;color:black" align="center">
         <li>Fatplants of Angular version is deployed.<br/><br/></li>
         <li>Fatplants is presented in PAG 2019.<br/><br/></li>
-        <li>Pathway picture from Literature could be browsed now.</li>
+        <li>Pathway picture from Literature could be browsed now.<br/><br/></li>
+      <a style="font-size:20px;color:black;" href="https://yield10bioscienceinc.gcs-web.com/news-releases/news-release-details/yield10-bioscience-obtains-positive-response-usda-aphis"><li>Commercialization of C3007 Trait in Camelina.</li></a>
       </p>
       <div class="more-container">
         <div class="less-news" *ngIf="more" (click)="previousNews()">
@@ -145,31 +144,34 @@
         </div>
       </div>
 
-      <div class="news-item__container">
-        <div class="news-item" *ngFor="let item of displayedItems" [@enterAnimation]>
-          <a class="newsLink" [href]="item.link">
-            <img class="newsPics" [src]="item.img" alt="news-thumbnail"/><br />
-            <span>{{ item.title }}</span>
-          </a>
-        </div>
-      </div>
-      <div class="more-container">
-        <div class="more-news" (click)="moreNews()">
+      <!--<div class="news-item__container">-->
+        <!--<div class="news-item" *ngFor="let item of displayedItems" [@enterAnimation]>-->
+          <!--<a class="newsLink" [href]="item.link">-->
+            <!--<img class="newsPics" [src]="item.img" alt="news-thumbnail"/><br />-->
+            <!--<span>{{ item.title }}</span>-->
+          <!--</a>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="more-container">-->
+        <!--<div class="more-news" (click)="moreNews()">-->
 
-        </div>
-      </div>
+        <!--</div>-->
+      <!--</div>-->
 
       <div *ngIf="user.admin <= 1" class="add-news" routerLink="/add-news"><span class="material-icons add-news-icon">add_circle_outline</span></div>
     </div>
+
     <div class="papers">
       <br />
       <div class="latest">
         Research Papers<br />
         ____
       </div>
-      <div class="paper-items">
-        <a target="_blank" href="https://yield10bioscienceinc.gcs-web.com/news-releases/news-release-details/yield10-bioscience-obtains-positive-response-usda-aphis">Yield10 Bioscience Obtains Positive Response from USDA-APHIS on Regulatory Status of its CRISPR Genome-Edited C3007 Trait in Camelina, Paving the Way for U.S. Field Tests</a>
-      </div>
+      <p class="paper-items" style="font-size:20px;color:black" align="center">
+        <li><a id="1" target="_blank" href="https://link.springer.com/protocol/10.1007/978-1-0716-1362-7_13">Jenkins L M, Nam J W, Evans B S, et al. Quantification of Acyl-Acyl Carrier Proteins for Fatty Acid Synthesis Using LC-MS/MS[M]//Plant Lipids. Humana, New York, NY, 2021: 219-247.</a><br/><br/></li>
+        <li><a id="2" target="_blank" href="https://www.sciencedirect.com/science/article/pii/S1570023220300246?casa_token=85SEr3IoLPoAAAAA:ZT56FKuvVW-lAUUZ0fUS4K_XPFQebdNSAWytmhKd0JnRRfAxxcnW1i1WSC60WSldaqDgiBcBZIV_">Kotapati H K, Bates P D. Normal phase HPLC method for combined separation of both polar and neutral lipid classes with application to lipid metabolic flux[J]. Journal of Chromatography B, 2020, 1145: 122099.</a><br/><br/></li>
+        <li><a id="3" target="_blank" href="https://academic.oup.com/plcell/article/32/4/820/6115733?login=true">Nam JW, Jenkins LM, Li J, Evans BS, Jaworski JG, Allen DK (2020) A General Method for Quantification and Discovery of Acyl Groups Attached to Acyl Carrier Proteins in Fatty Acid Metabolism using LC-MS/MS. Plant Cell: 32(4):820-832</a><br></li>
+      </p>
     </div>
   </div>
   <div class="information">
