@@ -380,7 +380,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="run" type="js.build_tools.npm" factoryName="npm" nameIsGenerated="true">
+    <configuration name="run" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/fatplant/package.json" />
       <command value="run" />
       <scripts>
@@ -389,6 +389,7 @@
       <arguments value="serve" />
       <node-interpreter value="project" />
       <envs />
+      <method v="2" />
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
