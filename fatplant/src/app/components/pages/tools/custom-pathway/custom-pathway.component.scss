@@ -6,9 +6,27 @@ div{
   /* background-color: #FCFF7B; */
 }
 
+#side-graph {
+  max-width: 150px;
+}
+
+.graphTitle {
+  background-color: white;
+  margin-bottom: 0px;
+  padding: 10px;
+  text-align: center;
+}
+
+.canvas-container {
+  max-width: 1200px;
+  min-width: 320px;
+
+  overflow: scroll;
+}
+
 .imageArea{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: auto;
 }
 
@@ -35,7 +53,6 @@ mat-header-cell {
 mat-header-row {
   border-bottom-color: rgba(grey, 0.5);
   font-size: 1.0vw;
-  padding-top: 5%;
 }
 mat-row {
   border-bottom-color: $pale-green;
@@ -78,4 +95,8 @@ mat-cell>a:visited, mat-cell>span>a:visited {
   transition-timing-function: ease-out;
   transition-property: top, left, right, bottom, background;
   pointer-events: none;
+}
+
+.titleCell:hover {
+  background-color: rgba(219,112,147,0.4);
 }

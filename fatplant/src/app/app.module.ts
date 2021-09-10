@@ -83,6 +83,7 @@ import { ProteinDetailComponent } from './components/pages/datapages/protein-det
 import { PathwayAralipsComponent } from './components/pages/tools/pathway-aralips/pathway-aralips.component';
 import { CustomPathwayComponent } from './components/pages/tools/custom-pathway/custom-pathway.component';
 import { CustomPathwayListComponent } from './components/pages/tools/custom-pathway-list/custom-pathway-list/custom-pathway-list.component';
+import { CustomPathwayDialogComponent } from './components/pages/tools/custom-pathway-dialog/custom-pathway-dialog.component';
 
 @NgModule({
   declarations: [
@@ -124,7 +125,8 @@ import { CustomPathwayListComponent } from './components/pages/tools/custom-path
     ProteinDetailComponent,
     PathwayAralipsComponent,
     CustomPathwayComponent,
-    CustomPathwayListComponent
+    CustomPathwayListComponent,
+    CustomPathwayDialogComponent
   ],
   entryComponents: [
     StructureViewerComponent,

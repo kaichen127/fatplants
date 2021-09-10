@@ -36,6 +36,7 @@
     "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
     "ng-circle-progress": "^1.5.1",
+    "ng-maphilight": "^1.0.1",
     "ngl": "^0.10.4",
     "ngx-clipboard": "^12.3.1",
     "ngx-cytoscape": "^0.5.24",

@@ -1,19 +1,38 @@
 <mat-card class="row columns base" style="min-width: 1000px">
     <div class="columns small-10 small-centered textrow ">
       <h1>Custom Pathway Viewer</h1>
-      <p>A tool for viewing custom pathway figures.</p>
-  
+      <p *ngIf="selectedGraph == null">A tool for viewing custom pathway figures.</p>
+      <p *ngIf="selectedGraph != null">{{selectedGraph.paper}}</p>
     </div>
     <div class="infoSection">
         <mat-slide-toggle [(ngModel)]="showingUniprot">Use Uniprot Links</mat-slide-toggle>
     </div>
-
-    <div *ngIf="selectedGraph != null; else nullGraph"  class="imageArea">
+    <div [class.show]="selectedGraph" class="imageArea">
         
-        <div>
-            <img [src]="selectedGraph.imgPath" usemap="#chartMap">
+        <div id="side-graph">
+            <mat-table [dataSource]='graphTable' id='side-table' *ngIf="graphTable != null">
+        
+                <ng-container matColumnDef="title">
+                    <mat-header-cell *matHeaderCellDef>Clickable Gene Components</mat-header-cell>
+                    <mat-cell *matCellDef="let prot" 
+                               class="titleCell" 
+                               (mouseover)="drawMapForTitle(prot.title)" 
+                               (mouseout)="clearMap()"
+                               (click)="openLink(prot)"
+                               >
+                               {{ prot.title }}
+                            </mat-cell>
+                </ng-container>
+        
+                <mat-header-row *matHeaderRowDef="['title']"></mat-header-row>
                 
-            <!-- FATPLANT LINKS -->
+                <mat-row *matRowDef="let row; columns: ['title']"></mat-row>
+        
+            </mat-table>
+        </div>
+
+        <div class="canvas-container">
+            <!--<img [src]="selectedGraph.imgPath" usemap="#chartMap">
             
             <MAP NAME="chartMap" *ngIf="!showingUniprot">
                 <AREA *ngFor="let area of selectedGraph.areas" 
@@ -23,28 +42,34 @@
                         [title]="area.title"  
                         [coords]="area.coords"
                         >
-            </MAP>
+            </MAP> -->
 
             <!-- UNIPROT LINKS -->
             
-            <MAP NAME="chartMap" *ngIf="showingUniprot">
+            <canvas #canvas id="imgCanvas" 
+                    [width]="img.width" 
+                    [height]="img.height" 
+                    >
+
+            </canvas>
+            <!-- <MAP NAME="chartMap" *ngIf="showingUniprot">
                 <AREA *ngFor="let area of selectedGraph.areas" 
-                      [shape]="area.shape" 
-                      [href]="area.uniProtLink" 
-                      target="_blank" 
-                      [title]="area.title"  
-                      [coords]="area.coords"
-                      >
-            </MAP>
+                    [shape]="area.shape" 
+                    [href]="area.uniProtLink" 
+                    target="_blank" 
+                    [title]="area.title"  
+                    [coords]="area.coords"
+                    >
+            </MAP> -->
         </div>
     </div>
 
     <mat-card class="graph-card">
+        <mat-card-title class="graphTitle" *ngIf="graphTable != null">Clickable Gene Components</mat-card-title>
         <mat-table [dataSource]='graphTable' id='table' *ngIf="graphTable != null">
-        
             <ng-container matColumnDef="title">
                 <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
-                <mat-cell *matCellDef="let prot">{{ prot.title }}</mat-cell>
+                <mat-cell *matCellDef="let prot" class="titleCell" (mouseover)="drawMapForTitle(prot.title)" (mouseout)="clearMap()">{{ prot.title }}</mat-cell>
             </ng-container>
             
             <ng-container matColumnDef="fpLink">
@@ -68,7 +93,7 @@
         </mat-table>
       <mat-progress-bar mode="indeterminate" *ngIf='graphTable == null'></mat-progress-bar>
     </mat-card>
-    <ng-template #nullGraph>
+    <ng-template *ngIf="selectedGraph == null" >
         <mat-card>
             <mat-card-title>No Graph Found</mat-card-title>
             <mat-card-content>
