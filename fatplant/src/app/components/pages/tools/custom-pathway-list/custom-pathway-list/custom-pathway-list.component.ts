@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomPathwaysService } from 'src/app/services/custom-pathways/custom-pathways.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../../../../../services/auth.service';
+import { geneDict } from './gene_dictionary';
 
 @Component({
   selector: 'app-custom-pathway-list',
@@ -42,7 +43,33 @@ export class CustomPathwayListComponent implements OnInit {
 
         // setup reader function
         fileReader.onload = () => {
-          var result: string = fileReader.result as string;
+          var jsonObj = JSON.parse(fileReader.result as string);
+
+          if (Array.isArray(jsonObj)) {
+            for (var i = 1; i < jsonObj.length; i++) {
+              var coords = jsonObj[i].coordinates[0]  + ',' + jsonObj[i].coordinates[1] + ',' + jsonObj[i].coordinates[2] + ',' + jsonObj[i].coordinates[3];
+              var linkEnd = geneDict[jsonObj[i].gene_name.trim()];
+
+              // if we don't get a result, try adding the comma
+              if (linkEnd == undefined) {
+                linkEnd = geneDict[jsonObj[i].gene_name.trim() + ','];
+              }
+
+              var documentObject = {
+                shape: 'rect',
+                coords: coords,
+                uniProtLink: "https://www.uniprot.org/uniprot/" + linkEnd,
+                fpLink: "https://www.fatplants.net/protein/" + linkEnd,
+                title: jsonObj[i].gene_name
+              };
+
+              pathObject.areas.push(documentObject);
+            }
+          }
+          else {
+            throw("Could not parse the JSON file.");
+          }
+          /*var result: string = fileReader.result as string;
           var lines = result.split('\n');
 
           lines.forEach(line => {
@@ -74,8 +101,10 @@ export class CustomPathwayListComponent implements OnInit {
               };
 
               pathObject.areas.push(documentObject);
+              
             }
           });
+          */
 
           // upload the parsed coordinates
           this.pathwayService.uploadPathwayCoords(pathObject).then(res => {

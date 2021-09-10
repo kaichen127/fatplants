@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CustomPathwaysService } from '../../../../services/custom-pathways/custom-pathways.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { elementAt } from 'rxjs/operators';
+import { ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CustomPathwayDialogComponent } from '../custom-pathway-dialog/custom-pathway-dialog.component';
 
 @Component({
   selector: 'app-custom-pathway',
@@ -11,26 +14,28 @@ import { elementAt } from 'rxjs/operators';
 export class CustomPathwayComponent implements OnInit {
 
   constructor(private pathwayService: CustomPathwaysService,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private renderer: Renderer2,
+              private dialog: MatDialog) { }
+
+  @ViewChild('canvas', { static: true }) 
+  canvas: ElementRef<HTMLCanvasElement>;
+  ctx;
+  canvasListener: any;
+  clickRects: any;
+  bm:ImageBitmap;
+  hoveredRects = [];
 
   showingUniprot = false;
   selectedGraph = null;
   graphTable = null;
+  img;
 
   displayedColumns = ["title", "fpLink", "uniProtLink"];
-
-  /*myHover(element)
-  {
-    element.focus();
-  }
-
-  myLeave(element)
-  {
-    element.blur();
-  }*/
-
   ngOnInit(): void {
-    
+
+    this.img = new Image();
+
     this.activatedRoute.queryParams.subscribe(params => {
       var graphId = params['id'];
 
@@ -48,6 +53,9 @@ export class CustomPathwayComponent implements OnInit {
           var graphHash = {};
           this.graphTable = [];
 
+          // set the image source
+          this.img.src = this.selectedGraph.imgPath;
+
           this.selectedGraph.areas.forEach(graphEntry => {
             // check the dictionary, if its not there, then
             // we need to grab this for the table
@@ -63,9 +71,143 @@ export class CustomPathwayComponent implements OnInit {
               });
             }
           });
+
+          // we got everything, now we must wait for the image to
+          // load, then generate everything
+          this.img.onload = () => this.drawMap();
         }
       });
     });
+  }
+
+  // this function sets up the behavior for the canvas once
+  // the image has fully loaded
+  drawMap() {
+    this.ctx = this.canvas.nativeElement.getContext('2d');
+    this.clickRects = [];
+
+    createImageBitmap(this.img,0,0,this.img.width,this.img.height).then(bm => {
+      this.bm = bm;
+      this.ctx.drawImage(this.bm,0,0);
+
+      this.selectedGraph.areas.forEach(graphEntry => {
+        var points = graphEntry.coords.split(',');
+
+        if (points.length == 4) {
+
+          // we need width/height to draw on the canvas, lets calculate
+          var rectWidth = points[2];
+          var rectHeight = points[3];
+
+          // adjust them for the rescaled canvas (only for pointer)
+          var adjRectWidth = (rectWidth / this.img.width) * this.canvas.nativeElement.scrollWidth;
+          var adjRectHeight = (rectHeight / this.img.height) * this.canvas.nativeElement.scrollHeight;
+
+          var pointX = (points[0] / this.img.width) * this.canvas.nativeElement.scrollWidth;
+          var pointY = (points[1] / this.img.height) * this.canvas.nativeElement.scrollHeight;
+
+          // add new point to list and to the ctx (non-adjusted)
+          var newPath = new Path2D();
+          newPath.rect(points[0], points[1], rectWidth, rectHeight);
+
+          this.clickRects.push(
+            { 
+              path: newPath,
+              title: graphEntry.title,
+              fpLink: graphEntry.fpLink,
+              uniProtLink: graphEntry.uniProtLink,
+              coords: {
+                x:points[0], 
+                y:points[1], 
+                w:rectWidth, 
+                h:rectHeight
+              }
+            });
+        }
+      });
+
+      // now let's define the hover behavior for each of them
+      this.canvasListener = this.renderer.listen(this.canvas.nativeElement, 'mousemove', (e) => {
+        
+        // clear the rectangle's we're hovering over
+        this.hoveredRects = [];
+
+        // clear the painted rects
+        this.ctx.drawImage(this.bm,0,0);
+
+        this.ctx.beginPath();
+
+        this.clickRects.forEach((rect, i) => {
+          // add all the rects under the mouse to the array
+          if(this.ctx.isPointInPath(rect.path, e.offsetX, e.offsetY)) {
+            this.hoveredRects.push(rect);
+          }
+        });
+        
+        // paint all the rects the mouse is touching
+        this.hoveredRects.forEach(rect => {
+          this.ctx.fillStyle = "rgba(219,112,147,0.3)";
+          this.ctx.fill(rect.path);
+        });
+      });
+
+      // now let's define the click behavior for each of them
+      this.canvasListener = this.renderer.listen(this.canvas.nativeElement, 'click', (e) => {
+        var hasOpenedDialog = false;
+        
+        this.clickRects.forEach(rect => {
+          if (this.ctx.isPointInPath(rect.path, e.offsetX, e.offsetY)) {
+            
+            if (this.hoveredRects.length == 1){
+              // on click, go to the appropriate link
+              if (this.showingUniprot)
+                window.open(rect.uniProtLink, '_blank');
+              else
+                window.open(rect.fpLink, '_blank');
+            }
+            else if (this.hoveredRects.length != 0 && !hasOpenedDialog) {
+              hasOpenedDialog = true;
+              this.openDialog();
+            }
+          }
+        });
+      });
+    });    
+  }
+
+  drawMapForTitle(title:string) {
+    this.ctx.drawImage(this.bm,0,0);
+
+    this.clickRects.forEach(rect => {
+      
+      if (rect.title == title) {
+        this.ctx.beginPath();
+        this.ctx.fillStyle = "rgba(219,112,147,0.3)";
+        this.ctx.fill(rect.path);
+      }
+    });
+  }
+
+  clearMap() {
+    this.ctx.drawImage(this.bm,0,0);  
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      hoveredRects: this.hoveredRects
+    }
+
+    this.dialog.open(CustomPathwayDialogComponent, dialogConfig);
+  }
+
+  openLink(rect) {
+    if (this.showingUniprot)
+      window.open(rect.uniProtLink, '_blank');
+    else
+      window.open(rect.fpLink, '_blank');
   }
 
 }
