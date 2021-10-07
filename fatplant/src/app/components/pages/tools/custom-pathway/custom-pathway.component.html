@@ -85,6 +85,27 @@
                     <a href="{{ prot.uniProtLink }}" target="_blank">Uniprot Link</a>
                 </mat-cell>
             </ng-container>
+
+            <ng-container matColumnDef="geneName">
+                <mat-header-cell *matHeaderCellDef>Gene Name</mat-header-cell>
+                <mat-cell *matCellDef="let prot">
+                    <p>{{ prot.geneName }}</p>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="dataSet">
+                <mat-header-cell *matHeaderCellDef>Data Set</mat-header-cell>
+                <mat-cell *matCellDef="let prot">
+                    <p>{{ prot.dataSet }}</p>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="modified">
+                <mat-header-cell *matHeaderCellDef>Modified</mat-header-cell>
+                <mat-cell *matCellDef="let prot">
+                    <p>{{ prot.modified }}</p>
+                </mat-cell>
+            </ng-container>
     
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             
