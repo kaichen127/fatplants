@@ -8,3 +8,4 @@ csvtofirestore.py
 .vscode
 fatplant/.firebase/hosting.ZGlzdA.cache
 node_modules/
+fatplant/src/environments/*
