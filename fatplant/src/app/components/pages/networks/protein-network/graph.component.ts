@@ -34,7 +34,7 @@ export class GraphComponent {
     this.visiable = false;
 
     // first grab everything
-    this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/ppidata?pathway=Glycerophospholipid metabolism').subscribe((res: any) => {
+    this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/ppidata?pathway=Glycerophospholipid metabolism').subscribe((res: any) => {
       for (let item of res[0]) {
         if (item.group === 'nodes') {
           this.graphData.nodes.push({data: item.data});
@@ -43,7 +43,7 @@ export class GraphComponent {
           this.graphData.edges.push({data: item.data});
         }
       }
-      this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/ppinodedescription').subscribe((res: any) => {
+      this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/ppinodedescription').subscribe((res: any) => {
         this.node_description = res;
         this.visiable = true;
 
@@ -334,7 +334,7 @@ export class GraphComponent {
         }
       }
     ];
-    this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/ppidata?pathway=Glycerophospholipid metabolism').subscribe((res: any) => {
+    this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/ppidata?pathway=Glycerophospholipid metabolism').subscribe((res: any) => {
       console.log(res);
       for (let item of res[0]) {
         if (item.group === 'nodes') {
@@ -345,7 +345,7 @@ export class GraphComponent {
         }
       }
       console.log(this.graphData);
-      this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/ppinodedescription').subscribe((res: any) => {
+      this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/ppinodedescription').subscribe((res: any) => {
         console.log(res);
         this.node_description = res;
         this.visiable = true;
@@ -358,7 +358,7 @@ export class GraphComponent {
   selectionChange(){
       console.log(this.selectedpathway);
       this.visiable = false;
-      this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/ppidata?pathway=' + this.selectedpathway.toString()).subscribe((res: any) => {
+      this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/ppidata?pathway=' + this.selectedpathway.toString()).subscribe((res: any) => {
       console.log(res);
       this.graphData = {nodes: [], edges: []};
       for (let item of res[0]) {
