@@ -50,7 +50,7 @@ export class DataService {
 
   public updateBlastRes(uniprot_id, proteinDatabase): Observable<string>{
     this.uniprot_id = uniprot_id;
-    this.blastResOb = this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/oneclick?fasta=' + this.seqence + '&database=' + proteinDatabase, { responseType: 'text' })
+    this.blastResOb = this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/oneclick?fasta=' + this.seqence + '&database=' + proteinDatabase, { responseType: 'text' })
     this.blastResOb.subscribe(res=>{
       this.blastRes = res;
       this.BlastNeedUpdate = false;

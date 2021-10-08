@@ -192,7 +192,7 @@ export class GoNetworkComponent implements OnInit {
         }
       }
     ];
-    this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/godata').subscribe((res: any) => {
+    this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/godata').subscribe((res: any) => {
       console.log(res);
       for (let item of res) {
         if (item.group === 'nodes') {
@@ -203,7 +203,7 @@ export class GoNetworkComponent implements OnInit {
         }
       }
       console.log(this.graphData);
-      this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/gonodedescription').subscribe((res: any) => {
+      this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/gonodedescription').subscribe((res: any) => {
         console.log(res);
         this.node_description = res;
         this.visiable = true;
@@ -220,7 +220,7 @@ export class GoNetworkComponent implements OnInit {
     if (this.filter.length > 0){
       this.visiable = false;
       console.log(this.filter)
-      this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/godata?identifier='+ this.filter).subscribe((res: any) => {
+      this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/godata?identifier='+ this.filter).subscribe((res: any) => {
         this.graphData = {
           nodes: [
           ],

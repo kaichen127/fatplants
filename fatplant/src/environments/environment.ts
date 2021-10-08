@@ -5,11 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAizp5ydRlb-yGlrkY51StA4fXAEJ1OBms",
-    databaseURL: "https://fatplant-76987.firebaseio.com",
-    projectId: "fatplant-76987",
-    authDomain: "fatplant-76987.firebaseapp.com",
-    storageBucket: "fatplant-76987.appspot.com"
+    apiKey: "AIzaSyDOg23iF81ehGrbXJb3fGrKAQIlXepvywo",
+    authDomain: "fatplantsmu-eb07c.firebaseapp.com",
+    projectId: "fatplantsmu-eb07c",
+    storageBucket: "fatplantsmu-eb07c.appspot.com",
+    messagingSenderId: "982132458514",
+    appId: "1:982132458514:web:ea3a4ff127bac7bcfb84cb",
+    measurementId: "G-CH0M3VZ032"
   }
 };
 

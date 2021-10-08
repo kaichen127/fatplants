@@ -33,7 +33,7 @@
     "dagre": "^0.8.5",
     "firebase": "^6.6.2",
     "firebase-tools": "^7.12.0",
-    "jquery": "^3.6.0",
+    "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
     "ng-circle-progress": "^1.5.1",
     "ng-maphilight": "^1.0.1",
@@ -49,7 +49,7 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1000.6",
+    "@angular-devkit/build-angular": "~0.1000.6",
     "@angular/cli": "~10.0.6",
     "@angular/compiler-cli": "^10.0.9",
     "@angular/language-service": "^10.0.9",
@@ -67,6 +67,11 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.7",
+    "@angular-devkit/architect": "<0.900 || ^0.900.0-0 || ^9.0.0-0",
+    "firebase-tools": "^6.10.0",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1"
   }
 }
