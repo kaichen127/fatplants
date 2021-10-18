@@ -24,7 +24,7 @@ export class DataService {
   }
 
   public updateBlastRes(database, uniprot_id): Observable<string>{
-    this.blastResOb = this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/oneclick?fasta=' + uniprot_id + '&database=' + database, { responseType: 'text' })
+    this.blastResOb = this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/oneclick?fasta=' + uniprot_id + '&database=' + database, { responseType: 'text' })
     this.blastResOb.subscribe(res=>{
       this.blastRes = res;
       this.BlastNeedUpdate = false;
