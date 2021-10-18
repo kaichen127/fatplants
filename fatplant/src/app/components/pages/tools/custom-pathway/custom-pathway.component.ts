@@ -31,7 +31,7 @@ export class CustomPathwayComponent implements OnInit {
   graphTable = null;
   img;
 
-  displayedColumns = ["title", "fpLink", "uniProtLink"];
+  displayedColumns = ["title", "fpLink", "uniProtLink", "geneName", "dataSet", "modified"];
   ngOnInit(): void {
 
     this.img = new Image();
@@ -56,14 +56,13 @@ export class CustomPathwayComponent implements OnInit {
           // set the image source
           this.img.src = this.selectedGraph.imgPath;
 
-          this.selectedGraph.areas.forEach(graphEntry => {
+          this.selectedGraph.areas.forEach((graphEntry) => {
             // check the dictionary, if its not there, then
             // we need to grab this for the table
             if (graphHash[graphEntry.title] != 1) {
               // add it to the dictionary
               graphHash[graphEntry.title] = 1;
 
-              // push it to our graph list
               this.graphTable.push({
                 title: graphEntry.title,
                 fpLink: graphEntry.fpLink,
@@ -71,10 +70,23 @@ export class CustomPathwayComponent implements OnInit {
               });
             }
           });
-
-          // we got everything, now we must wait for the image to
-          // load, then generate everything
           this.img.onload = () => this.drawMap();
+          
+          this.pathwayService.getGeneInfoByProtId(this.graphTable).subscribe(vals => {
+            vals.forEach((doc, index) => {
+
+                if (doc.docs[0] != null) {
+                    this.graphTable[index].geneName = doc.docs[0].data().gene_name,
+                    this.graphTable[index].dataSet = doc.docs[0].data().dataset,
+                    this.graphTable[index].modified = doc.docs[0].data().modified
+                }
+                else {
+                    this.graphTable[index].geneName = "N/A",
+                    this.graphTable[index].dataSet = "N/A",
+                    this.graphTable[index].modified = "N/A"
+                }
+            });
+          });
         }
       });
     });

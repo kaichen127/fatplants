@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
+import { forkJoin, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +44,22 @@ export class CustomPathwaysService {
     return this.afStorage.storage.refFromURL(imgUrl).delete().then(res => {
       this.afs.collection("CustomizedPathways").doc(pathwayId).delete();
     });
+  }
+
+  getGeneInfoByProtId(geneList) : Observable<any[]> {
+    let obsList:Observable<firebase.firestore.QuerySnapshot>[] = [];
+    
+    geneList.forEach(gene => {
+      var linkParts = gene.uniProtLink.split('/');
+
+      if (linkParts[linkParts.length - 1] == "P33121"){
+        obsList.push(this.afs.collection("Lmpd_Arapidopsis", ref => ref.where('uniprot_id', '==', "O22898").limit(1)).get());
+      }
+
+      else
+        obsList.push(this.afs.collection("Lmpd_Arapidopsis", ref => ref.where('uniprot_id', '==', linkParts[linkParts.length - 1]).limit(1)).get());
+    });
+
+    return forkJoin(obsList);
   }
 }
