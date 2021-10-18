@@ -2,33 +2,25 @@
 <mat-card [class.no-border]="!hasSearched || !isLoading">
   <div id="input-toggle">
     <span class="input-option" [class.selected]="!blastSelected">Identifier</span>
-    <mat-slide-toggle aria-label="input-selector" color=primary [(ngModel)]="blastSelected"></mat-slide-toggle>
+    <mat-slide-toggle aria-label="input-selector" color=primary [(ngModel)]="blastSelected" (click) = "this.query = ''"></mat-slide-toggle>
     <span class="input-option" [class.selected]="blastSelected">BLAST</span>
-    <mat-icon class="help-icon" id="identifier-help-icon" [matTooltip]="'Identifier searches by gene name or uniprot id. BLAST searches by gene sequence.'">help</mat-icon>
+    <mat-icon class="help-icon" id="identifier-help-icon" [matTooltip]="'Identifier searches by' + proteinDatabase['tabIndex'] + 'BLAST searches by gene sequence.'">help</mat-icon>
   </div>
-  <div id="identifier-input" class="container" [class.compressed]="hasSearched" *ngIf="!blastSelected">
-    <mat-tab-group mat-stretch-tabs mat-align-tabs="center" style="color: #4CAF50" [(selectedIndex)]="tabIndex">
-      <mat-tab label="Gene">
-      </mat-tab>
-      <mat-tab label="Uniprot ID">
-      </mat-tab>
-    </mat-tab-group>
+  <div id="identifier-input" class="container" [class.compressed]="hasSearched" *ngIf="!blastSelected && proteinDatabase != undefined">
+    <mat-tab-group mat-stretch-tabs mat-align-tabs="center" style="color: #4CAF50" [(selectedIndex)]="proteinDatabase['tabIndex']" (click) = "this.query = ''">
 
+    <mat-tab *ngFor='let item of proteinDatabase["tabs"]' label="{{item}}" ></mat-tab>
+    </mat-tab-group>
 
       <div class="row bordered">
         <form class="form">
-        <mat-form-field *ngIf='tabIndex == 0' class="input-container">
-          <input type="text" placeholder="Gene Name" matInput [(ngModel)]="query" [matAutocomplete]="gene" [formControl]="identifierControl" (keyup)="Search($event)">
-          <mat-autocomplete #gene="matAutocomplete" position="below">
-            <mat-option *ngFor="let item of items | async" [value]="item.gene_name">{{item.gene_name}}</mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-        <mat-form-field *ngIf="tabIndex == 1" class="input-container">
-          <input type="text" placeholder="Uniprot ID" matInput [(ngModel)]="query" [matAutocomplete]="uniprot" [formControl]="identifierControl" (keyup)="Search($event)">
+        <mat-form-field class="input-container">
+          <input type="text" placeholder= "{{ proteinDatabase['tabs'][proteinDatabase['tabIndex']] }}" matInput [(ngModel)]="query" [matAutocomplete]="uniprot" [formControl]="identifierControl" (keyup)="Search($event)">
           <mat-autocomplete #uniprot="matAutocomplete" position="below">
-            <mat-option *ngFor="let item of items | async" [value]="item.uniprot_id">{{item.uniprot_id}}</mat-option>
+            <mat-option *ngFor="let item of proteinDatabase['items']" [value]="item"> {{ item }} </mat-option>
           </mat-autocomplete>
         </mat-form-field>
+
         <button mat-button (click)="OneClick()" id="search-button" [disabled]="!identifierControl.valid"><mat-icon>search</mat-icon></button>
         <span id="help-icon-div">
         <mat-icon id="help-icon" class="pointer" [matTooltip]="'Enter an identifier (gene name or uniprot id) to search. Click this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
@@ -36,44 +28,52 @@
       </form>
       </div>
       <div class="row">
-        <div class="database-selector" (click)="changeDatabase('Arabidopsis')" [class.selected]="this.proteindatabase == 'Arabidopsis'">Arabidopsis</div>
-        <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
+        <div *ngFor = 'let database of Databases | keyvalue' 
+             class="database-selector" 
+             (click)="changeDatabase(database.key)" 
+             [class.selected]="this.proteinDatabase['database'] == database.key"> 
+             {{ database.key }} 
+        </div>
       </div>
 
-    </div>
+  </div>
 
-    <div id="blast-input" class="container" [class.compressed]="hasSearched" *ngIf="blastSelected">
-      <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex">
-        <mat-tab label="Sequence">
-        </mat-tab>
-      </mat-tab-group>
+  <div id="blast-input" class="container" [class.compressed]="hasSearched" *ngIf="blastSelected && proteinDatabase != undefined">
+    <mat-tab-group style="color: #4CAF50" [(selectedIndex)]="tabIndex" >
+      <mat-tab label="Sequence">
+      </mat-tab>
+    </mat-tab-group>
 
 
-        <div class="row">
-          <div class="input-field col s12 bordered">
-            <textarea matInput style="min-height: 150px" name="Search" class="browser-default" placeholder="Sequence"
-              (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
-          </div>
+      <div class="row">
+        <div class="input-field col s12 bordered">
+          <textarea matInput style="min-height: 150px" name="Search" class="browser-default" placeholder="Sequence"
+            (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
         </div>
-        <div class="row">
-          <div class="database-selector" (click)="changeDatabase('Arabidopsis')" [class.selected]="this.proteindatabase == 'Arabidopsis'">Arabidopsis</div>
-          <div class="database-selector" (click)="changeDatabase('Soybean')" [class.selected]="this.proteindatabase == 'Soybean'">Soybean</div>
-        </div>
-        <div class="row">
-          <div class="col s6">
-            <button mat-raised-button class="btn waves-effect waves-light" (click)="OneClick()">Compare</button>
-            <mat-icon class="help-icon pointer" [matTooltip]="'Enter the sequence of a gene to search for a matching BLAST result. Click on this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
-          </div>
-        </div>
-
       </div>
+      <div class="row">
+        <div *ngFor = 'let database of Databases | keyvalue' 
+              class="database-selector" 
+              (click)="changeDatabase(database.key)" 
+              [class.selected]="this.proteinDatabase['database'] == database.key"> 
+              {{ database.key }} 
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <button mat-raised-button class="btn waves-effect waves-light" (click)="OneClick()">Compare</button>
+          <mat-icon class="help-icon pointer" [matTooltip]="'Enter the sequence of a gene to search for a matching BLAST result. Click on this icon for an example.'" (click)="setDefaultSearch()">help</mat-icon>
+        </div>
+      </div>
+
+  </div>
 </mat-card>
 
     <div class="wrapper main">
 
       <div *ngIf="!isLoading && hasSearched">
         <mat-divider></mat-divider>
-        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot" [proteinDatabase]="this.proteindatabase"></app-showresults>
+        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot" [proteinDatabase]="this.proteinDatabase"></app-showresults>
           <button mat-raised-button color="primary" (click)="clickScroll('searchpage')">
             <mat-icon style="-webkit-text-fill-color:white">arrow_upward</mat-icon>
         </button>
