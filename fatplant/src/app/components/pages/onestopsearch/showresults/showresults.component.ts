@@ -334,7 +334,7 @@ export class ShowresultsComponent implements OnInit {
     var elemTop = canvas.offsetTop + canvas.clientTop;
     var elements = [];
     //this.http.get('https://us-central1-linux-shell-test.cloudfunctions.net/keggget?cfg=get&para=conf&id='+id, {responseType: 'text'}).subscribe(data => {
-      this.http.get('https://us-central1-fatplant-76987.cloudfunctions.net/keggget?cfg=get&para=conf&id='+id, {responseType: 'text'}).subscribe(data => {
+      this.http.get('https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/keggget?cfg=get&para=conf&id='+id, {responseType: 'text'}).subscribe(data => {
       for (const line of data.split(/[\r\n]+/)) {
         if (line.slice(0, 4) === 'rect') {
           var linesplit = line.split('\t');
@@ -417,7 +417,7 @@ export class ShowresultsComponent implements OnInit {
       
       }
         //img1.src = 'https://us-central1-linux-shell-test.cloudfunctions.net/keggget?cfg=get&para=image&id=' + id;
-        img1.src = 'https://us-central1-fatplant-76987.cloudfunctions.net/keggget?cfg=get&para=image&id=' + id;
+        img1.src = 'https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/keggget?cfg=get&para=image&id=' + id;
 
     });
   }
