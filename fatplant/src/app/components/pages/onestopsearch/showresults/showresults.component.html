@@ -2,8 +2,8 @@
 
   <div class="row" style="width: 100%">
     <div class="column left" id="stepper">
-      <h3>{{proteinDatabase}}</h3>
-      <h3>Uniprot ID: {{uniprot_id}}</h3>
+      <h3>{{ loadedDatabase }}</h3>
+      <h3>Uniprot ID: {{ uniprot_id }}</h3>
       <mat-vertical-stepper (selectionChange)="changeConfig($event.selectedStep.label)" disableRipple="true">
         <ng-template matStepperIcon="number">
         </ng-template>
@@ -24,30 +24,9 @@
     </div>
 
 <!--    summary-->
-    <div *ngIf="isSummary">
+    <div *ngIf="isSummary && (this.species) ">
     <div class="column middle">
       <h2>Summary</h2>
-<!--      <div class="row">-->
-<!--        <table class="flat-table">-->
-<!--          <tr>-->
-<!--            <th><strong>Gene Name: </strong></th>-->
-<!--            <td>{{this.lmpd.gene_name}}</td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <th><strong>Protein Name: </strong></th>-->
-<!--            <td>{{this.lmpd.protein_name}}</td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <th><strong>Species: </strong></th>-->
-<!--            <td>{{this.lmpd.species}}</td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <th><strong>Species Long: </strong></th>-->
-<!--            <td>{{this.lmpd.species_long}}</td>-->
-<!--          </tr>-->
-<!--        </table>-->
-<!--      </div>-->
-<!--      <br>-->
       <div class="row">
         <mat-progress-bar id="pdb-loading-bar" mode="indeterminate" *ngIf="g2sLoading"></mat-progress-bar>
         <label *ngIf="!g2sLoading && noPdb">No PDB match found.</label>
@@ -55,8 +34,8 @@
       </div>
       <div class="row">
         <h2>Sequence</h2>
-        <div id="sequence-display">{{this.lmpd.sequence}}
-          <button mat-raised-button ngxClipboard id="sequence-button" color="primary" [cbContent]="this.lmpd.sequence"
+        <div id="sequence-display">{{this.species['sequence']}} 
+          <button mat-raised-button ngxClipboard id="sequence-button" color="primary" [cbContent]="this.species['sequence']"
                   (click)="this.notificationService.popup('Copied to Clipboard!')">Copy Sequence</button>
         </div>
       </div>
@@ -65,56 +44,18 @@
 
     <div class="column right">
       <h2>Detail</h2>
+
       <div class="row">
-                <table class="blueTable">
-                  <tr>
-                    <th><strong>Gene Name: </strong></th>
-                    <td>{{this.lmpd.gene_name}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Species: </strong></th>
-                    <td>{{this.lmpd.species}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Gene Symbol: </strong></th>
-                    <td>{{this.lmpd.gene_symbol}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Protein Lmp ID: </strong></th>
-                    <td>{{this.lmpd.lmp_id}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Protein mrna id: </strong></th>
-                    <td>{{this.lmpd.mrna_id}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Protein Entry: </strong></th>
-                    <td>{{this.lmpd.protein_entry}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Protein GI: </strong></th>
-                    <td>{{this.lmpd.protein_gi}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Protein Refseq ID: </strong></th>
-                    <td>{{this.lmpd.refseq_id}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Protein Sequence Length: </strong></th>
-                    <td>{{this.lmpd.species_long}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Protein Tax ID: </strong></th>
-                    <td>{{this.lmpd.taxid}}</td>
-                  </tr>
-                  <tr>
-                    <th><strong>Protein Uniprot ID: </strong></th>
-                    <td>{{this.lmpd.uniprot_id}}</td>
-                  </tr>
-                </table>
+        <table class="blueTable" >
+          <tr *ngFor = "let item of proteinDatabase['displayDetails']">
+            <th><strong> {{ item['field'] }} </strong></th>
+            <td> {{ this.species[item['tag']] }} </td>
+          </tr>
+        </table>
       </div>
 
     </div>
+    
   </div>
 <!--    structure-->
     <div class="column middleright" *ngIf="isStructure">

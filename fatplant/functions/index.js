@@ -580,3 +580,37 @@ exports.blastp = functions.https.onRequest((req, res) => {
     }
 
   });
+
+  exports.keggget = functions.https.onRequest((req, res) => {
+    //see kegg api
+    //id is kegg id
+    //cfg: get or link
+    //para: image, conf, etc
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+    var id = req.query.id;
+    var cfg = req.query.cfg;
+    var para = req.query.para;
+    if (id === undefined) {
+      id = "hsa05130";
+    }
+    if (cfg === undefined) {
+      cfg = "get";
+    }
+    if (para === undefined) {
+      para = "conf";
+    }
+    var url = '';
+    if (cfg === 'get'){
+      url = 'http://rest.kegg.jp/get/' + id + '/' + para;
+    }
+    if (cfg === 'link'){
+      url = 'http://rest.kegg.jp/link/pathway/' + id;
+    }
+    if (url !== undefined && url !== ''){
+      request.get(url).pipe(res);
+      console.log("request finished");
+    }
+
+  });

@@ -2,7 +2,7 @@
     <button mat-button routerLink='/datasets/arabidopsis'>
         <mat-icon>keyboard_arrow_left</mat-icon><span class='back-text'>Back</span>
     </button>
-    <div *ngIf='this.proteinData !== undefined && !this.isLoadingProtein'>
+    <div *ngIf='this.proteinData !== undefined && !this.isLoadingProtein' id="mainContainer">
         <p *ngIf='proteinData.status === "reviewed"' class='status reviewed'>
             <mat-icon class='info-icon' [matTooltip]='"This entry has been reviewed by the UniProtKB curators."'>info</mat-icon>
             Reviewed

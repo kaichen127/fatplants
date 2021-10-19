@@ -22,9 +22,11 @@ mat-card {
 .card-wrapper {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 .protein-info-card {
-    width: 30%;
+    width: 45%;
     margin-top: 1%;
     background-color: #FDFAF0;
     border-radius: 5px;
@@ -37,20 +39,20 @@ mat-card {
     margin-top: 0;
 }
 .protein-function-card {
-    width: 40%;
+    width: 45%;
     min-height: 40%;
-    margin-left: 10%;
     margin-top: 1%;
     background-color: rgba(#F9F9F9, 0.7);
     border-radius: 5px;
     box-shadow: 0 1px 4px;
 }
 .domain-function-card {
-    width: 80%;
+    width: 100%;
     margin-top: 3%;
     background-color: rgba(#F9F9F9, 0.7);
     border-radius: 5px;
     box-shadow: 0 1px 4px;
+    box-sizing: border-box;
 }
 .protein-subtitle {
     color: #205434;
@@ -86,11 +88,12 @@ mat-card {
     font-size: 1em;
 }
 .sequence-card {
-    width: 80%;
+    width: 100%;
     margin-top: 3%;
     background-color: rgba(#86c786, 0.2);
     border-radius: 5px;
     box-shadow: 0 1px 4px;
+    box-sizing: border-box;
 }
 #sequence-display {
     word-wrap: break-word;
@@ -102,4 +105,9 @@ mat-card {
 .alt-names {
     margin: 0 0 0 1%;
     font-size: 0.85em;
+}
+
+#mainContainer {
+    margin: 10px auto;
+    width: 70%;
 }
