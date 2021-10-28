@@ -6,6 +6,18 @@ div{
   /* background-color: #FCFF7B; */
 }
 
+.main-container{
+  font-family: "PT Sans", sans-serif;
+    width: 100%;
+    height: auto;
+    background-image: none !important;
+    background-color: white;
+    margin: 0;
+    margin-top: 6%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 #side-graph {
   max-width: 150px;
 }
@@ -99,4 +111,9 @@ mat-cell>a:visited, mat-cell>span>a:visited {
 
 .titleCell:hover {
   background-color: rgba(219,112,147,0.4);
+}
+
+mat-card{
+  background-color: white;
+  background-image: none !important;
 }
