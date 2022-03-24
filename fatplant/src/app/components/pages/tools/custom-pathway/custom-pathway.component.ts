@@ -120,11 +120,15 @@ export class CustomPathwayComponent implements OnInit {
 
           // add new point to list and to the ctx (non-adjusted)
           var newPath = new Path2D();
-          newPath.rect(points[0], points[1], rectWidth, rectHeight);
+          var newPicPath = new Path2D();
+
+          newPicPath.rect(points[0], points[1], rectWidth, rectHeight);
+          newPath.rect(pointX, pointY, adjRectWidth, adjRectHeight);
 
           this.clickRects.push(
             { 
               path: newPath,
+              picPath: newPicPath,
               title: graphEntry.title,
               fpLink: graphEntry.fpLink,
               uniProtLink: graphEntry.uniProtLink,
@@ -159,7 +163,7 @@ export class CustomPathwayComponent implements OnInit {
         // paint all the rects the mouse is touching
         this.hoveredRects.forEach(rect => {
           this.ctx.fillStyle = "rgba(219,112,147,0.3)";
-          this.ctx.fill(rect.path);
+          this.ctx.fill(rect.picPath);
         });
       });
 
@@ -195,7 +199,7 @@ export class CustomPathwayComponent implements OnInit {
       if (rect.title == title) {
         this.ctx.beginPath();
         this.ctx.fillStyle = "rgba(219,112,147,0.3)";
-        this.ctx.fill(rect.path);
+        this.ctx.fill(rect.picPath);
       }
     });
   }
