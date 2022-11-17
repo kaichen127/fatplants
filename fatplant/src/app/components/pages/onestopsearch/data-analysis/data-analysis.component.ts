@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, SystemJsNgModuleLoader, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
@@ -15,6 +15,8 @@ import {FatPlantDataSource} from "../../../../interfaces/FatPlantDataSource";
 import { DataService } from 'src/app/services/data/data.service';
 import { ShowresultsComponent } from '../showresults/showresults.component';
 
+import { FirestoreAccessService } from 'src/app/services/firestore-access/firestore-access.service';
+
 
 @Component({
   selector: 'app-data-analysis',
@@ -23,13 +25,12 @@ import { ShowresultsComponent } from '../showresults/showresults.component';
 })
 export class DataAnalysisComponent implements OnInit {
   @ViewChild('pdf') pdf: ElementRef;
-  public items: Observable<Lmpd_Arapidopsis[]>;
+  public items: Observable<unknown[]>;
   private itemCollection: AngularFirestoreCollection<any>;
 
   private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
-  private lmpd: Observable<Lmpd_Arapidopsis[]>
 
-  query: string;
+  query: string = null;
   tabIndex: number;
   uniprot: string = null;
   searchError: boolean = false;
@@ -40,6 +41,10 @@ export class DataAnalysisComponent implements OnInit {
   private noimg: boolean;
   private nopdb: boolean;
   proteindatabase: string = "Arabidopsis";
+
+  Databases : any;
+
+  proteinDatabase: Object; 
   private pathwaydb = [];
 
   private species: string;
@@ -64,19 +69,19 @@ export class DataAnalysisComponent implements OnInit {
 
   blastSelected: boolean = false;
   identifierControl = new FormControl(this.query);
-  filteredOptions: Observable<Lmpd_Arapidopsis[]>;
+  // filteredOptions: Observable<Lmpd_Arapidopsis[]>;
 
   constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller, private router: Router,
-     private route: ActivatedRoute, private dataService: DataService, private location: Location) {
-    this.pathwaydb = [];
-    this.http.get('/static/reactome.csv', { responseType: 'text' }).subscribe(data => {
-      for (const line of data.split(/[\r\n]+/)) {
-        // console.log(line.split(','));
-        this.pathwaydb.push(line.split(','));
-      }
+     private route: ActivatedRoute, private dataService: DataService, private location: Location,
+     private fsaccess: FirestoreAccessService) {
+
+
+    this.http.get('/static/json_config/Databases.json', {responseType: 'json'}).subscribe(data => 
+    {
+      this.Databases = data;
+      this.proteinDatabase = this.Databases['Arabidopsis'];
     });
     this.isLoading = false;
-    this.tabIndex = 0;
   }
 
   ngOnInit() {
@@ -84,44 +89,28 @@ export class DataAnalysisComponent implements OnInit {
       if (params['uniprot_id'] != null) {
         this.uniprot = params['uniprot_id'];
         this.hasSearched = true;
-        switch (this.tabIndex) {
-          case 0: {
-            if (!this.blastSelected) this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
-              if (this.validateResult(res[0])) this.query = res[0].gene_name;
-            });
-            else this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
-              if (this.validateResult(res[0])) this.query = res[0].sequence;
-            });
-            setTimeout(() => {
-              console.log('timeout');
-            }, 3000);
-            break;
+        let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
+        if (!this.blastSelected) this.fsaccess.get(this.proteinDatabase['collection'], field, this.uniprot).subscribe((res : any) => {
+          if (this.validateResult(res[0]))
+          {
+            this.query = this.uniprot
+
           }
-          case 1:
-            this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprot)).valueChanges().subscribe((res: any) => {
-              if (this.validateResult(res[0])) this.query = this.uniprot;
-            });
-            break;
-          default: break;
-        }
+
+        })
+        else this.fsaccess.get(this.proteinDatabase['collection'], field, this.uniprot).subscribe((res : any) => {
+          if (this.validateResult(res[0])) this.query = res[0].sequence;
+          
+
+        });
+        setTimeout(() => {
+          console.log('timeout');
+        }, 3000);
       }
     });
-  }
-
-  SplitRes(result: string) {
-    this.showblastRes = [];
-    this.blastRes = [];
-    let tmp: any;
-    tmp = result.split('>');
-    tmp.shift();
-    let index: number;
-    index = tmp[tmp.length - 1].search('Lambda');
-    tmp[tmp.length - 1] = tmp[tmp.length - 1].substring(0, index);
-    this.blastRes = tmp.slice(0);
-    console.log(this.blastRes);
-    this.showblastRes = tmp.slice(0, 3);
 
   }
+
 
   OneClick() {
 
@@ -136,54 +125,46 @@ export class DataAnalysisComponent implements OnInit {
     this.noimg = false;
     this.nopdb = false;
     this.dataService.BlastNeedUpdate = true;
+    
 
     if(this.blastSelected){
-      this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('sequence', '==', this.query)).valueChanges().subscribe((res: any) => {
+      this.fsaccess.get(this.proteinDatabase['collection'], 'sequence', this.query.toUpperCase(), 1).subscribe(res => {
         this.validateResult(res[0]);
       });
     }
     else{
-      switch (this.tabIndex){
-        case 0:
-          this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('gene_name', '==', this.query)).valueChanges().subscribe((res: any) => {
-            this.validateResult(res[0]);
-          });
-          break;
-        case 1:
-          this.afs.collection('/Lmpd_Arapidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.query)).valueChanges().subscribe((res: any) => {
-            if (this.validateResult(res[0])) {
-              this.results.uniprot_id = this.uniprot;
-              this.results.checkLmpd(); // refresh lmpd data for new uniprot
-            }
-          });
-          break;
-        default:
-          break;
-      }
+
+        let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
+
+        this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);        
+        this.fsaccess.get(this.proteinDatabase['collection'], field, this.query.toUpperCase(), 1).subscribe(res => {
+          console.log(typeof res, res)
+          if (this.validateResult(res[0])) {
+            // this.results.uniprot_id = this.uniprot;
+            // this.results.checkLmpd(this.proteindatabase); 
+          }
+        })
     }
-
-
   }
 
   Search(event) {
     if (this.query === '' || this.blastSelected || event.key == "ArrowUp"
     || event.key == "ArrowDown" || event.key == "ArrowLeft" || event.key == "ArrowDown") { return; }
-    switch (this.tabIndex) {
-      case 0:
-        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('gene_name', '>=', this.query).where('gene_name', '<=', this.query + '\uf8ff')).valueChanges();
-        break;
-      case 1:
-        this.items = this.afs.collection<Lmpd_Arapidopsis>('/Lmpd_Arapidopsis', ref => ref.limit(10).where('uniprot_id', '>=', this.query.toUpperCase()).where('uniprot_id', '<=', this.query + '\uf8ff')).valueChanges();
-        break;
-      case 2:
-        break;
-      default:
-        console.log("No");
-        break;
-    }
+
+    let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
+    this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);
+    this.items.subscribe(data =>
+      {
+        this.proteinDatabase['items'] = []
+        for (let i = 0; i < data.length; ++i)
+        {
+          this.proteinDatabase['items'].push(data[i][field]);
+        }
+      }
+    )
   }
 
-  validateResult(result: Lmpd_Arapidopsis): boolean {
+  validateResult(result: any): boolean {
     if (result == undefined) {
       this.searchError = true;
       this.location.replaceState('one_click');
@@ -194,12 +175,6 @@ export class DataAnalysisComponent implements OnInit {
       this.location.replaceState('one_click/' + this.uniprot + "/summary");
       return true;
     }
-  }
-
-  ListClick(query: any) {
-    // need interface update
-    //console.log("click list");
-    this.query = query;
   }
 
   //loading progress
@@ -234,20 +209,25 @@ export class DataAnalysisComponent implements OnInit {
   }
 
   changeDatabase(database: string) {
-    this.proteindatabase = database;
+    this.proteinDatabase = this.Databases[database];
+    this.proteinDatabase['tabIndex'] = 0;
+    this.query = "";
+    // this.setDefaultSearch()
+    return;
   }
 
   setDefaultSearch() {
-    if (!this.blastSelected) {
-      if (this.tabIndex == 0) {
-        this.query = "farnesyl diphosphate synthase 1";
+    this.fsaccess.get(this.proteinDatabase['collection'], 
+                      this.proteinDatabase['query']['Uniprot ID'], 
+                      this.proteinDatabase['defaultUniprot']).subscribe(
+      data => {
+        if (!this.blastSelected) {
+          let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
+          this.query = data[0][field]; 
+        }
+        else this.query = data[0]['sequence'];
       }
-      else {
-        this.query = "Q09152";
-      }
-    }
-    else {
-      this.query = "MSVSCCCRNLGKTIKKAIPSHHLHLRSLGGSLYRRRIQSSSMETDLKSTFLNVYSVLKSDLLHDPSFEFTNESRLWVDRMLDYNVRGGKLNRGLSVVDSFKLLKQGNDLTEQEVFLSCALGWCIEWLQAYFLVLDDIMDNSVTRRGQPCWFRVPQVGMVAINDGILLRNHIHRILKKHFRDKPYYVDLVDLFNEVELQTACGQMIDLITTFEGEKDLAKYSLSIHRRIVQYKTAYYSFYLPVACALLMAGENLENHIDVKNVLVDMGIYFQVQDDYLDCFADPETLGKIGTDIEDFKCSWLVVKALERCSEEQTKILYENYGKPDPSNVAKVKDLYKELDLEGVFMEYESKSYEKLTGAIEGHQSKAIQAVLKSFLAKIYKRQK";
-    }
+    )
+
   }
 }

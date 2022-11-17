@@ -4,7 +4,6 @@ import {ActivatedRoute} from "@angular/router";
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/firestore";
 import {HttpClient} from "@angular/common/http";
 import {Location} from '@angular/common';
-import { Lmpd_Arapidopsis } from '../../../../interfaces/lmpd_Arapidopsis';
 import {Observable} from "rxjs";
 import {DataService} from "../../../../services/data/data.service";
 import {G2SEntry} from "../../../../interfaces/G2SEntry";
@@ -15,6 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { StructureViewerComponent } from '../structure-viewer/structure-viewer.component';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import {toNumbers} from "@angular/compiler-cli/src/diagnostics/typescript_version";
+import { FirestoreAccessService } from 'src/app/services/firestore-access/firestore-access.service';
 
 
 @Component({
@@ -35,6 +35,7 @@ export class ShowresultsComponent implements OnInit {
   context: CanvasRenderingContext2D;
 
   @Input() proteinDatabase: any;
+  loadedDatabase: any;
   isLoadingImage: boolean;
   percent: number;
   private g2sUrl: string = "https://g2s.genomenexus.org/api/alignments";
@@ -47,28 +48,17 @@ export class ShowresultsComponent implements OnInit {
   isStructure: boolean;
   isBlast: boolean;
   isPathway: boolean;
-  tairId;
 
-  private href2summary: string;
-  private href2structure: string;
-  private href2blast: string;
-  private href2pathway: string;
   G2SDataSource: MatTableDataSource<G2SEntry>;
 
-  private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
-  //private lmpd: Observable<Lmpd_Arapidopsis[]>
-  lmpd: Lmpd_Arapidopsis;
+  species: any;
 
-  private blastResList=[];
   showBlastResList=[];
 
-  private pdbList=[];
   noPdb: boolean;
   defaultPdb: any;
 
-  pathwayList=[];
   pathwaylist = [];
-  pathwayDb = [];
   pathwaydb = [];
   displayedColumns = ['pdbId', 'pdbNo', 'chain', 'evalue', 'bitscore', 'identity', 'pdbRange', 'seqRange', '3DViewer'];
 
@@ -81,109 +71,51 @@ export class ShowresultsComponent implements OnInit {
     else return "";
   }
 
-  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private afs: AngularFirestore, private http: HttpClient, public dataService: DataService,
-    private location: Location, public dialog: MatDialog, public notificationService: NotificationService) {
-      this.http.get('/static/reactome.csv', {responseType: 'text'}).subscribe(data => {
-        for (const line of data.split(/[\r\n]+/)) {
-          // console.log(line.split(','));
-          this.pathwaydb.push(line.split(','));
-        }
-        //console.log(this.pathwaydb);
-        this.pathwaydb.sort(function(a, b) {
-          if (a[a.length-1] < b[b.length-1]) return -1;
-          if (a[a.length-1] > b[b.length-1]) return 1;
-          return 0;
-        });
-      });
-      this.http.get('/static/Uniprot2Kegg.csv', {responseType: 'text'}).subscribe(data => {
-        for (const line of data.split(/[\r\n]+/)) {
-          // console.log(line.split(','));
-          this.uniprot2kegg[line.split(',')[0]] = line.split(',')[1];
-        }
-        //console.log(this.uniprot2kegg);
-      });
-  
-      this.http.get('/static/Kegg2Path.csv', {responseType: 'text'}).subscribe(data => {
-        for (const line of data.split(/[\r\n]+/)) {
-          // console.log(line.split(','));
-          if (this.kegg2pathway[line.split(',')[0]] != null){
-            this.kegg2pathway[line.split(',')[0]].push(line.split(',')[1]);
-          }
-          else{
-            this.kegg2pathway[line.split(',')[0]]=[line.split(',')[1]];
-          }
-        }
-        //console.log(this.kegg2pathway);
-      });
+  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private http: HttpClient, public dataService: DataService,
+    private location: Location, public dialog: MatDialog, public notificationService: NotificationService, private fsaccess : FirestoreAccessService) {
 
       setTimeout(() => {
-        this.pathwaylist = this.kegg2pathway[this.uniprot2kegg[this.uniprot_id]];
+        this.pathwaylist = this.dataService.getPathList(this.proteinDatabase, this.uniprot_id);
       }, 1000);
     }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.isSummary = false;
-      this.isStructure = false;
-      this.isBlast = false;
-      this.isPathway = false;
+    this.isSummary = false;
+    this.isStructure = false;
+    this.isBlast = false;
+    this.isPathway = false;
 
-      this.pathwayDb = [];
-      this.pathwayList = [];
-      this.pdbList = [];
+    if (this.uniprot_id == undefined) this.uniprot_id = params['uniprot_id'];
+    this.cfg = params['cfg'];
+    if (this.cfg == undefined) this.cfg = "summary";
 
-      if (this.uniprot_id == undefined) this.uniprot_id = params['uniprot_id'];
-      this.cfg = params['cfg'];
-      if (this.cfg == undefined) this.cfg = "summary";
-      //this.lmpd = new Observable<Lmpd_Arapidopsis[]>();
-      //this.lmpd = new Lmpd_Arapidopsis();
-      this.checkLmpd();
-      this.SelectConfig();
+    this.loadedDatabase = this.proteinDatabase['database'];
+    this.checkspecies();
+    this.SelectConfig();
+
     });
   }
 
-  SearchUniprot() {
-    for (var index in this.pathwaydb) {
-        if (this.pathwaydb[index][this.pathwaydb[index].length-1] === this.uniprot_id) {
-          this.pathwayList.push({id:this.pathwaydb[index][0],name:this.pathwaydb[index][1],url:this.SafeImg(this.pathwaydb[index][0])});
-        }
-    }
-    setTimeout(() => {
-      console.log('timeout');
 
-      if (this.pathwayList.length === 0) {
-        console.log('No image');
-        this.noimg = true;
-      }
-    }, 5000);
-  }
+  //===========================================================================
+  // need to divorce this program from the use of species object, consider use
+  // of locally assigned variables instead?
+  //===========================================================================
 
-  public checkLmpd() {
+
+  public checkspecies() {
     this.noPdb = false;
-
-      if(this.uniprot_id === this.dataService.uniprot_id && !this.dataService.loading){
-        console.log("get lmpd");
-        this.lmpd = this.dataService.getLmpdData();
-        this.tairId = this.lmpd.tair_ids;
-        this.SearchDefaultPDB(this.uniprot_id);
-        this.SelectConfig();
-        this.searchG2S();
-      }
-      else{
-        console.log("update lmpd");
-        this.dataService.loading = true;
-        this.dataService.getDataFromAbs(this.uniprot_id).subscribe(res=>{
-          this.dataService.seqence = res[0].sequence;
-          this.dataService.lmpd = res[0];
-          this.dataService.BlastNeedUpdate = true;
-          this.lmpd = res[0];
-          this.tairId = this.lmpd.tair_ids;
-          this.SearchDefaultPDB(this.uniprot_id);
-          this.dataService.loading = false;
-          this.SelectConfig();
-          this.searchG2S();
-        });
-      }
+    this.dataService.loading = true;
+      
+    this.fsaccess.get(this.proteinDatabase['collection'], this.proteinDatabase['query']['Uniprot ID'], this.uniprot_id).subscribe(res => {
+      this.dataService.BlastNeedUpdate = true;
+      this.species = res[0];
+      this.dataService.loading = false;
+      this.SelectConfig();
+      this.searchG2S();
+    });
+      // }
   }
 
   changeConfig(newConfig: string) {
@@ -206,26 +138,25 @@ export class ShowresultsComponent implements OnInit {
     this.location.replaceState('/one-click/' + this.uniprot_id + '/' + this.cfg);
     this.SelectConfig();
   }
+
+  // ==========================================================================
+  // a bunch of issues here
+  // ==========================================================================
   SelectConfig() {
-    console.log(this.cfg);
     switch (this.cfg) {
       case 'summary':
         this.isSummary = true;
         break;
       case 'structure':
-        this.pdbList = [];
-        this.SearchPDB(this.uniprot_id);
         this.isStructure=true;
 
         break;
       case 'blast':
         if (!this.dataService.BlastNeedUpdate){
-          console.log("get BlastRes");
           this.SplitRes(this.dataService.getBlastRes());
           this.isBlast = true;
         }
         else {
-          console.log("update BlastRes");
           this.percent=0;
           const getDownloadProgress = () => {
             if (this.percent <= 99) {
@@ -239,10 +170,15 @@ export class ShowresultsComponent implements OnInit {
           this.isBlast = true;
           this.showProgress = true;
           if(this.proteinDatabase === undefined){
+            // UPDATE THIS
             this.proteinDatabase = 'Arabidopsis';
           }
-          console.log(this.proteinDatabase);
-          this.dataService.updateBlastRes(this.uniprot_id, this.proteinDatabase).subscribe(res=>{
+
+          //===============================================================================
+          // this may acutally be fine and not need changes
+          //===============================================================================
+
+          this.dataService.updateBlastRes(this.proteinDatabase['database'], this.uniprot_id).subscribe(res=>{
             this.SplitRes(res);
             this.showProgress = false;
             clearInterval(this.intervalId);
@@ -252,12 +188,12 @@ export class ShowresultsComponent implements OnInit {
 
         break;
       case 'pathway':
-        this.pathwayDb = this.dataService.getPathwayDB();
-        this.SearchPathway(this.uniprot_id);
+        // this.pathwayDb = this.dataService.getPathwayDB();
+        this.pathwaydb = this.dataService.getPathList(this.proteinDatabase, this.uniprot_id);
+        // this.SearchPathway(this.uniprot_id);
         this.isPathway=true;
         break;
       default:
-        console.log("wrong config");
         break;
     }
     // update arrows
@@ -299,8 +235,6 @@ export class ShowresultsComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
   }
   SplitRes(result: string) {
-    //console.log(result);
-    this.blastResList = [];
     this.showBlastResList = [];
     let tmp: any;
     tmp = result.split('>');
@@ -309,76 +243,19 @@ export class ShowresultsComponent implements OnInit {
     index = tmp[tmp.length - 1].search('Lambda');
     tmp[tmp.length - 1] = tmp[tmp.length - 1].substring(0, index);
 
-    //this.blastResList = tmp.slice(0);
-    //console.log(this.blastResList);
-    // tmp.length = 5 ;
-    // this.showBlastResList = tmp.slice(0, 3);
-    //
-    // this.showBlastResList[0].split(/\r?\n/)[0];
 
     for (var i in tmp) {
-      //console.log(tmp[i]);
       this.showBlastResList.push([tmp[i].split(/\r?\n/)[0],tmp[i]])
       }
-    //console.log(this.blastResList);
   }
 
-  SearchPDB(uniprot_id: string) {
-    this.http.get('/static/uniprot_pdb_list.txt', { responseType: 'text' }).subscribe(data => {
-      for (const line of data.split(/[\r\n]+/)) {
-        if (line.slice(0, 6) === uniprot_id) {
-          let tmp = line.slice(0, -4);
-          this.pdbList.push({name:tmp,url:this.SafeUrl(tmp)});
-          if (tmp.slice(-7, -1) === 'defaul') {
-            let swap = this.pdbList[0];
-            this.pdbList[0] = {name:tmp,url:this.SafeUrl(tmp)};
-            this.pdbList[this.pdbList.length - 1] = swap;
-          }
-        }
 
-      }
-      console.log(this.pdbList);
-      if (this.pdbList.length === 0 && this.defaultPdb == undefined) {
-        this.noPdb = true;
-      }
-    });
-  }
-
-  SearchDefaultPDB(uniprot_id: string) {
-    this.http.get('/static/uniprot_pdb_list.txt', { responseType: 'text' }).subscribe(data => {
-      for (const line of data.split(/[\r\n]+/)) {
-        if (line.slice(0, 6) === uniprot_id) {
-          let tmp = line.slice(0, -4);
-          this.pdbList.push({name:tmp,url:this.SafeUrl(tmp)});
-          if (tmp.slice(-7, -1) === 'defaul') {
-          }
-        }
-
-      }
-      if (this.defaultPdb === undefined) {
-        this.noPdb = true;
-      }
-    });
-  }
-  SearchPathway(id: string) {
-    console.log(this.tairId);
-    for (var index in this.pathwayDb) {
-      if (this.pathwayDb[index][4] === id) {
-        this.pathwayList.push({id:this.pathwayDb[index][0],name:this.pathwayDb[index][1],url:this.SafeImg(this.pathwayDb[index][0])});
-      }
-      else{
-        for(var i in this.tairId){
-          if (this.tairId[i].split('.')[0] === this.pathwayDb[index][3]){
-            this.pathwayList.push({id:this.pathwayDb[index][0],name:this.pathwayDb[index][1],url:this.SafeImg(this.pathwayDb[index][0])});
-          }
-        }
-      }
-    }
-  }
-
+  // ============================================================================
+  // maybe ok, but uses static files that have proven problematic before
+  //=============================================================================
   searchG2S() {
     this.dataService.g2sLoading = true;
-    this.http.get(this.g2sUrl + "?sequence=" + this.dataService.seqence).subscribe((result : G2SEntry[]) => {
+    this.http.get(this.g2sUrl + "?sequence=" + this.species['sequence']).subscribe((result : G2SEntry[]) => {
       this.G2SDataSource = new MatTableDataSource(result);
       if (result != undefined && result.length >= 1) {
         this.defaultPdb = this.sanitizer.bypassSecurityTrustResourceUrl("/static/display3d.html?pdbId=" + result[0].pdbId);
@@ -387,7 +264,6 @@ export class ShowresultsComponent implements OnInit {
 
       this.dataService.g2sLoading = false;
     }, error => {
-      console.log('g2s error');
       this.dataService.g2sLoading = false;
     });
   }
@@ -439,14 +315,15 @@ export class ShowresultsComponent implements OnInit {
     }
   }
 
+  //===========================================================================
+  // im assuming this is correct, since there is no way for me to test the API
+  // code written in javascript probs means it was written by a dif author
+  //===========================================================================
   loadImage(pathway){
     //var id = selected[0]._value.slice(5);
     this.isLoadingImage = true;
     var id = pathway;
-    // console.log(selected[0]._value);
-    // if (id === null || id.length < 1){
-    //   return;
-    // }
+
 
     //TODO
     //Clear canvas before load new image
@@ -488,9 +365,6 @@ export class ShowresultsComponent implements OnInit {
         // var y = event.pageY - elemTop;
         var x = event.offsetX
         var y = event.offsetY
-        console.log(event);
-        console.log(elemLeft);
-        console.log(elemTop);
         // Collision detection between clicked offset and element.
 
         elements.forEach(function(element) {
