@@ -38,12 +38,26 @@
       </ng2-cytoscape>
     </div>
 
-    <mat-expansion-panel *ngIf="node_name!=null" class="ac">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-              Name: {{node_name}}
-            </mat-panel-title>
-        </mat-expansion-panel-header>
+    <mat-expansion-panel *ngIf="node_name!=null && node_name.GO != null" class="ac">
+      <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>{{node_name.GO}}</b>
+          </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon mat-list-icon>chevron_right</mat-icon>
+          <p style="margin-top: 15px"><b>Description:</b> {{node_name.Description}}</p>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>chevron_right</mat-icon>
+          <p style="margin-top: 15px"><b>Enrichment:</b> {{node_name.Enrichment}}</p>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>chevron_right</mat-icon>
+          <p style="margin-top: 15px"><b>Hit Count:</b> {{node_name.counts}}</p>
+        </mat-list-item>
+      </mat-list>
     </mat-expansion-panel>
   </div>
 </mat-card>

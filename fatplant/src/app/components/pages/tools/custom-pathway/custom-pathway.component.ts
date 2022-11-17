@@ -63,11 +63,14 @@ export class CustomPathwayComponent implements OnInit {
               // add it to the dictionary
               graphHash[graphEntry.title] = 1;
 
-              this.graphTable.push({
-                title: graphEntry.title,
-                fpLink: graphEntry.fpLink,
-                uniProtLink: graphEntry.uniProtLink
-              });
+              let linkSeg = graphEntry.fpLink.split('/');
+              if (linkSeg[linkSeg.length - 1] != 'undefined') {
+                this.graphTable.push({
+                  title: graphEntry.title,
+                  fpLink: graphEntry.fpLink,
+                  uniProtLink: graphEntry.uniProtLink
+                });
+              } 
             }
           });
           this.img.onload = () => this.drawMap();

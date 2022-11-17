@@ -84,6 +84,7 @@ import { PathwayAralipsComponent } from './components/pages/tools/pathway-aralip
 import { CustomPathwayComponent } from './components/pages/tools/custom-pathway/custom-pathway.component';
 import { CustomPathwayListComponent } from './components/pages/tools/custom-pathway-list/custom-pathway-list/custom-pathway-list.component';
 import { CustomPathwayDialogComponent } from './components/pages/tools/custom-pathway-dialog/custom-pathway-dialog.component';
+import { PathwayViewerComponent } from './components/pages/tools/pathway-viewer/pathway-viewer.component';
 
 @NgModule({
   declarations: [
@@ -126,7 +127,8 @@ import { CustomPathwayDialogComponent } from './components/pages/tools/custom-pa
     PathwayAralipsComponent,
     CustomPathwayComponent,
     CustomPathwayListComponent,
-    CustomPathwayDialogComponent
+    CustomPathwayDialogComponent,
+    PathwayViewerComponent
   ],
   entryComponents: [
     StructureViewerComponent,

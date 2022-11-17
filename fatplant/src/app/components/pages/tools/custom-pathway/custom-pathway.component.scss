@@ -19,7 +19,7 @@ div{
 
 .imageArea{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: auto;
 }
 
@@ -99,5 +99,5 @@ mat-cell>a:visited, mat-cell>span>a:visited {
 }
 
 .canvas-container {
-  width:80%;
+  width:60%;
 }

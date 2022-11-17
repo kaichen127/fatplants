@@ -1,795 +1,107 @@
-GO,Description
-GO:0006644,phospholipid metabolic process
-GO:0046486,glycerolipid metabolic process
-GO:0019637,organophosphate metabolic process
-GO:0008654,phospholipid biosynthetic process
-GO:0006650,glycerophospholipid metabolic process
-GO:0090407,organophosphate biosynthetic process
-GO:0045017,glycerolipid biosynthetic process
-GO:0046474,glycerophospholipid biosynthetic process
-GO:0046488,phosphatidylinositol metabolic process
-GO:0008299,isoprenoid biosynthetic process
-GO:0008610,lipid biosynthetic process
-GO:0044255,cellular lipid metabolic process
-GO:0006720,isoprenoid metabolic process
-GO:0006721,terpenoid metabolic process
-GO:0016114,terpenoid biosynthetic process
-GO:0016042,lipid catabolic process
-GO:0006633,fatty acid biosynthetic process
-GO:0006631,fatty acid metabolic process
-GO:0032787,monocarboxylic acid metabolic process
-GO:0044283,small molecule biosynthetic process
-GO:0072330,monocarboxylic acid biosynthetic process
-GO:0016053,organic acid biosynthetic process
-GO:0046394,carboxylic acid biosynthetic process
-GO:1901615,organic hydroxy compound metabolic process
-GO:1901617,organic hydroxy compound biosynthetic process
-GO:0008202,steroid metabolic process
-GO:0006694,steroid biosynthetic process
-GO:0016125,sterol metabolic process
-GO:0016126,sterol biosynthetic process
-ath00100,Steroid biosynthesis
-ath00564,Glycerophospholipid metabolism
-ath00565,Ether lipid metabolism
-GO:0009395,phospholipid catabolic process
-GO:0009739,response to gibberellin
-GO:0071370,cellular response to gibberellin stimulus
-GO:0010476,gibberellin mediated signaling pathway
-GO:0071396,cellular response to lipid
-GO:0009740,gibberellic acid mediated signaling pathway
-GO:1901701,cellular response to oxygen-containing compound
-GO:0071229,cellular response to acid chemical
-GO:0010876,lipid localization
-GO:0006869,lipid transport
-GO:0030258,lipid modification
-GO:0044242,cellular lipid catabolic process
-ath04146,Peroxisome
-GO:0034440,lipid oxidation
-GO:0044282,small molecule catabolic process
-ath00071,Fatty acid degradation
-GO:0016054,organic acid catabolic process
-GO:0046395,carboxylic acid catabolic process
-GO:0019395,fatty acid oxidation
-GO:0009062,fatty acid catabolic process
-GO:0006635,fatty acid beta-oxidation
-ath01040,Biosynthesis of unsaturated fatty acids
-GO:0072329,monocarboxylic acid catabolic process
-M00087,beta-Oxidation
-ath_M00087,beta-Oxidation
-GO:0033540,fatty acid beta-oxidation using acyl-CoA oxidase
-GO:0006066,alcohol metabolic process
-GO:0019751,polyol metabolic process
-GO:0046165,alcohol biosynthetic process
-GO:0043647,inositol phosphate metabolic process
-GO:0046173,polyol biosynthetic process
-GO:0032958,inositol phosphate biosynthetic process
-GO:0048017,inositol lipid-mediated signaling
-GO:0032957,inositol trisphosphate metabolic process
-GO:0048015,phosphatidylinositol-mediated signaling
-GO:0032959,inositol trisphosphate biosynthetic process
-GO:0051208,sequestering of calcium ion
-GO:0051209,release of sequestered calcium ion into cytosol
-GO:0051282,regulation of sequestering of calcium ion
-GO:0051283,negative regulation of sequestering of calcium ion
-GO:0060401,cytosolic calcium ion transport
-GO:0060402,calcium ion transport into cytosol
-GO:0097553,calcium ion transmembrane import into cytosol
-GO:0007204,positive regulation of cytosolic calcium ion concentration
-GO:0051480,regulation of cytosolic calcium ion concentration
-ath04933,AGE-RAGE signaling pathway in diabetic complications
-GO:0070588,calcium ion transmembrane transport
-ath00900,Terpenoid backbone biosynthesis
-GO:0016108,tetraterpenoid metabolic process
-GO:0016116,carotenoid metabolic process
-GO:0016109,tetraterpenoid biosynthetic process
-GO:0016117,carotenoid biosynthetic process
-GO:0045338,farnesyl diphosphate metabolic process
-GO:0045337,farnesyl diphosphate biosynthetic process
-GO:0033383,geranyl diphosphate metabolic process
-GO:0033384,geranyl diphosphate biosynthetic process
-GO:0033385,geranylgeranyl diphosphate metabolic process
-GO:0033386,geranylgeranyl diphosphate biosynthetic process
-GO:0046148,pigment biosynthetic process
-GO:0042440,pigment metabolic process
-ath00562,Inositol phosphate metabolism
-ath04070,Phosphatidylinositol signaling system
-GO:0046834,lipid phosphorylation
-GO:0046854,phosphatidylinositol phosphorylation
-ath01212,Fatty acid metabolism
-ath00061,Fatty acid biosynthesis
-M00086,"beta-Oxidation, acyl-CoA synthesis"
-ath_M00086,"beta-Oxidation, acyl-CoA synthesis"
-GO:0006643,membrane lipid metabolic process
-GO:0046467,membrane lipid biosynthetic process
-GO:1903509,liposaccharide metabolic process
-GO:0006664,glycolipid metabolic process
-GO:0009247,glycolipid biosynthetic process
-GO:0006661,phosphatidylinositol biosynthetic process
-ath00563,Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
-GO:0006505,GPI anchor metabolic process
-GO:0006506,GPI anchor biosynthetic process
-M00065,"GPI-anchor biosynthesis, core oligosaccharide"
-ath_M00065,"GPI-anchor biosynthesis, core oligosaccharide"
-ath00561,Glycerolipid metabolism
-GO:0016024,CDP-diacylglycerol biosynthetic process
-GO:0046341,CDP-diacylglycerol metabolic process
-GO:0010143,cutin biosynthetic process
-GO:0006220,pyrimidine nucleotide metabolic process
-GO:0006221,pyrimidine nucleotide biosynthetic process
-GO:0072528,pyrimidine-containing compound biosynthetic process
-GO:0072527,pyrimidine-containing compound metabolic process
-GO:0042214,terpene metabolic process
-GO:0046246,terpene biosynthetic process
-GO:0051761,sesquiterpene metabolic process
-GO:0051762,sesquiterpene biosynthetic process
-GO:0042446,hormone biosynthetic process
-GO:0042445,hormone metabolic process
-GO:0010817,regulation of hormone levels
-GO:0009685,gibberellin metabolic process
-GO:0009686,gibberellin biosynthetic process
-ath00904,Diterpenoid biosynthesis
-GO:0016102,diterpenoid biosynthetic process
-GO:0016101,diterpenoid metabolic process
-GO:0042157,lipoprotein metabolic process
-GO:0006497,protein lipidation
-GO:0042158,lipoprotein biosynthetic process
-GO:0018345,protein palmitoylation
-GO:0018230,peptidyl-L-cysteine S-palmitoylation
-GO:0018231,peptidyl-S-diacylglycerol-L-cysteine biosynthetic process from peptidyl-cysteine
-GO:0018198,peptidyl-cysteine modification
-GO:0043543,protein acylation
-GO:0006612,protein targeting to membrane
-GO:0072657,protein localization to membrane
-GO:0006605,protein targeting
-GO:0090150,establishment of protein localization to membrane
-GO:0045184,establishment of protein localization
-GO:0015031,protein transport
-GO:0018193,peptidyl-amino acid modification
-GO:0042886,amide transport
-GO:1901135,carbohydrate derivative metabolic process
-GO:1901137,carbohydrate derivative biosynthetic process
-GO:0070085,glycosylation
-ath00510,N-Glycan biosynthesis
-GO:0006486,protein glycosylation
-GO:0043413,macromolecule glycosylation
-GO:0009101,glycoprotein biosynthetic process
-GO:0009100,glycoprotein metabolic process
-GO:0006487,protein N-linked glycosylation
-M00055,N-glycan precursor biosynthesis
-ath_M00055,N-glycan precursor biosynthesis
-GO:0006490,oligosaccharide-lipid intermediate biosynthetic process
-GO:0006488,dolichol-linked oligosaccharide biosynthetic process
-GO:0006732,coenzyme metabolic process
-GO:0006637,acyl-CoA metabolic process
-GO:0035383,thioester metabolic process
-GO:0033865,nucleoside bisphosphate metabolic process
-GO:0033875,ribonucleoside bisphosphate metabolic process
-GO:0034032,purine nucleoside bisphosphate metabolic process
-GO:0051186,cofactor metabolic process
-GO:0009108,coenzyme biosynthetic process
-GO:0051188,cofactor biosynthetic process
-GO:0046434,organophosphate catabolic process
-GO:0006084,acetyl-CoA metabolic process
-ath01200,Carbon metabolism
-GO:0009117,nucleotide metabolic process
-GO:0006753,nucleoside phosphate metabolic process
-ath00620,Pyruvate metabolism
-GO:0055086,nucleobase-containing small molecule metabolic process
-GO:0035384,thioester biosynthetic process
-GO:0071616,acyl-CoA biosynthetic process
-M00307,"Pyruvate oxidation, pyruvate => acetyl-CoA"
-ath_M00307,"Pyruvate oxidation, pyruvate => acetyl-CoA"
-GO:0009150,purine ribonucleotide metabolic process
-GO:0019693,ribose phosphate metabolic process
-GO:0009259,ribonucleotide metabolic process
-GO:0006163,purine nucleotide metabolic process
-GO:0006733,oxidoreduction coenzyme metabolic process
-GO:0033866,nucleoside bisphosphate biosynthetic process
-GO:0034030,ribonucleoside bisphosphate biosynthetic process
-GO:0034033,purine nucleoside bisphosphate biosynthetic process
-GO:0006090,pyruvate metabolic process
-GO:0072521,purine-containing compound metabolic process
-GO:0006091,generation of precursor metabolites and energy
-GO:0006085,acetyl-CoA biosynthetic process
-GO:1901293,nucleoside phosphate biosynthetic process
-GO:0009165,nucleotide biosynthetic process
-GO:0006790,sulfur compound metabolic process
-GO:0072524,pyridine-containing compound metabolic process
-GO:0046496,nicotinamide nucleotide metabolic process
-ath00010,Glycolysis / Gluconeogenesis
-GO:0019362,pyridine nucleotide metabolic process
-GO:0044272,sulfur compound biosynthetic process
-GO:0009152,purine ribonucleotide biosynthetic process
-GO:0072525,pyridine-containing compound biosynthetic process
-GO:0006096,glycolytic process
-GO:0006757,ATP generation from ADP
-GO:0009135,purine nucleoside diphosphate metabolic process
-GO:0009179,purine ribonucleoside diphosphate metabolic process
-GO:0009185,ribonucleoside diphosphate metabolic process
-GO:0046031,ADP metabolic process
-GO:0006164,purine nucleotide biosynthetic process
-GO:0009260,ribonucleotide biosynthetic process
-GO:0006086,acetyl-CoA biosynthetic process from pyruvate
-GO:0042866,pyruvate biosynthetic process
-GO:0046390,ribose phosphate biosynthetic process
-GO:0006165,nucleoside diphosphate phosphorylation
-GO:0072522,purine-containing compound biosynthetic process
-GO:0009132,nucleoside diphosphate metabolic process
-GO:0019359,nicotinamide nucleotide biosynthetic process
-GO:0046939,nucleotide phosphorylation
-GO:0009166,nucleotide catabolic process
-GO:1901292,nucleoside phosphate catabolic process
-GO:0019363,pyridine nucleotide biosynthetic process
-GO:0009142,nucleoside triphosphate biosynthetic process
-GO:0006754,ATP biosynthetic process
-GO:0009201,ribonucleoside triphosphate biosynthetic process
-GO:0034404,nucleobase-containing small molecule biosynthetic process
-GO:0009145,purine nucleoside triphosphate biosynthetic process
-GO:0009206,purine ribonucleoside triphosphate biosynthetic process
-GO:0009741,response to brassinosteroid
-GO:0014070,response to organic cyclic compound
-GO:0071367,cellular response to brassinosteroid stimulus
-GO:0009742,brassinosteroid mediated signaling pathway
-GO:0043401,steroid hormone mediated signaling pathway
-GO:0048545,response to steroid hormone
-GO:0071383,cellular response to steroid hormone stimulus
-GO:0071407,cellular response to organic cyclic compound
-ath00592,alpha-Linolenic acid metabolism
-M00113,Jasmonic acid biosynthesis
-ath_M00113,Jasmonic acid biosynthesis
-GO:0009695,jasmonic acid biosynthetic process
-GO:0031407,oxylipin metabolic process
-GO:0031408,oxylipin biosynthetic process
-GO:0009694,jasmonic acid metabolic process
-ath00591,Linoleic acid metabolism
-GO:0000038,very long-chain fatty acid metabolic process
-ath00062,Fatty acid elongation
-M00415,"Fatty acid biosynthesis, elongation, endoplasmic reticulum"
-ath_M00415,"Fatty acid biosynthesis, elongation, endoplasmic reticulum"
-GO:0042335,cuticle development
-GO:0042761,very long-chain fatty acid biosynthetic process
-GO:0030497,fatty acid elongation
-GO:0006638,neutral lipid metabolic process
-GO:0006639,acylglycerol metabolic process
-GO:0046460,neutral lipid biosynthetic process
-GO:0046463,acylglycerol biosynthetic process
-GO:0019432,triglyceride biosynthetic process
-GO:0006641,triglyceride metabolic process
-ath00600,Sphingolipid metabolism
-GO:0006665,sphingolipid metabolic process
-GO:0030148,sphingolipid biosynthetic process
-GO:0006672,ceramide metabolic process
-GO:0046513,ceramide biosynthetic process
-ath00906,Carotenoid biosynthesis
-GO:0016119,carotene metabolic process
-GO:0016121,carotene catabolic process
-GO:0046247,terpene catabolic process
-GO:0006714,sesquiterpenoid metabolic process
-GO:0016106,sesquiterpenoid biosynthetic process
-M00372,"Abscisic acid biosynthesis, beta-carotene => abscisic acid"
-ath_M00372,"Abscisic acid biosynthesis, beta-carotene => abscisic acid"
-GO:0009687,abscisic acid metabolic process
-GO:0043288,apocarotenoid metabolic process
-GO:1902644,tertiary alcohol metabolic process
-GO:0009688,abscisic acid biosynthetic process
-GO:0043289,apocarotenoid biosynthetic process
-GO:1902645,tertiary alcohol biosynthetic process
-ath00020,Citrate cycle (TCA cycle)
-GO:0006099,tricarboxylic acid cycle
-GO:0006101,citrate metabolic process
-GO:0072350,tricarboxylic acid metabolic process
-GO:0009060,aerobic respiration
-M00012,Glyoxylate cycle
-ath_M00012,Glyoxylate cycle
-ath01210,2-Oxocarboxylic acid metabolism
-GO:0045333,cellular respiration
-GO:0015980,energy derivation by oxidation of organic compounds
-M00010,"Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate"
-ath_M00010,"Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate"
-GO:0016999,antibiotic metabolic process
-ath00280,"Valine, leucine and isoleucine degradation"
-M00036,"Leucine degradation, leucine => acetoacetate + acetyl-CoA"
-ath_M00036,"Leucine degradation, leucine => acetoacetate + acetyl-CoA"
-GO:0009081,branched-chain amino acid metabolic process
-GO:0009083,branched-chain amino acid catabolic process
-GO:0009063,cellular amino acid catabolic process
-GO:0006551,leucine metabolic process
-GO:0006520,cellular amino acid metabolic process
-GO:1901605,alpha-amino acid metabolic process
-GO:1901606,alpha-amino acid catabolic process
-ath00073,"Cutin, suberine and wax biosynthesis"
-GO:0010345,suberin biosynthetic process
-GO:0035337,fatty-acyl-CoA metabolic process
-GO:0035336,long-chain fatty-acyl-CoA metabolic process
-GO:0009556,microsporogenesis
-GO:0044703,multi-organism reproductive process
-GO:0019953,sexual reproduction
-GO:0034293,sexual sporulation
-GO:0043934,sporulation
-GO:0048236,plant-type sporogenesis
-GO:0044550,secondary metabolite biosynthetic process
-ath00640,Propanoate metabolism
-M00082,"Fatty acid biosynthesis, initiation"
-ath_M00082,"Fatty acid biosynthesis, initiation"
-GO:2001295,malonyl-CoA biosynthetic process
-GO:2001293,malonyl-CoA metabolic process
-GO:0033559,unsaturated fatty acid metabolic process
-GO:0006636,unsaturated fatty acid biosynthetic process
-GO:1901568,fatty acid derivative metabolic process
-GO:1901570,fatty acid derivative biosynthetic process
-GO:0010025,wax biosynthetic process
-GO:0010166,wax metabolic process
-ath00909,Sesquiterpenoid and triterpenoid biosynthesis
-GO:0016104,triterpenoid biosynthetic process
-GO:0006722,triterpenoid metabolic process
-GO:0019742,pentacyclic triterpenoid metabolic process
-GO:0019745,pentacyclic triterpenoid biosynthetic process
-GO:0008300,isoprenoid catabolic process
-GO:0016115,terpenoid catabolic process
-GO:0016103,diterpenoid catabolic process
-GO:0045487,gibberellin catabolic process
-GO:0042447,hormone catabolic process
-GO:0046839,phospholipid dephosphorylation
-GO:0046856,phosphatidylinositol dephosphorylation
-GO:0046164,alcohol catabolic process
-GO:1901616,organic hydroxy compound catabolic process
-GO:0046855,inositol phosphate dephosphorylation
-GO:0071545,inositol phosphate catabolic process
-GO:0046174,polyol catabolic process
-GO:0046838,phosphorylated carbohydrate dephosphorylation
-GO:0016311,dephosphorylation
-GO:0046470,phosphatidylcholine metabolic process
-GO:0097164,ammonium ion metabolic process
-GO:0006656,phosphatidylcholine biosynthetic process
-GO:1901661,quinone metabolic process
-GO:1901663,quinone biosynthetic process
-GO:0042181,ketone biosynthetic process
-ath00130,Ubiquinone and other terpenoid-quinone biosynthesis
-GO:0042180,cellular ketone metabolic process
-GO:0010236,plastoquinone biosynthetic process
-GO:0006743,ubiquinone metabolic process
-GO:0006744,ubiquinone biosynthetic process
-GO:0042372,phylloquinone biosynthetic process
-GO:0042374,phylloquinone metabolic process
-GO:0006071,glycerol metabolic process
-GO:0019400,alditol metabolic process
-GO:0044262,cellular carbohydrate metabolic process
-GO:0009240,isopentenyl diphosphate biosynthetic process
-GO:0046490,isopentenyl diphosphate metabolic process
-M00096,"C5 isoprenoid biosynthesis, non-mevalonate pathway"
-ath_M00096,"C5 isoprenoid biosynthesis, non-mevalonate pathway"
-GO:0019288,"isopentenyl diphosphate biosynthetic process, methylerythritol 4-phosphate pathway"
-GO:0006081,cellular aldehyde metabolic process
-GO:0019682,glyceraldehyde-3-phosphate metabolic process
-GO:0019915,lipid storage
-GO:0051235,maintenance of location
-GO:0016093,polyprenol metabolic process
-GO:0016094,polyprenol biosynthetic process
-GO:0019348,dolichol metabolic process
-GO:0019408,dolichol biosynthetic process
-GO:0016095,polyprenol catabolic process
-GO:0009668,plastid membrane organization
-GO:0009937,regulation of gibberellic acid mediated signaling pathway
-GO:0009938,negative regulation of gibberellic acid mediated signaling pathway
-GO:0021700,developmental maturation
-GO:2000377,regulation of reactive oxygen species metabolic process
-GO:0010162,seed dormancy process
-GO:0022611,dormancy process
-GO:0010431,seed maturation
-GO:2000033,regulation of seed dormancy process
-GO:0071695,anatomical structure maturation
-GO:0006972,hyperosmotic response
-GO:2000034,regulation of seed maturation
-GO:0080050,regulation of seed development
-GO:0048609,multicellular organismal reproductive process
-GO:0006970,response to osmotic stress
-GO:0009651,response to salt stress
-GO:0072583,clathrin-dependent endocytosis
-GO:0006898,receptor-mediated endocytosis
-GO:0006900,vesicle budding from membrane
-GO:0048268,clathrin coat assembly
-GO:0006897,endocytosis
-GO:0098657,import into cell
-GO:0016050,vesicle organization
-GO:0061024,membrane organization
-GO:0046339,diacylglycerol metabolic process
-GO:0007205,protein kinase C-activating G protein-coupled receptor signaling pathway
-GO:0007186,G protein-coupled receptor signaling pathway
-GO:0090351,seedling development
-GO:0009845,seed germination
-GO:0010187,negative regulation of seed germination
-GO:1900140,regulation of seedling development
-GO:0010029,regulation of seed germination
-GO:0051093,negative regulation of developmental process
-GO:0050793,regulation of developmental process
-GO:0016128,phytosteroid metabolic process
-GO:0016131,brassinosteroid metabolic process
-GO:0016129,phytosteroid biosynthetic process
-GO:0055088,lipid homeostasis
-GO:0016132,brassinosteroid biosynthetic process
-ath00905,Brassinosteroid biosynthesis
-M00371,"Castasterone biosynthesis, campesterol => castasterone"
-ath_M00371,"Castasterone biosynthesis, campesterol => castasterone"
-GO:0010268,brassinosteroid homeostasis
-GO:0048878,chemical homeostasis
-GO:0009753,response to jasmonic acid
-GO:0046677,response to antibiotic
-GO:0009751,response to salicylic acid
-GO:0009723,response to ethylene
-GO:0042493,response to drug
-GO:0009733,response to auxin
-M00095,"C5 isoprenoid biosynthesis, mevalonate pathway"
-ath_M00095,"C5 isoprenoid biosynthesis, mevalonate pathway"
-GO:0019287,"isopentenyl diphosphate biosynthetic process, mevalonate pathway"
-ath00072,Synthesis and degradation of ketone bodies
-ath00650,Butanoate metabolism
-GO:0097305,response to alcohol
-GO:0009737,response to abscisic acid
-GO:0009968,negative regulation of signal transduction
-GO:0010648,negative regulation of cell communication
-GO:0023057,negative regulation of signaling
-GO:0023051,regulation of signaling
-GO:0009966,regulation of signal transduction
-GO:0010646,regulation of cell communication
-GO:0048585,negative regulation of response to stimulus
-GO:0071215,cellular response to abscisic acid stimulus
-GO:0097306,cellular response to alcohol
-GO:0009738,abscisic acid-activated signaling pathway
-GO:0009787,regulation of abscisic acid-activated signaling pathway
-GO:1901419,regulation of response to alcohol
-GO:1905957,regulation of cellular response to alcohol
-GO:0009788,negative regulation of abscisic acid-activated signaling pathway
-GO:1901420,negative regulation of response to alcohol
-GO:1905958,negative regulation of cellular response to alcohol
-GO:0048523,negative regulation of cellular process
-GO:0048583,regulation of response to stimulus
-GO:0009611,response to wounding
-GO:0019374,galactolipid metabolic process
-GO:0019375,galactolipid biosynthetic process
-GO:0001676,long-chain fatty acid metabolic process
-GO:0042759,long-chain fatty acid biosynthetic process
-GO:0015914,phospholipid transport
-GO:0015748,organophosphate ester transport
-GO:0034204,lipid translocation
-GO:0097035,regulation of membrane lipid distribution
-GO:0045332,phospholipid translocation
-GO:0015711,organic anion transport
-GO:0016122,xanthophyll metabolic process
-GO:0016123,xanthophyll biosynthetic process
-ath04144,Endocytosis
-GO:0006020,inositol metabolic process
-M00132,"Inositol phosphate metabolism, Ins(1,3,4)P3 => phytate"
-ath_M00132,"Inositol phosphate metabolism, Ins(1,3,4)P3 => phytate"
-GO:0010264,myo-inositol hexakisphosphate biosynthetic process
-GO:0033517,myo-inositol hexakisphosphate metabolic process
-GO:0052746,inositol phosphorylation
-GO:0046835,carbohydrate phosphorylation
-GO:0009110,vitamin biosynthetic process
-GO:0006766,vitamin metabolic process
-GO:0042364,water-soluble vitamin biosynthetic process
-GO:0009409,response to cold
-GO:0009266,response to temperature stimulus
-GO:0019216,regulation of lipid metabolic process
-GO:0046890,regulation of lipid biosynthetic process
-GO:0010371,regulation of gibberellin biosynthetic process
-GO:0046885,regulation of hormone biosynthetic process
-GO:0032350,regulation of hormone metabolic process
-GO:0062012,regulation of small molecule metabolic process
-GO:0051055,negative regulation of lipid biosynthetic process
-GO:0019747,regulation of isoprenoid metabolic process
-GO:0010565,regulation of cellular ketone metabolic process
-GO:0045833,negative regulation of lipid metabolic process
-GO:0045827,negative regulation of isoprenoid metabolic process
-GO:0046337,phosphatidylethanolamine metabolic process
-GO:0006646,phosphatidylethanolamine biosynthetic process
-M00092,"Phosphatidylethanolamine (PE) biosynthesis, ethanolamine => PE"
-ath_M00092,"Phosphatidylethanolamine (PE) biosynthesis, ethanolamine => PE"
-ath00440,Phosphonate and phosphinate metabolism
-GO:0006914,autophagy
-GO:0061919,process utilizing autophagic mechanism
-ath04136,Autophagy - other
-GO:0031667,response to nutrient levels
-GO:0009267,cellular response to starvation
-GO:0006995,cellular response to nitrogen starvation
-GO:0031669,cellular response to nutrient levels
-GO:0009991,response to extracellular stimulus
-GO:0042594,response to starvation
-GO:0043562,cellular response to nitrogen levels
-GO:0031668,cellular response to extracellular stimulus
-GO:0071496,cellular response to external stimulus
-GO:0009555,pollen development
-GO:0048229,gametophyte development
-GO:0016049,cell growth
-GO:0040007,growth
-GO:0032989,cellular component morphogenesis
-GO:0000902,cell morphogenesis
-GO:0009826,unidimensional cell growth
-GO:0060560,developmental growth involved in morphogenesis
-GO:0009846,pollen germination
-GO:0048589,developmental growth
-GO:0000904,cell morphogenesis involved in differentiation
-GO:0009932,cell tip growth
-GO:0048868,pollen tube development
-GO:0030154,cell differentiation
-GO:0048588,developmental cell growth
-GO:0048468,cell development
-GO:0009860,pollen tube growth
-GO:0009856,pollination
-GO:0044706,multi-multicellular organism process
-GO:0006775,fat-soluble vitamin metabolic process
-GO:0042362,fat-soluble vitamin biosynthetic process
-GO:0010189,vitamin E biosynthetic process
-GO:0042360,vitamin E metabolic process
-M00112,Tocopherol/tocotorienol biosynthesis
-ath_M00112,Tocopherol/tocotorienol biosynthesis
-GO:0009939,positive regulation of gibberellic acid mediated signaling pathway
-GO:0046686,response to cadmium ion
-GO:0010038,response to metal ion
-GO:0018342,protein prenylation
-GO:0097354,prenylation
-GO:0018344,protein geranylgeranylation
-GO:0007033,vacuole organization
-GO:0000422,autophagy of mitochondrion
-GO:0061726,mitochondrion disassembly
-GO:0016236,macroautophagy
-GO:0000045,autophagosome assembly
-GO:1903008,organelle disassembly
-GO:1905037,autophagosome organization
-GO:0034497,protein localization to phagophore assembly site
-GO:0036092,phosphatidylinositol-3-phosphate biosynthetic process
-M00097,"beta-Carotene biosynthesis, GGAP => beta-carotene"
-ath_M00097,"beta-Carotene biosynthesis, GGAP => beta-carotene"
-GO:0016120,carotene biosynthetic process
-GO:0009967,positive regulation of signal transduction
-GO:0023056,positive regulation of signaling
-GO:0010647,positive regulation of cell communication
-GO:0048584,positive regulation of response to stimulus
-GO:0009789,positive regulation of abscisic acid-activated signaling pathway
-GO:1901421,positive regulation of response to alcohol
-GO:1905959,positive regulation of cellular response to alcohol
-GO:0007031,peroxisome organization
-GO:0015919,peroxisomal membrane transport
-GO:0043574,peroxisomal transport
-GO:0016558,protein import into peroxisome matrix
-GO:0006625,protein targeting to peroxisome
-GO:0072662,protein localization to peroxisome
-GO:0072663,establishment of protein localization to peroxisome
-GO:0006513,protein monoubiquitination
-ath00630,Glyoxylate and dicarboxylate metabolism
-M00532,Photorespiration
-ath_M00532,Photorespiration
-ath00260,"Glycine, serine and threonine metabolism"
-GO:0006546,glycine catabolic process
-GO:0015718,monocarboxylic acid transport
-GO:0015908,fatty acid transport
-GO:0015909,long-chain fatty acid transport
-GO:0032309,icosanoid secretion
-GO:0050482,arachidonic acid secretion
-GO:0071715,icosanoid transport
-GO:1901571,fatty acid derivative transport
-GO:1903963,arachidonate transport
-GO:0046717,acid secretion
-GO:0010152,pollen maturation
-GO:0046519,sphingoid metabolic process
-GO:0046520,sphingoid biosynthetic process
-M00114,"Ascorbate biosynthesis, plants, glucose-6P => ascorbate"
-ath_M00114,"Ascorbate biosynthesis, plants, glucose-6P => ascorbate"
-GO:0009298,GDP-mannose biosynthetic process
-GO:0019673,GDP-mannose metabolic process
-GO:0006072,glycerol-3-phosphate metabolic process
-GO:0052646,alditol phosphate metabolic process
-GO:0006116,NADH oxidation
-GO:0046168,glycerol-3-phosphate catabolic process
-GO:0006734,NADH metabolic process
-GO:1902652,secondary alcohol metabolic process
-GO:1902653,secondary alcohol biosynthetic process
-GO:0006695,cholesterol biosynthetic process
-GO:0008203,cholesterol metabolic process
-GO:0006696,ergosterol biosynthetic process
-GO:0008204,ergosterol metabolic process
-GO:0044107,cellular alcohol metabolic process
-GO:0044108,cellular alcohol biosynthetic process
-GO:0097384,cellular lipid biosynthetic process
-GO:0055081,anion homeostasis
-GO:0055083,monovalent inorganic anion homeostasis
-GO:0055062,phosphate ion homeostasis
-GO:0072506,trivalent inorganic anion homeostasis
-GO:0072505,divalent inorganic anion homeostasis
-M00072,N-glycosylation by oligosaccharyltransferase
-ath_M00072,N-glycosylation by oligosaccharyltransferase
-GO:0018196,peptidyl-asparagine modification
-GO:0018279,protein N-linked glycosylation via asparagine
-GO:0006651,diacylglycerol biosynthetic process
-GO:0009249,protein lipoylation
-ath00785,Lipoic acid metabolism
-GO:0018065,protein-cofactor linkage
-GO:0009106,lipoate metabolic process
-GO:0009642,response to light intensity
-GO:0009644,response to high light intensity
-GO:0043467,regulation of generation of precursor metabolites and energy
-GO:0010205,photoinhibition
-GO:0043155,"negative regulation of photosynthesis, light reaction"
-GO:0042548,"regulation of photosynthesis, light reaction"
-ath00780,Biotin metabolism
-M00083,"Fatty acid biosynthesis, elongation"
-ath_M00083,"Fatty acid biosynthesis, elongation"
-GO:0009639,response to red or far red light
-GO:0009640,photomorphogenesis
-GO:0006021,inositol biosynthetic process
-GO:0043687,post-translational protein modification
-GO:0018410,C-terminal protein amino acid modification
-GO:0016255,attachment of GPI anchor to protein
-GO:0043692,monoterpene metabolic process
-GO:0043693,monoterpene biosynthetic process
-ath00902,Monoterpenoid biosynthesis
-GO:0070542,response to fatty acid
-GO:0071398,cellular response to fatty acid
-ath00590,Arachidonic acid metabolism
-GO:0010118,stomatal movement
-GO:0045834,positive regulation of lipid metabolic process
-GO:0042304,regulation of fatty acid biosynthetic process
-GO:0046889,positive regulation of lipid biosynthetic process
-GO:0019217,regulation of fatty acid metabolic process
-GO:1901959,positive regulation of cutin biosynthetic process
-GO:1901957,regulation of cutin biosynthetic process
-GO:0045923,positive regulation of fatty acid metabolic process
-GO:0062013,positive regulation of small molecule metabolic process
-GO:0048443,stamen development
-GO:0048466,androecium development
-GO:0090567,reproductive shoot system development
-GO:0048437,floral organ development
-GO:0009908,flower development
-GO:0048438,floral whorl development
-GO:0009768,"photosynthesis, light harvesting in photosystem I"
-ath00196,Photosynthesis - antenna proteins
-GO:0009765,"photosynthesis, light harvesting"
-GO:0046471,phosphatidylglycerol metabolic process
-GO:0006655,phosphatidylglycerol biosynthetic process
-ath00340,Histidine metabolism
-ath00380,Tryptophan metabolism
-ath00310,Lysine degradation
-GO:0046466,membrane lipid catabolic process
-GO:0016137,glycoside metabolic process
-GO:0046514,ceramide catabolic process
-GO:0030149,sphingolipid catabolic process
-GO:0016139,glycoside catabolic process
-GO:0009850,auxin metabolic process
-GO:0002213,defense response to insect
-GO:0010941,regulation of cell death
-GO:0043067,regulation of programmed cell death
-GO:0060548,negative regulation of cell death
-GO:0008219,cell death
-GO:0012501,programmed cell death
-GO:2001289,lipid X metabolic process
-GO:0009245,lipid A biosynthetic process
-GO:0046493,lipid A metabolic process
-GO:1901269,lipooligosaccharide metabolic process
-GO:1901271,lipooligosaccharide biosynthetic process
-GO:0046473,phosphatidic acid metabolic process
-GO:0006654,phosphatidic acid biosynthetic process
-GO:0006805,xenobiotic metabolic process
-GO:0010124,phenylacetate catabolic process
-GO:0071466,cellular response to xenobiotic stimulus
-GO:0042178,xenobiotic catabolic process
-GO:0009410,response to xenobiotic stimulus
-GO:0009852,auxin catabolic process
-GO:0009735,response to cytokinin
-GO:0006549,isoleucine metabolic process
-GO:0009097,isoleucine biosynthetic process
-ath00290,"Valine, leucine and isoleucine biosynthesis"
-GO:0009099,valine biosynthetic process
-M00570,"Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine"
-ath_M00570,"Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine"
-GO:0006573,valine metabolic process
-GO:0009082,branched-chain amino acid biosynthetic process
-M00019,"Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine"
-ath_M00019,"Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine"
-ath00966,Glucosinolate biosynthesis
-GO:0010344,seed oilbody biogenesis
-GO:0050826,response to freezing
-GO:0046503,glycerolipid catabolic process
-ath00603,Glycosphingolipid biosynthesis - globo and isoglobo series
-ath00511,Other glycan degradation
-ath00604,Glycosphingolipid biosynthesis - ganglio series
-GO:0035246,peptidyl-arginine N-methylation
-GO:0018216,peptidyl-arginine methylation
-GO:0034969,histone arginine methylation
-GO:0018195,peptidyl-arginine modification
-GO:0019919,"peptidyl-arginine methylation, to asymmetrical-dimethyl arginine"
-GO:0035247,peptidyl-arginine omega-N-methylation
-GO:0080086,stamen filament development
-GO:0006006,glucose metabolic process
-GO:0009051,"pentose-phosphate shunt, oxidative branch"
-M00006,"Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P"
-ath_M00006,"Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P"
-M00004,Pentose phosphate pathway (Pentose phosphate cycle)
-ath_M00004,Pentose phosphate pathway (Pentose phosphate cycle)
-M00100,Sphingosine degradation
-ath_M00100,Sphingosine degradation
-GO:0006498,N-terminal protein lipidation
-GO:0006499,N-terminal protein myristoylation
-GO:0018377,protein myristoylation
-GO:0016110,tetraterpenoid catabolic process
-GO:0016118,carotenoid catabolic process
-GO:0016124,xanthophyll catabolic process
-GO:1901334,lactone metabolic process
-GO:1901336,lactone biosynthetic process
-GO:1901600,strigolactone metabolic process
-GO:1901601,strigolactone biosynthetic process
-GO:0050992,dimethylallyl diphosphate biosynthetic process
-GO:0050993,dimethylallyl diphosphate metabolic process
-GO:0006723,cuticle hydrocarbon biosynthetic process
-GO:0043447,alkane biosynthetic process
-GO:0043446,cellular alkane metabolic process
-GO:0046459,short-chain fatty acid metabolic process
-GO:0009743,response to carbohydrate
-GO:0034285,response to disaccharide
-GO:0009744,response to sucrose
-GO:0009691,cytokinin biosynthetic process
-ath00908,Zeatin biosynthesis
-M00073,N-glycan precursor trimming
-ath_M00073,N-glycan precursor trimming
-GO:0006491,N-glycan processing
-GO:0006768,biotin metabolic process
-GO:0009102,biotin biosynthetic process
-GO:0009855,determination of bilateral symmetry
-GO:0009799,specification of symmetry
-GO:0048654,anther morphogenesis
-GO:0048655,anther wall tapetum morphogenesis
-GO:0045926,negative regulation of growth
-GO:0048448,stamen morphogenesis
-GO:0009414,response to water deprivation
-GO:0009415,response to water
-GO:0071395,cellular response to jasmonic acid stimulus
-GO:0009867,jasmonic acid mediated signaling pathway
-ath00750,Vitamin B6 metabolism
-GO:0042822,pyridoxal phosphate metabolic process
-GO:0042823,pyridoxal phosphate biosynthetic process
-GO:0008614,pyridoxine metabolic process
-GO:0008615,pyridoxine biosynthetic process
-GO:0042816,vitamin B6 metabolic process
-GO:0042819,vitamin B6 biosynthetic process
-GO:0046184,aldehyde biosynthetic process
-GO:0009814,"defense response, incompatible interaction"
-GO:0048316,seed development
-GO:0051094,positive regulation of developmental process
-GO:0048582,positive regulation of post-embryonic development
-GO:0051240,positive regulation of multicellular organismal process
-GO:0009911,positive regulation of flower development
-GO:0015994,chlorophyll metabolic process
-GO:0006778,porphyrin-containing compound metabolic process
-GO:0033013,tetrapyrrole metabolic process
-GO:0015995,chlorophyll biosynthetic process
-GO:0033014,tetrapyrrole biosynthetic process
-GO:0090696,post-embryonic plant organ development
-GO:0048364,root development
-GO:0022622,root system development
-GO:0010026,trichome differentiation
-GO:0006047,UDP-N-acetylglucosamine metabolic process
-GO:0046349,amino sugar biosynthetic process
-GO:0048497,maintenance of floral organ identity
-GO:0090700,maintenance of plant organ identity
-GO:0045596,negative regulation of cell differentiation
-GO:1901703,protein localization involved in auxin polar transport
-GO:0009625,response to insect
-GO:0030259,lipid glycosylation
-GO:0010422,regulation of brassinosteroid biosynthetic process
-GO:0050810,regulation of steroid biosynthetic process
-GO:0090030,regulation of steroid hormone biosynthetic process
-GO:0019218,regulation of steroid metabolic process
-GO:0043617,cellular response to sucrose starvation
-GO:0008544,epidermis development
-GO:0009913,epidermal cell differentiation
-GO:0030855,epithelial cell differentiation
-GO:0034308,primary alcohol metabolic process
-GO:0035556,intracellular signal transduction
-GO:0034644,cellular response to UV
-GO:1900457,regulation of brassinosteroid mediated signaling pathway
-GO:0071071,regulation of phospholipid biosynthetic process
-GO:1903725,regulation of phospholipid metabolic process
-GO:0010288,response to lead ion
-GO:0006690,icosanoid metabolic process
-GO:0080024,indolebutyric acid metabolic process
-GO:0055089,fatty acid homeostasis
-GO:0080027,response to herbivore
-GO:0007584,response to nutrient
+GO,Description,Enrichment,counts,Hits
+GO:0008610,lipid biosynthetic process,6.826104179,427,AT2G01690|ISPD|PI4K GAMMA 7|AT2G04540|MOD1|OPR3|CAS1|MGDC|KCS8|KCS9|HMG2|AT2G18620|GGPS4|HPT1|TAG1|AT2G19880|PIL5|LIP1|AT2G22230|MIPS2|SQE2|AT2G23230|AT2G23400|CPT|GGPS2|TPS10|CYP711A1|KCS10|KCS11|TED4|emb1187|CDPMEK|KCS12|CYP710A4|SMO2-2|AtIPCS3|FAD3|EMB3147|ADS2|CCT1|KAO2|PKT3|RD20|CYP710A2|CYP710A1|ATGA2OX3|SETH1|AT2G35680|ACX5|AT2G37700|AtIPCS2|DET2|PECT1|AT2G38995|PGP1|GLY1|SSI2|MTACP-1|DAD1|CCD7|CDS4|BEN1|SSE1|CYP86A8|LCBK2|SLD2|PI4K GAMMA 4|KCS13|LACS1|PAC|ZDS|ACP1|PLDP2|TSC10A|AT3G07140|GLCAK|AT3G07180|ORP3B|PAH1|LYC|KCS14|AT3G10840|FAD7|GPAT5|DGD1|MS2|FAD2|CYP90D1|AT3G14205|NCED3|AT3G14490|AT3G14510|AT3G14520|AT3G14530|AT3G14540|GGPS3|AT3G02590|AT3G02610|FAD5|AT3G15870|AAE13|PLDP1|IPP2|DOX1|RIF10|VTC4|AT3G01380|NPC5|XPL1|LPAT5|LOH2|DWF1|AT3G20160|DXPS1|AT3G23470|AT3G23480|AT3G23510|AAE16|AT3G23840|NCED6|FaTA|CYP82G1|AT3G25410|LAG1|AOC1|AOC2|AOC3|AT3G25810|TPS-CIN|PES2|RST1|MYB30|AT3G29110|AT3G29190|AT3G29410|AT3G29430|BR6OX2|AT3G32030|AT3G32040|LAS1|LOX2|AT3G45770|SPT1|AT3G49190|AT3G49200|AT3G49210|AT3G50400|DWF4|LPPepsilon1|DGAT2|KCS15|FK|LUT1|PAS1|AtIPCS1|AT3G54250|WRI1|PGPS2|CER10|UGP3|AT3G57170|LPAT2|CER7|CDS5|AT3G61270|SLD1|AT3G61680|AAPT2|AT4G04320|DES-1-LIKE|AT4G05160|AT4G11030|HMGS|SMO1-1|AT4G13050|TPS12|TPS13|AT4G13840|AAE15|PDS3|LOI1|GPAT3|CCT2|PEN1|BARS1|CLA1|TS1|PSD1|TPS02|TPS03|ACX1|FPS2|NCED2|AT4G20200|AT4G20210|AT4G20230|GA2OX8|DGD2|PIPK10|GPAT8|GA1|GA3OX3|IM|ATCES1|CDS2|SMO1-2|LACS4|CER2|ACP4|GA20OX1|BETA-OHASE 1|PSD3|AT4G26770|FADA|AIM1|LpxA|ATS2|FAD6|MGD1|CCD8|SQD1|CER4|CER9|KCS16|AT4G34310|HDR|KCS17|KCS18|SQS1|AT4G34920|AT4G35530|ROT3|LCB1|SQE3|GGR|PIS2|SEC14|MIPS1|KCS19|FAD8|GPAT7|GA20OX3|AT5G08415|PI-4KBETA2|AT5G10160|PAS2|DXPS3|AT5G12420|PDAT|SMT1|CYP724A1|BCCP2|AT5G16230|AT5G16350|CAC1|IPP1|PSY|KDTA|LPPgamma|SQD2|TSC10B|MGD2|PNT1|AT5G22490|CYP86B1|LCBK1|LCB2|TPS21|SQP1|SQE6|GA3|ACP5|MK|CAC2|TT2|WSD1|BR6OX1|MRN1|AOS|PAH2|AT5G42930|KCS20|AT5G44630|BI1|mtACP3|FPS1|THAS1|AT5G48110|KCS21|GA20OX2|BETA-OHASE 2|PKP-BETA1|FOP1|HL|LUT2|PSD2|CER3|cPT4|cPT5|cPT6|AT5G58784|AT5G59500|HDS|Tudor2|PI-4KBETA1|LPPepsilon2|ABA1|AT5G67050|DGL|ADS1|AT1G06090|AT1G06100|AT1G06120|ADS4|AT1G06360|GPAT1|CRTISO|KCS3|FATB|ERG28|CER1|ACLA-1|Z-ISO|CYP51G1|LPLAT1|AT1G12730|AOC4|AAPT1|LAG13|SBH2|PSS1|GA3OX1|LOX3|D27|KCS4|JMT|AT1G19650|SMT2|OPCL1|AT1G21540|PIP5K1|ATSAC1|AT1G24360|KCS5|KCS1|PIPK11|CYP703A2|GA2OX6|GPAT2|KCS2|GA2OX2|NCED5|PDH-E1 BETA|IMPL1|CYP97A3|AT1G31950|ATS1|PKp3|AT1G33750|ACC1|GA20OX5|GA2OX4|DGAT3|PMEAMT|AT1G48800|AT1G48820|ATPI4K ALPHA|LACS2|GGPS6|DWF5|GA2OX7|AT1G51040|LPAT3|ABCG12|PES1|ACP2|ACP3|LOX1|CYP96A15|XF1|GA20OX4|TPS04|AT1G61280|TPS14|AT1G61850|CDS1|KAS III|ACOS5|LPLAT2|AT1G63110|ISPF|LACS3|mtACP2|AT1G66020|LUP5|LOX6|KCR1|PIS1|MYB62|KCS6|SBH1|AT1G70080|KCS7|AT1G72110|LOX4|AT1G73600|FAB1|LPAT4|SMT3|HMG1|OPR2|NCED9|ATGA2OX1|AT1G78480|BAS|CAMS1|LUP2|LUP1|AT1G79260|GA2|NADP-ME4|GA3OX4|GA3OX2|PLMT|AT1G26200|LEW1|HST
+GO:0032787,monocarboxylic acid metabolic process,4.230958715,228,PAHX|ISPD|AT2G03980|LACS8|AT2G04540|MOD1|OPR3|MGDC|KCS8|KCS9|HPT1|SUR1|LIP1|AT2G22230|AT2G22890|KCS10|PEX10|KCS11|CDPMEK|KCS12|FAD3|EMB3147|ADS2|PKT3|RD20|FAH1|ACX5|CSY3|SSI2|MTACP-1|DAD1|AT2G45670|SSE1|CYP86A8|CB5-C|KCS13|LACS1|GAPC1|PEX12|ACP1|PNC1|LACS6|ATG8H|MFP2|PEX13|KCS14|FAD7|FAD2|SDRB|NCED3|AT3G02610|AT3G15290|AT3G02630|PLDALPHA1|FAD5|AT3G15870|AAE13|AAE7|LPD1|DOX1|LOH2|NTMC2T5.2|PKP-ALPHA|AT3G23470|AAE16|AT3G23840|NCED6|FaTA|LAG1|AOC1|AOC2|AOC3|LTA2|NUDX13|MYB30|LOX2|AT3G45770|REF6|AT3G48460|DCF|MAPR3|ACX4|KCS15|LTA3|PAS1|CSY2|AT3G62860|FAP1|AT4G04320|AT4G05160|AT4G11030|AT4G13050|AT4G13840|AAE15|IBR10|HCD1|LOI1|HPL1|PPDK|CLA1|ACX1|NCED2|CYP86A2|LACS4|CER2|PGI1|ACP4|FADA|AIM1|FAD6|VTE1|KCS16|HDR|KCS17|KCS18|AT4G38550|ABCD1|KCS19|CYP77A4|FAD8|ST2A|AT5G08415|PEX1|AT5G10160|PAS2|BCCP2|AT5G16120|AT5G16230|AAE5|CAC1|AT5G17380|AT5G19290|MGD2|CYP86B1|PEX4|ACP5|PNC2|LACS7|CAC2|TT2|ACS|AT5G38160|AT5G38170|AOS|AT5G42740|DCI1|KCS20|CYP707A3|BI1|mtACP3|KAT5|KCS21|PKP-BETA1|BIO1|CYP86A1|HDS|ACX2|CHY1|ABA1|DGL|ADS1|AT1G06090|AT1G06100|AT1G06120|ACX3|ADS4|AT1G06360|KCS3|FATB|NPQ1|CJD1|AMI1|NFXL1|ACLA-1|AOC4|LAG13|LOX3|ICS2|KCS4|JMT|OPCL1|AT1G23330|AT1G24360|KCS5|AT1G01630|PEX6|CYP86A4|KCS1|LIP2|CYP703A2|KCS2|NCED5|PDH-E1 BETA|PKp3|EMB3003|ACC1|LACS2|FAP3|ACP2|ACP3|LOX1|E1 ALPHA|AT1G61850|AT1G62190|KAS III|CYP86A7|ISPF|LACS3|mtACP2|ECI1|AAE11|LOX6|KCR1|KCS6|KCS7|LOX4|HTH|ALPHA DOX2|EDS16|FAB1|ECH2|OPR2|AT1G77420|LACS9|NCED9|NADP-ME4|TED3|AT1G80950
+GO:0072330,monocarboxylic acid biosynthetic process,6.257691361,135,AT2G03980|AT2G04540|MOD1|OPR3|KCS8|KCS9|HPT1|SUR1|LIP1|AT2G22230|KCS10|KCS11|KCS12|FAD3|EMB3147|ADS2|PKT3|RD20|ACX5|SSI2|MTACP-1|DAD1|SSE1|KCS13|ACP1|KCS14|FAD7|FAD2|NCED3|AT3G02610|FAD5|AT3G15870|AAE13|DOX1|LOH2|NTMC2T5.2|AAE16|AT3G23840|NCED6|FaTA|LAG1|AOC1|AOC2|AOC3|MYB30|LOX2|AT3G45770|KCS15|PAS1|AT4G04320|AT4G05160|AT4G11030|AT4G13050|AT4G13840|AAE15|ACX1|NCED2|LACS4|CER2|ACP4|FADA|AIM1|FAD6|KCS16|KCS17|KCS18|KCS19|FAD8|AT5G08415|AT5G10160|PAS2|BCCP2|AT5G16230|CAC1|CYP86B1|ACP5|CAC2|TT2|AT5G38160|AT5G38170|AOS|KCS20|BI1|mtACP3|KCS21|PKP-BETA1|BIO1|ABA1|DGL|ADS1|AT1G06090|AT1G06100|AT1G06120|ADS4|AT1G06360|KCS3|FATB|AMI1|NFXL1|ACLA-1|AOC4|LAG13|LOX3|ICS2|KCS4|JMT|OPCL1|AT1G24360|KCS5|KCS1|CYP703A2|KCS2|NCED5|PDH-E1 BETA|PKp3|ACC1|LACS2|ACP2|ACP3|LOX1|AT1G61850|KAS III|LACS3|mtACP2|LOX6|KCR1|KCS6|KCS7|LOX4|EDS16|FAB1|OPR2|AT1G77420|NCED9|NADP-ME4
+GO:0006633,fatty acid biosynthetic process,8.717454195,96,AT2G04540|MOD1|KCS8|KCS9|HPT1|LIP1|AT2G22230|KCS10|KCS11|KCS12|FAD3|EMB3147|ADS2|RD20|SSI2|MTACP-1|SSE1|KCS13|ACP1|KCS14|FAD7|FAD2|AT3G02610|FAD5|AT3G15870|AAE13|DOX1|LOH2|AAE16|AT3G23840|FaTA|LAG1|MYB30|AT3G45770|KCS15|PAS1|AT4G04320|AT4G11030|AT4G13050|AT4G13840|AAE15|LACS4|CER2|ACP4|FADA|FAD6|KCS16|KCS17|KCS18|KCS19|FAD8|AT5G08415|AT5G10160|PAS2|BCCP2|AT5G16230|CAC1|CYP86B1|ACP5|CAC2|TT2|KCS20|BI1|mtACP3|KCS21|PKP-BETA1|ADS1|AT1G06090|AT1G06100|AT1G06120|ADS4|AT1G06360|KCS3|FATB|ACLA-1|LAG13|KCS4|AT1G24360|KCS5|KCS1|CYP703A2|KCS2|PDH-E1 BETA|PKp3|ACC1|LACS2|ACP2|ACP3|KAS III|LACS3|mtACP2|KCR1|KCS6|KCS7|FAB1|NADP-ME4
+GO:0016053,organic acid biosynthetic process,3.155775054,190,AT2G03980|AT2G04540|MOD1|OPR3|KCS8|KCS9|AT2G18620|HPT1|AT2G19940|PIL5|SUR1|LIP1|AT2G22230|KCS10|GP ALPHA 1|PLA2A|KCS11|TED4|KCS12|FAD3|EMB3147|ADS2|KAO2|PKT3|RD20|ATGA2OX3|ACX5|AT2G38640|SSI2|MTACP-1|DAD1|SSE1|PMM|KCS13|ACP1|KCS14|FAD7|DGD1|FAD2|NCED3|AT3G02610|FAD5|AT3G15870|AAE13|DOX1|VTC4|LOH2|NTMC2T5.2|LOX5|IGPD|AT3G23470|AAE16|AT3G23840|AT3G24180|NCED6|FaTA|LAG1|AOC1|AOC2|AOC3|MYB30|LOX2|AT3G45770|MAPR3|KCS15|PAS1|TSA1|AT4G04320|AT4G05160|AT4G11030|AT4G13050|AT4G13840|AAE15|HISN5B|ACX1|NCED2|GA2OX8|GA1|AT4G02610|GA3OX3|LACS4|CER2|ACP4|GA20OX1|ATS1|VTC2|AT-HF|FADA|AIM1|FAD6|KCS16|KCS17|KCS18|IMPL2|KCS19|FAD8|GA20OX3|AT5G08415|AT5G10160|PAS2|BCCP2|AT5G16230|CAC1|KDTA|CYP86B1|GA3|ACP5|CAC2|TT2|AT5G38160|AT5G38170|AOS|KCS20|BI1|mtACP3|AT5G48220|KCS21|GA20OX2|PKP-BETA1|ATPXG2|BIO1|MYB34|Tudor2|ABA1|DGL|ADS1|AT1G06090|AT1G06100|AT1G06120|ADS4|AT1G06360|KCS3|FATB|AMI1|NFXL1|ACLA-1|AOC4|LAG13|GA3OX1|LOX3|ICS2|KCS4|JMT|OPCL1|AT1G24360|KCS5|KCS1|CYP703A2|GA2OX6|KCS2|GA2OX2|NCED5|PDH-E1 BETA|PKp3|ACC1|GA20OX5|GA2OX4|GCR1|LACS2|GA2OX7|GLL22|AT1G54020|ACP2|ACP3|LOX1|GA20OX4|AT1G61850|AT1G62500|KAS III|LACS3|mtACP2|DIN9|LOX6|KCR1|MYB62|KCS6|KCS7|LOX4|EDS16|FAB1|OPR1|OPR2|AT1G77420|NCED9|ATGA2OX1|GA2|NADP-ME4|AT1G80120|GA3OX4|GA3OX2
+GO:0046394,carboxylic acid biosynthetic process,3.250201691,164,AT2G03980|AT2G04540|MOD1|OPR3|KCS8|KCS9|HPT1|AT2G19940|SUR1|LIP1|AT2G22230|KCS10|GP ALPHA 1|PLA2A|KCS11|TED4|KCS12|FAD3|EMB3147|ADS2|PKT3|RD20|ACX5|SSI2|MTACP-1|DAD1|SSE1|PMM|KCS13|ACP1|KCS14|FAD7|DGD1|FAD2|NCED3|AT3G02610|FAD5|AT3G15870|AAE13|DOX1|VTC4|LOH2|NTMC2T5.2|LOX5|IGPD|AT3G23470|AAE16|AT3G23840|AT3G24180|NCED6|FaTA|LAG1|AOC1|AOC2|AOC3|MYB30|LOX2|AT3G45770|MAPR3|KCS15|PAS1|TSA1|AT4G04320|AT4G05160|AT4G11030|AT4G13050|AT4G13840|AAE15|HISN5B|ACX1|NCED2|AT4G02610|LACS4|CER2|ACP4|ATS1|VTC2|AT-HF|FADA|AIM1|FAD6|KCS16|KCS17|KCS18|IMPL2|KCS19|FAD8|AT5G08415|AT5G10160|PAS2|BCCP2|AT5G16230|CAC1|KDTA|CYP86B1|ACP5|CAC2|TT2|AT5G38160|AT5G38170|AOS|KCS20|BI1|mtACP3|AT5G48220|KCS21|PKP-BETA1|ATPXG2|BIO1|MYB34|ABA1|DGL|ADS1|AT1G06090|AT1G06100|AT1G06120|ADS4|AT1G06360|KCS3|FATB|AMI1|NFXL1|ACLA-1|AOC4|LAG13|LOX3|ICS2|KCS4|JMT|OPCL1|AT1G24360|KCS5|KCS1|CYP703A2|KCS2|NCED5|PDH-E1 BETA|PKp3|ACC1|GCR1|LACS2|GLL22|AT1G54020|ACP2|ACP3|LOX1|AT1G61850|KAS III|LACS3|mtACP2|DIN9|LOX6|KCR1|KCS6|KCS7|LOX4|EDS16|FAB1|OPR1|OPR2|AT1G77420|NCED9|NADP-ME4|AT1G80120
+GO:0046486,glycerolipid metabolic process,9.60130719,130,AT2G01690|AT2G01900|PI4K GAMMA 7|LIP1|TAG1|emb1187|AT2G31690|5PTase14|CVL1|CCT1|SETH1|AT2G35680|AT2G37440|PECT1|AT2G38995|PGP1|GLY1|PIP5K5|5PTase12|CDS4|PI4K GAMMA 4|PLDP2|AT3G07140|AT3G07180|GPAT5|AT3G14205|PLDALPHA1|ROD1|AT3G15830|PLDP1|VTC4|AT3G01380|XPL1|LPAT5|PEN2|PES2|AT3G27325|AT3G43220|AT3G49190|AT3G49200|AT3G49210|LPPepsilon1|DGAT2|WRI1|PGPS2|PIP5K4|AT3G57170|LPAT2|SAC9|CDS5|AT3G61680|AAPT2|PLDBETA2|PLDGAMMA2|PLDGAMMA3|PLDGAMMA1|GPAT3|CCT2|PSD1|IP5PII|DSEL|PIPK10|GPAT8|CDS2|PSD3|AT4G26770|FADA|ATS2|AT4G35530|PLDDELTA|PIS2|SEC14|MIPS1|SDP1|AT5G04980|GPAT7|PI-4KBETA2|AT5G12420|PDAT|AT5G16350|LPPgamma|PNT1|AT5G22490|PLDALPHA3|WSD1|PTEN1|GPDHp|FOP1|HL|PSD2|AT5G59500|ABCA9|PI-4KBETA1|BST1|LPPepsilon2|CVP2|5PTASE13|GPAT1|LPLAT1|AT1G12730|AAPT1|PSS1|PIP5K1|ATSAC1|PIPK11|GPAT2|IMPL1|ATS1|IP5PI|5PTASE11|DGAT3|PMEAMT|ATPI4K ALPHA|AT1G51040|LPAT3|PLDALPHA2|PES1|PLDEPSILON|AT1G61280|CDS1|LPLAT2|AT1G63110|FRA3|PIS1|AT1G71710|AT1G72110|AT1G73600|LPAT4|At1g78690p|PLMT
+GO:0019637,organophosphate metabolic process,5.326649847,213,PAP1|AT2G01690|AT2G01900|ISPD|PI4K GAMMA 7|LpxB|PLA2-ALPHA|HMG2|COAD|AT2G18620|GGPS4|PLA2-BETA|MIPS2|GGPS2|emb1187|NPC2|CDPMEK|5PTase14|CVL1|CCT1|SETH1|AT2G35680|AT2G37440|CAC3|PDX1.1|PECT1|PGP1|GLY1|PIP5K5|GPDHC1|5PTase12|ITPK4|CDS4|AT2G45670|LCBK2|PI4K GAMMA 4|GAPC1|AT3G05510|PLDP2|ACLB-1|AT3G07140|AT3G07180|AT3G07690|PAH1|SDP6|GPAT5|AT3G14205|AT3G14510|AT3G14530|GGPS3|PLDALPHA1|ROD1|AT3G15830|PLDP1|LPD1|IPP2|VTC4|AT3G01380|NPC5|NPC4|LPP3|XPL1|LPP4|LPAT5|PEN2|AT3G20160|LpxK|DXPS1|PKP-ALPHA|LTA2|G6PD5|AT3G27325|AT3G29430|AT3G32040|AT3G43220|NPC6|LTA3|AT3G54250|pPLAIIIbeta|PGPS2|PIP5K4|AT3G57170|LPAT2|SAC9|CDS5|AAPT2|AT4G05090|LpxD1|AT4G08170|PLDBETA2|HMGS|PLDGAMMA2|PLDGAMMA3|PLDGAMMA1|TPS12|TPS13|LOI1|GPAT3|CCT2|CLA1|PSD1|FPS2|AT4G17360|IP5PII|AT4G19860|LpxD2|PIPK10|GPAT8|CDS2|PGI1|PSD3|AT4G26770|AT4G26910|FADA|AT4G29070|LpxA|ATS2|AT4G33770|HDR|AT4G35530|PLDDELTA|PIS2|SEC14|MIPS1|AT5G04980|GPAT7|AT5G09290|PI-4KBETA2|DXPS3|G6PD2|IPP1|ITPK1|KDTA|RSR4|PNT1|PLDALPHA3|MK|CAC2|G6PD1|ACS|PTEN1|GPDHp|G6PD6|AT5G42740|IPK1|PAH2|FPS1|ACLB-2|PKP-BETA1|HL|AT5G55070|PSD2|AT5G59500|PDX2|HDS|AT5G60760|IPK2BETA|FCLY|SAL1|AT5G63990|SAL2|PI-4KBETA1|BST1|CVP2|5PTASE13|GPAT1|ACLA-3|ACLA-1|LPLAT1|AT1G12730|AAPT1|LPP2|PSS1|PIP5K1|ATSAC1|G6PD3|LpxC1|LpxC2|PIPK11|GPAT2|IMPL1|ATS1|PKp3|IP5PI|EMB3003|ACC1|ACC2|5PTASE11|PMEAMT|ATPI4K ALPHA|GGPS6|AT1G51040|LPAT3|PLDALPHA2|PLDEPSILON|E1 ALPHA|ACLA-2|AT1G61280|CDS1|ACOS5|LPLAT2|AT1G63110|ISPF|FRA3|PIS1|AT1G71710|AT1G73600|LPAT4|HMG1|At1g78690p|NHO1|PLMT|AT1G80950
+ath00564,Glycerophospholipid metabolism - Arabidopsis thaliana (thale cress),10.74272133,96,PAP1|PLA2-ALPHA|DGK3|DGK5|emb1187|NPC2|CCT1|GPAT6|PECT1|PGP1|GLY1|GPDHC1|PLDBETA1|DAD1|CDS4|AT2G45670|AT3G05510|PLDP2|AT3G07690|PAH1|SDP6|GPAT5|AT3G15650|PLDALPHA1|PLDP1|SRG3|NPC5|NPC4|LCAT3|LPP3|XPL1|LPP4|LPAT5|NPC6|PGPS2|SDP1-LIKE|LPAT2|CDS5|AAPT2|CLS|AT4G09760|PLDBETA2|PLDGAMMA2|PLDGAMMA3|PLDGAMMA1|GPAT3|CCT2|PSD1|AT4G19860|GPAT8|CDS2|AT4G24730|PSD3|AT4G26770|DGK6|DGK7|ATS2|PLDDELTA|PIS2|SDP1|GPAT7|DGK1|GDPD6|AT5G20060|PLDALPHA3|GPDHp|PAH2|GDPD3|PSD2|DGK4|DGK2|GPAT1|NPC1|LPLAT1|AAPT1|LPP2|PSS1|GPAT4|GPAT2|ATS1|EMB1075|PMEAMT|LPAT3|PLDALPHA2|PLDEPSILON|CDS1|LPLAT2|PIS1|CK1|AT1G73600|GDPD5|AT1G74320|LPAT4|At1g78690p|PLMT|AT1G80950
+GO:0006650,glycerophospholipid metabolic process,9.658119658,102,AT2G01690|AT2G01900|PI4K GAMMA 7|emb1187|5PTase14|CVL1|CCT1|SETH1|AT2G35680|AT2G37440|PECT1|PGP1|GLY1|PIP5K5|5PTase12|CDS4|PI4K GAMMA 4|PLDP2|AT3G07140|AT3G07180|GPAT5|AT3G14205|PLDALPHA1|ROD1|AT3G15830|PLDP1|VTC4|AT3G01380|XPL1|LPAT5|PEN2|AT3G27325|AT3G43220|PGPS2|PIP5K4|AT3G57170|LPAT2|SAC9|CDS5|AAPT2|PLDBETA2|PLDGAMMA2|PLDGAMMA3|PLDGAMMA1|GPAT3|CCT2|PSD1|IP5PII|PIPK10|GPAT8|CDS2|PSD3|AT4G26770|FADA|ATS2|AT4G35530|PLDDELTA|PIS2|SEC14|MIPS1|AT5G04980|GPAT7|PI-4KBETA2|PNT1|PLDALPHA3|PTEN1|GPDHp|HL|PSD2|AT5G59500|PI-4KBETA1|BST1|CVP2|5PTASE13|GPAT1|AT1G12730|AAPT1|PSS1|PIP5K1|ATSAC1|PIPK11|GPAT2|IMPL1|ATS1|IP5PI|5PTASE11|PMEAMT|ATPI4K ALPHA|AT1G51040|LPAT3|PLDALPHA2|PLDEPSILON|AT1G61280|CDS1|AT1G63110|FRA3|PIS1|AT1G71710|AT1G73600|LPAT4|At1g78690p|PLMT
+GO:0008654,phospholipid biosynthetic process,9.20073114,98,AT2G01690|ISPD|PI4K GAMMA 7|AT2G18620|GGPS4|MIPS2|GGPS2|emb1187|CDPMEK|CCT1|SETH1|AT2G35680|PECT1|PGP1|CDS4|LCBK2|PI4K GAMMA 4|PLDP2|AT3G07140|AT3G07180|PAH1|GPAT5|AT3G14205|AT3G14510|AT3G14530|GGPS3|PLDP1|IPP2|VTC4|AT3G01380|XPL1|LPAT5|AT3G20160|AT3G29430|AT3G32040|AT3G54250|PGPS2|AT3G57170|LPAT2|CDS5|AAPT2|HMGS|LOI1|GPAT3|CCT2|CLA1|PSD1|FPS2|PIPK10|GPAT8|CDS2|PSD3|AT4G26770|ATS2|HDR|AT4G35530|PIS2|SEC14|MIPS1|GPAT7|PI-4KBETA2|IPP1|KDTA|PNT1|MK|PAH2|FPS1|HL|PSD2|AT5G59500|HDS|PI-4KBETA1|GPAT1|LPLAT1|AT1G12730|AAPT1|PSS1|PIP5K1|ATSAC1|PIPK11|GPAT2|IMPL1|ATS1|PMEAMT|ATPI4K ALPHA|GGPS6|AT1G51040|LPAT3|AT1G61280|CDS1|LPLAT2|AT1G63110|ISPF|PIS1|AT1G73600|LPAT4|HMG1|PLMT
+GO:0045017,glycerolipid biosynthetic process,9.147328656,90,AT2G01690|PI4K GAMMA 7|TAG1|emb1187|CCT1|SETH1|AT2G35680|PECT1|AT2G38995|PGP1|GLY1|CDS4|PI4K GAMMA 4|PLDP2|AT3G07140|AT3G07180|GPAT5|AT3G14205|PLDP1|VTC4|AT3G01380|XPL1|LPAT5|PES2|AT3G49190|AT3G49200|AT3G49210|LPPepsilon1|DGAT2|WRI1|PGPS2|AT3G57170|LPAT2|CDS5|AT3G61680|AAPT2|GPAT3|CCT2|PSD1|PIPK10|GPAT8|CDS2|PSD3|AT4G26770|ATS2|AT4G35530|PIS2|SEC14|MIPS1|GPAT7|PI-4KBETA2|AT5G12420|PDAT|AT5G16350|LPPgamma|PNT1|AT5G22490|WSD1|FOP1|HL|PSD2|AT5G59500|PI-4KBETA1|LPPepsilon2|GPAT1|LPLAT1|AT1G12730|AAPT1|PSS1|PIP5K1|ATSAC1|PIPK11|GPAT2|IMPL1|ATS1|DGAT3|PMEAMT|ATPI4K ALPHA|AT1G51040|LPAT3|PES1|AT1G61280|CDS1|LPLAT2|AT1G63110|PIS1|AT1G72110|AT1G73600|LPAT4|PLMT
+GO:0090407,organophosphate biosynthetic process,5.289326257,127,AT2G01690|ISPD|PI4K GAMMA 7|COAD|AT2G18620|GGPS4|MIPS2|GGPS2|emb1187|CDPMEK|CCT1|SETH1|AT2G35680|CAC3|PDX1.1|PECT1|PGP1|ITPK4|CDS4|LCBK2|PI4K GAMMA 4|PLDP2|ACLB-1|AT3G07140|AT3G07180|PAH1|GPAT5|AT3G14205|AT3G14510|AT3G14530|GGPS3|PLDP1|LPD1|IPP2|VTC4|AT3G01380|XPL1|LPAT5|AT3G20160|DXPS1|LTA2|AT3G29430|AT3G32040|LTA3|AT3G54250|PGPS2|AT3G57170|LPAT2|CDS5|AAPT2|HMGS|LOI1|GPAT3|CCT2|CLA1|PSD1|FPS2|AT4G17360|PIPK10|GPAT8|CDS2|PSD3|AT4G26770|ATS2|HDR|AT4G35530|PIS2|SEC14|MIPS1|GPAT7|PI-4KBETA2|DXPS3|IPP1|ITPK1|KDTA|RSR4|PNT1|MK|CAC2|ACS|GPDHp|IPK1|PAH2|FPS1|ACLB-2|HL|PSD2|AT5G59500|PDX2|HDS|AT5G60760|IPK2BETA|PI-4KBETA1|GPAT1|ACLA-3|ACLA-1|LPLAT1|AT1G12730|AAPT1|PSS1|PIP5K1|ATSAC1|PIPK11|GPAT2|IMPL1|ATS1|EMB3003|ACC1|ACC2|PMEAMT|ATPI4K ALPHA|GGPS6|AT1G51040|LPAT3|E1 ALPHA|ACLA-2|AT1G61280|CDS1|ACOS5|LPLAT2|AT1G63110|ISPF|PIS1|AT1G73600|LPAT4|HMG1|PLMT
+GO:0046474,glycerophospholipid biosynthetic process,9.026870007,66,AT2G01690|PI4K GAMMA 7|emb1187|CCT1|SETH1|AT2G35680|PECT1|PGP1|CDS4|PI4K GAMMA 4|PLDP2|AT3G07140|AT3G07180|GPAT5|AT3G14205|PLDP1|VTC4|AT3G01380|XPL1|LPAT5|PGPS2|AT3G57170|LPAT2|CDS5|AAPT2|GPAT3|CCT2|PSD1|PIPK10|GPAT8|CDS2|PSD3|AT4G26770|ATS2|AT4G35530|PIS2|SEC14|MIPS1|GPAT7|PI-4KBETA2|PNT1|HL|PSD2|AT5G59500|PI-4KBETA1|GPAT1|AT1G12730|AAPT1|PSS1|PIP5K1|ATSAC1|PIPK11|GPAT2|IMPL1|ATS1|PMEAMT|ATPI4K ALPHA|AT1G51040|LPAT3|AT1G61280|CDS1|AT1G63110|PIS1|AT1G73600|LPAT4|PLMT
+GO:0006720,isoprenoid metabolic process,6.595330739,153,ISPD|CAS1|HMG2|AT2G18620|GGPS4|PIL5|AT2G23230|AT2G23400|CPT|GGPS2|TPS10|CYP711A1|TED4|CDPMEK|KAO2|AT2G32640|ATGA2OX3|CCD7|PAC|ZDS|GLCAK|LYC|NCED3|AT3G14490|AT3G14510|AT3G14520|AT3G14530|AT3G14540|GGPS3|IPP2|RIF10|AT3G20160|DXPS1|AT3G23470|NCED6|CYP82G1|AT3G25410|AT3G25810|TPS-CIN|PES2|AT3G29110|AT3G29190|AT3G29410|AT3G29430|AT3G32030|AT3G32040|LAS1|REF6|LUT1|AT3G54250|AT3G55290|CCD1|HMGS|AT4G12545|TPS12|TPS13|PDS3|LOI1|PEN1|BARS1|CLA1|TS1|TPS02|TPS03|FPS2|NCED2|NCED4|AT4G20200|AT4G20210|AT4G20230|GA2OX8|GA1|GA3OX3|IM|GA20OX1|BETA-OHASE 1|VTE1|CCD8|CER9|HDR|GGR|GA20OX3|DXPS3|AGL15|IPP1|PSY|AT5G17380|TPS21|GA3|MK|MRN1|AT5G44630|CYP707A3|FPS1|THAS1|AT5G48110|GA20OX2|BETA-OHASE 2|LUT2|FOLK|AT5G58660|cPT4|cPT5|cPT6|AT5G58784|HDS|Tudor2|FCLY|ABA1|CRTISO|NPQ1|ACLA-1|Z-ISO|GA3OX1|D27|GA2OX6|AT1G28660|GA2OX2|NCED5|CYP97A3|AT1G31950|AT1G33750|GA20OX5|GA2OX4|AT1G48800|AT1G48820|GGPS6|GA2OX7|AT1G54020|PES1|AT1G57770|GA20OX4|TPS04|TPS14|ISPF|AT1G66020|LUP5|MYB62|AT1G70080|AT1G72590|HMG1|NCED9|ATGA2OX1|AT1G78480|BAS|CAMS1|LUP2|LUP1|GA2|GA3OX4|GA3OX2|LEW1|HST
+GO:0016114,terpenoid biosynthetic process,8.975955346,111,CAS1|HMG2|AT2G18620|GGPS4|PIL5|AT2G23230|GGPS2|TPS10|CYP711A1|TED4|CDPMEK|KAO2|ATGA2OX3|CCD7|PAC|ZDS|LYC|NCED3|AT3G14490|AT3G14510|AT3G14520|AT3G14530|AT3G14540|GGPS3|RIF10|AT3G20160|DXPS1|NCED6|CYP82G1|AT3G25810|TPS-CIN|AT3G29110|AT3G29190|AT3G29410|AT3G29430|AT3G32030|AT3G32040|LAS1|LUT1|TPS12|TPS13|PDS3|PEN1|BARS1|CLA1|TS1|TPS02|TPS03|FPS2|NCED2|AT4G20200|AT4G20210|AT4G20230|GA2OX8|GA1|GA3OX3|IM|GA20OX1|BETA-OHASE 1|CCD8|GA20OX3|DXPS3|PSY|TPS21|GA3|MRN1|AT5G44630|FPS1|THAS1|AT5G48110|GA20OX2|BETA-OHASE 2|LUT2|HDS|Tudor2|ABA1|CRTISO|ACLA-1|GA3OX1|D27|GA2OX6|GA2OX2|NCED5|CYP97A3|AT1G31950|AT1G33750|GA20OX5|GA2OX4|AT1G48800|AT1G48820|GGPS6|GA2OX7|GA20OX4|TPS04|TPS14|ISPF|AT1G66020|LUP5|MYB62|AT1G70080|NCED9|ATGA2OX1|AT1G78480|BAS|CAMS1|LUP2|LUP1|GA2|GA3OX4|GA3OX2|HST
+GO:0006721,terpenoid metabolic process,6.761483936,130,CAS1|HMG2|AT2G18620|GGPS4|PIL5|AT2G23230|GGPS2|TPS10|CYP711A1|TED4|CDPMEK|KAO2|AT2G32640|ATGA2OX3|CCD7|PAC|ZDS|LYC|NCED3|AT3G14490|AT3G14510|AT3G14520|AT3G14530|AT3G14540|GGPS3|RIF10|AT3G20160|DXPS1|NCED6|CYP82G1|AT3G25410|AT3G25810|TPS-CIN|PES2|AT3G29110|AT3G29190|AT3G29410|AT3G29430|AT3G32030|AT3G32040|LAS1|REF6|LUT1|AT3G55290|CCD1|AT4G12545|TPS12|TPS13|PDS3|PEN1|BARS1|CLA1|TS1|TPS02|TPS03|FPS2|NCED2|NCED4|AT4G20200|AT4G20210|AT4G20230|GA2OX8|GA1|GA3OX3|IM|GA20OX1|BETA-OHASE 1|VTE1|CCD8|GA20OX3|DXPS3|AGL15|PSY|AT5G17380|TPS21|GA3|MRN1|AT5G44630|CYP707A3|FPS1|THAS1|AT5G48110|GA20OX2|BETA-OHASE 2|LUT2|FOLK|AT5G58660|HDS|Tudor2|FCLY|ABA1|CRTISO|NPQ1|ACLA-1|GA3OX1|D27|GA2OX6|AT1G28660|GA2OX2|NCED5|CYP97A3|AT1G31950|AT1G33750|GA20OX5|GA2OX4|AT1G48800|AT1G48820|GGPS6|GA2OX7|PES1|AT1G57770|GA20OX4|TPS04|TPS14|ISPF|AT1G66020|LUP5|MYB62|AT1G70080|NCED9|ATGA2OX1|AT1G78480|BAS|CAMS1|LUP2|LUP1|GA2|GA3OX4|GA3OX2|HST
+GO:0016101,diterpenoid metabolic process,9.567736185,57,PIL5|AT2G23230|TPS10|KAO2|ATGA2OX3|AT3G14490|AT3G14520|AT3G14540|AT3G25810|TPS-CIN|PES2|AT3G29110|AT3G29190|AT3G29410|AT3G32030|TPS12|TPS13|TS1|TPS02|TPS03|AT4G20200|AT4G20210|AT4G20230|GA2OX8|GA1|GA3OX3|GA20OX1|GA20OX3|AGL15|AT5G17380|TPS21|GA3|AT5G44630|AT5G48110|GA20OX2|AT5G58660|Tudor2|GA3OX1|GA2OX6|GA2OX2|AT1G31950|AT1G33750|GA20OX5|GA2OX4|AT1G48800|AT1G48820|GA2OX7|PES1|GA20OX4|TPS04|AT1G66020|MYB62|AT1G70080|ATGA2OX1|GA2|GA3OX4|GA3OX2
+GO:0016102,diterpenoid biosynthetic process,10.10663915,52,PIL5|AT2G23230|TPS10|KAO2|ATGA2OX3|AT3G14490|AT3G14520|AT3G14540|AT3G25810|TPS-CIN|AT3G29110|AT3G29190|AT3G29410|AT3G32030|TPS12|TPS13|TS1|TPS02|TPS03|AT4G20200|AT4G20210|AT4G20230|GA2OX8|GA1|GA3OX3|GA20OX1|GA20OX3|TPS21|GA3|AT5G44630|AT5G48110|GA20OX2|Tudor2|GA3OX1|GA2OX6|GA2OX2|AT1G31950|AT1G33750|GA20OX5|GA2OX4|AT1G48800|AT1G48820|GA2OX7|GA20OX4|TPS04|AT1G66020|MYB62|AT1G70080|ATGA2OX1|GA2|GA3OX4|GA3OX2
+GO:0009686,gibberellin biosynthetic process,9.43718228,23,PIL5|KAO2|ATGA2OX3|GA2OX8|GA1|GA3OX3|GA20OX1|GA20OX3|GA3|GA20OX2|Tudor2|GA3OX1|GA2OX6|GA2OX2|GA20OX5|GA2OX4|GA2OX7|GA20OX4|MYB62|ATGA2OX1|GA2|GA3OX4|GA3OX2
+GO:0009685,gibberellin metabolic process,8.65502451,25,PIL5|KAO2|ATGA2OX3|GA2OX8|GA1|GA3OX3|GA20OX1|GA20OX3|AGL15|GA3|GA20OX2|AT5G58660|Tudor2|GA3OX1|GA2OX6|GA2OX2|GA20OX5|GA2OX4|GA2OX7|GA20OX4|MYB62|ATGA2OX1|GA2|GA3OX4|GA3OX2
+ath00904,Diterpenoid biosynthesis - Arabidopsis thaliana (thale cress),10.55088702,20,KAO2|ATGA2OX3|CYP82G1|GA1|GA3OX3|GA20OX1|GA20OX3|GA3|GA20OX2|GA3OX1|GA2OX6|GA2OX2|GA20OX5|GA2OX4|GA20OX4|TPS04|ATGA2OX1|GA2|GA3OX4|GA3OX2
+GO:0030258,lipid modification,10.23915627,61,AT2G01900|PEX10|SMO2-2|5PTase14|CVL1|PKT3|AT2G37440|CSY3|5PTase12|PEX12|PNC1|MFP2|SGT|PEX13|DOX1|PEN2|LOX5|AT3G43220|LOX2|ACX4|ASAT1|CSY2|SMO1-1|IBR10|HCD1|ACX1|IP5PII|SMO1-2|AIM1|ABCD1|CYP77A4|AT5G04980|PEX1|AT5G17380|PEX4|PNC2|PTEN1|DCI1|KAT5|BST1|ACX2|CHY1|CVP2|5PTASE13|ACX3|SMO2-1|LOX3|PEX6|IP5PI|UGT80B1|5PTASE11|LOX1|ECI1|FRA3|LOX6|AT1G71710|LOX4|HTH|AT1G73740|ECH2|TED3
+GO:0044242,cellular lipid catabolic process,9.078159041,59,PEX10|NPC2|AT2G31690|PKT3|ATGA2OX3|CSY3|CCD7|PEX12|PNC1|PLDP2|MFP2|PEX13|SDRB|DOX1|NPC5|NPC4|AT3G24180|REF6|NPC6|ACX4|CSY2|CCD1|AT4G10060|PLDGAMMA2|IBR10|HCD1|ACX1|DSEL|NCED4|AT4G19860|AIM1|CCD8|ABCD1|SDP1|PEX1|AGL15|AT5G17380|PLDALPHA3|PEX4|PNC2|DCI1|CYP707A3|AT5G49900|AT5G58660|ACX2|CHY1|ACX3|AT1G07380|PEX6|GA2OX6|DPL1|GA2OX2|AT1G33700|GA2OX4|PLDEPSILON|ECI1|ECH2|ATGA2OX1|TED3
+GO:0034440,lipid oxidation,10.30551756,40,PEX10|SMO2-2|PKT3|CSY3|PEX12|PNC1|MFP2|PEX13|DOX1|LOX5|LOX2|ACX4|CSY2|SMO1-1|IBR10|HCD1|ACX1|SMO1-2|AIM1|ABCD1|CYP77A4|PEX1|AT5G17380|PEX4|PNC2|DCI1|KAT5|ACX2|CHY1|ACX3|SMO2-1|LOX3|PEX6|LOX1|ECI1|LOX6|LOX4|HTH|ECH2|TED3
+GO:0044282,small molecule catabolic process,5.005315379,75,AT2G01900|LIP1|PEX10|AT2G30650|AT2G30660|5PTase14|CVL1|PKT3|ATGA2OX3|AT2G37440|SFGH|CSY3|5PTase12|PEX12|PNC1|MFP2|PEX13|SDP6|SDRB|DIN4|AAE13|DOX1|VTC4|REF6|ACX4|CSY2|AT4G05090|IBR10|HCD1|ACX1|IP5PII|AT4G26910|AIM1|MCCB|ABCD1|AT5G04980|PEX1|AT5G09290|AT5G09300|AGL15|AT5G17380|PEX4|PNC2|DCI1|CYP707A3|TAT7|HL|AT5G55070|TTL|AT5G58660|SAL1|AT5G63990|SAL2|BST1|ACX2|CHY1|CVP2|5PTASE13|ACX3|MCCA|AT1G21400|AT1G21540|PEX6|GA2OX6|GA2OX2|IP5PI|GA2OX4|BCDH BETA1|ECI1|PHYLLO|AT1G71710|ECH2|ATGA2OX1|TED3|NHO1
+GO:0019395,fatty acid oxidation,10.07130125,30,PEX10|PKT3|CSY3|PEX12|PNC1|MFP2|PEX13|DOX1|ACX4|CSY2|IBR10|HCD1|ACX1|AIM1|ABCD1|CYP77A4|PEX1|AT5G17380|PEX4|PNC2|DCI1|KAT5|ACX2|CHY1|ACX3|PEX6|ECI1|HTH|ECH2|TED3
+GO:0009062,fatty acid catabolic process,9.399881165,28,PEX10|PKT3|CSY3|PEX12|PNC1|MFP2|PEX13|SDRB|DOX1|ACX4|CSY2|IBR10|HCD1|ACX1|AIM1|ABCD1|PEX1|AT5G17380|PEX4|PNC2|DCI1|ACX2|CHY1|ACX3|PEX6|ECI1|ECH2|TED3
+GO:0016054,organic acid catabolic process,4.882020605,52,LIP1|PEX10|AT2G30650|AT2G30660|PKT3|ATGA2OX3|CSY3|PEX12|PNC1|MFP2|PEX13|SDRB|DIN4|AAE13|DOX1|REF6|ACX4|CSY2|IBR10|HCD1|ACX1|AT4G26910|AIM1|MCCB|ABCD1|PEX1|AT5G09300|AGL15|AT5G17380|PEX4|PNC2|DCI1|CYP707A3|TAT7|AT5G55070|AT5G58660|ACX2|CHY1|ACX3|MCCA|AT1G21400|AT1G21540|PEX6|GA2OX6|GA2OX2|GA2OX4|BCDH BETA1|ECI1|PHYLLO|ECH2|ATGA2OX1|TED3
+GO:0006635,fatty acid beta-oxidation,9.891456583,25,PEX10|PKT3|CSY3|PEX12|PNC1|MFP2|PEX13|ACX4|CSY2|IBR10|HCD1|ACX1|AIM1|ABCD1|PEX1|PEX4|PNC2|DCI1|ACX2|CHY1|ACX3|PEX6|ECI1|ECH2|TED3
+GO:0072329,monocarboxylic acid catabolic process,6.924019608,30,PEX10|PKT3|CSY3|PEX12|PNC1|MFP2|PEX13|SDRB|DOX1|REF6|ACX4|CSY2|IBR10|HCD1|ACX1|AIM1|ABCD1|PEX1|AT5G17380|PEX4|PNC2|DCI1|CYP707A3|ACX2|CHY1|ACX3|PEX6|ECI1|ECH2|TED3
+ath04070,Phosphatidylinositol signaling system - Arabidopsis thaliana (thale cress),9.208046855,64,DGK3|DGK5|PIP5K3|AT2G40116|PIP5K5|CDS4|PIP5K6|PLC2|PIP5K9|MTM1|FAB1B|VTC4|PEN2|PEN3|RHD4|SAC8|AT3G55940|PIP5K4|CDS5|AT4G08170|PIPK10|CDS2|AT4G26770|DGK6|DGK7|FAB1A|AT4G33770|PLC1|PIS2|IMPL2|MTM2|IPK2a|DGK1|AT5G09290|PI-4KBETA2|ITPK1|PTEN1|IPK1|DGK4|PLC1|PLC5|PLC4|IPK2BETA|DGK2|SAL1|AT5G63990|SAL2|PI-4KBETA1|ATSAC1B|AT1G10900|PIP5K1|AT1G22100|PIPK11|IMPL1|FAB1D|ATPI4K ALPHA|AT1G51040|AT1G58643|VPS34|AT1G60890|CDS1|PIS1|FAB1C|PIP5K2
+ath00061,Fatty acid biosynthesis - Arabidopsis thaliana (thale cress),10.04787962,39,LACS8|AT2G04540|MOD1|AT2G22230|EMB3147|CAC3|SSI2|LACS1|LACS6|AT3G02610|AT3G02620|AT3G02630|AAE13|AAE16|FaTA|AT3G45770|AT4G11030|AT4G13050|AAE15|LACS4|AT5G10160|BCCP2|AT5G16230|AT5G16240|CAC1|LACS7|CAC2|KASI|FATB|AT1G24360|ACC1|ACC2|FTM1|LACS2|KAS III|LACS3|FAB1|LACS9|accD
+ath04146,Peroxisome - Arabidopsis thaliana (thale cress),5.790998217,46,PAHX|LACS8|PEX10|AT2G26800|PKT3|ACX5|SSE1|LACS1|PEX12|LACS6|AT3G06690|PEX13|MS2|SDRB|PEX19-1|AAE16|FAR4|FAR5|FAR8|ACX4|FAR6|AT4G04320|AT4G11030|AAE15|ACX1|LACS4|CER4|ABCD1|PEX1|AT5G17380|PEX19-2|FAR7|FAR1|MK|LACS7|DCI1|KAT5|ACX2|ACX3|ACX6|PEX6|PKT4|LACS2|LACS3|LACS9|TED3
+ath01040,Biosynthesis of unsaturated fatty acids - Arabidopsis thaliana (thale cress),10.63529412,24,PKT3|ACX5|SSI2|AT3G06690|FAD2|AT3G02610|AT3G02620|AT3G02630|ACX4|CER10|ACX1|PAS2|AT5G16230|AT5G16240|KAT5|AT5G59770|ACX2|ACX3|ACX6|KCR2|AT1G01710|PKT4|FTM1|KCR1
+ath00071,Fatty acid degradation - Arabidopsis thaliana (thale cress),7.071339174,30,LACS8|PKT3|ACX5|LACS1|LACS6|AT3G06690|MFP2|AAE16|ACX4|AT4G11030|AAE15|IBR10|HCD1|ACX1|LACS4|AIM1|LACS7|AACT1|KAT5|CYP86A1|ACX2|ACX3|ACX6|PKT4|LACS2|ALDH7B4|LACS3|ECI1|CYP704B1|LACS9
+GO:0006869,lipid transport,8.254517493,76,PLA2-ALPHA|XYP2|LTP|AT2G15325|AT2G18370|PLA2-BETA|AT2G37870|LTP2|LP1|AT2G44290|AT2G44300|AT2G48130|ACBP4|PDE320|LTP6|DGD1|AT3G11780|AT3G12545|ALIS1|AT3G13900|AT3G18280|ABCI15|AT3G22600|AT3G27870|LTPG2|LTP12|LTP5|AT3G57310|AT3G61680|AT4G08530|AT4G08670|AT4G14815|ACBP3|ACBP2|A7|AT4G29070|PLA2-GAMMA|PLA2-DELTA|AT4G33355|SFH12|SEC14|AT5G09370|AT5G01870|AT5G23830|ACBP5|AT5G38160|AT5G38170|AT5G38180|ALA2|ACBP1|LTP4|LTP3|AT5G59330|ABCA9|XYP1|ABCG40|ABCG11|ABCI14|AT1G26130|LTPG1|ACBP6|AT1G36150|AT1G43665|AT1G48750|AT1G52415|ABCI13|AT1G66850|AT1G68710|NRT1:2|ABCG25|AT2G14846|AT1G43666|AT1G64235|AT5G44265|AT5G62065|AT1G73780
+GO:0033036,macromolecule localization,2.280377845,141,AT2G01540|PLA2-ALPHA|XYP2|LTP|AT2G15325|COAD|AT2G18370|DGK3|PLA2-BETA|AT2G21520|AT2G25350|PEX10|AT2G30740|AT2G37870|LTP2|LP1|AT2G42130|AT2G42450|AT2G44290|AT2G44300|PVA12|CB5-C|AT2G48130|PEX12|ACBP4|REP|PDE320|PEX13|LTP6|PAH1|DGD1|AT3G11780|AT3G12545|ALIS1|AT3G13900|AT3G18280|AT3G19240|ABCI15|AT3G22600|AT3G23530|AT3G25610|AT3G27325|AT3G27870|LTPG2|TOC75-III|REF6|LTP12|LTP5|AT3G51670|TSA1|AT3G57310|AT3G61680|AT4G08530|AT4G08670|AT4G09160|AT4G14815|DSEL|ZAC|TOC159|AT4G02650|ACBP3|OLEO1|VTC2|ACBP2|LLG3|A7|AT4G29070|PLA2-GAMMA|PLA2-DELTA|AT4G32160|AT4G33355|SFH12|AT4G38550|SEC14|TOC34|PEX1|AT5G09370|PEX19-2|AT5G01870|JKD|AT5G19130|Toc90|alpha-ADR|AT5G22780|AT5G23830|PEX4|ACBP5|AT5G38160|AT5G38170|AT5G38180|OLEO2|ALA2|AT5G46630|ACBP1|LTP4|LTP3|AT5G59330|PDCB1|ABCA9|Tudor2|XYP1|ANNAT2|AT1G09330|ACA.l|ABCG40|AT1G17500|ABCG11|MYB51|ABCI14|SYTB|PATL2|AT1G26130|TOC33|PEX6|MGP|AT1G03050|PPa1|LTPG1|AT1G30690|ACBP6|AT1G36150|AT1G43665|AT1G48090|AT1G48750|AT1G52415|MVP1|ALA3|ABCI13|ETR1|AT1G66850|AT1G68710|NRT1:2|ABCG25|AT1G72700|TED3|AT2G14846|AT1G43666|AT1G64235|AT5G44265|AT5G62065|AT1G73780
+GO:0071702,organic substance transport,1.98112149,125,PLA2-ALPHA|XYP2|LTP|AT2G15325|AT2G18370|HPT1|PLA2-BETA|AT2G25350|PEX10|BASS2|ABCG32|ABCC2|GAMMA-TIP|AT2G37870|LTP2|LP1|AT2G44290|AT2G44300|PVA12|AT2G48130|PEX12|PNC1|ACBP4|REP|PDE320|PEX13|LTP6|PAH1|DGD1|AT3G11780|AT3G12545|ALIS1|AT3G13900|AT3G18280|ABCI15|AT3G22600|AT3G27325|AT3G27870|LTPG2|TOC75-III|LTP12|LTP5|ABCG20|AT3G57310|AT3G61680|AT4G08530|AT4G08670|AT4G14815|ZAC|TOC159|AT4G22840|ACBP3|ABCG9|ACBP2|A7|AT4G29070|PLA2-GAMMA|PLA2-DELTA|AT4G32160|VTE1|AT4G33355|SFH12|SEC14|ABCD1|TOC34|PEX1|AT5G09370|ABCG6|mSFC1|PEX19-2|AT5G01870|AT5G19760|Toc90|alpha-ADR|AT5G22780|AT5G23830|PEX4|PNC2|ACBP5|AT5G38160|AT5G38170|AT5G38180|ALA2|AT5G46630|ACBP1|GPT1|LTP4|LTP3|AT5G59330|ABCA9|Tudor2|XYP1|ANNAT2|AT1G09330|ABCG40|ABCG11|ABCI14|SYTB|AT1G26130|TOC33|PEX6|LTPG1|ACBP6|ANNAT1|AT1G36150|AT1G43665|AT1G48750|ABCG13|AT1G52415|MVP1|GPT2|ABCI13|AT1G66850|AT1G68710|NRT1:2|SUC5|ABCG25|AT1G78560|TED3|AT2G14846|AT1G43666|AT1G64235|AT5G44265|AT5G62065|AT1G73780
+GO:0045338,farnesyl diphosphate metabolic process,10.38602941,15,AT2G18620|GGPS4|GGPS2|AT3G14510|AT3G14530|GGPS3|AT3G20160|AT3G29430|AT3G32040|TPS12|TPS13|FPS2|FPS1|FCLY|GGPS6
+GO:0045337,farnesyl diphosphate biosynthetic process,10.22624434,12,AT2G18620|GGPS4|GGPS2|AT3G14510|AT3G14530|GGPS3|AT3G20160|AT3G29430|AT3G32040|FPS2|FPS1|GGPS6
+GO:0033383,geranyl diphosphate metabolic process,10.15522876,11,AT2G18620|GGPS4|GGPS2|AT3G14510|AT3G14530|AT3G20160|AT3G29430|AT3G32040|FPS2|FPS1|GGPS6
+GO:0033384,geranyl diphosphate biosynthetic process,10.15522876,11,AT2G18620|GGPS4|GGPS2|AT3G14510|AT3G14530|AT3G20160|AT3G29430|AT3G32040|FPS2|FPS1|GGPS6
+GO:0033385,geranylgeranyl diphosphate metabolic process,9.970588235,9,AT2G18620|GGPS4|GGPS2|AT3G14510|AT3G14530|AT3G20160|AT3G29430|AT3G32040|GGPS6
+GO:0033386,geranylgeranyl diphosphate biosynthetic process,9.970588235,9,AT2G18620|GGPS4|GGPS2|AT3G14510|AT3G14530|AT3G20160|AT3G29430|AT3G32040|GGPS6
+GO:0006066,alcohol metabolic process,6.199856089,61,AT2G01900|MIPS2|AT2G23400|CPT|5PTase14|CVL1|AT2G37440|5PTase12|ITPK4|LCBK2|GLCAK|SDP6|MS2|NCED3|VTC4|FAO3|NCED6|PES2|REF6|AT4G05090|AT4G08170|IP5PII|NCED2|GPP1|AT4G33770|MIPS1|AT5G04980|AT5G09290|MIPS3|ITPK1|AT5G17380|LCB2|IPK1|CYP707A3|HL|GS1|FOLK|cPT4|cPT5|cPT6|AT5G58784|AT5G60760|IPK2BETA|SAL1|AT5G63990|SAL2|FAAH|BST1|ABA1|CVP2|5PTASE13|NCED5|IMPL1|IP5PI|EMB1075|PES1|AT1G71710|AT1G72590|NCED9|NHO1|LEW1
+GO:1901617,organic hydroxy compound biosynthetic process,4.887543253,75,HMG2|HPT1|MIPS2|SQE2|AT2G23400|CPT|CYP710A4|SMO2-2|RD20|CYP710A2|CYP710A1|DET2|PDX1.1|ITPK4|BEN1|ORP3B|MS2|CYP90D1|NCED3|DOX1|VTC4|DWF1|AT3G23470|NCED6|BR6OX2|DWF4|FK|APG1|SMO1-1|NCED2|SMO1-2|GPP1|VTE1|SQS1|ROT3|SQE3|MIPS1|VTE5|MIPS3|SMT1|CYP724A1|ITPK1|RSR4|LCB2|SQP1|SQE6|TT2|BR6OX1|IPK1|TAT7|GS1|cPT4|cPT5|cPT6|AT5G58784|PDX2|AT5G60760|IPK2BETA|ABA1|NFXL1|CYP51G1|ICS2|SMT2|NCED5|IMPL1|DWF5|XF1|KAS III|G-TMT|AT1G74470|EDS16|SMT3|HMG1|NCED9|LEW1
+GO:0046165,alcohol biosynthetic process,7.121848739,27,MIPS2|AT2G23400|CPT|ITPK4|MS2|NCED3|VTC4|NCED6|NCED2|GPP1|MIPS1|MIPS3|ITPK1|LCB2|IPK1|GS1|cPT4|cPT5|cPT6|AT5G58784|AT5G60760|IPK2BETA|ABA1|NCED5|IMPL1|NCED9|LEW1
+GO:0046467,membrane lipid biosynthetic process,7.616421569,44,MGDC|AT2G19880|AtIPCS3|SETH1|AtIPCS2|SLD2|PLDP2|TSC10A|AT3G07140|AT3G07180|PAH1|DGD1|AT3G01380|NPC5|LOH2|LAG1|SPT1|AtIPCS1|AT3G57170|SLD1|DES-1-LIKE|DGD2|ATCES1|MGD1|SQD1|AT4G35530|LCB1|KDTA|SQD2|TSC10B|MGD2|PNT1|LCBK1|LCB2|PAH2|LPLAT1|AT1G12730|LAG13|SBH2|AT1G61280|LPLAT2|AT1G63110|SBH1|AT1G26200
+GO:0006664,glycolipid metabolic process,7.631808279,31,MGDC|AT2G19880|SETH1|PLDP2|AT3G07140|AT3G07180|PAH1|DGD1|AT3G01380|NPC5|AT3G24180|AT3G27325|pPLAIIIbeta|AT3G57170|AT4G10060|DGD2|MGD1|SQD1|AT4G35530|KDTA|SQD2|MGD2|PNT1|PAH2|AT5G49900|LPLAT1|AT1G12730|AT1G33700|AT1G61280|LPLAT2|AT1G63110
+GO:1903509,liposaccharide metabolic process,7.631808279,31,MGDC|AT2G19880|SETH1|PLDP2|AT3G07140|AT3G07180|PAH1|DGD1|AT3G01380|NPC5|AT3G24180|AT3G27325|pPLAIIIbeta|AT3G57170|AT4G10060|DGD2|MGD1|SQD1|AT4G35530|KDTA|SQD2|MGD2|PNT1|PAH2|AT5G49900|LPLAT1|AT1G12730|AT1G33700|AT1G61280|LPLAT2|AT1G63110
+GO:0009247,glycolipid biosynthetic process,7.288441692,25,MGDC|AT2G19880|SETH1|PLDP2|AT3G07140|AT3G07180|PAH1|DGD1|AT3G01380|NPC5|AT3G57170|DGD2|MGD1|SQD1|AT4G35530|KDTA|SQD2|MGD2|PNT1|PAH2|LPLAT1|AT1G12730|AT1G61280|LPLAT2|AT1G63110
+GO:0019374,galactolipid metabolic process,8.124183007,11,MGDC|PLDP2|PAH1|DGD1|pPLAIIIbeta|DGD2|MGD1|MGD2|PAH2|LPLAT1|LPLAT2
+GO:0019375,galactolipid biosynthetic process,8.521870287,10,MGDC|PLDP2|PAH1|DGD1|DGD2|MGD1|MGD2|PAH2|LPLAT1|LPLAT2
+GO:0010476,gibberellin mediated signaling pathway,7.533333333,34,RGA1|PIL5|GP ALPHA 1|GAMMA-TIP|GID1A|MYB65|SPY|MYB57|RGL2|MYB21|MYB0|GID1B|GA1|GA20OX1|CGA1|MYB33|GASA4|RGL3|GA3|GID1C|MYB24|SLY2|GNC|LFY|SHI|PIF3|ZFP5|GAI|GA3OX1|ATARCA|RGL1|ZFP6|GASA6|GA2
+GO:0071370,cellular response to gibberellin stimulus,6.647058824,36,RGA1|PIL5|GP ALPHA 1|GAMMA-TIP|GID1A|MYB65|SPY|MYB57|RGL2|MYB21|MYB0|GID1B|GA1|GA20OX1|CGA1|MYB33|GASA4|RGL3|GA3|GID1C|MYB24|SLY2|GNC|LFY|SHI|PIF3|ZFP5|ATBETAFRUCT4|GAI|GA3OX1|ATARCA|AT1G62660|RGL1|ZFP6|GASA6|GA2
+GO:0009740,gibberellic acid mediated signaling pathway,7.913165266,30,RGA1|PIL5|GP ALPHA 1|GAMMA-TIP|MYB65|SPY|MYB57|RGL2|MYB21|MYB0|GA1|GA20OX1|CGA1|MYB33|GASA4|RGL3|GA3|MYB24|SLY2|GNC|LFY|SHI|PIF3|ZFP5|GAI|GA3OX1|RGL1|ZFP6|GASA6|GA2
+GO:0071396,cellular response to lipid,2.471342383,116,RGA1|BRL2|SERK4|CPK6|ACO1|PIL5|GP ALPHA 1|AT2G30720|SKdZeta|ATX1|GAMMA-TIP|COI1|ABI4|ORS1|TTL3|MPK6|ARL|CB5-C|GID1A|AIF1|MYB65|SPY|DGD1|AT3G14260|AT3G15356|PLDALPHA1|MYB57|RGL2|KIN10|NTMC2T5.2|MYB21|MYB0|HERK1|SOS5|ROP10|DWF4|AT3G55310|BRH1|GID1B|TT8|AT4G17480|CBL1|BSK3|GA1|SPHK1|GA20OX1|CGA1|YUC8|BRS1|BSK1|ROC1|BRI1|MYB33|MYB29|BIM1|GASA4|RGL3|MS1|AT5G22460|GA3|GID1C|MYB24|BSK8|SLY2|UF3GT|THE1|GNC|TTL|PLC1|BSK5|LFY|FCLY|SAL1|SHI|SNRK2.3|GSK1|PIF3|ZFP5|AT1G12010|ATBETAFRUCT4|GAI|LPP2|ABCG40|GA3OX1|ATARCA|AT1G18460|JAZ1|BES1|JMT|LEC1|BSU1|GRF10|AT1G22610|RCN1|BSK4|ABCC5|EFE|AT1G28600|MYC2|AT1G33700|SERK2|GCR1|ACO2|AT1G62660|RGL1|ZFP6|SERK1|ABCG25|AT1G73920|BS1|GASA6|BZR1|AT1G77420|GRF2|GA2|SPHK2
+GO:0006661,phosphatidylinositol biosynthetic process,8.163054696,28,AT2G01690|PI4K GAMMA 7|SETH1|PGP1|PI4K GAMMA 4|AT3G07140|AT3G07180|AT3G14205|VTC4|AT3G01380|AT3G57170|PIPK10|AT4G35530|PIS2|PI-4KBETA2|PNT1|HL|PI-4KBETA1|AT1G12730|PIP5K1|ATSAC1|PIPK11|IMPL1|ATPI4K ALPHA|AT1G51040|AT1G61280|AT1G63110|PIS1
+GO:0046854,phosphatidylinositol phosphate biosynthetic process,11.07843137,13,PI4K GAMMA 7|PI4K GAMMA 4|AT3G14205|VTC4|PIPK10|HL|PI-4KBETA1|PIP5K1|ATSAC1|PIPK11|IMPL1|ATPI4K ALPHA|AT1G51040
+GO:0030497,fatty acid elongation,9.970588235,9,KCS8|KCS13|KCS14|AAE15|KCS16|KCS17|KCS18|KCS1|ACC1
+ath04626,Plant-pathogen interaction - Arabidopsis thaliana (thale cress),1.737793156,32,SERK4|KCS8|KCS9|CPK6|CPK16|KCS10|KCS11|KCS12|AT2G30740|MPK6|KCS13|KCS14|RIN4|MYB30|NOA1|EDS1|KCS15|HCD1|KCS16|KCS17|KCS18|KCS19|KCS20|KCS21|KCS3|KCS4|KCS5|KCS1|KCS2|KCS6|KCS7|NHO1
+ath00100,Steroid biosynthesis - Arabidopsis thaliana (thale cress),9.232026144,30,CAS1|LIP1|SQE2|3BETAHSD/D2|CYP710A4|SMO2-2|CYP710A2|CYP710A1|AT2G43420|AT3G02590|DWF1|LAS1|FK|SDP1-LIKE|SMO1-1|SMO1-2|SQS1|SQE3|SDP1|SMT1|SQP1|SQE6|SMO2-1|CYP51G1|SMT2|3BETAHSD/D1|DWF5|XF1|SMT3|AT4G22755
+GO:0006694,steroid biosynthetic process,8.237807944,29,HMG2|SQE2|CYP710A4|SMO2-2|CYP710A2|CYP710A1|DET2|BEN1|CYP90D1|DWF1|BR6OX2|DWF4|FK|SMO1-1|SMO1-2|SQS1|ROT3|SQE3|SMT1|CYP724A1|SQP1|SQE6|BR6OX1|CYP51G1|SMT2|DWF5|XF1|SMT3|HMG1
+GO:0016125,sterol metabolic process,8.471741638,26,HMG2|SQE2|CYP710A4|SMO2-2|CYP710A2|CYP710A1|SGT|ASAT1|FK|ARV2|SMO1-1|LOI1|SMO1-2|SQS1|SQE3|SMT1|SQP1|SQE6|CYP51G1|SMT2|PSAT1|UGT80B1|DWF5|XF1|SMT3|HMG1
+GO:0016126,sterol biosynthetic process,8.521870287,20,HMG2|SQE2|CYP710A4|SMO2-2|CYP710A2|CYP710A1|FK|SMO1-1|SMO1-2|SQS1|SQE3|SMT1|SQP1|SQE6|CYP51G1|SMT2|DWF5|XF1|SMT3|HMG1
+GO:0046434,organophosphate catabolic process,9.81232493,31,AT2G01900|NPC2|5PTase14|CVL1|AT2G37440|GLY1|GPDHC1|5PTase12|PLDP2|AT3G07690|VTC4|NPC5|NPC4|NPC6|AT4G05090|PLDGAMMA2|IP5PII|AT4G19860|AT5G04980|AT5G09290|GPDHp|HL|SAL1|AT5G63990|SAL2|BST1|CVP2|5PTASE13|IP5PI|PLDEPSILON|AT1G71710
+GO:0043647,inositol phosphate metabolic process,9.693627451,28,AT2G01900|MIPS2|5PTase14|CVL1|AT2G37440|5PTase12|ITPK4|VTC4|AT4G05090|AT4G08170|IP5PII|AT4G33770|MIPS1|AT5G04980|AT5G09290|ITPK1|IPK1|HL|AT5G60760|IPK2BETA|SAL1|AT5G63990|SAL2|BST1|CVP2|5PTASE13|IP5PI|AT1G71710
+GO:0046174,polyol catabolic process,10.11508951,21,AT2G01900|5PTase14|CVL1|AT2G37440|5PTase12|SDP6|VTC4|AT4G05090|IP5PII|AT5G04980|AT5G09290|HL|SAL1|AT5G63990|SAL2|BST1|CVP2|5PTASE13|IP5PI|AT1G71710|NHO1
+GO:0046855,inositol phosphate dephosphorylation,10.5245098,19,AT2G01900|5PTase14|CVL1|AT2G37440|5PTase12|VTC4|AT4G05090|IP5PII|AT5G04980|AT5G09290|HL|SAL1|AT5G63990|SAL2|BST1|CVP2|5PTASE13|IP5PI|AT1G71710
+GO:0071545,inositol phosphate catabolic process,10.5245098,19,AT2G01900|5PTase14|CVL1|AT2G37440|5PTase12|VTC4|AT4G05090|IP5PII|AT5G04980|AT5G09290|HL|SAL1|AT5G63990|SAL2|BST1|CVP2|5PTASE13|IP5PI|AT1G71710
+GO:0046164,alcohol catabolic process,8.493464052,23,AT2G01900|5PTase14|CVL1|AT2G37440|5PTase12|SDP6|VTC4|REF6|AT4G05090|IP5PII|AT5G04980|AT5G09290|CYP707A3|HL|SAL1|AT5G63990|SAL2|BST1|CVP2|5PTASE13|IP5PI|AT1G71710|NHO1
+GO:0046856,phosphatidylinositol dephosphorylation,11.07843137,17,AT2G01900|5PTase14|CVL1|AT2G37440|5PTase12|PEN2|AT3G43220|IP5PII|AT5G04980|PTEN1|BST1|CVP2|5PTASE13|IP5PI|5PTASE11|FRA3|AT1G71710
+GO:0046839,phospholipid dephosphorylation,10.46296296,17,AT2G01900|5PTase14|CVL1|AT2G37440|5PTase12|PEN2|AT3G43220|IP5PII|AT5G04980|PTEN1|BST1|CVP2|5PTASE13|IP5PI|5PTASE11|FRA3|AT1G71710
+GO:1901616,organic hydroxy compound catabolic process,7.101558572,25,AT2G01900|5PTase14|CVL1|AT2G37440|5PTase12|SDP6|VTC4|REF6|ASAT1|AT4G05090|IP5PII|AT5G04980|AT5G09290|CYP707A3|HL|SAL1|AT5G63990|SAL2|BST1|CVP2|5PTASE13|PSAT1|IP5PI|AT1G71710|NHO1
+GO:0009695,jasmonic acid biosynthetic process,10.19215686,23,OPR3|PKT3|ACX5|SSI2|DAD1|AOC1|AOC2|AOC3|LOX2|AT4G05160|ACX1|AIM1|AOS|DGL|AOC4|LOX3|JMT|OPCL1|LOX1|AT1G61850|LOX6|LOX4|OPR2
+GO:0009694,jasmonic acid metabolic process,8.576850095,24,OPR3|PKT3|ACX5|SSI2|DAD1|AOC1|AOC2|AOC3|LOX2|AT4G05160|ACX1|AIM1|ST2A|AOS|DGL|AOC4|LOX3|JMT|OPCL1|LOX1|AT1G61850|LOX6|LOX4|OPR2
+GO:0031407,oxylipin metabolic process,7.533333333,17,OPR3|PLA2A|RD20|DGD1|FAD5|LOX5|LOX2|ATS1|AOS|ATPXG2|LOX3|JMT|LOX1|LOX6|LOX4|OPR1|OPR2
+GO:0031408,oxylipin biosynthetic process,7.706734868,16,OPR3|PLA2A|DGD1|FAD5|LOX5|LOX2|ATS1|AOS|ATPXG2|LOX3|JMT|LOX1|LOX6|LOX4|OPR1|OPR2
+ath00591,Linoleic acid metabolism - Arabidopsis thaliana (thale cress),11.07843137,9,PLA2-ALPHA|LOX5|LOX2|SDP1-LIKE|SDP1|LOX3|LOX1|LOX6|LOX4
+GO:0009395,phospholipid catabolic process,11.07843137,8,NPC2|PLDP2|NPC5|NPC4|NPC6|PLDGAMMA2|AT4G19860|PLDEPSILON
+GO:0042761,very long-chain fatty acid biosynthetic process,8.616557734,14,ADS2|AT3G23840|LAG1|MYB30|PAS1|AT4G13840|CER2|PAS2|CYP86B1|BI1|ADS1|LAG13|KCS1|KCR1
+GO:0030148,sphingolipid biosynthetic process,9.232026144,20,AT2G19880|AtIPCS3|AtIPCS2|SLD2|TSC10A|LOH2|LAG1|SPT1|AtIPCS1|SLD1|DES-1-LIKE|ATCES1|LCB1|TSC10B|LCBK1|LCB2|LAG13|SBH2|SBH1|AT1G26200
+ath00600,Sphingolipid metabolism - Arabidopsis thaliana (thale cress),7.616421569,22,AT2G38010|TSC10A|AT3G24180|SPT1|AT3G56310|DES-1-LIKE|AT4G10060|SPHK1|ATCES1|LCB1|AGAL1|TSC10B|LCB2|AT5G49900|ACD5|AT5G58980|AT1G07380|SBH2|DPL1|AT1G33700|SBH1|SPHK2
+GO:0006672,ceramide metabolic process,9.495798319,12,AT2G19880|LOH2|AT3G24180|LAG1|AT4G10060|ATCES1|AT5G49900|ACD5|AT1G07380|LAG13|AT1G33700|AT1G26200
+GO:0046513,ceramide biosynthetic process,9.232026144,5,AT2G19880|LOH2|LAG1|LAG13|AT1G26200
+ath00565,Ether lipid metabolism - Arabidopsis thaliana (thale cress),11.07843137,26,PLA2-ALPHA|NPC2|PLDBETA1|AT2G45670|PLDP2|PLDALPHA1|PLDP1|NPC5|NPC4|NPC6|SDP1-LIKE|AAPT2|PLDBETA2|PLDGAMMA2|PLDGAMMA3|PLDGAMMA1|PLDDELTA|SDP1|PLDALPHA3|NPC1|LPLAT1|AAPT1|PLDALPHA2|PLDEPSILON|LPLAT2|AT1G80950
+ath00062,Fatty acid elongation - Arabidopsis thaliana (thale cress),10.77069717,35,KCS8|KCS9|KCS10|KCS11|KCS12|KCS13|KCS14|AT3G45770|KCS15|CER10|AT3G60340|AT4G17470|AT4G17480|AT4G17483|KCS16|KCS17|KCS18|KCS19|PAS2|KCS20|AT5G47330|AT5G47340|AT5G47350|KCS21|AT5G59770|KCS3|KCS4|KCR2|KCS5|AT1G01710|KCS1|KCS2|KCR1|KCS6|KCS7
+ath01212,Fatty acid metabolism - Arabidopsis thaliana (thale cress),9.970588235,63,LACS8|AT2G04540|MOD1|AT2G22230|EMB3147|PKT3|ACX5|CAC3|SSI2|LACS1|LACS6|AT3G06690|MFP2|FAD2|AT3G02610|AT3G02620|AT3G02630|AAE13|AAE16|AT3G45770|ACX4|CER10|AT3G60340|AT4G11030|AAE15|ACX1|AT4G17470|AT4G17480|AT4G17483|LACS4|AIM1|AT5G10160|PAS2|BCCP2|AT5G16230|AT5G16240|CAC1|LACS7|CAC2|KASI|AT5G47330|AT5G47340|AT5G47350|AACT1|KAT5|AT5G59770|ACX2|ACX3|ACX6|FATB|AT1G24360|KCR2|PKT4|ACC1|ACC2|FTM1|LACS2|KAS III|LACS3|KCR1|FAB1|LACS9|accD
+ath00561,Glycerolipid metabolism - Arabidopsis thaliana (thale cress),9.399881165,56,PAP1|MGDC|DGK3|TAG1|DGK5|AKR4C10|GPAT6|SFR2|PAH1|GPAT5|DGD1|NPC3|LPP3|LPP4|LPAT5|AT3G44830|DGAT2|UGP3|AT3G56310|SDP1-LIKE|LPAT2|GPAT3|DGD2|GPAT8|GPP1|DGK6|DGK7|ATS2|MGD1|SQD1|SDP1|GPAT7|DGK1|AGAL1|PDAT|SQD2|MGD2|PAH2|GS1|DGK4|DGK2|GPAT1|AT1G11090|LPLAT1|LPP2|AT1G18360|GPAT4|GPAT2|ATS1|DGAT3|LPAT3|ALDH7B4|LPLAT2|AT1G73480|LPAT4|NHO1
+ath00562,Inositol phosphate metabolism - Arabidopsis thaliana (thale cress),9.535864979,68,MIPS2|PIP5K3|NPC2|AT2G40116|PIP5K5|ITPK4|PIP5K6|PLC2|PIP5K9|MTM1|AT3G14205|FAB1B|VTC4|NPC5|NPC4|PEN2|AT3G43220|NPC6|PEN3|RHD4|SAC8|AT3G55940|PIP5K4|AT4G08170|IP5PII|PIPK10|FAB1A|AT4G33770|PLC1|PIS2|IMPL2|MIPS1|MTM2|IPK2a|AT5G09290|PI-4KBETA2|MIPS3|ITPK1|AT5G20840|PTEN1|IPK1|PLC1|PLC5|PLC4|IPK2BETA|SAL1|AT5G63990|SAL2|PI-4KBETA1|ATSAC1B|NPC1|AT1G10900|AT1G17340|PIP5K1|AT1G22100|ATSAC1|PIPK11|IMPL1|IP5PI|FAB1D|ATPI4K ALPHA|AT1G51040|AT1G58643|VPS34|AT1G60890|PIS1|FAB1C|PIP5K2
+ath00900,Terpenoid backbone biosynthesis - Arabidopsis thaliana (thale cress),9.807135969,54,ISPD|HMG2|cPT1|AT2G18620|GGPS4|AT2G23400|CPT|GGPS2|CDPMEK|GPS1|FACE2|AT3G14510|AT3G14530|GGPS3|IPP2|ICME-LIKE2|AT3G20160|DXPS1|AT3G29430|AT3G32040|AT3G54250|FTA|HMGS|CLA1|FPS2|ATSTE24|HDR|GGR|ATSTE14B|DXPS3|PCME|IPP1|STE14A|MK|ERA1|AACT1|FPS1|FOLK|cPT4|cPT5|cPT6|AT5G58784|cPT8|cPT9|HDS|FCLY|SPS2|ICME-LIKE1|GGPS6|ISPF|AT1G74470|HMG1|SPS1|LEW1
+ath00592,alpha-Linolenic acid metabolism - Arabidopsis thaliana (thale cress),9.017327861,35,OPR3|PLA2-ALPHA|PKT3|ACX5|DAD1|AT3G06690|MFP2|DOX1|LCAT3|AOC1|AOC2|AOC3|LOX2|ACX4|SDP1-LIKE|ACX1|AT4G19860|AIM1|SDP1|AOS|KAT5|ACX2|ACX3|ACX6|AT1G09400|AOC4|LOX3|JMT|OPCL1|PKT4|LOX6|LOX4|ALPHA DOX2|OPR1|OPR2
+GO:0006631,fatty acid metabolic process,8.283414283,163,PAHX|LACS8|AT2G04540|MOD1|MGDC|KCS8|KCS9|HPT1|LIP1|AT2G22230|AT2G22890|KCS10|PEX10|KCS11|KCS12|FAD3|EMB3147|ADS2|PKT3|RD20|FAH1|CSY3|SSI2|MTACP-1|AT2G45670|SSE1|CYP86A8|KCS13|LACS1|PEX12|ACP1|PNC1|LACS6|MFP2|PEX13|KCS14|FAD7|FAD2|SDRB|AT3G02610|AT3G15290|AT3G02630|PLDALPHA1|FAD5|AT3G15870|AAE13|AAE7|DOX1|LOH2|AAE16|AT3G23840|FaTA|LAG1|MYB30|LOX2|AT3G45770|AT3G48460|ACX4|KCS15|PAS1|CSY2|FAP1|AT4G04320|AT4G11030|AT4G13050|AT4G13840|AAE15|IBR10|HCD1|HPL1|ACX1|CYP86A2|LACS4|CER2|ACP4|FADA|AIM1|FAD6|VTE1|KCS16|KCS17|KCS18|ABCD1|KCS19|CYP77A4|FAD8|AT5G08415|PEX1|AT5G10160|PAS2|BCCP2|AT5G16230|CAC1|AT5G17380|AT5G19290|MGD2|CYP86B1|PEX4|ACP5|PNC2|LACS7|CAC2|TT2|AOS|DCI1|KCS20|BI1|mtACP3|KAT5|KCS21|PKP-BETA1|CYP86A1|ACX2|CHY1|ADS1|AT1G06090|AT1G06100|AT1G06120|ACX3|ADS4|AT1G06360|KCS3|FATB|NPQ1|CJD1|ACLA-1|LAG13|KCS4|AT1G23330|AT1G24360|KCS5|AT1G01630|PEX6|CYP86A4|KCS1|LIP2|CYP703A2|KCS2|PDH-E1 BETA|PKp3|ACC1|LACS2|FAP3|ACP2|ACP3|AT1G62190|KAS III|CYP86A7|LACS3|mtACP2|ECI1|AAE11|KCR1|KCS6|KCS7|HTH|ALPHA DOX2|FAB1|ECH2|LACS9|NADP-ME4|TED3|AT1G80950
+GO:0008299,isoprenoid biosynthetic process,8.551771586,132,ISPD|CAS1|HMG2|AT2G18620|GGPS4|PIL5|AT2G23230|AT2G23400|CPT|GGPS2|TPS10|CYP711A1|TED4|CDPMEK|KAO2|ATGA2OX3|CCD7|PAC|ZDS|GLCAK|LYC|NCED3|AT3G14490|AT3G14510|AT3G14520|AT3G14530|AT3G14540|GGPS3|IPP2|RIF10|AT3G20160|DXPS1|AT3G23470|NCED6|CYP82G1|AT3G25810|TPS-CIN|AT3G29110|AT3G29190|AT3G29410|AT3G29430|AT3G32030|AT3G32040|LAS1|LUT1|AT3G54250|HMGS|TPS12|TPS13|PDS3|LOI1|PEN1|BARS1|CLA1|TS1|TPS02|TPS03|FPS2|NCED2|AT4G20200|AT4G20210|AT4G20230|GA2OX8|GA1|GA3OX3|IM|GA20OX1|BETA-OHASE 1|CCD8|CER9|HDR|GGR|GA20OX3|DXPS3|IPP1|PSY|TPS21|GA3|MK|MRN1|AT5G44630|FPS1|THAS1|AT5G48110|GA20OX2|BETA-OHASE 2|LUT2|cPT4|cPT5|cPT6|AT5G58784|HDS|Tudor2|ABA1|CRTISO|ACLA-1|Z-ISO|GA3OX1|D27|GA2OX6|GA2OX2|NCED5|CYP97A3|AT1G31950|AT1G33750|GA20OX5|GA2OX4|AT1G48800|AT1G48820|GGPS6|GA2OX7|GA20OX4|TPS04|TPS14|ISPF|AT1G66020|LUP5|MYB62|AT1G70080|HMG1|NCED9|ATGA2OX1|AT1G78480|BAS|CAMS1|LUP2|LUP1|GA2|GA3OX4|GA3OX2|LEW1|HST
+GO:0016042,lipid catabolic process,9.343255374,70,PLA2-ALPHA|PLA2-BETA|PEX10|NPC2|AT2G31690|PKT3|ATGA2OX3|CSY3|CCD7|PEX12|PNC1|PLDP2|MFP2|PEX13|SDRB|AT3G14075|DOX1|NPC5|NPC4|AT3G24180|REF6|NPC6|AT3G49050|ACX4|ASAT1|SDP1-LIKE|CSY2|CCD1|AT4G10060|PLDGAMMA2|AT4G13550|IBR10|HCD1|AT4G16070|ACX1|DSEL|NCED4|AT4G19860|AT4G00500|AIM1|CCD8|ABCD1|SDP1|PEX1|AGL15|AT5G17380|PLDALPHA3|PEX4|PNC2|AT5G37710|DCI1|CYP707A3|AT5G49900|AT5G58660|ACX2|CHY1|ACX3|AT1G07380|PEX6|PSAT1|GA2OX6|DPL1|GA2OX2|AT1G33700|GA2OX4|PLDEPSILON|ECI1|ECH2|ATGA2OX1|TED3
+GO:0010876,lipid localization,7.803069054,81,PLA2-ALPHA|XYP2|LTP|AT2G15325|COAD|AT2G18370|PLA2-BETA|AT2G37870|LTP2|LP1|AT2G44290|AT2G44300|AT2G48130|ACBP4|PDE320|LTP6|DGD1|AT3G11780|AT3G12545|ALIS1|AT3G13900|AT3G18280|ABCI15|AT3G22600|AT3G27870|LTPG2|LTP12|LTP5|AT3G57310|AT3G61680|AT4G08530|AT4G08670|AT4G14815|DSEL|ACBP3|OLEO1|ACBP2|A7|AT4G29070|PLA2-GAMMA|PLA2-DELTA|AT4G33355|SFH12|SEC14|AT5G09370|AT5G01870|AT5G23830|ACBP5|AT5G38160|AT5G38170|AT5G38180|OLEO2|ALA2|ACBP1|LTP4|LTP3|AT5G59330|ABCA9|XYP1|ABCG40|ABCG11|ABCI14|AT1G26130|PPa1|LTPG1|ACBP6|AT1G36150|AT1G43665|AT1G48750|AT1G52415|ABCI13|AT1G66850|AT1G68710|NRT1:2|ABCG25|AT2G14846|AT1G43666|AT1G64235|AT5G44265|AT5G62065|AT1G73780
+GO:0006643,membrane lipid metabolic process,7.894974082,62,MGDC|AT2G19880|AtIPCS3|SETH1|AtIPCS2|LCBK2|SLD2|PLDP2|TSC10A|AT3G07140|AT3G07180|PAH1|DGD1|AT3G01380|NPC5|LOH2|AT3G24180|LAG1|AT3G27325|SPT1|AtIPCS1|pPLAIIIbeta|CER10|AT3G57170|SPP1|SLD1|DES-1-LIKE|AT4G10060|ARV2|PLDGAMMA2|PLDGAMMA1|DGD2|SPHK1|ATCES1|MGD1|SQD1|AT4G35530|LCB1|KDTA|SQD2|TSC10B|MGD2|PNT1|LCBK1|LCB2|PLDALPHA3|PAH2|AT5G49900|ACD5|AT1G07380|LPLAT1|AT1G12730|LAG13|SBH2|DPL1|AT1G33700|AT1G61280|LPLAT2|AT1G63110|SBH1|AT1G26200|SPHK2
+GO:1901615,organic hydroxy compound metabolic process,4.312174237,123,AT2G01900|SOT12|ST4A|HMG2|HPT1|MIPS2|SQE2|AT2G23400|CPT|BAS1|CYP710A4|SMO2-2|5PTase14|CVL1|RD20|CYP710A2|CYP710A1|DOGT1|AT2G37440|DET2|PDX1.1|5PTase12|ITPK4|BEN1|LCBK2|SGT|GLCAK|ORP3B|SDP6|AT3G11210|MS2|CYP90D1|NCED3|DOX1|VTC4|DWF1|FAO3|AT3G23470|NCED6|PES2|BR6OX2|REF6|DCF|DWF4|ASAT1|FK|APG1|AT4G05090|AT4G08170|ARV2|SMO1-1|LOI1|IP5PII|NCED2|SMO1-2|GPP1|VTE1|AT4G33770|SQS1|ROT3|SQE3|AT4G38550|MIPS1|VTE5|AT5G04980|AT5G09290|MIPS3|SMT1|CYP724A1|ITPK1|AT5G17380|RSR4|LCB2|SQP1|SQE6|TT2|BR6OX1|IPK1|CYP707A3|TAT7|HL|GS1|FOLK|cPT4|cPT5|cPT6|AT5G58784|PDX2|AT5G60760|IPK2BETA|SAL1|AT5G63990|SAL2|FAAH|BST1|ABA1|CVP2|5PTASE13|AT1G09390|NFXL1|CYP51G1|ICS2|SMT2|PSAT1|NCED5|IMPL1|IP5PI|UGT80B1|EMB1075|DWF5|PES1|XF1|KAS III|G-TMT|AT1G71710|AT1G72590|AT1G74470|EDS16|SMT3|HMG1|NCED9|NHO1|LEW1
+GO:0046488,phosphatidylinositol metabolic process,9.20073114,49,AT2G01690|AT2G01900|PI4K GAMMA 7|5PTase14|CVL1|SETH1|AT2G37440|PGP1|PIP5K5|5PTase12|PI4K GAMMA 4|AT3G07140|AT3G07180|AT3G14205|VTC4|AT3G01380|PEN2|AT3G27325|AT3G43220|PIP5K4|AT3G57170|SAC9|IP5PII|PIPK10|AT4G35530|PIS2|AT5G04980|PI-4KBETA2|PNT1|PTEN1|HL|PI-4KBETA1|BST1|CVP2|5PTASE13|AT1G12730|PIP5K1|ATSAC1|PIPK11|IMPL1|IP5PI|5PTASE11|ATPI4K ALPHA|AT1G51040|AT1G61280|AT1G63110|FRA3|PIS1|AT1G71710
+GO:0006644,phospholipid metabolic process,9.74137931,153,PAP1|AT2G01690|AT2G01900|ISPD|PI4K GAMMA 7|PLA2-ALPHA|AT2G18620|GGPS4|PLA2-BETA|MIPS2|GGPS2|emb1187|NPC2|CDPMEK|5PTase14|CVL1|CCT1|SETH1|AT2G35680|AT2G37440|PECT1|PGP1|GLY1|PIP5K5|5PTase12|CDS4|AT2G45670|LCBK2|PI4K GAMMA 4|AT3G05510|PLDP2|AT3G07140|AT3G07180|PAH1|GPAT5|AT3G14205|AT3G14510|AT3G14530|GGPS3|PLDALPHA1|ROD1|AT3G15830|PLDP1|IPP2|VTC4|AT3G01380|NPC5|NPC4|LPP3|XPL1|LPP4|LPAT5|PEN2|AT3G20160|AT3G27325|AT3G29430|AT3G32040|AT3G43220|NPC6|AT3G54250|pPLAIIIbeta|PGPS2|PIP5K4|AT3G57170|LPAT2|SAC9|CDS5|AAPT2|PLDBETA2|HMGS|PLDGAMMA2|PLDGAMMA3|PLDGAMMA1|TPS12|TPS13|LOI1|GPAT3|CCT2|CLA1|PSD1|FPS2|IP5PII|AT4G19860|PIPK10|GPAT8|CDS2|PSD3|AT4G26770|FADA|AT4G29070|ATS2|HDR|AT4G35530|PLDDELTA|PIS2|SEC14|MIPS1|AT5G04980|GPAT7|PI-4KBETA2|IPP1|KDTA|PNT1|PLDALPHA3|MK|PTEN1|GPDHp|PAH2|FPS1|HL|PSD2|AT5G59500|HDS|FCLY|PI-4KBETA1|BST1|CVP2|5PTASE13|GPAT1|LPLAT1|AT1G12730|AAPT1|LPP2|PSS1|PIP5K1|ATSAC1|PIPK11|GPAT2|IMPL1|ATS1|IP5PI|5PTASE11|PMEAMT|ATPI4K ALPHA|GGPS6|AT1G51040|LPAT3|PLDALPHA2|PLDEPSILON|AT1G61280|CDS1|LPLAT2|AT1G63110|ISPF|FRA3|PIS1|AT1G71710|AT1G73600|LPAT4|HMG1|At1g78690p|PLMT|AT1G80950
+GO:0019751,polyol metabolic process,8.539624183,37,AT2G01900|MIPS2|5PTase14|CVL1|AT2G37440|5PTase12|ITPK4|LCBK2|GLCAK|SDP6|VTC4|AT4G05090|AT4G08170|IP5PII|GPP1|AT4G33770|MIPS1|AT5G04980|AT5G09290|MIPS3|ITPK1|LCB2|IPK1|HL|GS1|AT5G60760|IPK2BETA|SAL1|AT5G63990|SAL2|BST1|CVP2|5PTASE13|IMPL1|IP5PI|AT1G71710|NHO1
+GO:0009739,response to gibberellin,6.666666667,68,RGA1|LIP1|PIL5|PKL|GP ALPHA 1|AT2G31730|ABI5|GAMMA-TIP|EXP3|AGL20|TRM13|GID1A|AT3G11280|MYB65|SPY|MYB57|RGL2|MYB21|MYB0|TCP14|GIS|GID1B|GASA3|RING|GA1|IQD22|SLY1|AGL24|AMY1|GA20OX1|CGA1|UBC17|MYB33|GIS2|LEP|AT5G14920|GASA4|RGL3|FPF1|GA3|GID1C|HB23|MYB24|SLY2|AT5G50915|GA20OX2|WRKY27|GNC|LFY|SHI|SNRK2.3|BT4|PIF3|ZFP5|ATBETAFRUCT4|GAI|GA3OX1|ATARCA|AtHB23|SCL3|AT1G62660|ETR1|RGL1|ZFP6|LBD40|MIF1|GASA6|GA2
+GO:0006665,sphingolipid metabolic process,8.916786227,33,AT2G19880|AtIPCS3|AtIPCS2|LCBK2|SLD2|TSC10A|LOH2|AT3G24180|LAG1|SPT1|AtIPCS1|CER10|SPP1|SLD1|DES-1-LIKE|AT4G10060|ARV2|SPHK1|ATCES1|LCB1|TSC10B|LCBK1|LCB2|AT5G49900|ACD5|AT1G07380|LAG13|SBH2|DPL1|AT1G33700|SBH1|AT1G26200|SPHK2
+GO:0008202,steroid metabolic process,8.258467023,41,SOT12|ST4A|HMG2|SQE2|BAS1|CYP710A4|SMO2-2|CYP710A2|CYP710A1|DOGT1|DET2|BEN1|SGT|CYP90D1|DWF1|BR6OX2|DWF4|ASAT1|FK|ARV2|SMO1-1|LOI1|SMO1-2|VEP1|SQS1|ROT3|SQE3|SMT1|CYP724A1|SQP1|SQE6|BR6OX1|HSD1|CYP51G1|SMT2|PSAT1|UGT80B1|DWF5|XF1|SMT3|HMG1
+GO:0000038,very long-chain fatty acid metabolic process,9.775086505,30,KCS8|KCS9|KCS10|ADS2|FAH1|AT2G45670|KCS13|KCS14|AT3G23840|LAG1|MYB30|PAS1|AT4G13840|CER2|KCS16|KCS17|KCS18|PAS2|CYP86B1|BI1|KCS21|ADS1|LAG13|KCS4|KCS5|KCS1|KCR1|KCS6|KCS7|AT1G80950

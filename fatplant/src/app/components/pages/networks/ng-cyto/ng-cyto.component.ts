@@ -122,8 +122,7 @@ export class NgCytoComponent implements OnChanges {
           if (localgraph === 'GO'){
             for( var j=0;j<node_description.length;j++){
               if(nodeData['id'] == node_description[j]['GO']){
-              localdescription.emit(node_description[j]['Description']);
-              console.log(node_description[j]['Description'])
+              localdescription.emit(node_description[j]);
               break;
               }
             }

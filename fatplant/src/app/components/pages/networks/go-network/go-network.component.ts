@@ -10,7 +10,7 @@ import {HttpClient} from '@angular/common/http';
 export class GoNetworkComponent implements OnInit {
   visiable: boolean;
   filter: string;
-  node_name: string;
+  node_name: any;
   node_description: any;
   layout;
   style=[];
@@ -57,8 +57,8 @@ export class GoNetworkComponent implements OnInit {
       }, {
         "selector": "node",
         "style": {
-          "width": "mapData(score, 0, 0.006769776522008331, 20, 60)",
-          "height": "mapData(score, 0, 0.006769776522008331, 20, 60)",
+          "width": "mapData(hitCount, 0, 500, 20, 100)",
+          "height": "mapData(hitCount, 0, 500, 20, 100)",
           "content": "data(name)",
           "font-size": "12px",
           "text-valign": "center",
@@ -70,7 +70,126 @@ export class GoNetworkComponent implements OnInit {
           "overlay-padding": "6px",
           "z-index": "10"
         }
-      }, {
+      },{
+        "selector": "node[groupId=\"1\"]",
+        "style": {
+          "background-color": "#7d7070"
+        }
+      }, 
+      {
+        "selector": "node[groupId=\"2\"]",
+        "style": {
+          "background-color": "#7d7770"
+        }
+      },
+      {
+        "selector": "node[groupId=\"3\"]",
+        "style": {
+          "background-color": "#7d7d70"
+        }
+      },
+      {
+        "selector": "node[groupId=\"4\"]",
+        "style": {
+          "background-color": "#757d70"
+        }
+      },
+      {
+        "selector": "node[groupId=\"5\"]",
+        "style": {
+          "background-color": "#707d71"
+        }
+      },
+      {
+        "selector": "node[groupId=\"6\"]",
+        "style": {
+          "background-color": "#707d76"
+        }
+      },
+      {
+        "selector": "node[groupId=\"7\"]",
+        "style": {
+          "background-color": "#707d7a"
+        }
+      },
+      {
+        "selector": "node[groupId=\"8\"]",
+        "style": {
+          "background-color": "#707d7d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"9\"]",
+        "style": {
+          "background-color": "#707a7d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"10\"]",
+        "style": {
+          "background-color": "#70787d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"11\"]",
+        "style": {
+          "background-color": "#70767d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"12\"]",
+        "style": {
+          "background-color": "#70377d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"13\"]",
+        "style": {
+          "background-color": "#72707d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"14\"]",
+        "style": {
+          "background-color": "#75707d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"15\"]",
+        "style": {
+          "background-color": "#77707d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"16\"]",
+        "style": {
+          "background-color": "#7a707d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"17\"]",
+        "style": {
+          "background-color": "#7c707d"
+        }
+      },
+      {
+        "selector": "node[groupId=\"18\"]",
+        "style": {
+          "background-color": "#7d707c"
+        }
+      },
+      {
+        "selector": "node[groupId=\"19\"]",
+        "style": {
+          "background-color": "#7d7079"
+        }
+      },
+      {
+        "selector": "node[groupId=\"20\"]",
+        "style": {
+          "background-color": "#7d7072"
+        }
+      },{
         "selector": "node[?attr]",
         "style": {
           "shape": "rectangle",
@@ -275,8 +394,8 @@ export class GoNetworkComponent implements OnInit {
           }, {
             "selector": "node",
             "style": {
-              "width": "mapData(score, 0, 0.006769776522008331, 20, 60)",
-              "height": "mapData(score, 0, 0.006769776522008331, 20, 60)",
+              "width": "mapData(hitCount, 0, 500, 20, 100)",
+              "height": "mapData(hitCount, 0, 500, 20, 100)",
               "content": "data(name)",
               "font-size": "12px",
               "text-valign": "center",
@@ -289,6 +408,125 @@ export class GoNetworkComponent implements OnInit {
               "z-index": "10"
             }
           }, {
+            "selector": "node[groupId=\"1\"]",
+            "style": {
+              "background-color": "#7d7070"
+            }
+          }, 
+          {
+            "selector": "node[groupId=\"2\"]",
+            "style": {
+              "background-color": "#7d7770"
+            }
+          },
+          {
+            "selector": "node[groupId=\"3\"]",
+            "style": {
+              "background-color": "#7d7d70"
+            }
+          },
+          {
+            "selector": "node[groupId=\"4\"]",
+            "style": {
+              "background-color": "#757d70"
+            }
+          },
+          {
+            "selector": "node[groupId=\"5\"]",
+            "style": {
+              "background-color": "#707d71"
+            }
+          },
+          {
+            "selector": "node[groupId=\"6\"]",
+            "style": {
+              "background-color": "#707d76"
+            }
+          },
+          {
+            "selector": "node[groupId=\"7\"]",
+            "style": {
+              "background-color": "#707d7a"
+            }
+          },
+          {
+            "selector": "node[groupId=\"8\"]",
+            "style": {
+              "background-color": "#707d7d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"9\"]",
+            "style": {
+              "background-color": "#707a7d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"10\"]",
+            "style": {
+              "background-color": "#70787d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"11\"]",
+            "style": {
+              "background-color": "#70767d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"12\"]",
+            "style": {
+              "background-color": "#70377d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"13\"]",
+            "style": {
+              "background-color": "#72707d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"14\"]",
+            "style": {
+              "background-color": "#75707d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"15\"]",
+            "style": {
+              "background-color": "#77707d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"16\"]",
+            "style": {
+              "background-color": "#7a707d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"17\"]",
+            "style": {
+              "background-color": "#7c707d"
+            }
+          },
+          {
+            "selector": "node[groupId=\"18\"]",
+            "style": {
+              "background-color": "#7d707c"
+            }
+          },
+          {
+            "selector": "node[groupId=\"19\"]",
+            "style": {
+              "background-color": "#7d7079"
+            }
+          },
+          {
+            "selector": "node[groupId=\"20\"]",
+            "style": {
+              "background-color": "#7d7072"
+            }
+          },{
             "selector": "node[?attr]",
             "style": {
               "shape": "rectangle",

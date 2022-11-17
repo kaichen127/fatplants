@@ -403,18 +403,29 @@ exports.blastp = functions.https.onRequest((req, res) => {
     }
     // let identifier = "PAP1"
     let nodeArray = [];
+
+    // we'll make this to add data to the nodes after everything
+    // (this isn't ideal but works with the current system)
+
+    let nodeIDCount = {};
     console.log(identifier)
     var lineReader = require('readline').createInterface({
       input: require('fs').createReadStream(csvEntityTableFilePath)
     });
   
     lineReader.on('line', function (line) {
-  
+      
+      var cells = line.split(',');
+      nodeIDCount[cells[0]] = {
+        hitCount: parseInt(cells[1]),
+        groupId: cells[2]
+      }
+
       // console.log('Line from file:', line);
       if (line.includes(identifier)) {
         // console.log(line)
         var tmp = line.split(',')
-        console.log(tmp[0])
+
         if (tmp[0].length > 0) {
           nodeArray.push(tmp[0])
         }
@@ -461,6 +472,8 @@ exports.blastp = functions.https.onRequest((req, res) => {
               data["name"] = jsonObj[i].Gene_A;
               data["score"] = 0;
               data["gene"] = true;
+              data["hitCount"] = nodeIDCount[data["id"]].hitCount;
+              data["groupId"] = nodeIDCount[data["id"]].groupId;
               nodeModel["data"] = data;
               nodeModel["group"] = "nodes"
               elements.push(nodeModel);
@@ -478,6 +491,8 @@ exports.blastp = functions.https.onRequest((req, res) => {
               data["name"] = jsonObj[i].Gene_B;
               data["score"] = 0;
               data["gene"] = true;
+              data["hitCount"] = nodeIDCount[data["id"]].hitCount;
+              data["groupId"] = nodeIDCount[data["id"]].groupId;
               nodeModel["data"] = data;
               nodeModel["group"] = "nodes"
               elements.push(nodeModel);

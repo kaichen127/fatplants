@@ -50,9 +50,15 @@ export class CustomPathwayListComponent implements OnInit {
               var coords = jsonObj[i].coordinates[0]  + ',' + jsonObj[i].coordinates[1] + ',' + jsonObj[i].coordinates[2] + ',' + jsonObj[i].coordinates[3];
               var linkEnd = geneDict[jsonObj[i].gene_name.trim()];
 
-              // if we don't get a result, try adding the comma
+              // if we don't get a result, try uppercase
               if (linkEnd == undefined) {
-                linkEnd = geneDict[jsonObj[i].gene_name.trim() + ','];
+                linkEnd = geneDict[jsonObj[i].gene_name.toUpperCase()];
+
+                if (linkEnd == undefined) // try adding a number if that doesnt work
+                  linkEnd = geneDict[jsonObj[i].gene_name.toUpperCase() + '1'];
+
+                if (linkEnd == undefined) // try adding a number if that doesnt work
+                  linkEnd = geneDict[jsonObj[i].gene_name.toUpperCase() + '2'];
               }
 
               var documentObject = {
