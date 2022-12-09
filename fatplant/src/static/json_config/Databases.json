@@ -4,10 +4,12 @@
                         "collection" : "/Lmpd_Arapidopsis",
                         "uniprot2kegg" : "/Arabidopsis_Uniprot2Kegg",
                         "kegg2path" : "/Arabidopsis_Kegg2Path",
-                        "tabs" : ["Uniprot ID", "Tair ID"], 
+                        "tabs" : ["Uniprot ID", "Tair ID", "Gene Name", "Protein Name"], 
                         "query" :   {
                             "Uniprot ID" : "uniprot_id", 
-                            "Tair ID" : "tair_id"
+                            "Tair ID" : "tair_id",
+                            "Gene Name" : "geneNames",
+                            "Protein Name" : "proteinNames"
                         },
                         "defaultUniprot" : "Q09152",
                         "tabIndex" : 0,
@@ -41,13 +43,18 @@
                     },
     "Soybean" :     { 
                         "database" : "Soybean", 
-                        "tabs" : ["Uniprot ID", "USDA-ARS ID"], 
+                        "tabs" : ["Uniprot ID", "USDA-ARS ID", "Gene Name", "Protein Name"], 
                         "collection" : "/Soybean2",
                         "uniprot2kegg" : "",
                         "kegg2path" : "",
                         "defaultUniprot" : "A0A0R0KFD7",
                         "tabIndex" : 0,
-                        "query" : {"Uniprot ID" : "uniprot_id", "USDA-ARS ID" : "GeneID"},
+                        "query" : {
+                            "Uniprot ID" : "uniprot_id", 
+                            "USDA-ARS ID" : "GeneID",
+                            "Gene Name" : "geneNames",
+                            "Protein Name" : "proteinNames"
+                        },
                         "items" : [],
                         "displayDetails" : [
                             {}

@@ -136,14 +136,29 @@ export class DataAnalysisComponent implements OnInit {
 
         let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
 
-        this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);        
-        this.fsaccess.get(this.proteinDatabase['collection'], field, this.query.toUpperCase(), 1).subscribe(res => {
-          console.log(typeof res, res)
-          if (this.validateResult(res[0])) {
-            // this.results.uniprot_id = this.uniprot;
-            // this.results.checkLmpd(this.proteindatabase); 
+        if (field != 'geneNames' && field != 'proteinNames') {
+          this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);        
+          this.fsaccess.get(this.proteinDatabase['collection'], field, this.query.toUpperCase(), 1).subscribe(res => {
+            console.log(typeof res, res)
+            if (this.validateResult(res[0])) {
+              // this.results.uniprot_id = this.uniprot;
+              // this.results.checkLmpd(this.proteindatabase); 
+            }
+          })
+      }
+      else {
+        this.fsaccess.getIDSearchingArrayString('OnestopTranslation', field, this.query.toUpperCase()).subscribe(translationRes => {
+          console.log(translationRes);
+          if (translationRes[0]){
+            this.fsaccess.get(this.proteinDatabase['collection'], 'uniprot_id', translationRes[0]['uniprot_id'], 1).subscribe(res => {
+              this.validateResult(res[0])
+            });
+          }
+          else {
+            this.searchError = true;
           }
         })
+      }
     }
   }
 
@@ -152,16 +167,42 @@ export class DataAnalysisComponent implements OnInit {
     || event.key == "ArrowDown" || event.key == "ArrowLeft" || event.key == "ArrowDown") { return; }
 
     let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
-    this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);
-    this.items.subscribe(data =>
-      {
-        this.proteinDatabase['items'] = []
-        for (let i = 0; i < data.length; ++i)
+    
+    // separate standard search logic and name search logic (which uses arrays)
+    if (field != 'geneNames' && field != 'proteinNames') {
+      this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);
+      this.items.subscribe(data =>
         {
-          this.proteinDatabase['items'].push(data[i][field]);
+          this.proteinDatabase['items'] = []
+          for (let i = 0; i < data.length; ++i)
+          {
+            this.proteinDatabase['items'].push(data[i][field]);
+          }
         }
-      }
-    )
+      )
+    }
+    else {
+
+      if (field == 'geneNames')
+        this.items = this.fsaccess.getGeneNameAutofill('OnestopTranslation', this.query);
+      
+      else
+        this.items = this.fsaccess.getProteinNameAutofill('OnestopTranslation', this.query);
+        
+      this.items.subscribe(data =>
+        {
+          this.proteinDatabase['items'] = []
+          for (let i = 0; i < data.length; ++i)
+          {
+            if (field == 'geneNames')
+              this.proteinDatabase['items'].push(data[i]['primaryGeneName']);
+            
+              else
+              this.proteinDatabase['items'].push(data[i]['primaryProteinName']);
+          }
+        }
+      )
+    }
   }
 
   validateResult(result: any): boolean {

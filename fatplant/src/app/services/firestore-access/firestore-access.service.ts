@@ -29,4 +29,32 @@ export class FirestoreAccessService {
     return items;
 
   }
+
+  // allows us to do an autofill search on gene names using the primaryGeneName field
+  getGeneNameAutofill(database: string, query: string) {
+    let items : Observable<unknown[]>;
+
+    items = this.afs.collection(database, ref => ref.limit(10).where('primaryGeneName', '>=', query).where('primaryGeneName', '<=', query + '\uf8ff')).valueChanges();
+    
+    // items.subscribe(data => console.log(data));
+    return items;
+  }
+
+  getProteinNameAutofill(database: string, query: string) {
+    let items : Observable<unknown[]>;
+
+    items = this.afs.collection(database, ref => ref.limit(10).where('primaryProteinName', '>=', query).where('primaryProteinName', '<=', query + '\uf8ff')).valueChanges();
+    
+    // items.subscribe(data => console.log(data));
+    return items;
+  }
+
+  // get the uniprot ID from a given gene name 
+  getIDSearchingArrayString(database: string, field: string, query: string) {
+    let items : Observable<unknown[]>;
+
+    items = this.afs.collection(database, ref => ref.where(field, 'array-contains', query)).valueChanges();    
+    // items.subscribe(data => console.log(data));
+    return items;
+  }
 }
