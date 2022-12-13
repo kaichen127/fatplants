@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { Lmpd_Arapidopsis } from 'src/app/interfaces/lmpd_Arapidopsis';
-import { ProteinEntry } from 'src/app/interfaces/ProteinEntry';
 import { FunctionEntry } from 'src/app/interfaces/FunctionEntry';
 import { MatTableDataSource } from '@angular/material/table';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import { FirestoreAccessService } from 'src/app/services/firestore-access/firestore-access.service';
 
 @Component({
-  selector: 'app-protein-detail',
-  templateUrl: './protein-detail.component.html',
-  styleUrls: ['./protein-detail.component.scss']
+  selector: 'app-protein-camelina',
+  templateUrl: './protein-camelina.component.html',
+  styleUrls: ['./protein-camelina.component.scss']
 })
-export class ProteinDetailComponent implements OnInit {
+export class ProteinCamelinaComponent implements OnInit {
 
-  constructor(private afs: AngularFirestore, private route: ActivatedRoute, public notificationService: NotificationService, private access: FirestoreAccessService) { }
+  constructor(private access: FirestoreAccessService, private afs: AngularFirestore, private route: ActivatedRoute, public notificationService: NotificationService) { }
 
   translationObject;
   uniprotId;
@@ -26,13 +24,7 @@ export class ProteinDetailComponent implements OnInit {
   isLoadingArapidopsis = true;
   proteinDataSource: MatTableDataSource<FunctionEntry>;
   isLoadingProtein = true;
-  displayedColumns = [
-    'type',
-    'start',
-    'end',
-    'length',
-    'description'
-  ]
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.uniprotId = params['uniprot_id'];
@@ -42,14 +34,14 @@ export class ProteinDetailComponent implements OnInit {
   }
 
   getUniprotData() {
-    this.afs.collection('/New_Lmpd_Arabidopsis', ref => ref.limit(1).where('uniprot_id', '==', this.uniprotId)).valueChanges().subscribe((res: any) => {
+    this.afs.collection('/New_Camelina', ref => ref.limit(1).where('uniprot_id', '==', this.uniprotId)).valueChanges().subscribe((res: any) => {
       this.arapidopsisData = res[0];
+
       if (this.arapidopsisData !== undefined) {
-        this.arapidopsisData.gene_names = this.arapidopsisData.gene_names.replaceAll(' ', ', ');
         this.proteinEntry = this.arapidopsisData.protein_entry;
         this.proteinDataSource = new MatTableDataSource<FunctionEntry>(this.arapidopsisData.features);
         
-        this.access.getMapForArabidopsis(this.arapidopsisData.uniprot_id).subscribe(translation => {
+        this.access.getMapForCamelina(this.arapidopsisData.uniprot_id).subscribe(translation => {
           this.translationObject = translation;
         })
         
@@ -62,12 +54,13 @@ export class ProteinDetailComponent implements OnInit {
     });
   }
   getProteinEntry() {
-    this.afs.collection('/New_Lmpd_Arabidopsis_Details', ref => ref.limit(1).where('uniprot_id', '==', this.uniprotId)).valueChanges().subscribe((res: any) => {
+    this.afs.collection('/New_Camelina_Detail', ref => ref.limit(1).where('uniprot_id', '==', this.uniprotId)).valueChanges().subscribe((res: any) => {
       this.proteinData = res[0];
-      console.log(this.proteinData);
       if (this.proteinData === undefined) {
-        this.afs.collection('/New_Lmpd_Arabidopsis_Details', ref => ref.limit(1).where('uniprot_id', '==', this.uniprotId)).valueChanges().subscribe((res: any) => {
+        this.afs.collection('/New_Camelina_Detail', ref => ref.limit(1).where('uniprot_id', '==', this.uniprotId)).valueChanges().subscribe((res: any) => {
           this.proteinData = res[0];
+          this.proteinData.gene_names = this.proteinData.gene_names.replaceAll(' ', ', ');
+
           this.isLoadingProtein = false;
         });
       }
@@ -101,5 +94,7 @@ export class ProteinDetailComponent implements OnInit {
     });
     return output;
   }
+
+
 
 }

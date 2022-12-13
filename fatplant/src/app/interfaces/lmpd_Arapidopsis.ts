@@ -3,7 +3,7 @@ export interface Lmpd_Arapidopsis {
 	alternativeNames: string[];
 	created: string;
 	entrez_gene_id: string;
-	gene_name: string;
+	gene_names: string;
 	gene_symbol: string;
 	features: Array<FunctionEntry>,
 	lmp_id: string;
@@ -21,7 +21,7 @@ export interface Lmpd_Arapidopsis {
 	taxid: string;
 	uniprot_id: string;
 	version: string;
-  tair_ids:[];
+    tair_id: string;
 }
 export interface Lmpd_Arapidopsis_ID extends Lmpd_Arapidopsis {
 	uniprot_id: string;

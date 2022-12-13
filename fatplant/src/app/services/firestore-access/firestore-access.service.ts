@@ -57,4 +57,16 @@ export class FirestoreAccessService {
     // items.subscribe(data => console.log(data));
     return items;
   }
+
+  getMapForArabidopsis(id: string) {
+    return this.afs.collection("Species_Mapper", ref => ref.where("arabidopsis", "==", id)).valueChanges();
+  }
+
+  getMapForSoybean(id: string) {
+    return this.afs.collection("Species_Mapper", ref => ref.where("glymine_max", "==", id)).valueChanges();
+  }
+
+  getMapForCamelina(id: string) {
+    return this.afs.collection("Species_Mapper", ref => ref.where("camelina", "==", id)).valueChanges();
+  }
 }

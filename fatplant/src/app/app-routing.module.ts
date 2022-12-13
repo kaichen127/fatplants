@@ -28,6 +28,8 @@ import { PathwayAralipsComponent } from "./components/pages/tools/pathway-aralip
 import { CustomPathwayComponent } from './components/pages/tools/custom-pathway/custom-pathway.component';
 import { CustomPathwayListComponent } from './components/pages/tools/custom-pathway-list/custom-pathway-list/custom-pathway-list.component';
 import { PathwayViewerComponent } from './components/pages/tools/pathway-viewer/pathway-viewer.component';
+import { ProteinSoybeanComponent } from './components/pages/datapages/protein-soybean/protein-soybean.component';
+import { ProteinCamelinaComponent } from './components/pages/datapages/protein-camelina/protein-camelina.component';
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'homepage', component: HomepageComponent},
@@ -57,6 +59,8 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'datasets/:dataset', component: UnifiedDatapageComponent},
 {path: 'showresults/:uniprot_id/:cfg', component: ShowresultsComponent},
 {path: 'protein/:uniprot_id', component: ProteinDetailComponent},
+{path: 'soybean_prot/:uniprot_id', component: ProteinSoybeanComponent},
+{path: 'camelina_prot/:uniprot_id', component: ProteinCamelinaComponent},
 {path: 'pathway-viewer', component: PathwayViewerComponent},
 {path: '**', redirectTo: '/homepage'}];
 

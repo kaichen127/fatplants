@@ -26,7 +26,7 @@
         <br>
         <h2 *ngIf="translationObject[0]" class='title'>Homeologs</h2>
         <div style="margin-left: 15px;" *ngIf="translationObject[0]">
-            <a  *ngIf="translationObject[0].camelina" [routerLink]="['/camelina_prot', translationObject[0].camelina]">Camelina</a> | <a *ngIf="translationObject[0].glymine_max" [routerLink]="['/soybean_prot', translationObject[0].glymine_max]">Soybean</a>
+            <a  *ngIf="translationObject[0].arabidopsis" [routerLink]="['/protein', translationObject[0].arabidopsis]">Arabidopsis</a> | <a *ngIf="translationObject[0].camelina" [routerLink]="['/camelina_prot', translationObject[0].camelina]">Camelina</a>
         </div>
 
         <!-- <p class='status'> Created {{arapidopsisData.created}} | Modified {{arapidopsisData.modified}}</p>
@@ -38,7 +38,7 @@
                 <p class='protein-info'>Gene: {{ arapidopsisData.gene_names }}</p>
                 <p class='protein-info protein-subtitle'>Protein Names: {{ arapidopsisData.protein_name }} </p>
                 <p class='protein-info'>RefSeq ID: {{ arapidopsisData.refseq_id }}</p>
-                <p class='protein-info'>Tair ID: {{ arapidopsisData.tair_id }}</p>
+                <p class='protein-info'>Glyma ID: {{ arapidopsisData.glyma_id }}</p>
                 <p class='protein-info protein-subtitle'>Uniprot ID: {{ arapidopsisData.uniprot_id }}</p>
                 <p class='protein-info'>Organism ID: {{ proteinData.organism_id }}</p>
             </div>

@@ -86,11 +86,11 @@ export class UnifiedDatapageComponent implements OnInit {
   get displayedColumns(): String[] {
     switch(this.dataset) {
       case "arabidopsis":
-        return ['uniprot_id','refseq_id','tair_ids','gene_name','gene_symbol','protein_entry','protein_name'];
+        return ['uniprot_id','refseq_id','tair_id','gene_names', 'protein_name', 'protein_entry'];
       case "camelina":
-        return ['camelina','aralip_pathways','ath_description', 'homeologs'];
+        return ['camelina','refseq_id','protein_name', 'homeologs', 'cam_prot_entry'];
       case "soybean":
-        return ['soybean_uniprot_id','soybean_refseq_id','soybean_gene_name','soybean_protein_entry','soybean_protein_name'];
+        return ['uniprot_id','refseq_id', 'glyma_id', 'gene_names','protein_name', 'soy_prot_entry'];
       default:
         return ['picture','name','mass','sofa_id','other_names','delta_notation'];
     }
@@ -156,7 +156,7 @@ export class UnifiedDatapageComponent implements OnInit {
   }
 
   getArabidopsisData() {
-    let docs=this.db.connect('Lmpd_Arapidopsis').subscribe(data =>{
+    let docs=this.db.connect('New_Lmpd_Arabidopsis').subscribe(data =>{
       this.arabidopsisDataSource = new MatTableDataSource(data);
       let arabidopsisData: FatPlantDataSource = {
         retrievalDate: Date.now(),
@@ -167,22 +167,29 @@ export class UnifiedDatapageComponent implements OnInit {
     });
   }
   getCamelinaData() {
-    let docs=this.db.connect('Camelina').subscribe(data =>{
+    let docs=this.db.connect('New_Camelina').subscribe(data =>{
       this.camelinaDataSource = new MatTableDataSource(data);
+
       let camelinaData: FatPlantDataSource = {
         retrievalDate: Date.now(),
         data: data
       };
+
+      camelinaData.data.forEach(e => {
+        e.homeologs = e.cs_id.split(',');
+        e.cs_id = e.homeologs.shift();
+      })
+      
       localStorage.setItem('camelina_data', JSON.stringify(camelinaData));
       this.loading = false;
     });
   }
   getSoybeanData() {
-    let docs=this.db.connect('Soybean').subscribe( (data : Soybean[]) =>{
+    let docs=this.db.connect('New_Soybean').subscribe( (data : Soybean[]) =>{
       this.soybeanDataSource = new MatTableDataSource(data);
       let soybeanData: FatPlantDataSource = {
         retrievalDate: Date.now(),
-        data: this.convertSoybeanData(data)
+        data: data
       };
       localStorage.setItem('soybean_data', JSON.stringify(soybeanData));
       this.loading = false;
