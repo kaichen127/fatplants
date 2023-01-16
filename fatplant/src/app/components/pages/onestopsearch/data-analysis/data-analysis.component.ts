@@ -36,6 +36,13 @@ export class DataAnalysisComponent implements OnInit {
   searchError: boolean = false;
   isLoading: boolean;
   hasSearched: boolean = false;
+
+  // when we search a gene name, we might get some other results
+  // that match the query, this will store them so the user can select them
+  relatedGeneNames = [];
+  displayedGeneColumns = ["uniprot_id", "geneName", "proteinNames"]
+  selectedGeneUniprot:string = "";
+
   private imgUrl: SafeResourceUrl;
   private imgs = [];
   private noimg: boolean;
@@ -126,6 +133,7 @@ export class DataAnalysisComponent implements OnInit {
     this.nopdb = false;
     this.dataService.BlastNeedUpdate = true;
     
+    this.relatedGeneNames = [];
 
     if(this.blastSelected){
       this.fsaccess.get(this.proteinDatabase['collection'], 'sequence', this.query.toUpperCase(), 1).subscribe(res => {
@@ -136,7 +144,7 @@ export class DataAnalysisComponent implements OnInit {
 
         let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
 
-        if (field != 'geneNames' && field != 'proteinNames') {
+        if (field != 'geneName' && field != 'proteinNames') {
           this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);        
           this.fsaccess.get(this.proteinDatabase['collection'], field, this.query.toUpperCase(), 1).subscribe(res => {
             console.log(typeof res, res)
@@ -147,8 +155,12 @@ export class DataAnalysisComponent implements OnInit {
           })
       }
       else {
-        this.fsaccess.getIDSearchingArrayString('OnestopTranslation', field, this.query.toUpperCase()).subscribe(translationRes => {
-          console.log(translationRes);
+        this.fsaccess.getIDSearchingArrayString('OnestopTranslationExtended', field, this.query).subscribe(translationRes => {
+
+          if (translationRes.length > 1) {
+            this.relatedGeneNames = translationRes;
+          }
+
           if (translationRes[0]){
             this.fsaccess.get(this.proteinDatabase['collection'], 'uniprot_id', translationRes[0]['uniprot_id'], 1).subscribe(res => {
               this.validateResult(res[0])
@@ -169,7 +181,7 @@ export class DataAnalysisComponent implements OnInit {
     let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
     
     // separate standard search logic and name search logic (which uses arrays)
-    if (field != 'geneNames' && field != 'proteinNames') {
+    if (field != 'geneName' && field != 'proteinNames') {
       this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);
       this.items.subscribe(data =>
         {
@@ -183,8 +195,8 @@ export class DataAnalysisComponent implements OnInit {
     }
     else {
 
-      if (field == 'geneNames')
-        this.items = this.fsaccess.getGeneNameAutofill('OnestopTranslation', this.query);
+      if (field == 'geneName')
+        this.items = this.fsaccess.getGeneNameAutofill('OnestopTranslationExtended', this.query);
       
       else
         this.items = this.fsaccess.getProteinNameAutofill('OnestopTranslation', this.query);
@@ -194,8 +206,8 @@ export class DataAnalysisComponent implements OnInit {
           this.proteinDatabase['items'] = []
           for (let i = 0; i < data.length; ++i)
           {
-            if (field == 'geneNames')
-              this.proteinDatabase['items'].push(data[i]['primaryGeneName']);
+            if (field == 'geneName')
+              this.proteinDatabase['items'].push(data[i]['geneName']);
             
               else
               this.proteinDatabase['items'].push(data[i]['primaryProteinName']);
@@ -214,6 +226,7 @@ export class DataAnalysisComponent implements OnInit {
     else {
       this.uniprot = result.uniprot_id;
       this.location.replaceState('one_click/' + this.uniprot + "/summary");
+      this.selectedGeneUniprot = this.uniprot;
       return true;
     }
   }

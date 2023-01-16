@@ -24,7 +24,7 @@ import { FirestoreAccessService } from 'src/app/services/firestore-access/firest
 })
 export class ShowresultsComponent implements OnInit {
   @Input()
-  uniprot_id: any;
+  uniprot_id: string;
   private cfg: string;
   currPath: string;
   uniprot2kegg = {};
@@ -95,6 +95,24 @@ export class ShowresultsComponent implements OnInit {
     this.SelectConfig();
 
     });
+  }
+
+  ngOnChanges() {
+    this.route.params.subscribe(params => {
+      this.isSummary = false;
+      this.isStructure = false;
+      this.isBlast = false;
+      this.isPathway = false;
+  
+      if (this.uniprot_id == undefined) this.uniprot_id = params['uniprot_id'];
+      this.cfg = params['cfg'];
+      if (this.cfg == undefined) this.cfg = "summary";
+  
+      this.loadedDatabase = this.proteinDatabase['database'];
+      this.checkspecies();
+      this.SelectConfig();
+  
+      });
   }
 
 

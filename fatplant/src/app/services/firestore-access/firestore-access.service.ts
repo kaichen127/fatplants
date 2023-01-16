@@ -34,7 +34,7 @@ export class FirestoreAccessService {
   getGeneNameAutofill(database: string, query: string) {
     let items : Observable<unknown[]>;
 
-    items = this.afs.collection(database, ref => ref.limit(10).where('primaryGeneName', '>=', query).where('primaryGeneName', '<=', query + '\uf8ff')).valueChanges();
+    items = this.afs.collection(database, ref => ref.limit(10).where('geneName', '>=', query).where('geneName', '<=', query + '\uf8ff')).valueChanges();
     
     // items.subscribe(data => console.log(data));
     return items;
@@ -53,7 +53,7 @@ export class FirestoreAccessService {
   getIDSearchingArrayString(database: string, field: string, query: string) {
     let items : Observable<unknown[]>;
 
-    items = this.afs.collection(database, ref => ref.where(field, 'array-contains', query)).valueChanges();    
+    items = this.afs.collection(database, ref => ref.where(field, '>=', query).where(field, '<=', query + '\uf8ff')).valueChanges();    
     // items.subscribe(data => console.log(data));
     return items;
   }

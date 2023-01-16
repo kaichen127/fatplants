@@ -205,3 +205,16 @@ a:hover {
 #identifier-help-icon {
   color: rgba($main-green, 0.6);
 }
+
+#genetable {
+  width: 100%;
+}
+
+.generow:hover {
+  background-color: lightgray;
+}
+
+.generow.selected {
+  background-color: rgba($lime-green, 0.4);
+  transition: all 0.5s;
+}

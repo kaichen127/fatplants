@@ -8,7 +8,7 @@
                         "query" :   {
                             "Uniprot ID" : "uniprot_id", 
                             "Tair ID" : "tair_id",
-                            "Gene Name" : "geneNames",
+                            "Gene Name" : "geneName",
                             "Protein Name" : "proteinNames"
                         },
                         "defaultUniprot" : "Q09152",
