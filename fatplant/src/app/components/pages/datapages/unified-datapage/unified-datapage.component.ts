@@ -14,12 +14,107 @@ import { Soybean } from 'src/app/interfaces/Soybean';
 })
 export class UnifiedDatapageComponent implements OnInit {
 
-  dataset: String = "";
+  dataset: string = "";
   loading: boolean = false;
   arabidopsisDataSource: MatTableDataSource<any>;
   camelinaDataSource: MatTableDataSource<any>;
   soybeanDataSource: MatTableDataSource<any>;
   fattyAcidDataSource: MatTableDataSource<any>;
+
+  showingSearch = false;
+  currentPage = 1;
+  searchQuery = "";
+  selectedFilterField = {
+    name: "Gene Name",
+    value: "gene_names"
+  };
+
+  filterFields = { 
+    "arabidopsis": [
+      {
+        name: "Gene Name",
+        value: "gene_names"
+      },
+      {
+        name: "Uniprot ID",
+        value: "uniprot_id"
+      },
+      {
+        name: "Protein Names",
+        value: "protein_name"
+      },
+      {
+        name: "RefSeq ID",
+        value: "refseq_id"
+      },
+      {
+        name: "Tair ID",
+        value: "tair_id"
+      }
+    ],
+    "camelina": [
+      {
+        name: "CS ID",
+        value: "cs_id"
+      },
+      {
+        name: "Uniprot ID",
+        value: "uniprot_id"
+      },
+      {
+        name: "Protein Names",
+        value: "protein_name"
+      },
+      {
+        name: "RefSeq ID",
+        value: "refseq_id"
+      },
+      {
+        name: "Tair ID",
+        value: "tair_id"
+      }
+    ],
+    "soybean": [
+      {
+        name: "Gene Name",
+        value: "gene_names"
+      },
+      {
+        name: "Uniprot ID",
+        value: "uniprot_id"
+      },
+      {
+        name: "Protein Names",
+        value: "protein_name"
+      },
+      {
+        name: "RefSeq ID",
+        value: "refseq_id"
+      }
+    ],
+    "fattyacid": [
+      {
+        name: "Formula",
+        value: "Formula"
+      },
+      {
+        name: "Other Names",
+        value: "OtherNames"
+      },
+      {
+        name: "SOFA ID",
+        value: "SOFAID"
+      },
+      {
+        name: "Systematic Name",
+        value: "SystematicName"
+      },
+      {
+        name: "Delta Notation",
+        value: "Delta-Notation"
+      }
+    ]
+  }
 
   constructor(private route: ActivatedRoute, private router: Router, private db: FirestoreConnectionService) {
     this.route.paramMap.subscribe(params => {
@@ -64,10 +159,44 @@ export class UnifiedDatapageComponent implements OnInit {
 
    }
 
-   applyFilter(filterValue: string) {
+  applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.currentDataSource.filter = filterValue;
+  }
+
+  onSearchChange(query) {
+    this.searchQuery = query.target.value;
+  }
+
+  applySearchQuery(){
+    this.loading = true;
+    this.showingSearch = true;
+    if (this.dataset == "arabidopsis") {
+        this.db.searchItems('New_Lmpd_Arabidopsis', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
+          this.arabidopsisDataSource = new MatTableDataSource(data);
+          this.loading = false;
+      });
+    }
+    else if (this.dataset == "camelina") {
+      this.db.searchItems('New_Camelina', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
+        this.camelinaDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    }
+    else if (this.dataset == "soybean") {
+      this.db.searchItems('New_Soybean', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
+        this.soybeanDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    }
+    else {
+      this.db.searchItems('Fatty Acid', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
+        this.fattyAcidDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    }
+  
   }
 
   get currentDataSource(): MatTableDataSource<any> {
@@ -97,6 +226,11 @@ export class UnifiedDatapageComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+  }
+
+  onFieldChange(field) {
+    this.selectedFilterField = field.value;
   }
 
   changeDataset(newDataset: string) {
@@ -115,6 +249,7 @@ export class UnifiedDatapageComponent implements OnInit {
   }
 
   refreshData() {
+    this.showingSearch = false;
     switch (this.dataset) {
       case "arabidopsis":
         this.refreshArapidopsisData();
@@ -124,6 +259,59 @@ export class UnifiedDatapageComponent implements OnInit {
         this.refreshSoybeanData();
       default:
         this.refreshFattyAcidData();
+    }
+  }
+
+  changePage(isNext: boolean) {
+    switch (this.dataset) {
+      case "arabidopsis":
+        this.changeArabidopsisPage(isNext);
+      case "camelina":
+        this.changeCamelinaPage(isNext);
+      case "soybean":
+        this.refreshSoybeanData();
+      default:
+        this.refreshFattyAcidData();
+    }
+  }
+
+  changeArabidopsisPage(next: boolean) {
+    if (next) {
+      this.loading = true;
+      this.currentPage++;
+      this.db.nextPage('New_Lmpd_Arabidopsis', this.arabidopsisDataSource.data[this.arabidopsisDataSource.data.length - 1], "uniprot_id")
+      .subscribe(data =>{
+        this.arabidopsisDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    } else if (!next && this.currentPage > 1) {
+      this.loading = true;
+      this.currentPage--;
+      this.db.prevPage('New_Lmpd_Arabidopsis', this.arabidopsisDataSource.data[0], "uniprot_id")
+      .subscribe(data =>{
+        this.arabidopsisDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    }
+  }
+
+  changeCamelinaPage(next: boolean) {
+    if (next) {
+      this.loading = true;
+      this.currentPage++;
+      this.db.nextPage('New_Camelina', this.camelinaDataSource.data[this.camelinaDataSource.data.length - 1], "uniprot_id")
+      .subscribe(data =>{
+        this.camelinaDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    } else if (!next && this.currentPage > 1) {
+      this.loading = true;
+      this.currentPage--;
+      this.db.prevPage('New_Camelina', this.camelinaDataSource.data[0], "uniprot_id")
+      .subscribe(data =>{
+        this.camelinaDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
     }
   }
 
@@ -156,7 +344,7 @@ export class UnifiedDatapageComponent implements OnInit {
   }
 
   getArabidopsisData() {
-    let docs=this.db.connect('New_Lmpd_Arabidopsis').subscribe(data =>{
+    let docs=this.db.getRows('New_Lmpd_Arabidopsis', "uniprot_id").subscribe(data =>{
       this.arabidopsisDataSource = new MatTableDataSource(data);
       let arabidopsisData: FatPlantDataSource = {
         retrievalDate: Date.now(),
@@ -167,7 +355,7 @@ export class UnifiedDatapageComponent implements OnInit {
     });
   }
   getCamelinaData() {
-    let docs=this.db.connect('New_Camelina').subscribe(data =>{
+    let docs=this.db.getRows('New_Camelina', "uniprot_id").subscribe(data =>{
       this.camelinaDataSource = new MatTableDataSource(data);
 
       let camelinaData: FatPlantDataSource = {
