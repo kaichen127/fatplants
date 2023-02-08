@@ -2,6 +2,10 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const fileWrite = require('fs');
 const parser = require('xml2json');
+const uuidv4 = require('uuid');
+const parserCSV = require('json2csv');
+const path = require('path');
+const os = require('os');
 admin.initializeApp();
 
 const childp = require('child_process');
@@ -24,7 +28,8 @@ var firebase = require("firebase/app");
 var firebaseConfig = {
   apiKey: "AIzaSyAizp5ydRlb-yGlrkY51StA4fXAEJ1OBms",
   databaseURL: "https://fatplant-76987.firebaseio.com",
-  projectId: "fatplant-76987"
+  projectId: "fatplant-76987",
+  storageBucket: "fatplantsmu-eb07c.appspot.com"
 };
 let titles = [];
 let journalCount = 0;
@@ -628,4 +633,124 @@ exports.blastp = functions.https.onRequest((req, res) => {
       console.log("request finished");
     }
 
+  });
+
+  exports.lmpdToCsv = functions.pubsub.topic("generate-lmpd-csv").onPublish(async message => {
+  //exports.lmpdToCsv = functions.https.onRequest(async (req, res) => {
+    const applicationSnapshot = await admin.firestore().collection("New_Lmpd_Arabidopsis").get();
+    const applications = applicationSnapshot.docs.map(doc => doc.data());
+
+    // CSV headers
+    const indexFields = [
+      'indentifier',
+      'fatplant_id',
+      'type'
+    ];
+
+    const identifierFields = [
+      'gene_names',
+      'protein_name',
+      'refseq_id',
+      'tair_id',
+      'uniprot_id',
+      'fatplant_id'
+    ];
+
+    var newObjsIndex = [];
+    var newObjsIndentifier = [];
+
+    applications.forEach(row => {
+      const fatplant_id = uuidv4();
+
+      var gene_names = row.gene_names.split(' ');
+      gene_names.forEach(gene_name => {
+        newObjsIndex.push({
+          identifier: gene_name,
+          fatplant_id: fatplant_id,
+          type: 'gene_name'
+        });
+      });
+
+      newObjsIndex.push({
+        identifier: row.protein_name,
+        fatplant_id: fatplant_id,
+        type: 'protein_name'
+      });
+
+      newObjsIndex.push({
+        identifier: row.refseq_id,
+        fatplant_id: fatplant_id,
+        type: 'refseq_id'
+      });
+
+      newObjsIndex.push({
+        identifier: row.tair_id,
+        fatplant_id: fatplant_id,
+        type: 'tair_id'
+      });
+
+      newObjsIndex.push({
+        identifier: row.uniprot_id,
+        fatplant_id: fatplant_id,
+        type: 'uniprot_id'
+      });
+
+      newObjsIndentifier.push({
+        fatplant_id: fatplant_id,
+        gene_names: row.gene_names,
+        protein_name: row.protein_name,
+        refseq_id: row.refseq_id,
+        tair_id: row.tair_id,
+        uniprot_id: row.uniprot_id
+      });
+    });
+
+    const outputIndex = await parserCSV.parseAsync(newObjsIndex, { indexFields });
+    const outputIdentifier = await parserCSV.parseAsync(newObjsIndentifier, { identifierFields });
+
+    const dateTime = new Date().toISOString().replace(/\W/g, "");
+    const indexFileName = `lmpd_index_${dateTime}.csv`;
+    const identifierFileName = `lmpd_identifier_${dateTime}.csv`;
+
+    const tempLocalIndexFile = path.join(os.tmpdir(), indexFileName);
+    const tempLocalIdentifierFile = path.join(os.tmpdir(), identifierFileName);
+
+    return new Promise((resolve, reject) => {
+      fs.writeFile(tempLocalIndexFile, outputIndex, error => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        const bucket = admin.storage().bucket();
+        bucket.upload(tempLocalIndexFile, {
+          metadata: {
+            metadata: {
+              firebaseStorageDownloadTokens: uuidv4(),
+            }
+          },
+        })
+        .then(() => {
+          fs.writeFile(tempLocalIdentifierFile, outputIdentifier, error => {
+            if (error) {
+              reject(error);
+              return;
+            }
+    
+            const bucket = admin.storage().bucket();
+            bucket.upload(tempLocalIdentifierFile, {
+              metadata: {
+                metadata: {
+                  firebaseStorageDownloadTokens: uuidv4(),
+                }
+              },
+            })
+            .then(() => resolve())
+            .catch(error => reject(error));
+          });
+        })
+        .then(() => resolve())
+        .catch(error => reject(error));
+      });
+    });
   });
