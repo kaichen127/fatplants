@@ -4,6 +4,13 @@
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
       <mat-icon (click)='refreshData()' class="pointer" matTooltip="Refresh Data">refresh</mat-icon>
+      
+      <!-- <mat-form-field>
+      <mat-label>Filter on Field</mat-label>
+        <mat-select (selectionChange)="onFieldChange($event)" [value]="filterFields[this.dataset][0]">
+            <mat-option *ngFor="let option of filterFields[this.dataset]" [value]="option">{{ option.name }}</mat-option>
+        </mat-select>
+      </mat-form-field> -->
       <br><br><br>
         <p class="subheader protein">Protein Species</p>
         <a class="menu" [class.active]='this.dataset == "arabidopsis"' (click)='changeDataset("arabidopsis")'>Arabidopsis</a>

@@ -6,6 +6,7 @@ import { FatPlantDataSource } from 'src/app/interfaces/FatPlantDataSource';
 import { globalRefreshTime } from 'src/app/constants';
 
 import { Soybean } from 'src/app/interfaces/Soybean';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-unified-datapage',
@@ -68,6 +69,61 @@ export class UnifiedDatapageComponent implements OnInit {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.currentDataSource.filter = filterValue;
+  }
+
+  onSearchChange(query) {
+    this.searchQuery = query.target.value;
+  }
+
+  applySearchQuery(){
+    this.loading = true;
+    this.showingSearch = true;
+    if (this.dataset == "arabidopsis") {
+      this.db.searchSQLAPI(encodeURIComponent(this.searchQuery), "lmpd").subscribe((data :any[]) => {
+          this.arabidopsisDataSource = new MatTableDataSource(data.slice(0, 50));
+          this.loading = false;
+      }, error => {
+          this.arabidopsisDataSource = new MatTableDataSource([]);
+          this.loading = false;
+      });
+      // this.db.searchItems('New_Lmpd_Arabidopsis', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
+      //     this.arabidopsisDataSource = new MatTableDataSource(data);
+      //     this.loading = false;
+      // });
+    }
+    else if (this.dataset == "camelina") {
+      this.db.searchSQLAPI(encodeURIComponent(this.searchQuery), "camelina").subscribe((data :any[]) => {
+        this.camelinaDataSource = new MatTableDataSource(data.slice(0, 50));
+        this.loading = false;
+      }, error => {
+        this.camelinaDataSource = new MatTableDataSource([]);
+        this.loading = false;
+      });
+      // this.db.searchItems('New_Camelina', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
+      //   this.camelinaDataSource = new MatTableDataSource(data);
+      //   this.loading = false;
+      // });
+    }
+    else if (this.dataset == "soybean") {
+      this.db.searchSQLAPI(encodeURIComponent(this.searchQuery), "soya").subscribe((data :any[]) => {
+        this.soybeanDataSource = new MatTableDataSource(data.slice(0, 50));
+        this.loading = false;
+      }, error => {
+        this.soybeanDataSource = new MatTableDataSource([]);
+        this.loading = false;
+      });
+      // this.db.searchItems('New_Soybean', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
+      //   this.soybeanDataSource = new MatTableDataSource(data);
+      //   this.loading = false;
+      // });
+    }
+    else {
+      this.db.searchItems('Fatty Acid', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
+        this.fattyAcidDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    }
+  
   }
 
   get currentDataSource(): MatTableDataSource<any> {

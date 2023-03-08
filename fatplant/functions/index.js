@@ -177,6 +177,7 @@ exports.blastp = functions.https.onRequest((req, res) => {
       database = "Arabidopsis"
     }
     var fasta = req.query.fasta;
+    console.log("Variable Fasta: " + fasta);
     var time = new Date().getTime();
     var inputname='/tmp/' + time + 'input.faa';
     var outputname='/tmp/' + time + 'output.txt';
@@ -629,3 +630,361 @@ exports.blastp = functions.https.onRequest((req, res) => {
     }
 
   });
+
+  exports.lmpdToCsv = functions.pubsub.topic("generate-lmpd-csv").onPublish(async message => {
+  //exports.lmpdToCsv = functions.https.onRequest(async (req, res) => {
+    const applicationSnapshot = await admin.firestore().collection("New_Lmpd_Arabidopsis").get();
+    const applications = applicationSnapshot.docs.map(doc => doc.data());
+
+    // CSV headers
+    const indexFields = [
+      'indentifier',
+      'fatplant_id',
+      'type'
+    ];
+
+    const identifierFields = [
+      'gene_names',
+      'protein_name',
+      'refseq_id',
+      'tair_id',
+      'uniprot_id',
+      'fatplant_id'
+    ];
+
+    var newObjsIndex = [];
+    var newObjsIndentifier = [];
+
+    applications.forEach(row => {
+      const fatplant_id = uuidv4();
+
+      var gene_names = row.gene_names.split(' ');
+      gene_names.forEach(gene_name => {
+        newObjsIndex.push({
+          identifier: gene_name,
+          fatplant_id: fatplant_id,
+          type: 'gene_name'
+        });
+      });
+
+      newObjsIndex.push({
+        identifier: row.protein_name,
+        fatplant_id: fatplant_id,
+        type: 'protein_name'
+      });
+
+      newObjsIndex.push({
+        identifier: row.refseq_id,
+        fatplant_id: fatplant_id,
+        type: 'refseq_id'
+      });
+
+      newObjsIndex.push({
+        identifier: row.tair_id,
+        fatplant_id: fatplant_id,
+        type: 'tair_id'
+      });
+
+      newObjsIndex.push({
+        identifier: row.uniprot_id,
+        fatplant_id: fatplant_id,
+        type: 'uniprot_id'
+      });
+
+      newObjsIndentifier.push({
+        fatplant_id: fatplant_id,
+        gene_names: row.gene_names,
+        protein_name: row.protein_name,
+        refseq_id: row.refseq_id,
+        tair_id: row.tair_id,
+        uniprot_id: row.uniprot_id
+      });
+    });
+
+    const outputIndex = await parserCSV.parseAsync(newObjsIndex, { indexFields });
+    const outputIdentifier = await parserCSV.parseAsync(newObjsIndentifier, { identifierFields });
+
+    const dateTime = new Date().toISOString().replace(/\W/g, "");
+    const indexFileName = `lmpd_index_${dateTime}.csv`;
+    const identifierFileName = `lmpd_identifier_${dateTime}.csv`;
+
+    const tempLocalIndexFile = path.join(os.tmpdir(), indexFileName);
+    const tempLocalIdentifierFile = path.join(os.tmpdir(), identifierFileName);
+
+    return new Promise((resolve, reject) => {
+      fs.writeFile(tempLocalIndexFile, outputIndex, error => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        const bucket = admin.storage().bucket();
+        bucket.upload(tempLocalIndexFile, {
+          metadata: {
+            metadata: {
+              firebaseStorageDownloadTokens: uuidv4(),
+            }
+          },
+        })
+        .then(() => {
+          fs.writeFile(tempLocalIdentifierFile, outputIdentifier, error => {
+            if (error) {
+              reject(error);
+              return;
+            }
+    
+            const bucket = admin.storage().bucket();
+            bucket.upload(tempLocalIdentifierFile, {
+              metadata: {
+                metadata: {
+                  firebaseStorageDownloadTokens: uuidv4(),
+                }
+              },
+            })
+            .then(() => resolve())
+            .catch(error => reject(error));
+          });
+        })
+        .then(() => resolve())
+        .catch(error => reject(error));
+      });
+    });
+  });
+
+  exports.soybeanToCsv = functions.pubsub.topic("generate-soybean-csv").onPublish(async message => {
+    const applicationSnapshot = await admin.firestore().collection("New_Soybean").get();
+    const applications = applicationSnapshot.docs.map(doc => doc.data());
+
+    // CSV headers
+    const indexFields = [
+      'indentifier',
+      'fatplant_id',
+      'type'
+    ];
+
+    const identifierFields = [
+      'gene_names',
+      'protein_name',
+      'refseq_id',
+      'glyma_id',
+      'uniprot_id',
+      'fatplant_id'
+    ];
+
+    var newObjsIndex = [];
+    var newObjsIndentifier = [];
+
+    applications.forEach(row => {
+      const fatplant_id = uuidv4();
+
+      var gene_names = row.gene_names.split(' ');
+      gene_names.forEach(gene_name => {
+        newObjsIndex.push({
+          identifier: gene_name,
+          fatplant_id: fatplant_id,
+          type: 'gene_name'
+        });
+      });
+
+      newObjsIndex.push({
+        identifier: row.protein_name,
+        fatplant_id: fatplant_id,
+        type: 'protein_name'
+      });
+
+      newObjsIndex.push({
+        identifier: row.refseq_id,
+        fatplant_id: fatplant_id,
+        type: 'refseq_id'
+      });
+
+      newObjsIndex.push({
+        identifier: row.glyma_id,
+        fatplant_id: fatplant_id,
+        type: 'glyma_id'
+      });
+
+      newObjsIndex.push({
+        identifier: row.uniprot_id,
+        fatplant_id: fatplant_id,
+        type: 'uniprot_id'
+      });
+
+      newObjsIndentifier.push({
+        fatplant_id: fatplant_id,
+        gene_names: row.gene_names,
+        protein_name: row.protein_name,
+        refseq_id: row.refseq_id,
+        glyma_id: row.glyma_id,
+        uniprot_id: row.uniprot_id
+      });
+    });
+
+    const outputIndex = await parserCSV.parseAsync(newObjsIndex, { indexFields });
+    const outputIdentifier = await parserCSV.parseAsync(newObjsIndentifier, { identifierFields });
+
+    const dateTime = new Date().toISOString().replace(/\W/g, "");
+    const indexFileName = `soybean_index_${dateTime}.csv`;
+    const identifierFileName = `soybean_identifier_${dateTime}.csv`;
+
+    const tempLocalIndexFile = path.join(os.tmpdir(), indexFileName);
+    const tempLocalIdentifierFile = path.join(os.tmpdir(), identifierFileName);
+
+    return new Promise((resolve, reject) => {
+      fs.writeFile(tempLocalIndexFile, outputIndex, error => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        const bucket = admin.storage().bucket();
+        bucket.upload(tempLocalIndexFile, {
+          metadata: {
+            metadata: {
+              firebaseStorageDownloadTokens: uuidv4(),
+            }
+          },
+        })
+        .then(() => {
+          fs.writeFile(tempLocalIdentifierFile, outputIdentifier, error => {
+            if (error) {
+              reject(error);
+              return;
+            }
+    
+            const bucket = admin.storage().bucket();
+            bucket.upload(tempLocalIdentifierFile, {
+              metadata: {
+                metadata: {
+                  firebaseStorageDownloadTokens: uuidv4(),
+                }
+              },
+            })
+            .then(() => resolve())
+            .catch(error => reject(error));
+          });
+        })
+        .then(() => resolve())
+        .catch(error => reject(error));
+      });
+    });
+  });
+
+  exports.camelinaToCsv = functions.pubsub.topic("generate-camelina-csv").onPublish(async message => {
+      const applicationSnapshot = await admin.firestore().collection("New_Camelina").get();
+      const applications = applicationSnapshot.docs.map(doc => doc.data());
+  
+      // CSV headers
+      const indexFields = [
+        'indentifier',
+        'fatplant_id',
+        'type'
+      ];
+  
+      const identifierFields = [
+        'cs_id',
+        'protein_name',
+        'refseq_id',
+        'tair_id',
+        'uniprot_id',
+        'fatplant_id'
+      ];
+  
+      var newObjsIndex = [];
+      var newObjsIndentifier = [];
+  
+      applications.forEach(row => {
+        const fatplant_id = uuidv4();
+  
+        var cs_ids = row.cs_id.split(' ');
+        cs_ids.forEach(cs_id => {
+          newObjsIndex.push({
+            identifier: cs_id,
+            fatplant_id: fatplant_id,
+            type: 'cs_id'
+          });
+        });
+  
+        newObjsIndex.push({
+          identifier: row.protein_name,
+          fatplant_id: fatplant_id,
+          type: 'protein_name'
+        });
+  
+        newObjsIndex.push({
+          identifier: row.refseq_id,
+          fatplant_id: fatplant_id,
+          type: 'refseq_id'
+        });
+  
+        newObjsIndex.push({
+          identifier: row.tair_id,
+          fatplant_id: fatplant_id,
+          type: 'tair_id'
+        });
+  
+        newObjsIndex.push({
+          identifier: row.uniprot_id,
+          fatplant_id: fatplant_id,
+          type: 'uniprot_id'
+        });
+  
+        newObjsIndentifier.push({
+          fatplant_id: fatplant_id,
+          cs_id: row.cs_id,
+          protein_name: row.protein_name,
+          refseq_id: row.refseq_id,
+          tair_id: row.tair_id,
+          uniprot_id: row.uniprot_id
+        });
+      });
+  
+      const outputIndex = await parserCSV.parseAsync(newObjsIndex, { indexFields });
+      const outputIdentifier = await parserCSV.parseAsync(newObjsIndentifier, { identifierFields });
+  
+      const dateTime = new Date().toISOString().replace(/\W/g, "");
+      const indexFileName = `camelina_index_${dateTime}.csv`;
+      const identifierFileName = `camelina_identifier_${dateTime}.csv`;
+  
+      const tempLocalIndexFile = path.join(os.tmpdir(), indexFileName);
+      const tempLocalIdentifierFile = path.join(os.tmpdir(), identifierFileName);
+  
+      return new Promise((resolve, reject) => {
+        fs.writeFile(tempLocalIndexFile, outputIndex, error => {
+          if (error) {
+            reject(error);
+            return;
+          }
+  
+          const bucket = admin.storage().bucket();
+          bucket.upload(tempLocalIndexFile, {
+            metadata: {
+              metadata: {
+                firebaseStorageDownloadTokens: uuidv4(),
+              }
+            },
+          })
+          .then(() => {
+            fs.writeFile(tempLocalIdentifierFile, outputIdentifier, error => {
+              if (error) {
+                reject(error);
+                return;
+              }
+      
+              const bucket = admin.storage().bucket();
+              bucket.upload(tempLocalIdentifierFile, {
+                metadata: {
+                  metadata: {
+                    firebaseStorageDownloadTokens: uuidv4(),
+                  }
+                },
+              })
+              .then(() => resolve())
+              .catch(error => reject(error));
+            });
+          })
+          .then(() => resolve())
+          .catch(error => reject(error));
+        });
+      });
+    });

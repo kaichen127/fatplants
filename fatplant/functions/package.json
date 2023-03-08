@@ -17,6 +17,7 @@
     "firebase": "^7.6.0",
     "firebase-admin": "^8.0.0",
     "firebase-functions": "^3.1.0",
+    "json2csv": "6.0.0-alpha.2",
     "request": "^2.88.2",
     "xml2json": "^0.12.0"
   },
