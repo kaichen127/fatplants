@@ -9,4 +9,5 @@ export interface ProteinEntry {
     protein_names: string;
     status: string;
     subcellular_location: string;
+    organism_id: string;
 }

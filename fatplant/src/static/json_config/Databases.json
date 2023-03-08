@@ -1,13 +1,15 @@
 {   
     "Arabidopsis":  { 
                         "database" : "Arabidopsis", 
-                        "collection" : "/Lmpd_Arapidopsis",
+                        "collection" : "/New_Lmpd_Arabidopsis_Details",
                         "uniprot2kegg" : "/Arabidopsis_Uniprot2Kegg",
                         "kegg2path" : "/Arabidopsis_Kegg2Path",
                         "tabs" : ["Uniprot ID", "Tair ID", "Full Search"], 
                         "query" :   {
                             "Uniprot ID" : "uniprot_id", 
-                            "Tair ID" : "tair_id"
+                            "Tair ID" : "tair_id",
+                            "Gene Name" : "geneName",
+                            "Protein Name" : "proteinNames"
                         },
                         "defaultUniprot" : "Q09152",
                         "tabIndex" : 0,
@@ -28,20 +30,29 @@
                                                     "tag" : "taxid"}, 
                                                 { "field" : "Protein Uniprot ID" , 
                                                     "tag" : "uniprot_id"},
-                                                { "field" : "Tair ID", 
-                                                    "tag" : "tair_id"} 
+                                                { "field" : "Tair ID" , 
+                                                    "tag" : "tair_id"},
+                                                { "field" : "RefSeq ID" , 
+                                                    "tag" : "refseq_id"},
+                                                { "field" : "Organism ID" , 
+                                                    "tag" : "organism_id"}
                         ],
                         "items" : []
                     },
     "Soybean" :     { 
                         "database" : "Soybean", 
                         "tabs" : ["Uniprot ID", "USDA-ARS ID"], 
-                        "collection" : "/Soybean2",
+                        "collection" : "/New_Soybean_Detail",
                         "uniprot2kegg" : "",
                         "kegg2path" : "",
                         "defaultUniprot" : "A0A0R0KFD7",
                         "tabIndex" : 0,
-                        "query" : {"Uniprot ID" : "uniprot_id", "USDA-ARS ID" : "GeneID"},
+                        "query" : {
+                            "Uniprot ID" : "uniprot_id", 
+                            "USDA-ARS ID" : "GeneID",
+                            "Gene Name" : "geneNames",
+                            "Protein Name" : "proteinNames"
+                        },
                         "items" : [],
                         "displayDetails" : [
                             {}

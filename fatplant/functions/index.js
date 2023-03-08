@@ -2,6 +2,10 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const fileWrite = require('fs');
 const parser = require('xml2json');
+const uuidv4 = require('uuid');
+const parserCSV = require('json2csv');
+const path = require('path');
+const os = require('os');
 admin.initializeApp();
 
 const childp = require('child_process');
@@ -24,7 +28,8 @@ var firebase = require("firebase/app");
 var firebaseConfig = {
   apiKey: "AIzaSyAizp5ydRlb-yGlrkY51StA4fXAEJ1OBms",
   databaseURL: "https://fatplant-76987.firebaseio.com",
-  projectId: "fatplant-76987"
+  projectId: "fatplant-76987",
+  storageBucket: "fatplantsmu-eb07c.appspot.com"
 };
 let titles = [];
 let journalCount = 0;

@@ -45,6 +45,7 @@ a.active {
     margin-left: 5%;
     margin-right: 5%;
     font-family: "PT Sans", sans-serif;
+    width: 80%
 }
 mat-header-cell {
     font-family: "PT Serif", serif;
@@ -75,7 +76,7 @@ mat-cell>a:visited, mat-cell>span>a:visited {
     padding: 5px;
 }
 #filter {
-    width: 70%;
+    width: 69%;
 }
 
 .subheader {

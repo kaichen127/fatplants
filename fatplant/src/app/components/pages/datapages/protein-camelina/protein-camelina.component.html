@@ -1,3 +1,4 @@
+<p>protein-camelina works!</p>
 <mat-card id="protein-page">
     <button mat-button routerLink='/datasets/arabidopsis'>
         <mat-icon>keyboard_arrow_left</mat-icon><span class='back-text'>Back</span>
@@ -20,13 +21,13 @@
             </span>
         </h2>
         <p class='alt-names'>
-            {{ arapidopsisData.gene_names }}
+            {{ proteinData.gene_names }}
         </p>
 
         <br>
         <h2 *ngIf="translationObject[0]" class='title'>Homeologs</h2>
         <div style="margin-left: 15px;" *ngIf="translationObject[0]">
-            <a  *ngIf="translationObject[0].camelina" [routerLink]="['/camelina_prot', translationObject[0].camelina]">Camelina</a> | <a *ngIf="translationObject[0].glymine_max" [routerLink]="['/soybean_prot', translationObject[0].glymine_max]">Soybean</a>
+            <a  *ngIf="translationObject[0].arabidopsis" [routerLink]="['/protein', translationObject[0].arabidopsis]">Arabidopsis</a> | <a *ngIf="translationObject[0].glymine_max" [routerLink]="['/soybean_prot', translationObject[0].glymine_max]">Soybean</a>
         </div>
 
         <!-- <p class='status'> Created {{arapidopsisData.created}} | Modified {{arapidopsisData.modified}}</p>
@@ -35,7 +36,8 @@
         <mat-card class='protein-info-card'>
             <h3 class='protein-subtitle'>Identification</h3>
             <div class='protein-info-wrapper'>
-                <p class='protein-info'>Gene: {{ arapidopsisData.gene_names }}</p>
+                <p class='protein-info'>Gene: {{ proteinData.gene_names }}</p>
+                <p class='protein-info'>CS ID: {{ arapidopsisData.cs_id }}</p>
                 <p class='protein-info protein-subtitle'>Protein Names: {{ arapidopsisData.protein_name }} </p>
                 <p class='protein-info'>RefSeq ID: {{ arapidopsisData.refseq_id }}</p>
                 <p class='protein-info'>Tair ID: {{ arapidopsisData.tair_id }}</p>
