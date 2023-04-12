@@ -97,14 +97,16 @@ export class DataAnalysisComponent implements OnInit {
         this.uniprot = params['uniprot_id'];
         this.hasSearched = true;
         let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
-        if (!this.blastSelected) this.fsaccess.get(this.proteinDatabase['collection'], field, this.uniprot).subscribe((res : any) => {
-          if (this.validateResult(res[0]))
-          {
-            this.query = this.uniprot
+        if (!this.blastSelected) {
+          this.fsaccess.get(this.proteinDatabase['collection'], field, this.uniprot).subscribe((res : any) => {
+            if (this.validateResult(res[0]))
+            {
+              this.query = this.uniprot
 
-          }
+            }
 
-        })
+          })
+        }
         else this.fsaccess.get(this.proteinDatabase['collection'], field, this.uniprot).subscribe((res : any) => {
           if (this.validateResult(res[0])) this.query = res[0].sequence;
           
@@ -144,15 +146,20 @@ export class DataAnalysisComponent implements OnInit {
 
         let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
 
-        if (field != 'geneName' && field != 'proteinNames') {
-          this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);        
-          this.fsaccess.get(this.proteinDatabase['collection'], field, this.query.toUpperCase(), 1).subscribe(res => {
-            console.log(typeof res, res)
-            if (this.validateResult(res[0])) {
-              // this.results.uniprot_id = this.uniprot;
-              // this.results.checkLmpd(this.proteindatabase); 
-            }
-          })
+        // FULL SEARCH
+        if (field == "fullSearch") {
+          this.fsaccess.searchSQLAPI(this.query, this.proteinDatabase["fullSearchSpecies"]).subscribe((data: any) => {
+
+            if (data.length > 10)
+              this.relatedGeneNames = data.slice(0, 10);
+            else
+              this.relatedGeneNames = data;
+
+            // TODO: Get necessary data from these initial search
+            // results (like sequence, etc.)
+            console.log(data);
+            this.validateResult(data[0]);
+          });
       }
       else {
         this.fsaccess.getIDSearchingArrayString('OnestopTranslationExtended', field, this.query).subscribe(translationRes => {
@@ -180,20 +187,7 @@ export class DataAnalysisComponent implements OnInit {
 
     let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
     
-    // separate standard search logic and name search logic (which uses arrays)
-    if (field != 'geneName' && field != 'proteinNames') {
-      this.items = this.fsaccess.get(this.proteinDatabase['collection'], field, this.query, 10);
-      this.items.subscribe(data =>
-        {
-          this.proteinDatabase['items'] = []
-          for (let i = 0; i < data.length; ++i)
-          {
-            this.proteinDatabase['items'].push(data[i][field]);
-          }
-        }
-      )
-    }
-    else {
+    if (field != "fullSearch" ) {
 
       if (field == 'geneName')
         this.items = this.fsaccess.getGeneNameAutofill('OnestopTranslationExtended', this.query);

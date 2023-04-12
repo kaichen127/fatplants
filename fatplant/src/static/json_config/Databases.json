@@ -2,12 +2,14 @@
     "Arabidopsis":  { 
                         "database" : "Arabidopsis", 
                         "collection" : "/New_Lmpd_Arabidopsis_Details",
+                        "fullSearchSpecies": "lmpd",
                         "uniprot2kegg" : "/Arabidopsis_Uniprot2Kegg",
                         "kegg2path" : "/Arabidopsis_Kegg2Path",
                         "tabs" : ["Uniprot ID", "Tair ID", "Full Search"], 
                         "query" :   {
                             "Uniprot ID" : "uniprot_id", 
                             "Tair ID" : "tair_id",
+                            "Full Search": "fullSearch",
                             "Gene Name" : "geneName",
                             "Protein Name" : "proteinNames"
                         },
@@ -41,8 +43,9 @@
                     },
     "Soybean" :     { 
                         "database" : "Soybean", 
-                        "tabs" : ["Uniprot ID", "USDA-ARS ID"], 
+                        "tabs" : ["Uniprot ID", "USDA-ARS ID", "Full Search"], 
                         "collection" : "/New_Soybean_Detail",
+                        "fullSearchSpecies": "soya",
                         "uniprot2kegg" : "",
                         "kegg2path" : "",
                         "defaultUniprot" : "A0A0R0KFD7",
@@ -50,7 +53,7 @@
                         "query" : {
                             "Uniprot ID" : "uniprot_id", 
                             "USDA-ARS ID" : "GeneID",
-                            "Gene Name" : "geneNames",
+                            "Full Search" : "fullSearch",
                             "Protein Name" : "proteinNames"
                         },
                         "items" : [],
@@ -60,12 +63,13 @@
                     },
     "Camelina":     { 
                         "database" : "Camelina",
-                        "tabs" : ["Uniprot ID", "CSA ID"],
+                        "tabs" : ["Uniprot ID", "CSA ID", "Full Search"],
                         "collection" : "/Camelina",
+                        "fullSearchSpecies": "camelina",
                         "uniprot2kegg" : "",
                         "kegg2path" : "",
                         "tabIndex" : 0,
-                        "query" : {"Uniprot ID" : "", "CSA ID" : ""},
+                        "query" : {"Uniprot ID" : "", "CSA ID" : "", "Full Search": "fullSearch"},
                         "items" : [],
                         "displayDetails" : {}  
                     }
