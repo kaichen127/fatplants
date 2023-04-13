@@ -30,6 +30,7 @@ import { CustomPathwayListComponent } from './components/pages/tools/custom-path
 import { PathwayViewerComponent } from './components/pages/tools/pathway-viewer/pathway-viewer.component';
 import { ProteinSoybeanComponent } from './components/pages/datapages/protein-soybean/protein-soybean.component';
 import { ProteinCamelinaComponent } from './components/pages/datapages/protein-camelina/protein-camelina.component';
+import { ExtendedPathwayComponent } from './components/pages/tools/extended-pathway/extended-pathway.component';
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'homepage', component: HomepageComponent},
@@ -62,6 +63,7 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'soybean_prot/:uniprot_id', component: ProteinSoybeanComponent},
 {path: 'camelina_prot/:uniprot_id', component: ProteinCamelinaComponent},
 {path: 'pathway-viewer', component: PathwayViewerComponent},
+{path: 'extended-pathway', component: ExtendedPathwayComponent},
 {path: '**', redirectTo: '/homepage'}];
 
 @NgModule({

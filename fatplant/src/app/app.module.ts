@@ -87,6 +87,7 @@ import { CustomPathwayDialogComponent } from './components/pages/tools/custom-pa
 import { PathwayViewerComponent } from './components/pages/tools/pathway-viewer/pathway-viewer.component';
 import { ProteinSoybeanComponent } from './components/pages/datapages/protein-soybean/protein-soybean.component';
 import { ProteinCamelinaComponent } from './components/pages/datapages/protein-camelina/protein-camelina.component';
+import { ExcludeListItemPipe, ExtendedPathwayComponent } from './components/pages/tools/extended-pathway/extended-pathway.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,9 @@ import { ProteinCamelinaComponent } from './components/pages/datapages/protein-c
     CustomPathwayDialogComponent,
     PathwayViewerComponent,
     ProteinSoybeanComponent,
-    ProteinCamelinaComponent
+    ProteinCamelinaComponent,
+    ExtendedPathwayComponent,
+    ExcludeListItemPipe
   ],
   entryComponents: [
     StructureViewerComponent,
