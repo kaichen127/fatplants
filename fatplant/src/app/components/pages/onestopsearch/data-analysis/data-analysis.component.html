@@ -44,11 +44,11 @@
           <th mat-header-cell *matHeaderCellDef> UniProt ID </th>
           <td mat-cell *matCellDef="let element"> {{element.uniprot_id}} </td>
         </ng-container>
-        <ng-container matColumnDef="geneName" *ngIf="this.proteinDatabase['fullSearchSpecies'] != 'Camelina'">
+        <ng-container matColumnDef="geneName" *ngIf="this.proteinDatabase['fullSearchSpecies'] != 'camelina'">
           <th mat-header-cell *matHeaderCellDef> Gene Name </th>
           <td mat-cell *matCellDef="let element"> {{element.geneName || element.gene_names}} </td>
         </ng-container>
-        <ng-container matColumnDef="geneName" *ngIf="this.proteinDatabase['fullSearchSpecies'] == 'Camelina'">
+        <ng-container matColumnDef="geneName" *ngIf="this.proteinDatabase['fullSearchSpecies'] == 'camelina'">
           <th mat-header-cell *matHeaderCellDef> Tair ID </th>
           <td mat-cell *matCellDef="let element"> {{element.tair_id }} </td>
         </ng-container>
