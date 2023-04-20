@@ -5,7 +5,7 @@
                         "fullSearchSpecies": "lmpd",
                         "uniprot2kegg" : "/Arabidopsis_Uniprot2Kegg",
                         "kegg2path" : "/Arabidopsis_Kegg2Path",
-                        "tabs" : ["Uniprot ID", "Tair ID", "Full Search"], 
+                        "tabs" : ["Full Search", "Uniprot ID", "Tair ID"], 
                         "query" :   {
                             "Uniprot ID" : "uniprot_id", 
                             "Tair ID" : "tair_id",
@@ -43,7 +43,7 @@
                     },
     "Soybean" :     { 
                         "database" : "Soybean", 
-                        "tabs" : ["Uniprot ID", "USDA-ARS ID", "Full Search"], 
+                        "tabs" : ["Full Search", "Uniprot ID"], 
                         "collection" : "/New_Soybean_Detail",
                         "fullSearchSpecies": "soya",
                         "uniprot2kegg" : "",
@@ -63,13 +63,13 @@
                     },
     "Camelina":     { 
                         "database" : "Camelina",
-                        "tabs" : ["Uniprot ID", "CSA ID", "Full Search"],
+                        "tabs" : ["Full Search", "Uniprot ID", "Tair ID"],
                         "collection" : "/Camelina",
                         "fullSearchSpecies": "camelina",
                         "uniprot2kegg" : "",
                         "kegg2path" : "",
                         "tabIndex" : 0,
-                        "query" : {"Uniprot ID" : "", "CSA ID" : "", "Full Search": "fullSearch"},
+                        "query" : {"Uniprot ID" : "uniprot_id", "Tair ID" : "tair_id", "Full Search": "fullSearch"},
                         "items" : [],
                         "displayDetails" : {}  
                     }

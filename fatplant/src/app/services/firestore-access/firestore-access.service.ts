@@ -71,7 +71,27 @@ export class FirestoreAccessService {
     return this.afs.collection("Species_Mapper", ref => ref.where("camelina", "==", id)).valueChanges();
   }
 
+  getBaseProteinFromUniProt(uniprot_id: string, species: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/uniprot/?species="+ species +"&uniprot=" + uniprot_id);
+  }
+
+  getBaseProteinFromTair(species: string, tair: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/tair/?species="+species+"&tair="+ tair);
+  }
+
+  getExtendedDetails(fp_id: string, species: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/details/?species="+species+"&id="+fp_id);
+  }
+
   searchSQLAPI(query: string, species: string) {
     return this.http.get("https://fatplantsmu.ddns.net:5000/get_species_records/?species="+ species +"&expression=" + query);
+  }
+
+  getHomoLogs(uniprot_id: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/homolog/?uniprot_id=" + uniprot_id);
+  }
+
+  getPathwaysByUniProt(species: string, uniprot_id: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/pathways/?species="+species+"&uniprot_id="+uniprot_id);
   }
 }

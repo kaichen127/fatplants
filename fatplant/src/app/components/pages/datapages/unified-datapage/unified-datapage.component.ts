@@ -30,93 +30,6 @@ export class UnifiedDatapageComponent implements OnInit {
     value: "gene_names"
   };
 
-  filterFields = { 
-    "arabidopsis": [
-      {
-        name: "Gene Name",
-        value: "gene_names"
-      },
-      {
-        name: "Uniprot ID",
-        value: "uniprot_id"
-      },
-      {
-        name: "Protein Names",
-        value: "protein_name"
-      },
-      {
-        name: "RefSeq ID",
-        value: "refseq_id"
-      },
-      {
-        name: "Tair ID",
-        value: "tair_id"
-      }
-    ],
-    "camelina": [
-      {
-        name: "CS ID",
-        value: "cs_id"
-      },
-      {
-        name: "Uniprot ID",
-        value: "uniprot_id"
-      },
-      {
-        name: "Protein Names",
-        value: "protein_name"
-      },
-      {
-        name: "RefSeq ID",
-        value: "refseq_id"
-      },
-      {
-        name: "Tair ID",
-        value: "tair_id"
-      }
-    ],
-    "soybean": [
-      {
-        name: "Gene Name",
-        value: "gene_names"
-      },
-      {
-        name: "Uniprot ID",
-        value: "uniprot_id"
-      },
-      {
-        name: "Protein Names",
-        value: "protein_name"
-      },
-      {
-        name: "RefSeq ID",
-        value: "refseq_id"
-      }
-    ],
-    "fattyacid": [
-      {
-        name: "Formula",
-        value: "Formula"
-      },
-      {
-        name: "Other Names",
-        value: "OtherNames"
-      },
-      {
-        name: "SOFA ID",
-        value: "SOFAID"
-      },
-      {
-        name: "Systematic Name",
-        value: "SystematicName"
-      },
-      {
-        name: "Delta Notation",
-        value: "Delta-Notation"
-      }
-    ]
-  }
-
   constructor(private route: ActivatedRoute, private router: Router, private db: FirestoreConnectionService) {
     this.route.paramMap.subscribe(params => {
       this.dataset = params.get('dataset');
@@ -181,10 +94,6 @@ export class UnifiedDatapageComponent implements OnInit {
           this.arabidopsisDataSource = new MatTableDataSource([]);
           this.loading = false;
       });
-      // this.db.searchItems('New_Lmpd_Arabidopsis', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
-      //     this.arabidopsisDataSource = new MatTableDataSource(data);
-      //     this.loading = false;
-      // });
     }
     else if (this.dataset == "camelina") {
       this.db.searchSQLAPI(encodeURIComponent(this.searchQuery), "camelina").subscribe((data :any[]) => {
@@ -194,10 +103,6 @@ export class UnifiedDatapageComponent implements OnInit {
         this.camelinaDataSource = new MatTableDataSource([]);
         this.loading = false;
       });
-      // this.db.searchItems('New_Camelina', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
-      //   this.camelinaDataSource = new MatTableDataSource(data);
-      //   this.loading = false;
-      // });
     }
     else if (this.dataset == "soybean") {
       this.db.searchSQLAPI(encodeURIComponent(this.searchQuery), "soya").subscribe((data :any[]) => {
@@ -207,14 +112,13 @@ export class UnifiedDatapageComponent implements OnInit {
         this.soybeanDataSource = new MatTableDataSource([]);
         this.loading = false;
       });
-      // this.db.searchItems('New_Soybean', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
-      //   this.soybeanDataSource = new MatTableDataSource(data);
-      //   this.loading = false;
-      // });
     }
     else {
-      this.db.searchItems('Fatty Acid', this.selectedFilterField.value, this.searchQuery).subscribe(data => {
+      this.db.searchFattyAcid(encodeURIComponent(this.searchQuery)).subscribe((data: any[]) => {
         this.fattyAcidDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      }, error => {
+        this.fattyAcidDataSource = new MatTableDataSource([]);
         this.loading = false;
       });
     }
@@ -272,6 +176,7 @@ export class UnifiedDatapageComponent implements OnInit {
 
   refreshData() {
     this.showingSearch = false;
+    this.searchQuery = "";
     switch (this.dataset) {
       case "arabidopsis":
         this.refreshArapidopsisData();
@@ -366,7 +271,7 @@ export class UnifiedDatapageComponent implements OnInit {
   }
 
   getArabidopsisData() {
-    let docs=this.db.getRows('New_Lmpd_Arabidopsis', "uniprot_id").subscribe(data =>{
+    this.db.getDataSetSamples("lmpd").subscribe((data: any[]) => {
       this.arabidopsisDataSource = new MatTableDataSource(data);
       let arabidopsisData: FatPlantDataSource = {
         retrievalDate: Date.now(),
@@ -377,7 +282,7 @@ export class UnifiedDatapageComponent implements OnInit {
     });
   }
   getCamelinaData() {
-    let docs=this.db.getRows('New_Camelina', "uniprot_id").subscribe(data =>{
+    this.db.getDataSetSamples("camelina").subscribe((data: any[]) => {
       this.camelinaDataSource = new MatTableDataSource(data);
 
       let camelinaData: FatPlantDataSource = {
@@ -395,7 +300,7 @@ export class UnifiedDatapageComponent implements OnInit {
     });
   }
   getSoybeanData() {
-    let docs=this.db.connect('New_Soybean').subscribe( (data : Soybean[]) =>{
+    this.db.getDataSetSamples("soya").subscribe((data: any[]) => {
       this.soybeanDataSource = new MatTableDataSource(data);
       let soybeanData: FatPlantDataSource = {
         retrievalDate: Date.now(),
@@ -406,7 +311,7 @@ export class UnifiedDatapageComponent implements OnInit {
     });
   }
   getFattyAcidData() {
-    let docs=this.db.connect('Fatty Acid').subscribe(data =>{
+    this.db.getDataSetSamples("fatty_acid").subscribe((data: any[]) =>{
       this.fattyAcidDataSource = new MatTableDataSource(data);
       let fattyAcidData: FatPlantDataSource = {
         retrievalDate: Date.now(),

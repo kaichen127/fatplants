@@ -1,17 +1,11 @@
 <mat-card id="base">
     <div class="left-menu">
       <mat-form-field id="filter">
-        <input matInput [value]="searchQuery" (keyup)="onSearchChange($event)" placeholder="Filter">
+        <input matInput [value]="searchQuery" (keyup)="onSearchChange($event)" placeholder="Search">
       </mat-form-field>
       <mat-icon (click)='applySearchQuery()' class="pointer" matTooltip="Search">search</mat-icon>
-      <mat-icon (click)='refreshData()' class="pointer" matTooltip="Refresh Data">refresh</mat-icon>
+      <mat-icon (click)='refreshData()' class="pointer" matTooltip="Clear Search">refresh</mat-icon>
       
-      <!-- <mat-form-field>
-      <mat-label>Filter on Field</mat-label>
-        <mat-select (selectionChange)="onFieldChange($event)" [value]="filterFields[this.dataset][0]">
-            <mat-option *ngFor="let option of filterFields[this.dataset]" [value]="option">{{ option.name }}</mat-option>
-        </mat-select>
-      </mat-form-field> -->
       <br><br><br>
         <p class="subheader protein">Protein Species</p>
         <a class="menu" [class.active]='this.dataset == "arabidopsis"' (click)='changeDataset("arabidopsis")'>Arabidopsis</a>
@@ -121,17 +115,17 @@
 
         <ng-container matColumnDef="picture">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Picture</mat-header-cell>
-          <mat-cell *matCellDef="let elem"><a href="http://opsin.ch.cam.ac.uk/opsin/{{elem.SystematicName}}.png" target="_blank"><img src="http://opsin.ch.cam.ac.uk/opsin/{{elem.SystematicName}}.png" height="40" width="100" alt="Fatty Acid Picture"></a></mat-cell>
+          <mat-cell *matCellDef="let elem"><a href="http://opsin.ch.cam.ac.uk/opsin/{{elem.Name}}.png" target="_blank"><img src="http://opsin.ch.cam.ac.uk/opsin/{{elem.Name}}.png" height="40" width="100" alt="Fatty Acid Picture"></a></mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Systematic Name </mat-header-cell>
-        <mat-cell *matCellDef="let elem"> {{ elem.SystematicName }} </mat-cell>
+        <mat-cell *matCellDef="let elem"> {{ elem.Name }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="mass">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Mass </mat-header-cell>
-        <mat-cell *matCellDef="let elem"> {{elem.Mass}}</mat-cell>
+        <mat-cell *matCellDef="let elem"> {{elem.mass}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="sofa_id">
@@ -146,12 +140,12 @@
 
       <ng-container matColumnDef="other_names">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Other Names</mat-header-cell>
-        <mat-cell *matCellDef="let elem">{{elem.OtherNames}}</mat-cell>
+        <mat-cell *matCellDef="let elem">{{elem.other_names}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="delta_notation">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Delta Notation</mat-header-cell>
-        <mat-cell *matCellDef="let elem">{{elem['Delta-Notation']}}</mat-cell>
+        <mat-cell *matCellDef="let elem">{{elem.delta_notation}}</mat-cell>
       </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></mat-header-row>

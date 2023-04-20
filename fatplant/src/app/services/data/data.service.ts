@@ -38,23 +38,8 @@ export class DataService {
   }
 
 
-  public getPathList(proteinDatabase: Object, uniprot_id: string): string[]
-  {
-    let authlist = [];
-
-    this.fsaccess.get(proteinDatabase['uniprot2kegg'], proteinDatabase['query']['Uniprot ID'], uniprot_id).subscribe(
-      data => {
-      this.fsaccess.get(proteinDatabase['kegg2path'], 'kegg', data[0]['kegg'], 1, true).subscribe(
-        data => {
-          for (let i = 0; i < data.length; ++i)
-          {
-            authlist.push(data[i]['path'])
-          }
-        }
-      )}
-    );
-
-    return authlist;
+  getPathwaysByUniProt(species: string, uniprot_id: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/pathways/?species="+species+"&uniprot_id="+uniprot_id);
   }
 
 }

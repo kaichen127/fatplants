@@ -36,4 +36,12 @@ export class FirestoreConnectionService {
   searchSQLAPI(query: string, species: string) {
     return this.http.get("https://fatplantsmu.ddns.net:5000/get_species_records/?species="+ species +"&expression=" + query);
   }
+
+  getDataSetSamples(species: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/sample/?species="+species)
+  }
+
+  searchFattyAcid(query: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/fatty_acid_search/?query=" + query);
+  }
 }

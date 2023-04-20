@@ -42,13 +42,6 @@ mat-card.base {
   min-height: 110%;
 }
 
-mat-select {
-  width: 20%;
-  border: solid grey 1px;
-  border-radius: 2px;
-  padding: 4px 4px 4px 4px;
-}
-
 .wrapper {
   display: flex;
   justify-content: space-between;
@@ -152,4 +145,32 @@ a:hover {
 #canvas {
   width: max-content;
   height: max-content;
+}
+
+#genetable {
+  width: 50%;
+  margin: 10px auto;
+  table-layout: fixed;
+}
+
+.generow {
+  text-align: left;
+}
+
+.generow:hover {
+  background-color: lightgray;
+}
+
+.generow.selected {
+  background-color: rgba($lime-green, 0.4);
+  transition: all 0.5s;
+}
+
+th, td.mat-cell {
+  overflow: hidden;
+  width:auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 5px;
+  padding-right: 5px;
 }

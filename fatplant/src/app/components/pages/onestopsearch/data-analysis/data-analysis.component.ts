@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, SystemJsNgModuleLoader, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ChangeDetectorRef, SystemJsNgModuleLoader, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
@@ -16,6 +16,7 @@ import { DataService } from 'src/app/services/data/data.service';
 import { ShowresultsComponent } from '../showresults/showresults.component';
 
 import { FirestoreAccessService } from 'src/app/services/firestore-access/firestore-access.service';
+import { error } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -33,6 +34,7 @@ export class DataAnalysisComponent implements OnInit {
   query: string = null;
   tabIndex: number;
   uniprot: string = null;
+  fp_id: string = null;
   searchError: boolean = false;
   isLoading: boolean;
   hasSearched: boolean = false;
@@ -42,6 +44,10 @@ export class DataAnalysisComponent implements OnInit {
   relatedGeneNames = [];
   displayedGeneColumns = ["uniprot_id", "geneName", "proteinNames"]
   selectedGeneUniprot:string = "";
+  selectedFPID:string = "";
+
+  // these are the base details to pass to the display
+  baseDetails: any = null;
 
   private imgUrl: SafeResourceUrl;
   private imgs = [];
@@ -52,76 +58,61 @@ export class DataAnalysisComponent implements OnInit {
   Databases : any;
 
   proteinDatabase: Object; 
-  private pathwaydb = [];
+  species: string = 'lmpd';
 
-  private species: string;
-  private species_long: string;
-  private gene_name: string;
-
-  private gene_symbol: string;
-  private lmp_id: string;
-  private mrna_id: string;
-  private protein_entry: string;
-  private protein_gi: string;
-  private refseq_id: string;
-  private seqlength: string;
-  private taxid: string;
-
-  private blast: string;
-  private result: string;
-  private blastRes = [];
-  private showblastRes = [];
   @ViewChild(ShowresultsComponent, {})
   private results: ShowresultsComponent;
 
   blastSelected: boolean = false;
   identifierControl = new FormControl(this.query);
   // filteredOptions: Observable<Lmpd_Arapidopsis[]>;
+  loadingSearch = false;
 
   constructor(private http: HttpClient, private afs: AngularFirestore, private sanitizer: DomSanitizer, private viewportScroller: ViewportScroller, private router: Router,
      private route: ActivatedRoute, private dataService: DataService, private location: Location,
-     private fsaccess: FirestoreAccessService) {
+     private fsaccess: FirestoreAccessService,
+     private detRef: ChangeDetectorRef) {
 
+  }
+
+  ngOnInit() {
 
     this.http.get('/static/json_config/Databases.json', {responseType: 'json'}).subscribe(data => 
     {
       this.Databases = data;
       this.proteinDatabase = this.Databases['Arabidopsis'];
+      
+      this.route.params.subscribe(params => {
+        if (params['uniprot_id'] != null) {
+          this.uniprot = params['uniprot_id'];
+          this.hasSearched = true;
+          let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
+          if (!this.blastSelected) {
+            this.fsaccess.getBaseProteinFromUniProt(this.query, this.proteinDatabase["fullSearchSpecies"]).subscribe((data: any) => {
+              this.relatedGeneNames = data;
+    
+              this.validateResult(data[0]);
+            });
+          }
+          else this.fsaccess.get(this.proteinDatabase['collection'], field, this.uniprot).subscribe((res : any) => {
+            if (this.validateResult(res[0])) this.query = res[0].sequence;
+            
+  
+          });
+          setTimeout(() => {
+            console.log('timeout');
+          }, 3000);
+        }
+      });
+    
     });
     this.isLoading = false;
   }
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      if (params['uniprot_id'] != null) {
-        this.uniprot = params['uniprot_id'];
-        this.hasSearched = true;
-        let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
-        if (!this.blastSelected) {
-          this.fsaccess.get(this.proteinDatabase['collection'], field, this.uniprot).subscribe((res : any) => {
-            if (this.validateResult(res[0]))
-            {
-              this.query = this.uniprot
-
-            }
-
-          })
-        }
-        else this.fsaccess.get(this.proteinDatabase['collection'], field, this.uniprot).subscribe((res : any) => {
-          if (this.validateResult(res[0])) this.query = res[0].sequence;
-          
-
-        });
-        setTimeout(() => {
-          console.log('timeout');
-        }, 3000);
-      }
-    });
-
-  }
-
 
   OneClick() {
+
+    this.loadingSearch = true;
 
     if (this.proteindatabase === undefined) {
       this.proteindatabase = 'Arabidopsis';
@@ -144,83 +135,82 @@ export class DataAnalysisComponent implements OnInit {
     }
     else{
 
-        let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
+      let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
 
-        // FULL SEARCH
-        if (field == "fullSearch") {
-          this.fsaccess.searchSQLAPI(this.query, this.proteinDatabase["fullSearchSpecies"]).subscribe((data: any) => {
+      // FULL SEARCH
+      if (field == "fullSearch") {
+        this.fsaccess.searchSQLAPI(this.query, this.proteinDatabase["fullSearchSpecies"]).subscribe((data: any) => {
 
-            if (data.length > 10)
-              this.relatedGeneNames = data.slice(0, 10);
-            else
-              this.relatedGeneNames = data;
+          if (data.length > 10)
+            this.relatedGeneNames = data.slice(0, 10);
+          else
+            this.relatedGeneNames = data;
 
-            // TODO: Get necessary data from these initial search
-            // results (like sequence, etc.)
-            console.log(data);
-            this.validateResult(data[0]);
-          });
+          this.validateResult(data[0]);
+        }, error => {
+          this.searchError = true;
+          this.loadingSearch = false;
+        });
+      }
+      else if (field == "uniprot_id") {
+        this.fsaccess.getBaseProteinFromUniProt(this.query, this.proteinDatabase["fullSearchSpecies"]).subscribe((data: any) => {
+          this.relatedGeneNames = data;
+
+          this.validateResult(data[0]);
+        }, error => {
+          this.searchError = true;
+          this.loadingSearch = false;
+        });
       }
       else {
-        this.fsaccess.getIDSearchingArrayString('OnestopTranslationExtended', field, this.query).subscribe(translationRes => {
+        this.fsaccess.getBaseProteinFromTair(this.proteinDatabase["fullSearchSpecies"], this.query).subscribe((data: any) => {
+          this.relatedGeneNames = data;
 
-          if (translationRes.length > 1) {
-            this.relatedGeneNames = translationRes;
-          }
-
-          if (translationRes[0]){
-            this.fsaccess.get(this.proteinDatabase['collection'], 'uniprot_id', translationRes[0]['uniprot_id'], 1).subscribe(res => {
-              this.validateResult(res[0])
-            });
-          }
-          else {
-            this.searchError = true;
-          }
-        })
+          this.validateResult(data[0]);
+        }, error => {
+          this.searchError = true;
+          this.loadingSearch = false;
+        });
       }
-    }
-  }
-
-  Search(event) {
-    if (this.query === '' || this.blastSelected || event.key == "ArrowUp"
-    || event.key == "ArrowDown" || event.key == "ArrowLeft" || event.key == "ArrowDown") { return; }
-
-    let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
-    
-    if (field != "fullSearch" ) {
-
-      if (field == 'geneName')
-        this.items = this.fsaccess.getGeneNameAutofill('OnestopTranslationExtended', this.query);
-      
-      else
-        this.items = this.fsaccess.getProteinNameAutofill('OnestopTranslation', this.query);
-        
-      this.items.subscribe(data =>
-        {
-          this.proteinDatabase['items'] = []
-          for (let i = 0; i < data.length; ++i)
-          {
-            if (field == 'geneName')
-              this.proteinDatabase['items'].push(data[i]['geneName']);
-            
-              else
-              this.proteinDatabase['items'].push(data[i]['primaryProteinName']);
-          }
-        }
-      )
     }
   }
 
   validateResult(result: any): boolean {
+
+    this.loadingSearch = false;
+    this.baseDetails = [];
+    this.uniprot = null;
+    this.fp_id = null;
+    this.detRef.detectChanges();
+
     if (result == undefined) {
       this.searchError = true;
       this.location.replaceState('one_click');
+      this.detRef.detectChanges();
       return false;
     }
     else {
+
+      if (!result.fp_id) {
+        this.fsaccess.getBaseProteinFromUniProt(result.uniprot_id,this.proteinDatabase['fullSearchSpecies']).subscribe((data:any[]) => {
+          if (data && data.length > 0) {
+            this.uniprot = data[0].uniprot_id;
+            this.location.replaceState('one_click/' + this.uniprot + "/summary");
+            this.selectedGeneUniprot = this.uniprot;
+            this.selectedFPID = data[0].fp_id;
+            this.baseDetails = data[0];
+            this.detRef.detectChanges();
+            return true;
+          }
+        });
+      }
+
       this.uniprot = result.uniprot_id;
       this.location.replaceState('one_click/' + this.uniprot + "/summary");
       this.selectedGeneUniprot = this.uniprot;
+      this.selectedFPID = result.fp_id;
+      this.baseDetails = result;
+      this.detRef.detectChanges();
       return true;
     }
   }
@@ -260,22 +250,43 @@ export class DataAnalysisComponent implements OnInit {
     this.proteinDatabase = this.Databases[database];
     this.proteinDatabase['tabIndex'] = 0;
     this.query = "";
-    // this.setDefaultSearch()
+    this.species = this.proteinDatabase['fullSearchSpecies'];
+    this.validateResult("");
+    this.relatedGeneNames = [];
     return;
   }
 
   setDefaultSearch() {
-    this.fsaccess.get(this.proteinDatabase['collection'], 
-                      this.proteinDatabase['query']['Uniprot ID'], 
-                      this.proteinDatabase['defaultUniprot']).subscribe(
-      data => {
-        if (!this.blastSelected) {
-          let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
-          this.query = data[0][field]; 
-        }
-        else this.query = data[0]['sequence'];
-      }
-    )
 
+    let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
+    let species = this.proteinDatabase['database'];
+
+    if (species == "Arabidopsis") {
+      if (field == "uniprot_id")
+        this.query = "Q9SS98";
+
+      else if (field == "tair_id")
+        this.query = "AT3G01570";
+
+      else
+        this.query = "Indole-3-glycerol-phosphate";
+      
+    }
+    else if (species == "Camelina") {
+      if (field == "uniprot_id")
+        this.query = "Q39026";
+
+      else if (field == "tair_id")
+        this.query = "AT2G43790";
+
+      else
+        this.query = "Mitogen-activated protein";
+    }
+    else {
+      if (field == "uniprot_id")
+        this.query = "I1JR35";
+      else
+        this.query = "Fucosyltransferase";
+    }
   }
 }
