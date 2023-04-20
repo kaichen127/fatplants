@@ -2,23 +2,35 @@
     "Arabidopsis":  { 
                         "database" : "Arabidopsis", 
                         "collection" : "/New_Lmpd_Arabidopsis_Details",
+                        "fullSearchSpecies": "lmpd",
                         "uniprot2kegg" : "/Arabidopsis_Uniprot2Kegg",
                         "kegg2path" : "/Arabidopsis_Kegg2Path",
-                        "tabs" : ["Uniprot ID", "Tair ID", "Gene Name"], 
+                        "tabs" : ["Full Search", "Uniprot ID", "Tair ID"], 
                         "query" :   {
                             "Uniprot ID" : "uniprot_id", 
                             "Tair ID" : "tair_id",
+                            "Full Search": "fullSearch",
                             "Gene Name" : "geneName",
                             "Protein Name" : "proteinNames"
                         },
                         "defaultUniprot" : "Q09152",
                         "tabIndex" : 0,
                         "displayDetails" : [    
-                                                { "field" : "Gene Name" ,
+                                                { "field" : "Full Search" ,
                                                     "tag" : "gene_names"}, 
                                                 { "field" : "Protein Names" , 
                                                     "tag" : "protein_names"}, 
                                                 { "field" : "Uniprot ID" , 
+                                                    "tag" : "uniprot_id"},
+                                                { "field" : "Tair ID" , 
+                                                    "tag" : "tair_id"},
+                                                { "field" : "RefSeq ID" , 
+                                                    "tag" : "refseq_id"},
+                                                { "field" : "Portein Sequence Length" , 
+                                                    "tag" : "species_long"}, 
+                                                { "field" : "protein Tax ID" , 
+                                                    "tag" : "taxid"}, 
+                                                { "field" : "Protein Uniprot ID" , 
                                                     "tag" : "uniprot_id"},
                                                 { "field" : "Tair ID" , 
                                                     "tag" : "tair_id"},
@@ -31,8 +43,9 @@
                     },
     "Soybean" :     { 
                         "database" : "Soybean", 
-                        "tabs" : ["Uniprot ID", "USDA-ARS ID"], 
+                        "tabs" : ["Full Search", "Uniprot ID"], 
                         "collection" : "/New_Soybean_Detail",
+                        "fullSearchSpecies": "soya",
                         "uniprot2kegg" : "",
                         "kegg2path" : "",
                         "defaultUniprot" : "A0A0R0KFD7",
@@ -40,7 +53,7 @@
                         "query" : {
                             "Uniprot ID" : "uniprot_id", 
                             "USDA-ARS ID" : "GeneID",
-                            "Gene Name" : "geneNames",
+                            "Full Search" : "fullSearch",
                             "Protein Name" : "proteinNames"
                         },
                         "items" : [],
@@ -50,12 +63,13 @@
                     },
     "Camelina":     { 
                         "database" : "Camelina",
-                        "tabs" : ["Uniprot ID", "CSA ID"],
+                        "tabs" : ["Full Search", "Uniprot ID", "Tair ID"],
                         "collection" : "/Camelina",
+                        "fullSearchSpecies": "camelina",
                         "uniprot2kegg" : "",
                         "kegg2path" : "",
                         "tabIndex" : 0,
-                        "query" : {"Uniprot ID" : "", "CSA ID" : ""},
+                        "query" : {"Uniprot ID" : "uniprot_id", "Tair ID" : "tair_id", "Full Search": "fullSearch"},
                         "items" : [],
                         "displayDetails" : {}  
                     }

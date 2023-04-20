@@ -8,6 +8,7 @@
         <ng-template matStepperIcon="number">
         </ng-template>
         <mat-step class="nav-item" #summaryStep [class.active]="isSummary" label="Summary" [completed]='false'></mat-step>
+        <mat-step class="nav-item" #structure3DStep [class.active]="is3DStructure" label="Alignments" [completed]='false'></mat-step>
         <mat-step class="nav-item" #structureStep [class.active]="isStructure" label="Structure" [completed]='false'></mat-step>
         <mat-step class="nav-item" #blastStep [class.active]="isBlast" label="Blast" [completed]='false'></mat-step>
         <mat-step class="nav-item" #pathwayStep [class.active]="isPathway" label="Pathway" [completed]='false'></mat-step>
@@ -15,48 +16,133 @@
       <div id="arrow-wrapper">
         <mat-icon id="left-arrow" [class.disabled-arrow]="!this.leftArrowEnabled" [class.enabled-arrow]="this.leftArrowEnabled"
         matTooltip="Previous Tab" matTooltipPosition="below" [matTooltipDisabled]="!this.leftArrowEnabled"
-        (click)="arrowSelect('left', summaryStep, structureStep, blastStep, pathwayStep)">keyboard_arrow_left</mat-icon>
+        (click)="arrowSelect('left', summaryStep, structure3DStep, structureStep, blastStep, pathwayStep)">keyboard_arrow_left</mat-icon>
         <span id="arrow-label">{{prettyConfig}}</span>
         <mat-icon id="right-arrow"[class.disabled-arrow]="!this.rightArrowEnabled" [class.enabled-arrow]="this.rightArrowEnabled"
         matTooltip="Next Tab" matTooltipPosition="below" [matTooltipDisabled]="!this.rightArrowEnabled"
-        (click)="arrowSelect('right', summaryStep, structureStep, blastStep, pathwayStep)">keyboard_arrow_right</mat-icon>
+        (click)="arrowSelect('right', summaryStep, structure3DStep, structureStep, blastStep, pathwayStep)">keyboard_arrow_right</mat-icon>
       </div>
     </div>
 
 <!--    summary-->
-    <div *ngIf="isSummary && (this.species) ">
-    <div class="column middle">
-      <h2>Summary</h2>
-      <div class="row">
-        <mat-progress-bar id="pdb-loading-bar" mode="indeterminate" *ngIf="g2sLoading"></mat-progress-bar>
-        <label *ngIf="!g2sLoading && noPdb">No PDB match found.</label>
-        <iframe [src]="defaultPdb" style="transform: scale(1);transform-origin: 0 0;width: 100%; min-height: 600px" *ngIf="!g2sLoading && !noPdb"></iframe>
-      </div>
-      <div class="row">
-        <h2>Sequence</h2>
-        <div id="sequence-display">{{this.species['sequence']}} 
-          <button mat-raised-button ngxClipboard id="sequence-button" color="primary" [cbContent]="this.species['sequence']"
-                  (click)="this.notificationService.popup('Copied to Clipboard!')">Copy Sequence</button>
+
+    <div *ngIf="!this.dataService.loading && isSummary && (this.extendedData) ">
+      <div id="mainContainer">
+        <p *ngIf='extendedData.status && extendedData.status === "reviewed"' class='status reviewed'>
+            <mat-icon class='info-icon' [matTooltip]='"This entry has been reviewed by the UniProtKB curators."'>info</mat-icon>
+            Reviewed
+        </p>
+        <p *ngIf='!extendedData.status || extendedData.status === "unreviewed"' class='status unreviewed'>
+            <mat-icon class='info-icon' [matTooltip]='"This entry has not been reviewed by the UniProtKB curators, and may not have complete data."'>info</mat-icon>
+            Unreviewed
+        </p>
+        <h2 class='title'>
+            <span *ngIf='extendedData.recommendedName !== undefined'>
+                {{ extendedData.recommendedName }}
+            </span>
+            <span *ngIf='extendedData.recommendedName === undefined'>
+                {{ extendedData.protein_names || extendedData.protein_name }}
+            </span>
+        </h2>
+        <p class='alt-names'>
+            {{ extendedData.gene_names }}
+        </p>
+
+        <br>
+        <h2 *ngIf="homologs" class='title'>Homeologs</h2>
+        <div style="margin-left: 15px;" *ngIf="homologs && speciesName == 'lmpd'">
+            <a *ngIf="homologs.camelina" target="_blank" [routerLink]="['/camelina_prot', homologs.camelina]">Camelina</a> | <a *ngIf="homologs.glymine_max" target="_blank" [routerLink]="['/soybean_prot', homologs.glymine_max]">Soybean</a>
         </div>
-      </div>
+        <div style="margin-left: 15px;" *ngIf="homologs && speciesName == 'camelina'">
+          <a *ngIf="homologs.arabidopsis" target="_blank" [routerLink]="['/protein', homologs.arabidopsis]">Arabidopsis</a> | <a *ngIf="homologs.glymine_max" target="_blank" [routerLink]="['/soybean_prot', homologs.glymine_max]">Soybean</a>
+        </div>
+        <div style="margin-left: 15px;" *ngIf="homologs && speciesName == 'soya'">
+          <a *ngIf="homologs.arabidopsis" target="_blank" [routerLink]="['/protein', homologs.arabidopsis]">Camelina</a> | <a *ngIf="homologs.camelina" target="_blank" [routerLink]="['/camelina_prot', homologs.camelina]">Camelina</a>
+        </div>
 
+        <div class='card-wrapper'>
+        <mat-card class='protein-info-card'>
+            <h3 class='protein-subtitle'>Identification</h3>
+            <div class='protein-info-wrapper'>
+                <p class='protein-info'>Gene: {{ extendedData.gene_names }}</p>
+                <p class='protein-info protein-subtitle'>Protein Names: {{ extendedData.protein_name }} </p>
+                <p class='protein-info'>RefSeq ID: {{ extendedData.refseq_id }}</p>
+                <p class='protein-info' *ngIf="extendedData.tair_id">Tair ID: {{ extendedData.tair_id }}</p>
+                <p class='protein-info protein-subtitle'>Uniprot ID: {{ extendedData.uniprot_id }}</p>
+                <p class='protein-info'>Organism ID: {{ extendedData.organism_id }}</p>
+            </div>
+        </mat-card>
+        <mat-card class='protein-function-card'>
+            <h3 class='protein-subtitle'>Protein Function</h3>
+            <p class='protein-function' *ngIf='extendedData.function.length > 0'>{{ extendedData.function.substr(10) }}</p>
+            <p class='protein-function' *ngIf='extendedData.function.length === 0'>No function specified for this entry.</p>
+            <b class='protein-subtitle'>Keywords:</b>
+            <p>
+                {{parseKeywords(extendedData.keywords)}}
+            </p>
+        </mat-card>
+        </div>
+        <mat-card class='domain-function-card'>
+            <h3 class='protein-subtitle'>Gene Ontology</h3>
+            <div *ngIf="extendedData.gene_ontology_go">
+                <b class='protein-subtitle'>Gene Ontology - GO</b>
+                <p class='protein-info'>&emsp; {{ extendedData.gene_ontology_go }}</p>
+            </div>
+            <div *ngIf="extendedData.gene_ontology_biological">
+                <b class='protein-subtitle'>Gene Ontology - Biological Process</b>
+                <p class='protein-info'>&emsp; {{ extendedData.gene_ontology_biological }}</p>
+            </div>
+            <div *ngIf="extendedData.gene_ontology_cellular">
+                <b class='protein-subtitle'>Gene Ontology - Cellular Component</b>
+                <p class='protein-info'>&emsp; {{ extendedData.gene_ontology_cellular }}</p>
+            </div>
+            <div *ngIf="extendedData.gene_ontology_molecular">
+                <b class='protein-subtitle'>Gene Ontology - Molecular Function</b>
+                <p class='protein-info'>&emsp; {{ extendedData.gene_ontology_molecular }}</p>
+            </div>
+        </mat-card>
+        <mat-card class='sequence-card'>
+            <h2>Sequence <button mat-raised-button ngxClipboard id="sequence-button" color="primary" [cbContent]="extendedData.sequence"
+                (click)="this.notificationService.popup('Copied to Clipboard!')">Copy Sequence</button></h2>
+            <div id="sequence-display">{{extendedData.sequence}}</div>
+        </mat-card>
+    </div>
+      
     </div>
 
-    <div class="column right">
-      <h2>Detail</h2>
+    <!-- 3D structure -->
+    <div *ngIf="is3DStructure && (this.speciesName) ">
+      <div class="column middleright">
+        <h2>Summary</h2>
+        <div class="row">
+          <mat-progress-bar id="pdb-loading-bar" mode="indeterminate" *ngIf="g2sLoading"></mat-progress-bar>
+          <label *ngIf="!g2sLoading && noPdb">No PDB match found.</label>
+          <iframe [src]="defaultPdb" style="transform: scale(1);transform-origin: 0 0;width: 100%; min-height: 600px" *ngIf="!g2sLoading && !noPdb"></iframe>
+        </div>
+        <div class="row">
+          <h2>Sequence</h2>
+          <div id="sequence-display">{{this.extendedData.sequence}} 
+            <button mat-raised-button ngxClipboard id="sequence-button" color="primary" [cbContent]="this.extendedData.sequence"
+                    (click)="this.notificationService.popup('Copied to Clipboard!')">Copy Sequence</button>
+          </div>
+        </div>
 
-      <div class="row">
-        <table class="blueTable" >
-          <tr *ngFor = "let item of proteinDatabase['displayDetails']">
-            <th><strong> {{ item['field'] }} </strong></th>
-            <td> {{ this.species[item['tag']] }} </td>
-          </tr>
-        </table>
       </div>
 
+      <!-- <div class="column right">
+        <h2>Detail</h2>
+
+        <div class="row">
+          <table class="blueTable" >
+            <tr *ngFor = "let item of proteinDatabase['displayDetails']">
+              <th><strong> {{ item['field'] }} </strong></th>
+              <td> {{ this.species[item['tag']] }} </td>
+            </tr>
+          </table>
+        </div>
+
+      </div> -->
     </div>
-    
-  </div>
 <!--    structure-->
     <div class="column middleright" *ngIf="isStructure">
       <div *ngIf="noPdb && !g2sLoading" class="centered">No PDB matches found.</div>
@@ -132,6 +218,10 @@
         ></circle-progress>
       </div>
 
+      <div class="centered" *ngIf="!showProgress && showBlastResList.length == 0">
+        There was a problem loading the BLAST results.
+      </div>
+
       <div class="row" *ngFor="let res of showBlastResList">
           <mat-accordion>
             <mat-expansion-panel>
@@ -148,38 +238,39 @@
     </div>
 <!--    pathway-->
     <div class="column middleright" *ngIf="isPathway">
-      <div class="centered" *ngIf="pathwaylist.length == 0">No pathway diagrams found in our database.</div>
-      <div *ngIf="pathwaylist.length !== 0">
-        <br>
-        <label class='pathway-label'><strong>Pathway Figures</strong></label>
-        <br>
-        <mat-radio-group
-       aria-labelledby="pathway-radio-group-label"
-        class="pathway-radio-group centered"
-        [(ngModel)]="currPath">
-        <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwaylist" [value]="pathway" (change)="loadImage(pathway)">
-         {{pathway}}
-        </mat-radio-button>
-      </mat-radio-group>
-        <mat-progress-bar mode='indeterminate' *ngIf='this.isLoadingImage'></mat-progress-bar>
-        <br>
-        <div id="pathway-viewer">
-      </div>
-      
-        <h5 *ngIf="noimg">No pathway figure found in database.</h5>
-      </div>
-      
-        <div>
+      <div class="centered" style="margin: 10px auto; width: 80%;" *ngIf="noimg">No pathway diagrams found in our database.</div>
+        <div *ngIf="pathwayList.length !== 0">
           <br>
+          <label class='pathway-label'><strong>Pathway Figures</strong></label>
           <br>
-          <div id='canvas-container'>
-            <canvas #canvasEl id='canvas'></canvas>
-            <!--
-              If you wanted to scale the image down and use a maximum defined height and width use this (replace the numbers with whatever you want)
-              <canvas #canvasEl id='calvas'></canvas>
-            -->
+          <mat-radio-group
+            aria-labelledby="pathway-radio-group-label"
+            class="pathway-radio-group centered"
+            [(ngModel)]="currPath">
+
+            <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwayList" [value]="pathway" (change)="selectImage(pathway)">
+            {{pathway}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <br>
+          <div id="pathway-viewer">
           </div>
+        
         </div>
+        <mat-progress-bar mode='indeterminate' style="margin: 10px auto; width: 80%;"  *ngIf='this.pathwayLoading || isLoadingImage'></mat-progress-bar>
+
+      <div>
+        <br>
+        <br>
+        <div *ngIf="!noimg && !pathwayLoading" id='canvas-container'>
+          <img [src]="selectedPathImage" (load)="onImageLoad()" alt="" />
+
+          <!--
+            If you wanted to scale the image down and use a maximum defined height and width use this (replace the numbers with whatever you want)
+            <canvas #canvasEl id='calvas'></canvas>
+          -->
+        </div>
+      </div>
       <!-- <mat-tab-group style="color: #4CAF50" style="min-height: 600px" id="pathway-tabs" animationDuration="0ms" *ngIf="pathwayList.length > 0">
         <mat-tab *ngFor="let pathway of pathwayList" label="{{pathway.name}}">
           <ng-template matTabContent>

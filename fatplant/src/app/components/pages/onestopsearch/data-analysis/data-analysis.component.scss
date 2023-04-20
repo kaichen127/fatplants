@@ -90,7 +90,18 @@ mat-select {
 ::ng-deep .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
   background-color: #fafafa;
 }
-
+th, td.mat-cell {
+  overflow: hidden;
+  width:auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+table {
+  width: 100%;
+  table-layout: fixed;
+}
 a:hover {
   color: blue;
   cursor:pointer;

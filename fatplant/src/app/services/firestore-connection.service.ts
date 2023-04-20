@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreConnectionService {
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore, private http: HttpClient) { }
 
   connect(collectionName:string){
     return this.afs.collection(collectionName,ref=>ref.limit(100)).valueChanges();
@@ -30,5 +31,17 @@ export class FirestoreConnectionService {
 
   getNews() {
     return this.afs.collection('News').get();
+  }
+
+  searchSQLAPI(query: string, species: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/get_species_records/?species="+ species +"&expression=" + query);
+  }
+
+  getDataSetSamples(species: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/sample/?species="+species)
+  }
+
+  searchFattyAcid(query: string) {
+    return this.http.get("https://fatplantsmu.ddns.net:5000/fatty_acid_search/?query=" + query);
   }
 }

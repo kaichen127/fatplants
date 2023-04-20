@@ -4,7 +4,7 @@
     <span class="input-option" [class.selected]="!blastSelected">Identifier</span>
     <mat-slide-toggle aria-label="input-selector" color=primary [(ngModel)]="blastSelected" (click) = "this.query = ''"></mat-slide-toggle>
     <span class="input-option" [class.selected]="blastSelected">BLAST</span>
-    <mat-icon class="help-icon" id="identifier-help-icon" [matTooltip]="'Identifier searches by' + proteinDatabase['tabIndex'] + 'BLAST searches by gene sequence.'">help</mat-icon>
+    <mat-icon class="help-icon" id="identifier-help-icon" [matTooltip]="'BLAST searches by gene sequence.'">help</mat-icon>
   </div>
   <div id="identifier-input" class="container" [class.compressed]="hasSearched" *ngIf="!blastSelected && proteinDatabase != undefined">
     <mat-tab-group mat-stretch-tabs mat-align-tabs="center" style="color: #4CAF50" [(selectedIndex)]="proteinDatabase['tabIndex']" (click) = "this.query = ''">
@@ -15,7 +15,7 @@
       <div class="row bordered">
         <form class="form">
         <mat-form-field class="input-container">
-          <input type="text" placeholder= "{{ proteinDatabase['tabs'][proteinDatabase['tabIndex']] }}" matInput [(ngModel)]="query" [matAutocomplete]="uniprot" [formControl]="identifierControl" (keyup)="Search($event)">
+          <input type="text" placeholder= "{{ proteinDatabase['tabs'][proteinDatabase['tabIndex']] }}" matInput [(ngModel)]="query" [formControl]="identifierControl">
           <mat-autocomplete #uniprot="matAutocomplete" position="below">
             <mat-option *ngFor="let item of proteinDatabase['items']" [value]="item"> {{ item }} </mat-option>
           </mat-autocomplete>
@@ -36,6 +36,7 @@
         </div>
       </div>
 
+    <mat-progress-bar id="loading-bar" style="margin-top: 20px;" mode="indeterminate" *ngIf="this.loadingSearch"></mat-progress-bar>
     <div class="row" *ngIf="!blastSelected && proteinDatabase != undefined && relatedGeneNames.length > 1">
       <h2>Possible Matches:</h2>
       <table id="genetable" mat-table [dataSource]="relatedGeneNames">
@@ -43,16 +44,20 @@
           <th mat-header-cell *matHeaderCellDef> UniProt ID </th>
           <td mat-cell *matCellDef="let element"> {{element.uniprot_id}} </td>
         </ng-container>
-        <ng-container matColumnDef="geneName">
+        <ng-container matColumnDef="geneName" *ngIf="this.proteinDatabase['fullSearchSpecies'] != 'Camelina'">
           <th mat-header-cell *matHeaderCellDef> Gene Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.geneName}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.geneName || element.gene_names}} </td>
+        </ng-container>
+        <ng-container matColumnDef="geneName" *ngIf="this.proteinDatabase['fullSearchSpecies'] == 'Camelina'">
+          <th mat-header-cell *matHeaderCellDef> Tair ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.tair_id }} </td>
         </ng-container>
         <ng-container matColumnDef="proteinNames">
-          <th mat-header-cell *matHeaderCellDef> Protein Names </th>
-          <td mat-cell *matCellDef="let element"> {{element.proteinNames}} </td>
+          <th mat-header-cell *matHeaderCellDef > Protein Names </th>
+          <td mat-cell *matCellDef="let element" style="text-overflow: ellipsis;"> {{element.proteinNames || element.protein_name}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedGeneColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedGeneColumns; let entry" [ngClass]="{'generow': true, 'selected': entry.uniprot_id == selectedGeneUniprot}" (click)="validateResult({uniprot_id: entry.uniprot_id})"></tr>
+        <tr mat-row  *matRowDef="let row; columns: displayedGeneColumns; let entry" [ngClass]="{'generow': true, 'selected': entry.fp_id == selectedFPID}" (click)="validateResult({uniprot_id: entry.uniprot_id, fp_id: entry.fp_id})"></tr>
       </table>
     </div>
   </div>
@@ -67,7 +72,7 @@
       <div class="row">
         <div class="input-field col s12 bordered">
           <textarea matInput style="min-height: 150px" name="Search" class="browser-default" placeholder="Sequence"
-            (keyup)="Search($event.target.value)" [(ngModel)]="query"></textarea>
+            [(ngModel)]="query"></textarea>
         </div>
       </div>
       <div class="row">
@@ -92,7 +97,7 @@
 
       <div *ngIf="!isLoading && hasSearched">
         <mat-divider></mat-divider>
-        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot" [proteinDatabase]="this.proteinDatabase"></app-showresults>
+        <app-showresults #results id="results" *ngIf="this.uniprot != null && !searchError" [uniprot_id]="this.uniprot" [proteinDatabase]="this.proteinDatabase" [baseDetails]="this.baseDetails" [speciesName]="this.species"></app-showresults>
           <button mat-raised-button color="primary" (click)="clickScroll('searchpage')">
             <mat-icon style="-webkit-text-fill-color:white">arrow_upward</mat-icon>
         </button>

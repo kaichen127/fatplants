@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 import {DomSanitizer} from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/firestore";
@@ -25,6 +25,12 @@ import { FirestoreAccessService } from 'src/app/services/firestore-access/firest
 export class ShowresultsComponent implements OnInit {
   @Input()
   uniprot_id: string;
+
+  @Input()
+  baseDetails: any;
+  extendedData: any;
+  homologs = null;
+
   private cfg: string;
   currPath: string;
   uniprot2kegg = {};
@@ -35,6 +41,7 @@ export class ShowresultsComponent implements OnInit {
   context: CanvasRenderingContext2D;
 
   @Input() proteinDatabase: any;
+  @Input() speciesName: string;
   loadedDatabase: any;
   isLoadingImage: boolean;
   percent: number;
@@ -45,6 +52,7 @@ export class ShowresultsComponent implements OnInit {
   leftArrowEnabled: boolean;
   rightArrowEnabled: boolean;
   isSummary: boolean;
+  is3DStructure: boolean;
   isStructure: boolean;
   isBlast: boolean;
   isPathway: boolean;
@@ -58,9 +66,11 @@ export class ShowresultsComponent implements OnInit {
   noPdb: boolean;
   defaultPdb: any;
 
-  pathwaylist = [];
-  pathwaydb = [];
+  pathwayList = [];
+  pathwayLoading = false;
+
   displayedColumns = ['pdbId', 'pdbNo', 'chain', 'evalue', 'bitscore', 'identity', 'pdbRange', 'seqRange', '3DViewer'];
+  selectedPathImage = null;
 
   get g2sLoading(): boolean {
     return this.dataService.g2sLoading;
@@ -71,17 +81,17 @@ export class ShowresultsComponent implements OnInit {
     else return "";
   }
 
-  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private http: HttpClient, public dataService: DataService,
-    private location: Location, public dialog: MatDialog, public notificationService: NotificationService, private fsaccess : FirestoreAccessService) {
-
-      setTimeout(() => {
-        this.pathwaylist = this.dataService.getPathList(this.proteinDatabase, this.uniprot_id);
-      }, 1000);
+  constructor(private sanitizer: DomSanitizer, 
+    private route: ActivatedRoute, private http: HttpClient, 
+    public dataService: DataService, private location: Location, 
+    public dialog: MatDialog, public notificationService: NotificationService, 
+    private fsaccess : FirestoreAccessService, private cdr: ChangeDetectorRef) {
     }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
     this.isSummary = false;
+    this.is3DStructure = false;
     this.isStructure = false;
     this.isBlast = false;
     this.isPathway = false;
@@ -91,15 +101,15 @@ export class ShowresultsComponent implements OnInit {
     if (this.cfg == undefined) this.cfg = "summary";
 
     this.loadedDatabase = this.proteinDatabase['database'];
-    this.checkspecies();
-    this.SelectConfig();
 
+    this.getExtendedSpecies();
     });
   }
 
   ngOnChanges() {
     this.route.params.subscribe(params => {
       this.isSummary = false;
+      this.is3DStructure = false;
       this.isStructure = false;
       this.isBlast = false;
       this.isPathway = false;
@@ -109,11 +119,33 @@ export class ShowresultsComponent implements OnInit {
       if (this.cfg == undefined) this.cfg = "summary";
   
       this.loadedDatabase = this.proteinDatabase['database'];
-      this.checkspecies();
-      this.SelectConfig();
-  
+      
+      this.getExtendedSpecies();
       });
   }
+
+  getExtendedSpecies() {
+    this.homologs = null;
+    this.dataService.loading = true;
+    this.fsaccess.getExtendedDetails(this.baseDetails.fp_id, this.speciesName).subscribe(res => {
+      this.SelectConfig();
+      if (res && res[0]){
+        this.extendedData = res[0];
+        this.noPdb = false;
+        this.dataService.loading = false;
+        this.dataService.BlastNeedUpdate = true;
+        this.noPdb = false;
+        this.searchG2S();
+      }
+    });
+
+    this.fsaccess.getHomoLogs(this.baseDetails.uniprot_id).subscribe((data:any[]) => {
+      if (data && data.length > 0) {
+        this.homologs = data[0];
+      }
+    });
+  }
+  
 
 
   //===========================================================================
@@ -121,26 +153,14 @@ export class ShowresultsComponent implements OnInit {
   // of locally assigned variables instead?
   //===========================================================================
 
-
-  public checkspecies() {
-    this.noPdb = false;
-    this.dataService.loading = true;
-      
-    this.fsaccess.get(this.proteinDatabase['collection'], this.proteinDatabase['query']['Uniprot ID'], this.uniprot_id).subscribe(res => {
-      this.dataService.BlastNeedUpdate = true;
-      this.species = res[0];
-      this.dataService.loading = false;
-      this.SelectConfig();
-      this.searchG2S();
-    });
-      // }
-  }
-
   changeConfig(newConfig: string) {
     newConfig = newConfig.toLowerCase();
     switch (this.cfg) {
       case 'summary':
         this.isSummary = false;
+        break;
+      case 'alignments':
+        this.is3DStructure = false;
         break;
       case 'structure':
         this.isStructure = false;
@@ -153,7 +173,9 @@ export class ShowresultsComponent implements OnInit {
         break;
     }
     this.cfg = newConfig;
+    this.cdr.detectChanges();
     this.location.replaceState('/one-click/' + this.uniprot_id + '/' + this.cfg);
+    
     this.SelectConfig();
   }
 
@@ -167,10 +189,12 @@ export class ShowresultsComponent implements OnInit {
         break;
       case 'structure':
         this.isStructure=true;
-
+        break;
+      case 'alignments':
+        this.is3DStructure = true;
         break;
       case 'blast':
-        if (!this.dataService.BlastNeedUpdate){
+        if (!this.dataService.BlastNeedUpdate && this.dataService.getBlastRes()){
           this.SplitRes(this.dataService.getBlastRes());
           this.isBlast = true;
         }
@@ -206,8 +230,27 @@ export class ShowresultsComponent implements OnInit {
 
         break;
       case 'pathway':
-        // this.pathwayDb = this.dataService.getPathwayDB();
-        this.pathwaydb = this.dataService.getPathList(this.proteinDatabase, this.uniprot_id);
+        this.pathwayList = [];
+        this.noimg = false;
+        this.pathwayLoading = true;
+        this.dataService.getPathwaysByUniProt(this.speciesName, this.extendedData.uniprot_id).subscribe((data:any) => {
+          if (data && data.pathway_ids && data.pathway_ids.length > 0) {
+        
+            data.pathway_ids.forEach(id => {
+              let slicedPathway = id.split(':');
+              this.pathwayList.push(slicedPathway[1]);
+            });
+            
+            this.noimg = false;
+          }
+          else {
+            this.noimg = true;
+          }
+          this.pathwayLoading = false;
+        }, err => {
+          this.noimg = true;
+          this.pathwayLoading = false;
+        });
         // this.SearchPathway(this.uniprot_id);
         this.isPathway=true;
         break;
@@ -220,6 +263,9 @@ export class ShowresultsComponent implements OnInit {
         this.leftArrowEnabled = false;
         this.rightArrowEnabled = true;
         break;
+      case "3DStructure":
+        this.leftArrowEnabled = true;
+        this.rightArrowEnabled = true;
       case "structure":
         this.leftArrowEnabled = true;
         this.rightArrowEnabled = true;
@@ -238,26 +284,20 @@ export class ShowresultsComponent implements OnInit {
         break;
     }
   }
-  SafeUrl(input: string) {
-    // const input1 = "A0JJX5_4p42.1.A_67_560";
-    const tmpurl = '/static/viewer.html?' + input;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
-  }
-  SafeImg(input: string) {
-    //const input="R-ATH-1119615.1"
-    const tmpurl = '/static/pathway.html?id=' + input;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
-  }
-  SafeViewer(url: string) {
-    const tmpurl = '/static/display3d.html?url=' + url;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(tmpurl);
-  }
+
   SplitRes(result: string) {
     this.showBlastResList = [];
     let tmp: any;
     tmp = result.split('>');
     tmp.shift();
     let index: number;
+
+    if (!tmp[tmp.length - 1]) {
+      this.dataService.BlastNeedUpdate = false;
+      this.showBlastResList = [];
+      return;
+    }
+
     index = tmp[tmp.length - 1].search('Lambda');
     tmp[tmp.length - 1] = tmp[tmp.length - 1].substring(0, index);
 
@@ -265,6 +305,8 @@ export class ShowresultsComponent implements OnInit {
     for (var i in tmp) {
       this.showBlastResList.push([tmp[i].split(/\r?\n/)[0],tmp[i]])
       }
+
+    this.dataService.BlastNeedUpdate = false;
   }
 
 
@@ -273,7 +315,7 @@ export class ShowresultsComponent implements OnInit {
   //=============================================================================
   searchG2S() {
     this.dataService.g2sLoading = true;
-    this.http.get(this.g2sUrl + "?sequence=" + this.species['sequence']).subscribe((result : G2SEntry[]) => {
+    this.http.get(this.g2sUrl + "?sequence=" + this.extendedData.sequence).subscribe((result : G2SEntry[]) => {
       this.G2SDataSource = new MatTableDataSource(result);
       if (result != undefined && result.length >= 1) {
         this.defaultPdb = this.sanitizer.bypassSecurityTrustResourceUrl("/static/display3d.html?pdbId=" + result[0].pdbId);
@@ -294,10 +336,13 @@ export class ShowresultsComponent implements OnInit {
     });
   }
 
-  arrowSelect(arrow: string, summaryStep: MatStep, structureStep: MatStep, blastStep: MatStep, pathwayStep: MatStep) { // arrow = "left" or "right" depending on what arrow was clicked
+  arrowSelect(arrow: string, summaryStep: MatStep, structure3DStep: MatStep, structureStep: MatStep, blastStep: MatStep, pathwayStep: MatStep) { // arrow = "left" or "right" depending on what arrow was clicked
     if (arrow == "left") {
       switch (this.cfg) {
         case "summary":
+          break;
+        case "3DStructure":
+          structure3DStep.select();
           break;
         case "structure":
           summaryStep.select();
@@ -319,6 +364,9 @@ export class ShowresultsComponent implements OnInit {
           structureStep.select();
           // this.changeConfig("structure");
           break;
+        case "3DStructure":
+          structure3DStep.select();
+          break;
         case "structure":
           blastStep.select();
           // this.changeConfig("blast");
@@ -331,6 +379,15 @@ export class ShowresultsComponent implements OnInit {
           break; // should not happen
       }
     }
+  }
+
+  selectImage(pathway: string) {
+    this.isLoadingImage = true;
+    this.selectedPathImage = "https://fatplantsmu.ddns.net:5000/highlighted_image/?species="+this.speciesName+"&uniprot_id="+this.extendedData.uniprot_id+"&pathway_id="+pathway;
+  }
+
+  onImageLoad() {
+    this.isLoadingImage = false;
   }
 
   //===========================================================================
@@ -440,4 +497,17 @@ export class ShowresultsComponent implements OnInit {
     });
   }
 
+  parseKeywords(originalKeywords) {
+    let keywordList = originalKeywords.split(';');
+    let output = "";
+    keywordList.forEach((keyword, i, keywords) => {
+      if (i === keywords.length - 1) {
+        output += keyword;
+      }
+      else {
+        output += keyword + ', ';
+      }
+    });
+    return output;
+  }
 }
