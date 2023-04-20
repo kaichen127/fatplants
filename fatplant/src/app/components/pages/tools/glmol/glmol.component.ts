@@ -78,7 +78,7 @@ export class GlmolComponent implements OnInit {
 
       if (data && data.length > 0) {
         if (data.length > 1) {
-          this.relatedGeneNames = data.slice(0, 5);;
+          this.relatedGeneNames = data.slice(0, 10);;
         }
 
         this.noRes = false;

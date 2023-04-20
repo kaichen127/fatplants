@@ -129,7 +129,7 @@ export class ColorPathwayComponent implements OnInit {
     this.db.searchSQLAPI(this.query, this.selectedSpecies).subscribe((data:any[]) => {
       if (data && data.length > 0) {
         if (data.length > 1) {
-          this.relatedGeneNames = data.slice(0, 5);
+          this.relatedGeneNames = data.slice(0, 10);
         }
 
         this.uniprot = data[0].uniprot_id;

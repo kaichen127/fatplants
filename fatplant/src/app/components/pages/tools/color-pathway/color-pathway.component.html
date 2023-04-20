@@ -29,7 +29,7 @@
     <div class="row">
       <button mat-raised-button class="btn waves-effect waves-light" (click)="OnSubmit()">Search</button>
     </div>
-    <div class="row" *ngIf="relatedGeneNames.length > 1">
+    <div class="row table-container" *ngIf="relatedGeneNames.length > 1">
       <h2>Possible Matches:</h2>
       <table id="genetable" mat-table [dataSource]="relatedGeneNames">
         <ng-container matColumnDef="uniprot_id">
