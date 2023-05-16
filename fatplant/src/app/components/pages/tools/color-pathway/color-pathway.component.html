@@ -60,7 +60,7 @@
     aria-labelledby="pathway-radio-group-label"
     class="pathway-radio-group"
     [(ngModel)]="currPath">
-    <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwayList" [value]="pathway" (change)="selectImage(pathway)">
+    <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwayList" [value]="pathway" (change)="loadImage(pathway)">
       {{pathway}}
     </mat-radio-button>
   </mat-radio-group>
@@ -86,12 +86,12 @@
 
 </div>
 
-  <div *ngIf="!noimg && !noRes && !loading && selectedImage">
+  <div >
     <br>
     <br>
-    <div id='canvas-container'>
-      <img [src]="selectedImage" (load)="onImageLoad()" alt="" />
-      <!-- <canvas #canvasEl id='canvas'></canvas> -->
+    <div [hidden]="!(!noimg && !noRes && !loading && selectedImage)" id='canvas-container'>
+      <!-- <img [src]="selectedImage" (load)="onImageLoad()" alt="" /> -->
+      <canvas #canvasEl id='canvas'></canvas>
       <!--
         If you wanted to scale the image down and use a maximum defined height and width use this (replace the numbers with whatever you want)
         <canvas #canvasEl id='calvas'></canvas>

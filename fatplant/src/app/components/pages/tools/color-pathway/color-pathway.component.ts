@@ -126,6 +126,8 @@ export class ColorPathwayComponent implements OnInit {
     this.pathwayList = [];
     this.loading = true;
 
+    this.clearCanvas();
+
     this.db.searchSQLAPI(this.query, this.selectedSpecies).subscribe((data:any[]) => {
       if (data && data.length > 0) {
         if (data.length > 1) {
@@ -155,6 +157,7 @@ export class ColorPathwayComponent implements OnInit {
   selectColumn(uniprot_id: string, fp_id: string) {
     this.uniprot = uniprot_id;
     this.selectedFPID = fp_id;
+    this.clearCanvas();
     this.getPathways();
   }
 
@@ -164,119 +167,118 @@ export class ColorPathwayComponent implements OnInit {
 
   selectImage(pathway: string) {
     this.isLoadingImage = true;
+    
+  }
+
+  loadImage(pathway){
+    //var id = selected[0]._value.slice(5);
+    this.isLoadingImage = true;
+    var id = pathway;
+    
     this.selectedImage = "https://fatplantsmu.ddns.net:5000/highlighted_image/?species="+this.selectedSpecies+"&uniprot_id="+this.uniprot+"&pathway_id="+pathway;
-  }
 
-  onImageLoad() {
-    this.isLoadingImage = false;
-  }
+    //TODO
+    //Clear canvas before load new image
+    this.context = (this.canvasEl.nativeElement as HTMLCanvasElement).getContext('2d');
+    var canvas = (this.canvasEl.nativeElement as HTMLCanvasElement);
+    this.context.clearRect(0,0,canvas.width,canvas.height);
+    var elemLeft = canvas.offsetLeft + canvas.clientLeft;
+    var elemTop = canvas.offsetTop + canvas.clientTop;
+    var elements = [];
+    this.http.get('https://fatplantsmu.ddns.net:5000/getcoordinates/?pathway_id='+id, {responseType: 'text'}).subscribe(data => {
+      for (const line of data.substr(1).slice(0, -1).split('\\n')) {
+        if (line.slice(0, 4) === 'rect') {
+          var linesplit = line.split('\\t');
+          var pos = linesplit[0];
+          var url = linesplit[1];
+          var possplit = pos.split(' ');
+          var topleft = possplit[1];
+          var bottomright = possplit[2];
+          topleft = topleft.slice(1,-1);
+          bottomright = bottomright.slice(1,-1);
+          var top = toNumbers(topleft.split(',')[1])[0];
+          var left = toNumbers(topleft.split(',')[0])[0];
+          var bottom = toNumbers(bottomright.split(',')[1])[0];
+          var right = toNumbers(bottomright.split(',')[0])[0];
+          elements.push({
+            colour: '#FFFFFF',
+            width: right-left,
+            height: bottom-top,
+            top: top,
+            left: left,
+            url: url
+          })
 
-  // loadImage(pathway){
-  //   //var id = selected[0]._value.slice(5);
-  //   this.isLoadingImage = true;
-  //   var id = pathway;
-  //   // console.log(selected[0]._value);
-  //   // if (id === null || id.length < 1){
-  //   //   return;
-  //   // }
+        }
+      }
+      canvas.addEventListener('click',function(event) {
+        // var x = event.pageX - elemLeft;
+        // var y = event.pageY - elemTop;
+        var x = event.offsetX
+        var y = event.offsetY
+        console.log(event);
+        console.log(elemLeft);
+        console.log(elemTop);
+        // Collision detection between clicked offset and element.
 
-  //   //TODO
-  //   //Clear canvas before load new image
-  //   this.context = (this.canvasEl.nativeElement as HTMLCanvasElement).getContext('2d');
-  //   var canvas = (this.canvasEl.nativeElement as HTMLCanvasElement);
-  //   this.context.clearRect(0,0,canvas.width,canvas.height);
-  //   var elemLeft = canvas.offsetLeft + canvas.clientLeft;
-  //   var elemTop = canvas.offsetTop + canvas.clientTop;
-  //   var elements = [];
-  //   //this.http.get('https://us-central1-linux-shell-test.cloudfunctions.net/keggget?cfg=get&para=conf&id='+id, {responseType: 'text'}).subscribe(data => {
-  //     this.http.get('https://fatplantsmu.ddns.net:5000/highlighted_image/?species=lmpd&uniprot_id'+this.uniprot+'&pathway_id='+id, {responseType: 'text'}).subscribe(data => {
-  //     for (const line of data.split(/[\r\n]+/)) {
-  //       if (line.slice(0, 4) === 'rect') {
-  //         var linesplit = line.split('\t');
-  //         var pos = linesplit[0];
-  //         var url = linesplit[1];
-  //         var possplit = pos.split(' ');
-  //         var topleft = possplit[1];
-  //         var bottomright = possplit[2];
-  //         topleft = topleft.slice(1,-1);
-  //         bottomright = bottomright.slice(1,-1);
-  //         var top = toNumbers(topleft.split(',')[1])[0];
-  //         var left = toNumbers(topleft.split(',')[0])[0];
-  //         var bottom = toNumbers(bottomright.split(',')[1])[0];
-  //         var right = toNumbers(bottomright.split(',')[0])[0];
-  //         elements.push({
-  //           colour: '#FFFFFF',
-  //           width: right-left,
-  //           height: bottom-top,
-  //           top: top,
-  //           left: left,
-  //           url: url
-  //         })
+        elements.forEach(function(element) {
+          if (y > element.top && y < element.top + element.height
+            && x > element.left && x < element.left + element.width) {
+            //alert('clicked an element');
+            window.open('http://www.kegg.jp'+element.url);
 
-  //       }
-  //     }
-  //     canvas.addEventListener('click',function(event) {
-  //       // var x = event.pageX - elemLeft;
-  //       // var y = event.pageY - elemTop;
-  //       var x = event.offsetX
-  //       var y = event.offsetY
-  //       console.log(event);
-  //       console.log(elemLeft);
-  //       console.log(elemTop);
-  //       // Collision detection between clicked offset and element.
+          }
+        })},false);
 
-  //       elements.forEach(function(element) {
-  //         if (y > element.top && y < element.top + element.height
-  //           && x > element.left && x < element.left + element.width) {
-  //           //alert('clicked an element');
-  //           window.open('http://www.kegg.jp'+element.url);
+      canvas.addEventListener('mousemove',function(event) {
+        var x = event.offsetX;
+        var y = event.offsetY;
+        var isIn = false;
+        elements.forEach(function(element) {
+          if (y > element.top && y < element.top + element.height
+            && x > element.left && x < element.left + element.width) {
+            isIn = true;
+            canvas.style.cursor = "pointer";
+          }
+        })
+        if (!isIn){
+          canvas.style.cursor = "default";
+        }
+      },false);
 
-  //         }
-  //       })},false);
+      var ctx = this.context;
+      elements.forEach(function(element) {
+        ctx.fillStyle = element.colour;
+        ctx.fillRect(element.left, element.top, element.width, element.height);
+      });​
 
-  //     canvas.addEventListener('mousemove',function(event) {
-  //       var x = event.offsetX;
-  //       var y = event.offsetY;
-  //       var isIn = false;
-  //       elements.forEach(function(element) {
-  //         if (y > element.top && y < element.top + element.height
-  //           && x > element.left && x < element.left + element.width) {
-  //           isIn = true;
-  //           canvas.style.cursor = "pointer";
-  //         }
-  //       })
-  //       if (!isIn){
-  //         canvas.style.cursor = "default";
-  //       }
-  //     },false);
-
-  //     var ctx = this.context;
-  //     elements.forEach(function(element) {
-  //       ctx.fillStyle = element.colour;
-  //       ctx.fillRect(element.left, element.top, element.width, element.height);
-  //     });​
-
-  //     // var img1 = document.getElementById('pathway1') as HTMLImageElement;
-  //     // ctx.drawImage(img1,0,0);
-  //     var img1 = new Image();
-  //     img1.onload = () => {
-  //       this.isLoadingImage = false;
-  //       ctx.canvas.height = img1.height;
-  //       ctx.canvas.width = img1.width;
-  //       ctx.drawImage(img1,0,0)
-  //       // THESE LINES WOULD SCALE THE IMAGE DOWN
-  //       // if so, set the max height/width in the html
-  //       /* var scale = Math.min(canvas.width / img1.width, canvas.height / img1.height);
-  //       // get the top left position of the image
-  //       var x = (canvas.width / 2) - (img1.width / 2) * scale;
-  //       var y = (canvas.height / 2) - (img1.height / 2) * scale;
-  //       ctx.drawImage(img1, x, y, img1.width * scale, img1.height * scale);
-  //       */
+      // var img1 = document.getElementById('pathway1') as HTMLImageElement;
+      // ctx.drawImage(img1,0,0);
+      var img1 = new Image();
+      img1.onload = () => {
+        this.isLoadingImage = false;
+        ctx.canvas.height = img1.height;
+        ctx.canvas.width = img1.width;
+        ctx.drawImage(img1,0,0)
+        // THESE LINES WOULD SCALE THE IMAGE DOWN
+        // if so, set the max height/width in the html
+        /* var scale = Math.min(canvas.width / img1.width, canvas.height / img1.height);
+        // get the top left position of the image
+        var x = (canvas.width / 2) - (img1.width / 2) * scale;
+        var y = (canvas.height / 2) - (img1.height / 2) * scale;
+        ctx.drawImage(img1, x, y, img1.width * scale, img1.height * scale);
+        */
       
-  //     }
-  //       //img1.src = 'https://us-central1-linux-shell-test.cloudfunctions.net/keggget?cfg=get&para=image&id=' + id;
-  //       img1.src = 'https://us-central1-fatplantsmu-eb07c.cloudfunctions.net/keggget?cfg=get&para=image&id=' + id;
+      }
+        //img1.src = 'https://us-central1-linux-shell-test.cloudfunctions.net/keggget?cfg=get&para=image&id=' + id;
+        img1.src = this.selectedImage;
 
-  //   });
-  // }
+    });
+  }
+
+  clearCanvas(){
+    this.context = (this.canvasEl.nativeElement as HTMLCanvasElement).getContext('2d');
+    var canvas = (this.canvasEl.nativeElement as HTMLCanvasElement);
+    this.context.clearRect(0,0,canvas.width,canvas.height);
+  }
 }

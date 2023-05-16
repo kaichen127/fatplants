@@ -88,6 +88,7 @@ import { PathwayViewerComponent } from './components/pages/tools/pathway-viewer/
 import { ProteinSoybeanComponent } from './components/pages/datapages/protein-soybean/protein-soybean.component';
 import { ProteinCamelinaComponent } from './components/pages/datapages/protein-camelina/protein-camelina.component';
 import { ExcludeListItemPipe, ExtendedPathwayComponent } from './components/pages/tools/extended-pathway/extended-pathway.component';
+import { GptDialogComponent } from './components/commons/gpt-dialog/gpt-dialog.component';
 
 @NgModule({
   declarations: [
@@ -135,7 +136,8 @@ import { ExcludeListItemPipe, ExtendedPathwayComponent } from './components/page
     ProteinSoybeanComponent,
     ProteinCamelinaComponent,
     ExtendedPathwayComponent,
-    ExcludeListItemPipe
+    ExcludeListItemPipe,
+    GptDialogComponent
   ],
   entryComponents: [
     StructureViewerComponent,

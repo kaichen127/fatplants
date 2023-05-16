@@ -217,6 +217,11 @@ a:hover {
   color: rgba($main-green, 0.6);
 }
 
+#searchTableContainer {
+  width: 80%;
+  margin: 10px auto;
+}
+
 #genetable {
   width: 100%;
 }
@@ -228,4 +233,8 @@ a:hover {
 .generow.selected {
   background-color: rgba($lime-green, 0.4);
   transition: all 0.5s;
+}
+
+.mat-column-uniprot_id {
+  width: 10% !important;
 }

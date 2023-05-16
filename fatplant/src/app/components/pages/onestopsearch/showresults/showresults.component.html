@@ -248,7 +248,7 @@
             class="pathway-radio-group centered"
             [(ngModel)]="currPath">
 
-            <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwayList" [value]="pathway" (change)="selectImage(pathway)">
+            <mat-radio-button class="pathway-radio-button" *ngFor="let pathway of pathwayList" [value]="pathway" (change)="loadImage(pathway)">
             {{pathway}}
             </mat-radio-button>
           </mat-radio-group>
@@ -262,9 +262,9 @@
       <div>
         <br>
         <br>
-        <div *ngIf="!noimg && !pathwayLoading" id='canvas-container'>
-          <img [src]="selectedPathImage" (load)="onImageLoad()" alt="" />
-
+        <div id='canvas-container' [hidden]="!(!noimg && !pathwayLoading)">
+          <!-- <img [src]="selectedPathImage" (load)="onImageLoad()" alt="" /> -->
+          <canvas #canvasEl id='canvas'></canvas>
           <!--
             If you wanted to scale the image down and use a maximum defined height and width use this (replace the numbers with whatever you want)
             <canvas #canvasEl id='calvas'></canvas>

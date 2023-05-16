@@ -19,11 +19,19 @@
           
         <ng-container matColumnDef="uniprot_id">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Uniprot Page </mat-header-cell>
-          <mat-cell *matCellDef="let elem"> <a href="http://uniprot.org/uniprot/{{elem.uniprot_id}}" target="_blank">{{elem.uniprot_id}}</a></mat-cell>
+          <mat-cell *matCellDef="let elem"> 
+            <a href="http://uniprot.org/uniprot/{{elem.uniprot_id}}" target="_blank">
+              {{elem.uniprot_id}} <mat-icon class="external-link">launch</mat-icon>
+            </a>
+          </mat-cell>
         </ng-container>
         <ng-container matColumnDef="refseq_id">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Refseq Page </mat-header-cell>
-          <mat-cell *matCellDef="let elem"><a href="https://www.ncbi.nlm.nih.gov/protein/{{elem.refseq_id.split(';')[0]}}" target="_blank">{{ elem.refseq_id.split(";")[0] }}</a></mat-cell>
+          <mat-cell *matCellDef="let elem">
+            <a href="https://www.ncbi.nlm.nih.gov/protein/{{elem.refseq_id.split(';')[0]}}" target="_blank">
+              {{ elem.refseq_id.split(";")[0] }} <mat-icon *ngIf="elem.refseq_id" class="external-link">launch</mat-icon>
+            </a>
+          </mat-cell>
         </ng-container>
         <ng-container matColumnDef="tair_id">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Tair Page </mat-header-cell>
@@ -31,7 +39,7 @@
             <span *ngIf="elem.tair_id !== undefined">
               <a class='link'
                 href="https://www.arabidopsis.org/servlets/TairObject?type=locus&name={{elem.tair_id}}" target="_blank">
-                {{elem.tair_id}}
+                {{elem.tair_id}} <mat-icon *ngIf="elem.tair_id" class="external-link">launch</mat-icon>
               </a>
             </span>
           </mat-cell>
@@ -104,8 +112,12 @@
         </ng-container> -->
 
         <ng-container matColumnDef="glyma_id">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Protein Name </mat-header-cell>
-          <mat-cell *matCellDef="let elem"><a [href]='"https://www.soybase.org/sbt/search/search_results.php?category=FeatureName&version=Glyma2.0&search_term=" + elem.glyma_id' target=_blank>{{elem.glyma_id}}</a></mat-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Glyma ID </mat-header-cell>
+          <mat-cell *matCellDef="let elem">
+            <a [href]='"https://www.soybase.org/sbt/search/search_results.php?category=FeatureName&version=Glyma2.0&search_term=" + elem.glyma_id' target=_blank>
+              {{elem.glyma_id}} <mat-icon *ngIf="elem.glyma_id" class="external-link">launch</mat-icon>
+            </a>
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="soy_prot_entry">

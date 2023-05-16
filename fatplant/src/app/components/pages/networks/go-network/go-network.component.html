@@ -47,15 +47,31 @@
       <mat-list>
         <mat-list-item>
           <mat-icon mat-list-icon>chevron_right</mat-icon>
-          <p style="margin-top: 15px"><b>Description:</b> {{node_name.Description}}</p>
+          <p style="margin-top: 15px">
+            <b>Description:</b> {{node_name.Description}}
+          </p>
         </mat-list-item>
         <mat-list-item>
           <mat-icon mat-list-icon>chevron_right</mat-icon>
-          <p style="margin-top: 15px"><b>Enrichment:</b> {{node_name.Enrichment}}</p>
+          <p style="margin-top: 15px"><b>Enrichment:</b> {{node_name.Enrichment}} 
+            <mat-icon 
+              style="font-size: small;" 
+              matTooltip="The enrichment score in gene ontology (GO) enrichment analysis is a measure that represents the statistical significance of the association between a specific GO term and a given gene set.
+              
+              The score is calculated using various statistical tests and is often adjusted for multiple testing to reduce the false discovery rate."
+              matTooltipPosition="after">help
+            </mat-icon> 
+          </p>
         </mat-list-item>
         <mat-list-item>
           <mat-icon mat-list-icon>chevron_right</mat-icon>
-          <p style="margin-top: 15px"><b>Hit Count:</b> {{node_name.counts}}</p>
+          <p style="margin-top: 15px"><b>Hit Count:</b> {{node_name.counts}}
+            <mat-icon 
+              style="font-size: small;" 
+              matTooltip="The node size, or the counts, represents the number of proteins/genes that can be categorized under this particular annotation."
+              matTooltipPosition="after">help
+            </mat-icon> 
+          </p>
         </mat-list-item>
       </mat-list>
     </mat-expansion-panel>

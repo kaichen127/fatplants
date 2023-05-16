@@ -35,7 +35,11 @@
              {{ database.key }} 
         </div>
       </div>
+  </div>
 
+  <mat-divider style="margin-top: 10px;" *ngIf="!blastSelected && proteinDatabase != undefined && relatedGeneNames.length > 1"></mat-divider>
+
+  <div id="searchTableContainer">
     <mat-progress-bar id="loading-bar" style="margin-top: 20px;" mode="indeterminate" *ngIf="this.loadingSearch"></mat-progress-bar>
     <div class="row" *ngIf="!blastSelected && proteinDatabase != undefined && relatedGeneNames.length > 1">
       <h2>Possible Matches:</h2>

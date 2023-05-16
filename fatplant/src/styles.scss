@@ -33,3 +33,8 @@ mat-card {
   color: $lime-green;
   transition: color 0.2s;
 }
+
+.mat-tooltip {
+  font-size: 14px !important;
+  white-space: pre-line !important;
+}

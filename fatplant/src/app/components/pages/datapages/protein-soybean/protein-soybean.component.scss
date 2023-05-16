@@ -119,3 +119,17 @@ a {
 a:visited, a:visited {
     color: $dark-green;
 }
+
+.function-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.function-header > h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.function-header > button {
+    height: 35px;
+}

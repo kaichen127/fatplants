@@ -5,6 +5,8 @@ import { FunctionEntry } from 'src/app/interfaces/FunctionEntry';
 import { MatTableDataSource } from '@angular/material/table';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import { FirestoreAccessService } from 'src/app/services/firestore-access/firestore-access.service';
+import { MatDialog } from '@angular/material/dialog';
+import { GptDialogComponent } from 'src/app/components/commons/gpt-dialog/gpt-dialog.component';
 
 @Component({
   selector: 'app-protein-camelina',
@@ -13,7 +15,11 @@ import { FirestoreAccessService } from 'src/app/services/firestore-access/firest
 })
 export class ProteinCamelinaComponent implements OnInit {
 
-  constructor(private access: FirestoreAccessService, private afs: AngularFirestore, private route: ActivatedRoute, public notificationService: NotificationService) { }
+  constructor(private access: FirestoreAccessService, 
+              private afs: AngularFirestore, 
+              private route: ActivatedRoute, 
+              public notificationService: NotificationService,
+              public dialog: MatDialog) { }
 
   translationObject;
   uniprotId;
@@ -30,7 +36,12 @@ export class ProteinCamelinaComponent implements OnInit {
       this.uniprotId = params['uniprot_id'];
       this.getUniprotData();
     });
-    
+  }
+
+  openGptDialog() {
+    const dialogRef = this.dialog.open(GptDialogComponent, {
+      data: {identifier: this.arapidopsisData.protein_name}
+    });
   }
 
   getUniprotData() {

@@ -44,7 +44,10 @@
             </div>
         </mat-card>
         <mat-card class='protein-function-card'>
-            <h3 class='protein-subtitle'>Protein Function</h3>
+            <div class="function-header">
+                <h3 class='protein-subtitle'>Protein Function</h3>
+                <button mat-raised-button color="primary" (click)="openGptDialog()">Ask ChatGPT</button>
+            </div>
             <p class='protein-function' *ngIf='proteinData.function.length > 0'>{{ proteinData.function.substr(10) }}</p>
             <p class='protein-function' *ngIf='proteinData.function.length === 0'>No function specified for this entry.</p>
             <b class='protein-subtitle'>Keywords:</b>
