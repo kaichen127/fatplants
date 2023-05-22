@@ -31,16 +31,20 @@ export class ProteinCamelinaComponent implements OnInit {
   proteinDataSource: MatTableDataSource<FunctionEntry>;
   isLoadingProtein = true;
 
+  selectedGPTQuery = "";
+  splitGeneNames = [];
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.uniprotId = params['uniprot_id'];
       this.getUniprotData();
     });
+    
   }
 
   openGptDialog() {
     const dialogRef = this.dialog.open(GptDialogComponent, {
-      data: {identifier: this.arapidopsisData.protein_name}
+      data: {identifier: this.selectedGPTQuery}
     });
   }
 
@@ -72,12 +76,17 @@ export class ProteinCamelinaComponent implements OnInit {
           this.proteinData = res[0];
           this.proteinData.gene_names = this.proteinData.gene_names.replaceAll(' ', ', ');
 
+          this.splitGeneNames = this.proteinData.gene_names.split(',');
+
           this.isLoadingProtein = false;
         });
       }
       else {
+        this.splitGeneNames = this.proteinData.gene_names.split(' ');
         this.isLoadingProtein = false;
       }
+
+      this.selectedGPTQuery = this.splitGeneNames[0];
     });
   }
   parseKeywords(originalKeywords) {
@@ -106,6 +115,8 @@ export class ProteinCamelinaComponent implements OnInit {
     return output;
   }
 
-
+  selectGPTOption(selection) {
+    this.selectedGPTQuery = selection.value;
+  }
 
 }

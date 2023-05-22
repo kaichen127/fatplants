@@ -31,6 +31,9 @@ export class ProteinSoybeanComponent implements OnInit {
   proteinDataSource: MatTableDataSource<FunctionEntry>;
   isLoadingProtein = true;
 
+  selectedGPTQuery = "";
+  splitGeneNames = [];
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.uniprotId = params['uniprot_id'];
@@ -41,7 +44,7 @@ export class ProteinSoybeanComponent implements OnInit {
 
   openGptDialog() {
     const dialogRef = this.dialog.open(GptDialogComponent, {
-      data: {identifier: this.arapidopsisData.protein_name}
+      data: {identifier: this.selectedGPTQuery}
     });
   }
 
@@ -78,6 +81,9 @@ export class ProteinSoybeanComponent implements OnInit {
       else {
         this.isLoadingProtein = false;
       }
+
+      this.splitGeneNames = this.proteinData.gene_names.split(' ');
+      this.selectedGPTQuery = this.splitGeneNames[0];
     });
   }
   parseKeywords(originalKeywords) {
@@ -106,5 +112,8 @@ export class ProteinSoybeanComponent implements OnInit {
     return output;
   }
 
+  selectGPTOption(selection) {
+    this.selectedGPTQuery = selection.value;
+  }
 
 }

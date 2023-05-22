@@ -39,6 +39,10 @@ export class ProteinDetailComponent implements OnInit {
     'length',
     'description'
   ]
+
+  selectedGPTQuery = "";
+  splitGeneNames = [];
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.uniprotId = params['uniprot_id'];
@@ -49,7 +53,7 @@ export class ProteinDetailComponent implements OnInit {
 
   openGptDialog() {
     const dialogRef = this.dialog.open(GptDialogComponent, {
-      data: {identifier: this.arapidopsisData.protein_name}
+      data: {identifier: this.selectedGPTQuery}
     });
   }
 
@@ -76,7 +80,7 @@ export class ProteinDetailComponent implements OnInit {
   getProteinEntry() {
     this.afs.collection('/New_Lmpd_Arabidopsis_Details', ref => ref.limit(1).where('uniprot_id', '==', this.uniprotId)).valueChanges().subscribe((res: any) => {
       this.proteinData = res[0];
-      console.log(this.proteinData);
+
       if (this.proteinData === undefined) {
         this.afs.collection('/New_Lmpd_Arabidopsis_Details', ref => ref.limit(1).where('uniprot_id', '==', this.uniprotId)).valueChanges().subscribe((res: any) => {
           this.proteinData = res[0];
@@ -86,6 +90,9 @@ export class ProteinDetailComponent implements OnInit {
       else {
         this.isLoadingProtein = false;
       }
+
+      this.splitGeneNames = this.proteinData.gene_names.split(' ');
+      this.selectedGPTQuery = this.splitGeneNames[0];
     });
   }
   parseKeywords(originalKeywords) {
@@ -112,6 +119,10 @@ export class ProteinDetailComponent implements OnInit {
       }
     });
     return output;
+  }
+
+  selectGPTOption(selection) {
+    this.selectedGPTQuery = selection.value;
   }
 
 }

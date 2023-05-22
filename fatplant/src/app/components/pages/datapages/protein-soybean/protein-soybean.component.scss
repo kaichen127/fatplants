@@ -123,6 +123,7 @@ a:visited, a:visited {
 .function-header {
     display: flex;
     justify-content: space-between;
+    max-height: 50px;
 }
 
 .function-header > h3 {
@@ -132,4 +133,8 @@ a:visited, a:visited {
 
 .function-header > button {
     height: 35px;
+}
+
+.function-header > mat-form-field {
+    font-size: 12px;
 }
