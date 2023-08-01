@@ -7,7 +7,7 @@
   <link rel="shortcut icon" href="musitedeep_w.ico">
   
 </head>
-<script src="https://cdn.rawgit.com/arose/ngl/v2.0.0-dev.31/dist/ngl.js"></script>
+<script src="https://unpkg.com/ngl@2.0.0-dev.36/dist/ngl.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
     function getUrlVars() {
@@ -71,7 +71,7 @@
     }
     
     addElement(createElement("span", {
-        innerText: "pdbId: " + pdbId
+        innerText: "src: " + pdbId
     }, {color: "white", top: "15px", left: "12px"}));
     
     // addElement(createElement("span", {
@@ -260,7 +260,7 @@
    }, { top: getTopPosition(30), left: "12px", color: "white", "background-color": "transparent", padding: "5px", transition: "background-color 0.5s" })
    addElement(screenshotButton)
     
-    stage.loadFile("rcsb://" + pdbId,{firstModelOnly:true}).then( function( o ){
+    stage.loadFile(pdbId,{firstModelOnly:true}).then( function( o ){
         //o.structure.eachAtom(function(atomProxy) {
         //    // if you don't want a label and can't be more specific with the selection
         //    // set `labelText[atomProxy.index] = ""`

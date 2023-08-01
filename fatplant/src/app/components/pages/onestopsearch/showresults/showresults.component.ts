@@ -69,7 +69,7 @@ export class ShowresultsComponent implements OnInit {
   pathwayList = [];
   pathwayLoading = false;
 
-  displayedColumns = ['pdbId', 'pdbNo', 'chain', 'evalue', 'bitscore', 'identity', 'pdbRange', 'seqRange', '3DViewer'];
+  displayedColumns = ['entryId', 'gene', 'uniprotAccession', 'taxId', 'uniprotStart', 'uniprotEnd', '3DViewer'];
   selectedPathImage = null;
 
   get g2sLoading(): boolean {
@@ -315,10 +315,10 @@ export class ShowresultsComponent implements OnInit {
   //=============================================================================
   searchG2S() {
     this.dataService.g2sLoading = true;
-    this.http.get(this.g2sUrl + "?sequence=" + this.extendedData.sequence).subscribe((result : G2SEntry[]) => {
-      this.G2SDataSource = new MatTableDataSource(result);
+    this.http.get(`https://alphafold.ebi.ac.uk/api/prediction/${this.uniprot_id}?key=AIzaSyCeurAJz7ZGjPQUtEaerUkBZ3TaBkXrY94`).subscribe((result: any) => { 
+    this.G2SDataSource = new MatTableDataSource(result);
       if (result != undefined && result.length >= 1) {
-        this.defaultPdb = this.sanitizer.bypassSecurityTrustResourceUrl("/static/display3d.html?pdbId=" + result[0].pdbId);
+        this.defaultPdb = this.sanitizer.bypassSecurityTrustResourceUrl("/static/display3d.html?pdbId=" + result[0].pdbUrl);
         this.noPdb = false;
       }
 
@@ -326,13 +326,26 @@ export class ShowresultsComponent implements OnInit {
     }, error => {
       this.dataService.g2sLoading = false;
     });
+
+
+    // this.http.get(this.g2sUrl + "?sequence=" + this.extendedData.sequence).subscribe((result : G2SEntry[]) => {
+    //   this.G2SDataSource = new MatTableDataSource(result);
+    //   if (result != undefined && result.length >= 1) {
+    //     this.defaultPdb = this.sanitizer.bypassSecurityTrustResourceUrl("/static/display3d.html?pdbId=" + result[0].pdbId);
+    //     this.noPdb = false;
+    //   }
+
+    //   this.dataService.g2sLoading = false;
+    // }, error => {
+    //   this.dataService.g2sLoading = false;
+    // });
   }
 
-  showViewer(pdbId: string) {
+  showViewer(pdbId: string, pdbLinkBase: string) {
     this.dialog.open(StructureViewerComponent, {
       width: '1000px',
       height: '700px',
-      data: {pdbId: pdbId}
+      data: {pdbId: pdbId, pdbLinkBase: pdbLinkBase}
     });
   }
 

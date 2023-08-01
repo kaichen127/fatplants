@@ -147,7 +147,7 @@ export class UnifiedDatapageComponent implements OnInit {
       case "soybean":
         return ['uniprot_id','refseq_id', 'glyma_id', 'gene_names','protein_name', 'soy_prot_entry'];
       default:
-        return ['picture','name','mass','sofa_id','other_names','delta_notation'];
+        return ['picture', 'lipidMapsID', 'name','mass','sofa_id','other_names','delta_notation'];
     }
   }
 

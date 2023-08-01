@@ -12,9 +12,12 @@ export class StructureViewerComponent implements OnInit {
 
   pdbLink;
   pdbId: string;
+  pdbLinkBase: string;
+
   constructor(public dialogRef: MatDialogRef<StructureViewerComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public sanitizer: DomSanitizer) {
     this.pdbId = data.pdbId;
-    this.pdbLink = this.sanitizer.bypassSecurityTrustResourceUrl("/static/display3d.html?pdbId=" + this.pdbId);
+    this.pdbLinkBase = data.pdbLinkBase;
+    this.pdbLink = this.sanitizer.bypassSecurityTrustResourceUrl("/static/display3d.html?pdbId=" + this.pdbLinkBase);
    }
 
   ngOnInit() {

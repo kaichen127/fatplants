@@ -130,6 +130,11 @@
           <mat-cell *matCellDef="let elem"><a href="http://opsin.ch.cam.ac.uk/opsin/{{elem.Name}}.png" target="_blank"><img src="http://opsin.ch.cam.ac.uk/opsin/{{elem.Name}}.png" height="40" width="100" alt="Fatty Acid Picture"></a></mat-cell>
       </ng-container>
 
+      <ng-container matColumnDef="lipidMapsID">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> LipidMaps ID </mat-header-cell>
+        <mat-cell *matCellDef="let elem"> {{ elem.lipidMapsID }} </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Systematic Name </mat-header-cell>
         <mat-cell *matCellDef="let elem"> {{ elem.Name }} </mat-cell>
