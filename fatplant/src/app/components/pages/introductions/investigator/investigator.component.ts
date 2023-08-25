@@ -15,7 +15,8 @@ export class InvestigatorComponent implements OnInit {
   pp16 = "/app/assets/homepageAssets/BW.jpg";
   pp17 = "/app/assets/homepageAssets/MH.jpg";
   pp18 = "/app/assets/homepageAssets/YL.JPG";
-
+  pp19 = "/app/assets/homepageAssets/EC.jpg";
+  pp20 = "/app/assets/homepageAssets/TJ.jpg";
   constructor() { }
 
   ngOnInit() {

@@ -381,6 +381,13 @@
   margin-top: 1rem;
 }
 
+.sponsorUSDA {
+  height: 7vw;
+  width: 10vw;
+  border-radius: 5px 5px 0 0;
+  margin-top: 1rem;
+}
+
 .sponsorImgWSU {
   height: 3vw;
   width: 10vw;
@@ -395,8 +402,14 @@
   margin-right: 1rem;
 }
 
-.mizzou-container {
-  background-image: linear-gradient(rgb(0, 0, 0, .9) 70%, whitesmoke);
+//.mizzou-container {
+//  background-image: linear-gradient(rgb(0, 0, 0, .9) 70%, whitesmoke);
+//}
+
+.mizzou-container {  height: 8vw;
+  width: 10vw;
+  border-radius: 5px 5px 0 0;
+  margin-right: 1rem;
 }
 
 a {

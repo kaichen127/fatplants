@@ -23,6 +23,7 @@ export class HomepageComponent implements OnInit {
   WSU = '/app/assets/homepageAssets/WSU.png';
   NSF = '/app/assets/homepageAssets/NSF.png';
   PSC = '/app/assets/homepageAssets/PSC.png';
+  USDA = '/app/assets/homepageAssets/usda.png';
 
   page1 = 'gone';
   page2 = 'active pages';
