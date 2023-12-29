@@ -89,6 +89,7 @@ import { ProteinSoybeanComponent } from './components/pages/datapages/protein-so
 import { ProteinCamelinaComponent } from './components/pages/datapages/protein-camelina/protein-camelina.component';
 import { ExcludeListItemPipe, ExtendedPathwayComponent } from './components/pages/tools/extended-pathway/extended-pathway.component';
 import { GptDialogComponent } from './components/commons/gpt-dialog/gpt-dialog.component';
+import { BlastInternalComponent } from './components/pages/tools/blast-internal/blast-internal.component';
 
 @NgModule({
   declarations: [
@@ -137,7 +138,8 @@ import { GptDialogComponent } from './components/commons/gpt-dialog/gpt-dialog.c
     ProteinCamelinaComponent,
     ExtendedPathwayComponent,
     ExcludeListItemPipe,
-    GptDialogComponent
+    GptDialogComponent,
+    BlastInternalComponent
   ],
   entryComponents: [
     StructureViewerComponent,

@@ -36,25 +36,29 @@ export class CustomPathwayComponent implements OnInit {
 
     this.img = new Image();
 
+
     this.activatedRoute.queryParams.subscribe(params => {
       var graphId = params['id'];
-
+      console.log("The params are : ",params);
       this.pathwayService.getPathwayByTitle(graphId).subscribe(graph => {
-        
+       
         let graphAny: any = graph.payload.data();
-
+        
+        
         if (graphAny == undefined) {
           this.selectedGraph = null;
         }
         else {
+          console.log("The graph payload data is : ",graph);
           this.selectedGraph = graphAny;
-
+          console.log("the selected graph if the graphAny is not null ",this.selectedGraph);
           // we'll use this to quickly eliminate any duplicates
           var graphHash = {};
           this.graphTable = [];
 
           // set the image source
           this.img.src = this.selectedGraph.imgPath;
+          console.log("the selected path is : ",this.selectedGraph);
 
           this.selectedGraph.areas.forEach((graphEntry) => {
             // check the dictionary, if its not there, then
@@ -74,10 +78,8 @@ export class CustomPathwayComponent implements OnInit {
             }
           });
           this.img.onload = () => this.drawMap();
-          
           this.pathwayService.getGeneInfoByProtId(this.graphTable).subscribe(vals => {
             vals.forEach((doc, index) => {
-
                 if (doc.docs[0] != null) {
                     this.graphTable[index].geneName = doc.docs[0].data().gene_name,
                     this.graphTable[index].dataSet = doc.docs[0].data().dataset,
@@ -122,12 +124,11 @@ export class CustomPathwayComponent implements OnInit {
           var pointY = (points[1] / this.img.height) * this.canvas.nativeElement.scrollHeight;
 
           // add new point to list and to the ctx (non-adjusted)
-          var newPath = new Path2D();
-          var newPicPath = new Path2D();
+          var newPath = new Path2D(); //for hover detection
+          var newPicPath = new Path2D(); //for drawing on the canvas
 
           newPicPath.rect(points[0], points[1], rectWidth, rectHeight);
           newPath.rect(pointX, pointY, adjRectWidth, adjRectHeight);
-
           this.clickRects.push(
             { 
               path: newPath,
@@ -144,7 +145,7 @@ export class CustomPathwayComponent implements OnInit {
             });
         }
       });
-
+      console.log("the click rects is : ", this.clickRects);
       // now let's define the hover behavior for each of them
       this.canvasListener = this.renderer.listen(this.canvas.nativeElement, 'mousemove', (e) => {
         
