@@ -31,7 +31,7 @@ export class DataAnalysisComponent implements OnInit {
 
   private lmpdCollection: AngularFirestoreCollection<Lmpd_Arapidopsis>;
 
-  query: string = null;
+  query: string = "Indole-3-glycerol-phosphate";
   tabIndex: number;
   uniprot: string = null;
   fp_id: string = null;
@@ -65,6 +65,7 @@ export class DataAnalysisComponent implements OnInit {
 
   blastSelected: boolean = false;
   identifierControl = new FormControl(this.query);
+  
   // filteredOptions: Observable<Lmpd_Arapidopsis[]>;
   loadingSearch = false;
 
@@ -75,18 +76,24 @@ export class DataAnalysisComponent implements OnInit {
 
   }
 
+  ngAfterViewInit() {
+    
+  }
   ngOnInit() {
-
+    console.log("identifier control is : ",this.identifierControl);
     this.http.get('/static/json_config/Databases.json', {responseType: 'json'}).subscribe(data => 
     {
       this.Databases = data;
+      console.log("the databases information is : ",this.Databases);
       this.proteinDatabase = this.Databases['Arabidopsis'];
-      
+      console.log("this protein Database : ", this.proteinDatabase);
+      this.setDefaultSearch();
       this.route.params.subscribe(params => {
         if (params['uniprot_id'] != null) {
           this.uniprot = params['uniprot_id'];
           this.hasSearched = true;
           let field = this.proteinDatabase['query'][this.proteinDatabase['tabs'][this.proteinDatabase['tabIndex']]];
+          console.log("field is :",field);
           if (!this.blastSelected) {
             this.fsaccess.getBaseProteinFromUniProt(this.query, this.proteinDatabase["fullSearchSpecies"]).subscribe((data: any) => {
               this.relatedGeneNames = data;
@@ -111,7 +118,7 @@ export class DataAnalysisComponent implements OnInit {
 
 
   OneClick() {
-
+    console.log("entered the search");
     this.loadingSearch = true;
 
     if (this.proteindatabase === undefined) {
@@ -288,5 +295,6 @@ export class DataAnalysisComponent implements OnInit {
       else
         this.query = "Fucosyltransferase";
     }
+    return this.query;
   }
 }

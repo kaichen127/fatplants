@@ -31,6 +31,7 @@ import { PathwayViewerComponent } from './components/pages/tools/pathway-viewer/
 import { ProteinSoybeanComponent } from './components/pages/datapages/protein-soybean/protein-soybean.component';
 import { ProteinCamelinaComponent } from './components/pages/datapages/protein-camelina/protein-camelina.component';
 import { ExtendedPathwayComponent } from './components/pages/tools/extended-pathway/extended-pathway.component';
+import { BlastInternalComponent } from './components/pages/tools/blast-internal/blast-internal.component';
 
 const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'homepage', component: HomepageComponent},
@@ -64,6 +65,7 @@ const routes: Routes = [{path: '', redirectTo: '/homepage', pathMatch: 'full'},
 {path: 'camelina_prot/:uniprot_id', component: ProteinCamelinaComponent},
 {path: 'pathway-viewer', component: PathwayViewerComponent},
 {path: 'extended-pathway', component: ExtendedPathwayComponent},
+{path: 'blast-internal', component:BlastInternalComponent},
 {path: '**', redirectTo: '/homepage'}];
 
 @NgModule({

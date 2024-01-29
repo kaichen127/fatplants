@@ -15,7 +15,7 @@
       <div class="row bordered">
         <form class="form">
         <mat-form-field class="input-container">
-          <input type="text" placeholder= "{{ proteinDatabase['tabs'][proteinDatabase['tabIndex']] }}" matInput [(ngModel)]="query" [formControl]="identifierControl">
+          <input type="text" placeholder= "{{ proteinDatabase['tabs'][proteinDatabase['tabIndex']] }}" matInput [value]="setDefaultSearch()"  [formControl]="identifierControl">
           <mat-autocomplete #uniprot="matAutocomplete" position="below">
             <mat-option *ngFor="let item of proteinDatabase['items']" [value]="item"> {{ item }} </mat-option>
           </mat-autocomplete>

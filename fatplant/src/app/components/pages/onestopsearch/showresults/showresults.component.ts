@@ -139,11 +139,33 @@ export class ShowresultsComponent implements OnInit {
       }
     });
 
-    this.fsaccess.getHomoLogs(this.baseDetails.uniprot_id).subscribe((data:any[]) => {
-      if (data && data.length > 0) {
-        this.homologs = data[0];
-      }
-    });
+    if (this.speciesName == "lmpd") {
+      this.fsaccess.getMapForArabidopsis(this.baseDetails.uniprot_id).subscribe((data:any[]) => {
+        if (data && data.length > 0) {
+          this.homologs = data[0];
+        }
+      });
+    }
+    else if (this.speciesName == "camelina") {
+      this.fsaccess.getMapForCamelina(this.baseDetails.uniprot_id).subscribe((data:any[]) => {
+        if (data && data.length > 0) {
+          this.homologs = data[0];
+        }
+      });
+    }
+    else if (this.speciesName == "soya") {
+      this.fsaccess.getMapForSoybean(this.baseDetails.uniprot_id).subscribe((data:any[]) => {
+        if (data && data.length > 0) {
+          this.homologs = data[0];
+        }
+      });
+    }
+
+    // this.fsaccess.getHomoLogs(this.baseDetails.uniprot_id).subscribe((data:any[]) => {
+    //   if (data && data.length > 0) {
+    //     this.homologs = data[0];
+    //   }
+    // });
   }
   
 

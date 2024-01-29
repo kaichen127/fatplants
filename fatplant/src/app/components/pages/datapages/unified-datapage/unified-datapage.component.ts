@@ -20,6 +20,8 @@ export class UnifiedDatapageComponent implements OnInit {
   arabidopsisDataSource: MatTableDataSource<any>;
   camelinaDataSource: MatTableDataSource<any>;
   soybeanDataSource: MatTableDataSource<any>;
+  cupheaDataSource: MatTableDataSource<any>;
+  pennycressDataSource: MatTableDataSource<any>;
   fattyAcidDataSource: MatTableDataSource<any>;
 
   showingSearch = false;
@@ -60,6 +62,24 @@ export class UnifiedDatapageComponent implements OnInit {
     else {
       this.loading = true;
       this.getSoybeanData();
+    }
+
+    var localCupheaData: FatPlantDataSource = JSON.parse(localStorage.getItem('cuphea_data'));
+    if (localCupheaData != null && (Date.now() - localCupheaData.retrievalDate <= globalRefreshTime)) {
+      this.cupheaDataSource = new MatTableDataSource(localCupheaData.data);
+    }
+    else {
+      this.loading = true;
+      this.getCupheaData();
+    }
+
+    var localPennycressData: FatPlantDataSource = JSON.parse(localStorage.getItem('pennycress_data'));
+    if (localPennycressData != null && (Date.now() - localPennycressData.retrievalDate <= globalRefreshTime)) {
+      this.pennycressDataSource = new MatTableDataSource(localPennycressData.data);
+    }
+    else {
+      this.loading = true;
+      this.getPennycressData();
     }
 
     var localFattyAcidData: FatPlantDataSource = JSON.parse(localStorage.getItem('fattyacid_data'));
@@ -113,6 +133,24 @@ export class UnifiedDatapageComponent implements OnInit {
         this.loading = false;
       });
     }
+    else if (this.dataset == "cuphea") {
+      this.db.searchSQLAPI(encodeURIComponent(this.searchQuery), "cuphea").subscribe((data :any[]) => {
+        this.cupheaDataSource = new MatTableDataSource(data.slice(0, 50));
+        this.loading = false;
+      }, error => {
+        this.cupheaDataSource = new MatTableDataSource([]);
+        this.loading = false;
+      });
+    }
+    else if (this.dataset == "pennycress") {
+      this.db.searchSQLAPI(encodeURIComponent(this.searchQuery), "pennycress").subscribe((data :any[]) => {
+        this.pennycressDataSource = new MatTableDataSource(data.slice(0, 50));
+        this.loading = false;
+      }, error => {
+        this.pennycressDataSource = new MatTableDataSource([]);
+        this.loading = false;
+      });
+    }
     else {
       this.db.searchFattyAcid(encodeURIComponent(this.searchQuery)).subscribe((data: any[]) => {
         this.fattyAcidDataSource = new MatTableDataSource(data);
@@ -133,6 +171,10 @@ export class UnifiedDatapageComponent implements OnInit {
         return this.camelinaDataSource;
       case "soybean":
         return this.soybeanDataSource;
+      case "cuphea":
+        return this.cupheaDataSource;
+      case "pennycress":
+        return this.pennycressDataSource;
       default:
         return this.fattyAcidDataSource;
     }
@@ -146,6 +188,10 @@ export class UnifiedDatapageComponent implements OnInit {
         return ['camelina','refseq_id','protein_name', 'homeologs', 'cam_prot_entry'];
       case "soybean":
         return ['uniprot_id','refseq_id', 'glyma_id', 'gene_names','protein_name', 'soy_prot_entry'];
+      case "cuphea":
+        return ['uniprot_id','refseq_id', 'gene_names','protein_name', 'cuphea_prot_entry'];
+      case "pennycress":
+        return ['uniprot_id','refseq_id', 'gene_names','protein_name', 'pennycress_prot_entry'];
       default:
         return ['picture', 'lipidMapsID', 'name','mass','sofa_id','other_names','delta_notation'];
     }
@@ -168,6 +214,10 @@ export class UnifiedDatapageComponent implements OnInit {
         this.camelinaDataSource.filter = this.currentDataSource.filter;
       case "soybean":
         this.soybeanDataSource.filter = this.currentDataSource.filter;
+      case "cuphea":
+        this.cupheaDataSource.filter = this.currentDataSource.filter;
+      case "pennycress":
+        this.pennycressDataSource.filter = this.currentDataSource.filter;
       default:
         this.fattyAcidDataSource.filter = this.currentDataSource.filter;
     }
@@ -184,6 +234,10 @@ export class UnifiedDatapageComponent implements OnInit {
         this.refreshCamelinaData();
       case "soybean":
         this.refreshSoybeanData();
+      case "cuphea":
+        this.refreshCupheaData();
+      case "pennycress":
+        this.refreshPennycressData();
       default:
         this.refreshFattyAcidData();
     }
@@ -196,7 +250,11 @@ export class UnifiedDatapageComponent implements OnInit {
       case "camelina":
         this.changeCamelinaPage(isNext);
       case "soybean":
-        this.refreshSoybeanData();
+        this.changeSoybeanPage(isNext);
+      case "cuphea":
+        this.changeCupheaPage(isNext);
+      case "pennycress":
+        this.refreshPennycressData();
       default:
         this.refreshFattyAcidData();
     }
@@ -242,6 +300,46 @@ export class UnifiedDatapageComponent implements OnInit {
     }
   }
 
+  changeSoybeanPage(next: boolean) {
+    if (next) {
+      this.loading = true;
+      this.currentPage++;
+      this.db.nextPage('New_Camelina', this.cupheaDataSource.data[this.cupheaDataSource.data.length - 1], "uniprot_id")
+      .subscribe(data =>{
+        this.cupheaDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    } else if (!next && this.currentPage > 1) {
+      this.loading = true;
+      this.currentPage--;
+      this.db.prevPage('New_Camelina', this.cupheaDataSource.data[0], "uniprot_id")
+      .subscribe(data =>{
+        this.cupheaDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    }
+  }
+
+  changeCupheaPage(next: boolean) {
+    if (next) {
+      this.loading = true;
+      this.currentPage++;
+      this.db.nextPage('New_Camelina', this.pennycressDataSource.data[this.pennycressDataSource.data.length - 1], "uniprot_id")
+      .subscribe(data =>{
+        this.pennycressDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    } else if (!next && this.currentPage > 1) {
+      this.loading = true;
+      this.currentPage--;
+      this.db.prevPage('New_Camelina', this.pennycressDataSource.data[0], "uniprot_id")
+      .subscribe(data =>{
+        this.pennycressDataSource = new MatTableDataSource(data);
+        this.loading = false;
+      });
+    }
+  }
+
   refreshArapidopsisData() {
     localStorage.removeItem('arabidopsis_data');
     this.arabidopsisDataSource = null;
@@ -261,6 +359,20 @@ export class UnifiedDatapageComponent implements OnInit {
     this.soybeanDataSource = null;
     this.loading = true;
     this.getSoybeanData();
+  }
+
+  refreshCupheaData(){
+    localStorage.removeItem('cuphea_data');
+    this.cupheaDataSource = null;
+    this.loading = true;
+    this.getCupheaData();
+  }
+
+  refreshPennycressData(){
+    localStorage.removeItem('pennycress_data');
+    this.pennycressDataSource = null;
+    this.loading = true;
+    this.getPennycressData();
   }
 
   refreshFattyAcidData() {
@@ -307,6 +419,29 @@ export class UnifiedDatapageComponent implements OnInit {
         data: data
       };
       localStorage.setItem('soybean_data', JSON.stringify(soybeanData));
+      this.loading = false;
+    });
+  }
+
+  getCupheaData() {
+    this.db.getDataSetSamples("soya").subscribe((data: any[]) => {
+      this.cupheaDataSource = new MatTableDataSource(data);
+      let cupheaData: FatPlantDataSource = {
+        retrievalDate: Date.now(),
+        data: data
+      };
+      localStorage.setItem('cuphea_data', JSON.stringify(cupheaData));
+      this.loading = false;
+    });
+  }
+  getPennycressData() {
+    this.db.getDataSetSamples("soya").subscribe((data: any[]) => {
+      this.pennycressDataSource = new MatTableDataSource(data);
+      let pennycressData: FatPlantDataSource = {
+        retrievalDate: Date.now(),
+        data: data
+      };
+      localStorage.setItem('pennycress_data', JSON.stringify(pennycressData));
       this.loading = false;
     });
   }
