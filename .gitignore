@@ -9,3 +9,4 @@ csvtofirestore.py
 fatplant/.firebase/hosting.ZGlzdA.cache
 node_modules/
 fatplant/src/environments/*
+package-lock.json
