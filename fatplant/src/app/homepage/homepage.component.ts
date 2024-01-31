@@ -19,8 +19,8 @@ declare var require: any;
   ],
 })
 export class HomepageComponent implements OnInit {
-  MU = "/app/assets/homepageAssets/MU.png";
-  WSU = '/app/assets/homepageAssets/WSU.png';
+  MU = "/app/assets/homepageAssets/MU2.png";
+  WSU = '/app/assets/homepageAssets/WSU2.png';
   NSF = '/app/assets/homepageAssets/NSF.png';
   PSC = '/app/assets/homepageAssets/PSC.png';
   USDA = '/app/assets/homepageAssets/usda.png';
